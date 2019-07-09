@@ -1,7 +1,7 @@
 --- 
 title: "Microsoft Edge update policy reference" 
 ms.author: stmoody 
-author: stmoody-MSFT 
+author: kellyvice-MSFT 
 manager: tahills 
 audience: ITPro 
 ms.topic: reference
