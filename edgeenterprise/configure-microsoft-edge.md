@@ -1,7 +1,7 @@
 --- 
 title: "Configuring Microsoft Edge" 
 ms.author: brianalt 
-author: brianalt-MSFT 
+author: stmoody-MSFT
 audience: ITPro 
 ms.topic: reference
 ms.prod: microsoft-edge
