@@ -1,0 +1,16 @@
+{
+
+  "redirections": [
+
+      {
+
+        "source_path": "edgeenterprise/index.md",
+
+        "redirect_url": "https://docs.microsoft.com/en-us/DeployEdge/overview-edge-in-the-enterprise",
+
+        "redirect_document_id": true
+
+      }
+  ]
+
+}
