@@ -8,6 +8,10 @@
        href: deploy-edge-with-configuration-manager.md
      - name: Deploy Microsoft Edge for MacOS using Jamf
        href: deploy-edge-to-the-mac.md
+     - name: Frequently asked questions about Edge in the enterprise
+       href: faqs-edge-in-the-enterprise.md
+  - name: Reference topics
+    items: 
      - name: Microsoft Edge browser policy reference
        href: microsoft-edge-policies.md
      - name: Microsoft Edge update policy reference
