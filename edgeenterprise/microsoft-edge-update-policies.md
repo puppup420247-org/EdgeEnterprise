@@ -17,6 +17,10 @@ The latest version of Microsoft Edge includes the following policies that you ca
 
 For information about other policies avaiable in Microsoft Edge, check out [Microsoft Edge - Policies](microsoft-edge-policies.md).
 
+## Available group policies
+
+This table lists all of the group policies avaiable in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
+
 |Policy Name|Caption|
 |-|-|
 |Applications||
@@ -60,7 +64,7 @@ Affects installation of Microsoft Edge software only when users are running Edge
 ```
 0x00000001
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -95,7 +99,7 @@ If you don’t enable and configure this policy, Edge Update handles available u
 ```
 0x00000003
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -133,7 +137,7 @@ If you don't configure this policy for a channel, the 'Allow installation defaul
 ```
 0x00000001
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -176,7 +180,7 @@ If you don’t enable and configure this policy, Edge Update handles available u
 ```
 0x00000001
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -202,7 +206,7 @@ If you want to disable all auto-update checks, set the value to 0 (not recommend
 ```
 0x00000578
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
     
 
@@ -234,7 +238,7 @@ duration   : 0x0000003c
 start hour : 0x00000001
 start min  : 0x00000002
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -268,7 +272,7 @@ If you disable or don’t configure this policy, no proxy server settings are co
 ```
 fixed_servers
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
 
@@ -298,7 +302,7 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 ```
 https://www.microsoft.com
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
 
 
  
@@ -328,4 +332,4 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 ```
 https://www.microsoft.com
 ```    
-[Back to Top](#Update-Policy-Documentation)
+  [Back to Top](#available-group-policiies)
