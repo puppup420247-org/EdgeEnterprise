@@ -64,7 +64,7 @@ Affects installation of Microsoft Edge software only when users are running Edge
 ```
 0x00000001
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -99,7 +99,7 @@ If you don’t enable and configure this policy, Edge Update handles available u
 ```
 0x00000003
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -137,7 +137,7 @@ If you don't configure this policy for a channel, the 'Allow installation defaul
 ```
 0x00000001
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -180,7 +180,7 @@ If you don’t enable and configure this policy, Edge Update handles available u
 ```
 0x00000001
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -206,7 +206,7 @@ If you want to disable all auto-update checks, set the value to 0 (not recommend
 ```
 0x00000578
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
     
 
@@ -238,7 +238,7 @@ duration   : 0x0000003c
 start hour : 0x00000001
 start min  : 0x00000002
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -272,7 +272,7 @@ If you disable or don’t configure this policy, no proxy server settings are co
 ```
 fixed_servers
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
 
@@ -302,7 +302,7 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 ```
 https://www.microsoft.com
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
 
  
@@ -332,4 +332,4 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 ```
 https://www.microsoft.com
 ```    
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
