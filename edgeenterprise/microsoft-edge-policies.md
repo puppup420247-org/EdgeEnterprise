@@ -258,7 +258,7 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
 ```
   
 
-  [Back to Top](#Edge-Policy-Documentation)
+  [Back to Top](#microsoft-edge-policies)
 
   ## Allow cookies on specific sites (CookiesAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
