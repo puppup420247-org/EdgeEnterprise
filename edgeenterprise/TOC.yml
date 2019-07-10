@@ -1,21 +1,21 @@
 - name: Microsoft Edge
   href: index.md
   items:
-  - name: Overview of Edge in the enterprise
+  - name: Overview of Microsoft Edge in the enterprise
     href: overview-edge-in-the-enterprise.md
   - name: Deploy Microsoft Edge
     items:
-     - name: Deploy Microsoft Edge using System Center Configuration Manager
+     - name: Deploy with Configuration Manager
        href: deploy-edge-with-configuration-manager.md
-     - name: Deploy Microsoft Edge for MacOS using Jamf
+     - name: Deploy to MacOS
        href: deploy-edge-to-the-mac.md
   - name: Configure Microsoft Edge
     href: configure-microsoft-edge.md
-  - name: Frequently asked questions about Edge in the enterprise
+  - name: Frequently asked questions
     href: faqs-edge-in-the-enterprise.md
-  - name: Reference topics
+  - name: Reference
     items: 
-     - name: Microsoft Edge browser policy reference
+     - name: Browser policy reference
        href: microsoft-edge-policies.md
-     - name: Microsoft Edge update policy reference
+     - name: Update policy reference
        href: microsoft-edge-update-policies.md
