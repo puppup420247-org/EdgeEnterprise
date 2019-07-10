@@ -1,8 +1,8 @@
 - name: Microsoft Edge
   href: index.md
-- name: Overview of Edge in the enterprise
-  href: overview-edge-in-the-enterprise.md
   items:
+  - name: Overview of Edge in the enterprise
+    href: overview-edge-in-the-enterprise.md
   - name: Configuring Microsoft Edge
     href: configure-microsoft-edge.md
     items:
