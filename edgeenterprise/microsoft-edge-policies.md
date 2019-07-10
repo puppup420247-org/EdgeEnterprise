@@ -262,7 +262,7 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow cookies on specific sites (CookiesAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -323,7 +323,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block cookies on specific sites (CookiesBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -384,7 +384,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Limit cookies from specific websites to the current session (CookiesSessionOnlyForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -449,7 +449,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure cookies (DefaultCookiesSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -502,7 +502,7 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default geolocation setting (DefaultGeolocationSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -553,7 +553,7 @@ If you don't configure this policy, 'AskGeolocation' policy is used and the user
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default images setting (DefaultImagesSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -602,7 +602,7 @@ If you don't configure this policy, images are allowed by default, and the user 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default JavaScript setting (DefaultJavaScriptSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -651,7 +651,7 @@ If you don't configure this policy, all sites can run JavaScript by default, and
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default notification setting (DefaultNotificationsSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -702,7 +702,7 @@ If you don't configure this policy, notifications are allowed by default, and th
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default Adobe Flash setting (DefaultPluginsSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -755,7 +755,7 @@ The former '1' option set allow-all, but this functionality is now only handled 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default pop-up window setting (DefaultPopupsSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -804,7 +804,7 @@ If you don't configure this policy, pop-up windows are blocked by default, and u
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control use of the Web Bluetooth API (DefaultWebBluetoothGuardSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -853,7 +853,7 @@ If you don't configure this policy, the default value (3, meaning users are aske
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control use of the WebUSB API (DefaultWebUsbGuardSetting)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -904,7 +904,7 @@ If you don't configure this policy, sites can ask users whether they can access 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow images on these sites (ImagesAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -955,7 +955,7 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block images on specific sites (ImagesBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1006,7 +1006,7 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow JavaScript on specific sites (JavaScriptAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1057,7 +1057,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block JavaScript on specific sites (JavaScriptBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1108,7 +1108,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow notifications on specific sites (NotificationsAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1159,7 +1159,7 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block notifications on specific sites (NotificationsBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1210,7 +1210,7 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow the Adobe Flash plug-in on specific sites (PluginsAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1261,7 +1261,7 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block the Adobe Flash plug-in on specific sites (PluginsBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1312,7 +1312,7 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow pop-up windows on specific sites (PopupsAllowedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1363,7 +1363,7 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block pop-up windows on specific sites (PopupsBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1414,7 +1414,7 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Register protocol handlers (RegisteredProtocolHandlers)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1477,7 +1477,7 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Grant access to specific sites to connect to specific USB devices. (WebUsbAllowDevicesForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1559,7 +1559,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow WebUSB on specific sites (WebUsbAskForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1612,7 +1612,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block WebUSB on specific sites (WebUsbBlockedForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1665,7 +1665,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable the default search provider (DefaultSearchProviderEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1720,7 +1720,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default search provider encodings (DefaultSearchProviderEncodings)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1777,7 +1777,7 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Specifies the search-by-image feature for the default search provider (DefaultSearchProviderImageURL)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1824,7 +1824,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Parameters for an image URL that uses POST (DefaultSearchProviderImageURLPostParams)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1869,7 +1869,7 @@ If you don’t set this policy, image search requests are sent using the GET met
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default search provider keyword (DefaultSearchProviderKeyword)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1916,7 +1916,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default search provider name (DefaultSearchProviderName)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1965,7 +1965,7 @@ If you don't enable this policy or if you leave it empty, the host name specifie
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default search provider search URL (DefaultSearchProviderSearchURL)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2016,7 +2016,7 @@ This policy is required when you enable the 'DefaultSearchProviderEnabled' polic
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default search provider URL for suggestions (DefaultSearchProviderSuggestURL)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2069,7 +2069,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure allowed extension types (ExtensionAllowedTypes)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2124,7 +2124,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow specific extensions to be installed (ExtensionInstallAllowlist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2173,7 +2173,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control which extensions cannot be installed (ExtensionInstallBlocklist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2226,7 +2226,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control which extensions are installed silently (ExtensionInstallForcelist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2295,7 +2295,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure extension and user script install sources (ExtensionInstallSources)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2348,7 +2348,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure extension management settings (ExtensionSettings)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2553,7 +2553,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable Google Cast (EnableMediaRouter)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2600,7 +2600,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Show the cast icon in the toolbar (ShowCastIconInToolbar)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2647,7 +2647,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow cross-origin HTTP Basic Auth prompts (AllowCrossOriginAuthPrompt)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2692,7 +2692,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Specifies a list of servers that Microsoft Edge can delegate user credentials to (AuthNegotiateDelegateAllowlist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2739,7 +2739,7 @@ If you don't configure this policy Microsoft Edge won't delegate user credential
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Supported authentication schemes (AuthSchemes)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2786,7 +2786,7 @@ If you don't configure this policy, all four schemes are used.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure list of allowed authentication servers (AuthServerAllowlist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2833,7 +2833,7 @@ If you don't configure this policy, Microsoft Edge tries to detect if a server i
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable CNAME lookup when negotiating Kerberos authentication (DisableAuthNegotiateCnameLookup)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2880,7 +2880,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Include non-standard port in Kerberos SPN (EnableAuthNegotiatePort)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -2927,7 +2927,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control whether NTLMv2 authentication is enabled (NtlmV2Enabled)
   >Supported Versions: Microsoft Edge on Mac since version 77 or later
@@ -2958,7 +2958,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control which native messaging hosts users can use (NativeMessagingAllowlist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3009,7 +3009,7 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messag
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure native messaging block list (NativeMessagingBlocklist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3062,7 +3062,7 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow user-level native messaging hosts (installed without admin permissions) (NativeMessagingUserLevelHosts)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3109,7 +3109,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable saving passwords to the password manager (PasswordManagerEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3158,7 +3158,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure the change password URL (PasswordProtectionChangePasswordURL)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3209,7 +3209,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure the list of enterprise login URLs where password protection service should capture fingerprint of password (PasswordProtectionLoginURLs)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3264,7 +3264,7 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure password protection warning trigger (PasswordProtectionWarningTrigger)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3321,7 +3321,7 @@ If you disable or don't configure this policy, then the warning trigger is not s
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Default printer selection rules (DefaultPrinterSelection)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3372,7 +3372,7 @@ Omitting a field means all values match; for example, if you don't specify conne
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Print headers and footers (PrintHeaderFooter)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3421,7 +3421,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set the system default printer as the default printer (PrintPreviewUseSystemDefaultPrinter)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3468,7 +3468,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable printing (PrintingEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3515,7 +3515,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Print using system print dialog (UseSystemPrintDialog)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3562,7 +3562,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure proxy bypass rules (ProxyBypassList)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3613,7 +3613,7 @@ For more detailed examples go to https://docs.microsoft.com/Placeholder05.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure proxy server settings (ProxyMode)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3682,7 +3682,7 @@ If you don't configure this policy users can choose their own proxy settings.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set the proxy .pac file URL (ProxyPacUrl)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3733,7 +3733,7 @@ For detailed examples, see https://docs.microsoft.com/Placeholder05.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure address or URL of proxy server (ProxyServer)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3784,7 +3784,7 @@ For more options and detailed examples, see https://docs.microsoft.com/Placehold
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Proxy settings (ProxySettings)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3871,7 +3871,7 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Prevent bypassing Microsoft Defender SmartScreen prompts for sites (PreventSmartScreenPromptOverride)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -3918,7 +3918,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads (PreventSmartScreenPromptOverrideForFiles)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -3959,7 +3959,7 @@ True
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure the list of domains for which SmartScreen won't trigger warnings (SmartScreenAllowListDomains)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4015,7 +4015,7 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure Microsoft Defender SmartScreen (SmartScreenEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4066,7 +4066,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set the new tab page as the home page (HomepageIsNewTabPage)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4117,7 +4117,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure the home page URL (HomepageLocation)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4170,7 +4170,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Hide the default top sites from the new tab page (NewTabPageHideDefaultTopSites)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4217,7 +4217,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure the new tab page URL (NewTabPageLocation)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4270,7 +4270,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Action to take on startup (RestoreOnStartup)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4329,7 +4329,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Sites to open when the browser starts (RestoreOnStartupURLs)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4382,7 +4382,7 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Show Home button on toolbar (ShowHomeButton)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4429,7 +4429,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable deleting browser and download history (AllowDeletingBrowserHistory)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4480,7 +4480,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow file selection dialogs (AllowFileSelectionDialogs)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4527,7 +4527,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Always open PDF files externally (AlwaysOpenPdfExternally)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4574,7 +4574,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set application locale (ApplicationLocaleValue)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -4615,7 +4615,7 @@ If you disable or don't configure this setting, Microsoft Edge uses either the u
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow or block audio capture (AudioCaptureAllowed)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4664,7 +4664,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Sites that can access audio capture devices without requesting permission (AudioCaptureAllowedUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4713,7 +4713,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Automatically import another browser's data and settings at first run (AutoImportAtFirstRun)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4770,7 +4770,7 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable AutoFill for addresses (AutofillAddressEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4819,7 +4819,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable AutoFill for credit cards (AutofillCreditCardEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4866,7 +4866,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Continue running background apps after Microsoft Edge closes (BackgroundModeEnabled)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -4909,7 +4909,7 @@ True
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block third party cookies (BlockThirdPartyCookies)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4958,7 +4958,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable profile creation from the Identity flyout menu or the Settings page (BrowserAddProfileEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5004,7 +5004,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable guest mode (BrowserGuestModeEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5051,7 +5051,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow queries to a Browser Network Time service (BrowserNetworkTimeQueriesEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5098,7 +5098,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Browser sign-in settings (BrowserSignin)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5155,7 +5155,7 @@ If you don't configure this policy users can decide if they want to enable the b
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Use built-in DNS client (BuiltInDnsClientEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5204,7 +5204,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes (CertificateTransparencyEnforcementDisabledForCas)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5264,7 +5264,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCa
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable Certificate Transparency enforcement for a list of legacy certificate authorities (CertificateTransparencyEnforcementDisabledForLegacyCas)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5321,7 +5321,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLe
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable Certificate Transparency enforcement for specific URLs (CertificateTransparencyEnforcementDisabledForUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5376,7 +5376,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow HTTP/2 connection coalescing for these hosts even when client certificates are used (CoalesceH2ConnectionsWithClientCertificatesForHosts)
   >This is a future policy
@@ -5429,7 +5429,7 @@ SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForH
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable component updates in Microsoft Edge (ComponentUpdatesEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5476,7 +5476,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure Do Not Track (ConfigureDoNotTrack)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5525,7 +5525,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure Online Text To Speech (ConfigureOnlineTextToSpeech)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5576,7 +5576,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set Microsoft Edge as default browser (DefaultBrowserSettingEnabled)
   >Supported Versions: Microsoft Edge on Windows 7 and Mac since version 77 or later
@@ -5627,7 +5627,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control where developer tools can be used (DeveloperToolsAvailability)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5682,7 +5682,7 @@ If you set this policy to 'DeveloperToolsDisallowed' (2), users can't access the
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable support for 3D graphics APIs (Disable3DAPIs)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5729,7 +5729,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable taking screenshots (DisableScreenshots)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5778,7 +5778,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set disk cache directory (DiskCacheDir)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5827,7 +5827,7 @@ If you don't configure this policy, the default cache directory is used, and use
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set disk cache size, in bytes (DiskCacheSize)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5876,7 +5876,7 @@ If you don't configure this policy, the default size is used, but users can over
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set download directory (DownloadDirectory)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5923,7 +5923,7 @@ If you disable or don't configure this policy, the default download directory is
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow download restrictions (DownloadRestrictions)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5986,7 +5986,7 @@ See https://docs.microsoft.com/Placeholder09 for more info on Microsoft Defender
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allows users to edit favorites (EditFavoritesEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6031,7 +6031,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Re-enable deprecated web platform features for a limited time (EnableDeprecatedWebPlatformFeatures)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6088,7 +6088,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable Domain Actions Download from Microsoft (EnableDomainActionsDownload)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6141,7 +6141,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable online OCSP/CRL checks (EnableOnlineRevocationChecks)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6186,7 +6186,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable favorites bar (FavoritesBarEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6235,7 +6235,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure Bing SafeSearch (ForceBingSafeSearch)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6292,7 +6292,7 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable use of ephemeral profiles (ForceEphemeralProfiles)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6341,7 +6341,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enforce Google SafeSearch (ForceGoogleSafeSearch)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6388,7 +6388,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Force minimum YouTube Restricted Mode (ForceYouTubeRestrict)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6443,7 +6443,7 @@ Set to Off (0) or don't configure this policy to not enforce Restricted Mode on 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow full screen mode (FullscreenAllowed)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -6486,7 +6486,7 @@ True
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Use hardware acceleration when available (HardwareAccelerationModeEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6531,7 +6531,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of autofill form data (ImportAutofillFormData)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6584,7 +6584,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of favorites (ImportFavorites)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6637,7 +6637,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of browsing history (ImportHistory)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6690,7 +6690,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of home page settings (ImportHomepage)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6743,7 +6743,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of payment info (ImportPaymentInfo)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6796,7 +6796,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of saved passwords (ImportSavedPasswords)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6849,7 +6849,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow importing of search engine settings (ImportSearchEngine)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6902,7 +6902,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure InPrivate mode availability (InPrivateModeAvailability)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -6957,7 +6957,7 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure Internet Explorer integration (InternetExplorerIntegrationLevel)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -7006,7 +7006,7 @@ For more info about how to use this policy together with other related policies 
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable site isolation for specific origins (IsolateOrigins)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7053,7 +7053,7 @@ If you don't configure the policy, the user can change this setting.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure favorites (ManagedFavorites)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7164,7 +7164,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Manage Search Engines (ManagedSearchEngines)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7280,7 +7280,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Maximum number of concurrent connections to the proxy server (MaxConnectionsPerProxy)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7331,7 +7331,7 @@ If you don't configure this policy, the default value (32) is used.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow Google Cast to connect to Cast devices on all IP addresses (MediaRouterCastAllowAllIPs)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7380,7 +7380,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable usage and crash-related data reporting (MetricsReportingEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7435,7 +7435,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable network prediction (NetworkPredictionOptions)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7486,7 +7486,7 @@ If you don't configure this policy, network prediction is enabled but the user c
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Control where security restrictions on insecure origins apply (OverrideSecurityRestrictionsOnInsecureOrigin)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7541,7 +7541,7 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable Proactive Authentication (ProactiveAuthEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7590,7 +7590,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable full-tab promotional content (PromotionalTabsEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7637,7 +7637,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Ask where to save downloaded files (PromptForDownloadLocation)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7684,7 +7684,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow QUIC protocol (QuicAllowed)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7733,7 +7733,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Notify a user that a browser restart is recommended or required for pending updates (RelaunchNotification)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7788,7 +7788,7 @@ The user's session is restored when the browser restarts.
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set the time period for update notifications (RelaunchNotificationPeriod)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7839,7 +7839,7 @@ Restrictions:
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Specify if online OCSP/CRL checks are required for local trust anchors (RequireOnlineRevocationChecksForLocalAnchors)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -7880,7 +7880,7 @@ False
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable resolution of navigation errors using a web service (ResolveNavigationErrorsUseWebService)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7932,7 +7932,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Restrict which accounts can be used as Microsoft Edge primary accounts (RestrictSigninToPattern)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7979,7 +7979,7 @@ If you don't configure this policy or leave it blank, users can set any account 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Extend Adobe Flash content setting to all content (RunAllFlashInAllowMode)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8026,7 +8026,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow users to proceed from the SSL warning page (SSLErrorOverrideAllowed)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8073,7 +8073,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Minimum SSL version enabled (SSLVersionMin)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8124,7 +8124,7 @@ If you enable this policy, you can set the minimum version to one of the followi
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable saving browser history (SavingBrowserHistoryDisabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8171,7 +8171,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable search suggestions (SearchSuggestEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8220,7 +8220,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Websites or domains that don't need permission to use direct Security Key attestation (SecurityKeyPermitAttestation)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8269,7 +8269,7 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Send all intranet sites to Internet Explorer (SendIntranetToInternetExplorer)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -8322,7 +8322,7 @@ True
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Send site information to improve Microsoft services (SendSiteInfoToImproveServices)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8379,7 +8379,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Show Microsoft Office shortcut in favorites bar (ShowOfficeShortcutInFavoritesBar)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8426,7 +8426,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable site isolation for every site (SitePerProcess)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8473,7 +8473,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable spellcheck (SpellcheckEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8518,7 +8518,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable specific spellcheck languages (SpellcheckLanguage)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -8565,7 +8565,7 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Suppress the unsupported OS warning (SuppressUnsupportedOSWarning)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8608,7 +8608,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Disable synchronization of data using Microsoft sync services (SyncDisabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8655,7 +8655,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Configure tab lifecycles (TabLifecyclesEnabled)
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -8696,7 +8696,7 @@ False
 
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable ending processes in the Browser task manager (TaskManagerEndProcessEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8739,7 +8739,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Enable Translate (TranslateEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8788,7 +8788,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Define a list of allowed URLs (URLAllowlist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8853,7 +8853,7 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Block access to a list of URLs (URLBlocklist)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8924,7 +8924,7 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set the user data directory (UserDataDir)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8975,7 +8975,7 @@ See https://docs.microsoft.com/Placeholder08 for a list of variables that can be
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow user feedback (UserFeedbackAllowed)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9022,7 +9022,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow or block video capture (VideoCaptureAllowed)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9071,7 +9071,7 @@ False
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Sites that can access video capture devices without requesting permission (VideoCaptureAllowedUrls)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9120,7 +9120,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Set WPAD optimization (WPADQuickCheckEnabled)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9169,7 +9169,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Allow WebDriver to Override Incompatible Policies (WebDriverOverridesIncompatiblePolicies)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9218,7 +9218,7 @@ True
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Restrict exposure of localhost IP address by WebRTC (WebRtcLocalhostIpHandling)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9272,7 +9272,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
 
   ## Restrict the range of local UDP ports used by WebRTC (WebRtcUdpPortRange)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9317,4 +9317,4 @@ If you don't configure this policy or set it to an empty string or invalid port 
 ```
   
 
-  [Back to Top](#available-group-policiies)
+  [Back to Top](#available-group-policies)
