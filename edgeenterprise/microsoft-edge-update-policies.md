@@ -20,17 +20,17 @@ For information about other policies avaiable in Microsoft Edge, check out [Micr
 |Policy Name|Caption|
 |-|-|
 |Applications||
-|[InstallDefault](#Allow-installation-default-(InstallDefault))|Allow installation default|
-|[UpdateDefault](#Update-policy-override-default-(UpdateDefault))|Update policy override default|
-|[Install](#Allow-installation-(Install))|Allow installation (per channel)|
-|[Update](#Update-policy-override-(Update))|Update policy override (per channel)|
+|[InstallDefault](#Allow-installation-default-InstallDefault)|Allow installation default|
+|[UpdateDefault](#Update-policy-override-default-UpdateDefault)|Update policy override default|
+|[Install](#Allow-installation-Install)|Allow installation (per channel)|
+|[Update](#Update-policy-override-Update)|Update policy override (per channel)|
 |Preferences||
-|[AutoUpdateCheckPeriodMinutes](#Auto-update-check-period-override-(AutoUpdateCheckPeriodMinutes))|Auto-update check period override|
-|[UpdatesSuppressed](#Time-period-in-each-day-to-suppress-auto-update-check-(UpdatesSuppressed))|Time period in each day to suppress auto-update check|
+|[AutoUpdateCheckPeriodMinutes](#Auto-update-check-period-override-AutoUpdateCheckPeriodMinutes)|Auto-update check period override|
+|[UpdatesSuppressed](#Time-period-in-each-day-to-suppress-auto-update-check-UpdatesSuppressed)|Time period in each day to suppress auto-update check|
 |Proxy Server||
-|[ProxyMode](#Choose-how-to-specify-proxy-server-settings-(ProxyMode))|Choose how to specify proxy server settings|
-|[ProxyPacUrl](#URL-to-a-proxy-.pac-file-(ProxyPacUrl))|URL to a proxy .pac file|
-|[ProxyServer](#Address-or-URL-of-proxy-server-(ProxyServer))|Address or URL of proxy server|
+|[ProxyMode](#Choose-how-to-specify-proxy-server-settings-ProxyMode)|Choose how to specify proxy server settings|
+|[ProxyPacUrl](#URL-to-a-proxy-.pac-file-ProxyPacUrl)|URL to a proxy .pac file|
+|[ProxyServer](#Address-or-URL-of-proxy-server-ProxyServer)|Address or URL of proxy server|
 
 
 
