@@ -17,7 +17,7 @@ description: "Documentation for all policies supported by the Microsoft Edge Upd
 
 The latest version of Microsoft Edge includes the following policies that you can use to control how and when Microsoft Edge is updated.
 
-For information about other policies available in Microsoft Edge, check out [Microsoft Edge - Policies](microsoft-edge-policies.md).
+For information about other policies available in Microsoft Edge, check out [Microsoft Edge browser policy reference](microsoft-edge-policies.md).
 
 ## Available group policies
 
