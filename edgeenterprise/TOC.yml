@@ -1,10 +1,14 @@
 - name: Microsoft Edge
   href: index.md
   items:
-  - name: Configure Microsoft Edge
+  - name: Configuring Microsoft Edge
     href: configure-microsoft-edge.md
     items:
-     - name: Microsoft Edge policies
+     - name: Deploy Microsoft Edge using System Center Configuration Manager
+       href: deploy-edge-with-configuration-manager.md
+     - name: Deploy Microsoft Edge for MacOS using Jamf
+       href: deploy-edge-to-the-mac.md
+     - name: Microsoft Edge browser policy reference
        href: microsoft-edge-policies.md
-     - name: Microsoft Edge update policies
+     - name: Microsoft Edge update policy reference
        href: microsoft-edge-update-policies.md
