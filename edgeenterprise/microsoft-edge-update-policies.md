@@ -1,4 +1,4 @@
---- 
+---
 title: "Microsoft Edge update policy reference"
 ms.author: stmoody
 author: kelleyvice-MSFT
