@@ -25,190 +25,190 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |Policy Name|Caption|
 |-|-|
 |Content settings||
-|[AutoSelectCertificateForUrls](#Automatically-select-client-certificates-for-these-sites-(AutoSelectCertificateForUrls))|Automatically select client certificates for these sites|
-|[CookiesAllowedForUrls](#Allow-cookies-on-specific-sites-(CookiesAllowedForUrls))|Allow cookies on specific sites|
-|[CookiesBlockedForUrls](#Block-cookies-on-specific-sites-(CookiesBlockedForUrls))|Block cookies on specific sites|
-|[CookiesSessionOnlyForUrls](#Limit-cookies-from-specific-websites-to-the-current-session-(CookiesSessionOnlyForUrls))|Limit cookies from specific websites to the current session|
-|[DefaultCookiesSetting](#Configure-cookies-(DefaultCookiesSetting))|Configure cookies|
-|[DefaultGeolocationSetting](#Default-geolocation-setting-(DefaultGeolocationSetting))|Default geolocation setting|
-|[DefaultImagesSetting](#Default-images-setting-(DefaultImagesSetting))|Default images setting|
-|[DefaultJavaScriptSetting](#Default-JavaScript-setting-(DefaultJavaScriptSetting))|Default JavaScript setting|
-|[DefaultNotificationsSetting](#Default-notification-setting-(DefaultNotificationsSetting))|Default notification setting|
-|[DefaultPluginsSetting](#Default-Adobe-Flash-setting-(DefaultPluginsSetting))|Default Adobe Flash setting|
-|[DefaultPopupsSetting](#Default-pop-up-window-setting-(DefaultPopupsSetting))|Default pop-up window setting|
-|[DefaultWebBluetoothGuardSetting](#Control-use-of-the-Web-Bluetooth-API-(DefaultWebBluetoothGuardSetting))|Control use of the Web Bluetooth API|
-|[DefaultWebUsbGuardSetting](#Control-use-of-the-WebUSB-API-(DefaultWebUsbGuardSetting))|Control use of the WebUSB API|
-|[ImagesAllowedForUrls](#Allow-images-on-these-sites-(ImagesAllowedForUrls))|Allow images on these sites|
-|[ImagesBlockedForUrls](#Block-images-on-specific-sites-(ImagesBlockedForUrls))|Block images on specific sites|
-|[JavaScriptAllowedForUrls](#Allow-JavaScript-on-specific-sites-(JavaScriptAllowedForUrls))|Allow JavaScript on specific sites|
-|[JavaScriptBlockedForUrls](#Block-JavaScript-on-specific-sites-(JavaScriptBlockedForUrls))|Block JavaScript on specific sites|
-|[NotificationsAllowedForUrls](#Allow-notifications-on-specific-sites-(NotificationsAllowedForUrls))|Allow notifications on specific sites|
-|[NotificationsBlockedForUrls](#Block-notifications-on-specific-sites-(NotificationsBlockedForUrls))|Block notifications on specific sites|
-|[PluginsAllowedForUrls](#Allow-the-Adobe-Flash-plug-in-on-specific-sites-(PluginsAllowedForUrls))|Allow the Adobe Flash plug-in on specific sites|
-|[PluginsBlockedForUrls](#Block-the-Adobe-Flash-plug-in-on-specific-sites-(PluginsBlockedForUrls))|Block the Adobe Flash plug-in on specific sites|
-|[PopupsAllowedForUrls](#Allow-pop-up-windows-on-specific-sites-(PopupsAllowedForUrls))|Allow pop-up windows on specific sites|
-|[PopupsBlockedForUrls](#Block-pop-up-windows-on-specific-sites-(PopupsBlockedForUrls))|Block pop-up windows on specific sites|
-|[RegisteredProtocolHandlers](#Register-protocol-handlers-(RegisteredProtocolHandlers))|Register protocol handlers|
-|[WebUsbAllowDevicesForUrls](#Grant-access-to-specific-sites-to-connect-to-specific-USB-devices.-(WebUsbAllowDevicesForUrls))|Grant access to specific sites to connect to specific USB devices.|
-|[WebUsbAskForUrls](#Allow-WebUSB-on-specific-sites-(WebUsbAskForUrls))|Allow WebUSB on specific sites|
-|[WebUsbBlockedForUrls](#Block-WebUSB-on-specific-sites-(WebUsbBlockedForUrls))|Block WebUSB on specific sites|
+|[AutoSelectCertificateForUrls](#automatically-select-client-certificates-for-these-sites-autoselectcertificateforurls)|Automatically select client certificates for these sites|
+|[CookiesAllowedForUrls](#allow-cookies-on-specific-sites-cookiesallowedforurls)|Allow cookies on specific sites|
+|[CookiesBlockedForUrls](#block-cookies-on-specific-sites-cookiesblockedforurls)|Block cookies on specific sites|
+|[CookiesSessionOnlyForUrls](#limit-cookies-from-specific-websites-to-the-current-session-cookiessessiononlyforurls)|Limit cookies from specific websites to the current session|
+|[DefaultCookiesSetting](#configure-cookies-defaultcookiessetting)|Configure cookies|
+|[DefaultGeolocationSetting](#default-geolocation-setting-defaultgeolocationsetting)|Default geolocation setting|
+|[DefaultImagesSetting](#default-images-setting-defaultimagessetting)|Default images setting|
+|[DefaultJavaScriptSetting](#default-javascript-setting-defaultjavascriptsetting)|Default JavaScript setting|
+|[DefaultNotificationsSetting](#default-notification-setting-defaultnotificationssetting)|Default notification setting|
+|[DefaultPluginsSetting](#default-adobe-flash-setting-defaultpluginssetting)|Default Adobe Flash setting|
+|[DefaultPopupsSetting](#default-pop-up-window-setting-defaultpopupssetting)|Default pop-up window setting|
+|[DefaultWebBluetoothGuardSetting](#control-use-of-the-web-bluetooth-api-defaultwebbluetoothguardsetting)|Control use of the Web Bluetooth API|
+|[DefaultWebUsbGuardSetting](#control-use-of-the-webusb-api-defaultwebusbguardsetting)|Control use of the WebUSB API|
+|[ImagesAllowedForUrls](#allow-images-on-these-sites-imagesallowedforurls)|Allow images on these sites|
+|[ImagesBlockedForUrls](#block-images-on-specific-sites-imagesblockedforurls)|Block images on specific sites|
+|[JavaScriptAllowedForUrls](#allow-javascript-on-specific-sites-javascriptallowedforurls)|Allow JavaScript on specific sites|
+|[JavaScriptBlockedForUrls](#block-javascript-on-specific-sites-javascriptblockedforurls)|Block JavaScript on specific sites|
+|[NotificationsAllowedForUrls](#allow-notifications-on-specific-sites-notificationsallowedforurls)|Allow notifications on specific sites|
+|[NotificationsBlockedForUrls](#block-notifications-on-specific-sites-notificationsblockedforurls)|Block notifications on specific sites|
+|[PluginsAllowedForUrls](#allow-the-adobe-flash-plug-in-on-specific-sites-pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites|
+|[PluginsBlockedForUrls](#block-the-adobe-flash-plug-in-on-specific-sites-pluginsblockedforurls)|Block the Adobe Flash plug-in on specific sites|
+|[PopupsAllowedForUrls](#allow-pop-up-windows-on-specific-sites-popupsallowedforurls)|Allow pop-up windows on specific sites|
+|[PopupsBlockedForUrls](#block-pop-up-windows-on-specific-sites-popupsblockedforurls)|Block pop-up windows on specific sites|
+|[RegisteredProtocolHandlers](#register-protocol-handlers-registeredprotocolhandlers)|Register protocol handlers|
+|[WebUsbAllowDevicesForUrls](#grant-access-to-specific-sites-to-connect-to-specific-usb-devices.-webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
+|[WebUsbAskForUrls](#allow-webusb-on-specific-sites-webusbaskforurls)|Allow WebUSB on specific sites|
+|[WebUsbBlockedForUrls](#block-webusb-on-specific-sites-webusbblockedforurls)|Block WebUSB on specific sites|
 |Default search provider||
-|[DefaultSearchProviderEnabled](#Enable-the-default-search-provider-(DefaultSearchProviderEnabled))|Enable the default search provider|
-|[DefaultSearchProviderEncodings](#Default-search-provider-encodings-(DefaultSearchProviderEncodings))|Default search provider encodings|
-|[DefaultSearchProviderImageURL](#Specifies-the-search-by-image-feature-for-the-default-search-provider-(DefaultSearchProviderImageURL))|Specifies the search-by-image feature for the default search provider|
-|[DefaultSearchProviderImageURLPostParams](#Parameters-for-an-image-URL-that-uses-POST-(DefaultSearchProviderImageURLPostParams))|Parameters for an image URL that uses POST|
-|[DefaultSearchProviderKeyword](#Default-search-provider-keyword-(DefaultSearchProviderKeyword))|Default search provider keyword|
-|[DefaultSearchProviderName](#Default-search-provider-name-(DefaultSearchProviderName))|Default search provider name|
-|[DefaultSearchProviderSearchURL](#Default-search-provider-search-URL-(DefaultSearchProviderSearchURL))|Default search provider search URL|
-|[DefaultSearchProviderSuggestURL](#Default-search-provider-URL-for-suggestions-(DefaultSearchProviderSuggestURL))|Default search provider URL for suggestions|
+|[DefaultSearchProviderEnabled](#enable-the-default-search-provider-defaultsearchproviderenabled)|Enable the default search provider|
+|[DefaultSearchProviderEncodings](#default-search-provider-encodings-defaultsearchproviderencodings)|Default search provider encodings|
+|[DefaultSearchProviderImageURL](#specifies-the-search-by-image-feature-for-the-default-search-provider-defaultsearchproviderimageurl)|Specifies the search-by-image feature for the default search provider|
+|[DefaultSearchProviderImageURLPostParams](#parameters-for-an-image-url-that-uses-post-defaultsearchproviderimageurlpostparams)|Parameters for an image URL that uses POST|
+|[DefaultSearchProviderKeyword](#default-search-provider-keyword-defaultsearchproviderkeyword)|Default search provider keyword|
+|[DefaultSearchProviderName](#default-search-provider-name-defaultsearchprovidername)|Default search provider name|
+|[DefaultSearchProviderSearchURL](#default-search-provider-search-url-defaultsearchprovidersearchurl)|Default search provider search URL|
+|[DefaultSearchProviderSuggestURL](#default-search-provider-url-for-suggestions-defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
 |Extensions||
-|[ExtensionAllowedTypes](#Configure-allowed-extension-types-(ExtensionAllowedTypes))|Configure allowed extension types|
-|[ExtensionInstallAllowlist](#Allow-specific-extensions-to-be-installed-(ExtensionInstallAllowlist))|Allow specific extensions to be installed|
-|[ExtensionInstallBlocklist](#Control-which-extensions-cannot-be-installed-(ExtensionInstallBlocklist))|Control which extensions cannot be installed|
-|[ExtensionInstallForcelist](#Control-which-extensions-are-installed-silently-(ExtensionInstallForcelist))|Control which extensions are installed silently|
-|[ExtensionInstallSources](#Configure-extension-and-user-script-install-sources-(ExtensionInstallSources))|Configure extension and user script install sources|
-|[ExtensionSettings](#Configure-extension-management-settings-(ExtensionSettings))|Configure extension management settings|
+|[ExtensionAllowedTypes](#configure-allowed-extension-types-extensionallowedtypes)|Configure allowed extension types|
+|[ExtensionInstallAllowlist](#allow-specific-extensions-to-be-installed-extensioninstallallowlist)|Allow specific extensions to be installed|
+|[ExtensionInstallBlocklist](#control-which-extensions-cannot-be-installed-extensioninstallblocklist)|Control which extensions cannot be installed|
+|[ExtensionInstallForcelist](#control-which-extensions-are-installed-silently-extensioninstallforcelist)|Control which extensions are installed silently|
+|[ExtensionInstallSources](#configure-extension-and-user-script-install-sources-extensioninstallsources)|Configure extension and user script install sources|
+|[ExtensionSettings](#configure-extension-management-settings-extensionsettings)|Configure extension management settings|
 |Cast||
-|[EnableMediaRouter](#Enable-Google-Cast-(EnableMediaRouter))|Enable Google Cast|
-|[ShowCastIconInToolbar](#Show-the-cast-icon-in-the-toolbar-(ShowCastIconInToolbar))|Show the cast icon in the toolbar|
+|[EnableMediaRouter](#enable-google-cast-enablemediarouter)|Enable Google Cast|
+|[ShowCastIconInToolbar](#show-the-cast-icon-in-the-toolbar-showcasticonintoolbar)|Show the cast icon in the toolbar|
 |HTTP authentication||
-|[AllowCrossOriginAuthPrompt](#Allow-cross-origin-HTTP-Basic-Auth-prompts-(AllowCrossOriginAuthPrompt))|Allow cross-origin HTTP Basic Auth prompts|
-|[AuthNegotiateDelegateAllowlist](#Specifies-a-list-of-servers-that-Microsoft-Edge-can-delegate-user-credentials-to-(AuthNegotiateDelegateAllowlist))|Specifies a list of servers that Microsoft Edge can delegate user credentials to|
-|[AuthSchemes](#Supported-authentication-schemes-(AuthSchemes))|Supported authentication schemes|
-|[AuthServerAllowlist](#Configure-list-of-allowed-authentication-servers-(AuthServerAllowlist))|Configure list of allowed authentication servers|
-|[DisableAuthNegotiateCnameLookup](#Disable-CNAME-lookup-when-negotiating-Kerberos-authentication-(DisableAuthNegotiateCnameLookup))|Disable CNAME lookup when negotiating Kerberos authentication|
-|[EnableAuthNegotiatePort](#Include-non-standard-port-in-Kerberos-SPN-(EnableAuthNegotiatePort))|Include non-standard port in Kerberos SPN|
-|[NtlmV2Enabled](#Control-whether-NTLMv2-authentication-is-enabled-(NtlmV2Enabled))|Control whether NTLMv2 authentication is enabled|
+|[AllowCrossOriginAuthPrompt](#allow-cross-origin-http-basic-auth-prompts-allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
+|[AuthNegotiateDelegateAllowlist](#specifies-a-list-of-servers-that-microsoft-edge-can-delegate-user-credentials-to-authnegotiatedelegateallowlist)|Specifies a list of servers that Microsoft Edge can delegate user credentials to|
+|[AuthSchemes](#supported-authentication-schemes-authschemes)|Supported authentication schemes|
+|[AuthServerAllowlist](#configure-list-of-allowed-authentication-servers-authserverallowlist)|Configure list of allowed authentication servers|
+|[DisableAuthNegotiateCnameLookup](#disable-cname-lookup-when-negotiating-kerberos-authentication-disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
+|[EnableAuthNegotiatePort](#include-non-standard-port-in-kerberos-spn-enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
+|[NtlmV2Enabled](#control-whether-ntlmv2-authentication-is-enabled-ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
 |Native Messaging||
-|[NativeMessagingAllowlist](#Control-which-native-messaging-hosts-users-can-use-(NativeMessagingAllowlist))|Control which native messaging hosts users can use|
-|[NativeMessagingBlocklist](#Configure-native-messaging-block-list-(NativeMessagingBlocklist))|Configure native messaging block list|
-|[NativeMessagingUserLevelHosts](#Allow-user-level-native-messaging-hosts-(installed-without-admin-permissions)-(NativeMessagingUserLevelHosts))|Allow user-level native messaging hosts (installed without admin permissions)|
+|[NativeMessagingAllowlist](#control-which-native-messaging-hosts-users-can-use-nativemessagingallowlist)|Control which native messaging hosts users can use|
+|[NativeMessagingBlocklist](#configure-native-messaging-block-list-nativemessagingblocklist)|Configure native messaging block list|
+|[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-(installed-without-admin-permissions)-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
 |Password manager and protection||
-|[PasswordManagerEnabled](#Enable-saving-passwords-to-the-password-manager-(PasswordManagerEnabled))|Enable saving passwords to the password manager|
-|[PasswordProtectionChangePasswordURL](#Configure-the-change-password-URL-(PasswordProtectionChangePasswordURL))|Configure the change password URL|
-|[PasswordProtectionLoginURLs](#Configure-the-list-of-enterprise-login-URLs-where-password-protection-service-should-capture-fingerprint-of-password-(PasswordProtectionLoginURLs))|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
-|[PasswordProtectionWarningTrigger](#Configure-password-protection-warning-trigger-(PasswordProtectionWarningTrigger))|Configure password protection warning trigger|
+|[PasswordManagerEnabled](#enable-saving-passwords-to-the-password-manager-passwordmanagerenabled)|Enable saving passwords to the password manager|
+|[PasswordProtectionChangePasswordURL](#configure-the-change-password-url-passwordprotectionchangepasswordurl)|Configure the change password URL|
+|[PasswordProtectionLoginURLs](#configure-the-list-of-enterprise-login-urls-where-password-protection-service-should-capture-fingerprint-of-password-passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
+|[PasswordProtectionWarningTrigger](#configure-password-protection-warning-trigger-passwordprotectionwarningtrigger)|Configure password protection warning trigger|
 |Printing||
-|[DefaultPrinterSelection](#Default-printer-selection-rules-(DefaultPrinterSelection))|Default printer selection rules|
-|[PrintHeaderFooter](#Print-headers-and-footers-(PrintHeaderFooter))|Print headers and footers|
-|[PrintPreviewUseSystemDefaultPrinter](#Set-the-system-default-printer-as-the-default-printer-(PrintPreviewUseSystemDefaultPrinter))|Set the system default printer as the default printer|
-|[PrintingEnabled](#Enable-printing-(PrintingEnabled))|Enable printing|
-|[UseSystemPrintDialog](#Print-using-system-print-dialog-(UseSystemPrintDialog))|Print using system print dialog|
+|[DefaultPrinterSelection](#default-printer-selection-rules-defaultprinterselection)|Default printer selection rules|
+|[PrintHeaderFooter](#print-headers-and-footers-printheaderfooter)|Print headers and footers|
+|[PrintPreviewUseSystemDefaultPrinter](#set-the-system-default-printer-as-the-default-printer-printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
+|[PrintingEnabled](#enable-printing-printingenabled)|Enable printing|
+|[UseSystemPrintDialog](#print-using-system-print-dialog-usesystemprintdialog)|Print using system print dialog|
 |Proxy server||
-|[ProxyBypassList](#Configure-proxy-bypass-rules-(ProxyBypassList))|Configure proxy bypass rules|
-|[ProxyMode](#Configure-proxy-server-settings-(ProxyMode))|Configure proxy server settings|
-|[ProxyPacUrl](#Set-the-proxy-.pac-file-URL-(ProxyPacUrl))|Set the proxy .pac file URL|
-|[ProxyServer](#Configure-address-or-URL-of-proxy-server-(ProxyServer))|Configure address or URL of proxy server|
-|[ProxySettings](#Proxy-settings-(ProxySettings))|Proxy settings|
+|[ProxyBypassList](#configure-proxy-bypass-rules-proxybypasslist)|Configure proxy bypass rules|
+|[ProxyMode](#configure-proxy-server-settings-proxymode)|Configure proxy server settings|
+|[ProxyPacUrl](#set-the-proxy-.pac-file-url-proxypacurl)|Set the proxy .pac file URL|
+|[ProxyServer](#configure-address-or-url-of-proxy-server-proxyserver)|Configure address or URL of proxy server|
+|[ProxySettings](#proxy-settings-proxysettings)|Proxy settings|
 |SmartScreen settings||
-|[PreventSmartScreenPromptOverride](#Prevent-bypassing-Microsoft-Defender-SmartScreen-prompts-for-sites-(PreventSmartScreenPromptOverride))|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
-|[PreventSmartScreenPromptOverrideForFiles](#Prevent-bypassing-of-Microsoft-Defender-SmartScreen-warnings-about-downloads-(PreventSmartScreenPromptOverrideForFiles))|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
-|[SmartScreenAllowListDomains](#Configure-the-list-of-domains-for-which-SmartScreen-won't-trigger-warnings-(SmartScreenAllowListDomains))|Configure the list of domains for which SmartScreen won't trigger warnings|
-|[SmartScreenEnabled](#Configure-Microsoft-Defender-SmartScreen-(SmartScreenEnabled))|Configure Microsoft Defender SmartScreen|
+|[PreventSmartScreenPromptOverride](#prevent-bypassing-microsoft-defender-smartscreen-prompts-for-sites-preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
+|[PreventSmartScreenPromptOverrideForFiles](#prevent-bypassing-of-microsoft-defender-smartscreen-warnings-about-downloads-preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
+|[SmartScreenAllowListDomains](#configure-the-list-of-domains-for-which-smartscreen-won't-trigger-warnings-smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
+|[SmartScreenEnabled](#configure-microsoft-defender-smartscreen-smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |Startup, home page and new tab page||
-|[HomepageIsNewTabPage](#Set-the-new-tab-page-as-the-home-page-(HomepageIsNewTabPage))|Set the new tab page as the home page|
-|[HomepageLocation](#Configure-the-home-page-URL-(HomepageLocation))|Configure the home page URL|
-|[NewTabPageHideDefaultTopSites](#Hide-the-default-top-sites-from-the-new-tab-page-(NewTabPageHideDefaultTopSites))|Hide the default top sites from the new tab page|
-|[NewTabPageLocation](#Configure-the-new-tab-page-URL-(NewTabPageLocation))|Configure the new tab page URL|
-|[RestoreOnStartup](#Action-to-take-on-startup-(RestoreOnStartup))|Action to take on startup|
-|[RestoreOnStartupURLs](#Sites-to-open-when-the-browser-starts-(RestoreOnStartupURLs))|Sites to open when the browser starts|
-|[ShowHomeButton](#Show-Home-button-on-toolbar-(ShowHomeButton))|Show Home button on toolbar|
+|[HomepageIsNewTabPage](#set-the-new-tab-page-as-the-home-page-homepageisnewtabpage)|Set the new tab page as the home page|
+|[HomepageLocation](#configure-the-home-page-url-homepagelocation)|Configure the home page URL|
+|[NewTabPageHideDefaultTopSites](#hide-the-default-top-sites-from-the-new-tab-page-newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
+|[NewTabPageLocation](#configure-the-new-tab-page-url-newtabpagelocation)|Configure the new tab page URL|
+|[RestoreOnStartup](#action-to-take-on-startup-restoreonstartup)|Action to take on startup|
+|[RestoreOnStartupURLs](#sites-to-open-when-the-browser-starts-restoreonstartupurls)|Sites to open when the browser starts|
+|[ShowHomeButton](#show-home-button-on-toolbar-showhomebutton)|Show Home button on toolbar|
 |Ungrouped Policies||
-|[AllowDeletingBrowserHistory](#Enable-deleting-browser-and-download-history-(AllowDeletingBrowserHistory))|Enable deleting browser and download history|
-|[AllowFileSelectionDialogs](#Allow-file-selection-dialogs-(AllowFileSelectionDialogs))|Allow file selection dialogs|
-|[AlwaysOpenPdfExternally](#Always-open-PDF-files-externally-(AlwaysOpenPdfExternally))|Always open PDF files externally|
-|[ApplicationLocaleValue](#Set-application-locale-(ApplicationLocaleValue))|Set application locale|
-|[AudioCaptureAllowed](#Allow-or-block-audio-capture-(AudioCaptureAllowed))|Allow or block audio capture|
-|[AudioCaptureAllowedUrls](#Sites-that-can-access-audio-capture-devices-without-requesting-permission-(AudioCaptureAllowedUrls))|Sites that can access audio capture devices without requesting permission|
-|[AutoImportAtFirstRun](#Automatically-import-another-browser's-data-and-settings-at-first-run-(AutoImportAtFirstRun))|Automatically import another browser's data and settings at first run|
-|[AutofillAddressEnabled](#Enable-AutoFill-for-addresses-(AutofillAddressEnabled))|Enable AutoFill for addresses|
-|[AutofillCreditCardEnabled](#Enable-AutoFill-for-credit-cards-(AutofillCreditCardEnabled))|Enable AutoFill for credit cards|
-|[BackgroundModeEnabled](#Continue-running-background-apps-after-Microsoft-Edge-closes-(BackgroundModeEnabled))|Continue running background apps after Microsoft Edge closes|
-|[BlockThirdPartyCookies](#Block-third-party-cookies-(BlockThirdPartyCookies))|Block third party cookies|
-|[BrowserAddProfileEnabled](#Enable-profile-creation-from-the-Identity-flyout-menu-or-the-Settings-page-(BrowserAddProfileEnabled))|Enable profile creation from the Identity flyout menu or the Settings page|
-|[BrowserGuestModeEnabled](#Enable-guest-mode-(BrowserGuestModeEnabled))|Enable guest mode|
-|[BrowserNetworkTimeQueriesEnabled](#Allow-queries-to-a-Browser-Network-Time-service-(BrowserNetworkTimeQueriesEnabled))|Allow queries to a Browser Network Time service|
-|[BrowserSignin](#Browser-sign-in-settings-(BrowserSignin))|Browser sign-in settings|
-|[BuiltInDnsClientEnabled](#Use-built-in-DNS-client-(BuiltInDnsClientEnabled))|Use built-in DNS client|
-|[CertificateTransparencyEnforcementDisabledForCas](#Disable-Certificate-Transparency-enforcement-for-a-list-of-subjectPublicKeyInfo-hashes-(CertificateTransparencyEnforcementDisabledForCas))|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
-|[CertificateTransparencyEnforcementDisabledForLegacyCas](#Disable-Certificate-Transparency-enforcement-for-a-list-of-legacy-certificate-authorities-(CertificateTransparencyEnforcementDisabledForLegacyCas))|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
-|[CertificateTransparencyEnforcementDisabledForUrls](#Disable-Certificate-Transparency-enforcement-for-specific-URLs-(CertificateTransparencyEnforcementDisabledForUrls))|Disable Certificate Transparency enforcement for specific URLs|
-|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#Allow-HTTP/2-connection-coalescing-for-these-hosts-even-when-client-certificates-are-used-(CoalesceH2ConnectionsWithClientCertificatesForHosts))|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
-|[ComponentUpdatesEnabled](#Enable-component-updates-in-Microsoft-Edge-(ComponentUpdatesEnabled))|Enable component updates in Microsoft Edge|
-|[ConfigureDoNotTrack](#Configure-Do-Not-Track-(ConfigureDoNotTrack))|Configure Do Not Track|
-|[ConfigureOnlineTextToSpeech](#Configure-Online-Text-To-Speech-(ConfigureOnlineTextToSpeech))|Configure Online Text To Speech|
-|[DefaultBrowserSettingEnabled](#Set-Microsoft-Edge-as-default-browser-(DefaultBrowserSettingEnabled))|Set Microsoft Edge as default browser|
-|[DeveloperToolsAvailability](#Control-where-developer-tools-can-be-used-(DeveloperToolsAvailability))|Control where developer tools can be used|
-|[Disable3DAPIs](#Disable-support-for-3D-graphics-APIs-(Disable3DAPIs))|Disable support for 3D graphics APIs|
-|[DisableScreenshots](#Disable-taking-screenshots-(DisableScreenshots))|Disable taking screenshots|
-|[DiskCacheDir](#Set-disk-cache-directory-(DiskCacheDir))|Set disk cache directory|
-|[DiskCacheSize](#Set-disk-cache-size,-in-bytes-(DiskCacheSize))|Set disk cache size, in bytes|
-|[DownloadDirectory](#Set-download-directory-(DownloadDirectory))|Set download directory|
-|[DownloadRestrictions](#Allow-download-restrictions-(DownloadRestrictions))|Allow download restrictions|
-|[EditFavoritesEnabled](#Allows-users-to-edit-favorites-(EditFavoritesEnabled))|Allows users to edit favorites|
-|[EnableDeprecatedWebPlatformFeatures](#Re-enable-deprecated-web-platform-features-for-a-limited-time-(EnableDeprecatedWebPlatformFeatures))|Re-enable deprecated web platform features for a limited time|
-|[EnableDomainActionsDownload](#Enable-Domain-Actions-Download-from-Microsoft-(EnableDomainActionsDownload))|Enable Domain Actions Download from Microsoft|
-|[EnableOnlineRevocationChecks](#Enable-online-OCSP/CRL-checks-(EnableOnlineRevocationChecks))|Enable online OCSP/CRL checks|
-|[FavoritesBarEnabled](#Enable-favorites-bar-(FavoritesBarEnabled))|Enable favorites bar|
-|[ForceBingSafeSearch](#Configure-Bing-SafeSearch-(ForceBingSafeSearch))|Configure Bing SafeSearch|
-|[ForceEphemeralProfiles](#Enable-use-of-ephemeral-profiles-(ForceEphemeralProfiles))|Enable use of ephemeral profiles|
-|[ForceGoogleSafeSearch](#Enforce-Google-SafeSearch-(ForceGoogleSafeSearch))|Enforce Google SafeSearch|
-|[ForceYouTubeRestrict](#Force-minimum-YouTube-Restricted-Mode-(ForceYouTubeRestrict))|Force minimum YouTube Restricted Mode|
-|[FullscreenAllowed](#Allow-full-screen-mode-(FullscreenAllowed))|Allow full screen mode|
-|[HardwareAccelerationModeEnabled](#Use-hardware-acceleration-when-available-(HardwareAccelerationModeEnabled))|Use hardware acceleration when available|
-|[ImportAutofillFormData](#Allow-importing-of-autofill-form-data-(ImportAutofillFormData))|Allow importing of autofill form data|
-|[ImportFavorites](#Allow-importing-of-favorites-(ImportFavorites))|Allow importing of favorites|
-|[ImportHistory](#Allow-importing-of-browsing-history-(ImportHistory))|Allow importing of browsing history|
-|[ImportHomepage](#Allow-importing-of-home-page-settings-(ImportHomepage))|Allow importing of home page settings|
-|[ImportPaymentInfo](#Allow-importing-of-payment-info-(ImportPaymentInfo))|Allow importing of payment info|
-|[ImportSavedPasswords](#Allow-importing-of-saved-passwords-(ImportSavedPasswords))|Allow importing of saved passwords|
-|[ImportSearchEngine](#Allow-importing-of-search-engine-settings-(ImportSearchEngine))|Allow importing of search engine settings|
-|[InPrivateModeAvailability](#Configure-InPrivate-mode-availability-(InPrivateModeAvailability))|Configure InPrivate mode availability|
-|[InternetExplorerIntegrationLevel](#Configure-Internet-Explorer-integration-(InternetExplorerIntegrationLevel))|Configure Internet Explorer integration|
-|[IsolateOrigins](#Enable-site-isolation-for-specific-origins-(IsolateOrigins))|Enable site isolation for specific origins|
-|[ManagedFavorites](#Configure-favorites-(ManagedFavorites))|Configure favorites|
-|[ManagedSearchEngines](#Manage-Search-Engines-(ManagedSearchEngines))|Manage Search Engines|
-|[MaxConnectionsPerProxy](#Maximum-number-of-concurrent-connections-to-the-proxy-server-(MaxConnectionsPerProxy))|Maximum number of concurrent connections to the proxy server|
-|[MediaRouterCastAllowAllIPs](#Allow-Google-Cast-to-connect-to-Cast-devices-on-all-IP-addresses-(MediaRouterCastAllowAllIPs))|Allow Google Cast to connect to Cast devices on all IP addresses|
-|[MetricsReportingEnabled](#Enable-usage-and-crash-related-data-reporting-(MetricsReportingEnabled))|Enable usage and crash-related data reporting|
-|[NetworkPredictionOptions](#Enable-network-prediction-(NetworkPredictionOptions))|Enable network prediction|
-|[OverrideSecurityRestrictionsOnInsecureOrigin](#Control-where-security-restrictions-on-insecure-origins-apply-(OverrideSecurityRestrictionsOnInsecureOrigin))|Control where security restrictions on insecure origins apply|
-|[ProactiveAuthEnabled](#Enable-Proactive-Authentication-(ProactiveAuthEnabled))|Enable Proactive Authentication|
-|[PromotionalTabsEnabled](#Enable-full-tab-promotional-content-(PromotionalTabsEnabled))|Enable full-tab promotional content|
-|[PromptForDownloadLocation](#Ask-where-to-save-downloaded-files-(PromptForDownloadLocation))|Ask where to save downloaded files|
-|[QuicAllowed](#Allow-QUIC-protocol-(QuicAllowed))|Allow QUIC protocol|
-|[RelaunchNotification](#Notify-a-user-that-a-browser-restart-is-recommended-or-required-for-pending-updates-(RelaunchNotification))|Notify a user that a browser restart is recommended or required for pending updates|
-|[RelaunchNotificationPeriod](#Set-the-time-period-for-update-notifications-(RelaunchNotificationPeriod))|Set the time period for update notifications|
-|[RequireOnlineRevocationChecksForLocalAnchors](#Specify-if-online-OCSP/CRL-checks-are-required-for-local-trust-anchors-(RequireOnlineRevocationChecksForLocalAnchors))|Specify if online OCSP/CRL checks are required for local trust anchors|
-|[ResolveNavigationErrorsUseWebService](#Enable-resolution-of-navigation-errors-using-a-web-service-(ResolveNavigationErrorsUseWebService))|Enable resolution of navigation errors using a web service|
-|[RestrictSigninToPattern](#Restrict-which-accounts-can-be-used-as-Microsoft-Edge-primary-accounts-(RestrictSigninToPattern))|Restrict which accounts can be used as Microsoft Edge primary accounts|
-|[RunAllFlashInAllowMode](#Extend-Adobe-Flash-content-setting-to-all-content-(RunAllFlashInAllowMode))|Extend Adobe Flash content setting to all content|
-|[SSLErrorOverrideAllowed](#Allow-users-to-proceed-from-the-SSL-warning-page-(SSLErrorOverrideAllowed))|Allow users to proceed from the SSL warning page|
-|[SSLVersionMin](#Minimum-SSL-version-enabled-(SSLVersionMin))|Minimum SSL version enabled|
-|[SavingBrowserHistoryDisabled](#Disable-saving-browser-history-(SavingBrowserHistoryDisabled))|Disable saving browser history|
-|[SearchSuggestEnabled](#Enable-search-suggestions-(SearchSuggestEnabled))|Enable search suggestions|
-|[SecurityKeyPermitAttestation](#Websites-or-domains-that-don't-need-permission-to-use-direct-Security-Key-attestation-(SecurityKeyPermitAttestation))|Websites or domains that don't need permission to use direct Security Key attestation|
-|[SendIntranetToInternetExplorer](#Send-all-intranet-sites-to-Internet-Explorer-(SendIntranetToInternetExplorer))|Send all intranet sites to Internet Explorer|
-|[SendSiteInfoToImproveServices](#Send-site-information-to-improve-Microsoft-services-(SendSiteInfoToImproveServices))|Send site information to improve Microsoft services|
-|[ShowOfficeShortcutInFavoritesBar](#Show-Microsoft-Office-shortcut-in-favorites-bar-(ShowOfficeShortcutInFavoritesBar))|Show Microsoft Office shortcut in favorites bar|
-|[SitePerProcess](#Enable-site-isolation-for-every-site-(SitePerProcess))|Enable site isolation for every site|
-|[SpellcheckEnabled](#Enable-spellcheck-(SpellcheckEnabled))|Enable spellcheck|
-|[SpellcheckLanguage](#Enable-specific-spellcheck-languages-(SpellcheckLanguage))|Enable specific spellcheck languages|
-|[SuppressUnsupportedOSWarning](#Suppress-the-unsupported-OS-warning-(SuppressUnsupportedOSWarning))|Suppress the unsupported OS warning|
-|[SyncDisabled](#Disable-synchronization-of-data-using-Microsoft-sync-services-(SyncDisabled))|Disable synchronization of data using Microsoft sync services|
-|[TabLifecyclesEnabled](#Configure-tab-lifecycles-(TabLifecyclesEnabled))|Configure tab lifecycles|
-|[TaskManagerEndProcessEnabled](#Enable-ending-processes-in-the-Browser-task-manager-(TaskManagerEndProcessEnabled))|Enable ending processes in the Browser task manager|
-|[TranslateEnabled](#Enable-Translate-(TranslateEnabled))|Enable Translate|
-|[URLAllowlist](#Define-a-list-of-allowed-URLs-(URLAllowlist))|Define a list of allowed URLs|
-|[URLBlocklist](#Block-access-to-a-list-of-URLs-(URLBlocklist))|Block access to a list of URLs|
-|[UserDataDir](#Set-the-user-data-directory-(UserDataDir))|Set the user data directory|
-|[UserFeedbackAllowed](#Allow-user-feedback-(UserFeedbackAllowed))|Allow user feedback|
-|[VideoCaptureAllowed](#Allow-or-block-video-capture-(VideoCaptureAllowed))|Allow or block video capture|
-|[VideoCaptureAllowedUrls](#Sites-that-can-access-video-capture-devices-without-requesting-permission-(VideoCaptureAllowedUrls))|Sites that can access video capture devices without requesting permission|
-|[WPADQuickCheckEnabled](#Set-WPAD-optimization-(WPADQuickCheckEnabled))|Set WPAD optimization|
-|[WebDriverOverridesIncompatiblePolicies](#Allow-WebDriver-to-Override-Incompatible-Policies-(WebDriverOverridesIncompatiblePolicies))|Allow WebDriver to Override Incompatible Policies|
-|[WebRtcLocalhostIpHandling](#Restrict-exposure-of-localhost-IP-address-by-WebRTC-(WebRtcLocalhostIpHandling))|Restrict exposure of localhost IP address by WebRTC|
-|[WebRtcUdpPortRange](#Restrict-the-range-of-local-UDP-ports-used-by-WebRTC-(WebRtcUdpPortRange))|Restrict the range of local UDP ports used by WebRTC|
+|[AllowDeletingBrowserHistory](#enable-deleting-browser-and-download-history-allowdeletingbrowserhistory)|Enable deleting browser and download history|
+|[AllowFileSelectionDialogs](#allow-file-selection-dialogs-allowfileselectiondialogs)|Allow file selection dialogs|
+|[AlwaysOpenPdfExternally](#always-open-pdf-files-externally-alwaysopenpdfexternally)|Always open PDF files externally|
+|[ApplicationLocaleValue](#set-application-locale-applicationlocalevalue)|Set application locale|
+|[AudioCaptureAllowed](#allow-or-block-audio-capture-audiocaptureallowed)|Allow or block audio capture|
+|[AudioCaptureAllowedUrls](#sites-that-can-access-audio-capture-devices-without-requesting-permission-audiocaptureallowedurls)|Sites that can access audio capture devices without requesting permission|
+|[AutoImportAtFirstRun](#automatically-import-another-browser's-data-and-settings-at-first-run-autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
+|[AutofillAddressEnabled](#enable-autofill-for-addresses-autofilladdressenabled)|Enable AutoFill for addresses|
+|[AutofillCreditCardEnabled](#enable-autofill-for-credit-cards-autofillcreditcardenabled)|Enable AutoFill for credit cards|
+|[BackgroundModeEnabled](#continue-running-background-apps-after-microsoft-edge-closes-backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
+|[BlockThirdPartyCookies](#block-third-party-cookies-blockthirdpartycookies)|Block third party cookies|
+|[BrowserAddProfileEnabled](#enable-profile-creation-from-the-identity-flyout-menu-or-the-settings-page-browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
+|[BrowserGuestModeEnabled](#enable-guest-mode-browserguestmodeenabled)|Enable guest mode|
+|[BrowserNetworkTimeQueriesEnabled](#allow-queries-to-a-browser-network-time-service-browsernetworktimequeriesenabled)|Allow queries to a Browser Network Time service|
+|[BrowserSignin](#browser-sign-in-settings-browsersignin)|Browser sign-in settings|
+|[BuiltInDnsClientEnabled](#use-built-in-dns-client-builtindnsclientenabled)|Use built-in DNS client|
+|[CertificateTransparencyEnforcementDisabledForCas](#disable-certificate-transparency-enforcement-for-a-list-of-subjectpublickeyinfo-hashes-certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
+|[CertificateTransparencyEnforcementDisabledForLegacyCas](#disable-certificate-transparency-enforcement-for-a-list-of-legacy-certificate-authorities-certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
+|[CertificateTransparencyEnforcementDisabledForUrls](#disable-certificate-transparency-enforcement-for-specific-urls-certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
+|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#allow-http/2-connection-coalescing-for-these-hosts-even-when-client-certificates-are-used-coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
+|[ComponentUpdatesEnabled](#enable-component-updates-in-microsoft-edge-componentupdatesenabled)|Enable component updates in Microsoft Edge|
+|[ConfigureDoNotTrack](#configure-do-not-track-configuredonottrack)|Configure Do Not Track|
+|[ConfigureOnlineTextToSpeech](#configure-online-text-to-speech-configureonlinetexttospeech)|Configure Online Text To Speech|
+|[DefaultBrowserSettingEnabled](#set-microsoft-edge-as-default-browser-defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
+|[DeveloperToolsAvailability](#control-where-developer-tools-can-be-used-developertoolsavailability)|Control where developer tools can be used|
+|[Disable3DAPIs](#disable-support-for-3d-graphics-apis-disable3dapis)|Disable support for 3D graphics APIs|
+|[DisableScreenshots](#disable-taking-screenshots-disablescreenshots)|Disable taking screenshots|
+|[DiskCacheDir](#set-disk-cache-directory-diskcachedir)|Set disk cache directory|
+|[DiskCacheSize](#set-disk-cache-size,-in-bytes-diskcachesize)|Set disk cache size, in bytes|
+|[DownloadDirectory](#set-download-directory-downloaddirectory)|Set download directory|
+|[DownloadRestrictions](#allow-download-restrictions-downloadrestrictions)|Allow download restrictions|
+|[EditFavoritesEnabled](#allows-users-to-edit-favorites-editfavoritesenabled)|Allows users to edit favorites|
+|[EnableDeprecatedWebPlatformFeatures](#re-enable-deprecated-web-platform-features-for-a-limited-time-enabledeprecatedwebplatformfeatures)|Re-enable deprecated web platform features for a limited time|
+|[EnableDomainActionsDownload](#enable-domain-actions-download-from-microsoft-enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft|
+|[EnableOnlineRevocationChecks](#enable-online-ocsp/crl-checks-enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
+|[FavoritesBarEnabled](#enable-favorites-bar-favoritesbarenabled)|Enable favorites bar|
+|[ForceBingSafeSearch](#configure-bing-safesearch-forcebingsafesearch)|Configure Bing SafeSearch|
+|[ForceEphemeralProfiles](#enable-use-of-ephemeral-profiles-forceephemeralprofiles)|Enable use of ephemeral profiles|
+|[ForceGoogleSafeSearch](#enforce-google-safesearch-forcegooglesafesearch)|Enforce Google SafeSearch|
+|[ForceYouTubeRestrict](#force-minimum-youtube-restricted-mode-forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
+|[FullscreenAllowed](#allow-full-screen-mode-fullscreenallowed)|Allow full screen mode|
+|[HardwareAccelerationModeEnabled](#use-hardware-acceleration-when-available-hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
+|[ImportAutofillFormData](#allow-importing-of-autofill-form-data-importautofillformdata)|Allow importing of autofill form data|
+|[ImportFavorites](#allow-importing-of-favorites-importfavorites)|Allow importing of favorites|
+|[ImportHistory](#allow-importing-of-browsing-history-importhistory)|Allow importing of browsing history|
+|[ImportHomepage](#allow-importing-of-home-page-settings-importhomepage)|Allow importing of home page settings|
+|[ImportPaymentInfo](#allow-importing-of-payment-info-importpaymentinfo)|Allow importing of payment info|
+|[ImportSavedPasswords](#allow-importing-of-saved-passwords-importsavedpasswords)|Allow importing of saved passwords|
+|[ImportSearchEngine](#allow-importing-of-search-engine-settings-importsearchengine)|Allow importing of search engine settings|
+|[InPrivateModeAvailability](#configure-inprivate-mode-availability-inprivatemodeavailability)|Configure InPrivate mode availability|
+|[InternetExplorerIntegrationLevel](#configure-internet-explorer-integration-internetexplorerintegrationlevel)|Configure Internet Explorer integration|
+|[IsolateOrigins](#enable-site-isolation-for-specific-origins-isolateorigins)|Enable site isolation for specific origins|
+|[ManagedFavorites](#configure-favorites-managedfavorites)|Configure favorites|
+|[ManagedSearchEngines](#manage-search-engines-managedsearchengines)|Manage Search Engines|
+|[MaxConnectionsPerProxy](#maximum-number-of-concurrent-connections-to-the-proxy-server-maxconnectionsperproxy)|Maximum number of concurrent connections to the proxy server|
+|[MediaRouterCastAllowAllIPs](#allow-google-cast-to-connect-to-cast-devices-on-all-ip-addresses-mediaroutercastallowallips)|Allow Google Cast to connect to Cast devices on all IP addresses|
+|[MetricsReportingEnabled](#enable-usage-and-crash-related-data-reporting-metricsreportingenabled)|Enable usage and crash-related data reporting|
+|[NetworkPredictionOptions](#enable-network-prediction-networkpredictionoptions)|Enable network prediction|
+|[OverrideSecurityRestrictionsOnInsecureOrigin](#control-where-security-restrictions-on-insecure-origins-apply-overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
+|[ProactiveAuthEnabled](#enable-proactive-authentication-proactiveauthenabled)|Enable Proactive Authentication|
+|[PromotionalTabsEnabled](#enable-full-tab-promotional-content-promotionaltabsenabled)|Enable full-tab promotional content|
+|[PromptForDownloadLocation](#ask-where-to-save-downloaded-files-promptfordownloadlocation)|Ask where to save downloaded files|
+|[QuicAllowed](#allow-quic-protocol-quicallowed)|Allow QUIC protocol|
+|[RelaunchNotification](#notify-a-user-that-a-browser-restart-is-recommended-or-required-for-pending-updates-relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
+|[RelaunchNotificationPeriod](#set-the-time-period-for-update-notifications-relaunchnotificationperiod)|Set the time period for update notifications|
+|[RequireOnlineRevocationChecksForLocalAnchors](#specify-if-online-ocsp/crl-checks-are-required-for-local-trust-anchors-requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
+|[ResolveNavigationErrorsUseWebService](#enable-resolution-of-navigation-errors-using-a-web-service-resolvenavigationerrorsusewebservice)|Enable resolution of navigation errors using a web service|
+|[RestrictSigninToPattern](#restrict-which-accounts-can-be-used-as-microsoft-edge-primary-accounts-restrictsignintopattern)|Restrict which accounts can be used as Microsoft Edge primary accounts|
+|[RunAllFlashInAllowMode](#extend-adobe-flash-content-setting-to-all-content-runallflashinallowmode)|Extend Adobe Flash content setting to all content|
+|[SSLErrorOverrideAllowed](#allow-users-to-proceed-from-the-ssl-warning-page-sslerroroverrideallowed)|Allow users to proceed from the SSL warning page|
+|[SSLVersionMin](#minimum-ssl-version-enabled-sslversionmin)|Minimum SSL version enabled|
+|[SavingBrowserHistoryDisabled](#disable-saving-browser-history-savingbrowserhistorydisabled)|Disable saving browser history|
+|[SearchSuggestEnabled](#enable-search-suggestions-searchsuggestenabled)|Enable search suggestions|
+|[SecurityKeyPermitAttestation](#websites-or-domains-that-don't-need-permission-to-use-direct-security-key-attestation-securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
+|[SendIntranetToInternetExplorer](#send-all-intranet-sites-to-internet-explorer-sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
+|[SendSiteInfoToImproveServices](#send-site-information-to-improve-microsoft-services-sendsiteinfotoimproveservices)|Send site information to improve Microsoft services|
+|[ShowOfficeShortcutInFavoritesBar](#show-microsoft-office-shortcut-in-favorites-bar-showofficeshortcutinfavoritesbar)|Show Microsoft Office shortcut in favorites bar|
+|[SitePerProcess](#enable-site-isolation-for-every-site-siteperprocess)|Enable site isolation for every site|
+|[SpellcheckEnabled](#enable-spellcheck-spellcheckenabled)|Enable spellcheck|
+|[SpellcheckLanguage](#enable-specific-spellcheck-languages-spellchecklanguage)|Enable specific spellcheck languages|
+|[SuppressUnsupportedOSWarning](#suppress-the-unsupported-os-warning-suppressunsupportedoswarning)|Suppress the unsupported OS warning|
+|[SyncDisabled](#disable-synchronization-of-data-using-microsoft-sync-services-syncdisabled)|Disable synchronization of data using Microsoft sync services|
+|[TabLifecyclesEnabled](#configure-tab-lifecycles-tablifecyclesenabled)|Configure tab lifecycles|
+|[TaskManagerEndProcessEnabled](#enable-ending-processes-in-the-browser-task-manager-taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
+|[TranslateEnabled](#enable-translate-translateenabled)|Enable Translate|
+|[URLAllowlist](#define-a-list-of-allowed-urls-urlallowlist)|Define a list of allowed URLs|
+|[URLBlocklist](#block-access-to-a-list-of-urls-urlblocklist)|Block access to a list of URLs|
+|[UserDataDir](#set-the-user-data-directory-userdatadir)|Set the user data directory|
+|[UserFeedbackAllowed](#allow-user-feedback-userfeedbackallowed)|Allow user feedback|
+|[VideoCaptureAllowed](#allow-or-block-video-capture-videocaptureallowed)|Allow or block video capture|
+|[VideoCaptureAllowedUrls](#sites-that-can-access-video-capture-devices-without-requesting-permission-videocaptureallowedurls)|Sites that can access video capture devices without requesting permission|
+|[WPADQuickCheckEnabled](#set-wpad-optimization-wpadquickcheckenabled)|Set WPAD optimization|
+|[WebDriverOverridesIncompatiblePolicies](#allow-webdriver-to-override-incompatible-policies-webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
+|[WebRtcLocalhostIpHandling](#restrict-exposure-of-localhost-ip-address-by-webrtc-webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
+|[WebRtcUdpPortRange](#restrict-the-range-of-local-udp-ports-used-by-webrtc-webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
 
 
 
