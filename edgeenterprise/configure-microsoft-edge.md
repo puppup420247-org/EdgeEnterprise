@@ -1,14 +1,16 @@
---- 
-title: "Configuring Microsoft Edge" 
-ms.author: brianalt 
+---
+title: "Configuring Microsoft Edge"
+ms.author: brianalt
 author: kelleyvice-MSFT
-audience: ITPro 
+manager: laurawi
+ms.date: 7/10/2019
+audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
 localization_priority: low
-ms.collection: 
-ms.custom: 
-description: "Learn how to configure Microsoft Edge version 77 and later on Windows and Mac" 
+ms.collection:
+ms.custom:
+description: "Learn how to configure Microsoft Edge version 77 and later on Windows and Mac"
 ---
 
 # Configuring Microsoft Edge
@@ -18,9 +20,9 @@ Use the following information to configure Microsoft Edge on your Windows and Ma
 
 The recommended way to configure policy on all versions of Windows is by using group policy objects (GPO). You can also provision policy through the  registry for Windows devices that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
-Microsoft Edge supports mandatory and recommended policies. Mandatory policies override user preferences and prevents the user from changing it, while recommended policy provide a default setting that may be overridden by the user. Most policies are mandatory only; a subset are mandatory and recommended. If both versions of a policy are set, the mandatory one takes precedents. 
+Microsoft Edge supports mandatory and recommended policies. Mandatory policies override user preferences and prevents the user from changing it, while recommended policy provide a default setting that may be overridden by the user. Most policies are mandatory only; a subset are mandatory and recommended. If both versions of a policy are set, the mandatory one takes precedents.
 
-Microsoft Edge has two administrative templates: One to [configure Microsoft Edge settings](microsoft-edge-policies.md), and one to [manage Microsoft Edge updates](microsoft-edge-update-policies.md). 
+Microsoft Edge has two administrative templates: One to [configure Microsoft Edge settings](microsoft-edge-policies.md), and one to [manage Microsoft Edge updates](microsoft-edge-update-policies.md).
 
 ## Configuring Microsoft Edge on Mac
 Use a property list (.plist) file to set Microsoft Edge policies on Mac. You then convert this file to a configuration profile that can be deployed to your user's Mac devices using your preferred management tool, such as Microsoft Intune [using custom settings](https://docs.microsoft.com/intune/custom-settings-macos) or Jamf.
