@@ -120,7 +120,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[ApplicationLocaleValue](#set-application-locale-applicationlocalevalue)|Set application locale|
 |[AudioCaptureAllowed](#allow-or-block-audio-capture-audiocaptureallowed)|Allow or block audio capture|
 |[AudioCaptureAllowedUrls](#sites-that-can-access-audio-capture-devices-without-requesting-permission-audiocaptureallowedurls)|Sites that can access audio capture devices without requesting permission|
-|[AutoImportAtFirstRun](#automatically-import-another-browser's-data-and-settings-at-first-run-autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
+|[AutoImportAtFirstRun](#automatically-import-another-browsers-data-and-settings-at-first-run-autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
 |[AutofillAddressEnabled](#enable-autofill-for-addresses-autofilladdressenabled)|Enable AutoFill for addresses|
 |[AutofillCreditCardEnabled](#enable-autofill-for-credit-cards-autofillcreditcardenabled)|Enable AutoFill for credit cards|
 |[BackgroundModeEnabled](#continue-running-background-apps-after-microsoft-edge-closes-backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
@@ -133,7 +133,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[CertificateTransparencyEnforcementDisabledForCas](#disable-certificate-transparency-enforcement-for-a-list-of-subjectpublickeyinfo-hashes-certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
 |[CertificateTransparencyEnforcementDisabledForLegacyCas](#disable-certificate-transparency-enforcement-for-a-list-of-legacy-certificate-authorities-certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
 |[CertificateTransparencyEnforcementDisabledForUrls](#disable-certificate-transparency-enforcement-for-specific-urls-certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
-|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#allow-http/2-connection-coalescing-for-these-hosts-even-when-client-certificates-are-used-coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
+|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#allow-http2-connection-coalescing-for-these-hosts-even-when-client-certificates-are-used-coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
 |[ComponentUpdatesEnabled](#enable-component-updates-in-microsoft-edge-componentupdatesenabled)|Enable component updates in Microsoft Edge|
 |[ConfigureDoNotTrack](#configure-do-not-track-configuredonottrack)|Configure Do Not Track|
 |[ConfigureOnlineTextToSpeech](#configure-online-text-to-speech-configureonlinetexttospeech)|Configure Online Text To Speech|
@@ -142,13 +142,13 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[Disable3DAPIs](#disable-support-for-3d-graphics-apis-disable3dapis)|Disable support for 3D graphics APIs|
 |[DisableScreenshots](#disable-taking-screenshots-disablescreenshots)|Disable taking screenshots|
 |[DiskCacheDir](#set-disk-cache-directory-diskcachedir)|Set disk cache directory|
-|[DiskCacheSize](#set-disk-cache-size,-in-bytes-diskcachesize)|Set disk cache size, in bytes|
+|[DiskCacheSize](#set-disk-cache-size-in-bytes-diskcachesize)|Set disk cache size, in bytes|
 |[DownloadDirectory](#set-download-directory-downloaddirectory)|Set download directory|
 |[DownloadRestrictions](#allow-download-restrictions-downloadrestrictions)|Allow download restrictions|
 |[EditFavoritesEnabled](#allows-users-to-edit-favorites-editfavoritesenabled)|Allows users to edit favorites|
 |[EnableDeprecatedWebPlatformFeatures](#re-enable-deprecated-web-platform-features-for-a-limited-time-enabledeprecatedwebplatformfeatures)|Re-enable deprecated web platform features for a limited time|
 |[EnableDomainActionsDownload](#enable-domain-actions-download-from-microsoft-enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft|
-|[EnableOnlineRevocationChecks](#enable-online-ocsp/crl-checks-enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
+|[EnableOnlineRevocationChecks](#enable-online-ocspcrl-checks-enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
 |[FavoritesBarEnabled](#enable-favorites-bar-favoritesbarenabled)|Enable favorites bar|
 |[ForceBingSafeSearch](#configure-bing-safesearch-forcebingsafesearch)|Configure Bing SafeSearch|
 |[ForceEphemeralProfiles](#enable-use-of-ephemeral-profiles-forceephemeralprofiles)|Enable use of ephemeral profiles|
@@ -179,7 +179,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[QuicAllowed](#allow-quic-protocol-quicallowed)|Allow QUIC protocol|
 |[RelaunchNotification](#notify-a-user-that-a-browser-restart-is-recommended-or-required-for-pending-updates-relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
 |[RelaunchNotificationPeriod](#set-the-time-period-for-update-notifications-relaunchnotificationperiod)|Set the time period for update notifications|
-|[RequireOnlineRevocationChecksForLocalAnchors](#specify-if-online-ocsp/crl-checks-are-required-for-local-trust-anchors-requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
+|[RequireOnlineRevocationChecksForLocalAnchors](#specify-if-online-ocspcrl-checks-are-required-for-local-trust-anchors-requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
 |[ResolveNavigationErrorsUseWebService](#enable-resolution-of-navigation-errors-using-a-web-service-resolvenavigationerrorsusewebservice)|Enable resolution of navigation errors using a web service|
 |[RestrictSigninToPattern](#restrict-which-accounts-can-be-used-as-microsoft-edge-primary-accounts-restrictsignintopattern)|Restrict which accounts can be used as Microsoft Edge primary accounts|
 |[RunAllFlashInAllowMode](#extend-adobe-flash-content-setting-to-all-content-runallflashinallowmode)|Extend Adobe Flash content setting to all content|
@@ -187,7 +187,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[SSLVersionMin](#minimum-ssl-version-enabled-sslversionmin)|Minimum SSL version enabled|
 |[SavingBrowserHistoryDisabled](#disable-saving-browser-history-savingbrowserhistorydisabled)|Disable saving browser history|
 |[SearchSuggestEnabled](#enable-search-suggestions-searchsuggestenabled)|Enable search suggestions|
-|[SecurityKeyPermitAttestation](#websites-or-domains-that-don't-need-permission-to-use-direct-security-key-attestation-securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
+|[SecurityKeyPermitAttestation](#websites-or-domains-that-dont-need-permission-to-use-direct-security-key-attestation-securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
 |[SendIntranetToInternetExplorer](#send-all-intranet-sites-to-internet-explorer-sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
 |[SendSiteInfoToImproveServices](#send-site-information-to-improve-microsoft-services-sendsiteinfotoimproveservices)|Send site information to improve Microsoft services|
 |[ShowOfficeShortcutInFavoritesBar](#show-microsoft-office-shortcut-in-favorites-bar-showofficeshortcutinfavoritesbar)|Show Microsoft Office shortcut in favorites bar|
