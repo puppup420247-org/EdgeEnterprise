@@ -1,2 +1,10 @@
-- name: Index
+- name: Microsoft Edge
   href: index.md
+  items:
+  - name: Configure Microsoft Edge
+    href: configure-microsoft-edge.md
+    items:
+     - name: Microsoft Edge policies
+       href: microsoft-edge-policies.md
+     - name: Microsoft Edge update policies
+       href: microsoft-edge-update-policies.md
