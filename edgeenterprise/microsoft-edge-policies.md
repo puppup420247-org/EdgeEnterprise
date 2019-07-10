@@ -49,7 +49,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[PopupsAllowedForUrls](#allow-pop-up-windows-on-specific-sites-popupsallowedforurls)|Allow pop-up windows on specific sites|
 |[PopupsBlockedForUrls](#block-pop-up-windows-on-specific-sites-popupsblockedforurls)|Block pop-up windows on specific sites|
 |[RegisteredProtocolHandlers](#register-protocol-handlers-registeredprotocolhandlers)|Register protocol handlers|
-|[WebUsbAllowDevicesForUrls](#grant-access-to-specific-sites-to-connect-to-specific-usb-devices.-webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
+|[WebUsbAllowDevicesForUrls](#grant-access-to-specific-sites-to-connect-to-specific-usb-devices-webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
 |[WebUsbAskForUrls](#allow-webusb-on-specific-sites-webusbaskforurls)|Allow WebUSB on specific sites|
 |[WebUsbBlockedForUrls](#block-webusb-on-specific-sites-webusbblockedforurls)|Block WebUSB on specific sites|
 |Default search provider||
@@ -82,7 +82,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |Native Messaging||
 |[NativeMessagingAllowlist](#control-which-native-messaging-hosts-users-can-use-nativemessagingallowlist)|Control which native messaging hosts users can use|
 |[NativeMessagingBlocklist](#configure-native-messaging-block-list-nativemessagingblocklist)|Configure native messaging block list|
-|[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-(installed-without-admin-permissions)-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
+|[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-installed-without-admin-permissions-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
 |Password manager and protection||
 |[PasswordManagerEnabled](#enable-saving-passwords-to-the-password-manager-passwordmanagerenabled)|Enable saving passwords to the password manager|
 |[PasswordProtectionChangePasswordURL](#configure-the-change-password-url-passwordprotectionchangepasswordurl)|Configure the change password URL|
@@ -97,13 +97,13 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |Proxy server||
 |[ProxyBypassList](#configure-proxy-bypass-rules-proxybypasslist)|Configure proxy bypass rules|
 |[ProxyMode](#configure-proxy-server-settings-proxymode)|Configure proxy server settings|
-|[ProxyPacUrl](#set-the-proxy-.pac-file-url-proxypacurl)|Set the proxy .pac file URL|
+|[ProxyPacUrl](#set-the-proxy-pac-file-url-proxypacurl)|Set the proxy .pac file URL|
 |[ProxyServer](#configure-address-or-url-of-proxy-server-proxyserver)|Configure address or URL of proxy server|
 |[ProxySettings](#proxy-settings-proxysettings)|Proxy settings|
 |SmartScreen settings||
 |[PreventSmartScreenPromptOverride](#prevent-bypassing-microsoft-defender-smartscreen-prompts-for-sites-preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
 |[PreventSmartScreenPromptOverrideForFiles](#prevent-bypassing-of-microsoft-defender-smartscreen-warnings-about-downloads-preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
-|[SmartScreenAllowListDomains](#configure-the-list-of-domains-for-which-smartscreen-won't-trigger-warnings-smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
+|[SmartScreenAllowListDomains](#configure-the-list-of-domains-for-which-smartscreen-wont-trigger-warnings-smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#configure-microsoft-defender-smartscreen-smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |Startup, home page and new tab page||
 |[HomepageIsNewTabPage](#set-the-new-tab-page-as-the-home-page-homepageisnewtabpage)|Set the new tab page as the home page|
