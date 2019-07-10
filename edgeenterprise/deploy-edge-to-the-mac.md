@@ -76,4 +76,6 @@ You will have the deployed Microsoft Edge package configured when the defined tr
 
 ## See also
 
-- [Microsoft Edge Enterprise landing page](https://aka.ms/edgeenterprise)
+- [Overview of Edge in the enterprise](overview-edge-in-the-enterprise.md)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Jamf.com](https://www.jamf.com/)
