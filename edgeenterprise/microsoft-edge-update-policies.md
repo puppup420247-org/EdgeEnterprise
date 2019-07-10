@@ -1,42 +1,41 @@
 --- 
-title: "Microsoft Edge update policy reference" 
-ms.author: stmoody 
-author: kelleyvice-MSFT 
-manager: tahills 
-audience: ITPro 
+title: "Microsoft Edge update policy reference"
+ms.author: stmoody
+author: kelleyvice-MSFT
+manager: tahills
+audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
 localization_priority: high
-ms.collection: 
-ms.custom: 
-description: "Documentation for all policies supported by the Microsoft Edge Updater" 
+ms.collection:
+ms.custom:
+description: "Documentation for all policies supported by the Microsoft Edge Updater"
 ---
+
 # Microsoft Edge - Update policies
 
 The latest version of Microsoft Edge includes the following policies that you can use to control how and when Microsoft Edge is updated.
 
-For information about other policies avaiable in Microsoft Edge, check out [Microsoft Edge - Policies](microsoft-edge-policies.md).
+For information about other policies available in Microsoft Edge, check out [Microsoft Edge - Policies](microsoft-edge-policies.md).
 
 ## Available group policies
 
-This table lists all of the group policies avaiable in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
+This table lists all of the group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 |Policy Name|Caption|
 |-|-|
 |Applications||
-|[InstallDefault](#Allow-installation-default-InstallDefault)|Allow installation default|
-|[UpdateDefault](#Update-policy-override-default-UpdateDefault)|Update policy override default|
-|[Install](#Allow-installation-Install)|Allow installation (per channel)|
-|[Update](#Update-policy-override-Update)|Update policy override (per channel)|
+|[InstallDefault](#allow-installation-default-installdefault)|Allow installation default|
+|[UpdateDefault](#update-policy-override-default-updatedefault)|Update policy override default|
+|[Install](#allow-installation-install)|Allow installation (per channel)|
+|[Update](#update-policy-override-update)|Update policy override (per channel)|
 |Preferences||
-|[AutoUpdateCheckPeriodMinutes](#Auto-update-check-period-override-AutoUpdateCheckPeriodMinutes)|Auto-update check period override|
-|[UpdatesSuppressed](#Time-period-in-each-day-to-suppress-auto-update-check-UpdatesSuppressed)|Time period in each day to suppress auto-update check|
+|[AutoUpdateCheckPeriodMinutes](#auto-update-check-period-override-autoupdatecheckperiodminutes)|Auto-update check period override|
+|[UpdatesSuppressed](#time-period-in-each-day-to-suppress-auto-update-check-updatessuppressed)|Time period in each day to suppress auto-update check|
 |Proxy Server||
-|[ProxyMode](#Choose-how-to-specify-proxy-server-settings-ProxyMode)|Choose how to specify proxy server settings|
-|[ProxyPacUrl](#URL-to-a-proxy-.pac-file-ProxyPacUrl)|URL to a proxy .pac file|
-|[ProxyServer](#Address-or-URL-of-proxy-server-ProxyServer)|Address or URL of proxy server|
-
-
+|[ProxyMode](#choose-how-to-specify-proxy-server-settings-proxymode)|Choose how to specify proxy server settings|
+|[ProxyPacUrl](#url-to-a-proxy-pac-file-proxypacurl)|URL to a proxy .pac file|
+|[ProxyServer](#address-or-url-of-proxy-server-proxyserver)|Address or URL of proxy server|
 
 ## Allow installation default (InstallDefault)
 >Edge Update 1.2.145.5 and later
@@ -63,10 +62,8 @@ Affects installation of Microsoft Edge software only when users are running Edge
 #### Example value: 
 ```
 0x00000001
-```    
+```
   [Back to Top](#available-group-policies)
-
-
 
 ## Update policy override default (UpdateDefault)
 >Edge Update 1.2.145.5 and later
