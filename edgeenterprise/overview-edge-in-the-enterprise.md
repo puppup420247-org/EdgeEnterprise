@@ -16,5 +16,4 @@ description: "Overview of deploying Microsoft Edge in the enterprise"
 # Overview of Microsoft Edge in the enterprise
   
 > [!NOTE]
-> This article applies to Microsft Edge version 77 or later.
-  
+> This article applies to Microsoft Edge version 77 or later.
