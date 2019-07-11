@@ -11,11 +11,10 @@
        href: deploy-edge-to-the-mac.md
   - name: Configure Microsoft Edge
     href: configure-microsoft-edge.md
-  - name: Frequently asked questions
-    href: faqs-edge-in-the-enterprise.md
-  - name: Reference
     items: 
      - name: Browser policy reference
        href: microsoft-edge-policies.md
      - name: Update policy reference
        href: microsoft-edge-update-policies.md
+  - name: Frequently asked questions
+    href: faqs-edge-in-the-enterprise.md
