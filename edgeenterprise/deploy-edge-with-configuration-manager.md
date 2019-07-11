@@ -16,6 +16,9 @@ description: "Learn how to deploy Microsoft Edge  with System Center Configurati
 
 You can automate deployment of Microsoft Edge using System Center Configuration Manager (SCCM).
 
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
+
 ## Before you start  
 
 Make sure that you've reviewed the information in [Introduction to application management](https://docs.microsoft.com/en-us/sccm/apps/understand/introduction-to-application-management) so that you have prepared your site to install applications and you understand the terminology that's used in this topic.  

@@ -14,7 +14,11 @@ description: "Learn how to configure Microsoft Edge version 77 and later on Wind
 ---
 
 # Configure Microsoft Edge
+
 Use the following information to configure Microsoft Edge on your Windows and Mac devices.
+
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
 
 ## Configure Microsoft Edge on Windows
 

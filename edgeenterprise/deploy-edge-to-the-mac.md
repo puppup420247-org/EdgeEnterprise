@@ -14,7 +14,11 @@ description: "Documentation for automating Edge deployment with Jamf."
 ---
 
 ## Deploy Microsoft Edge for MacOS using Jamf
+
 You can automate deployment of Microsoft Edge for MacOS using Jamf.
+
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
 
 ### Prerequisites
 

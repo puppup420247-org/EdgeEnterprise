@@ -19,6 +19,9 @@ The latest version of Microsoft Edge includes the following policies. You can us
 
 For information about an additional set of policies used to  control how and when Microsoft Edge is updated, check out [Microsoft Edge update policy reference](microsoft-edge-update-policies.md).
 
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
+
 ## Available group policies
 
 This table lists all of the group policies avaiable in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
