@@ -25,8 +25,7 @@ A key aspect of cloud security is identity and access when it comes to managing 
 Microsoft Edge natively supports Azure AD Conditional Access. Microsoft Edge profile associated with enterprise AAD credentials is all what is needed to allow seamless access to enterprise cloud resources protected using Conditional Access. This support is available across all platforms which includes all versions of Windows and MacOS. 
 
 ### How to deploy Conditional Access in Azure Active Directory 
-Here’s a detail guide to help you deploy Conditional Access in Azure AAD:
-[Deploy Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access)
+[Deploy Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access) provides a detailed guide to help deoploy Conditional Access in Azure Active Directory,
 
 ## Application Guard
 Browsers remain the primary attack surface on client devices today because it’s their fundamental job to download and execute untrusted content from untrusted sources. Security incident prevention or detection/response strategies cannot guarantee 100% safety. Malicious actors are constantly at work to social engineer new forms of attacks against the browser. One of the security strategies to consider is the Assume Breach principle and ensure corporate network and other resources remain protected in such scenarios. 
@@ -36,7 +35,7 @@ Designed for Windows 10 and Microsoft Edge, Application Guard uses hardware isol
   > [!TIP] 
   > Application Guard in Microsoft Edge (Chromium-based) is supported only on Windows 10 1809 (RS5) and above.
 
-Here are some more useful links to get started with Application Guard with Microsoft Edge. 
+The following links provide additonal information to get started using Application Guard with Microsoft Edge. 
 
 - [System Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
 - [Installing Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/install-wd-app-guard)
