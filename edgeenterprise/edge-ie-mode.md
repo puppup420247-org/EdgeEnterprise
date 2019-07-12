@@ -101,7 +101,7 @@ In this scenario, the IT department has deployed a Site List XML file and alread
 > [!NOTE]
 > Enterprise Mode schema v.1 will not be supported for Internet Explorer mode integration. If you are using schema v.1, you must upgrade to schema v.2 or v.2.1. See [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
-Recommended configuration: HTTPS location: **[https://localhost:8080/sites.xml](https://localhost:8080/sites.xml)**
+Recommended configuration: HTTPS location: **https://localhost:8080/sites.xml**
 
 ### Other available configurations
 
