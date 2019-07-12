@@ -56,7 +56,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[WebUsbAllowDevicesForUrls](#grant-access-to-specific-sites-to-connect-to-specific-usb-devices-webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
 |[WebUsbAskForUrls](#allow-webusb-on-specific-sites-webusbaskforurls)|Allow WebUSB on specific sites|
 |[WebUsbBlockedForUrls](#block-webusb-on-specific-sites-webusbblockedforurls)|Block WebUSB on specific sites|
-|Default search provider||
+|*Default search provider*||
 |[DefaultSearchProviderEnabled](#enable-the-default-search-provider-defaultsearchproviderenabled)|Enable the default search provider|
 |[DefaultSearchProviderEncodings](#default-search-provider-encodings-defaultsearchproviderencodings)|Default search provider encodings|
 |[DefaultSearchProviderImageURL](#specifies-the-search-by-image-feature-for-the-default-search-provider-defaultsearchproviderimageurl)|Specifies the search-by-image feature for the default search provider|
@@ -87,7 +87,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[NativeMessagingAllowlist](#control-which-native-messaging-hosts-users-can-use-nativemessagingallowlist)|Control which native messaging hosts users can use|
 |[NativeMessagingBlocklist](#configure-native-messaging-block-list-nativemessagingblocklist)|Configure native messaging block list|
 |[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-installed-without-admin-permissions-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
-|Password manager and protection||
+|*Password manager and protection*||
 |[PasswordManagerEnabled](#enable-saving-passwords-to-the-password-manager-passwordmanagerenabled)|Enable saving passwords to the password manager|
 |[PasswordProtectionChangePasswordURL](#configure-the-change-password-url-passwordprotectionchangepasswordurl)|Configure the change password URL|
 |[PasswordProtectionLoginURLs](#configure-the-list-of-enterprise-login-urls-where-password-protection-service-should-capture-fingerprint-of-password-passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
