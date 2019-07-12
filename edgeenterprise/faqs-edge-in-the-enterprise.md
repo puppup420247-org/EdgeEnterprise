@@ -30,7 +30,7 @@ Yes, you can. During the testing phase for the new version of Microsoft Edge, no
 Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
 
 ## What is the difference between the Canary and Developer channels/builds?
-The Canary channel will update about daily, and the Dev channel will update about weekly. More information about other channels will be coming soon.
+The Canary channel will update about daily, and the Dev channel will update about weekly. Also, offline installers (MSIs and PKG files) will only be available for the Dev channel. More information about other channels will be coming soon.
 
 ## What kind of extension support do I have with the new version of Microsoft Edge?
 Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://go.microsoft.com/fwlink/?linkid=2081222) and [Chrome Web Store](https://go.microsoft.com/fwlink/?linkid=2072338).
