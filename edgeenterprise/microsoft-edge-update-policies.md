@@ -28,15 +28,15 @@ This table lists all of the group policies available in this release of Microsof
 
 |Policy Name|Caption|
 |-|-|
-|Applications||
+|*Applications*||
 |[InstallDefault](#allow-installation-default-installdefault)|Allow installation default|
 |[UpdateDefault](#update-policy-override-default-updatedefault)|Update policy override default|
 |[Install](#allow-installation-install)|Allow installation (per channel)|
 |[Update](#update-policy-override-update)|Update policy override (per channel)|
-|Preferences||
+|*Preferences*||
 |[AutoUpdateCheckPeriodMinutes](#auto-update-check-period-override-autoupdatecheckperiodminutes)|Auto-update check period override|
 |[UpdatesSuppressed](#time-period-in-each-day-to-suppress-auto-update-check-updatessuppressed)|Time period in each day to suppress auto-update check|
-|Proxy Server||
+|*Proxy Server*||
 |[ProxyMode](#choose-how-to-specify-proxy-server-settings-proxymode)|Choose how to specify proxy server settings|
 |[ProxyPacUrl](#url-to-a-proxy-pac-file-proxypacurl)|URL to a proxy .pac file|
 |[ProxyServer](#address-or-url-of-proxy-server-proxyserver)|Address or URL of proxy server|
