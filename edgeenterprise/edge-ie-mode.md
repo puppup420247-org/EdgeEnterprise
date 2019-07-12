@@ -140,7 +140,8 @@ The following table shows the possible values of the \<open-in\> element:
 | **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the employee. |
 | **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
 
-> [!NOTE] The element of app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. We recommend following the structure mentioned above.
+> [!NOTE]
+> The element of app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. We recommend following the structure mentioned above.
 
 ### Additional configurations
 
