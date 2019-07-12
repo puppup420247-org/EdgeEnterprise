@@ -124,11 +124,11 @@ The following table provides the additional element added to the v.2 of the Ente
 **Example:**
 
 ``` xml
-\<site url=**contoso.com**\>
+<site url=**contoso.com**>
 
-  \<open-in app=**true**\>IE11\</open-in\>
+  <open-in app=**true**>IE11</open-in>
 
-\</site\>
+</site>
 ```
 
 The following table shows the possible values of the \<open-in\> element:
@@ -147,11 +147,11 @@ The following table shows the possible values of the \<open-in\> element:
 If you have identified a site that needs to run in IE11, from business or technical reasons you can update the site list to set the specific website with the following structure.
 
 ``` xml
-\<site url=**contoso.com**\>
+<site url=**contoso.com**>
 
-  \<open-in app=**true**\>IE11\</open-in\>
+  <open-in app=**true**>IE11</open-in>
 
-\</site\>
+</site>
 ```
 
 If you want to restrict users from using IE11, do the following:
