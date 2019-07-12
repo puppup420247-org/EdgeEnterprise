@@ -3,11 +3,11 @@ title: "Deploy Microsoft Edge using System Center Configuration Manager"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 7/2/2019
+ms.date: 7/12/2019
 audience: ITPro
 ms.topic: conceptual
-ms.prod: microsoft-365-enterprise
-localization_priority: Normal
+ms.prod: microsoft-edge
+localization_priority: high
 ms.collection: M365-modern-desktop
 description: "Learn how to deploy Microsoft Edge  with System Center Configuration Manager (SCCM)."
 ---

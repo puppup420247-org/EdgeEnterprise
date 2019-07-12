@@ -3,13 +3,12 @@ title: "Overview of Edge in the enterprise"
 ms.author: kwjot
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 7/10/2019
+ms.date: 7/12/2019
 audience: ITPro
 ms.topic: conceptual
-ms.service: 
-localization_priority: Normal
-ms.collection: 
-ms.custom: 
+ms.prod: microsoft-edge
+localization_priority: high
+ms.collection: M365-modern-desktop
 description: "Overview of deploying Microsoft Edge in the enterprise"
 ---
 

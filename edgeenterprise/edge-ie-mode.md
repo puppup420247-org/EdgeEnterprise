@@ -6,8 +6,8 @@ manager: laurawi
 ms.date: 7/12/2019
 audience: ITPro
 ms.topic: conceptual
-ms.prod: microsoft-365-enterprise
-localization_priority: Normal
+ms.prod: microsoft-edge
+localization_priority: high
 ms.collection: M365-modern-desktop
 description: "Learn how to use Microsoft Edge with Internet Explorer mode."
 ---

@@ -3,13 +3,12 @@ title: "Configure Microsoft Edge"
 ms.author: brianalt
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 7/10/2019
+ms.date: 7/12/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
-localization_priority: low
-ms.collection:
-ms.custom:
+localization_priority: high
+ms.collection: M365-modern-desktop
 description: "Learn how to configure Microsoft Edge version 77 and later on Windows and Mac"
 ---
 

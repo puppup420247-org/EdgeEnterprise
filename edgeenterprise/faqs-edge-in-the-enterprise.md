@@ -3,12 +3,12 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
+ms.date: 7/12/2019
 audience: ITPro
 ms.topic: conceptual
-ms.service: 
-localization_priority: Normal
-ms.collection: 
-ms.custom: 
+ms.prod: microsoft-edge
+localization_priority: high
+ms.collection: M365-modern-desktop
 description: "Frequently asked questions about deploying Microsoft Edge in the enterprise"
 ---
 
@@ -18,7 +18,7 @@ description: "Frequently asked questions about deploying Microsoft Edge in the e
 > This article applies to Microsoft Edge version 77 or later.
 
 ## How do I know which version of Microsoft Edge I have?
-In the upper right corner of Microsoft Edge, click the ellipses icon (...), and then click Settings. Look in the About Microsoft Edge section to know your version.
+In the upper right corner of Microsoft Edge, click the ellipses icon (**...**), and then click **Settings**. Look in the _About Microsoft Edge_ section to know your version.
 
 ## Will Internet Explorer 11 continue to receive updates?
 We’re committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it’s installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will be available only in Microsoft Edge.
