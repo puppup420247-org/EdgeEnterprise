@@ -27,7 +27,7 @@ We’re committed to keeping Internet Explorer a supported, reliable, and safe b
 Yes, you can. During the testing phase for the new version of Microsoft Edge, no changes will be made to the current version, and you will be able to continue using it. Additionally, each of the new Microsoft Edge channels are also supported side by side.
 
 ## Will favorites be ported over from the current version of Microsoft Edge or will I have to re-add?
-Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Microsoft Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
+Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
 
 ## What is the difference between the Canary, Developer and Beta channels/builds?
 The Canary channel will update about daily, and the Dev channel will update about weekly. More information about other channels will be coming soon.
