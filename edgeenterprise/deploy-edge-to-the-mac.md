@@ -21,7 +21,7 @@ You can automate deployment of Microsoft Edge for MacOS using Jamf.
 
 ### Prerequisites
 
-- Make sure that the Microsoft Edge PKG installation file, **MicrosoftEdgeDev-<version>.pkg** is in an accessible location on your network.
+- Make sure that the Microsoft Edge installation file, **MicrosoftEdgeDev-<version>.pkg** is in an accessible location on your network. You can download the Edge Enterprise installation files from the [Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 - Ensure that you have permissions and log in to your Jamf Cloud account.
 
 To deploy Microsoft Edge for MacOS using Jamf:
