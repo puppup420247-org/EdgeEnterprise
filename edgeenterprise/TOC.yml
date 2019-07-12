@@ -1,0 +1,21 @@
+- name: Overview of Microsoft Edge in the enterprise
+  href: overview-edge-in-the-enterprise.md
+- name: Deploy Microsoft Edge
+  items:
+   - name: Deploy with Configuration Manager
+     href: deploy-edge-with-configuration-manager.md
+   - name: Deploy to MacOS
+     href: deploy-edge-to-the-mac.md
+- name: Configure Microsoft Edge
+  href: configure-microsoft-edge.md
+  items: 
+   - name: Use Edge in IE Mode
+     href: edge-ie-mode.md
+   - name: Browser policy reference
+     href: microsoft-edge-policies.md
+   - name: Update policy reference
+     href: microsoft-edge-update-policies.md
+- name: Security Overview
+  href: security-overview.md
+- name: Frequently asked questions
+  href: faqs-edge-in-the-enterprise.md
