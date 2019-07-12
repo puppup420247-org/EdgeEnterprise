@@ -29,7 +29,7 @@ Yes, you can. During the testing phase for the new version of Microsoft Edge, no
 ## Will favorites be ported over from the current version of Microsoft Edge or will I have to re-add?
 Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
 
-## What is the difference between the Canary, Developer and Beta channels/builds?
+## What is the difference between the Canary and Developer channels/builds?
 The Canary channel will update about daily, and the Dev channel will update about weekly. More information about other channels will be coming soon.
 
 ## What kind of extension support do I have with the new version of Microsoft Edge?
