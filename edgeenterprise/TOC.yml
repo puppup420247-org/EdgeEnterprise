@@ -9,6 +9,8 @@
 - name: Configure Microsoft Edge
   href: configure-microsoft-edge.md
   items: 
+   - name: Use Edge in IE Mode
+     href: edge-ie-mode.md
    - name: Browser policy reference
      href: microsoft-edge-policies.md
    - name: Update policy reference
