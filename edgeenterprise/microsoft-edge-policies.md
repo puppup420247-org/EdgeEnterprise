@@ -65,7 +65,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[DefaultSearchProviderName](#default-search-provider-name-defaultsearchprovidername)|Default search provider name|
 |[DefaultSearchProviderSearchURL](#default-search-provider-search-url-defaultsearchprovidersearchurl)|Default search provider search URL|
 |[DefaultSearchProviderSuggestURL](#default-search-provider-url-for-suggestions-defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
-|**Extensions**||
+|*Extensions*||
 |[ExtensionAllowedTypes](#configure-allowed-extension-types-extensionallowedtypes)|Configure allowed extension types|
 |[ExtensionInstallAllowlist](#allow-specific-extensions-to-be-installed-extensioninstallallowlist)|Allow specific extensions to be installed|
 |[ExtensionInstallBlocklist](#control-which-extensions-cannot-be-installed-extensioninstallblocklist)|Control which extensions cannot be installed|
