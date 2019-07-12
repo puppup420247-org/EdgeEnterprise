@@ -247,21 +247,19 @@ If you don't configure this policy, auto-selection isn't done for any site.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` data
 SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutoSelectCertificateForUrls
-  - Example value: 
-```
+  - Example value:  
+``` data
 <array>
   <string>{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
 </array>
-
 ```
   
 
@@ -306,23 +304,21 @@ Note there cannot be conflicting URL patterns set between these three policies:
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -367,23 +363,21 @@ Note there cannot be conflicting URL patterns set between these three policies:
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -432,23 +426,21 @@ If you set the 'RestoreOnStartup' policy to restore URLs from previous sessions,
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesSessionOnlyForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -491,16 +483,16 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   - Path (Recommended):N/A
   - Value Name:DefaultCookiesSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultCookiesSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -542,16 +534,16 @@ If you don't configure this policy, 'AskGeolocation' policy is used and the user
   - Path (Recommended):N/A
   - Value Name:DefaultGeolocationSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultGeolocationSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -591,16 +583,16 @@ If you don't configure this policy, images are allowed by default, and the user 
   - Path (Recommended):N/A
   - Value Name:DefaultImagesSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultImagesSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -640,16 +632,16 @@ If you don't configure this policy, all sites can run JavaScript by default, and
   - Path (Recommended):N/A
   - Value Name:DefaultJavaScriptSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultJavaScriptSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -691,16 +683,16 @@ If you don't configure this policy, notifications are allowed by default, and th
   - Path (Recommended):N/A
   - Value Name:DefaultNotificationsSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultNotificationsSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -744,16 +736,16 @@ The former '1' option set allow-all, but this functionality is now only handled 
   - Path (Recommended):N/A
   - Value Name:DefaultPluginsSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPluginsSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -793,16 +785,16 @@ If you don't configure this policy, pop-up windows are blocked by default, and u
   - Path (Recommended):N/A
   - Value Name:DefaultPopupsSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPopupsSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -842,16 +834,16 @@ If you don't configure this policy, the default value (3, meaning users are aske
   - Path (Recommended):N/A
   - Value Name:DefaultWebBluetoothGuardSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultWebBluetoothGuardSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -893,16 +885,16 @@ If you don't configure this policy, sites can ask users whether they can access 
   - Path (Recommended):N/A
   - Value Name:DefaultWebUsbGuardSetting
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultWebUsbGuardSetting
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -938,23 +930,21 @@ If you don't configure this policy, the global default value is used for all sit
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImagesAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -989,23 +979,21 @@ If you don't configure this policy, the global default value from the 'DefaultIm
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImagesBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1040,23 +1028,21 @@ If you don't configure this policy, the global default value from the 'DefaultJa
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: JavaScriptAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1091,23 +1077,21 @@ If you don't configure this policy, the global default value from the 'DefaultJa
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: JavaScriptBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1142,23 +1126,21 @@ If you don't configure this policy, the global default value from the 'DefaultNo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NotificationsAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1193,23 +1175,21 @@ If you don't configure this policy, the global default value from the 'DefaultNo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NotificationsBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1244,23 +1224,21 @@ If you don't configure this policy, the global default value from the 'DefaultPl
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PluginsAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1295,23 +1273,21 @@ If you don't configure this policy, the global default value from the 'DefaultPl
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PluginsBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1346,23 +1322,21 @@ If you don't configure this policy, the global default value from the 'DefaultPo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PopupsAllowedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1397,23 +1371,21 @@ If you don't configure this policy, the global default value from the 'DefaultPo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PopupsBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1450,8 +1422,8 @@ The protocol handlers registered by policy are merged with any handlers register
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:RegisteredProtocolHandlers
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   {
     "default": true, 
@@ -1464,8 +1436,8 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
 
   ### Mac information and settings
   - Preference Key Name: RegisteredProtocolHandlers
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>RegisteredProtocolHandlers</key>
 <array>
   <dict>
@@ -1517,8 +1489,8 @@ Values for this policy and the DeviceWebUsbAllowDevicesForUrls policy are merged
   - Path (Recommended):N/A
   - Value Name:WebUsbAllowDevicesForUrls
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   {
     "devices": [
@@ -1538,8 +1510,8 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
 
   ### Mac information and settings
   - Preference Key Name: WebUsbAllowDevicesForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>WebUsbAllowDevicesForUrls</key>
 <array>
   <dict>
@@ -1595,23 +1567,21 @@ The URL patterns defined in this policy can't conflict with those configured in 
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebUsbAskForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1648,23 +1618,21 @@ URL patterns in this policy can't conflict with those configured in the 'WebUsbA
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebUsbBlockedForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
-
 ```
   
 
@@ -1709,16 +1677,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -1756,27 +1724,25 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\0 = "UTF-8"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\1 = "UTF-16"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\2 = "GB2312"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderEncodings
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>UTF-8</string>
   <string>UTF-16</string>
   <string>GB2312</string>
   <string>ISO-8859-1</string>
 </array>
-
 ```
   
 
@@ -1813,16 +1779,16 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderImageURL
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://search.contoso.com/searchbyimage/upload"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURL
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://search.contoso.com/searchbyimage/upload"
 ```
   
@@ -1858,16 +1824,16 @@ If you don’t set this policy, image search requests are sent using the GET met
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderImageURLPostParams
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURLPostParams
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
 ```
   
@@ -1905,16 +1871,16 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderKeyword
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "mis"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderKeyword
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "mis"
 ```
   
@@ -1954,16 +1920,16 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderName
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "My Intranet Search"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderName
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "My Intranet Search"
 ```
   
@@ -2005,16 +1971,16 @@ This policy is required when you enable the 'DefaultSearchProviderEnabled' polic
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderSearchURL
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://search.contoso.com/search?q={searchTerms}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSearchURL
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://search.contoso.com/search?q={searchTerms}"
 ```
   
@@ -2058,16 +2024,16 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderSuggestURL
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://search.contoso.com/suggest?q={searchTerms}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSuggestURL
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://search.contoso.com/suggest?q={searchTerms}"
 ```
   
@@ -2109,21 +2075,19 @@ If you don't configure this policy, no restrictions on the acceptable extension 
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionAllowedTypes
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>hosted_app</string>
 </array>
-
 ```
   
 
@@ -2156,23 +2120,21 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\0 = "extension_id1"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallAllowlist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>extension_id1</string>
   <string>extension_id2</string>
 </array>
-
 ```
   
 
@@ -2209,23 +2171,21 @@ If you don't configure this policy, users can install any extension in Microsoft
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\0 = "extension_id1"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallBlocklist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>extension_id1</string>
   <string>extension_id2</string>
 </array>
-
 ```
   
 
@@ -2278,23 +2238,21 @@ Note that this policy doesn't apply to InPrivate mode.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\0 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnopabcdefghijklmnop"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallForcelist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx</string>
   <string>abcdefghijklmnopabcdefghijklmnop</string>
 </array>
-
 ```
   
 
@@ -2333,21 +2291,19 @@ The 'ExtensionInstallBlocklist' policy takes precedence over this policy. Any ex
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.contoso.com/*"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallSources
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://corp.contoso.com/*</string>
 </array>
-
 ```
   
 
@@ -2386,8 +2342,8 @@ For a full description of possible settings and structure of this policy go to h
   - Path (Recommended):N/A
   - Value Name:ExtensionSettings
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   "*": {
     "allowed_types": [
@@ -2456,8 +2412,8 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 
   ### Mac information and settings
   - Preference Key Name: ExtensionSettings
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>ExtensionSettings</key>
 <dict>
   <key>*</key>
@@ -2589,16 +2545,16 @@ By default, Google Cast is enabled.
   - Path (Recommended):N/A
   - Value Name:EnableMediaRouter
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableMediaRouter
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -2636,16 +2592,16 @@ If you've also set the "EnableMediaRouter" policy to false, then this policy is 
   - Path (Recommended):N/A
   - Value Name:ShowCastIconInToolbar
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowCastIconInToolbar
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -2681,16 +2637,16 @@ Typically, this is disabled as a phishing defense. If you don't configure this p
   - Path (Recommended):N/A
   - Value Name:AllowCrossOriginAuthPrompt
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowCrossOriginAuthPrompt
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -2728,16 +2684,16 @@ If you don't configure this policy Microsoft Edge won't delegate user credential
   - Path (Recommended):N/A
   - Value Name:AuthNegotiateDelegateAllowlist
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthNegotiateDelegateAllowlist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "contoso.com"
 ```
   
@@ -2775,16 +2731,16 @@ If you don't configure this policy, all four schemes are used.
   - Path (Recommended):N/A
   - Value Name:AuthSchemes
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "basic,digest,ntlm,negotiate"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthSchemes
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "basic,digest,ntlm,negotiate"
 ```
   
@@ -2822,16 +2778,16 @@ If you don't configure this policy, Microsoft Edge tries to detect if a server i
   - Path (Recommended):N/A
   - Value Name:AuthServerAllowlist
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "*contoso.com,fabrikam.com,*baz"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthServerAllowlist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "*contoso.com,fabrikam.com,*baz"
 ```
   
@@ -2869,16 +2825,16 @@ If you disable this policy or don't configure it, the canonical name of the serv
   - Path (Recommended):N/A
   - Value Name:DisableAuthNegotiateCnameLookup
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DisableAuthNegotiateCnameLookup
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -2916,16 +2872,16 @@ If you don't configure or disable this policy, the generated Kerberos SPN won't 
   - Path (Recommended):N/A
   - Value Name:EnableAuthNegotiatePort
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableAuthNegotiatePort
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -2955,8 +2911,8 @@ If you don't configure this policy, NTLMv2 is enabled by default.
 
   ### Mac information and settings
   - Preference Key Name: NtlmV2Enabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -2992,23 +2948,21 @@ By default, all native messaging hosts are allowed. If you set the 'NativeMessag
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\0 = "com.native.messaging.host.name1"
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messaging.host.name2"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingAllowlist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>com.native.messaging.host.name1</string>
   <string>com.native.messaging.host.name2</string>
 </array>
-
 ```
   
 
@@ -3045,23 +2999,21 @@ If you don't configure this policy, Microsoft Edge will load all installed nativ
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\0 = "com.native.messaging.host.name1"
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messaging.host.name2"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingBlocklist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>com.native.messaging.host.name1</string>
   <string>com.native.messaging.host.name2</string>
 </array>
-
 ```
   
 
@@ -3098,16 +3050,16 @@ By default, if you don't configure this policy, Microsoft Edge will allow usage 
   - Path (Recommended):N/A
   - Value Name:NativeMessagingUserLevelHosts
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingUserLevelHosts
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -3147,16 +3099,16 @@ If you enable or disable this policy, users can't change or override it in Micro
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PasswordManagerEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordManagerEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -3198,16 +3150,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:PasswordProtectionChangePasswordURL
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://contoso.com/change_password.html"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionChangePasswordURL
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://contoso.com/change_password.html"
 ```
   
@@ -3247,23 +3199,21 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\0 = "https://contoso.com/login.html"
 SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.contoso.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionLoginURLs
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://contoso.com/login.html</string>
   <string>https://login.contoso.com</string>
 </array>
-
 ```
   
 
@@ -3310,16 +3260,16 @@ If you disable or don't configure this policy, then the warning trigger is not s
   - Path (Recommended):N/A
   - Value Name:PasswordProtectionWarningTrigger
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionWarningTrigger
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -3361,16 +3311,16 @@ Omitting a field means all values match; for example, if you don't specify conne
   - Path (Recommended):N/A
   - Value Name:DefaultPrinterSelection
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "{ "idPattern": ".*public", "namePattern": ".*Color" }"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPrinterSelection
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "{ "idPattern": ".*public", "namePattern": ".*Color" }"
 ```
   
@@ -3410,16 +3360,16 @@ If you enable this policy, users always print headers and footers.
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PrintHeaderFooter
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintHeaderFooter
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -3457,16 +3407,16 @@ If you enable this policy, Print Preview uses the OS system default printer as t
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PrintPreviewUseSystemDefaultPrinter
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintPreviewUseSystemDefaultPrinter
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -3504,16 +3454,16 @@ If you disable this policy, users can't print from Microsoft Edge. Printing is d
   - Path (Recommended):N/A
   - Value Name:PrintingEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintingEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -3551,16 +3501,16 @@ If you don't configure or disable this policy, print commands trigger the Micros
   - Path (Recommended):N/A
   - Value Name:UseSystemPrintDialog
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UseSystemPrintDialog
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -3602,16 +3552,16 @@ For more detailed examples go to https://docs.microsoft.com/Placeholder05.
   - Path (Recommended):N/A
   - Value Name:ProxyBypassList
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://www.contoso.com, https://www.fabrikam.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyBypassList
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://www.contoso.com, https://www.fabrikam.com"
 ```
   
@@ -3671,16 +3621,16 @@ If you don't configure this policy users can choose their own proxy settings.
   - Path (Recommended):N/A
   - Value Name:ProxyMode
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "direct"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyMode
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "direct"
 ```
   
@@ -3722,16 +3672,16 @@ For detailed examples, see https://docs.microsoft.com/Placeholder05.
   - Path (Recommended):N/A
   - Value Name:ProxyPacUrl
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://internal.contoso.com/example.pac"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyPacUrl
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://internal.contoso.com/example.pac"
 ```
   
@@ -3773,16 +3723,16 @@ For more options and detailed examples, see https://docs.microsoft.com/Placehold
   - Path (Recommended):N/A
   - Value Name:ProxyServer
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "123.123.123.123:8080"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyServer
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "123.123.123.123:8080"
 ```
   
@@ -3845,8 +3795,8 @@ If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
   - Path (Recommended):N/A
   - Value Name:ProxySettings
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   "ProxyBypassList": "https://www.example1.com,https://www.example2.com,https://internalsite/", 
   "ProxyMode": "direct", 
@@ -3858,8 +3808,8 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 
   ### Mac information and settings
   - Preference Key Name: ProxySettings
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>ProxySettings</key>
 <dict>
   <key>ProxyBypassList</key>
@@ -3907,16 +3857,16 @@ If you disable or don't configure this setting, employees can ignore Microsoft D
   - Path (Recommended):N/A
   - Value Name:PreventSmartScreenPromptOverride
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PreventSmartScreenPromptOverride
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -3954,8 +3904,8 @@ If you disable or don't configure this policy, users can ignore Microsoft Defend
   - Path (Recommended):N/A
   - Value Name:PreventSmartScreenPromptOverrideForFiles
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
@@ -3998,23 +3948,21 @@ Also note that this policy does not apply if your organization has enabled Micro
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\0 = "mydomain.com"
 SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.edu"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SmartScreenAllowListDomains
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>mydomain.com</string>
   <string>myuniversity.edu</string>
 </array>
-
 ```
   
 
@@ -4055,16 +4003,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SmartScreenEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SmartScreenEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4106,16 +4054,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:HomepageIsNewTabPage
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HomepageIsNewTabPage
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4159,16 +4107,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:HomepageLocation
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://www.contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HomepageLocation
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://www.contoso.com"
 ```
   
@@ -4206,16 +4154,16 @@ If you set this policy to false or don't configure it, the default top site tile
   - Path (Recommended):N/A
   - Value Name:NewTabPageHideDefaultTopSites
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NewTabPageHideDefaultTopSites
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4259,16 +4207,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:NewTabPageLocation
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://www.fabrikam.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NewTabPageLocation
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://www.fabrikam.com"
 ```
   
@@ -4318,16 +4266,16 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:RestoreOnStartup
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000004
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestoreOnStartup
-  - Example value: 
-```
+  - Example value:  
+``` xml
 4
 ```
   
@@ -4365,23 +4313,21 @@ This policy is only available on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended\RestoreOnStartupURLs
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\0 = "https://contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestoreOnStartupURLs
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://contoso.com</string>
   <string>https://www.fabrikam.com</string>
 </array>
-
 ```
   
 
@@ -4418,16 +4364,16 @@ If you don't configure the policy, users can choose whether to show the home but
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ShowHomeButton
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowHomeButton
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4469,16 +4415,16 @@ If you enable this policy, don't enable the 'Clear browsing data when Microsoft 
   - Path (Recommended):N/A
   - Value Name:AllowDeletingBrowserHistory
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowDeletingBrowserHistory
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4516,16 +4462,16 @@ If you disable this policy, whenever the user performs an action that triggers a
   - Path (Recommended):N/A
   - Value Name:AllowFileSelectionDialogs
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowFileSelectionDialogs
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4563,16 +4509,16 @@ If you don't configure this policy or disable it, Microsoft Edge will open PDF f
   - Path (Recommended):N/A
   - Value Name:AlwaysOpenPdfExternally
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AlwaysOpenPdfExternally
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -4610,8 +4556,8 @@ If you disable or don't configure this setting, Microsoft Edge uses either the u
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ApplicationLocaleValue
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "en"
 ```
 
@@ -4653,16 +4599,16 @@ This policy affects all types of audio inputs, not only the built-in microphone.
   - Path (Recommended):N/A
   - Value Name:AudioCaptureAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AudioCaptureAllowed
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -4696,23 +4642,21 @@ False
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\0 = "https://www.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AudioCaptureAllowedUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com/</string>
   <string>https://[*.]contoso.edu/</string>
 </array>
-
 ```
   
 
@@ -4759,16 +4703,16 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
   - Path (Recommended):N/A
   - Value Name:AutoImportAtFirstRun
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutoImportAtFirstRun
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -4808,16 +4752,16 @@ Note that if you disable this policy you also stop all activity for all web form
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:AutofillAddressEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutofillAddressEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -4855,16 +4799,16 @@ If you enable this policy or don't configure it, users can control AutoFill for 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:AutofillCreditCardEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutofillCreditCardEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -4904,8 +4848,8 @@ If you don't configure this policy, background mode is initially turned off, and
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:BackgroundModeEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
@@ -4947,16 +4891,16 @@ If you don't configure this policy, third-party cookies are enabled but users ca
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:BlockThirdPartyCookies
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BlockThirdPartyCookies
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -4993,16 +4937,16 @@ If you disable this policy, users cannot add new profiles from the Identity flyo
   - Path (Recommended):N/A
   - Value Name:BrowserAddProfileEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserAddProfileEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5040,16 +4984,16 @@ If you disable this policy, Microsoft Edge doesn't let users browse in guest pro
   - Path (Recommended):N/A
   - Value Name:BrowserGuestModeEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserGuestModeEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5087,16 +5031,16 @@ If you enable this policy or don't configure it, Microsoft Edge will occasionall
   - Path (Recommended):N/A
   - Value Name:BrowserNetworkTimeQueriesEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserNetworkTimeQueriesEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5144,16 +5088,16 @@ If you don't configure this policy users can decide if they want to enable the b
   - Path (Recommended):N/A
   - Value Name:BrowserSignin
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserSignin
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -5193,16 +5137,16 @@ If you don't configure this policy, the built-in DNS client is enabled by defaul
   - Path (Recommended):N/A
   - Value Name:BuiltInDnsClientEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BuiltInDnsClientEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5247,23 +5191,21 @@ If you disable this policy or don't configure it, any certificate that's require
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\1 = "sha256//////////////////////w=="
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForCas
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
   <string>sha256//////////////////////w==</string>
 </array>
-
 ```
   
 
@@ -5304,23 +5246,21 @@ If you don't configure this policy, any certificate that's required to be disclo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\1 = "sha256//////////////////////w=="
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForLegacyCas
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
   <string>sha256//////////////////////w==</string>
 </array>
-
 ```
   
 
@@ -5359,23 +5299,21 @@ If you don't configure this policy, any certificate that should be disclosed via
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\1 = ".contoso.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>contoso.com</string>
   <string>.contoso.com</string>
 </array>
-
 ```
   
 
@@ -5414,21 +5352,19 @@ Coalescing requests to different hosts over connections that use client certific
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForHosts\0 = "contoso.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CoalesceH2ConnectionsWithClientCertificatesForHosts
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>contoso.com</string>
 </array>
-
 ```
   
 
@@ -5465,16 +5401,16 @@ However, some components are exempt from this policy. This includes any componen
   - Path (Recommended):N/A
   - Value Name:ComponentUpdatesEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ComponentUpdatesEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5514,16 +5450,16 @@ If you don't configure this policy, users can choose whether to send these reque
   - Path (Recommended):N/A
   - Value Name:ConfigureDoNotTrack
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ConfigureDoNotTrack
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -5565,16 +5501,16 @@ Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-service
   - Path (Recommended):N/A
   - Value Name:ConfigureOnlineTextToSpeech
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ConfigureOnlineTextToSpeech
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5616,16 +5552,16 @@ Note for Windows administrators: This policy only works for PCs running Windows 
   - Path (Recommended):N/A
   - Value Name:DefaultBrowserSettingEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultBrowserSettingEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5671,16 +5607,16 @@ If you set this policy to 'DeveloperToolsDisallowed' (2), users can't access the
   - Path (Recommended):N/A
   - Value Name:DeveloperToolsAvailability
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DeveloperToolsAvailability
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -5718,16 +5654,16 @@ If 'HardwareAccelerationModeEnabled' policy is set to false, the setting for 'Di
   - Path (Recommended):N/A
   - Value Name:Disable3DAPIs
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: Disable3DAPIs
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -5767,16 +5703,16 @@ Please note this policy controls screenshots taken from within the browser itsel
   - Path (Recommended):N/A
   - Value Name:DisableScreenshots
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DisableScreenshots
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -5816,16 +5752,16 @@ If you don't configure this policy, the default cache directory is used, and use
   - Path (Recommended):N/A
   - Value Name:DiskCacheDir
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "${user_home}/Edge_cache"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DiskCacheDir
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "${user_home}/Edge_cache"
 ```
   
@@ -5865,16 +5801,16 @@ If you don't configure this policy, the default size is used, but users can over
   - Path (Recommended):N/A
   - Value Name:DiskCacheSize
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x06400000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DiskCacheSize
-  - Example value: 
-```
+  - Example value:  
+``` xml
 104857600
 ```
   
@@ -5912,16 +5848,16 @@ If you disable or don't configure this policy, the default download directory is
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:DownloadDirectory
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "/home/${user_name}/Downloads"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DownloadDirectory
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "/home/${user_name}/Downloads"
 ```
   
@@ -5975,16 +5911,16 @@ See https://docs.microsoft.com/Placeholder09 for more info on Microsoft Defender
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:DownloadRestrictions
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DownloadRestrictions
-  - Example value: 
-```
+  - Example value:  
+``` xml
 2
 ```
   
@@ -6020,16 +5956,16 @@ Disable this policy to stop users from adding, removing, or modifying favorites.
   - Path (Recommended):N/A
   - Value Name:EditFavoritesEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EditFavoritesEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -6073,21 +6009,19 @@ The general format of the string tag is [DeprecatedFeatureName]_EffectiveUntil[y
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "ExampleDeprecatedFeature_EffectiveUntil20080902"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableDeprecatedWebPlatformFeatures
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>ExampleDeprecatedFeature_EffectiveUntil20080902</string>
 </array>
-
 ```
   
 
@@ -6130,16 +6064,16 @@ If you don't configure this policy, the list of Domain Actions will continue to 
   - Path (Recommended):N/A
   - Value Name:EnableDomainActionsDownload
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableDomainActionsDownload
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6175,16 +6109,16 @@ If you disable the policy or don't configure it, Microsoft Edge doesn't perform 
   - Path (Recommended):N/A
   - Value Name:EnableOnlineRevocationChecks
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableOnlineRevocationChecks
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -6224,16 +6158,16 @@ If this policy is not configured, then the user can decide to use the favorites 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:FavoritesBarEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: FavoritesBarEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6281,16 +6215,16 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
   - Path (Recommended):N/A
   - Value Name:ForceBingSafeSearch
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceBingSafeSearch
-  - Example value: 
-```
+  - Example value:  
+``` xml
 0
 ```
   
@@ -6330,16 +6264,16 @@ In ephemeral mode, profile data is saved on disk only for the length of the user
   - Path (Recommended):N/A
   - Value Name:ForceEphemeralProfiles
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceEphemeralProfiles
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6377,16 +6311,16 @@ If you disable this policy or don't configure it, SafeSearch in Google Search is
   - Path (Recommended):N/A
   - Value Name:ForceGoogleSafeSearch
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceGoogleSafeSearch
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -6432,16 +6366,16 @@ Set to Off (0) or don't configure this policy to not enforce Restricted Mode on 
   - Path (Recommended):N/A
   - Value Name:ForceYouTubeRestrict
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceYouTubeRestrict
-  - Example value: 
-```
+  - Example value:  
+``` xml
 0
 ```
   
@@ -6481,8 +6415,8 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
   - Path (Recommended):N/A
   - Value Name:FullscreenAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
@@ -6520,16 +6454,16 @@ If you disable this policy, hardware acceleration is disabled.
   - Path (Recommended):N/A
   - Value Name:HardwareAccelerationModeEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HardwareAccelerationModeEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6573,16 +6507,16 @@ You can set this policy as a recommendation. This means that Microsoft Edge will
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportAutofillFormData
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportAutofillFormData
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6626,16 +6560,16 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportFavorites
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportFavorites
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6679,16 +6613,16 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportHistory
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportHistory
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6732,16 +6666,16 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended):N/A
   - Value Name:ImportHomepage
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportHomepage
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6785,16 +6719,16 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportPaymentInfo
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportPaymentInfo
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6838,16 +6772,16 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportSavedPasswords
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportSavedPasswords
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6891,16 +6825,16 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportSearchEngine
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportSearchEngine
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -6946,16 +6880,16 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
   - Path (Recommended):N/A
   - Value Name:InPrivateModeAvailability
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: InPrivateModeAvailability
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -7001,8 +6935,8 @@ For more info about how to use this policy together with other related policies 
   - Path (Recommended):N/A
   - Value Name:InternetExplorerIntegrationLevel
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
@@ -7042,16 +6976,16 @@ If you don't configure the policy, the user can change this setting.
   - Path (Recommended):N/A
   - Value Name:IsolateOrigins
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "https://contoso.com/,https://fabrikam.com/"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: IsolateOrigins
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "https://contoso.com/,https://fabrikam.com/"
 ```
   
@@ -7091,8 +7025,8 @@ Managed favorites are not synced to the user account and can't be modified by ex
   - Path (Recommended):N/A
   - Value Name:ManagedFavorites
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   {
     "toplevel_name": "My managed favorites folder"
@@ -7124,8 +7058,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 
   ### Mac information and settings
   - Preference Key Name: ManagedFavorites
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>ManagedFavorites</key>
 <array>
   <dict>
@@ -7203,8 +7137,8 @@ If the 'DefaultSearchProviderSearchURL' policy is set, this policy ('ManagedSear
   - Path (Recommended):N/A
   - Value Name:ManagedSearchEngines
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
     "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
@@ -7235,8 +7169,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 
   ### Mac information and settings
   - Preference Key Name: ManagedSearchEngines
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
@@ -7320,16 +7254,16 @@ If you don't configure this policy, the default value (32) is used.
   - Path (Recommended):N/A
   - Value Name:MaxConnectionsPerProxy
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000020
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MaxConnectionsPerProxy
-  - Example value: 
-```
+  - Example value:  
+``` xml
 32
 ```
   
@@ -7369,16 +7303,16 @@ If the 'EnableMediaRouter' policy is disabled, then this policy has no effect.
   - Path (Recommended):N/A
   - Value Name:MediaRouterCastAllowAllIPs
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MediaRouterCastAllowAllIPs
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -7424,16 +7358,16 @@ On Windows 10 Stable the usage and crash data collection is controlled by the Wi
   - Path (Recommended):N/A
   - Value Name:MetricsReportingEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MetricsReportingEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -7475,16 +7409,16 @@ If you don't configure this policy, network prediction is enabled but the user c
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:NetworkPredictionOptions
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NetworkPredictionOptions
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -7524,23 +7458,21 @@ For more information on secure contexts, see https://www.w3.org/TR/secure-contex
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\0 = "http://testserver.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 = "*.contoso.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: OverrideSecurityRestrictionsOnInsecureOrigin
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
-
 ```
   
 
@@ -7579,16 +7511,16 @@ If you don't configure this policy, Proactive Authentication is turned on.
   - Path (Recommended):N/A
   - Value Name:ProactiveAuthEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProactiveAuthEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -7626,16 +7558,16 @@ If you disable (set to false) this policy, Microsoft Edge can't show full-tab co
   - Path (Recommended):N/A
   - Value Name:PromotionalTabsEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PromotionalTabsEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -7673,16 +7605,16 @@ If you don't configure this policy, the user will be able to change this setting
   - Path (Recommended):N/A
   - Value Name:PromptForDownloadLocation
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PromptForDownloadLocation
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -7722,16 +7654,16 @@ QUIC is a transport layer network protocol that can improve performance of web a
   - Path (Recommended):N/A
   - Value Name:QuicAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: QuicAllowed
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -7777,16 +7709,16 @@ The user's session is restored when the browser restarts.
   - Path (Recommended):N/A
   - Value Name:RelaunchNotification
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RelaunchNotification
-  - Example value: 
-```
+  - Example value:  
+``` xml
 1
 ```
   
@@ -7828,16 +7760,16 @@ Restrictions:
   - Path (Recommended):N/A
   - Value Name:RelaunchNotificationPeriod
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 0x240c8400
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RelaunchNotificationPeriod
-  - Example value: 
-```
+  - Example value:  
+``` xml
 604800000
 ```
   
@@ -7875,8 +7807,8 @@ If you don't configure or disable this policy, then Microsoft Edge uses the exis
   - Path (Recommended):N/A
   - Value Name:RequireOnlineRevocationChecksForLocalAnchors
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
@@ -7921,16 +7853,16 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ResolveNavigationErrorsUseWebService
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ResolveNavigationErrorsUseWebService
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -7968,16 +7900,16 @@ If you don't configure this policy or leave it blank, users can set any account 
   - Path (Recommended):N/A
   - Value Name:RestrictSigninToPattern
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 ".*@contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestrictSigninToPattern
-  - Example value: 
-```
+  - Example value:  
+``` xml
 ".*@contoso.com"
 ```
   
@@ -8015,16 +7947,16 @@ If you disable this policy or don't configure it, Adobe Flash content from other
   - Path (Recommended):N/A
   - Value Name:RunAllFlashInAllowMode
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RunAllFlashInAllowMode
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8062,16 +7994,16 @@ If you disable this policy, users are blocked from clicking through any warning 
   - Path (Recommended):N/A
   - Value Name:SSLErrorOverrideAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SSLErrorOverrideAllowed
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8113,16 +8045,16 @@ If you enable this policy, you can set the minimum version to one of the followi
   - Path (Recommended):N/A
   - Value Name:SSLVersionMin
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "tls1"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SSLVersionMin
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "tls1"
 ```
   
@@ -8160,16 +8092,16 @@ If you disable this policy or don't configure it, browsing history is saved.
   - Path (Recommended):N/A
   - Value Name:SavingBrowserHistoryDisabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SavingBrowserHistoryDisabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8209,16 +8141,16 @@ If this policy is left not set, search suggestions are enabled but the user can 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SearchSuggestEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SearchSuggestEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8254,21 +8186,19 @@ Sites (like https://contoso.com/some/path) only match as U2F appIDs. Domains (li
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://contoso.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SecurityKeyPermitAttestation
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://contoso.com</string>
 </array>
-
 ```
   
 
@@ -8317,8 +8247,8 @@ For more info about how to use this policy together with these related policies 
   - Path (Recommended):N/A
   - Value Name:SendIntranetToInternetExplorer
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
@@ -8368,16 +8298,16 @@ See https://docs.microsoft.com/en-us/windows/privacy/configure-windows-diagnosti
   - Path (Recommended):N/A
   - Value Name:SendSiteInfoToImproveServices
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SendSiteInfoToImproveServices
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -8415,16 +8345,16 @@ If the policy is disabled, the shortcut won't be shown.
   - Path (Recommended):N/A
   - Value Name:ShowOfficeShortcutInFavoritesBar
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowOfficeShortcutInFavoritesBar
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -8462,16 +8392,16 @@ You may want to consider the 'IsolateOrigins' policy setting to get the best of 
   - Path (Recommended):N/A
   - Value Name:SitePerProcess
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SitePerProcess
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8507,16 +8437,16 @@ If you disable this policy, the user can't use spellcheck and the 'SpellcheckLan
   - Path (Recommended):N/A
   - Value Name:SpellcheckEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SpellcheckEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -8558,11 +8488,10 @@ The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\0 = "fr"
 SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
-
 ```
 
 
@@ -8597,16 +8526,16 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   - Path (Recommended):N/A
   - Value Name:SuppressUnsupportedOSWarning
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SuppressUnsupportedOSWarning
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8644,16 +8573,16 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SyncDisabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SyncDisabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8691,8 +8620,8 @@ If you enable or don't configure this policy, the tab lifecycles feature is enab
   - Path (Recommended):N/A
   - Value Name:TabLifecyclesEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
@@ -8728,16 +8657,16 @@ False
   - Path (Recommended):N/A
   - Value Name:TaskManagerEndProcessEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: TaskManagerEndProcessEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8777,16 +8706,16 @@ If you don't configure the policy, users can choose whether to use the translati
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:TranslateEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: TranslateEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -8830,21 +8759,20 @@ If you don't configure this policy, there are no exceptions to the block list in
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\1 = "https://ssl.server.com"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\2 = "hosting.com/good_path"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\3 = "https://server:8080/path"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: URLAllowlist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>contoso.com</string>
   <string>https://ssl.server.com</string>
@@ -8852,7 +8780,6 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   <string>https://server:8080/path</string>
   <string>.exact.hostname.com</string>
 </array>
-
 ```
   
 
@@ -8895,8 +8822,8 @@ If you don't configure this policy, no URLs are blocked.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\1 = "https://ssl.server.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\2 = "hosting.com/bad_path"
@@ -8905,14 +8832,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\4 = ".exact.hostname.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\5 = "file://*"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\6 = "custom_scheme:*"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: URLBlocklist
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>contoso.com</string>
   <string>https://ssl.server.com</string>
@@ -8923,7 +8849,6 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
   <string>custom_scheme:*</string>
   <string>*</string>
 </array>
-
 ```
   
 
@@ -8964,16 +8889,16 @@ See https://docs.microsoft.com/Placeholder08 for a list of variables that can be
   - Path (Recommended):N/A
   - Value Name:UserDataDir
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "${users}/${user_name}/Edge"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UserDataDir
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "${users}/${user_name}/Edge"
 ```
   
@@ -9011,16 +8936,16 @@ If you disable this policy, users can't invoke Edge Feedback.
   - Path (Recommended):N/A
   - Value Name:UserFeedbackAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UserFeedbackAllowed
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -9060,16 +8985,16 @@ This policy affects all types of video inputs, not only the built-in camera.
   - Path (Recommended):N/A
   - Value Name:VideoCaptureAllowed
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: VideoCaptureAllowed
-  - Example value: 
-```
+  - Example value:  
+``` xml
 False
 ```
   
@@ -9103,23 +9028,21 @@ False
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\0 = "https://www.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
-
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: VideoCaptureAllowedUrls
-  - Example value: 
-```
+  - Example value:  
+``` xml
 <array>
   <string>https://www.contoso.com/</string>
   <string>https://[*.]contoso.edu/</string>
 </array>
-
 ```
   
 
@@ -9158,16 +9081,16 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   - Path (Recommended):N/A
   - Value Name:WPADQuickCheckEnabled
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WPADQuickCheckEnabled
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -9207,16 +9130,16 @@ Note: Currently, the 'SitePerProcess' and 'IsolateOrigins' policies have been ve
   - Path (Recommended):N/A
   - Value Name:WebDriverOverridesIncompatiblePolicies
   - Value Type:REG_DWORD
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebDriverOverridesIncompatiblePolicies
-  - Example value: 
-```
+  - Example value:  
+``` xml
 True
 ```
   
@@ -9261,16 +9184,16 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
   - Path (Recommended):N/A
   - Value Name:WebRtcLocalhostIpHandling
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "default"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebRtcLocalhostIpHandling
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "default"
 ```
   
@@ -9306,16 +9229,16 @@ If you don't configure this policy or set it to an empty string or invalid port 
   - Path (Recommended):N/A
   - Value Name:WebRtcUdpPortRange
   - Value Type:REG_SZ
-  #### Example value: 
-```
+  #### Example value:  
+``` xml
 "10000-11999"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebRtcUdpPortRange
-  - Example value: 
-```
+  - Example value:  
+``` xml
 "10000-11999"
 ```
   
