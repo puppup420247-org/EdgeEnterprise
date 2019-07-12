@@ -3,7 +3,7 @@ title: "Overview of Microsoft Edge security"
 ms.author: srugh
 author: srugh
 manager: seanlyn
-ms.date: 7/12/2019
+ms.date: 07/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge

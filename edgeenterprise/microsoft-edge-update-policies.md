@@ -3,7 +3,7 @@ title: "Microsoft Edge update policy reference"
 ms.author: stmoody
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 7/12/2019
+ms.date: 07/12/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge

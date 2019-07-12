@@ -3,7 +3,7 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 7/12/2019
+ms.date: 07/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge

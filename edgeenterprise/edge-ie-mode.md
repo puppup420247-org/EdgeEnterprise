@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with Internet Explorer mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 7/12/2019
+ms.date: 07/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -105,7 +105,7 @@ Recommended configuration: HTTPS location: **[https://localhost:8080/sites.xml](
 
 ### Other available configurations
 
-- Local network: **[\\\network\shares\sites.xml](./../../\\network\shares\sites.xml)**
+- Local network: **\\\network\shares\sites.xml**
 - Local file: **file:///c:\\Users\\\<user\>\\Documents\\testList.xml**
 
 All your managed devices must have access to this location if you want them to be able to access and use Enterprise Mode and your site list. For information about how to create and use an Enterprise Mode site list, see [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager).

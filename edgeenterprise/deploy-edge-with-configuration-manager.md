@@ -3,7 +3,7 @@ title: "Deploy Microsoft Edge using System Center Configuration Manager"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 7/12/2019
+ms.date: 07/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
