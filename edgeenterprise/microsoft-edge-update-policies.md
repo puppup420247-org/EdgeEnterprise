@@ -42,16 +42,16 @@ This table lists all of the group policies available in this release of Microsof
 |[ProxyServer](#address-or-url-of-proxy-server-proxyserver)|Address or URL of proxy server|
 
 ## Allow installation default (InstallDefault)
->Edge Update 1.2.145.5 and later
+>Microsoft Edge Update 1.2.145.5 and later
 
 ### Description
-Lets you specify the default behavior for all channels where allowing or blocking Microsoft Edge browser installation by Edge Update is concerned.
+Lets you specify the default behavior for all channels where allowing or blocking Microsoft Edge browser installation by Microsoft Edge Update is concerned.
 
 Can be overridden for individual channels by specifying the ‘Allow Installation’ policy for those specific channels.
 
-If you don’t enable this policy, installation of Microsoft Edge through Edge Update is blocked.
+If you don’t enable this policy, installation of Microsoft Edge through Microsoft Edge Update is blocked.
 
-Affects installation of Microsoft Edge software only when users are running Edge Update or the Edge Installer and only when they haven’t configured the ‘Allow installation’ policy. This policy doesn’t prevent users from running the application installer directly or from installing Microsoft Edge software by other methods.
+Affects installation of Microsoft Edge software only when users are running Microsoft Edge Update or the Microsoft Edge Installer and only when they haven’t configured the ‘Allow installation’ policy. This policy doesn’t prevent users from running the application installer directly or from installing Microsoft Edge software by other methods.
 
 ### Windows information and settings
 #### Group Policy (ADMX) info
@@ -70,12 +70,12 @@ Affects installation of Microsoft Edge software only when users are running Edge
   [Back to Top](#available-group-policies)
 
 ## Update policy override default (UpdateDefault)
->Edge Update 1.2.145.5 and later
+>Microsoft Edge Update 1.2.145.5 and later
 
 ### Description
-Lets you specify the default behavior for all channels on how Edge Update handles available updates from Microsoft Edge. Can be overridden for individual channels by specifying the ‘Update policy override’ policy for those specific channels.
+Lets you specify the default behavior for all channels on how Microsoft Edge Update handles available updates from Microsoft Edge. Can be overridden for individual channels by specifying the ‘Update policy override’ policy for those specific channels.
 
-If you enable this policy, Edge Update handles Microsoft Edge updates according to how you configure the following options:
+If you enable this policy, Microsoft Edge Update handles Microsoft Edge updates according to how you configure the following options:
 
 - Always allow updates: Updates are always applied when found, either by periodic update check or by a manual update check.
 - Automatic silent updates only: Updates are applied only when they’re found by the periodic update check.
@@ -84,7 +84,7 @@ If you enable this policy, Edge Update handles Microsoft Edge updates according 
 
 If you select manual updates, make sure you periodically check for updates by using the app's manual update mechanism, if available. If you disable updates, periodically check for updates, and distribute them to users.
 
-If you don’t enable and configure this policy, Edge Update handles available updates as specified by the ‘Update policy override default’ policy.
+If you don’t enable and configure this policy, Microsoft Edge Update handles available updates as specified by the ‘Update policy override default’ policy.
 
 ### Windows information and settings
 #### Group Policy (ADMX) info
@@ -105,16 +105,16 @@ If you don’t enable and configure this policy, Edge Update handles available u
 
 
 ## Allow installation (Install)
->Edge Update 1.2.145.5 and later
+>Microsoft Edge Update 1.2.145.5 and later
 
 ### Description
-Specifies whether a Microsoft Edge channel can be installed using Edge Update.
+Specifies whether a Microsoft Edge channel can be installed using Microsoft Edge Update.
 
-If you enable this policy for a channel, users can install that channel of Microsoft Edge through Edge Update.
+If you enable this policy for a channel, users can install that channel of Microsoft Edge through Microsoft Edge Update.
 
-If you disable this policy for a channel, users cannot install that channel of Microsoft Edge through Edge Update.
+If you disable this policy for a channel, users cannot install that channel of Microsoft Edge through Microsoft Edge Update.
 
-If you don't configure this policy for a channel, the 'Allow installation default' policy configuration determines whether users can install that channel of Microsoft Edge through Edge Update.
+If you don't configure this policy for a channel, the 'Allow installation default' policy configuration determines whether users can install that channel of Microsoft Edge through Microsoft Edge Update.
 
 ### Windows information and settings
 #### Group Policy (ADMX) info
@@ -143,10 +143,10 @@ If you don't configure this policy for a channel, the 'Allow installation defaul
 
 
 ## Update policy override (Update)
->Edge Update 1.2.145.5 and later
+>Microsoft Edge Update 1.2.145.5 and later
 
 ### Description
-Specifies how Edge Update handles available updates from Microsoft Edge.
+Specifies how Microsoft Edge Update handles available updates from Microsoft Edge.
 
 If you enable this policy, Edge Update handles Microsoft Edge updates according to how you configure the following options:
 
@@ -157,7 +157,7 @@ If you enable this policy, Edge Update handles Microsoft Edge updates according 
 
 If you select manual updates, make sure you periodically check for updates by using the app's manual update mechanism, if available. If you disable updates, periodically check for updates, and distribute them to users.
 
-If you don’t enable and configure this policy, Edge Update handles available updates as specified by the ‘Update policy override default’ policy.
+If you don’t enable and configure this policy, Microsoft Edge Update handles available updates as specified by the ‘Update policy override default’ policy.
 
 ### Windows information and settings
 #### Group Policy (ADMX) info
@@ -186,7 +186,7 @@ If you don’t enable and configure this policy, Edge Update handles available u
 
 
 ## Auto-update check period override (AutoUpdateCheckPeriodMinutes)
->Edge Update 1.2.145.5 and later
+>Microsoft Edge Update 1.2.145.5 and later
 
 ### Description
 If enabled, this policy lets you set a value for the minimum number of minutes between automatic update checks. Otherwise, by default, auto-update checks for updates every 10 hours.
@@ -212,7 +212,7 @@ If you want to disable all auto-update checks, set the value to 0 (not recommend
     
 
 ## Time period in each day to suppress auto-update check (UpdatesSuppressed)
->Edge Update 1.3.33.5 and later
+>Microsoft Edge Update 1.3.33.5 and later
 
 ### Description
 If you enable this policy, update checks are suppressed each day starting at Hour:Minute for a period of Duration (in minutes). Duration isn’t affected by daylight saving time. For example, if the start time is 22:00 and the duration is 480 minutes, updates will be suppressed for exactly 8 hours, regardless of whether daylight saving time starts or ends during this period on a particular day.
@@ -244,10 +244,10 @@ start min  : 0x00000002
 
 
 ## Choose how to specify proxy server settings (ProxyMode)
->Edge Update 1.3.21.81 and later
+>Microsoft Edge Update 1.3.21.81 and later
 
 ### Description
-Allows you to specify the proxy server settings that’s used by Edge Update.
+Allows you to specify the proxy server settings that’s used by Microsoft Edge Update.
 
 If you enable this policy, you can choose between the following proxy server options:
 - If you choose to never use a proxy server and always connect directly, all other options are ignored.
@@ -255,7 +255,7 @@ If you enable this policy, you can choose between the following proxy server opt
 - If you choose fixed server proxy mode, you can specify further options in 'Address or URL of proxy server'.
 - If you choose to use a .pac proxy script, you must specify the URL for the script in 'URL to a proxy .pac file'.
 
-If you enable this policy users in your organization can not change the proxy settings in Edge Update.
+If you enable this policy users in your organization can not change the proxy settings in Microsoft Edge Update.
 
 If you disable or don’t configure this policy, no proxy server settings are configured, but users in your organization can choose their own proxy settings in Edge Update.
 
@@ -278,12 +278,12 @@ fixed_servers
 
 
 ## URL to a proxy .pac file (ProxyPacUrl)
->Edge Update 1.3.21.81 and later
+>Microsoft Edge Update 1.3.21.81 and later
 
 ### Description
 Allows you to specify a URL for a proxy auto-config (PAC) file.
 
-If you enable this policy, you can specify a URL for a PAC file to automate how Edge Update selects the appropriate proxy server for fetching acular website.
+If you enable this policy, you can specify a URL for a PAC file to automate how Microsoft Edge Update selects the appropriate proxy server for fetching acular website.
 
 This policy is applied only if you have specified manual proxy settings in the \'Choose how to specify proxy server settings\' policy.
 
@@ -308,12 +308,12 @@ https://www.microsoft.com
 
  
 ## Address or URL of proxy server (ProxyServer)
->Edge Update 1.3.21.81 and later
+>Microsoft Edge Update 1.3.21.81 and later
 
 ### Description
-Allows you to specify the URL of the proxy server for Edge Update to use.
+Allows you to specify the URL of the proxy server for Microsoft Edge Update to use.
 
-If you enable this policy, you can set the proxy server URL used by Edge Update in your organization.
+If you enable this policy, you can set the proxy server URL used by Microsoft Edge Update in your organization.
 
 This policy is applied only if you have selected manual proxy settings in the \'Choose how to specify proxy server settings\' policy.
 
@@ -334,3 +334,9 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 https://www.microsoft.com
 ```    
   [Back to Top](#available-group-policies)
+  
+## See also
+
+- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
+- [Configuring Microsoft Edge](configure-microsoft-edge.md)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
