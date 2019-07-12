@@ -28,7 +28,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 
 |Policy Name|Caption|
 |-|-|
-|Content settings||
+|*Content settings*||
 |[AutoSelectCertificateForUrls](#automatically-select-client-certificates-for-these-sites-autoselectcertificateforurls)|Automatically select client certificates for these sites|
 |[CookiesAllowedForUrls](#allow-cookies-on-specific-sites-cookiesallowedforurls)|Allow cookies on specific sites|
 |[CookiesBlockedForUrls](#block-cookies-on-specific-sites-cookiesblockedforurls)|Block cookies on specific sites|
@@ -72,7 +72,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[ExtensionInstallForcelist](#control-which-extensions-are-installed-silently-extensioninstallforcelist)|Control which extensions are installed silently|
 |[ExtensionInstallSources](#configure-extension-and-user-script-install-sources-extensioninstallsources)|Configure extension and user script install sources|
 |[ExtensionSettings](#configure-extension-management-settings-extensionsettings)|Configure extension management settings|
-|Cast||
+|*Cast*||
 |[EnableMediaRouter](#enable-google-cast-enablemediarouter)|Enable Google Cast|
 |[ShowCastIconInToolbar](#show-the-cast-icon-in-the-toolbar-showcasticonintoolbar)|Show the cast icon in the toolbar|
 |HTTP authentication||
@@ -92,13 +92,13 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[PasswordProtectionChangePasswordURL](#configure-the-change-password-url-passwordprotectionchangepasswordurl)|Configure the change password URL|
 |[PasswordProtectionLoginURLs](#configure-the-list-of-enterprise-login-urls-where-password-protection-service-should-capture-fingerprint-of-password-passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
 |[PasswordProtectionWarningTrigger](#configure-password-protection-warning-trigger-passwordprotectionwarningtrigger)|Configure password protection warning trigger|
-|Printing||
+|*Printing*||
 |[DefaultPrinterSelection](#default-printer-selection-rules-defaultprinterselection)|Default printer selection rules|
 |[PrintHeaderFooter](#print-headers-and-footers-printheaderfooter)|Print headers and footers|
 |[PrintPreviewUseSystemDefaultPrinter](#set-the-system-default-printer-as-the-default-printer-printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
 |[PrintingEnabled](#enable-printing-printingenabled)|Enable printing|
 |[UseSystemPrintDialog](#print-using-system-print-dialog-usesystemprintdialog)|Print using system print dialog|
-|Proxy server||
+|*Proxy server*||
 |[ProxyBypassList](#configure-proxy-bypass-rules-proxybypasslist)|Configure proxy bypass rules|
 |[ProxyMode](#configure-proxy-server-settings-proxymode)|Configure proxy server settings|
 |[ProxyPacUrl](#set-the-proxy-pac-file-url-proxypacurl)|Set the proxy .pac file URL|
@@ -117,7 +117,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[RestoreOnStartup](#action-to-take-on-startup-restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#sites-to-open-when-the-browser-starts-restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#show-home-button-on-toolbar-showhomebutton)|Show Home button on toolbar|
-|Ungrouped Policies||
+|*Ungrouped Policies*||
 |[AllowDeletingBrowserHistory](#enable-deleting-browser-and-download-history-allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allow-file-selection-dialogs-allowfileselectiondialogs)|Allow file selection dialogs|
 |[AlwaysOpenPdfExternally](#always-open-pdf-files-externally-alwaysopenpdfexternally)|Always open PDF files externally|
