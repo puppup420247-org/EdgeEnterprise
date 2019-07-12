@@ -216,6 +216,6 @@ Users who have PCs that are managed by Configuration Manager and running Windows
 
 ## See also
 
-- [Overview of Edge in the enterprise](overview-edge-in-the-enterprise.md)
+- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Create and deploy an application with System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/get-started/create-and-deploy-an-application)
