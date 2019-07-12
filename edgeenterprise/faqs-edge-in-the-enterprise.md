@@ -37,5 +37,5 @@ Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://
 
 ## See also
 
-- [Overview of Edge in the enterprise](overview-edge-in-the-enterprise.md)
+- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
