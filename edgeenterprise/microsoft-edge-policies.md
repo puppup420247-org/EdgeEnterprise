@@ -65,7 +65,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[DefaultSearchProviderName](#default-search-provider-name-defaultsearchprovidername)|Default search provider name|
 |[DefaultSearchProviderSearchURL](#default-search-provider-search-url-defaultsearchprovidersearchurl)|Default search provider search URL|
 |[DefaultSearchProviderSuggestURL](#default-search-provider-url-for-suggestions-defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
-|Extensions||
+|*Extensions*||
 |[ExtensionAllowedTypes](#configure-allowed-extension-types-extensionallowedtypes)|Configure allowed extension types|
 |[ExtensionInstallAllowlist](#allow-specific-extensions-to-be-installed-extensioninstallallowlist)|Allow specific extensions to be installed|
 |[ExtensionInstallBlocklist](#control-which-extensions-cannot-be-installed-extensioninstallblocklist)|Control which extensions cannot be installed|
@@ -75,7 +75,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |*Cast*||
 |[EnableMediaRouter](#enable-google-cast-enablemediarouter)|Enable Google Cast|
 |[ShowCastIconInToolbar](#show-the-cast-icon-in-the-toolbar-showcasticonintoolbar)|Show the cast icon in the toolbar|
-|HTTP authentication||
+|*HTTP authentication*||
 |[AllowCrossOriginAuthPrompt](#allow-cross-origin-http-basic-auth-prompts-allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
 |[AuthNegotiateDelegateAllowlist](#specifies-a-list-of-servers-that-microsoft-edge-can-delegate-user-credentials-to-authnegotiatedelegateallowlist)|Specifies a list of servers that Microsoft Edge can delegate user credentials to|
 |[AuthSchemes](#supported-authentication-schemes-authschemes)|Supported authentication schemes|
@@ -83,7 +83,7 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[DisableAuthNegotiateCnameLookup](#disable-cname-lookup-when-negotiating-kerberos-authentication-disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
 |[EnableAuthNegotiatePort](#include-non-standard-port-in-kerberos-spn-enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
 |[NtlmV2Enabled](#control-whether-ntlmv2-authentication-is-enabled-ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
-|Native Messaging||
+|*Native Messaging*||
 |[NativeMessagingAllowlist](#control-which-native-messaging-hosts-users-can-use-nativemessagingallowlist)|Control which native messaging hosts users can use|
 |[NativeMessagingBlocklist](#configure-native-messaging-block-list-nativemessagingblocklist)|Configure native messaging block list|
 |[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-installed-without-admin-permissions-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
@@ -104,12 +104,12 @@ This table lists all of the group policies avaiable in this release of Microsoft
 |[ProxyPacUrl](#set-the-proxy-pac-file-url-proxypacurl)|Set the proxy .pac file URL|
 |[ProxyServer](#configure-address-or-url-of-proxy-server-proxyserver)|Configure address or URL of proxy server|
 |[ProxySettings](#proxy-settings-proxysettings)|Proxy settings|
-|SmartScreen settings||
+|*SmartScreen settings*||
 |[PreventSmartScreenPromptOverride](#prevent-bypassing-microsoft-defender-smartscreen-prompts-for-sites-preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
 |[PreventSmartScreenPromptOverrideForFiles](#prevent-bypassing-of-microsoft-defender-smartscreen-warnings-about-downloads-preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
 |[SmartScreenAllowListDomains](#configure-the-list-of-domains-for-which-smartscreen-wont-trigger-warnings-smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#configure-microsoft-defender-smartscreen-smartscreenenabled)|Configure Microsoft Defender SmartScreen|
-|Startup, home page and new tab page||
+|*Startup, home page and new tab page*||
 |[HomepageIsNewTabPage](#set-the-new-tab-page-as-the-home-page-homepageisnewtabpage)|Set the new tab page as the home page|
 |[HomepageLocation](#configure-the-home-page-url-homepagelocation)|Configure the home page URL|
 |[NewTabPageHideDefaultTopSites](#hide-the-default-top-sites-from-the-new-tab-page-newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
