@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Learn how to deploy Microsoft Edge  with System Center Configuration Manager (SCCM)."
 ---
 
-## Deploy Microsoft Edge using System Center Configuration Manager
+# Deploy Microsoft Edge using System Center Configuration Manager
 
 You can automate deployment of Microsoft Edge using System Center Configuration Manager (SCCM).
 

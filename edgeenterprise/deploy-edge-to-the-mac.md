@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Documentation for automating Edge deployment with Jamf."
 ---
 
-## Deploy Microsoft Edge for MacOS using Jamf
+# Deploy Microsoft Edge for MacOS using Jamf
 
 You can automate deployment of Microsoft Edge for MacOS using Jamf.
 
