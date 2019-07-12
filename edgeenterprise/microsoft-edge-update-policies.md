@@ -62,8 +62,8 @@ Affects installation of Microsoft Edge software only when users are running Micr
 - Path: SOFTWARE\Policies\Microsoft\EdgeUpdate
 - Value Name: InstallDefault
 - Value Type: REG_DWORD
-#### Example value: 
-```
+#### Example value:  
+``` data
 0x00000001
 ```
   [Back to Top](#available-group-policies)
@@ -96,7 +96,7 @@ If you don’t enable and configure this policy, Microsoft Edge Update handles a
 - Value Name: UpdateDefault
 - Value Type: REG_DWORD
 #### Example value: 
-```
+``` data
 0x00000003
 ```    
   [Back to Top](#available-group-policies)
@@ -134,7 +134,7 @@ If you don't configure this policy for a channel, the 'Allow installation defaul
   - (Dev): Install{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}
 - Value Type: REG_DWORD
 #### Example value: 
-```
+``` data
 0x00000001
 ```    
   [Back to Top](#available-group-policies)
@@ -177,7 +177,7 @@ If you don’t enable and configure this policy, Microsoft Edge Update handles a
   - (Dev): Install{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}
 - Value Type: REG_DWORD
 #### Example value: 
-```
+``` data
 0x00000001
 ```    
   [Back to Top](#available-group-policies)
@@ -202,8 +202,8 @@ If you want to disable all auto-update checks, set the value to 0 (not recommend
 - Path: SOFTWARE\Policies\Microsoft\EdgeUpdate
 - Value Name: AutoUpdateCheckPeriodMinutes
 - Value Type: REG_DWORD
-#### Example value: 
-```
+#### Example value:  
+``` data
 0x00000578
 ```    
   [Back to Top](#available-group-policies)
@@ -233,7 +233,7 @@ If you disable or don’t configure this policy, update checks aren’t suppress
   - UpdatesSuppressedStartMin
 - Value Type: REG_DWORD
 #### Example value: 
-```
+``` data
 duration   : 0x0000003c
 start hour : 0x00000001
 start min  : 0x00000002
@@ -268,8 +268,8 @@ If you disable or don’t configure this policy, no proxy server settings are co
 - Path: SOFTWARE\Policies\Microsoft\EdgeUpdate
 - Value Name: ProxyMode
 - Value Type: REG_SZ
-#### Example value: 
-```
+#### Example value:  
+``` data
 fixed_servers
 ```    
   [Back to Top](#available-group-policies)
@@ -298,8 +298,8 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 - Path: SOFTWARE\Policies\Microsoft\EdgeUpdate
 - Value Name: ProxyPacUrl
 - Value Type: REG_SZ
-#### Example value: 
-```
+#### Example value:  
+``` data
 https://www.microsoft.com
 ```    
   [Back to Top](#available-group-policies)
@@ -328,8 +328,8 @@ Don’t configure this policy if you have selected a proxy setting other than ma
 - Path: SOFTWARE\Policies\Microsoft\EdgeUpdate
 - Value Name: ProxyServer
 - Value Type: REG_SZ
-#### Example value: 
-```
+#### Example value:  
+``` data
 https://www.microsoft.com
 ```    
   [Back to Top](#available-group-policies)
