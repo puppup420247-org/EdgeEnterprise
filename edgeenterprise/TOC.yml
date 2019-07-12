@@ -13,7 +13,7 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Security Oveview
+- name: Security Overview
   href: security-overview.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
