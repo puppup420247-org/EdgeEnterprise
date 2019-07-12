@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Learn how to use Microsoft Edge with Internet Explorer mode."
 ---
 
-**Use Microsoft Edge with Internet Explorer mode**
+# Use Microsoft Edge with Internet Explorer mode
 
 **Applies to:**
 
