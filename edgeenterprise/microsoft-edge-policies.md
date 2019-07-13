@@ -2247,9 +2247,9 @@ Use the following format to add an extension to the list:
 
 - extensionID - the 32-letter string found on edge://extensions when in developer mode.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at https://docs.microsoft.com/Placeholder07A. If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (optional) is the address of the Update Manifest XML document for the app or extension. If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: https://docs.microsoft.com//Placeholder03B.
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL.
 
 If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
 
@@ -2306,7 +2306,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 
 By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
 
-Each item in this list is an extension-style match pattern (see https://docs.microsoft.com//Placeholder04). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+Each item in this list is an extension-style match pattern. Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
 
 The 'ExtensionInstallBlocklist' policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
 
@@ -2359,9 +2359,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 
 This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy overrides any legacy policies if both are set.
 
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension, as described at https://docs.microsoft.com/Placeholder07A.
-
-For a full description of possible settings and structure of this policy go to https://docs.microsoft.com/Placeholder07B.
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension.
 
   ### Supported features:
   - Can be mandatory: Yes
@@ -3167,7 +3165,7 @@ True
   ### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page, make sure it follows the guidelines on https://docs.microsoft.com/Placeholder10.
+Password protection service will send users to this URL to change their password after seeing a warning in the browser.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3216,7 +3214,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   
 
   ### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints, make sure your login pages follow the guidelines on https://docs.microsoft.com/Placeholder10.
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
@@ -3577,8 +3575,6 @@ If you enable this policy, you can create a list of hosts for which Microsoft Ed
 
 If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
 
-For more detailed examples go to https://docs.microsoft.com/Placeholder05.
-
   ### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -3631,8 +3627,6 @@ If you choose to auto detect the proxy server, all other options are ignored.
 If you choose fixed server proxy mode, you can specify further options in 'ProxyServer' and 'Comma-separated list of proxy bypass rules'.
 
 If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
-
-For detailed examples, go to https://docs.microsoft.com/Placeholder05.
 
 If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
 
@@ -3697,8 +3691,6 @@ If you enable this policy, you can specify the URL for a PAC file, which defines
 
 If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
 
-For detailed examples, see https://docs.microsoft.com/Placeholder05.
-
   ### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -3747,8 +3739,6 @@ This policy is applied only if you have selected 'Use fixed proxy servers' in th
 If you enable this policy, the proxy server configured by this policy will be used for all URLs.
 
 If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
-
-For more options and detailed examples, see https://docs.microsoft.com/Placeholder05.
 
   ### Supported features:
   - Can be mandatory: Yes
@@ -5111,7 +5101,7 @@ If you set this policy to 'Disable browser sign-in' (0), users can't sign into t
 
 If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing in to the browser means the user's account information is kept by the browser, but it doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature. Enabling this policy prevents users from turning off the setting that allows browser sign-in.
 
-If you set this policy to 'Force browser sign-in" (2) users have to sign into a profile to use the browser. This ensures that the policies associated with a managed account are applied and enforced. By default, this turns on sync for the account, unless sync is disabled by the domain admin or with the 'SyncDisabled' policy. The default value of 'BrowserGuestModeEnabled' policy is set to false. Note that existing unsigned profiles will be locked and inaccessible after you enable this policy. For more information, see help center article: https://docs.microsoft.com/Placeholder12.
+If you set this policy to 'Force browser sign-in" (2) users have to sign into a profile to use the browser. This ensures that the policies associated with a managed account are applied and enforced. By default, this turns on sync for the account, unless sync is disabled by the domain admin or with the 'SyncDisabled' policy. The default value of 'BrowserGuestModeEnabled' policy is set to false. Note that existing unsigned profiles will be locked and inaccessible after you enable this policy.
 
 If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
 
@@ -5332,7 +5322,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLe
 
 This policy lets you not disclose certificates for the hostnames in the specified URLs via Certificate Transparency. This lets you use certificates that would otherwise be untrusted, because they weren't properly publicly disclosed, but it makes it harder to detect mis-issued certificates for those hosts.
 
-Form your URL pattern according to https://docs.microsoft.com//Placeholder01. Because certificates are valid for a given hostname, independent of the scheme, port, or path, only the hostname part of the URL is considered. Wildcard hosts are not supported.
+Because certificates are valid for a given hostname, independent of the scheme, port, or path, only the hostname part of the URL is considered. Wildcard hosts are not supported.
 
 If you don't configure this policy, any certificate that should be disclosed via Certificate Transparency is treated as untrusted if it's not disclosed.
 
@@ -5591,7 +5581,7 @@ If you disable this policy, Microsoft Edge never checks and disables user contro
 
 If you don't configure this policy, Microsoft Edge lets the user control whether it's the default browser and whether to show user notifications when it isn't.
 
-Note for Windows administrators: This policy only works for PCs running Windows 7. For later versions of Windows, you have to deploy a "default application associations" file that makes Microsoft Edge the handler for the https and http protocols (and, optionally, the ftp protocol and file formats such as .html, .htm, .pdf, .svg, .webp). See https://docs.microsoft.com//Placeholder02 for more information.
+Note for Windows administrators: This policy only works for PCs running Windows 7. For later versions of Windows, you have to deploy a "default application associations" file that makes Microsoft Edge the handler for the https and http protocols (and, optionally, the ftp protocol and file formats such as .html, .htm, .pdf, .svg, .webp).
 
   ### Supported features:
   - Can be mandatory: Yes
@@ -5789,8 +5779,6 @@ True
 
 If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified the '--disk-cache-dir' flag. To avoid data loss or other unexpected errors, don't configure this policy to a volume's root directory or to a directory used for other purposes, because Microsoft Edge manages its contents.
 
-See https://docs.microsoft.com/Placeholder08 for a list of variables you can use when specifying directories and paths.
-
 If you don't configure this policy, the default cache directory is used, and users can override that default with the '--disk-cache-dir' command line flag.
 
   ### Supported features:
@@ -5885,7 +5873,7 @@ If you don't configure this policy, the default size is used, but users can over
   ### Description
   Configures the directory to use when downloading files.
 
-If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See https://docs.microsoft.com/Placeholder08 for a list of variables that can be used.
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time.
 
 If you disable or don't configure this policy, the default download directory is used, and the user can change it.
 
@@ -5941,8 +5929,6 @@ Set 'Block all downloads' (3) to block all downloads.
 If you don't configure this policy or set the 'No special restrictions' (0) option, the downloads go through the usual security restrictions based on Microsoft Defender SmartScreen analysis results.
 
 Note that these restrictions apply to downloads from web page content, as well as the 'download link...' context menu option. These restrictions don't apply to saving or downloading the currently displayed page, nor do they apply to the Save as PDF option from the printing options.
-
-See https://docs.microsoft.com/Placeholder09 for more info on Microsoft Defender SmartScreen.
 
 * 0 = No special restrictions
 
@@ -8797,8 +8783,6 @@ True
   ### Description
   Allow access to the listed URLs, as exceptions to the URL block list.
 
-Format the URL pattern according to https://docs.microsoft.com//Placeholder01 .
-
 You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
 
 The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
@@ -8861,8 +8845,6 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
 
   ### Description
   Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
-
-Format the URL pattern according to https://docs.microsoft.com//Placeholder01.
 
 You can define exceptions in the 'URLAllowlist' policy. These policies are limited to 1000 entries; subsequent entries are ignored.
 
@@ -8938,8 +8920,6 @@ If you enable this policy, Microsoft Edge uses the specified directory regardles
 If you don't enable this policy, the default profile path is used, but the user can override it by using the '--user-data-dir' flag. Users can find the directory for the profile at edge://version/ under profile path.
 
 To avoid data loss or other errors, don't configure this policy to a volume's root directory or to a directory that's used for other purposes, because Microsoft Edge manages its contents.
-
-See https://docs.microsoft.com/Placeholder08 for a list of variables that can be used.
 
   ### Supported features:
   - Can be mandatory: Yes
