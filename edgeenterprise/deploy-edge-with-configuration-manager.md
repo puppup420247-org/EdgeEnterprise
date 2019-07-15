@@ -23,7 +23,7 @@ You can automate deployment of Microsoft Edge using System Center Configuration 
 
 Make sure that you've reviewed the information in [Introduction to application management](https://docs.microsoft.com/en-us/sccm/apps/understand/introduction-to-application-management) so that you have prepared your site to install applications and you understand the terminology that's used in this topic.  
 
-Also, make sure that the Microsoft Edge installation files **MicrosoftEdgeDevEnterpriseX64.msi** and/or **MicrosoftEdgeDevEnterpriseX86.msi** are in an accessible location on your network. You can download the Edge Enterprise installation files from the [Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
+Also, make sure that the Microsoft Edge installation files **MicrosoftEdgeDevEnterpriseX64.msi** and/or **MicrosoftEdgeDevEnterpriseX86.msi** are in an accessible location on your network. You can download the Microsoft Edge Enterprise installation files from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 
 ## Create the application  
 
@@ -212,7 +212,7 @@ Use the information in the following **Monitor the application** section to see 
 
 ## End-user experience  
 
-Users who have PCs that are managed by Configuration Manager and running Windows 10 of the specified processor architecture see a message telling them that they must install the Edge Dev application. Once they accept the installation, the application gets installed.  
+Users who have PCs that are managed by Configuration Manager and running Windows 10 of the specified processor architecture see a message telling them that they must install the Microsoft Edge Dev application. Once they accept the installation, the application gets installed.  
 
 ## See also
 
