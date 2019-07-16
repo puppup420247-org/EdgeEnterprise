@@ -19,7 +19,7 @@ description: "Learn how to use Microsoft Edge with Internet Explorer mode."
 - Windows 10 with the following minimum system requirements:
   - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/en-us/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/en-us/help/4501375) or higher
   - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/en-us/help/4509479) or higher)
-- Microsoft Edge version 77 and later
+- Microsoft Edge version 77 or later
 
 ### What is Internet Explorer mode?
 
@@ -78,7 +78,7 @@ To turn on Internet Explorer mode using the registry, perform the following:
 
 If you find yourself in any of the following scenarios, follow the procedure for the given configuration.
 
-### Single browser or two-browser experience in a non-managed environment
+### Single browser or two-browser experience that doesn't have a site list configured
 
 In this scenario, you can use the Group Policy editor to set sites to open in Internet Explorer mode.
 
@@ -94,7 +94,7 @@ In this scenario, you can use the Group Policy editor to set sites to open in In
 > - Sites listed in the Enterprise Site List XML will have higher priority.
 > - We consider that most of the legacy sites are under the Local Intranet Zone.
 
-### Two-browser experience in a managed environment
+### Two-browser experience with a site list configured
 
 In this scenario, the IT department has deployed a Site List XML file and already enabled the Internet Explorer group policy **Use the Enterprise Mode IE website list**, also known as the Site List XML (schema v.2). We will leverage that configuration and all sites that have the element _\<open-in\>IE11\</open-in\>_ will now open sites in Internet Explorer mode.
 
@@ -119,7 +119,7 @@ The following table provides the additional element added to the v.2 of the Ente
 
 | **Element** | **Description** |
 | --- | --- |
-| \<open-in app=**true**\> | A child element that controls what browser is used for sites. This element supports the  **Open in IE11**  or  **Open in Microsoft Edge**  experiences, for devices running Windows 10. |
+| \<open-in app=**true**\> | A child element that controls what browser is used for sites. This element is required for sites that need to **open in IE11**.|
 
 **Example:**
 
@@ -173,6 +173,32 @@ When a site loads in Internet Explorer mode, the IE logo indicator displays on t
 ### Will IE mode replace Internet Explorer 11?
 
 We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
+
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try updating your PC.”?
+
+You are receiving the message because you are missing the required Windows updates. We recommend installing the latest updates. The minimum Windows updates are:
+-	Windows 10, version 1903 with the latest cumulative updates (KB4503293 or higher) and security update KB4501375 or higher 
+-	Windows 10, version 1809 with latest cumulative update (KB4509479 or higher)
+
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try reinstalling Microsoft Edge with administrator privileges.”?
+
+Microsoft Edge version 77 or later needs to be installed at system level. 
+
+Possible reasons: 
+- Microsoft Edge Canary is installed at per user level and doesn’t prompt for elevation
+- Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation the installation will be continue at user level 
+Possible solutions: 
+- Run the installer for any channels at system level: installer.exe --system-level 
+
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try restarting Microsoft Edge.”? 
+
+You are receiving this message because there was an unexpected error encountered within the Internet Explorer process which should be resolved by restarting Microsoft Edge.
+
+### Why am I receiving the following message “Turn off remote debugging to open this site in Internet Explorer mode otherwise it might not work as expected.”
+
+You are receiving the message because you have started remote debugging and you have navigated to a web page that your organization has configured to run in Internet Explorer mode. 
+
+If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine. 
 
 ## See also
 
