@@ -174,13 +174,13 @@ When a site loads in Internet Explorer mode, the IE logo indicator displays on t
 
 We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
 
-##Why am I receiving the following message “To open this page in Internet Explorer mode, try updating your PC.”?##
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try updating your PC.”?
 
 You are receiving the message because you are missing the required Windows updates. We recommend installing the latest updates. The minimum Windows updates are:
 -	Windows 10, version 1903 with the latest cumulative updates (KB4503293 or higher) and security update KB4501375 or higher 
 -	Windows 10, version 1809 with latest cumulative update (KB4509479 or higher)
 
-##Why am I receiving the following message “To open this page in Internet Explorer mode, try reinstalling Microsoft Edge with administrator privileges.”?##
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try reinstalling Microsoft Edge with administrator privileges.”?
 
 Microsoft Edge version 77 or later needs to be installed at system level. 
 
@@ -193,17 +193,15 @@ Possible solutions:
 The sign parameter is dashdash’system’dash’level’
 - Accept the Microsoft Edge Dev, Beta elevation prompt 
 
-##Why am I receiving the following message “To open this page in Internet Explorer mode, try restarting Microsoft Edge.”? ##
+### Why am I receiving the following message “To open this page in Internet Explorer mode, try restarting Microsoft Edge.”? 
 
 You are receiving this message because there was an unexpected error encountered within the Internet Explorer process which should be resolved by restarting Microsoft Edge.
 
-##Why am I receiving the following message “Turn off remote debugging to open this site in Internet Explorer mode otherwise it might not work as expected.”##
+### Why am I receiving the following message “Turn off remote debugging to open this site in Internet Explorer mode otherwise it might not work as expected.”
 
 You are receiving the message because you have started remote debugging and you have navigated to a web page that your organization has configured to run in Internet Explorer mode. 
 
 If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine. 
-
-
 
 ## See also
 
