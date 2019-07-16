@@ -190,9 +190,6 @@ Possible reasons:
 Possible solutions: 
 - Run the installer for any channels at system level: installer.exe --system-level 
 
-The sign parameter is dashdash’system’dash’level’
-- Accept the Microsoft Edge Dev, Beta elevation prompt 
-
 ### Why am I receiving the following message “To open this page in Internet Explorer mode, try restarting Microsoft Edge.”? 
 
 You are receiving this message because there was an unexpected error encountered within the Internet Explorer process which should be resolved by restarting Microsoft Edge.
