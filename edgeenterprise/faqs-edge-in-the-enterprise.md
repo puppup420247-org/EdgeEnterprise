@@ -35,6 +35,9 @@ The Canary channel will update about daily, and the Dev channel will update abou
 ## What kind of extension support do I have with the new version of Microsoft Edge?
 Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://go.microsoft.com/fwlink/?linkid=2081222) and [Chrome Web Store](https://go.microsoft.com/fwlink/?linkid=2072338).
 
+## Do you support Mobile Device Management (MDM) and Microsoft Intune?
+Support for MDM and integration with Microsoft Intune is on our roadmap.
+
 ## See also
 
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
