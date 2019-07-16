@@ -19,7 +19,7 @@ description: "Learn how to use Microsoft Edge with Internet Explorer mode."
 - Windows 10 with the following minimum system requirements:
   - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/en-us/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/en-us/help/4501375) or higher
   - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/en-us/help/4509479) or higher)
-- Microsoft Edge version 77 and later
+- Microsoft Edge version 77 or later
 
 ### What is Internet Explorer mode?
 
@@ -78,7 +78,7 @@ To turn on Internet Explorer mode using the registry, perform the following:
 
 If you find yourself in any of the following scenarios, follow the procedure for the given configuration.
 
-### Single browser or two-browser experience in a non-managed environment
+### Single browser or two-browser experience that doesn't have a site list configured
 
 In this scenario, you can use the Group Policy editor to set sites to open in Internet Explorer mode.
 
@@ -94,7 +94,7 @@ In this scenario, you can use the Group Policy editor to set sites to open in In
 > - Sites listed in the Enterprise Site List XML will have higher priority.
 > - We consider that most of the legacy sites are under the Local Intranet Zone.
 
-### Two-browser experience in a managed environment
+### Two-browser experience with a site list configured
 
 In this scenario, the IT department has deployed a Site List XML file and already enabled the Internet Explorer group policy **Use the Enterprise Mode IE website list**, also known as the Site List XML (schema v.2). We will leverage that configuration and all sites that have the element _\<open-in\>IE11\</open-in\>_ will now open sites in Internet Explorer mode.
 
@@ -119,7 +119,7 @@ The following table provides the additional element added to the v.2 of the Ente
 
 | **Element** | **Description** |
 | --- | --- |
-| \<open-in app=**true**\> | A child element that controls what browser is used for sites. This element supports the  **Open in IE11**  or  **Open in Microsoft Edge**  experiences, for devices running Windows 10. |
+| \<open-in app=**true**\> | A child element that controls what browser is used for sites. This element is required for sites that need to **open in IE11**.|
 
 **Example:**
 
