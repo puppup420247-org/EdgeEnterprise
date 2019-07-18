@@ -7,7 +7,7 @@ ms.date: 07/12/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
-localization_priority: high
+localization_priority: normal
 ms.collection: M365-modern-desktop
 description: "Documentation for automating Edge deployment with Jamf."
 ---
