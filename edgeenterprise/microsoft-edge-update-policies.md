@@ -21,7 +21,7 @@ For information about other policies available in Microsoft Edge, check out [Mic
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Edge update policy documentation
+## Available update group policies
 
 This table lists all of the update-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
@@ -68,7 +68,7 @@ Lets you specify the default behavior for all channels where allowing or blockin
 ```
 0x00000001
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## UpdateDefault
@@ -101,7 +101,7 @@ Lets you specify the default behavior for all channels concerning the way Edge U
 ```
 0x00000003
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## Install
@@ -138,7 +138,7 @@ Specifies whether a Microsoft Edge channel can be installed using Edge Update.
 ```
 0x00000001
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## Update
@@ -179,7 +179,7 @@ Specifies how Edge Update handles available updates from Microsoft Edge.
 ```
 0x00000001
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## AutoUpdateCheckPeriodMinutes
@@ -204,7 +204,7 @@ If enabled, this policy lets you set a value for the minimum number of minutes b
 ```
 0x00000578
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## UpdatesSuppressed
@@ -235,7 +235,7 @@ duration   : 0x0000003c
 start hour : 0x00000001
 start min  : 0x00000002
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## ProxyMode
@@ -268,7 +268,7 @@ Allows you to specify the proxy server settings that are used by Edge Update.
 ```
 fixed_servers
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## ProxyPacUrl
@@ -297,7 +297,7 @@ Allows you to specify a URL for a proxy auto-config (PAC) file.
 ```
 https://www.microsoft.com
 ```
-[Back to top](#edge-update-policy-documentation)
+[Back to top](#available-update-group-policies)
 
 
 ## ProxyServer
@@ -326,7 +326,7 @@ Allows you to specify the URL of the proxy server for Edge Update to use.
 ```
 https://www.microsoft.com
 ```
-  [Back to Top](#edge-update-policy-documentation)
+  [Back to Top](#available-update-group-policies)
   
 ## See also
 

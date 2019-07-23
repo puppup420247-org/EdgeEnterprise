@@ -21,7 +21,7 @@ For information about an additional set of policies used to  control how and whe
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Edge policy documentation
+## Available browser group policies
 
 This table lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
@@ -264,7 +264,7 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CookiesAllowedForUrls
   ### Allow cookies on specific sites
@@ -324,7 +324,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CookiesBlockedForUrls
   ### Block cookies on specific sites
@@ -384,7 +384,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CookiesSessionOnlyForUrls
   ### Limit cookies from specific websites to the current session
@@ -448,7 +448,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultCookiesSetting
   ### Configure cookies
@@ -501,7 +501,7 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultGeolocationSetting
   ### Default geolocation setting
@@ -552,7 +552,7 @@ If you don't configure this policy, 'AskGeolocation' policy is used and the user
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultImagesSetting
   ### Default images setting
@@ -601,7 +601,7 @@ If you don't configure this policy, images are allowed by default, and the user 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultJavaScriptSetting
   ### Default JavaScript setting
@@ -650,7 +650,7 @@ If you don't configure this policy, all sites can run JavaScript by default, and
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultNotificationsSetting
   ### Default notification setting
@@ -701,7 +701,7 @@ If you don't configure this policy, notifications are allowed by default, and th
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultPluginsSetting
   ### Default Adobe Flash setting
@@ -754,7 +754,7 @@ The former '1' option set allow-all, but this functionality is now only handled 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultPopupsSetting
   ### Default pop-up window setting
@@ -803,7 +803,7 @@ If you don't configure this policy, pop-up windows are blocked by default, and u
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultWebBluetoothGuardSetting
   ### Control use of the Web Bluetooth API
@@ -852,7 +852,7 @@ If you don't configure this policy, the default value (3, meaning users are aske
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultWebUsbGuardSetting
   ### Control use of the WebUSB API
@@ -903,7 +903,7 @@ If you don't configure this policy, sites can ask users whether they can access 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImagesAllowedForUrls
   ### Allow images on these sites
@@ -953,7 +953,7 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImagesBlockedForUrls
   ### Block images on specific sites
@@ -1003,7 +1003,7 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## JavaScriptAllowedForUrls
   ### Allow JavaScript on specific sites
@@ -1053,7 +1053,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## JavaScriptBlockedForUrls
   ### Block JavaScript on specific sites
@@ -1103,7 +1103,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NotificationsAllowedForUrls
   ### Allow notifications on specific sites
@@ -1153,7 +1153,7 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NotificationsBlockedForUrls
   ### Block notifications on specific sites
@@ -1203,7 +1203,7 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PluginsAllowedForUrls
   ### Allow the Adobe Flash plug-in on specific sites
@@ -1253,7 +1253,7 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PluginsBlockedForUrls
   ### Block the Adobe Flash plug-in on specific sites
@@ -1303,7 +1303,7 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PopupsAllowedForUrls
   ### Allow pop-up windows on specific sites
@@ -1353,7 +1353,7 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PopupsBlockedForUrls
   ### Block pop-up windows on specific sites
@@ -1403,7 +1403,7 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RegisteredProtocolHandlers
   ### Register protocol handlers
@@ -1466,7 +1466,7 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebUsbAllowDevicesForUrls
   ### Grant access to specific sites to connect to specific USB devices.
@@ -1548,7 +1548,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebUsbAskForUrls
   ### Allow WebUSB on specific sites
@@ -1600,7 +1600,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebUsbBlockedForUrls
   ### Block WebUSB on specific sites
@@ -1652,7 +1652,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderEnabled
   ### Enable the default search provider
@@ -1707,7 +1707,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderEncodings
   ### Default search provider encodings
@@ -1763,7 +1763,7 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderImageURL
   ### Specifies the search-by-image feature for the default search provider
@@ -1810,7 +1810,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderImageURLPostParams
   ### Parameters for an image URL that uses POST
@@ -1855,7 +1855,7 @@ If you don’t set this policy, image search requests are sent using the GET met
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderKeyword
   ### Default search provider keyword
@@ -1902,7 +1902,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderName
   ### Default search provider name
@@ -1951,7 +1951,7 @@ If you don't enable this policy or if you leave it empty, the host name specifie
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderSearchURL
   ### Default search provider search URL
@@ -2002,7 +2002,7 @@ This policy is required when you enable the 'DefaultSearchProviderEnabled' polic
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultSearchProviderSuggestURL
   ### Default search provider URL for suggestions
@@ -2055,7 +2055,7 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionAllowedTypes
   ### Configure allowed extension types
@@ -2109,7 +2109,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionInstallAllowlist
   ### Allow specific extensions to be installed
@@ -2157,7 +2157,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionInstallBlocklist
   ### Control which extensions cannot be installed
@@ -2209,7 +2209,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionInstallForcelist
   ### Control which extensions are installed silently
@@ -2277,7 +2277,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionInstallSources
   ### Configure extension and user script install sources
@@ -2329,7 +2329,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ExtensionSettings
   ### Configure extension management settings
@@ -2532,7 +2532,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EnableMediaRouter
   ### Enable Google Cast
@@ -2579,7 +2579,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ShowCastIconInToolbar
   ### Show the cast icon in the toolbar
@@ -2626,7 +2626,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AllowCrossOriginAuthPrompt
   ### Allow cross-origin HTTP Basic Auth prompts
@@ -2671,7 +2671,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AuthNegotiateDelegateAllowlist
   ### Specifies a list of servers that Microsoft Edge can delegate user credentials to
@@ -2718,7 +2718,7 @@ If you don't configure this policy Microsoft Edge won't delegate user credential
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AuthSchemes
   ### Supported authentication schemes
@@ -2765,7 +2765,7 @@ If you don't configure this policy, all four schemes are used.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AuthServerAllowlist
   ### Configure list of allowed authentication servers
@@ -2812,7 +2812,7 @@ If you don't configure this policy, Microsoft Edge tries to detect if a server i
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DisableAuthNegotiateCnameLookup
   ### Disable CNAME lookup when negotiating Kerberos authentication
@@ -2859,7 +2859,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EnableAuthNegotiatePort
   ### Include non-standard port in Kerberos SPN
@@ -2906,7 +2906,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NtlmV2Enabled
   ### Control whether NTLMv2 authentication is enabled
@@ -2937,7 +2937,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NativeMessagingAllowlist
   ### Control which native messaging hosts users can use
@@ -2987,7 +2987,7 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messag
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NativeMessagingBlocklist
   ### Configure native messaging block list
@@ -3039,7 +3039,7 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NativeMessagingUserLevelHosts
   ### Allow user-level native messaging hosts (installed without admin permissions)
@@ -3086,7 +3086,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PasswordManagerEnabled
   ### Enable saving passwords to the password manager
@@ -3135,7 +3135,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PasswordProtectionChangePasswordURL
   ### Configure the change password URL
@@ -3186,7 +3186,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PasswordProtectionLoginURLs
   ### Configure the list of enterprise login URLs where password protection service should capture fingerprint of password
@@ -3240,7 +3240,7 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PasswordProtectionWarningTrigger
   ### Configure password protection warning trigger
@@ -3297,7 +3297,7 @@ If you disable or don't configure this policy, then the warning trigger is not s
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultPrinterSelection
   ### Default printer selection rules
@@ -3348,7 +3348,7 @@ Omitting a field means all values match; for example, if you don't specify conne
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PrintHeaderFooter
   ### Print headers and footers
@@ -3397,7 +3397,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PrintPreviewUseSystemDefaultPrinter
   ### Set the system default printer as the default printer
@@ -3444,7 +3444,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PrintingEnabled
   ### Enable printing
@@ -3491,7 +3491,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## UseSystemPrintDialog
   ### Print using system print dialog
@@ -3538,7 +3538,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProxyBypassList
   ### Configure proxy bypass rules
@@ -3587,7 +3587,7 @@ If you don't configure this policy, no list of hosts is created for which Micros
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProxyMode
   ### Configure proxy server settings
@@ -3654,7 +3654,7 @@ If you don't configure this policy users can choose their own proxy settings.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProxyPacUrl
   ### Set the proxy .pac file URL
@@ -3703,7 +3703,7 @@ If you disable or don't configure this policy, no PAC file is specified. Leave t
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProxyServer
   ### Configure address or URL of proxy server
@@ -3752,7 +3752,7 @@ If you disable or don't configure this policy, users can choose their own proxy 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProxySettings
   ### Proxy settings
@@ -3839,7 +3839,7 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PreventSmartScreenPromptOverride
   ### Prevent bypassing Microsoft Defender SmartScreen prompts for sites
@@ -3886,7 +3886,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PreventSmartScreenPromptOverrideForFiles
   ### Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads
@@ -3927,7 +3927,7 @@ True
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SmartScreenAllowListDomains
   ### Configure the list of domains for which SmartScreen won't trigger warnings
@@ -3982,7 +3982,7 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SmartScreenEnabled
   ### Configure Microsoft Defender SmartScreen
@@ -4033,7 +4033,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## HomepageIsNewTabPage
   ### Set the new tab page as the home page
@@ -4084,7 +4084,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## HomepageLocation
   ### Configure the home page URL
@@ -4137,7 +4137,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NewTabPageHideDefaultTopSites
   ### Hide the default top sites from the new tab page
@@ -4184,7 +4184,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NewTabPageLocation
   ### Configure the new tab page URL
@@ -4237,7 +4237,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RestoreOnStartup
   ### Action to take on startup
@@ -4296,7 +4296,7 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RestoreOnStartupURLs
   ### Sites to open when the browser starts
@@ -4348,7 +4348,7 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ShowHomeButton
   ### Show Home button on toolbar
@@ -4395,7 +4395,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AllowDeletingBrowserHistory
   ### Enable deleting browser and download history
@@ -4446,7 +4446,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AllowFileSelectionDialogs
   ### Allow file selection dialogs
@@ -4493,7 +4493,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AlwaysOpenPdfExternally
   ### Always open PDF files externally
@@ -4540,7 +4540,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ApplicationLocaleValue
   ### Set application locale
@@ -4581,7 +4581,7 @@ If you disable or don't configure this setting, Microsoft Edge uses either the u
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AudioCaptureAllowed
   ### Allow or block audio capture
@@ -4630,7 +4630,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AudioCaptureAllowedUrls
   ### Sites that can access audio capture devices without requesting permission
@@ -4678,7 +4678,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AutoImportAtFirstRun
   ### Automatically import another browser's data and settings at first run
@@ -4735,7 +4735,7 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AutofillAddressEnabled
   ### Enable AutoFill for addresses
@@ -4784,7 +4784,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## AutofillCreditCardEnabled
   ### Enable AutoFill for credit cards
@@ -4831,7 +4831,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BackgroundModeEnabled
   ### Continue running background apps after Microsoft Edge closes
@@ -4874,7 +4874,7 @@ True
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BlockThirdPartyCookies
   ### Block third party cookies
@@ -4923,7 +4923,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BrowserAddProfileEnabled
   ### Enable profile creation from the Identity flyout menu or the Settings page
@@ -4969,7 +4969,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BrowserGuestModeEnabled
   ### Enable guest mode
@@ -5016,7 +5016,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BrowserNetworkTimeQueriesEnabled
   ### Allow queries to a Browser Network Time service
@@ -5063,7 +5063,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BrowserSignin
   ### Browser sign-in settings
@@ -5120,7 +5120,7 @@ If you don't configure this policy users can decide if they want to enable the b
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## BuiltInDnsClientEnabled
   ### Use built-in DNS client
@@ -5169,7 +5169,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CertificateTransparencyEnforcementDisabledForCas
   ### Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes
@@ -5228,7 +5228,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCa
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CertificateTransparencyEnforcementDisabledForLegacyCas
   ### Disable Certificate Transparency enforcement for a list of legacy certificate authorities
@@ -5284,7 +5284,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLe
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CertificateTransparencyEnforcementDisabledForUrls
   ### Disable Certificate Transparency enforcement for specific URLs
@@ -5338,7 +5338,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## CoalesceH2ConnectionsWithClientCertificatesForHosts
   ### Allow HTTP/2 connection coalescing for these hosts even when client certificates are used
@@ -5390,7 +5390,7 @@ SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForH
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ComponentUpdatesEnabled
   ### Enable component updates in Microsoft Edge
@@ -5437,7 +5437,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ConfigureDoNotTrack
   ### Configure Do Not Track
@@ -5486,7 +5486,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ConfigureOnlineTextToSpeech
   ### Configure Online Text To Speech
@@ -5537,7 +5537,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DefaultBrowserSettingEnabled
   ### Set Microsoft Edge as default browser
@@ -5588,7 +5588,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DeveloperToolsAvailability
   ### Control where developer tools can be used
@@ -5643,7 +5643,7 @@ If you set this policy to 'DeveloperToolsDisallowed' (2), users can't access the
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## Disable3DAPIs
   ### Disable support for 3D graphics APIs
@@ -5690,7 +5690,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DisableScreenshots
   ### Disable taking screenshots
@@ -5739,7 +5739,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DiskCacheDir
   ### Set disk cache directory
@@ -5786,7 +5786,7 @@ If you don't configure this policy, the default cache directory is used, and use
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DiskCacheSize
   ### Set disk cache size, in bytes
@@ -5835,7 +5835,7 @@ If you don't configure this policy, the default size is used, but users can over
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DownloadDirectory
   ### Set download directory
@@ -5882,7 +5882,7 @@ If you disable or don't configure this policy, the default download directory is
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## DownloadRestrictions
   ### Allow download restrictions
@@ -5943,7 +5943,7 @@ Note that these restrictions apply to downloads from web page content, as well a
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EditFavoritesEnabled
   ### Allows users to edit favorites
@@ -5988,7 +5988,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EnableDeprecatedWebPlatformFeatures
   ### Re-enable deprecated web platform features for a limited time
@@ -6044,7 +6044,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EnableDomainActionsDownload
   ### Enable Domain Actions Download from Microsoft
@@ -6097,7 +6097,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## EnableOnlineRevocationChecks
   ### Enable online OCSP/CRL checks
@@ -6142,7 +6142,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## FavoritesBarEnabled
   ### Enable favorites bar
@@ -6191,7 +6191,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ForceBingSafeSearch
   ### Enforce Bing SafeSearch
@@ -6248,7 +6248,7 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ForceEphemeralProfiles
   ### Enable use of ephemeral profiles
@@ -6297,7 +6297,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ForceGoogleSafeSearch
   ### Enforce Google SafeSearch
@@ -6344,7 +6344,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ForceYouTubeRestrict
   ### Force minimum YouTube Restricted Mode
@@ -6399,7 +6399,7 @@ Set to Off (0) or don't configure this policy to not enforce Restricted Mode on 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## FullscreenAllowed
   ### Allow full screen mode
@@ -6442,7 +6442,7 @@ True
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## HardwareAccelerationModeEnabled
   ### Use hardware acceleration when available
@@ -6487,7 +6487,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportAutofillFormData
   ### Allow importing of autofill form data
@@ -6540,7 +6540,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportFavorites
   ### Allow importing of favorites
@@ -6593,7 +6593,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportHistory
   ### Allow importing of browsing history
@@ -6646,7 +6646,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportHomepage
   ### Allow importing of home page settings
@@ -6699,7 +6699,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportPaymentInfo
   ### Allow importing of payment info
@@ -6752,7 +6752,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportSavedPasswords
   ### Allow importing of saved passwords
@@ -6805,7 +6805,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ImportSearchEngine
   ### Allow importing of search engine settings
@@ -6858,7 +6858,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## InPrivateModeAvailability
   ### Configure InPrivate mode availability
@@ -6913,7 +6913,7 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## InternetExplorerIntegrationLevel
   ### Configure Internet Explorer integration
@@ -6962,7 +6962,7 @@ For more info about how to use this policy together with other related policies 
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## IsolateOrigins
   ### Enable site isolation for specific origins
@@ -7009,7 +7009,7 @@ If you don't configure the policy, the user can change this setting.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ManagedFavorites
   ### Configure favorites
@@ -7120,7 +7120,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ManagedSearchEngines
   ### Manage Search Engines
@@ -7236,7 +7236,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## MaxConnectionsPerProxy
   ### Maximum number of concurrent connections to the proxy server
@@ -7287,7 +7287,7 @@ If you don't configure this policy, the default value (32) is used.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## MediaRouterCastAllowAllIPs
   ### Allow Google Cast to connect to Cast devices on all IP addresses
@@ -7336,7 +7336,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## MetricsReportingEnabled
   ### Enable usage and crash-related data reporting
@@ -7391,7 +7391,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## NetworkPredictionOptions
   ### Enable network prediction
@@ -7442,7 +7442,7 @@ If you don't configure this policy, network prediction is enabled but the user c
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## OverrideSecurityRestrictionsOnInsecureOrigin
   ### Control where security restrictions on insecure origins apply
@@ -7496,7 +7496,7 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ProactiveAuthEnabled
   ### Enable Proactive Authentication
@@ -7545,7 +7545,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PromotionalTabsEnabled
   ### Enable full-tab promotional content
@@ -7592,7 +7592,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## PromptForDownloadLocation
   ### Ask where to save downloaded files
@@ -7639,7 +7639,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## QuicAllowed
   ### Allow QUIC protocol
@@ -7688,7 +7688,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RelaunchNotification
   ### Notify a user that a browser restart is recommended or required for pending updates
@@ -7743,7 +7743,7 @@ The user's session is restored when the browser restarts.
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RelaunchNotificationPeriod
   ### Set the time period for update notifications
@@ -7794,7 +7794,7 @@ Restrictions:
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RequireOnlineRevocationChecksForLocalAnchors
   ### Specify if online OCSP/CRL checks are required for local trust anchors
@@ -7835,7 +7835,7 @@ False
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ResolveNavigationErrorsUseWebService
   ### Enable resolution of navigation errors using a web service
@@ -7887,7 +7887,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RestrictSigninToPattern
   ### Restrict which accounts can be used as Microsoft Edge primary accounts
@@ -7934,7 +7934,7 @@ If you don't configure this policy or leave it blank, users can set any account 
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## RunAllFlashInAllowMode
   ### Extend Adobe Flash content setting to all content
@@ -7981,7 +7981,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SSLErrorOverrideAllowed
   ### Allow users to proceed from the SSL warning page
@@ -8028,7 +8028,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SSLVersionMin
   ### Minimum SSL version enabled
@@ -8079,7 +8079,7 @@ If you enable this policy, you can set the minimum version to one of the followi
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SavingBrowserHistoryDisabled
   ### Disable saving browser history
@@ -8126,7 +8126,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SearchSuggestEnabled
   ### Enable search suggestions
@@ -8175,7 +8175,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SecurityKeyPermitAttestation
   ### Websites or domains that don't need permission to use direct Security Key attestation
@@ -8223,7 +8223,7 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SendIntranetToInternetExplorer
   ### Send all intranet sites to Internet Explorer
@@ -8276,7 +8276,7 @@ True
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SendSiteInfoToImproveServices
   ### Send site information to improve Microsoft services
@@ -8333,7 +8333,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## ShowOfficeShortcutInFavoritesBar
   ### Show Microsoft Office shortcut in favorites bar
@@ -8380,7 +8380,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SitePerProcess
   ### Enable site isolation for every site
@@ -8427,7 +8427,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SpellcheckEnabled
   ### Enable spellcheck
@@ -8472,7 +8472,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SpellcheckLanguage
   ### Enable specific spellcheck languages
@@ -8519,7 +8519,7 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SuppressUnsupportedOSWarning
   ### Suppress the unsupported OS warning
@@ -8562,7 +8562,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## SyncDisabled
   ### Disable synchronization of data using Microsoft sync services
@@ -8609,7 +8609,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## TabLifecyclesEnabled
   ### Configure tab lifecycles
@@ -8650,7 +8650,7 @@ False
 
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## TaskManagerEndProcessEnabled
   ### Enable ending processes in the Browser task manager
@@ -8693,7 +8693,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## TranslateEnabled
   ### Enable Translate
@@ -8742,7 +8742,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## URLAllowlist
   ### Define a list of allowed URLs
@@ -8804,7 +8804,7 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## URLBlocklist
   ### Block access to a list of URLs
@@ -8872,7 +8872,7 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## UserDataDir
   ### Set the user data directory
@@ -8921,7 +8921,7 @@ To avoid data loss or other errors, don't configure this policy to a volume's ro
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## UserFeedbackAllowed
   ### Allow user feedback
@@ -8968,7 +8968,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## VideoCaptureAllowed
   ### Allow or block video capture
@@ -9017,7 +9017,7 @@ False
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## VideoCaptureAllowedUrls
   ### Sites that can access video capture devices without requesting permission
@@ -9065,7 +9065,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WPADQuickCheckEnabled
   ### Set WPAD optimization
@@ -9114,7 +9114,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebDriverOverridesIncompatiblePolicies
   ### Allow WebDriver to Override Incompatible Policies
@@ -9163,7 +9163,7 @@ True
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebRtcLocalhostIpHandling
   ### Restrict exposure of localhost IP address by WebRTC
@@ -9217,7 +9217,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
 ```
   
 
-  [Back to top](#edge-policy-documentation)
+  [Back to top](#available-browser-group-policies)
 
   ## WebRtcUdpPortRange
   ### Restrict the range of local UDP ports used by WebRTC
@@ -9263,7 +9263,7 @@ If you don't configure this policy, or if you set it to an empty string or inval
 "10000-11999"
 ```
   
-  [Back to Top](#edge-policy-documentation)
+  [Back to Top](#available-browser-group-policies)
 
 ## See also
 
