@@ -21,7 +21,7 @@ For information about other policies available in Microsoft Edge, check out [Mic
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Available group policies
+## Edge update policy documentation
 
 This table lists all of the update-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
@@ -326,7 +326,7 @@ Allows you to specify the URL of the proxy server for Edge Update to use.
 ```
 https://www.microsoft.com
 ```
-  [Back to Top](#available-group-policies)
+  [Back to Top](#edge-update-policy-documentation)
   
 ## See also
 

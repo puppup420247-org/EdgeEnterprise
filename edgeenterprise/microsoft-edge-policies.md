@@ -21,9 +21,9 @@ For information about an additional set of policies used to  control how and whe
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Available group policies
+## Edge policy documentation
 
-This table lists all of the browser-related group policies avaiable in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
+This table lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 |Policy Name|Caption|
 |-|-|
@@ -9263,7 +9263,7 @@ If you don't configure this policy, or if you set it to an empty string or inval
 "10000-11999"
 ```
   
-  [Back to Top](#available-group-policies)
+  [Back to Top](#edge-policy-documentation)
 
 ## See also
 
