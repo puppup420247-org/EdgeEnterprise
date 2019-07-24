@@ -23,7 +23,10 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif",
+          "**/*.svg",
+          "**/*.pdf"
         ],
         "exclude": [
           "**/obj/**",
@@ -39,7 +42,8 @@
     "globalMetadata": {
       "breadcrumb_path": "/EdgeEnterprise/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "None",
+      "searchScope": ["Microsoft Edge"]
     },
     "fileMetadata": {},
     "template": [],

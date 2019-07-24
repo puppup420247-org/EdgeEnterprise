@@ -7,7 +7,7 @@ ms.date: 07/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: high
+localization_priority: medium
 ms.collection: M365-modern-desktop
 description: "Frequently asked questions about deploying Microsoft Edge in the enterprise"
 ---
@@ -34,6 +34,9 @@ The Canary channel will update about daily, and the Dev channel will update abou
 
 ## What kind of extension support do I have with the new version of Microsoft Edge?
 Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://go.microsoft.com/fwlink/?linkid=2081222) and [Chrome Web Store](https://go.microsoft.com/fwlink/?linkid=2072338).
+
+## Do you support Mobile Device Management (MDM) and Microsoft Intune?
+Support for MDM and integration with Microsoft Intune is on our roadmap.
 
 ## See also
 
