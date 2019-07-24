@@ -1,13 +1,13 @@
 --- 
-title: "Microsoft Edge browser policy reference" 
+title: "Microsoft Edge Browser Policy Documentation" 
 ms.author: stmoody 
-author: kelleyvice-MSFT 
+author: kelleyvice-msft
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 07/23/2019
 audience: ITPro 
 ms.topic: reference
 ms.prod: microsoft-edge
-localization_priority: medium
+localization_priority: high
 ms.collection: M365-modern-desktop
 description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser" 
 ---
@@ -21,205 +21,205 @@ For information about an additional set of policies used to  control how and whe
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Available group policies
+## Available browser group policies
 
-This table lists all of the group policies avaiable in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
+This table lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 |Policy Name|Caption|
 |-|-|
 |*Content settings*||
-|[AutoSelectCertificateForUrls](#automatically-select-client-certificates-for-these-sites-autoselectcertificateforurls)|Automatically select client certificates for these sites|
-|[CookiesAllowedForUrls](#allow-cookies-on-specific-sites-cookiesallowedforurls)|Allow cookies on specific sites|
-|[CookiesBlockedForUrls](#block-cookies-on-specific-sites-cookiesblockedforurls)|Block cookies on specific sites|
-|[CookiesSessionOnlyForUrls](#limit-cookies-from-specific-websites-to-the-current-session-cookiessessiononlyforurls)|Limit cookies from specific websites to the current session|
-|[DefaultCookiesSetting](#configure-cookies-defaultcookiessetting)|Configure cookies|
-|[DefaultGeolocationSetting](#default-geolocation-setting-defaultgeolocationsetting)|Default geolocation setting|
-|[DefaultImagesSetting](#default-images-setting-defaultimagessetting)|Default images setting|
-|[DefaultJavaScriptSetting](#default-javascript-setting-defaultjavascriptsetting)|Default JavaScript setting|
-|[DefaultNotificationsSetting](#default-notification-setting-defaultnotificationssetting)|Default notification setting|
-|[DefaultPluginsSetting](#default-adobe-flash-setting-defaultpluginssetting)|Default Adobe Flash setting|
-|[DefaultPopupsSetting](#default-pop-up-window-setting-defaultpopupssetting)|Default pop-up window setting|
-|[DefaultWebBluetoothGuardSetting](#control-use-of-the-web-bluetooth-api-defaultwebbluetoothguardsetting)|Control use of the Web Bluetooth API|
-|[DefaultWebUsbGuardSetting](#control-use-of-the-webusb-api-defaultwebusbguardsetting)|Control use of the WebUSB API|
-|[ImagesAllowedForUrls](#allow-images-on-these-sites-imagesallowedforurls)|Allow images on these sites|
-|[ImagesBlockedForUrls](#block-images-on-specific-sites-imagesblockedforurls)|Block images on specific sites|
-|[JavaScriptAllowedForUrls](#allow-javascript-on-specific-sites-javascriptallowedforurls)|Allow JavaScript on specific sites|
-|[JavaScriptBlockedForUrls](#block-javascript-on-specific-sites-javascriptblockedforurls)|Block JavaScript on specific sites|
-|[NotificationsAllowedForUrls](#allow-notifications-on-specific-sites-notificationsallowedforurls)|Allow notifications on specific sites|
-|[NotificationsBlockedForUrls](#block-notifications-on-specific-sites-notificationsblockedforurls)|Block notifications on specific sites|
-|[PluginsAllowedForUrls](#allow-the-adobe-flash-plug-in-on-specific-sites-pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites|
-|[PluginsBlockedForUrls](#block-the-adobe-flash-plug-in-on-specific-sites-pluginsblockedforurls)|Block the Adobe Flash plug-in on specific sites|
-|[PopupsAllowedForUrls](#allow-pop-up-windows-on-specific-sites-popupsallowedforurls)|Allow pop-up windows on specific sites|
-|[PopupsBlockedForUrls](#block-pop-up-windows-on-specific-sites-popupsblockedforurls)|Block pop-up windows on specific sites|
-|[RegisteredProtocolHandlers](#register-protocol-handlers-registeredprotocolhandlers)|Register protocol handlers|
-|[WebUsbAllowDevicesForUrls](#grant-access-to-specific-sites-to-connect-to-specific-usb-devices-webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
-|[WebUsbAskForUrls](#allow-webusb-on-specific-sites-webusbaskforurls)|Allow WebUSB on specific sites|
-|[WebUsbBlockedForUrls](#block-webusb-on-specific-sites-webusbblockedforurls)|Block WebUSB on specific sites|
+|[AutoSelectCertificateForUrls](#autoselectcertificateforurls)|Automatically select client certificates for these sites|
+|[CookiesAllowedForUrls](#cookiesallowedforurls)|Allow cookies on specific sites|
+|[CookiesBlockedForUrls](#cookiesblockedforurls)|Block cookies on specific sites|
+|[CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)|Limit cookies from specific websites to the current session|
+|[DefaultCookiesSetting](#defaultcookiessetting)|Configure cookies|
+|[DefaultGeolocationSetting](#defaultgeolocationsetting)|Default geolocation setting|
+|[DefaultImagesSetting](#defaultimagessetting)|Default images setting|
+|[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Default JavaScript setting|
+|[DefaultNotificationsSetting](#defaultnotificationssetting)|Default notification setting|
+|[DefaultPluginsSetting](#defaultpluginssetting)|Default Adobe Flash setting|
+|[DefaultPopupsSetting](#defaultpopupssetting)|Default pop-up window setting|
+|[DefaultWebBluetoothGuardSetting](#defaultwebbluetoothguardsetting)|Control use of the Web Bluetooth API|
+|[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Control use of the WebUSB API|
+|[ImagesAllowedForUrls](#imagesallowedforurls)|Allow images on these sites|
+|[ImagesBlockedForUrls](#imagesblockedforurls)|Block images on specific sites|
+|[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Allow JavaScript on specific sites|
+|[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Block JavaScript on specific sites|
+|[NotificationsAllowedForUrls](#notificationsallowedforurls)|Allow notifications on specific sites|
+|[NotificationsBlockedForUrls](#notificationsblockedforurls)|Block notifications on specific sites|
+|[PluginsAllowedForUrls](#pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites|
+|[PluginsBlockedForUrls](#pluginsblockedforurls)|Block the Adobe Flash plug-in on specific sites|
+|[PopupsAllowedForUrls](#popupsallowedforurls)|Allow pop-up windows on specific sites|
+|[PopupsBlockedForUrls](#popupsblockedforurls)|Block pop-up windows on specific sites|
+|[RegisteredProtocolHandlers](#registeredprotocolhandlers)|Register protocol handlers|
+|[WebUsbAllowDevicesForUrls](#webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices.|
+|[WebUsbAskForUrls](#webusbaskforurls)|Allow WebUSB on specific sites|
+|[WebUsbBlockedForUrls](#webusbblockedforurls)|Block WebUSB on specific sites|
 |*Default search provider*||
-|[DefaultSearchProviderEnabled](#enable-the-default-search-provider-defaultsearchproviderenabled)|Enable the default search provider|
-|[DefaultSearchProviderEncodings](#default-search-provider-encodings-defaultsearchproviderencodings)|Default search provider encodings|
-|[DefaultSearchProviderImageURL](#specifies-the-search-by-image-feature-for-the-default-search-provider-defaultsearchproviderimageurl)|Specifies the search-by-image feature for the default search provider|
-|[DefaultSearchProviderImageURLPostParams](#parameters-for-an-image-url-that-uses-post-defaultsearchproviderimageurlpostparams)|Parameters for an image URL that uses POST|
-|[DefaultSearchProviderKeyword](#default-search-provider-keyword-defaultsearchproviderkeyword)|Default search provider keyword|
-|[DefaultSearchProviderName](#default-search-provider-name-defaultsearchprovidername)|Default search provider name|
-|[DefaultSearchProviderSearchURL](#default-search-provider-search-url-defaultsearchprovidersearchurl)|Default search provider search URL|
-|[DefaultSearchProviderSuggestURL](#default-search-provider-url-for-suggestions-defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
+|[DefaultSearchProviderEnabled](#defaultsearchproviderenabled)|Enable the default search provider|
+|[DefaultSearchProviderEncodings](#defaultsearchproviderencodings)|Default search provider encodings|
+|[DefaultSearchProviderImageURL](#defaultsearchproviderimageurl)|Specifies the search-by-image feature for the default search provider|
+|[DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams)|Parameters for an image URL that uses POST|
+|[DefaultSearchProviderKeyword](#defaultsearchproviderkeyword)|Default search provider keyword|
+|[DefaultSearchProviderName](#defaultsearchprovidername)|Default search provider name|
+|[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl)|Default search provider search URL|
+|[DefaultSearchProviderSuggestURL](#defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
 |*Extensions*||
-|[ExtensionAllowedTypes](#configure-allowed-extension-types-extensionallowedtypes)|Configure allowed extension types|
-|[ExtensionInstallAllowlist](#allow-specific-extensions-to-be-installed-extensioninstallallowlist)|Allow specific extensions to be installed|
-|[ExtensionInstallBlocklist](#control-which-extensions-cannot-be-installed-extensioninstallblocklist)|Control which extensions cannot be installed|
-|[ExtensionInstallForcelist](#control-which-extensions-are-installed-silently-extensioninstallforcelist)|Control which extensions are installed silently|
-|[ExtensionInstallSources](#configure-extension-and-user-script-install-sources-extensioninstallsources)|Configure extension and user script install sources|
-|[ExtensionSettings](#configure-extension-management-settings-extensionsettings)|Configure extension management settings|
+|[ExtensionAllowedTypes](#extensionallowedtypes)|Configure allowed extension types|
+|[ExtensionInstallAllowlist](#extensioninstallallowlist)|Allow specific extensions to be installed|
+|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Control which extensions cannot be installed|
+|[ExtensionInstallForcelist](#extensioninstallforcelist)|Control which extensions are installed silently|
+|[ExtensionInstallSources](#extensioninstallsources)|Configure extension and user script install sources|
+|[ExtensionSettings](#extensionsettings)|Configure extension management settings|
 |*Cast*||
-|[EnableMediaRouter](#enable-google-cast-enablemediarouter)|Enable Google Cast|
-|[ShowCastIconInToolbar](#show-the-cast-icon-in-the-toolbar-showcasticonintoolbar)|Show the cast icon in the toolbar|
+|[EnableMediaRouter](#enablemediarouter)|Enable Google Cast|
+|[ShowCastIconInToolbar](#showcasticonintoolbar)|Show the cast icon in the toolbar|
 |*HTTP authentication*||
-|[AllowCrossOriginAuthPrompt](#allow-cross-origin-http-basic-auth-prompts-allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
-|[AuthNegotiateDelegateAllowlist](#specifies-a-list-of-servers-that-microsoft-edge-can-delegate-user-credentials-to-authnegotiatedelegateallowlist)|Specifies a list of servers that Microsoft Edge can delegate user credentials to|
-|[AuthSchemes](#supported-authentication-schemes-authschemes)|Supported authentication schemes|
-|[AuthServerAllowlist](#configure-list-of-allowed-authentication-servers-authserverallowlist)|Configure list of allowed authentication servers|
-|[DisableAuthNegotiateCnameLookup](#disable-cname-lookup-when-negotiating-kerberos-authentication-disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
-|[EnableAuthNegotiatePort](#include-non-standard-port-in-kerberos-spn-enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
-|[NtlmV2Enabled](#control-whether-ntlmv2-authentication-is-enabled-ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
+|[AllowCrossOriginAuthPrompt](#allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
+|[AuthNegotiateDelegateAllowlist](#authnegotiatedelegateallowlist)|Specifies a list of servers that Microsoft Edge can delegate user credentials to|
+|[AuthSchemes](#authschemes)|Supported authentication schemes|
+|[AuthServerAllowlist](#authserverallowlist)|Configure list of allowed authentication servers|
+|[DisableAuthNegotiateCnameLookup](#disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
+|[EnableAuthNegotiatePort](#enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
+|[NtlmV2Enabled](#ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
 |*Native Messaging*||
-|[NativeMessagingAllowlist](#control-which-native-messaging-hosts-users-can-use-nativemessagingallowlist)|Control which native messaging hosts users can use|
-|[NativeMessagingBlocklist](#configure-native-messaging-block-list-nativemessagingblocklist)|Configure native messaging block list|
-|[NativeMessagingUserLevelHosts](#allow-user-level-native-messaging-hosts-installed-without-admin-permissions-nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
+|[NativeMessagingAllowlist](#nativemessagingallowlist)|Control which native messaging hosts users can use|
+|[NativeMessagingBlocklist](#nativemessagingblocklist)|Configure native messaging block list|
+|[NativeMessagingUserLevelHosts](#nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
 |*Password manager and protection*||
-|[PasswordManagerEnabled](#enable-saving-passwords-to-the-password-manager-passwordmanagerenabled)|Enable saving passwords to the password manager|
-|[PasswordProtectionChangePasswordURL](#configure-the-change-password-url-passwordprotectionchangepasswordurl)|Configure the change password URL|
-|[PasswordProtectionLoginURLs](#configure-the-list-of-enterprise-login-urls-where-password-protection-service-should-capture-fingerprint-of-password-passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
-|[PasswordProtectionWarningTrigger](#configure-password-protection-warning-trigger-passwordprotectionwarningtrigger)|Configure password protection warning trigger|
+|[PasswordManagerEnabled](#passwordmanagerenabled)|Enable saving passwords to the password manager|
+|[PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)|Configure the change password URL|
+|[PasswordProtectionLoginURLs](#passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
+|[PasswordProtectionWarningTrigger](#passwordprotectionwarningtrigger)|Configure password protection warning trigger|
 |*Printing*||
-|[DefaultPrinterSelection](#default-printer-selection-rules-defaultprinterselection)|Default printer selection rules|
-|[PrintHeaderFooter](#print-headers-and-footers-printheaderfooter)|Print headers and footers|
-|[PrintPreviewUseSystemDefaultPrinter](#set-the-system-default-printer-as-the-default-printer-printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
-|[PrintingEnabled](#enable-printing-printingenabled)|Enable printing|
-|[UseSystemPrintDialog](#print-using-system-print-dialog-usesystemprintdialog)|Print using system print dialog|
+|[DefaultPrinterSelection](#defaultprinterselection)|Default printer selection rules|
+|[PrintHeaderFooter](#printheaderfooter)|Print headers and footers|
+|[PrintPreviewUseSystemDefaultPrinter](#printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
+|[PrintingEnabled](#printingenabled)|Enable printing|
+|[UseSystemPrintDialog](#usesystemprintdialog)|Print using system print dialog|
 |*Proxy server*||
-|[ProxyBypassList](#configure-proxy-bypass-rules-proxybypasslist)|Configure proxy bypass rules|
-|[ProxyMode](#configure-proxy-server-settings-proxymode)|Configure proxy server settings|
-|[ProxyPacUrl](#set-the-proxy-pac-file-url-proxypacurl)|Set the proxy .pac file URL|
-|[ProxyServer](#configure-address-or-url-of-proxy-server-proxyserver)|Configure address or URL of proxy server|
-|[ProxySettings](#proxy-settings-proxysettings)|Proxy settings|
+|[ProxyBypassList](#proxybypasslist)|Configure proxy bypass rules|
+|[ProxyMode](#proxymode)|Configure proxy server settings|
+|[ProxyPacUrl](#proxypacurl)|Set the proxy .pac file URL|
+|[ProxyServer](#proxyserver)|Configure address or URL of proxy server|
+|[ProxySettings](#proxysettings)|Proxy settings|
 |*SmartScreen settings*||
-|[PreventSmartScreenPromptOverride](#prevent-bypassing-microsoft-defender-smartscreen-prompts-for-sites-preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
-|[PreventSmartScreenPromptOverrideForFiles](#prevent-bypassing-of-microsoft-defender-smartscreen-warnings-about-downloads-preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
-|[SmartScreenAllowListDomains](#configure-the-list-of-domains-for-which-smartscreen-wont-trigger-warnings-smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
-|[SmartScreenEnabled](#configure-microsoft-defender-smartscreen-smartscreenenabled)|Configure Microsoft Defender SmartScreen|
+|[PreventSmartScreenPromptOverride](#preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
+|[PreventSmartScreenPromptOverrideForFiles](#preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
+|[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which SmartScreen won't trigger warnings|
+|[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |*Startup, home page and new tab page*||
-|[HomepageIsNewTabPage](#set-the-new-tab-page-as-the-home-page-homepageisnewtabpage)|Set the new tab page as the home page|
-|[HomepageLocation](#configure-the-home-page-url-homepagelocation)|Configure the home page URL|
-|[NewTabPageHideDefaultTopSites](#hide-the-default-top-sites-from-the-new-tab-page-newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
-|[NewTabPageLocation](#configure-the-new-tab-page-url-newtabpagelocation)|Configure the new tab page URL|
-|[RestoreOnStartup](#action-to-take-on-startup-restoreonstartup)|Action to take on startup|
-|[RestoreOnStartupURLs](#sites-to-open-when-the-browser-starts-restoreonstartupurls)|Sites to open when the browser starts|
-|[ShowHomeButton](#show-home-button-on-toolbar-showhomebutton)|Show Home button on toolbar|
+|[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
+|[HomepageLocation](#homepagelocation)|Configure the home page URL|
+|[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
+|[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
+|[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
+|[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
+|[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
 |*Ungrouped Policies*||
-|[AllowDeletingBrowserHistory](#enable-deleting-browser-and-download-history-allowdeletingbrowserhistory)|Enable deleting browser and download history|
-|[AllowFileSelectionDialogs](#allow-file-selection-dialogs-allowfileselectiondialogs)|Allow file selection dialogs|
-|[AlwaysOpenPdfExternally](#always-open-pdf-files-externally-alwaysopenpdfexternally)|Always open PDF files externally|
-|[ApplicationLocaleValue](#set-application-locale-applicationlocalevalue)|Set application locale|
-|[AudioCaptureAllowed](#allow-or-block-audio-capture-audiocaptureallowed)|Allow or block audio capture|
-|[AudioCaptureAllowedUrls](#sites-that-can-access-audio-capture-devices-without-requesting-permission-audiocaptureallowedurls)|Sites that can access audio capture devices without requesting permission|
-|[AutoImportAtFirstRun](#automatically-import-another-browsers-data-and-settings-at-first-run-autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
-|[AutofillAddressEnabled](#enable-autofill-for-addresses-autofilladdressenabled)|Enable AutoFill for addresses|
-|[AutofillCreditCardEnabled](#enable-autofill-for-credit-cards-autofillcreditcardenabled)|Enable AutoFill for credit cards|
-|[BackgroundModeEnabled](#continue-running-background-apps-after-microsoft-edge-closes-backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
-|[BlockThirdPartyCookies](#block-third-party-cookies-blockthirdpartycookies)|Block third party cookies|
-|[BrowserAddProfileEnabled](#enable-profile-creation-from-the-identity-flyout-menu-or-the-settings-page-browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
-|[BrowserGuestModeEnabled](#enable-guest-mode-browserguestmodeenabled)|Enable guest mode|
-|[BrowserNetworkTimeQueriesEnabled](#allow-queries-to-a-browser-network-time-service-browsernetworktimequeriesenabled)|Allow queries to a Browser Network Time service|
-|[BrowserSignin](#browser-sign-in-settings-browsersignin)|Browser sign-in settings|
-|[BuiltInDnsClientEnabled](#use-built-in-dns-client-builtindnsclientenabled)|Use built-in DNS client|
-|[CertificateTransparencyEnforcementDisabledForCas](#disable-certificate-transparency-enforcement-for-a-list-of-subjectpublickeyinfo-hashes-certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
-|[CertificateTransparencyEnforcementDisabledForLegacyCas](#disable-certificate-transparency-enforcement-for-a-list-of-legacy-certificate-authorities-certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
-|[CertificateTransparencyEnforcementDisabledForUrls](#disable-certificate-transparency-enforcement-for-specific-urls-certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
-|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#allow-http2-connection-coalescing-for-these-hosts-even-when-client-certificates-are-used-coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
-|[ComponentUpdatesEnabled](#enable-component-updates-in-microsoft-edge-componentupdatesenabled)|Enable component updates in Microsoft Edge|
-|[ConfigureDoNotTrack](#configure-do-not-track-configuredonottrack)|Configure Do Not Track|
-|[ConfigureOnlineTextToSpeech](#configure-online-text-to-speech-configureonlinetexttospeech)|Configure Online Text To Speech|
-|[DefaultBrowserSettingEnabled](#set-microsoft-edge-as-default-browser-defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
-|[DeveloperToolsAvailability](#control-where-developer-tools-can-be-used-developertoolsavailability)|Control where developer tools can be used|
-|[Disable3DAPIs](#disable-support-for-3d-graphics-apis-disable3dapis)|Disable support for 3D graphics APIs|
-|[DisableScreenshots](#disable-taking-screenshots-disablescreenshots)|Disable taking screenshots|
-|[DiskCacheDir](#set-disk-cache-directory-diskcachedir)|Set disk cache directory|
-|[DiskCacheSize](#set-disk-cache-size-in-bytes-diskcachesize)|Set disk cache size, in bytes|
-|[DownloadDirectory](#set-download-directory-downloaddirectory)|Set download directory|
-|[DownloadRestrictions](#allow-download-restrictions-downloadrestrictions)|Allow download restrictions|
-|[EditFavoritesEnabled](#allows-users-to-edit-favorites-editfavoritesenabled)|Allows users to edit favorites|
-|[EnableDeprecatedWebPlatformFeatures](#re-enable-deprecated-web-platform-features-for-a-limited-time-enabledeprecatedwebplatformfeatures)|Re-enable deprecated web platform features for a limited time|
-|[EnableDomainActionsDownload](#enable-domain-actions-download-from-microsoft-enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft|
-|[EnableOnlineRevocationChecks](#enable-online-ocspcrl-checks-enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
-|[FavoritesBarEnabled](#enable-favorites-bar-favoritesbarenabled)|Enable favorites bar|
-|[ForceBingSafeSearch](#configure-bing-safesearch-forcebingsafesearch)|Configure Bing SafeSearch|
-|[ForceEphemeralProfiles](#enable-use-of-ephemeral-profiles-forceephemeralprofiles)|Enable use of ephemeral profiles|
-|[ForceGoogleSafeSearch](#enforce-google-safesearch-forcegooglesafesearch)|Enforce Google SafeSearch|
-|[ForceYouTubeRestrict](#force-minimum-youtube-restricted-mode-forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
-|[FullscreenAllowed](#allow-full-screen-mode-fullscreenallowed)|Allow full screen mode|
-|[HardwareAccelerationModeEnabled](#use-hardware-acceleration-when-available-hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
-|[ImportAutofillFormData](#allow-importing-of-autofill-form-data-importautofillformdata)|Allow importing of autofill form data|
-|[ImportFavorites](#allow-importing-of-favorites-importfavorites)|Allow importing of favorites|
-|[ImportHistory](#allow-importing-of-browsing-history-importhistory)|Allow importing of browsing history|
-|[ImportHomepage](#allow-importing-of-home-page-settings-importhomepage)|Allow importing of home page settings|
-|[ImportPaymentInfo](#allow-importing-of-payment-info-importpaymentinfo)|Allow importing of payment info|
-|[ImportSavedPasswords](#allow-importing-of-saved-passwords-importsavedpasswords)|Allow importing of saved passwords|
-|[ImportSearchEngine](#allow-importing-of-search-engine-settings-importsearchengine)|Allow importing of search engine settings|
-|[InPrivateModeAvailability](#configure-inprivate-mode-availability-inprivatemodeavailability)|Configure InPrivate mode availability|
-|[InternetExplorerIntegrationLevel](#configure-internet-explorer-integration-internetexplorerintegrationlevel)|Configure Internet Explorer integration|
-|[IsolateOrigins](#enable-site-isolation-for-specific-origins-isolateorigins)|Enable site isolation for specific origins|
-|[ManagedFavorites](#configure-favorites-managedfavorites)|Configure favorites|
-|[ManagedSearchEngines](#manage-search-engines-managedsearchengines)|Manage Search Engines|
-|[MaxConnectionsPerProxy](#maximum-number-of-concurrent-connections-to-the-proxy-server-maxconnectionsperproxy)|Maximum number of concurrent connections to the proxy server|
-|[MediaRouterCastAllowAllIPs](#allow-google-cast-to-connect-to-cast-devices-on-all-ip-addresses-mediaroutercastallowallips)|Allow Google Cast to connect to Cast devices on all IP addresses|
-|[MetricsReportingEnabled](#enable-usage-and-crash-related-data-reporting-metricsreportingenabled)|Enable usage and crash-related data reporting|
-|[NetworkPredictionOptions](#enable-network-prediction-networkpredictionoptions)|Enable network prediction|
-|[OverrideSecurityRestrictionsOnInsecureOrigin](#control-where-security-restrictions-on-insecure-origins-apply-overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
-|[ProactiveAuthEnabled](#enable-proactive-authentication-proactiveauthenabled)|Enable Proactive Authentication|
-|[PromotionalTabsEnabled](#enable-full-tab-promotional-content-promotionaltabsenabled)|Enable full-tab promotional content|
-|[PromptForDownloadLocation](#ask-where-to-save-downloaded-files-promptfordownloadlocation)|Ask where to save downloaded files|
-|[QuicAllowed](#allow-quic-protocol-quicallowed)|Allow QUIC protocol|
-|[RelaunchNotification](#notify-a-user-that-a-browser-restart-is-recommended-or-required-for-pending-updates-relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
-|[RelaunchNotificationPeriod](#set-the-time-period-for-update-notifications-relaunchnotificationperiod)|Set the time period for update notifications|
-|[RequireOnlineRevocationChecksForLocalAnchors](#specify-if-online-ocspcrl-checks-are-required-for-local-trust-anchors-requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
-|[ResolveNavigationErrorsUseWebService](#enable-resolution-of-navigation-errors-using-a-web-service-resolvenavigationerrorsusewebservice)|Enable resolution of navigation errors using a web service|
-|[RestrictSigninToPattern](#restrict-which-accounts-can-be-used-as-microsoft-edge-primary-accounts-restrictsignintopattern)|Restrict which accounts can be used as Microsoft Edge primary accounts|
-|[RunAllFlashInAllowMode](#extend-adobe-flash-content-setting-to-all-content-runallflashinallowmode)|Extend Adobe Flash content setting to all content|
-|[SSLErrorOverrideAllowed](#allow-users-to-proceed-from-the-ssl-warning-page-sslerroroverrideallowed)|Allow users to proceed from the SSL warning page|
-|[SSLVersionMin](#minimum-ssl-version-enabled-sslversionmin)|Minimum SSL version enabled|
-|[SavingBrowserHistoryDisabled](#disable-saving-browser-history-savingbrowserhistorydisabled)|Disable saving browser history|
-|[SearchSuggestEnabled](#enable-search-suggestions-searchsuggestenabled)|Enable search suggestions|
-|[SecurityKeyPermitAttestation](#websites-or-domains-that-dont-need-permission-to-use-direct-security-key-attestation-securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
-|[SendIntranetToInternetExplorer](#send-all-intranet-sites-to-internet-explorer-sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
-|[SendSiteInfoToImproveServices](#send-site-information-to-improve-microsoft-services-sendsiteinfotoimproveservices)|Send site information to improve Microsoft services|
-|[ShowOfficeShortcutInFavoritesBar](#show-microsoft-office-shortcut-in-favorites-bar-showofficeshortcutinfavoritesbar)|Show Microsoft Office shortcut in favorites bar|
-|[SitePerProcess](#enable-site-isolation-for-every-site-siteperprocess)|Enable site isolation for every site|
-|[SpellcheckEnabled](#enable-spellcheck-spellcheckenabled)|Enable spellcheck|
-|[SpellcheckLanguage](#enable-specific-spellcheck-languages-spellchecklanguage)|Enable specific spellcheck languages|
-|[SuppressUnsupportedOSWarning](#suppress-the-unsupported-os-warning-suppressunsupportedoswarning)|Suppress the unsupported OS warning|
-|[SyncDisabled](#disable-synchronization-of-data-using-microsoft-sync-services-syncdisabled)|Disable synchronization of data using Microsoft sync services|
-|[TabLifecyclesEnabled](#configure-tab-lifecycles-tablifecyclesenabled)|Configure tab lifecycles|
-|[TaskManagerEndProcessEnabled](#enable-ending-processes-in-the-browser-task-manager-taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
-|[TranslateEnabled](#enable-translate-translateenabled)|Enable Translate|
-|[URLAllowlist](#define-a-list-of-allowed-urls-urlallowlist)|Define a list of allowed URLs|
-|[URLBlocklist](#block-access-to-a-list-of-urls-urlblocklist)|Block access to a list of URLs|
-|[UserDataDir](#set-the-user-data-directory-userdatadir)|Set the user data directory|
-|[UserFeedbackAllowed](#allow-user-feedback-userfeedbackallowed)|Allow user feedback|
-|[VideoCaptureAllowed](#allow-or-block-video-capture-videocaptureallowed)|Allow or block video capture|
-|[VideoCaptureAllowedUrls](#sites-that-can-access-video-capture-devices-without-requesting-permission-videocaptureallowedurls)|Sites that can access video capture devices without requesting permission|
-|[WPADQuickCheckEnabled](#set-wpad-optimization-wpadquickcheckenabled)|Set WPAD optimization|
-|[WebDriverOverridesIncompatiblePolicies](#allow-webdriver-to-override-incompatible-policies-webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
-|[WebRtcLocalhostIpHandling](#restrict-exposure-of-localhost-ip-address-by-webrtc-webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
-|[WebRtcUdpPortRange](#restrict-the-range-of-local-udp-ports-used-by-webrtc-webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
+|[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
+|[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
+|[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
+|[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
+|[AudioCaptureAllowed](#audiocaptureallowed)|Allow or block audio capture|
+|[AudioCaptureAllowedUrls](#audiocaptureallowedurls)|Sites that can access audio capture devices without requesting permission|
+|[AutoImportAtFirstRun](#autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
+|[AutofillAddressEnabled](#autofilladdressenabled)|Enable AutoFill for addresses|
+|[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
+|[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
+|[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
+|[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
+|[BrowserGuestModeEnabled](#browserguestmodeenabled)|Enable guest mode|
+|[BrowserNetworkTimeQueriesEnabled](#browsernetworktimequeriesenabled)|Allow queries to a Browser Network Time service|
+|[BrowserSignin](#browsersignin)|Browser sign-in settings|
+|[BuiltInDnsClientEnabled](#builtindnsclientenabled)|Use built-in DNS client|
+|[CertificateTransparencyEnforcementDisabledForCas](#certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
+|[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
+|[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
+|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
+|[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
+|[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
+|[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
+|[DefaultBrowserSettingEnabled](#defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
+|[DeveloperToolsAvailability](#developertoolsavailability)|Control where developer tools can be used|
+|[Disable3DAPIs](#disable3dapis)|Disable support for 3D graphics APIs|
+|[DisableScreenshots](#disablescreenshots)|Disable taking screenshots|
+|[DiskCacheDir](#diskcachedir)|Set disk cache directory|
+|[DiskCacheSize](#diskcachesize)|Set disk cache size, in bytes|
+|[DownloadDirectory](#downloaddirectory)|Set download directory|
+|[DownloadRestrictions](#downloadrestrictions)|Allow download restrictions|
+|[EditFavoritesEnabled](#editfavoritesenabled)|Allows users to edit favorites|
+|[EnableDeprecatedWebPlatformFeatures](#enabledeprecatedwebplatformfeatures)|Re-enable deprecated web platform features for a limited time|
+|[EnableDomainActionsDownload](#enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft|
+|[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
+|[FavoritesBarEnabled](#favoritesbarenabled)|Enable favorites bar|
+|[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
+|[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
+|[ForceGoogleSafeSearch](#forcegooglesafesearch)|Enforce Google SafeSearch|
+|[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
+|[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
+|[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
+|[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
+|[ImportFavorites](#importfavorites)|Allow importing of favorites|
+|[ImportHistory](#importhistory)|Allow importing of browsing history|
+|[ImportHomepage](#importhomepage)|Allow importing of home page settings|
+|[ImportPaymentInfo](#importpaymentinfo)|Allow importing of payment info|
+|[ImportSavedPasswords](#importsavedpasswords)|Allow importing of saved passwords|
+|[ImportSearchEngine](#importsearchengine)|Allow importing of search engine settings|
+|[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
+|[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configure Internet Explorer integration|
+|[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
+|[ManagedFavorites](#managedfavorites)|Configure favorites|
+|[ManagedSearchEngines](#managedsearchengines)|Manage Search Engines|
+|[MaxConnectionsPerProxy](#maxconnectionsperproxy)|Maximum number of concurrent connections to the proxy server|
+|[MediaRouterCastAllowAllIPs](#mediaroutercastallowallips)|Allow Google Cast to connect to Cast devices on all IP addresses|
+|[MetricsReportingEnabled](#metricsreportingenabled)|Enable usage and crash-related data reporting|
+|[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
+|[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
+|[ProactiveAuthEnabled](#proactiveauthenabled)|Enable Proactive Authentication|
+|[PromotionalTabsEnabled](#promotionaltabsenabled)|Enable full-tab promotional content|
+|[PromptForDownloadLocation](#promptfordownloadlocation)|Ask where to save downloaded files|
+|[QuicAllowed](#quicallowed)|Allow QUIC protocol|
+|[RelaunchNotification](#relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
+|[RelaunchNotificationPeriod](#relaunchnotificationperiod)|Set the time period for update notifications|
+|[RequireOnlineRevocationChecksForLocalAnchors](#requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
+|[ResolveNavigationErrorsUseWebService](#resolvenavigationerrorsusewebservice)|Enable resolution of navigation errors using a web service|
+|[RestrictSigninToPattern](#restrictsignintopattern)|Restrict which accounts can be used as Microsoft Edge primary accounts|
+|[RunAllFlashInAllowMode](#runallflashinallowmode)|Extend Adobe Flash content setting to all content|
+|[SSLErrorOverrideAllowed](#sslerroroverrideallowed)|Allow users to proceed from the SSL warning page|
+|[SSLVersionMin](#sslversionmin)|Minimum SSL version enabled|
+|[SavingBrowserHistoryDisabled](#savingbrowserhistorydisabled)|Disable saving browser history|
+|[SearchSuggestEnabled](#searchsuggestenabled)|Enable search suggestions|
+|[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
+|[SendIntranetToInternetExplorer](#sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
+|[SendSiteInfoToImproveServices](#sendsiteinfotoimproveservices)|Send site information to improve Microsoft services|
+|[ShowOfficeShortcutInFavoritesBar](#showofficeshortcutinfavoritesbar)|Show Microsoft Office shortcut in favorites bar|
+|[SitePerProcess](#siteperprocess)|Enable site isolation for every site|
+|[SpellcheckEnabled](#spellcheckenabled)|Enable spellcheck|
+|[SpellcheckLanguage](#spellchecklanguage)|Enable specific spellcheck languages|
+|[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
+|[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
+|[TabLifecyclesEnabled](#tablifecyclesenabled)|Configure tab lifecycles|
+|[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
+|[TranslateEnabled](#translateenabled)|Enable Translate|
+|[URLAllowlist](#urlallowlist)|Define a list of allowed URLs|
+|[URLBlocklist](#urlblocklist)|Block access to a list of URLs|
+|[UserDataDir](#userdatadir)|Set the user data directory|
+|[UserFeedbackAllowed](#userfeedbackallowed)|Allow user feedback|
+|[VideoCaptureAllowed](#videocaptureallowed)|Allow or block video capture|
+|[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sites that can access video capture devices without requesting permission|
+|[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Set WPAD optimization|
+|[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
+|[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
 
 
 
 
-  ## Automatically select client certificates for these sites (AutoSelectCertificateForUrls)
+  ## AutoSelectCertificateForUrls
+  ### Automatically select client certificates for these sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
 
@@ -247,28 +247,29 @@ If you don't configure this policy, auto-selection isn't done for any site.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` data
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutoSelectCertificateForUrls
-  - Example value:  
-``` data
+  - Example value:
+``` xml
 <array>
   <string>{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
 </array>
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow cookies on specific sites (CookiesAllowedForUrls)
+  ## CookiesAllowedForUrls
+  ### Allow cookies on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are allowed to set cookies.
 
@@ -304,16 +305,17 @@ Note there cannot be conflicting URL patterns set between these three policies:
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -322,12 +324,12 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block cookies on specific sites (CookiesBlockedForUrls)
+  ## CookiesBlockedForUrls
+  ### Block cookies on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can't set cookies.
 
@@ -363,16 +365,17 @@ Note there cannot be conflicting URL patterns set between these three policies:
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -381,12 +384,12 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Limit cookies from specific websites to the current session (CookiesSessionOnlyForUrls)
+  ## CookiesSessionOnlyForUrls
+  ### Limit cookies from specific websites to the current session
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
 
@@ -426,16 +429,17 @@ If you set the 'RestoreOnStartup' policy to restore URLs from previous sessions,
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CookiesSessionOnlyForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -444,12 +448,12 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure cookies (DefaultCookiesSetting)
+  ## DefaultCookiesSetting
+  ### Configure cookies
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
 
@@ -483,26 +487,26 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   - Path (Recommended):N/A
   - Value Name:DefaultCookiesSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultCookiesSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default geolocation setting (DefaultGeolocationSetting)
+  ## DefaultGeolocationSetting
+  ### Default geolocation setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can track users' physical locations. You can allow tracking by default (1), deny it by default (2), or ask the user each time a website requests their location (3).
 
@@ -534,26 +538,26 @@ If you don't configure this policy, 'AskGeolocation' policy is used and the user
   - Path (Recommended):N/A
   - Value Name:DefaultGeolocationSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultGeolocationSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default images setting (DefaultImagesSetting)
+  ## DefaultImagesSetting
+  ### Default images setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can display images. You can allow images on all sites (1) or block them on all sites (2).
 
@@ -583,26 +587,26 @@ If you don't configure this policy, images are allowed by default, and the user 
   - Path (Recommended):N/A
   - Value Name:DefaultImagesSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultImagesSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default JavaScript setting (DefaultJavaScriptSetting)
+  ## DefaultJavaScriptSetting
+  ### Default JavaScript setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can run JavaScript. You can allow it for all sites (1) or block it for all sites (2).
 
@@ -632,26 +636,26 @@ If you don't configure this policy, all sites can run JavaScript by default, and
   - Path (Recommended):N/A
   - Value Name:DefaultJavaScriptSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultJavaScriptSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default notification setting (DefaultNotificationsSetting)
+  ## DefaultNotificationsSetting
+  ### Default notification setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can display desktop notifications. You can allow them by default (1), deny them by default (2), or have the user be asked each time a website wants to show a notification (3).
 
@@ -683,26 +687,26 @@ If you don't configure this policy, notifications are allowed by default, and th
   - Path (Recommended):N/A
   - Value Name:DefaultNotificationsSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultNotificationsSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default Adobe Flash setting (DefaultPluginsSetting)
+  ## DefaultPluginsSetting
+  ### Default Adobe Flash setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Determines whether websites that aren't covered by 'PluginsAllowedForUrls' or 'PluginsBlockedForUrls' can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the 'PluginsAllowedForUrls' and 'PluginsBlockedForUrls' policies take precedence over 'DefaultPluginsSetting'.
 
@@ -736,26 +740,26 @@ The former '1' option set allow-all, but this functionality is now only handled 
   - Path (Recommended):N/A
   - Value Name:DefaultPluginsSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPluginsSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default pop-up window setting (DefaultPopupsSetting)
+  ## DefaultPopupsSetting
+  ### Default pop-up window setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can show pop-up windows. You can allow them on all websites (1) or block them on all sites (2).
 
@@ -785,26 +789,26 @@ If you don't configure this policy, pop-up windows are blocked by default, and u
   - Path (Recommended):N/A
   - Value Name:DefaultPopupsSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPopupsSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control use of the Web Bluetooth API (DefaultWebBluetoothGuardSetting)
+  ## DefaultWebBluetoothGuardSetting
+  ### Control use of the Web Bluetooth API
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Control whether websites can access nearby Bluetooth devices. You can completely block access or require the site to ask the user each time it wants to access a Bluetooth device.
 
@@ -834,26 +838,26 @@ If you don't configure this policy, the default value (3, meaning users are aske
   - Path (Recommended):N/A
   - Value Name:DefaultWebBluetoothGuardSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultWebBluetoothGuardSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control use of the WebUSB API (DefaultWebUsbGuardSetting)
+  ## DefaultWebUsbGuardSetting
+  ### Control use of the WebUSB API
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
 
@@ -885,26 +889,26 @@ If you don't configure this policy, sites can ask users whether they can access 
   - Path (Recommended):N/A
   - Value Name:DefaultWebUsbGuardSetting
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultWebUsbGuardSetting
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow images on these sites (ImagesAllowedForUrls)
+  ## ImagesAllowedForUrls
+  ### Allow images on these sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can display images.
 
@@ -930,16 +934,17 @@ If you don't configure this policy, the global default value is used for all sit
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImagesAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -948,12 +953,12 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block images on specific sites (ImagesBlockedForUrls)
+  ## ImagesBlockedForUrls
+  ### Block images on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that aren't allowed to display images.
 
@@ -979,16 +984,17 @@ If you don't configure this policy, the global default value from the 'DefaultIm
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImagesBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -997,12 +1003,12 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow JavaScript on specific sites (JavaScriptAllowedForUrls)
+  ## JavaScriptAllowedForUrls
+  ### Allow JavaScript on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
 
@@ -1028,16 +1034,17 @@ If you don't configure this policy, the global default value from the 'DefaultJa
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: JavaScriptAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1046,12 +1053,12 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block JavaScript on specific sites (JavaScriptBlockedForUrls)
+  ## JavaScriptBlockedForUrls
+  ### Block JavaScript on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
 
@@ -1077,16 +1084,17 @@ If you don't configure this policy, the global default value from the 'DefaultJa
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: JavaScriptBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1095,12 +1103,12 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow notifications on specific sites (NotificationsAllowedForUrls)
+  ## NotificationsAllowedForUrls
+  ### Allow notifications on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can display notifications.
 
@@ -1126,16 +1134,17 @@ If you don't configure this policy, the global default value from the 'DefaultNo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NotificationsAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1144,12 +1153,12 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block notifications on specific sites (NotificationsBlockedForUrls)
+  ## NotificationsBlockedForUrls
+  ### Block notifications on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
 
@@ -1175,16 +1184,17 @@ If you don't configure this policy, the global default value from the 'DefaultNo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NotificationsBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1193,12 +1203,12 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow the Adobe Flash plug-in on specific sites (PluginsAllowedForUrls)
+  ## PluginsAllowedForUrls
+  ### Allow the Adobe Flash plug-in on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
 
@@ -1224,16 +1234,17 @@ If you don't configure this policy, the global default value from the 'DefaultPl
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PluginsAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1242,12 +1253,12 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block the Adobe Flash plug-in on specific sites (PluginsBlockedForUrls)
+  ## PluginsBlockedForUrls
+  ### Block the Adobe Flash plug-in on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
 
@@ -1273,16 +1284,17 @@ If you don't configure this policy, the global default value from the 'DefaultPl
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PluginsBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1291,12 +1303,12 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow pop-up windows on specific sites (PopupsAllowedForUrls)
+  ## PopupsAllowedForUrls
+  ### Allow pop-up windows on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can open pop-up windows.
 
@@ -1322,16 +1334,17 @@ If you don't configure this policy, the global default value from the 'DefaultPo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PopupsAllowedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1340,12 +1353,12 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block pop-up windows on specific sites (PopupsBlockedForUrls)
+  ## PopupsBlockedForUrls
+  ### Block pop-up windows on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
 
@@ -1371,16 +1384,17 @@ If you don't configure this policy, the global default value from the 'DefaultPo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PopupsBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1389,12 +1403,12 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Register protocol handlers (RegisteredProtocolHandlers)
+  ## RegisteredProtocolHandlers
+  ### Register protocol handlers
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Register a list of protocol handlers. Set the protocol property to the scheme (like 'mailto') and the url property to the URL pattern of the application that handles the scheme. The pattern can include a '%s', which will be replaced by the handled URL.
 
@@ -1422,8 +1436,8 @@ The protocol handlers registered by policy are merged with any handlers register
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:RegisteredProtocolHandlers
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   {
     "default": true, 
@@ -1436,7 +1450,7 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
 
   ### Mac information and settings
   - Preference Key Name: RegisteredProtocolHandlers
-  - Example value:  
+  - Example value:
 ``` xml
 <key>RegisteredProtocolHandlers</key>
 <array>
@@ -1452,12 +1466,12 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Grant access to specific sites to connect to specific USB devices. (WebUsbAllowDevicesForUrls)
+  ## WebUsbAllowDevicesForUrls
+  ### Grant access to specific sites to connect to specific USB devices.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites that can automatically access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and URLs in order for the policy to be valid. Each device definition contains a vendor ID and product ID field. Any ID that's not defined is treated as a wildcard with one exception: you can't specify a product ID without a vendor ID. If you do, the policy isn't valid and is ignored.
 
@@ -1489,8 +1503,8 @@ Values for this policy and the DeviceWebUsbAllowDevicesForUrls policy are merged
   - Path (Recommended):N/A
   - Value Name:WebUsbAllowDevicesForUrls
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   {
     "devices": [
@@ -1510,7 +1524,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
 
   ### Mac information and settings
   - Preference Key Name: WebUsbAllowDevicesForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <key>WebUsbAllowDevicesForUrls</key>
 <array>
@@ -1534,12 +1548,12 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow WebUSB on specific sites (WebUsbAskForUrls)
+  ## WebUsbAskForUrls
+  ### Allow WebUSB on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
 
@@ -1567,16 +1581,17 @@ The URL patterns defined in this policy can't conflict with those configured in 
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebUsbAskForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1585,12 +1600,12 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block WebUSB on specific sites (WebUsbBlockedForUrls)
+  ## WebUsbBlockedForUrls
+  ### Block WebUSB on specific sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
 
@@ -1618,16 +1633,17 @@ URL patterns in this policy can't conflict with those configured in the 'WebUsbA
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\0 = "https://www.contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebUsbBlockedForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com</string>
@@ -1636,12 +1652,12 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable the default search provider (DefaultSearchProviderEnabled)
+  ## DefaultSearchProviderEnabled
+  ### Enable the default search provider
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables the use of a default search provider.
 
@@ -1677,26 +1693,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default search provider encodings (DefaultSearchProviderEncodings)
+  ## DefaultSearchProviderEncodings
+  ### Default search provider encodings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
 
@@ -1724,18 +1740,19 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\0 = "UTF-8"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\1 = "UTF-16"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\2 = "GB2312"
 SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderEncodings
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>UTF-8</string>
@@ -1746,12 +1763,12 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Specifies the search-by-image feature for the default search provider (DefaultSearchProviderImageURL)
+  ## DefaultSearchProviderImageURL
+  ### Specifies the search-by-image feature for the default search provider
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
 
@@ -1779,26 +1796,26 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderImageURL
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://search.contoso.com/searchbyimage/upload"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURL
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://search.contoso.com/searchbyimage/upload"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Parameters for an image URL that uses POST (DefaultSearchProviderImageURLPostParams)
+  ## DefaultSearchProviderImageURLPostParams
+  ### Parameters for an image URL that uses POST
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and 'DefaultSearchProviderSearchURL' policies.
 
@@ -1824,26 +1841,26 @@ If you don’t set this policy, image search requests are sent using the GET met
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderImageURLPostParams
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURLPostParams
-  - Example value:  
-``` xml
+  - Example value:
+```
 "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default search provider keyword (DefaultSearchProviderKeyword)
+  ## DefaultSearchProviderKeyword
+  ### Default search provider keyword
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
 
@@ -1871,26 +1888,26 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderKeyword
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "mis"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderKeyword
-  - Example value:  
-``` xml
+  - Example value:
+```
 "mis"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default search provider name (DefaultSearchProviderName)
+  ## DefaultSearchProviderName
+  ### Default search provider name
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the name of the default search provider.
 
@@ -1920,26 +1937,26 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderName
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "My Intranet Search"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderName
-  - Example value:  
-``` xml
+  - Example value:
+```
 "My Intranet Search"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default search provider search URL (DefaultSearchProviderSearchURL)
+  ## DefaultSearchProviderSearchURL
+  ### Default search provider search URL
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
 
@@ -1971,26 +1988,26 @@ This policy is required when you enable the 'DefaultSearchProviderEnabled' polic
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderSearchURL
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://search.contoso.com/search?q={searchTerms}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSearchURL
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://search.contoso.com/search?q={searchTerms}"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default search provider URL for suggestions (DefaultSearchProviderSuggestURL)
+  ## DefaultSearchProviderSuggestURL
+  ### Default search provider URL for suggestions
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
 
@@ -2024,26 +2041,26 @@ This policy is applied only if you enable the 'DefaultSearchProviderEnabled' and
   - Path (Recommended):N/A
   - Value Name:DefaultSearchProviderSuggestURL
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://search.contoso.com/suggest?q={searchTerms}"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSuggestURL
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://search.contoso.com/suggest?q={searchTerms}"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure allowed extension types (ExtensionAllowedTypes)
+  ## ExtensionAllowedTypes
+  ### Configure allowed extension types
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Controls which extension types can be installed and limits runtime access.
 
@@ -2075,15 +2092,16 @@ If you don't configure this policy, no restrictions on the acceptable extension 
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionAllowedTypes
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>hosted_app</string>
@@ -2091,12 +2109,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow specific extensions to be installed (ExtensionInstallAllowlist)
+  ## ExtensionInstallAllowlist
+  ### Allow specific extensions to be installed
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   By default, all extensions are allowed. However, if you block all extensions by setting the 'ExtensionInstallBlockList' policy to "*," users can only install extensions defined in this policy.
 
@@ -2120,16 +2138,17 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\0 = "extension_id1"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallAllowlist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>extension_id1</string>
@@ -2138,12 +2157,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control which extensions cannot be installed (ExtensionInstallBlocklist)
+  ## ExtensionInstallBlocklist
+  ### Control which extensions cannot be installed
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   List specific extensions that users can NOT install in Microsoft Edge. When you deploy this policy, any extensions on this list that were previously installed will be disabled, and the user won't be able to enable them. If you remove an item from the list of blocked extensions, that extension is automatically re-enabled anywhere it was previously installed.
 
@@ -2171,16 +2190,17 @@ If you don't configure this policy, users can install any extension in Microsoft
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\0 = "extension_id1"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallBlocklist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>extension_id1</string>
@@ -2189,12 +2209,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control which extensions are installed silently (ExtensionInstallForcelist)
+  ## ExtensionInstallForcelist
+  ### Control which extensions are installed silently
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
 
@@ -2212,7 +2232,7 @@ Use the following format to add an extension to the list:
 
 - updateURL (optional) is the address of the Update Manifest XML document for the app or extension. If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL.
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions.
 
 If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
 
@@ -2238,16 +2258,17 @@ Note that this policy doesn't apply to InPrivate mode.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\0 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnopabcdefghijklmnop"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallForcelist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx</string>
@@ -2256,12 +2277,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure extension and user script install sources (ExtensionInstallSources)
+  ## ExtensionInstallSources
+  ### Configure extension and user script install sources
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define URLs that can install extensions and themes.
 
@@ -2291,15 +2312,16 @@ The 'ExtensionInstallBlocklist' policy takes precedence over this policy. Any ex
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.contoso.com/*"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ExtensionInstallSources
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://corp.contoso.com/*</string>
@@ -2307,12 +2329,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure extension management settings (ExtensionSettings)
+  ## ExtensionSettings
+  ### Configure extension management settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures extension management settings for Microsoft Edge.
 
@@ -2340,8 +2362,8 @@ This policy maps an extension ID or an update URL to its configuration. With an 
   - Path (Recommended):N/A
   - Value Name:ExtensionSettings
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   "*": {
     "allowed_types": [
@@ -2410,7 +2432,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 
   ### Mac information and settings
   - Preference Key Name: ExtensionSettings
-  - Example value:  
+  - Example value:
 ``` xml
 <key>ExtensionSettings</key>
 <dict>
@@ -2510,12 +2532,12 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable Google Cast (EnableMediaRouter)
+  ## EnableMediaRouter
+  ### Enable Google Cast
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable this policy to enable Google Cast. Users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.
 
@@ -2543,26 +2565,26 @@ By default, Google Cast is enabled.
   - Path (Recommended):N/A
   - Value Name:EnableMediaRouter
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableMediaRouter
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Show the cast icon in the toolbar (ShowCastIconInToolbar)
+  ## ShowCastIconInToolbar
+  ### Show the cast icon in the toolbar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
 
@@ -2590,26 +2612,26 @@ If you've also set the "EnableMediaRouter" policy to false, then this policy is 
   - Path (Recommended):N/A
   - Value Name:ShowCastIconInToolbar
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowCastIconInToolbar
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow cross-origin HTTP Basic Auth prompts (AllowCrossOriginAuthPrompt)
+  ## AllowCrossOriginAuthPrompt
+  ### Allow cross-origin HTTP Basic Auth prompts
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Controls whether third-party sub-content on a page can open an HTTP Basic Auth dialog box.
 
@@ -2635,26 +2657,26 @@ Typically, this is disabled as a phishing defense. If you don't configure this p
   - Path (Recommended):N/A
   - Value Name:AllowCrossOriginAuthPrompt
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowCrossOriginAuthPrompt
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Specifies a list of servers that Microsoft Edge can delegate user credentials to (AuthNegotiateDelegateAllowlist)
+  ## AuthNegotiateDelegateAllowlist
+  ### Specifies a list of servers that Microsoft Edge can delegate user credentials to
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configure the list of servers that Microsoft Edge can delegate to.
 
@@ -2682,26 +2704,26 @@ If you don't configure this policy Microsoft Edge won't delegate user credential
   - Path (Recommended):N/A
   - Value Name:AuthNegotiateDelegateAllowlist
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthNegotiateDelegateAllowlist
-  - Example value:  
-``` xml
+  - Example value:
+```
 "contoso.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Supported authentication schemes (AuthSchemes)
+  ## AuthSchemes
+  ### Supported authentication schemes
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies which HTTP authentication schemes are supported.
 
@@ -2729,26 +2751,26 @@ If you don't configure this policy, all four schemes are used.
   - Path (Recommended):N/A
   - Value Name:AuthSchemes
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "basic,digest,ntlm,negotiate"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthSchemes
-  - Example value:  
-``` xml
+  - Example value:
+```
 "basic,digest,ntlm,negotiate"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure list of allowed authentication servers (AuthServerAllowlist)
+  ## AuthServerAllowlist
+  ### Configure list of allowed authentication servers
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies which servers to enable for integrated authentication. Integrated authentication is only enabled when Microsoft Edge receives an authentication challenge from a proxy or from a server in this list.
 
@@ -2776,26 +2798,26 @@ If you don't configure this policy, Microsoft Edge tries to detect if a server i
   - Path (Recommended):N/A
   - Value Name:AuthServerAllowlist
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "*contoso.com,fabrikam.com,*baz"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AuthServerAllowlist
-  - Example value:  
-``` xml
+  - Example value:
+```
 "*contoso.com,fabrikam.com,*baz"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable CNAME lookup when negotiating Kerberos authentication (DisableAuthNegotiateCnameLookup)
+  ## DisableAuthNegotiateCnameLookup
+  ### Disable CNAME lookup when negotiating Kerberos authentication
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Determines whether the generated Kerberos SPN is based on the canonical DNS name (CNAME) or on the original name entered.
 
@@ -2823,26 +2845,26 @@ If you disable this policy or don't configure it, the canonical name of the serv
   - Path (Recommended):N/A
   - Value Name:DisableAuthNegotiateCnameLookup
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DisableAuthNegotiateCnameLookup
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Include non-standard port in Kerberos SPN (EnableAuthNegotiatePort)
+  ## EnableAuthNegotiatePort
+  ### Include non-standard port in Kerberos SPN
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies whether the generated Kerberos SPN should include a non-standard port.
 
@@ -2870,26 +2892,26 @@ If you don't configure or disable this policy, the generated Kerberos SPN won't 
   - Path (Recommended):N/A
   - Value Name:EnableAuthNegotiatePort
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableAuthNegotiatePort
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control whether NTLMv2 authentication is enabled (NtlmV2Enabled)
+  ## NtlmV2Enabled
+  ### Control whether NTLMv2 authentication is enabled
   >Supported Versions: Microsoft Edge on Mac since version 77 or later
   
-
   ### Description
   Controls whether NTLMv2 is enabled.
 
@@ -2909,18 +2931,18 @@ If you don't configure this policy, NTLMv2 is enabled by default.
 
   ### Mac information and settings
   - Preference Key Name: NtlmV2Enabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control which native messaging hosts users can use (NativeMessagingAllowlist)
+  ## NativeMessagingAllowlist
+  ### Control which native messaging hosts users can use
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   List specific native messaging hosts that users can use in Microsoft Edge.
 
@@ -2946,16 +2968,17 @@ By default, all native messaging hosts are allowed. If you set the 'NativeMessag
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\0 = "com.native.messaging.host.name1"
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messaging.host.name2"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingAllowlist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>com.native.messaging.host.name1</string>
@@ -2964,12 +2987,12 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messag
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure native messaging block list (NativeMessagingBlocklist)
+  ## NativeMessagingBlocklist
+  ### Configure native messaging block list
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies which native messaging hosts that shouldn't be used.
 
@@ -2997,16 +3020,17 @@ If you don't configure this policy, Microsoft Edge will load all installed nativ
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\0 = "com.native.messaging.host.name1"
 SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messaging.host.name2"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingBlocklist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>com.native.messaging.host.name1</string>
@@ -3015,12 +3039,12 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow user-level native messaging hosts (installed without admin permissions) (NativeMessagingUserLevelHosts)
+  ## NativeMessagingUserLevelHosts
+  ### Allow user-level native messaging hosts (installed without admin permissions)
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables user-level installation of native messaging hosts.
 
@@ -3048,26 +3072,26 @@ By default, if you don't configure this policy, Microsoft Edge will allow usage 
   - Path (Recommended):N/A
   - Value Name:NativeMessagingUserLevelHosts
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NativeMessagingUserLevelHosts
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable saving passwords to the password manager (PasswordManagerEnabled)
+  ## PasswordManagerEnabled
+  ### Enable saving passwords to the password manager
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable Microsoft Edge to save user passwords.
 
@@ -3097,30 +3121,30 @@ If you enable or disable this policy, users can't change or override it in Micro
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PasswordManagerEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordManagerEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure the change password URL (PasswordProtectionChangePasswordURL)
+  ## PasswordProtectionChangePasswordURL
+  ### Configure the change password URL
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser.
+Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3148,28 +3172,28 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:PasswordProtectionChangePasswordURL
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://contoso.com/change_password.html"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionChangePasswordURL
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://contoso.com/change_password.html"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure the list of enterprise login URLs where password protection service should capture fingerprint of password (PasswordProtectionLoginURLs)
+  ## PasswordProtectionLoginURLs
+  ### Configure the list of enterprise login URLs where password protection service should capture fingerprint of password
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
@@ -3197,16 +3221,17 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\0 = "https://contoso.com/login.html"
 SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.contoso.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionLoginURLs
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://contoso.com/login.html</string>
@@ -3215,12 +3240,12 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure password protection warning trigger (PasswordProtectionWarningTrigger)
+  ## PasswordProtectionWarningTrigger
+  ### Configure password protection warning trigger
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
 
@@ -3258,26 +3283,26 @@ If you disable or don't configure this policy, then the warning trigger is not s
   - Path (Recommended):N/A
   - Value Name:PasswordProtectionWarningTrigger
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PasswordProtectionWarningTrigger
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Default printer selection rules (DefaultPrinterSelection)
+  ## DefaultPrinterSelection
+  ### Default printer selection rules
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Overrides Microsoft Edge default printer selection rules. This policy determines the rules for selecting the default printer in Microsoft Edge, which happens the first time a user tries to print a page.
 
@@ -3309,26 +3334,26 @@ Omitting a field means all values match; for example, if you don't specify conne
   - Path (Recommended):N/A
   - Value Name:DefaultPrinterSelection
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "{ "idPattern": ".*public", "namePattern": ".*Color" }"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultPrinterSelection
-  - Example value:  
-``` xml
+  - Example value:
+```
 "{ "idPattern": ".*public", "namePattern": ".*Color" }"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Print headers and footers (PrintHeaderFooter)
+  ## PrintHeaderFooter
+  ### Print headers and footers
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Force 'headers and footers' to be on or off in the printing dialog.
 
@@ -3358,26 +3383,26 @@ If you enable this policy, users always print headers and footers.
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PrintHeaderFooter
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintHeaderFooter
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set the system default printer as the default printer (PrintPreviewUseSystemDefaultPrinter)
+  ## PrintPreviewUseSystemDefaultPrinter
+  ### Set the system default printer as the default printer
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Tells Microsoft Edge to use the system default printer as the default choice in Print Preview instead of the most recently used printer.
 
@@ -3405,26 +3430,26 @@ If you enable this policy, Print Preview uses the OS system default printer as t
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:PrintPreviewUseSystemDefaultPrinter
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintPreviewUseSystemDefaultPrinter
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable printing (PrintingEnabled)
+  ## PrintingEnabled
+  ### Enable printing
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables printing in Microsoft Edge and prevents users from changing this setting.
 
@@ -3452,26 +3477,26 @@ If you disable this policy, users can't print from Microsoft Edge. Printing is d
   - Path (Recommended):N/A
   - Value Name:PrintingEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PrintingEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Print using system print dialog (UseSystemPrintDialog)
+  ## UseSystemPrintDialog
+  ### Print using system print dialog
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Shows the system print dialog instead of print preview.
 
@@ -3499,26 +3524,26 @@ If you don't configure or disable this policy, print commands trigger the Micros
   - Path (Recommended):N/A
   - Value Name:UseSystemPrintDialog
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UseSystemPrintDialog
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure proxy bypass rules (ProxyBypassList)
+  ## ProxyBypassList
+  ### Configure proxy bypass rules
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Defines a list of hosts for which Microsoft Edge bypasses any proxy.
 
@@ -3548,26 +3573,26 @@ If you don't configure this policy, no list of hosts is created for which Micros
   - Path (Recommended):N/A
   - Value Name:ProxyBypassList
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://www.contoso.com, https://www.fabrikam.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyBypassList
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://www.contoso.com, https://www.fabrikam.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure proxy server settings (ProxyMode)
+  ## ProxyMode
+  ### Configure proxy server settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
 
@@ -3615,26 +3640,26 @@ If you don't configure this policy users can choose their own proxy settings.
   - Path (Recommended):N/A
   - Value Name:ProxyMode
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "direct"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyMode
-  - Example value:  
-``` xml
+  - Example value:
+```
 "direct"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set the proxy .pac file URL (ProxyPacUrl)
+  ## ProxyPacUrl
+  ### Set the proxy .pac file URL
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the URL for a proxy auto-config (PAC) file.
 
@@ -3664,26 +3689,26 @@ If you disable or don't configure this policy, no PAC file is specified. Leave t
   - Path (Recommended):N/A
   - Value Name:ProxyPacUrl
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://internal.contoso.com/example.pac"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyPacUrl
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://internal.contoso.com/example.pac"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure address or URL of proxy server (ProxyServer)
+  ## ProxyServer
+  ### Configure address or URL of proxy server
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the URL of the proxy server.
 
@@ -3713,26 +3738,26 @@ If you disable or don't configure this policy, users can choose their own proxy 
   - Path (Recommended):N/A
   - Value Name:ProxyServer
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "123.123.123.123:8080"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProxyServer
-  - Example value:  
-``` xml
+  - Example value:
+```
 "123.123.123.123:8080"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Proxy settings (ProxySettings)
+  ## ProxySettings
+  ### Proxy settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the proxy settings for Microsoft Edge.
 
@@ -3785,8 +3810,8 @@ If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'Prox
   - Path (Recommended):N/A
   - Value Name:ProxySettings
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   "ProxyBypassList": "https://www.example1.com,https://www.example2.com,https://internalsite/", 
   "ProxyMode": "direct", 
@@ -3798,7 +3823,7 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 
   ### Mac information and settings
   - Preference Key Name: ProxySettings
-  - Example value:  
+  - Example value:
 ``` xml
 <key>ProxySettings</key>
 <dict>
@@ -3814,12 +3839,12 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Prevent bypassing Microsoft Defender SmartScreen prompts for sites (PreventSmartScreenPromptOverride)
+  ## PreventSmartScreenPromptOverride
+  ### Prevent bypassing Microsoft Defender SmartScreen prompts for sites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   This policy setting lets you decide whether employees can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
@@ -3847,26 +3872,26 @@ If you disable or don't configure this setting, employees can ignore Microsoft D
   - Path (Recommended):N/A
   - Value Name:PreventSmartScreenPromptOverride
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PreventSmartScreenPromptOverride
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads (PreventSmartScreenPromptOverrideForFiles)
+  ## PreventSmartScreenPromptOverrideForFiles
+  ### Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
@@ -3894,20 +3919,20 @@ If you disable or don't configure this policy, users can ignore Microsoft Defend
   - Path (Recommended):N/A
   - Value Name:PreventSmartScreenPromptOverrideForFiles
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure the list of domains for which SmartScreen won't trigger warnings (SmartScreenAllowListDomains)
+  ## SmartScreenAllowListDomains
+  ### Configure the list of domains for which SmartScreen won't trigger warnings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configure the list of SmartScreen-trusted domains. This means:
 SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
@@ -3938,16 +3963,17 @@ Also note that this policy does not apply if your organization has enabled Micro
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\0 = "mydomain.com"
 SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.edu"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SmartScreenAllowListDomains
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>mydomain.com</string>
@@ -3956,12 +3982,12 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure Microsoft Defender SmartScreen (SmartScreenEnabled)
+  ## SmartScreenEnabled
+  ### Configure Microsoft Defender SmartScreen
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your employees from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
 
@@ -3993,26 +4019,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SmartScreenEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SmartScreenEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set the new tab page as the home page (HomepageIsNewTabPage)
+  ## HomepageIsNewTabPage
+  ### Set the new tab page as the home page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the default home page in Microsoft Edge. You can set the home page to a URL you specify or to the new tab page.
 
@@ -4044,26 +4070,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:HomepageIsNewTabPage
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HomepageIsNewTabPage
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure the home page URL (HomepageLocation)
+  ## HomepageLocation
+  ### Configure the home page URL
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the default home page URL in Microsoft Edge.
 
@@ -4097,26 +4123,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:HomepageLocation
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://www.contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HomepageLocation
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://www.contoso.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Hide the default top sites from the new tab page (NewTabPageHideDefaultTopSites)
+  ## NewTabPageHideDefaultTopSites
+  ### Hide the default top sites from the new tab page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Hides the default top sites from the new tab page in Microsoft Edge.
 
@@ -4144,26 +4170,26 @@ If you set this policy to false or don't configure it, the default top site tile
   - Path (Recommended):N/A
   - Value Name:NewTabPageHideDefaultTopSites
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NewTabPageHideDefaultTopSites
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure the new tab page URL (NewTabPageLocation)
+  ## NewTabPageLocation
+  ### Configure the new tab page URL
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the default URL for the new tab page.
 
@@ -4197,26 +4223,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:NewTabPageLocation
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://www.fabrikam.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NewTabPageLocation
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://www.fabrikam.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Action to take on startup (RestoreOnStartup)
+  ## RestoreOnStartup
+  ### Action to take on startup
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify how Microsoft Edge behaves when it starts.
 
@@ -4256,26 +4282,26 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:RestoreOnStartup
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000004
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestoreOnStartup
-  - Example value:  
-``` xml
+  - Example value:
+```
 4
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Sites to open when the browser starts (RestoreOnStartupURLs)
+  ## RestoreOnStartupURLs
+  ### Sites to open when the browser starts
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
 
@@ -4303,16 +4329,17 @@ This policy is only available on Windows instances that are joined to a Microsof
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended\RestoreOnStartupURLs
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\0 = "https://contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestoreOnStartupURLs
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://contoso.com</string>
@@ -4321,12 +4348,12 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Show Home button on toolbar (ShowHomeButton)
+  ## ShowHomeButton
+  ### Show Home button on toolbar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Shows the Home button on Microsoft Edge's toolbar.
 
@@ -4354,26 +4381,26 @@ If you don't configure the policy, users can choose whether to show the home but
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ShowHomeButton
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowHomeButton
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable deleting browser and download history (AllowDeletingBrowserHistory)
+  ## AllowDeletingBrowserHistory
+  ### Enable deleting browser and download history
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables deleting browser history and download history and prevents users from changing this setting.
 
@@ -4405,26 +4432,26 @@ If you enable this policy, don't enable the 'Clear browsing data when Microsoft 
   - Path (Recommended):N/A
   - Value Name:AllowDeletingBrowserHistory
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowDeletingBrowserHistory
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow file selection dialogs (AllowFileSelectionDialogs)
+  ## AllowFileSelectionDialogs
+  ### Allow file selection dialogs
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allow access to local files by letting Microsoft Edge display file selection dialogs.
 
@@ -4452,26 +4479,26 @@ If you disable this policy, whenever the user performs an action that triggers a
   - Path (Recommended):N/A
   - Value Name:AllowFileSelectionDialogs
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AllowFileSelectionDialogs
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Always open PDF files externally (AlwaysOpenPdfExternally)
+  ## AlwaysOpenPdfExternally
+  ### Always open PDF files externally
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables the internal PDF viewer in Microsoft Edge.
 
@@ -4499,26 +4526,26 @@ If you don't configure this policy or disable it, Microsoft Edge will open PDF f
   - Path (Recommended):N/A
   - Value Name:AlwaysOpenPdfExternally
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AlwaysOpenPdfExternally
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set application locale (ApplicationLocaleValue)
+  ## ApplicationLocaleValue
+  ### Set application locale
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Configures the application locale in Microsoft Edge and prevents users from changing the locale.
 
@@ -4546,20 +4573,20 @@ If you disable or don't configure this setting, Microsoft Edge uses either the u
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ApplicationLocaleValue
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "en"
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow or block audio capture (AudioCaptureAllowed)
+  ## AudioCaptureAllowed
+  ### Allow or block audio capture
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the 'AudioCaptureAllowedUrls' list.
 
@@ -4589,26 +4616,26 @@ This policy affects all types of audio inputs, not only the built-in microphone.
   - Path (Recommended):N/A
   - Value Name:AudioCaptureAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AudioCaptureAllowed
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Sites that can access audio capture devices without requesting permission (AudioCaptureAllowedUrls)
+  ## AudioCaptureAllowedUrls
+  ### Sites that can access audio capture devices without requesting permission
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify websites, based on URL patterns, that can use audio capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to audio capture devices.
 
@@ -4632,16 +4659,17 @@ False
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\0 = "https://www.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AudioCaptureAllowedUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com/</string>
@@ -4650,12 +4678,12 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Automatically import another browser's data and settings at first run (AutoImportAtFirstRun)
+  ## AutoImportAtFirstRun
+  ### Automatically import another browser's data and settings at first run
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable this policy, Microsoft Edge automatically imports all supported datatypes and settings from either the default browser or another specified browser. This also forces Microsoft Edge to skip the import section of the first-run experience.
 
@@ -4693,26 +4721,26 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
   - Path (Recommended):N/A
   - Value Name:AutoImportAtFirstRun
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutoImportAtFirstRun
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable AutoFill for addresses (AutofillAddressEnabled)
+  ## AutofillAddressEnabled
+  ### Enable AutoFill for addresses
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables the AutoFill feature and allows users to auto-complete address information in web forms using previously stored information.
 
@@ -4742,26 +4770,26 @@ Note that if you disable this policy you also stop all activity for all web form
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:AutofillAddressEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutofillAddressEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable AutoFill for credit cards (AutofillCreditCardEnabled)
+  ## AutofillCreditCardEnabled
+  ### Enable AutoFill for credit cards
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables Microsoft Edge's AutoFill feature and lets users auto complete credit card information in web forms using previously stored information.
 
@@ -4789,26 +4817,26 @@ If you enable this policy or don't configure it, users can control AutoFill for 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:AutofillCreditCardEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: AutofillCreditCardEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Continue running background apps after Microsoft Edge closes (BackgroundModeEnabled)
+  ## BackgroundModeEnabled
+  ### Continue running background apps after Microsoft Edge closes
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed. In this scenario, background apps and the current browsing session remain active, including any session cookies. An open background process displays an icon in the system tray and can always be closed from there.
 
@@ -4838,20 +4866,20 @@ If you don't configure this policy, background mode is initially turned off, and
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:BackgroundModeEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block third party cookies (BlockThirdPartyCookies)
+  ## BlockThirdPartyCookies
+  ### Block third party cookies
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Block web page elements that aren't from the domain that's in the address bar from setting cookies.
 
@@ -4881,26 +4909,26 @@ If you don't configure this policy, third-party cookies are enabled but users ca
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:BlockThirdPartyCookies
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BlockThirdPartyCookies
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable profile creation from the Identity flyout menu or the Settings page (BrowserAddProfileEnabled)
+  ## BrowserAddProfileEnabled
+  ### Enable profile creation from the Identity flyout menu or the Settings page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to create new profiles, using the **Add profile** option.
 If you enable this policy or don't configure it, Microsoft Edge allows users to use **Add profile** on the Identity flyout menu or the Settings page to create new profiles.
@@ -4927,26 +4955,26 @@ If you disable this policy, users cannot add new profiles from the Identity flyo
   - Path (Recommended):N/A
   - Value Name:BrowserAddProfileEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserAddProfileEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable guest mode (BrowserGuestModeEnabled)
+  ## BrowserGuestModeEnabled
+  ### Enable guest mode
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable the option to allow the use of guest profiles in Microsoft Edge. In a guest profile, the browser doesn't import browsing data from existing profiles, and it deletes browsing data when all guest profiles are closed.
 
@@ -4974,26 +5002,26 @@ If you disable this policy, Microsoft Edge doesn't let users browse in guest pro
   - Path (Recommended):N/A
   - Value Name:BrowserGuestModeEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserGuestModeEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow queries to a Browser Network Time service (BrowserNetworkTimeQueriesEnabled)
+  ## BrowserNetworkTimeQueriesEnabled
+  ### Allow queries to a Browser Network Time service
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Prevents Microsoft Edge from occasionally sending queries to a browser network time service to retrieve an accurate timestamp.
 
@@ -5021,34 +5049,34 @@ If you enable this policy or don't configure it, Microsoft Edge will occasionall
   - Path (Recommended):N/A
   - Value Name:BrowserNetworkTimeQueriesEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserNetworkTimeQueriesEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Browser sign-in settings (BrowserSignin)
+  ## BrowserSignin
+  ### Browser sign-in settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the 'SyncDisabled' policy.
+  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the 'SyncDisabled' policy instead.
 
 If you set this policy to 'Disable browser sign-in' (0), users can't sign into the browser and use account-based services. In this case users can't use browser-level features like sync - they're unavailable. If a user was signed in when you set the policy to "Disabled," they'll be signed out the next time they run Microsoft Edge, but their local profile data (like favorites and passwords) are preserved. The user can still sign into and use Microsoft web properties like bing.com and Office.com.
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing in to the browser means the user's account information is kept by the browser, but it doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature. Enabling this policy prevents users from turning off the setting that allows browser sign-in.
+If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
 
-If you set this policy to 'Force browser sign-in" (2) users have to sign into a profile to use the browser. This ensures that the policies associated with a managed account are applied and enforced. By default, this turns on sync for the account, unless sync is disabled by the domain admin or with the 'SyncDisabled' policy. The default value of 'BrowserGuestModeEnabled' policy is set to false. Note that existing unsigned profiles will be locked and inaccessible after you enable this policy.
+If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the 'SyncDisabled' policy. The default value of 'BrowserGuestModeEnabled' policy is set to false.
 
 If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
 
@@ -5078,26 +5106,26 @@ If you don't configure this policy users can decide if they want to enable the b
   - Path (Recommended):N/A
   - Value Name:BrowserSignin
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BrowserSignin
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Use built-in DNS client (BuiltInDnsClientEnabled)
+  ## BuiltInDnsClientEnabled
+  ### Use built-in DNS client
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Controls whether to use the built-in DNS client.
 
@@ -5127,26 +5155,26 @@ If you don't configure this policy, the built-in DNS client is enabled by defaul
   - Path (Recommended):N/A
   - Value Name:BuiltInDnsClientEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: BuiltInDnsClientEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes (CertificateTransparencyEnforcementDisabledForCas)
+  ## CertificateTransparencyEnforcementDisabledForCas
+  ### Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables enforcement of Certificate Transparency requirements for a list of subjectPublicKeyInfo hashes.
 
@@ -5181,16 +5209,17 @@ If you disable this policy or don't configure it, any certificate that's require
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\1 = "sha256//////////////////////w=="
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForCas
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
@@ -5199,12 +5228,12 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCa
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable Certificate Transparency enforcement for a list of legacy certificate authorities (CertificateTransparencyEnforcementDisabledForLegacyCas)
+  ## CertificateTransparencyEnforcementDisabledForLegacyCas
+  ### Disable Certificate Transparency enforcement for a list of legacy certificate authorities
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables enforcing Certificate Transparency requirements for a list of legacy certificate authorities (Cas).
 
@@ -5236,16 +5265,17 @@ If you don't configure this policy, any certificate that's required to be disclo
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\1 = "sha256//////////////////////w=="
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForLegacyCas
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
@@ -5254,18 +5284,18 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLe
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable Certificate Transparency enforcement for specific URLs (CertificateTransparencyEnforcementDisabledForUrls)
+  ## CertificateTransparencyEnforcementDisabledForUrls
+  ### Disable Certificate Transparency enforcement for specific URLs
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables enforcing Certificate Transparency requirements for the listed URLs.
 
 This policy lets you not disclose certificates for the hostnames in the specified URLs via Certificate Transparency. This lets you use certificates that would otherwise be untrusted, because they weren't properly publicly disclosed, but it makes it harder to detect mis-issued certificates for those hosts.
 
-Because certificates are valid for a given hostname, independent of the scheme, port, or path, only the hostname part of the URL is considered. Wildcard hosts are not supported.
+Wildcard hosts are not supported.
 
 If you don't configure this policy, any certificate that should be disclosed via Certificate Transparency is treated as untrusted if it's not disclosed.
 
@@ -5289,16 +5319,17 @@ If you don't configure this policy, any certificate that should be disclosed via
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\1 = ".contoso.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CertificateTransparencyEnforcementDisabledForUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>contoso.com</string>
@@ -5307,12 +5338,12 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow HTTP/2 connection coalescing for these hosts even when client certificates are used (CoalesceH2ConnectionsWithClientCertificatesForHosts)
-  >This is a future policy
+  ## CoalesceH2ConnectionsWithClientCertificatesForHosts
+  ### Allow HTTP/2 connection coalescing for these hosts even when client certificates are used
+  >Supported Versions: This is a future policy
   
-
   ### Description
   If you enable this policy, coalescing of HTTP/2 connections is allowed even when client certificates are being used.
 
@@ -5342,15 +5373,16 @@ Coalescing requests to different hosts over connections that use client certific
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForHosts\0 = "contoso.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: CoalesceH2ConnectionsWithClientCertificatesForHosts
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>contoso.com</string>
@@ -5358,12 +5390,12 @@ SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForH
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable component updates in Microsoft Edge (ComponentUpdatesEnabled)
+  ## ComponentUpdatesEnabled
+  ### Enable component updates in Microsoft Edge
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable or don't configure this policy, component updates are enabled in Microsoft Edge.
 
@@ -5391,26 +5423,26 @@ However, some components are exempt from this policy. This includes any componen
   - Path (Recommended):N/A
   - Value Name:ComponentUpdatesEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ComponentUpdatesEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure Do Not Track (ConfigureDoNotTrack)
+  ## ConfigureDoNotTrack
+  ### Configure Do Not Track
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify whether to send Do Not Track requests to websites that ask for tracking info. Do Not Track requests let the websites you visit know that you don't want your browsing activity to be tracked. By default, Microsoft Edge doesn't send Do Not Track requests, but users can turn on this feature to send them.
 
@@ -5440,26 +5472,26 @@ If you don't configure this policy, users can choose whether to send these reque
   - Path (Recommended):N/A
   - Value Name:ConfigureDoNotTrack
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ConfigureDoNotTrack
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure Online Text To Speech (ConfigureOnlineTextToSpeech)
+  ## ConfigureOnlineTextToSpeech
+  ### Configure Online Text To Speech
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
 
@@ -5491,26 +5523,26 @@ Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-service
   - Path (Recommended):N/A
   - Value Name:ConfigureOnlineTextToSpeech
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ConfigureOnlineTextToSpeech
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set Microsoft Edge as default browser (DefaultBrowserSettingEnabled)
+  ## DefaultBrowserSettingEnabled
+  ### Set Microsoft Edge as default browser
   >Supported Versions: Microsoft Edge on Windows 7 and Mac since version 77 or later
   
-
   ### Description
   Configures the default browser checks in Microsoft Edge and prevents users from changing them.
 
@@ -5542,26 +5574,26 @@ Note for Windows administrators: This policy only works for PCs running Windows 
   - Path (Recommended):N/A
   - Value Name:DefaultBrowserSettingEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DefaultBrowserSettingEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control where developer tools can be used (DeveloperToolsAvailability)
+  ## DeveloperToolsAvailability
+  ### Control where developer tools can be used
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Control where developer tools can be used.
 
@@ -5597,26 +5629,26 @@ If you set this policy to 'DeveloperToolsDisallowed' (2), users can't access the
   - Path (Recommended):N/A
   - Value Name:DeveloperToolsAvailability
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DeveloperToolsAvailability
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable support for 3D graphics APIs (Disable3DAPIs)
+  ## Disable3DAPIs
+  ### Disable support for 3D graphics APIs
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
 
@@ -5644,26 +5676,26 @@ If 'HardwareAccelerationModeEnabled' policy is set to false, the setting for 'Di
   - Path (Recommended):N/A
   - Value Name:Disable3DAPIs
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: Disable3DAPIs
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable taking screenshots (DisableScreenshots)
+  ## DisableScreenshots
+  ### Disable taking screenshots
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Controls if users can take screenshots of the browser page.
 
@@ -5693,26 +5725,26 @@ Please note this policy controls screenshots taken from within the browser itsel
   - Path (Recommended):N/A
   - Value Name:DisableScreenshots
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DisableScreenshots
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set disk cache directory (DiskCacheDir)
+  ## DiskCacheDir
+  ### Set disk cache directory
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the directory to use to store cached files.
 
@@ -5740,26 +5772,26 @@ If you don't configure this policy, the default cache directory is used, and use
   - Path (Recommended):N/A
   - Value Name:DiskCacheDir
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "${user_home}/Edge_cache"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DiskCacheDir
-  - Example value:  
-``` xml
+  - Example value:
+```
 "${user_home}/Edge_cache"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set disk cache size, in bytes (DiskCacheSize)
+  ## DiskCacheSize
+  ### Set disk cache size, in bytes
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the size of the cache, in bytes, used to store files on the disk.
 
@@ -5789,26 +5821,26 @@ If you don't configure this policy, the default size is used, but users can over
   - Path (Recommended):N/A
   - Value Name:DiskCacheSize
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x06400000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DiskCacheSize
-  - Example value:  
-``` xml
+  - Example value:
+```
 104857600
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set download directory (DownloadDirectory)
+  ## DownloadDirectory
+  ### Set download directory
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the directory to use when downloading files.
 
@@ -5836,26 +5868,26 @@ If you disable or don't configure this policy, the default download directory is
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:DownloadDirectory
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "/home/${user_name}/Downloads"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DownloadDirectory
-  - Example value:  
-``` xml
+  - Example value:
+```
 "/home/${user_name}/Downloads"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow download restrictions (DownloadRestrictions)
+  ## DownloadRestrictions
+  ### Allow download restrictions
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures the type of downloads that Microsoft Edge completely blocks, without letting users override the security decision.
 
@@ -5897,26 +5929,26 @@ Note that these restrictions apply to downloads from web page content, as well a
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:DownloadRestrictions
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000002
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: DownloadRestrictions
-  - Example value:  
-``` xml
+  - Example value:
+```
 2
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allows users to edit favorites (EditFavoritesEnabled)
+  ## EditFavoritesEnabled
+  ### Allows users to edit favorites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable this policy to let users add, remove, and modify favorites. This is the default behavior if you don't configure the policy.
 
@@ -5942,26 +5974,26 @@ Disable this policy to stop users from adding, removing, or modifying favorites.
   - Path (Recommended):N/A
   - Value Name:EditFavoritesEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EditFavoritesEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Re-enable deprecated web platform features for a limited time (EnableDeprecatedWebPlatformFeatures)
+  ## EnableDeprecatedWebPlatformFeatures
+  ### Re-enable deprecated web platform features for a limited time
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify a list of deprecated web platform features to temporarily re-enable.
 
@@ -5995,15 +6027,16 @@ The general format of the string tag is [DeprecatedFeatureName]_EffectiveUntil[y
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "ExampleDeprecatedFeature_EffectiveUntil20080902"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableDeprecatedWebPlatformFeatures
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>ExampleDeprecatedFeature_EffectiveUntil20080902</string>
@@ -6011,12 +6044,12 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable Domain Actions Download from Microsoft (EnableDomainActionsDownload)
+  ## EnableDomainActionsDownload
+  ### Enable Domain Actions Download from Microsoft
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   In Microsoft Edge, Domain Actions represent a series of compatibility features that help the browser work correctly on the web.
 
@@ -6050,26 +6083,26 @@ If you don't configure this policy, the list of Domain Actions will continue to 
   - Path (Recommended):N/A
   - Value Name:EnableDomainActionsDownload
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableDomainActionsDownload
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable online OCSP/CRL checks (EnableOnlineRevocationChecks)
+  ## EnableOnlineRevocationChecks
+  ### Enable online OCSP/CRL checks
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable this policy to use online OSCP/CRL checks, which are disabled by default in Microsoft Edge. (These soft-fail, online revocation checks provide no effective security benefit.)
 
@@ -6095,26 +6128,26 @@ If you disable the policy or don't configure it, Microsoft Edge doesn't perform 
   - Path (Recommended):N/A
   - Value Name:EnableOnlineRevocationChecks
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: EnableOnlineRevocationChecks
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable favorites bar (FavoritesBarEnabled)
+  ## FavoritesBarEnabled
+  ### Enable favorites bar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables or disables the favorites bar.
 
@@ -6144,26 +6177,26 @@ If this policy is not configured, then the user can decide to use the favorites 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:FavoritesBarEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: FavoritesBarEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure Bing SafeSearch (ForceBingSafeSearch)
+  ## ForceBingSafeSearch
+  ### Enforce Bing SafeSearch
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Ensure that queries in Bing web search are done with SafeSearch set to the value specified. Users can't change this setting.
 
@@ -6192,7 +6225,7 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
   ### Windows information and settings
   #### Group Policy (ADMX) info
   - GP unique name: ForceBingSafeSearch
-  - GP name: Configure Bing SafeSearch
+  - GP name: Enforce Bing SafeSearch
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended):N/A
   - GP ADMX file name: MSEdge.admx
@@ -6201,26 +6234,26 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
   - Path (Recommended):N/A
   - Value Name:ForceBingSafeSearch
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceBingSafeSearch
-  - Example value:  
-``` xml
+  - Example value:
+```
 0
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable use of ephemeral profiles (ForceEphemeralProfiles)
+  ## ForceEphemeralProfiles
+  ### Enable use of ephemeral profiles
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Controls whether user profiles are switched to ephemeral mode. An ephemeral profile is created when a session begins, is deleted when the session ends, and is associated with the user's original profile.
 
@@ -6250,26 +6283,26 @@ In ephemeral mode, profile data is saved on disk only for the length of the user
   - Path (Recommended):N/A
   - Value Name:ForceEphemeralProfiles
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceEphemeralProfiles
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enforce Google SafeSearch (ForceGoogleSafeSearch)
+  ## ForceGoogleSafeSearch
+  ### Enforce Google SafeSearch
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Forces queries in Google Web Search to be performed with SafeSearch set to active, and prevents users from changing this setting.
 
@@ -6297,26 +6330,26 @@ If you disable this policy or don't configure it, SafeSearch in Google Search is
   - Path (Recommended):N/A
   - Value Name:ForceGoogleSafeSearch
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceGoogleSafeSearch
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Force minimum YouTube Restricted Mode (ForceYouTubeRestrict)
+  ## ForceYouTubeRestrict
+  ### Force minimum YouTube Restricted Mode
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enforces a minimum Restricted Mode on YouTube and prevents users from picking a less restricted mode.
 
@@ -6352,26 +6385,26 @@ Set to Off (0) or don't configure this policy to not enforce Restricted Mode on 
   - Path (Recommended):N/A
   - Value Name:ForceYouTubeRestrict
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000000
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ForceYouTubeRestrict
-  - Example value:  
-``` xml
+  - Example value:
+```
 0
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow full screen mode (FullscreenAllowed)
+  ## FullscreenAllowed
+  ### Allow full screen mode
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Set the availability of full screen mode - all Microsoft Edge UI is hidden and only web content is visible.
 
@@ -6401,20 +6434,20 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
   - Path (Recommended):N/A
   - Value Name:FullscreenAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Use hardware acceleration when available (HardwareAccelerationModeEnabled)
+  ## HardwareAccelerationModeEnabled
+  ### Use hardware acceleration when available
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify to use hardware acceleration, if it's available. If you enable this policy or don't configure it, hardware acceleration is enabled unless a GPU feature is explicitly blocked.
 
@@ -6440,26 +6473,26 @@ If you disable this policy, hardware acceleration is disabled.
   - Path (Recommended):N/A
   - Value Name:HardwareAccelerationModeEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: HardwareAccelerationModeEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of autofill form data (ImportAutofillFormData)
+  ## ImportAutofillFormData
+  ### Allow importing of autofill form data
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import autofill form data from another browser into Microsoft Edge.
 
@@ -6493,26 +6526,26 @@ You can set this policy as a recommendation. This means that Microsoft Edge will
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportAutofillFormData
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportAutofillFormData
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of favorites (ImportFavorites)
+  ## ImportFavorites
+  ### Allow importing of favorites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import favorites from another browser into Microsoft Edge.
 
@@ -6546,26 +6579,26 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportFavorites
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportFavorites
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of browsing history (ImportHistory)
+  ## ImportHistory
+  ### Allow importing of browsing history
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import their browsing history from another browser into Microsoft Edge.
 
@@ -6599,26 +6632,26 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportHistory
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportHistory
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of home page settings (ImportHomepage)
+  ## ImportHomepage
+  ### Allow importing of home page settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import their home page setting from another browser into Microsoft Edge.
 
@@ -6652,26 +6685,26 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended):N/A
   - Value Name:ImportHomepage
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportHomepage
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of payment info (ImportPaymentInfo)
+  ## ImportPaymentInfo
+  ### Allow importing of payment info
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import payment info from another browser into Microsoft Edge.
 
@@ -6705,26 +6738,26 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportPaymentInfo
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportPaymentInfo
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of saved passwords (ImportSavedPasswords)
+  ## ImportSavedPasswords
+  ### Allow importing of saved passwords
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import saved passwords from another browser into Microsoft Edge.
 
@@ -6758,26 +6791,26 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportSavedPasswords
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportSavedPasswords
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow importing of search engine settings (ImportSearchEngine)
+  ## ImportSearchEngine
+  ### Allow importing of search engine settings
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows users to import search engine settings from another browser into Microsoft Edge.
 
@@ -6811,26 +6844,26 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ImportSearchEngine
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ImportSearchEngine
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure InPrivate mode availability (InPrivateModeAvailability)
+  ## InPrivateModeAvailability
+  ### Configure InPrivate mode availability
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies whether the user can open pages in InPrivate mode in Microsoft Edge.
 
@@ -6866,26 +6899,26 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
   - Path (Recommended):N/A
   - Value Name:InPrivateModeAvailability
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: InPrivateModeAvailability
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure Internet Explorer integration (InternetExplorerIntegrationLevel)
+  ## InternetExplorerIntegrationLevel
+  ### Configure Internet Explorer integration
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Allows you to configure the scope of Internet Explorer integration in Microsoft Edge.
 
@@ -6921,20 +6954,20 @@ For more info about how to use this policy together with other related policies 
   - Path (Recommended):N/A
   - Value Name:InternetExplorerIntegrationLevel
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable site isolation for specific origins (IsolateOrigins)
+  ## IsolateOrigins
+  ### Enable site isolation for specific origins
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify origins to run in isolation, in their own process.
 This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
@@ -6962,26 +6995,26 @@ If you don't configure the policy, the user can change this setting.
   - Path (Recommended):N/A
   - Value Name:IsolateOrigins
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "https://contoso.com/,https://fabrikam.com/"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: IsolateOrigins
-  - Example value:  
-``` xml
+  - Example value:
+```
 "https://contoso.com/,https://fabrikam.com/"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure favorites (ManagedFavorites)
+  ## ManagedFavorites
+  ### Configure favorites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Configures a list of managed favorites.
 
@@ -7011,8 +7044,8 @@ Managed favorites are not synced to the user account and can't be modified by ex
   - Path (Recommended):N/A
   - Value Name:ManagedFavorites
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   {
     "toplevel_name": "My managed favorites folder"
@@ -7044,7 +7077,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 
   ### Mac information and settings
   - Preference Key Name: ManagedFavorites
-  - Example value:  
+  - Example value:
 ``` xml
 <key>ManagedFavorites</key>
 <array>
@@ -7087,12 +7120,12 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Manage Search Engines (ManagedSearchEngines)
+  ## ManagedSearchEngines
+  ### Manage Search Engines
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
 You do not need to specify the encoding for any search engine.
@@ -7123,8 +7156,8 @@ If the 'DefaultSearchProviderSearchURL' policy is set, this policy ('ManagedSear
   - Path (Recommended):N/A
   - Value Name:ManagedSearchEngines
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
     "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
@@ -7155,7 +7188,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 
   ### Mac information and settings
   - Preference Key Name: ManagedSearchEngines
-  - Example value:  
+  - Example value:
 ``` xml
 <key>ManagedSearchEngines</key>
 <array>
@@ -7203,12 +7236,12 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Maximum number of concurrent connections to the proxy server (MaxConnectionsPerProxy)
+  ## MaxConnectionsPerProxy
+  ### Maximum number of concurrent connections to the proxy server
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies the maximum number of simultaneous connections to the proxy server.
 
@@ -7240,26 +7273,26 @@ If you don't configure this policy, the default value (32) is used.
   - Path (Recommended):N/A
   - Value Name:MaxConnectionsPerProxy
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000020
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MaxConnectionsPerProxy
-  - Example value:  
-``` xml
+  - Example value:
+```
 32
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow Google Cast to connect to Cast devices on all IP addresses (MediaRouterCastAllowAllIPs)
+  ## MediaRouterCastAllowAllIPs
+  ### Allow Google Cast to connect to Cast devices on all IP addresses
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
 
@@ -7289,26 +7322,26 @@ If the 'EnableMediaRouter' policy is disabled, then this policy has no effect.
   - Path (Recommended):N/A
   - Value Name:MediaRouterCastAllowAllIPs
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MediaRouterCastAllowAllIPs
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable usage and crash-related data reporting (MetricsReportingEnabled)
+  ## MetricsReportingEnabled
+  ### Enable usage and crash-related data reporting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
@@ -7344,26 +7377,26 @@ On Windows 10 Stable the usage and crash data collection is controlled by the Wi
   - Path (Recommended):N/A
   - Value Name:MetricsReportingEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: MetricsReportingEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable network prediction (NetworkPredictionOptions)
+  ## NetworkPredictionOptions
+  ### Enable network prediction
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables network prediction and prevents users from changing this setting.
 
@@ -7395,26 +7428,26 @@ If you don't configure this policy, network prediction is enabled but the user c
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:NetworkPredictionOptions
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: NetworkPredictionOptions
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Control where security restrictions on insecure origins apply (OverrideSecurityRestrictionsOnInsecureOrigin)
+  ## OverrideSecurityRestrictionsOnInsecureOrigin
+  ### Control where security restrictions on insecure origins apply
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies a list of origins (URLs) or hostname patterns (like "*.contoso.com") for which security restrictions on insecure origins don't apply.
 
@@ -7444,16 +7477,17 @@ For more information on secure contexts, see https://www.w3.org/TR/secure-contex
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\0 = "http://testserver.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 = "*.contoso.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: OverrideSecurityRestrictionsOnInsecureOrigin
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>http://testserver.contoso.com/</string>
@@ -7462,12 +7496,12 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable Proactive Authentication (ProactiveAuthEnabled)
+  ## ProactiveAuthEnabled
+  ### Enable Proactive Authentication
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Lets you configure whether to turn on Proactive Authentication.
 
@@ -7497,26 +7531,26 @@ If you don't configure this policy, Proactive Authentication is turned on.
   - Path (Recommended):N/A
   - Value Name:ProactiveAuthEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ProactiveAuthEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable full-tab promotional content (PromotionalTabsEnabled)
+  ## PromotionalTabsEnabled
+  ### Enable full-tab promotional content
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Control the presentation of full-tab promotional or educational content. This setting controls the presentation of welcome pages that help users sign into Microsoft Edge, choose their default browser, or learn about product features.
 
@@ -7544,26 +7578,26 @@ If you disable (set to false) this policy, Microsoft Edge can't show full-tab co
   - Path (Recommended):N/A
   - Value Name:PromotionalTabsEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PromotionalTabsEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Ask where to save downloaded files (PromptForDownloadLocation)
+  ## PromptForDownloadLocation
+  ### Ask where to save downloaded files
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set whether to ask where to save a file before downloading it.
 
@@ -7591,26 +7625,26 @@ If you don't configure this policy, the user will be able to change this setting
   - Path (Recommended):N/A
   - Value Name:PromptForDownloadLocation
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: PromptForDownloadLocation
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow QUIC protocol (QuicAllowed)
+  ## QuicAllowed
+  ### Allow QUIC protocol
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows use of the QUIC protocol in Microsoft Edge.
 
@@ -7640,26 +7674,26 @@ QUIC is a transport layer network protocol that can improve performance of web a
   - Path (Recommended):N/A
   - Value Name:QuicAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: QuicAllowed
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Notify a user that a browser restart is recommended or required for pending updates (RelaunchNotification)
+  ## RelaunchNotification
+  ### Notify a user that a browser restart is recommended or required for pending updates
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Notify users that they need to restart Microsoft Edge to apply a pending update.
 
@@ -7695,26 +7729,26 @@ The user's session is restored when the browser restarts.
   - Path (Recommended):N/A
   - Value Name:RelaunchNotification
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x00000001
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RelaunchNotification
-  - Example value:  
-``` xml
+  - Example value:
+```
 1
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set the time period for update notifications (RelaunchNotificationPeriod)
+  ## RelaunchNotificationPeriod
+  ### Set the time period for update notifications
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
 
@@ -7746,26 +7780,26 @@ Restrictions:
   - Path (Recommended):N/A
   - Value Name:RelaunchNotificationPeriod
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 0x240c8400
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RelaunchNotificationPeriod
-  - Example value:  
-``` xml
+  - Example value:
+```
 604800000
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Specify if online OCSP/CRL checks are required for local trust anchors (RequireOnlineRevocationChecksForLocalAnchors)
+  ## RequireOnlineRevocationChecksForLocalAnchors
+  ### Specify if online OCSP/CRL checks are required for local trust anchors
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Control whether online revocation checks (OCSP/CRL checks) are required. If Microsoft Edge can't get revocation status information, these certificates are treated as revoked ("hard-fail").
 
@@ -7793,20 +7827,20 @@ If you don't configure or disable this policy, then Microsoft Edge uses the exis
   - Path (Recommended):N/A
   - Value Name:RequireOnlineRevocationChecksForLocalAnchors
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable resolution of navigation errors using a web service (ResolveNavigationErrorsUseWebService)
+  ## ResolveNavigationErrorsUseWebService
+  ### Enable resolution of navigation errors using a web service
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
 
@@ -7839,26 +7873,26 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:ResolveNavigationErrorsUseWebService
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ResolveNavigationErrorsUseWebService
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Restrict which accounts can be used as Microsoft Edge primary accounts (RestrictSigninToPattern)
+  ## RestrictSigninToPattern
+  ### Restrict which accounts can be used as Microsoft Edge primary accounts
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Determines which accounts can be set as browser primary accounts in Microsoft Edge (the account that is chosen during the Sync opt-in flow).
 
@@ -7886,26 +7920,26 @@ If you don't configure this policy or leave it blank, users can set any account 
   - Path (Recommended):N/A
   - Value Name:RestrictSigninToPattern
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 ".*@contoso.com"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RestrictSigninToPattern
-  - Example value:  
-``` xml
+  - Example value:
+```
 ".*@contoso.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Extend Adobe Flash content setting to all content (RunAllFlashInAllowMode)
+  ## RunAllFlashInAllowMode
+  ### Extend Adobe Flash content setting to all content
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
 
@@ -7933,26 +7967,26 @@ If you disable this policy or don't configure it, Adobe Flash content from other
   - Path (Recommended):N/A
   - Value Name:RunAllFlashInAllowMode
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: RunAllFlashInAllowMode
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow users to proceed from the SSL warning page (SSLErrorOverrideAllowed)
+  ## SSLErrorOverrideAllowed
+  ### Allow users to proceed from the SSL warning page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Microsoft Edge shows a warning page when users visit sites that have SSL errors.
 
@@ -7980,26 +8014,26 @@ If you disable this policy, users are blocked from clicking through any warning 
   - Path (Recommended):N/A
   - Value Name:SSLErrorOverrideAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SSLErrorOverrideAllowed
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Minimum SSL version enabled (SSLVersionMin)
+  ## SSLVersionMin
+  ### Minimum SSL version enabled
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Sets the minimum supported version of SSL. If you don't configure this policy, Microsoft Edge uses a default minimum version, TLS 1.0.
 
@@ -8031,26 +8065,26 @@ If you enable this policy, you can set the minimum version to one of the followi
   - Path (Recommended):N/A
   - Value Name:SSLVersionMin
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "tls1"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SSLVersionMin
-  - Example value:  
-``` xml
+  - Example value:
+```
 "tls1"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable saving browser history (SavingBrowserHistoryDisabled)
+  ## SavingBrowserHistoryDisabled
+  ### Disable saving browser history
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables saving browser history and prevents users from changing this setting.
 
@@ -8078,26 +8112,26 @@ If you disable this policy or don't configure it, browsing history is saved.
   - Path (Recommended):N/A
   - Value Name:SavingBrowserHistoryDisabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SavingBrowserHistoryDisabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable search suggestions (SearchSuggestEnabled)
+  ## SearchSuggestEnabled
+  ### Enable search suggestions
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables web search suggestions in Microsoft Edge's Address Bar and Auto-Suggest List and prevents users from changing this policy.
 
@@ -8127,26 +8161,26 @@ If this policy is left not set, search suggestions are enabled but the user can 
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SearchSuggestEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SearchSuggestEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Websites or domains that don't need permission to use direct Security Key attestation (SecurityKeyPermitAttestation)
+  ## SecurityKeyPermitAttestation
+  ### Websites or domains that don't need permission to use direct Security Key attestation
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies websites and domains that don't need explicit user permission when attestation certificates from security keys are requested. Additionally, a signal is sent to the security key indicating that it can use individual attestation. Without this, users are prompted each time a site requests attestation of security keys.
 
@@ -8172,15 +8206,16 @@ Sites (like https://contoso.com/some/path) only match as U2F appIDs. Domains (li
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://contoso.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SecurityKeyPermitAttestation
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://contoso.com</string>
@@ -8188,12 +8223,12 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Send all intranet sites to Internet Explorer (SendIntranetToInternetExplorer)
+  ## SendIntranetToInternetExplorer
+  ### Send all intranet sites to Internet Explorer
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Allows you to configure whether your intranet sites are opened in Internet Explorer.
 
@@ -8233,20 +8268,20 @@ For more info about how to use this policy together with these related policies 
   - Path (Recommended):N/A
   - Value Name:SendIntranetToInternetExplorer
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Send site information to improve Microsoft services (SendSiteInfoToImproveServices)
+  ## SendSiteInfoToImproveServices
+  ### Send site information to improve Microsoft services
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   This policy setting lets you decide whether users can send info about websites they visit in Microsoft Edge to Microsoft to improve services like search. The default value is taken from install.
 
@@ -8284,26 +8319,26 @@ See https://docs.microsoft.com/en-us/windows/privacy/configure-windows-diagnosti
   - Path (Recommended):N/A
   - Value Name:SendSiteInfoToImproveServices
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SendSiteInfoToImproveServices
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Show Microsoft Office shortcut in favorites bar (ShowOfficeShortcutInFavoritesBar)
+  ## ShowOfficeShortcutInFavoritesBar
+  ### Show Microsoft Office shortcut in favorites bar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specifies whether to include a shortcut to Office.com in the favorites bar. For users signed into Microsoft Edge the shortcut takes users to their Microsoft Office apps and docs.
 
@@ -8331,26 +8366,26 @@ If the policy is disabled, the shortcut won't be shown.
   - Path (Recommended):N/A
   - Value Name:ShowOfficeShortcutInFavoritesBar
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: ShowOfficeShortcutInFavoritesBar
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable site isolation for every site (SitePerProcess)
+  ## SitePerProcess
+  ### Enable site isolation for every site
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables site isolation using the 'IsolateOrigins' and 'SitePerProcess' features.
 If the policy is enabled, each site will run in its own process.
@@ -8378,26 +8413,26 @@ You may want to consider the 'IsolateOrigins' policy setting to get the best of 
   - Path (Recommended):N/A
   - Value Name:SitePerProcess
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SitePerProcess
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable spellcheck (SpellcheckEnabled)
+  ## SpellcheckEnabled
+  ### Enable spellcheck
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable or don't configure this policy, the user can use spellcheck.
 
@@ -8423,26 +8458,26 @@ If you disable this policy, the user can't use spellcheck and the 'SpellcheckLan
   - Path (Recommended):N/A
   - Value Name:SpellcheckEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SpellcheckEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable specific spellcheck languages (SpellcheckLanguage)
+  ## SpellcheckLanguage
+  ### Enable specific spellcheck languages
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
 
@@ -8474,21 +8509,22 @@ The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\0 = "fr"
 SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
+
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Suppress the unsupported OS warning (SuppressUnsupportedOSWarning)
+  ## SuppressUnsupportedOSWarning
+  ### Suppress the unsupported OS warning
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
 
@@ -8512,26 +8548,26 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   - Path (Recommended):N/A
   - Value Name:SuppressUnsupportedOSWarning
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SuppressUnsupportedOSWarning
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Disable synchronization of data using Microsoft sync services (SyncDisabled)
+  ## SyncDisabled
+  ### Disable synchronization of data using Microsoft sync services
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
 
@@ -8559,26 +8595,26 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:SyncDisabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: SyncDisabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Configure tab lifecycles (TabLifecyclesEnabled)
+  ## TabLifecyclesEnabled
+  ### Configure tab lifecycles
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
   
-
   ### Description
   The tab lifecycles feature reclaims CPU and memory associated with running tabs that haven't been used in a long time, by first throttling, then freezing, and finally discarding them.
 
@@ -8606,20 +8642,20 @@ If you enable or don't configure this policy, the tab lifecycles feature is enab
   - Path (Recommended):N/A
   - Value Name:TabLifecyclesEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable ending processes in the Browser task manager (TaskManagerEndProcessEnabled)
+  ## TaskManagerEndProcessEnabled
+  ### Enable ending processes in the Browser task manager
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   If you enable or don't configure this policy, users can end processes in the Browser task manager. If you disable it, users can't end processes, and the End process button is disabled in the Browser task manager.
 
@@ -8643,26 +8679,26 @@ False
   - Path (Recommended):N/A
   - Value Name:TaskManagerEndProcessEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: TaskManagerEndProcessEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Enable Translate (TranslateEnabled)
+  ## TranslateEnabled
+  ### Enable Translate
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Enables the integrated Microsoft translation service on Microsoft Edge.
 
@@ -8692,26 +8728,26 @@ If you don't configure the policy, users can choose whether to use the translati
   - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
   - Value Name:TranslateEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: TranslateEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Define a list of allowed URLs (URLAllowlist)
+  ## URLAllowlist
+  ### Define a list of allowed URLs
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allow access to the listed URLs, as exceptions to the URL block list.
 
@@ -8743,19 +8779,20 @@ If you don't configure this policy, there are no exceptions to the block list in
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\1 = "https://ssl.server.com"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\2 = "hosting.com/good_path"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\3 = "https://server:8080/path"
 SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: URLAllowlist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>contoso.com</string>
@@ -8767,12 +8804,12 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Block access to a list of URLs (URLBlocklist)
+  ## URLBlocklist
+  ### Block access to a list of URLs
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
 
@@ -8804,8 +8841,8 @@ If you don't configure this policy, no URLs are blocked.
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\0 = "contoso.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\1 = "https://ssl.server.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\2 = "hosting.com/bad_path"
@@ -8814,12 +8851,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\4 = ".exact.hostname.com"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\5 = "file://*"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\6 = "custom_scheme:*"
 SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: URLBlocklist
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>contoso.com</string>
@@ -8834,12 +8872,12 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set the user data directory (UserDataDir)
+  ## UserDataDir
+  ### Set the user data directory
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Set the directory to use for storing user data.
 
@@ -8869,26 +8907,26 @@ To avoid data loss or other errors, don't configure this policy to a volume's ro
   - Path (Recommended):N/A
   - Value Name:UserDataDir
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "${users}/${user_name}/Edge"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UserDataDir
-  - Example value:  
-``` xml
+  - Example value:
+```
 "${users}/${user_name}/Edge"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow user feedback (UserFeedbackAllowed)
+  ## UserFeedbackAllowed
+  ### Allow user feedback
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Microsoft Edge uses the Edge Feedback feature (enabled by default) to allow users to send feedback, suggestions or customer surveys and to report any issues with the browser. Also, by default, users can't disable (turn off) the Edge Feedback feature.
 
@@ -8916,26 +8954,26 @@ If you disable this policy, users can't invoke Edge Feedback.
   - Path (Recommended):N/A
   - Value Name:UserFeedbackAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: UserFeedbackAllowed
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow or block video capture (VideoCaptureAllowed)
+  ## VideoCaptureAllowed
+  ### Allow or block video capture
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Control whether sites can capture video.
 
@@ -8965,26 +9003,26 @@ This policy affects all types of video inputs, not only the built-in camera.
   - Path (Recommended):N/A
   - Value Name:VideoCaptureAllowed
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 False
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: VideoCaptureAllowed
-  - Example value:  
-``` xml
+  - Example value:
+```
 False
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Sites that can access video capture devices without requesting permission (VideoCaptureAllowedUrls)
+  ## VideoCaptureAllowedUrls
+  ### Sites that can access video capture devices without requesting permission
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Specify websites, based on URL patterns, that can use video capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to video capture devices.
 
@@ -9008,16 +9046,17 @@ False
   - Path (Recommended):N/A
   - Value Name:1, 2, 3, ...
   - Value Type:list of REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\0 = "https://www.contoso.com/"
 SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
+
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: VideoCaptureAllowedUrls
-  - Example value:  
+  - Example value:
 ``` xml
 <array>
   <string>https://www.contoso.com/</string>
@@ -9026,12 +9065,12 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Set WPAD optimization (WPADQuickCheckEnabled)
+  ## WPADQuickCheckEnabled
+  ### Set WPAD optimization
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows you to turn off WPAD (Web Proxy Auto-Discovery) optimization in Microsoft Edge.
 
@@ -9061,26 +9100,26 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   - Path (Recommended):N/A
   - Value Name:WPADQuickCheckEnabled
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WPADQuickCheckEnabled
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Allow WebDriver to Override Incompatible Policies (WebDriverOverridesIncompatiblePolicies)
+  ## WebDriverOverridesIncompatiblePolicies
+  ### Allow WebDriver to Override Incompatible Policies
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   This policy lets users of the WebDriver interface override policies that could interfere with its operation.
 
@@ -9110,26 +9149,26 @@ Note: Currently, the 'SitePerProcess' and 'IsolateOrigins' policies have been ve
   - Path (Recommended):N/A
   - Value Name:WebDriverOverridesIncompatiblePolicies
   - Value Type:REG_DWORD
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 True
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebDriverOverridesIncompatiblePolicies
-  - Example value:  
-``` xml
+  - Example value:
+```
 True
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Restrict exposure of localhost IP address by WebRTC (WebRtcLocalhostIpHandling)
+  ## WebRtcLocalhostIpHandling
+  ### Restrict exposure of localhost IP address by WebRTC
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Allows you to set whether or not WebRTC exposes the user's localhost IP address.
 
@@ -9164,30 +9203,32 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
   - Path (Recommended):N/A
   - Value Name:WebRtcLocalhostIpHandling
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "default"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebRtcLocalhostIpHandling
-  - Example value:  
-``` xml
+  - Example value:
+```
 "default"
 ```
   
 
-  [Back to Top](#available-group-policies)
+  [Back to top](#available-browser-group-policies)
 
-  ## Restrict the range of local UDP ports used by WebRTC (WebRtcUdpPortRange)
+  ## WebRtcUdpPortRange
+  ### Restrict the range of local UDP ports used by WebRTC
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
   
-
   ### Description
   Restricts the UDP port range used by WebRTC to a specified port interval (endpoints included).
 
-If you don't configure this policy or set it to an empty string or invalid port range, WebRTC can use any available local UDP port.
+By configuring this policy, you specify the range of local UDP ports that WebRTC can use.
+
+If you don't configure this policy, or if you set it to an empty string or invalid port range, WebRTC can use any available local UDP port.
 
   ### Supported features:
   - Can be mandatory: Yes
@@ -9209,22 +9250,20 @@ If you don't configure this policy or set it to an empty string or invalid port 
   - Path (Recommended):N/A
   - Value Name:WebRtcUdpPortRange
   - Value Type:REG_SZ
-  #### Example value:  
-``` xml
+  #### Example value:
+```
 "10000-11999"
 ```
 
 
   ### Mac information and settings
   - Preference Key Name: WebRtcUdpPortRange
-  - Example value:  
-``` xml
+  - Example value:
+```
 "10000-11999"
 ```
   
-
-  [Back to Top](#available-group-policies)
-
+  [Back to Top](#available-browser-group-policies)
 
 ## See also
 
