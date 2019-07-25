@@ -26,7 +26,6 @@ description: "Learn how to use Microsoft Edge with IE mode."
 
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
 
-
 ## What is IE mode?
 
 IE mode on Microsoft Edge is a simplified experience that combines a modern rendering engine and compatibility with legacy sites that require Internet Explorer in a single browser. IE mode provides an integrated browsing experience in Microsoft Edge, using the integrated Chromium engine for modern sites and leveraging Internet Explorer 11 (IE11) for legacy sites that require the Trident MSHTML engine.
@@ -61,10 +60,15 @@ The following steps walk through enabling IE mode.
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Configure Internet Explorer integration**.
+    ![Open Configure Internet Explorer integration policy](./media/ie-mode/ie-mode-1.png)
 1. Select **Enabled**.
+    ![Select enabled](./media/ie-mode/ie-mode-2.png)
 1. In the Options area, choose **IE mode**.
+    ![Choose IE mode](./media/ie-mode/ie-mode-3.png)
+1. Click **Apply**.
+    ![Click apply](./media/ie-mode/ie-mode-4.png)
 
-    ![IE Mode in GPO](./media/ie-mode/gpo-ie-mode.png)
+    
 
 ### Configure which sites should open in IE mode
 There are 2 options for determining which sites should be open in IE mode:
@@ -83,10 +87,11 @@ Below are details for configuring each of these options.
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Send all intranet sites to Internet Explorer**.
+    ![Open Send all intranet sites to Internet Explorer policy](./media/ie-mode/ie-mode-5.png)
 1. Select **Enabled**.
-
-    ![Local GPO](./media/ie-mode/local-gpo.png)
-
+    ![Select enabled](./media/ie-mode/ie-mode6.png)
+1. Click **Apply**.
+    ![Click apply](./media/ie-mode/ie-mode-7.png)
 
 #### If only sites configured using the Site List XML should be redirected to IE mode
 
@@ -100,18 +105,21 @@ Below are details for configuring each of these options.
 1. Open Group Policy Editor.
 1. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
 1. Double-click **Use the Enterprise Mode IE website list**.
+    ![Open Use the Enterprise Mode IE website list policy](./media/ie-mode/ie-mode-8.png)
 1. Select **Enabled**.
+    ![Select enabled](./media/ie-mode/ie-mode-9.png)
 1. In Options, specify the path to the Site List XML which can be:
     1. (Recommended) HTTPS location: **https://localhost:8080/sites.xml**
     1. Local network file: **\\\network\shares\sites.xml**
     1. Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-10.png)
+1. Click **Apply**
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11.png)
 
 >[!NOTE]
 > The following docs have additional info on creating the Enterprise Mode Site List:
 > - [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager) 
 > - [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool) 
-
-
 
 #### Updated schema elements
 
