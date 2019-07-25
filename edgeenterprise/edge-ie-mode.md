@@ -57,6 +57,7 @@ The following steps walk through enabling IE mode.
 
 ### Enable IE mode using Group Policy
 
+1. Download and use the latest Microsoft Edge Policy Template (https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Configure Internet Explorer integration**.
@@ -118,14 +119,14 @@ The following table provides the additional element added to the v.2 of the Ente
 
 | **Element** | **Description** |
 | --- | --- |
-| \<open-in app=**true**\> | A child element that controls what browser is used for sites. This element is required for sites that need to **open in IE11**.|
+| \<open-in app="**true**"\> | A child element that controls what browser is used for sites. This element is required for sites that need to **open in IE11**.|
 
 **Example:**
 
 ``` xml
 <site url=contoso.com>
 
-  <open-in app=true>IE11</open-in>
+  <open-in app="true">IE11</open-in>
 
 </site>
 ```
@@ -135,12 +136,12 @@ The following table shows the possible values of the \<open-in\> element:
 | **Value** | **Description** |
 | --- | --- |
 | **\<open-in\>IE11\</open-in\>** | Opens the site in IE mode, regardless of which browser is opened by the employee. |
-| **\<open-in app=**true**\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the employee. |
+| **\<open-in app="**true**"\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the employee. |
 | **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the employee. |
 | **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
 
 > [!NOTE]
-> The attribute app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. 
+> The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. 
 
 #### Additional configurations
 
@@ -149,7 +150,7 @@ If you have identified a site that needs to run in IE11, from business or techni
 ``` xml
 <site url=contoso.com>
 
-  <open-in app=true>IE11</open-in>
+  <open-in app="true">IE11</open-in>
 
 </site>
 ```
