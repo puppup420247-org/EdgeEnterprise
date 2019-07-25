@@ -24,7 +24,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
   - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/en-us/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/en-us/help/4501375) or higher
   - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/en-us/help/4509479) or higher)
 
-- Microsoft Edge administrative template available (See [Configure Microsoft Edge] (https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
+- Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
 
 
 ## What is IE mode?
@@ -68,7 +68,9 @@ The following steps walk through enabling IE mode.
 
     ![IE Mode in GPO](./media/ie-mode/gpo-ie-mode.png)
 
-### If all intranet sites should be redirected to IE mode
+### Configure which sites should open in IE mode
+
+#### If all intranet sites should be redirected to IE mode
 
 > [!NOTE]
 > - The group policy best applies for the user scenarios where we don't have a site list configured.
@@ -83,26 +85,26 @@ The following steps walk through enabling IE mode.
     ![Local GPO](./media/ie-mode/local-gpo.png)
 
 
-
-### If only sites configured using the Site List XML should be redirected to IE mode
+#### If only sites configured using the Site List XML should be redirected to IE mode
 
 > [!NOTE]
 > Enterprise Mode schema v.1 will not be supported for IE mode integration. If you are using schema v.1, you must upgrade to schema v.2 or v.2.1. See [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+>
+> If you're running version 2.0 (v.2) of the schema, you can continue to do so, but you won't get the additional functionality detailed in the updated schema attributes.
 
-In this scenario, the IT department has deployed a Site List XML file and already enabled the Internet Explorer group policy **Use the Enterprise Mode IE website list**, also known as the Site List XML (schema v.2). We will leverage that configuration and all sites that have the element _\<open-in\>IE11\</open-in\>_ will now open sites in IE mode.
+1. Create or re-use a Site List XML
+1.1 All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
+1. Open Group Policy Editor.
+1. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
+1. Double-click **Use the Enterprise Mode IE website list.
+1. Select **Enabled**.
+1. In Options, specify the path to the Site List XML which can be:
+    1. (Recommended) HTTPS location: **https://localhost:8080/sites.xml**
+    1. Local network file: **\\\network\shares\sites.xml**
+    1. Local file: **file:///c:/Users/<user>/Documents/sites.xml**
 
-
-Recommended configuration: HTTPS location: **https://localhost:8080/sites.xml**
-
-Other available configurations
-
-- Local network: **\\\network\shares\sites.xml**
-- Local file: **file:///c:\\Users\\\<user\>\\Documents\\testList.xml**
 
 All of your managed devices must have access to this location if you want them to be able to access and use Enterprise Mode and your site list. For information about how to create and use an Enterprise Mode site list, see [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager).
-
-> [!IMPORTANT]
-> If you're running version 2.0 (v.2) of the schema, you can continue to do so, but you won't get the additional functionality detailed in the updated schema elements.
 
 #### Updated schema elements
 
@@ -132,7 +134,7 @@ The following table shows the possible values of the \<open-in\> element:
 | **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
 
 > [!NOTE]
-> The element of app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. We recommend following the structure mentioned above.
+> The attribute app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. We recommend following the structure mentioned above.
 
 #### Additional configurations
 
