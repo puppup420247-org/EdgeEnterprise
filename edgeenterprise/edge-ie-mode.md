@@ -36,10 +36,7 @@ IE mode is policy enabled and applies to:
 - Sites listed in the **Use the Enterprise Mode IE website list** Internet Explorer group policy
 - Intranet sites that have **Send all intranet sites to Internet Explorer** Microsoft Edge 77 or later group policy enabled
 
->[!NOTE]
-> If you want to configure your Enterprise Mode Site List, see the [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager) and [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool) articles.
-
-## IE mode supports the following Internet Explorer functionality:
+### IE mode supports the following Internet Explorer functionality:
 
 - All document modes and enterprise modes.
 - ActiveX controls
@@ -48,7 +45,7 @@ IE mode is policy enabled and applies to:
 - F12 chooser
 - (Limited functionality) Microsoft Edge extensions
 
-## IE mode does not support the following Internet Explorer functionality:
+### IE mode does not support the following Internet Explorer functionality:
 
 - Internet Explorer toolbars
 - Internet Explorer settings and Group Policies that affect the navigation menu (for example - search engines, home pages, etc.)
@@ -69,13 +66,18 @@ The following steps walk through enabling IE mode.
     ![IE Mode in GPO](./media/ie-mode/gpo-ie-mode.png)
 
 ### Configure which sites should open in IE mode
+There are 2 options for determining which sites should be open in IE mode:
+- All intranet sites can be included
+- Only sites on the Enterprise Site List XML should open in IE mode
+
+Below are details for configuring each of these options.
 
 #### If all intranet sites should be redirected to IE mode
 
 > [!NOTE]
-> - The group policy best applies for the user scenarios where we don't have a site list configured.
+> - The group policy best applies for the user scenarios where there isn't a site list configured and the majority of intranet sites require IE 
 > - Sites listed in the Enterprise Site List XML will have higher priority.
-> - We consider that most of the legacy sites are under the Local Intranet Zone.
+> - This assumes that most of the legacy sites are under the Local Intranet Zone.
 
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
@@ -103,8 +105,12 @@ The following steps walk through enabling IE mode.
     1. Local network file: **\\\network\shares\sites.xml**
     1. Local file: **file:///c:/Users/<user>/Documents/sites.xml**
 
+>[!NOTE]
+> The following docs have additional info on creating the Enterprise Mode Site List:
+> - [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager) 
+> - [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool) 
 
-All of your managed devices must have access to this location if you want them to be able to access and use Enterprise Mode and your site list. For information about how to create and use an Enterprise Mode site list, see [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager).
+
 
 #### Updated schema elements
 
@@ -134,7 +140,7 @@ The following table shows the possible values of the \<open-in\> element:
 | **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
 
 > [!NOTE]
-> The attribute app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. We recommend following the structure mentioned above.
+> The attribute app=**true** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change the behavior. 
 
 #### Additional configurations
 
@@ -165,11 +171,11 @@ When a site loads in IE mode, the IE logo indicator displays on the left side of
 
 ### Will IE mode replace Internet Explorer 11?
 
-We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
+We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
 
 ### Why am I receiving the following message “To open this page in IE mode, try updating your PC.”?
 
-You are receiving the message because you are missing the required Windows updates. We recommend installing the latest updates. The minimum Windows updates are:
+You are receiving the message because you are missing the required Windows updates. The minimum Windows updates are:
 -	Windows 10, version 1903 with the latest cumulative updates (KB4503293 or higher) and security update KB4501375 or higher 
 -	Windows 10, version 1809 with latest cumulative update (KB4509479 or higher)
 
