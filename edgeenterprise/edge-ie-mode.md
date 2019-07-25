@@ -93,10 +93,10 @@ The following steps walk through enabling IE mode.
 > If you're running version 2.0 (v.2) of the schema, you can continue to do so, but you won't get the additional functionality detailed in the updated schema attributes.
 
 1. Create or re-use a Site List XML
-1.1 All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
+    1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
 1. Open Group Policy Editor.
 1. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
-1. Double-click **Use the Enterprise Mode IE website list.
+1. Double-click **Use the Enterprise Mode IE website list**.
 1. Select **Enabled**.
 1. In Options, specify the path to the Site List XML which can be:
     1. (Recommended) HTTPS location: **https://localhost:8080/sites.xml**
@@ -197,3 +197,4 @@ If the intention is to run remote debug on this page you can continue to do so, 
 
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Additional Enterprise Mode info](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/enterprise-mode-overview-for-ie11)
