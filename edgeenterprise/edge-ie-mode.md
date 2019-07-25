@@ -104,7 +104,7 @@ Below are details for configuring each of these options.
 1. In Options, specify the path to the Site List XML which can be:
     1. (Recommended) HTTPS location: **https://localhost:8080/sites.xml**
     1. Local network file: **\\\network\shares\sites.xml**
-    1. Local file: **file:///c:/Users/<user>/Documents/sites.xml**
+    1. Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
 
 >[!NOTE]
 > The following docs have additional info on creating the Enterprise Mode Site List:
