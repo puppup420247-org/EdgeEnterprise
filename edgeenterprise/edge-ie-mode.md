@@ -88,12 +88,15 @@ Below are details for configuring each of these options.
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Send all intranet sites to Internet Explorer**.
+
     ![Open Send all intranet sites to Internet Explorer policy](./media/ie-mode/ie-mode-5.png)
 
 1. Select **Enabled**.
+
     ![Select enabled](./media/ie-mode/ie-mode6.png)
 
 1. Click **Apply**.
+
     ![Click apply](./media/ie-mode/ie-mode-7.png)
     
 #### If only sites configured using the Site List XML should be redirected to IE mode
@@ -118,7 +121,7 @@ Below are details for configuring each of these options.
     1. Local network file: **\\\network\shares\sites.xml**
     1. Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
     ![Set the path to the site list XML](./media/ie-mode/ie-mode-10.png)
-    
+
 1. Click **Apply**
     ![Set the path to the site list XML](./media/ie-mode/ie-mode-11.png)
 
