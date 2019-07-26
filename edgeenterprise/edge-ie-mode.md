@@ -76,18 +76,18 @@ The following steps walk through enabling IE mode.
     ![Click apply](./media/ie-mode/ie-mode-4.png)
 
 ### Configure which sites should open in IE mode
-There are 2 options for determining which sites should be open in IE mode:
-- All intranet sites can be included
-- Only sites on the Enterprise Site List XML should open in IE mode
+There are 2 options for determining which sites should open in IE mode:
+- All intranet sites should open in IE mode
+- Sites on the Enterprise Site List XML should open in IE mode
 
 Below are details for configuring each of these options.
 
-#### If all intranet sites should be redirected to IE mode
+#### To configure all intranet sites to open in IE mode
 
 > [!NOTE]
-> - The group policy best applies for the user scenarios where there isn't a site list configured and the majority of intranet sites require IE 
-> - Sites listed in the Enterprise Site List XML will have higher priority.
-> - This assumes that most of the legacy sites are under the Local Intranet Zone.
+> - This group policy may be most appropriate for an organization that does not currently deploy a custom site list but requires IE11 for the majority of its intranet sites
+> - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zome” 
+> - If you also deploy a custom site list, the configuration in the site list take precedence over this policy
 
 1. Open Local Group Policy Editor.
 1. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
@@ -103,12 +103,10 @@ Below are details for configuring each of these options.
 
     ![Click apply](./media/ie-mode/ie-mode-7.png)
     
-#### If only sites configured using the Site List XML should be redirected to IE mode
+#### To use a Site List to configure specific sites to open in IE mode
 
 > [!NOTE]
-> Enterprise Mode schema v.1 will not be supported for IE mode integration. If you are using schema v.1, you must upgrade to schema v.2 or v.2.1. See [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
->
-> If you're running version 2.0 (v.2) of the schema, you can continue to do so, but you won't get the additional functionality detailed in the updated schema attributes.
+> Enterprise Mode schema v.1 is not supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2 or v.2.1. See [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
