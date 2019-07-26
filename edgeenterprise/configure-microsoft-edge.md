@@ -41,7 +41,7 @@ To add the administrative template to configure Microsoft Edge:
 4. Copy the _msedge.adml_ file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\en-US)
 5. To confirm the files loaded correctly either open Local Group Policy Editor directly (Windows key + R and enter gpedit.msc) or open MMC and load the Local Group Policy Editor snap-in. If an error occurs, it’s usually because the files are in an incorrect location.
 
-![Create application](./media/configure-microsoft-edge/edge-gpEdit.jpg)
+
 
 <!--
 To add the administrative template to manage Microsoft Edge updates:
@@ -64,15 +64,19 @@ To configure a mandatory policy, open Local Group Policy Editor and go to **Admi
 
 To configure a recommended policy, open Local Group Policy Editor and go to **Administrative Templates** > **Microsoft Edge – Default Settings** (users can override).
 
+![Create application](./media/configure-microsoft-edge/edge-policy.jpg) <!-- This should be an image of GP Editor, but the names of the image files are wrong. -->
+
 ### 3. Test your policies
 
-On a target client device, open Microsoft Edge and navigate to **edge://policy** to see all policies that are applied. If the policies have not propagated to the test machine or user, try executing the following command from a command prompt to refresh policy settings on client device:
+On a target client device, open Microsoft Edge and navigate to **edge://policy** to see all policies that are applied. 
+
+![Create application](./media/configure-microsoft-edge/edge-gpEdit.jpg) <!-- This should be an image of edge://policy page, but the names of the image files are wrong. -->
+
+If the policies have not propagated to the test machine or user, try executing the following command from a command prompt to refresh policy settings on client device:
 
 ``` command
 gpupdate /force
 ```
-
-![Create application](./media/configure-microsoft-edge/edge-policy.jpg)
 
 You can also use REGEDIT.exe on the client device to view the registry settings. The settings are located at the registry path **HKLM\SOFTWARE\Policies\Microsoft\Edge**.
 
