@@ -193,7 +193,7 @@ If you want to restrict users from using IE11, do the following:
 
 When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
 
-  ![IE logo indicator](./media/ie-mode/ie-logo-indicator.png)
+  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
 
 ### Will IE mode replace Internet Explorer 11?
 
