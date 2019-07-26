@@ -212,8 +212,11 @@ Microsoft Edge version 77 or later needs to be installed at system level.
 Possible reasons: 
 - Microsoft Edge Canary is installed at per user level and doesn’t prompt for elevation
 - Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation the installation will be continue at user level 
+
 Possible solutions: 
 - Run the installer for any channels at system level: installer.exe --system-level 
+
+To verify that Microsoft Edge is installed at the sytems level, type edge://version in the Microsoft Edge address bar, the Executable path should show a path starting with C:\Program Files... to indicate a system install. If the Executable path begins with C:\Users.. then uninstall and reinstall Microsoft Edge with administrator privileges.
 
 ### Why am I receiving the following message “To open this page in IE mode, try restarting Microsoft Edge.”? 
 
