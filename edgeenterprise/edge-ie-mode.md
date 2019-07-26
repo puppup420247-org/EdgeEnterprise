@@ -58,7 +58,7 @@ The following steps walk through enabling IE mode.
 
 1. Download and use the latest Microsoft Edge Policy Template (https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info
 1. Open Local Group Policy Editor.
-1. Click **Administrative Templates** > **Microsoft Edge**.
+1. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Configure Internet Explorer integration**.
 
     ![Open Configure Internet Explorer integration policy](./media/ie-mode/ie-mode-1.png)
@@ -90,7 +90,7 @@ Below are details for configuring each of these options.
 > - This assumes that most of the legacy sites are under the Local Intranet Zone.
 
 1. Open Local Group Policy Editor.
-1. Click **Administrative Templates** > **Microsoft Edge**.
+1. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Send all intranet sites to Internet Explorer**.
 
     ![Open Send all intranet sites to Internet Explorer policy](./media/ie-mode/ie-mode-5.png)
@@ -113,7 +113,7 @@ Below are details for configuring each of these options.
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
 1. Open Group Policy Editor.
-1. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
+1. Click **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer**.
 1. Double-click **Use the Enterprise Mode IE website list**.
 
     ![Open Use the Enterprise Mode IE website list policy](./media/ie-mode/ie-mode-8.png)
