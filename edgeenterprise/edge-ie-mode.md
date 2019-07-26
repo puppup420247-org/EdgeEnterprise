@@ -97,7 +97,7 @@ Below are details for configuring each of these options.
 
 1. Select **Enabled**.
 
-    ![Select enabled](./media/ie-mode/ie-mode6.png)
+    ![Select enabled](./media/ie-mode/ie-mode-6.png)
 
 1. Click **Apply**.
 
