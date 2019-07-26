@@ -127,11 +127,11 @@ Below are details for configuring each of these options.
     1. Local network file: **\\\network\shares\sites.xml**
     1. Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
     
-    ![Set the path to the site list XML](./media/ie-mode/ie-mode-10.png)
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-10-b.png)
 
 1. Click **Apply**.
 
-    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11.png)
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11-b.png)
 
 >[!NOTE]
 > The following docs have additional info on creating the Enterprise Mode Site List:
