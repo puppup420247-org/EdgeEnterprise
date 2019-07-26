@@ -56,7 +56,7 @@ The following steps walk through enabling IE mode.
 
 ### Enable IE mode using Group Policy
 
-1. Download and use the latest Microsoft Edge Policy Template (https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
+1. Download and use the latest Microsoft Edge Policy Template (https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info
 1. Open Local Group Policy Editor.
 1. Click **Administrative Templates** > **Microsoft Edge**.
 1. Double-click **Configure Internet Explorer integration**.
@@ -129,7 +129,7 @@ Below are details for configuring each of these options.
     
     ![Set the path to the site list XML](./media/ie-mode/ie-mode-10.png)
 
-1. Click **Apply**
+1. Click **Apply**.
 
     ![Set the path to the site list XML](./media/ie-mode/ie-mode-11.png)
 
