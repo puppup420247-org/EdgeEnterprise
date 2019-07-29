@@ -1,7 +1,7 @@
 ---
 title: "Microsoft Edge privacy policy"
 ms.author: likravit
-author: v-danwes
+author: dan-wesley
 manager: srugh
 ms.date: 07/29/2019
 audience: ITPro
