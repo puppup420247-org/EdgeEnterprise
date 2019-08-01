@@ -16,9 +16,8 @@ description: "Microsoft Edge enterprise content in development"
 
 Our Microsoft Edge enterprise content is under development. You'll be redirected to the content once when it's available.
 
-## Applies to
-
-Microsoft Edge version 77 or later
+>[!NOTE]
+>This applies  to Microsoft Edge version 77 or later.
 
 ## Next steps
 
