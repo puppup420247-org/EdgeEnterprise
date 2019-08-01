@@ -26,6 +26,9 @@ description: "Learn how to use Microsoft Edge with IE mode."
 
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
 
+> [!NOTE]
+> IE mode will be supported on Windows versions where IE11 is supported, additional platforms will be coming soon.
+
 ## What is IE mode?
 
 IE mode on Microsoft Edge is a simplified experience that combines a modern rendering engine and compatibility with legacy sites that require Internet Explorer in a single browser. IE mode provides an integrated browsing experience in Microsoft Edge, using the integrated Chromium engine for modern sites and leveraging Internet Explorer 11 (IE11) for legacy sites that require the Trident MSHTML engine.
