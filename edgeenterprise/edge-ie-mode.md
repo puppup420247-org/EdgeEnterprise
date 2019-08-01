@@ -27,7 +27,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge) for additional info)
 
 > [!NOTE]
-> IE mode will be supported on Windows versions that IE11 is supported, additional platforms will be coming soon.
+> IE mode will be supported on Windows versions where IE11 is supported, additional platforms will be coming soon.
 
 ## What is IE mode?
 
