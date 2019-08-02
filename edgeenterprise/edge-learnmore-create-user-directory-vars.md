@@ -16,6 +16,9 @@ description: "Learn how to create Microsoft Edge user data directory variables"
 
 This article explains how you can create user data directory variables that Microsoft Edge supports.
 
+>[!NOTE]
+>This article applies to Microsoft Edge version 77 or later.
+
 ## Supported directory variables
 
 The policy for modifying user data directory and other paths supports variables. You can use variables instead of hard-coded paths for Microsoft Edge.
