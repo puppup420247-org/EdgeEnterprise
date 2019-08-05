@@ -21,7 +21,7 @@ This article explains how you can make Microsoft Edge your default browser.
 
 ## Introduction
 
-You can use the **Set a default associations configuration file** Group Policy or the [DefaultAssociationsConfiguration](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-applicationdefaults#applicationdefaults-defaultassociationsconfiguration) Mobile Device Management setting to make Microsoft Edge the default browser for your organization.
+You can use the **Set a default associations configuration file** Group Policy or the [DefaultAssociationsConfiguration](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-applicationdefaults#applicationdefaults-defaultassociationsconfiguration) Mobile Device Management setting to make Microsoft Edge the default browser for your organization.
 
 The default application association configuration file is an XML file that associates a file type with an application. For example, you can associate .html files with Microsoft Edge to launch Microsoft Edge each time the user opens an html file.
 
@@ -85,4 +85,4 @@ To set Microsoft Edge as the default browser on Azure Active Directory joined de
 
 ## See also
 
-[Export or Import Default Application Associations](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10))
+[Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10))
