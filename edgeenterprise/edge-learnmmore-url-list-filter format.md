@@ -1,0 +1,93 @@
+---
+title: "Filter format for Microsoft Edge URL policies"
+ms.author: brianalt
+author: dan-wesley
+manager: srugh
+ms.date: 08/05/2019
+audience: ITPro
+ms.topic: conceptual
+ms.prod: microsoft-edge
+localization_priority: medium
+ms.collection: M365-modern-desktop
+description: "Learn about the file format used for Microsoft Edge URLBlocklist and URLAllowlist policies."
+---
+
+# Filter format for URLBlocklist and URLAllowlist policies
+
+This article describes the filter format used for the Microsoft Edge [URLBlocklist]( https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#urlblocklist) and [URLAllowList](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#urlallowlist) policies.
+
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
+
+## The filter format
+
+The allow and block URL filter format is:
+
+```
+    [scheme://][.]host[:port][/path][@query]
+```
+
+The fields in the URL filter format are as follows:
+
+- **scheme** is optional. It can be http://, https://, ftp://, edge://, etc.
+- **host** is required. It must be a valid host name or IP address and you can use a wildcard (“*”). To disable subdomain matching include an optional dot (“.”) before **host** to disable subdomain matching.
+- **port** is optional. Valid values range from 1 to 65535.
+- **path** is optional. You can use any string in the path.
+- **query** is optional. The **query** is either key-value or key-only tokens separated by an ampersand (“&”). Separate key-value tokens with an equal sign (“=”). To indicate a prefix match you can use an asterisk (“*”) at the end of the **query**.
+
+## The filter format compared to the URL format
+
+The filter format resembles the URL format, except for the following:
+
+- If you include “user:pass” it will be ignored. For example, http://user:pass@ftp.contoso.com/pub/example.iso.
+- If you include a fragment identifier (“#”), it and everything that follows the identifier is ignored.
+- You can use a wildcard (“*”) as the **host** and you can prefix it with a dot (“.”).
+- You can use a forward slash (“/”) or a dot (“.”) as a suffix for the **host**. In this case, the suffix is ignored.
+
+## Filter selection criteria
+
+The filter selected for a URL is the most specific match found after processing the following filter selection rules:
+
+1. Filters with the longest **host** match are selected first.
+2. From the selected filters, any filter with a non-matching **scheme** or **port** are discarded.
+3. From the remaining filters, the filter with the longest matching **path** is selected.
+4. From the remaining filters, the filter with the longest set of **query** tokens are selected. At this step the allow list filter takes precedence over the block list filter if both filters have the same **path** length and number of **query** tokens.
+5. If there's no valid filter remaining, then the left-most subdomain is removed from **host** and the selection process starts over at step 1. The special asterisk (“*”) **host** is the last searched and it matches all hosts.
+6. If a filter's available, it blocks or allows the URL request.
+
+>[!NOTE]
+>The default behavior is to allow the URL request if no filter is matched.
+
+### Filter notes
+
+If a filter has a dot (“.”) prefixing the **host** then only exact **host** matches are filtered. For example:
+
+- “contoso.com” (no dot) will match “contoso.com”, “www.contoso.com”, and “sub.www.contoso.com”
+- “.www.contoso.com” (with a dot prefix) will only match “www.contoso.com”
+
+You can use either a standard or customer **schema**. Supported standard schemas include:
+
+- _about_, _blob_, _content_, _edge_, _cid_, _data_, _file_, _filesystem_, _ftp_, _gopher_, _http_, _https_, _javascript_, _mailto_, _ws_, and _wss_.
+
+Any other **schema** is treated as a custom **schema**, but only the _schema:*_ and _schema://*_ patterns are allowed. For example:
+
+- “custom:*” or “custom://*” will match “custom:app”
+- “custom:app” or “custom://app” are invalid
+
+**schema** and **host** aren't case-sensitive. For example:
+
+- “http://contoso.com” filter matches “HTTP://contoso.com”, “http://contoso.COM”, and “http://contoso.com”
+
+**path** and **query** are case-sensitive. For example:
+
+- “http://contoso.com/path?query=A” filter doesn't match “http://contoso.com/Path?query=A” or “http://contoso.com/path?Query=A”. But it matches “http://contoso.COM/path?query=A”.
+
+## Filter selection criteria example
+
+In this example, when searching for a match for “https://sub.contoso.com/docs” the filter selection will:
+
+1. Search for a filter for "sub.contoso.com". If it finds a filter, the search moves to step 2. If no filter is found then it tries again with "contoso.com", "com”, and finally "".
+2. From the selected filters any that don’t have “http” in the **scheme** are removed.
+3. From the remaining filters, any that have an exact port number that is not “80” are removed.
+4. From the remaining filters, any that don't have "/docs" as a prefix of the **path** are removed.
+5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter is not found the selection process starts over again at step 1. The process is repeated with the next  subdomain.
