@@ -27,10 +27,10 @@ The allow and block URL filter format is:
     [scheme://][.]host[:port][/path][@query]
 ```
 
-The fields in the URL filter format are as follows:
+The fields in the URL filter format are:
 
 - **scheme** is optional. It can be http://, https://, ftp://, edge://, etc.
-- **host** is required. It must be a valid host name or IP address and you can use a wildcard (“*”). To disable subdomain matching include an optional dot (“.”) before **host** to disable subdomain matching.
+- **host** is required. It must be a valid host name or IP address and you can use a wildcard (“*”). To disable subdomain matching include an optional dot (“.”) before **host**.
 - **port** is optional. Valid values range from 1 to 65535.
 - **path** is optional. You can use any string in the path.
 - **query** is optional. The **query** is either key-value or key-only tokens separated by an ampersand (“&”). Separate key-value tokens with an equal sign (“=”). To indicate a prefix match you can use an asterisk (“*”) at the end of the **query**.
@@ -58,7 +58,17 @@ The filter selected for a URL is the most specific match found after processing 
 >[!NOTE]
 >The default behavior is to allow the URL request if no filter is matched.
 
-### Filter notes
+## Filter selection criteria example
+
+In this example, when searching for a match for “https://sub.contoso.com/docs” the filter selection will:
+
+1. Search for a filter for "sub.contoso.com". If it finds a filter, the search moves to step 2. If no filter is found then it tries again with "contoso.com", "com”, and finally "".
+2. From the selected filters any that don’t have “http” in the **scheme** are removed.
+3. From the remaining filters, any that have an exact port number that is not “80” are removed.
+4. From the remaining filters, any that don't have "/docs" as a prefix of the **path** are removed.
+5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter is not found the selection process starts over again at step 1. The process is repeated with the next subdomain.
+
+## Filter notes
 
 If a filter has a dot (“.”) prefixing the **host** then only exact **host** matches are filtered. For example:
 
@@ -80,14 +90,4 @@ Any other **schema** is treated as a custom **schema**, but only the _schema:*_ 
 
 **path** and **query** are case-sensitive. For example:
 
-- “http://contoso.com/path?query=A” filter doesn't match “http://contoso.com/Path?query=A” or “http://contoso.com/path?Query=A”. But it matches “http://contoso.COM/path?query=A”.
-
-## Filter selection criteria example
-
-In this example, when searching for a match for “https://sub.contoso.com/docs” the filter selection will:
-
-1. Search for a filter for "sub.contoso.com". If it finds a filter, the search moves to step 2. If no filter is found then it tries again with "contoso.com", "com”, and finally "".
-2. From the selected filters any that don’t have “http” in the **scheme** are removed.
-3. From the remaining filters, any that have an exact port number that is not “80” are removed.
-4. From the remaining filters, any that don't have "/docs" as a prefix of the **path** are removed.
-5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter is not found the selection process starts over again at step 1. The process is repeated with the next  subdomain.
+- “http://contoso.com/path?query=A” filter doesn't match “http://contoso.com/Path?query=A” or “http://contoso.com/path?Query=A”. It does match “http://contoso.COM/path?query=A”.
