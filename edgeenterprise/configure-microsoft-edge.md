@@ -31,11 +31,11 @@ To get started, download and install the Microsoft Edge administrative template.
 
 ### 1. Download and install the Microsoft Edge administrative template
 
-Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the Microsoft Edge administrative template file (policy_template.zip).
+Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the Microsoft Edge policy templates file (_MicrosoftEdgePolicyTemplates.zip_).
 
 To add the administrative template to configure Microsoft Edge:
 
-1. Open the _policy_template.zip_ file and go to **policy_templates** > **Windows** > **admx**.
+1. Open the _MicrosoftEdgePolicyTemplates.zip_ file and go to **windows** > **admx**.
 2. Copy the _msedge.admx_ file to your Policy Definition template folder. (Example: C:\Windows\PolicyDefinitions)
 3. In the _admx_ folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
 4. Copy the _msedge.adml_ file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\en-US)
@@ -46,10 +46,10 @@ To add the administrative template to configure Microsoft Edge:
 <!--
 To add the administrative template to manage Microsoft Edge updates:
 
-1. Open the _policy_template.zip_ file and go to **updatepolicies**.
+1. Open the _MicrosoftEdgePolicyTemplates.zip_ file and go to **windows** > **admx**.
 2. Copy the _msedgeupdate.admx_ file to your Policy Definition template folder. (Example: C:\Windows\PolicyDefinitions)
-3. In the _updatepolicies_ folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
-4. Copy the _msedgeupdate.adml_ file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\en-US)
+3. In the _updatepolicies_ folder, open the appropriate language folder. For example, if you’re in Germany, open the **de-DE** folder.
+4. Copy the _msedgeupdate.adml_ file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\de-DE)
 5. Open MMC and load the Local Group Policy Editor snap-in to confirm the files loaded correctly. If an error occurs, it’s usually because the files are in an incorrect location.
 
 > [!NOTE]
