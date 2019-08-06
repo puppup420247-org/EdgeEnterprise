@@ -88,16 +88,24 @@ You can create the plist file with any text editor. It's usually easier to edit 
 > [!NOTE]
 > The name is case sensitive and must match this name exactly.
 
-For information about the policies available in Microsoft Edge, check out [Microsoft Edge - Policies](microsoft-edge-policies.md).
+For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md).
 
 ### Create a configuration profile
+1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
 
-1. Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the _policy_template.zip_ file. The file contains a sample **plist** file that you can customize to define policy settings.
-2. Open the zip file and go to the **policy_templates** > **examples** folder and make a copy of the _ITadminExample.plist_ file. This MCX .plist example file contains examples of every supported data type. For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md).
-3. Open the .plist file in your preferred editor. You can edit the file with any text editor. It's usually easier to edit a .plist file using an editing tool that formats the XML code for you, such as _Xcode_, which is available for free from the Apple developer website.
-4. Make your changes and save the file with the correct domain name.
-5. Convert your _com.microsoft.Edge.plist_ file to a configuration profile using your preferred conversion tool.
+```
+/usr/bin/defaults write ~/Desktop/com.microsoft.Edge.Canary.plist RestoreOnStartup -int 1
+```
 
+2. Convert the plist from binary to plain text format:
+
+```
+/usr/bin/plutil -convert xml1 ~/Desktop/com.microsoft.Edge.Canary.plist
+```
+
+3. Upload the converted plist to a Custom Settings payload in a new Configuration Profile in your MDM server or use your preferred conversion tool to create a configuration profile to upload.
+
+In the policy template zip file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there is an example plist (_itadminexample.plist_) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings.
 ## See also
 
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
