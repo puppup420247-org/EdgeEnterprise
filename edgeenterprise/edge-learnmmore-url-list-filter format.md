@@ -14,29 +14,29 @@ description: "Learn about the file format used for Microsoft Edge URLBlocklist a
 
 # Filter format for URLBlocklist and URLAllowlist policies
 
-This article describes the filter format used for the Microsoft Edge [URLBlocklist]( https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#urlblocklist) and [URLAllowList](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#urlallowlist) policies.
+This article describes the filter format used for the Microsoft Edge URL list based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#CertificateTransparencyEnforcementDisabledForUrls) policies.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
 ## The filter format
-
-The allow and block URL filter format is:
+The filter format is:
 
 ```
     [scheme://][.]host[:port][/path][@query]
 ```
 
-The fields in the URL filter format are:
+The fields in the filter format are:
 
-- **scheme** is optional. It can be http://, https://, ftp://, edge://, etc.
-- **host** is required. It must be a valid host name or IP address and you can use a wildcard (“*”). To disable subdomain matching include an optional dot (“.”) before **host**.
-- **port** is optional. Valid values range from 1 to 65535.
-- **path** is optional. You can use any string in the path.
-- **query** is optional. The **query** is either key-value or key-only tokens separated by an ampersand (“&”). Separate key-value tokens with an equal sign (“=”). To indicate a prefix match you can use an asterisk (“*”) at the end of the **query**.
+| Field | Description |
+| --- | --- |
+| **scheme** (*optional*) | It can be http://, https://, ftp://, edge://, etc. |
+| **host** (*required*) | It must be a valid host name or IP address and you can use a wildcard (“\*”). To disable subdomain matching include an optional dot (“.”) before **host**. |
+| **port** (*optional*) | Valid values range from 1 to 65535. |
+| **path** (*optional*) | You can use any string in the path. |
+| **query** (*optional*) | The **query** is either key-value or key-only tokens separated by an ampersand (“&”). Separate key-value tokens with an equal sign (“=”). To indicate a prefix match you can use an asterisk (“\*”) at the end of the **query**. |
 
-## The filter format compared to the URL format
-
+## Comparing the filter format to the URL format
 The filter format resembles the URL format, except for the following:
 
 - If you include “user:pass” it will be ignored. For example, http://user:pass@ftp.contoso.com/pub/example.iso.
@@ -45,7 +45,6 @@ The filter format resembles the URL format, except for the following:
 - You can use a forward slash (“/”) or a dot (“.”) as a suffix for the **host**. In this case, the suffix is ignored.
 
 ## Filter selection criteria
-
 The filter selected for a URL is the most specific match found after processing the following filter selection rules:
 
 1. Filters with the longest **host** match are selected first.
@@ -58,7 +57,7 @@ The filter selected for a URL is the most specific match found after processing 
 >[!NOTE]
 >The default behavior is to allow the URL request if no filter is matched.
 
-## Filter selection criteria example
+## Example filter selection criteria
 
 In this example, when searching for a match for “https://sub.contoso.com/docs” the filter selection will:
 
@@ -68,7 +67,7 @@ In this example, when searching for a match for “https://sub.contoso.com/docs�
 4. From the remaining filters, any that don't have "/docs" as a prefix of the **path** are removed.
 5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter is not found the selection process starts over again at step 1. The process is repeated with the next subdomain.
 
-## Filter notes
+## Aditional information
 
 If a filter has a dot (“.”) prefixing the **host** then only exact **host** matches are filtered. For example:
 
