@@ -14,18 +14,18 @@ description: "Use command-line options to configure proxy settings "
 
 # How to use Microsoft Edge command-line options to configure proxy settings
 
-This article describes how you can use command-line options to change the default system network settings.
+This article describes how you can use command-line options to override the default system network settings.
 
 >[!NOTE]
 >This article applies to Microsoft Edge version 77 or later.
 
 ## System network settings
 
-The Microsoft Edge network stack uses the system network settings by default. Users and administrators can control the network settings of all applications. These settings include *proxy settings*, and *certificate and private key stores*.
+The Microsoft Edge network stack uses the system network settings by default. These settings include *proxy settings*, and *certificate and private key stores*.
 
 There are scenarios where users request an alternative to using the system’s default proxy settings. To support these scenarios, Microsoft Edge supports command-line options that you can use to configure custom proxy settings.
 
-These command-line options apply to the following policies in the **Proxy server** group:
+These command-line options correspond to the following policies in the **Proxy server** group:
 
 - [ProxyBypassList](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#proxybypasslist)
 - [ProxyMode](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#proxymode)
