@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Use command-line options to configure proxy settings "
 ---
 
-# Use Microsoft Edge command-line options to configure proxy settings
+# How to use Microsoft Edge command-line options to configure proxy settings
 
 This article describes how you can use command-line options to change the default system network settings.
 
@@ -21,12 +21,9 @@ This article describes how you can use command-line options to change the defaul
 
 ## System network settings
 
-The Microsoft Edge network stack uses the system network settings by default. Users and administrators can control the network settings of all applications. These settings include:
+The Microsoft Edge network stack uses the system network settings by default. Users and administrators can control the network settings of all applications. These settings include *proxy settings*, and *certificate and private key stores*.
 
-- proxy settings
-- certificate and private key stores
-
-There are scenarios where users request an alternative to using the system’s default proxy settings. To support these scenarios,  Edge supports command-line options that you can use to configure custom proxy settings.
+There are scenarios where users request an alternative to using the system’s default proxy settings. To support these scenarios, Microsoft Edge supports command-line options that you can use to configure custom proxy settings.
 
 These command-line options apply to the following policies in the **Proxy server** group:
 
@@ -40,42 +37,35 @@ These command-line options apply to the following policies in the **Proxy server
 
 Microsoft Edge supports the following proxy-related command-line options.
 
-**`--no-proxy-server`**
-
-This option tells Edge not to use a Proxy, even if the system is otherwise configured to use one. It overrides any other proxy settings that are provided.
+ **`--no-proxy-server`**
+ 
+Tells Microsoft Edge not to use a Proxy, even if the system is otherwise configured to use one. It overrides any other proxy settings that are provided.
 
 **`--proxy-auto-detect`**
 
-This option tells Edge to try and automatically detect your proxy configuration. This argument is ignored if `--proxy-server` is configured.
+Tells Mircrosoft Edge to try and automatically detect your proxy configuration. This argument is ignored if `--proxy-server` is configured.
 
 **`--proxy-server=<scheme>=<uri>[:<port>][;...] | <uri>[:<port>] | "direct://"`**
 
-This option tells Edge to use a custom proxy configuration. You can specify a custom proxy configuration in three ways.
+Tells Microsoft Edge to use a custom proxy configuration. You can specify a custom proxy configuration in three ways.
 
-1. Provide a semicolon-separated mapping of list scheme to url/port pairs. For example, `--proxy-server="http=proxy1:8080;ftp=ftpproxy"` tells Edge to use HTTP proxy "proxy1:8080" for http URLs and HTTP proxy "ftpproxy:80" for ftp URLs.
+1. Provide a semicolon-separated mapping of list scheme to url/port pairs. For example, `--proxy-server="http=proxy1:8080;ftp=ftpproxy"` tells Microsoft Edge to use HTTP proxy "proxy1:8080" for http URLs and HTTP proxy "ftpproxy:80" for ftp URLs.
 2. By providing a single uri with optional port to use for all URLs. For example, `--proxy-server="proxy2:8080"` will use the proxy at "proxy2:8080" for all traffic.
-3. By using the special "direct://" value. For example, `--proxy-server="direct://"` will make all connections not use a proxy.
+3. By using the special "direct://" value. For example, `--proxy-server="direct://"` will make all connections not use a proxy. 
 
-   >[!NOTE]
-   >You can configure Edge to try using a proxy and fallback to going direct if the proxy isn't available. For example, `--proxy-server="http://proxy2:8080,direct://`.
+>[!NOTE]
+>You can configure Microsoft Edge to try using a proxy and fallback to going direct if the proxy isn't available. For example, `--proxy-server="http://proxy2:8080,direct://`.
 
 **`--proxy-bypass-list=(<trailing_domain>|<ip-address>)[:<port>][;...]`**
 
-This option tells Edge to bypass any specified proxy for the specified semicolon-separated list of hosts. This flag must be used with `--proxy-server`.
+Tells Microsoft Edge to bypass any specified proxy for the specified semicolon-separated list of hosts. This flag must be used with `--proxy-server`.
 
 >[!NOTE]
->Because trailing-domain matching doesn't require "." separators, "*microsoft.com" will match "imicrosoft.com".
-
-For example, `--proxy-server="proxy2:8080" --proxy-bypass-list="*.microsoft.com;*example.com;127.0.0.1:8080"` will use the proxy server "proxy2" on port 8080 for all hosts except requests for *.microsoft.com, example.com, and 127.0.0.1 on port 8080.
-
-In the previous example, imicrosoft.com requests will still be proxied. But iexample.com requests will bypass the proxy because *example.com was specified instead of *.example.com.
+>Trailing-domain matching doesn't require "." separators, "\*microsoft.com" will match "imicrosoft.com". For example, `--proxy-server="proxy2:8080" --proxy-bypass-list="\*.microsoft.com;\*example.com;127.0.0.1:8080"` will use the proxy server "proxy2" on port 8080 for all hosts except requests for \*.microsoft.com, example.com, and 127.0.0.1 on port 8080. In the previous example, imicrosoft.com requests will still be proxied. However, iexample.com requests will bypass the proxy because \*example.com was specified instead of \*.example.com.
 
 **`--proxy-pac-url=<pac-file-url>`**
 
-This argument tells Edge to use the PAC file at the specified URL.
-
-For example, `--proxy-pac-url="https://wpad/proxy.pac"` tells Edge to resolve proxy information for URL requests using the **proxy.pac** file.
+Tells Microsoft Edge to use the PAC file at the specified URL. For example, `--proxy-pac-url="https://wpad/proxy.pac"` tells Microsoft Edge to resolve proxy information for URL requests using the **proxy.pac** file.
 
 ## See also
-
-To see advanced configuration settings and additional options, consult the [proxy documentation](https://chromium.googlesource.com/chromium/src/+/HEAD/net/docs/proxy.md) in the Chromium Open Source project.
+ - To see advanced configuration settings and additional options, consult the [proxy documentation](https://chromium.googlesource.com/chromium/src/+/HEAD/net/docs/proxy.md) in the Chromium Open Source project.
