@@ -21,7 +21,7 @@ This article explains how you can use data directory variables instead of using 
 
 ## Supported path variables
 
-Policies for modifying data directory paths (For example configuring the [UserDataDir](microsoft-edge-policies.md#UserDataDir), [DownloadDirectory](microsoft-edge-policies.md#DownloadDirectory), or [RoamingProfileLocation](microsoft-edge-policies.md#RoamingProfileLocation)) support variables. When configuring these policies you can use variables instead of hard-coded paths. For example, to store your profile data under user local application data on Windows instead of the default location. Set the [UserDataDir](microsoft-edge-policies.md#userdatadir) policy to **${local_app_data}\Edge\Profile**. On most Windows 10 installations, this resolves to *C:\Users\<Current-User>\AppData\Local\MicrosoftEdge\Profile*.
+Policies for modifying data directory paths (For example configuring the [UserDataDir](microsoft-edge-policies.md#userdatadir), [DownloadDirectory](microsoft-edge-policies.md#downloaddirectory), or [RoamingProfileLocation](microsoft-edge-policies.md#roamingprofilelocation)) support variables. When configuring these policies you can use variables instead of hard-coded paths. For example, to store your profile data under user local application data on Windows instead of the default location. Set the [UserDataDir](microsoft-edge-policies.md#userdatadir) policy to **${local_app_data}\Edge\Profile**. On most Windows 10 installations, this resolves to *C:\Users\<Current-User>\AppData\Local\MicrosoftEdge\Profile*.
 
 >[!NOTE]
 >If left unset, Microsoft Edge uses default directory paths. A user can use the `--user-data-dir` command-line flag to override the default.
