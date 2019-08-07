@@ -14,7 +14,7 @@ description: "Learn about the file format used for Microsoft Edge URLBlocklist a
 
 # Filter format for URLBlocklist and URLAllowlist policies
 
-This article describes the filter format used for the Microsoft Edge URL list based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#CertificateTransparencyEnforcementDisabledForUrls) policies.
+This article describes the filter format used for the Microsoft Edge URL list based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#certificatetransparencyenforcementdisabledforurls) policies.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
