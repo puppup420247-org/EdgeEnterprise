@@ -19,17 +19,17 @@ This article explains how you can use data directory variables instead of using 
 >[!NOTE]
 >This article applies to Microsoft Edge version 77 or later.
 
-## Supported path variables
+## Path variables
 
-Policies for modifying data directory paths (For example configuring the [UserDataDir](microsoft-edge-policies.md#userdatadir), [DownloadDirectory](microsoft-edge-policies.md#downloaddirectory), or [RoamingProfileLocation](microsoft-edge-policies.md#roamingprofilelocation)) support variables. When configuring these policies you can use variables instead of hard-coded paths. For example, to store your profile data under user local application data on Windows instead of the default location. Set the [UserDataDir](microsoft-edge-policies.md#userdatadir) policy to **${local_app_data}\Edge\Profile**. On most Windows 10 installations, this resolves to *C:\Users\<Current-User>\AppData\Local\MicrosoftEdge\Profile*.
+Policies for modifying data directory paths (For example configuring the [UserDataDir](microsoft-edge-policies.md#userdatadir), [DownloadDirectory](microsoft-edge-policies.md#downloaddirectory), or [RoamingProfileLocation](microsoft-edge-policies.md#roamingprofilelocation)) support variables. When configuring these policies you can use variables instead of hard-coded paths. For example, to store your profile data under user local application data on Windows instead of the default location. Set the [UserDataDir](microsoft-edge-policies.md#userdatadir) policy to **${local_app_data}\Edge\Profile**. On most Windows 10 installations, this resolves to *C:\Users\\&lt;Current-user&gt;\AppData\Local\MicrosoftEdge\Profile*.
 
 >[!NOTE]
 >If left unset, Microsoft Edge uses default directory paths. A user can use the `--user-data-dir` command-line flag to override the default.
 
->[!TIP]
-> To view the current  **Profile path** open the **About version** page (type “edge://version”). The **Profile path** follows this format: *C:\Users\<Current-User>\AppData\Local\Microsoft\<Edge-Version>\User Data\Default*.
+To view the current  **Profile path** open the **About version** page (type “edge://version”). The **Profile path** follows this format: *C:\Users\\&lt;Current-user&gt;\AppData\Local\MicrosoftEdge\User Data\Default*.
 
 ### Guidance for using path variables
+
 Review the following guidance before using variables for paths.
 
 - All policies that involve paths where Microsoft Edge stores different data are platform dependent. Some of these policies are available only on specific platforms, but others can be used on all platforms.
@@ -39,15 +39,18 @@ Review the following guidance before using variables for paths.
 - Using network locations for some policies can lead to unexpected results due to differences in how different versions/channels of Microsoft Edge handle the folder structure.
 
 ### Supported path variables
+
 Microsoft Edge supports the following path variables.
 
 #### All platforms
+
 | Variable | Description |
 | --- | --- |
 | **${user_name}** | The user who’s using Microsoft Edge. Microsoft Edge respects SUIDs (Set owner User ID up on execution) Example: *audreysmall* |
 | **${machine_name}** | The machine name, possibly including the domain name. Example: *audreysmall* or *audrey.ex.contoso.com* |
 
 #### Windows only
+
 | Variable | Description |
 | --- | --- |
 | **${documents}** | The Documents folder for the current user. Example: *C:\Users\Administrator\Documents* |
@@ -61,6 +64,7 @@ Microsoft Edge supports the following path variables.
 | **${session_name}** | The name of the active session. Use this to distinguish multiple simultaneously connected remote sessions that are using a single user profile. Example: *WinSta0 for local desktop sessions* |
 
 #### MacOS only
+
 | Variable | Description |
 | --- | --- |
 | **${users}** | The folder where users' profiles are stored. Example: */Users* |
