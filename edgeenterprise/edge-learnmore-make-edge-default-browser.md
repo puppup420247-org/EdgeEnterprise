@@ -38,15 +38,11 @@ The following example shows how to set Microsoft Edge as the default browser to 
 <?xml version="1.0" encoding="UTF-8"?>
 <DefaultAssociations>
   <Association Identifier=".htm" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
-  <Association Identifier=".html" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
-  <Association Identifier="http" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
-  <Association Identifier="https" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
+  <Association Identifier=".html" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
+  <Association Identifier="http" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
+  <Association Identifier="https" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
 </DefaultAssociations>
-
 ```
-
->[!NOTE]
->The default association policy is set at each login. The user can change an association after they login, but the change applies to that login session only. The association is reset to the policy at the next login.
 
 ## Set Microsoft Edge as the default browser on domain-joined devices
 
@@ -63,7 +59,7 @@ You can set Microsoft Edge as the default browser on domain-joined devices by co
 If this setting is enabled and the user's device is domain-joined, the file is processed, and default associations are applied at logon. If this setting isn't configured or is turned off, or if the user's device isn't domain-joined, no associations are applied at logon.
 
 >[!NOTE]
->The default association policy is set at each login. Users can change an association after they login from the **Set Default Programs** area of the Control Panel, but the change only applies to that login session. The association is reset to the policy at the next login.
+>The default association policy is set at each login. Users can change an association after they login from the **Set Default Programs** area of the Control Panel, but the change only applies to that login session. The association is reset by the policy at the next login.
 
 ## Set Microsoft Edge as the default browser on Azure Active Directory joined devices
 
@@ -73,16 +69,14 @@ To set Microsoft Edge as the default browser on Azure Active Directory joined de
 <?xml version="1.0" encoding="UTF-8"?>
 <DefaultAssociations>
   <Association Identifier=".htm" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
-  <Association Identifier=".html" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
-  <Association Identifier="http" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
-  <Association Identifier="https" ProgId="MSEdgeSSHTM" ApplicationName=" Microsoft Edge" />
+  <Association Identifier=".html" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
+  <Association Identifier="http" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
+  <Association Identifier="https" ProgId="MSEdgeSSHTM" ApplicationName="Microsoft Edge" />
 </DefaultAssociations>
-
 ```
 
 >[!NOTE]
 >After the setting is downloaded and applied, the computer must be rebooted for the setting to take effect.
 
 ## See also
-
-[Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10))
+- [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10))
