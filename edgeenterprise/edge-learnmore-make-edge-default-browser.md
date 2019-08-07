@@ -30,8 +30,6 @@ For managed devices, create a single shared XML file that identifies Microsoft E
 >[!NOTE]
 >If Microsoft Edge isn't installed on the target device, the file associations aren't applied. Users must choose an application when they open a link (http or https) or a file (html or htm).
 
-## Set Microsoft Edge as the default application
-
 The following example shows how to set Microsoft Edge as the default browser to open html/htm files and http/https links.
 
 ```xml
