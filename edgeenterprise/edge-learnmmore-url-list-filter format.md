@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Learn about the file format used for Microsoft Edge URLBlocklist and URLAllowlist policies."
 ---
 
-# Filter format for URLBlocklist and URLAllowlist policies
+# Filter format for URL list based policies
 
 This article describes the filter format used for the Microsoft Edge URL list based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#certificatetransparencyenforcementdisabledforurls) policies.
 
