@@ -22,7 +22,6 @@ For information about an additional set of policies used to  control how and whe
 > This article applies to Microsoft Edge version 77 or later.
 
 ## Available policies
-
 This table lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 <!-- START HERE: Copy the contents of the msedgepolicylist.md file from here to the STOP HERE comment below. -->
