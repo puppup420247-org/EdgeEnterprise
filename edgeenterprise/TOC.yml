@@ -15,9 +15,9 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Security Overview
+- name: Security
   href: security-overview.md
-- name: Privacy policy
-  href: microsoft-edge-privacy-policy.md 
+- name: Privacy
+  href: microsoft-edge-privacy-policy.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
