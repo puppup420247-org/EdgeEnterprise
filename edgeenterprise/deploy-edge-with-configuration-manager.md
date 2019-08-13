@@ -3,9 +3,9 @@ title: "Deploy Microsoft Edge using System Center Configuration Manager"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 08/13/2019
 audience: ITPro
-ms.topic: conceptual
+ms.topic: procedural
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
@@ -14,12 +14,12 @@ description: "Learn how to deploy Microsoft Edge  with System Center Configurati
 
 # Deploy Microsoft Edge using System Center Configuration Manager
 
-You can automate deployment of Microsoft Edge using System Center Configuration Manager (SCCM).
+This article shows you how to automate a Microsoft Edge deployment by using System Center Configuration Manager (SCCM).
 
-> [!NOTE]
-> This article applies to Microsoft Edge version 77 or later.
+>[!NOTE]
+>This article applies to Microsoft Edge version 77 or later.
 
-## Before you start  
+## Before you begin  
 
 Make sure that you've reviewed the information in [Introduction to application management](https://docs.microsoft.com/en-us/sccm/apps/understand/introduction-to-application-management) so that you have prepared your site to install applications and you understand the terminology that's used in this topic.  
 
@@ -33,7 +33,7 @@ Also, make sure that the Microsoft Edge installation files **MicrosoftEdgeDevEnt
 
 2. On the **Home** tab, in the **Create** group, click **Create Application**. Or, right-click on **Applications** in the navigation bar and then click **Create Application**.
 
-    ![Create application](./media/edge-ent-deployment-sccm/edge-ent-create-app-1.jpg)
+    ![Create application](./media/edge-ent-deployment-sccm/edge-ent-create-app-1.png)
 
 3. On the **General** page of the **Create Application Wizard**, choose **Automatically detect information about this application from installation files**. This pre-populates some of the information in the wizard with information that's extracted from the installation .msi file. Then specify the following information:  
 
@@ -43,11 +43,11 @@ Also, make sure that the Microsoft Edge installation files **MicrosoftEdgeDevEnt
 
    You'll end up with something that looks like the following screenshot:  
 
-    ![Specify settings](./media/edge-ent-deployment-sccm/edge-ent-create-app-2.jpg)
+    ![Specify settings](./media/edge-ent-deployment-sccm/edge-ent-create-app-2.png)
 
 4. Click **Next**. On the **Import Information** page, you'll see some information about the app and any associated files that were imported to Configuration Manager. Once you are done, click **Next** again.  
 
-    ![View imported information](./media/edge-ent-deployment-sccm/edge-ent-create-app-3.jpg)
+    ![View imported information](./media/edge-ent-deployment-sccm/edge-ent-create-app-3.png)
 
 5. On the **General Information** page, you can supply further information about the application to help you sort and locate it in the Configuration Manager console.  
 
@@ -58,35 +58,35 @@ Also, make sure that the Microsoft Edge installation files **MicrosoftEdgeDevEnt
 
     You'll end up with a screen that looks similar to the following screenshot:
 
-    ![Application metadata](./media/edge-ent-deployment-sccm/edge-ent-create-app-4.jpg)
+    ![Application metadata](./media/edge-ent-deployment-sccm/edge-ent-create-app-4.png)
 
     You can add information about the application like so:
 
-    ![Specify application metadata](./media/edge-ent-deployment-sccm/edge-ent-create-app-5.jpg)
+    ![Specify application metadata](./media/edge-ent-deployment-sccm/edge-ent-create-app-5.png)
 
 6. Click **Next**. On the Summary page, you can confirm your application settings and then complete the wizard.  
 
-    ![Confirm dialog](./media/edge-ent-deployment-sccm/edge-ent-create-app-6.jpg)
+    ![Confirm dialog](./media/edge-ent-deployment-sccm/edge-ent-create-app-6.png)
 
 7. On the **Completion** page, click **Close**.
 
-    ![Success dialog](./media/edge-ent-deployment-sccm/edge-ent-create-app-7.jpg)
+    ![Success dialog](./media/edge-ent-deployment-sccm/edge-ent-create-app-7.png)
 
 You've finished creating the app. To find it, in the **Software Library** workspace, expand **Application Management**, and then click **Applications**. For this example, you'll see:  
 
-![Applications](./media/edge-ent-deployment-sccm/edge-ent-create-app-8.jpg)
+![Applications](./media/edge-ent-deployment-sccm/edge-ent-create-app-8.png)
 
 ## Examine the properties of the application and its deployment type  
 
 Now that you've created an application, you can refine the application settings if you need to. To look at the application properties, select the app, and then, in the **Home** tab in the **Properties** group, click **Properties**.  
 
-   ![Configure the application properties](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-1.jpg)
+   ![Configure the application properties](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-1.png)
 
  In the **<application name\> Application Properties** dialog box, you'll see many items that you can configure to refine the behavior of the application. For details about all the settings you can configure, see [Create applications](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications). For the purposes of this example, you'll just be changing some properties of the application's deployment type.  
 
  Click the **Deployment Types** tab > **application name** deployment type > **Edit**.
 
-   ![Edit deployment type](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-2.jpg)
+   ![Edit deployment type](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-2.png)
 
 ## Add a requirement to the deployment type  
  Requirements specify conditions that must be met before an application is installed on a device. You can choose from built-in requirements or you can create your own. For example, you can add a requirement that the application will only be installed on PCs that are running Windows 10 **x86** or **x64**, depending on the installation file's target processor architecture. In this example, you will specify Windows 10 **x86**.
@@ -95,7 +95,7 @@ Now that you've created an application, you can refine the application settings 
 
 2. Click **Add** to open the **Create Requirement** dialog box.
 
-    ![Create requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-3.jpg)
+    ![Create requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-3.png)
 
 3. In the **Create Requirement** dialog box, specify the following information:
 
@@ -111,7 +111,7 @@ Now that you've created an application, you can refine the application settings 
 
     You'll end up with a dialog box that looks like this:
 
-    ![Add requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-4.jpg)
+    ![Add requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-4.png)
 
 4. Click **OK** to close each property page that you opened. Then return to the **Applications** list in the Configuration Manager console.  
 
@@ -149,34 +149,34 @@ Next, deploy the application to a device collection in your hierarchy. In this e
 
 2. From the list of applications, select the application that you created earlier. Then, on the **Home** tab in the **Deployment** group, click **Deploy**, or right-click the application and select **Deploy**.
 
-    ![Deploy the application](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-1.jpg)
+    ![Deploy the application](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-1.png)
 
 3. On the **General** page of the **Deploy Software Wizard**, click **Browse** to select the device collection to which you want to deploy the application.
 
-    ![Browse to the installation file](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-2.jpg)
+    ![Browse to the installation file](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-2.png)
 
 4. On the **Content** page, check that the distribution point from which you want PCs to install the application is selected.
 
-    ![Specify distribution point](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-6.jpg)
+    ![Specify distribution point](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-6.png)
 
 5. On the **Deployment Settings** page, make sure that the deployment action is set to **Install**, and the deployment purpose is set to **Required**.
 
-    ![Configure deployment settings](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-8.jpg)
+    ![Configure deployment settings](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-8.png)
 
     > [!TIP]  
     > By setting the deployment purpose to **Required**, you make sure that the application is installed on PCs that meet the requirements that you set. If you set this value to **Available**, then users can install the application on demand from Software Center.  
 
 6. On the **Scheduling** page, you can configure when the application will be installed. For this example, select **As soon as possible after the available time**.
 
-    ![Schedule the deployment](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-9.jpg)
+    ![Schedule the deployment](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-9.png)
 
 7. On the **User Experience** page, select your desired values and click **Next**.
 
-    ![Specify user experience](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-10.jpg)
+    ![Specify user experience](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-10.png)
 
 8. Specify your desired alert options and click **Next**.
 
-    ![Specify alert settings](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-11.jpg)
+    ![Specify alert settings](./media/edge-ent-deployment-sccm/edge-ent-deploy-app-11.png)
 
 9. Complete the wizard.
 
@@ -191,7 +191,7 @@ Use the information in the following **Monitor the application** section to see 
 
 2. From the list of deployments, select the application.
 
-    ![Monitor the deployment](./media/edge-ent-deployment-sccm/edge-ent-monitor-deployment.jpg)
+    ![Monitor the deployment](./media/edge-ent-deployment-sccm/edge-ent-monitor-deployment.png)
 
 3. On the **Home** tab, in the **Deployment** group, click **View Status**.  
 
