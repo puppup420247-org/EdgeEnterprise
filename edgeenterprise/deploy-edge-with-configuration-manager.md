@@ -70,7 +70,7 @@ You'll create the application using a Configuration Manager wizard.
 
     ![Success dialog](./media/edge-ent-deployment-sccm/edge-ent-create-app-7.png)
 
-You've finished creating the application. Use these steps to find it:
+You've finished creating the application. Use the following steps to see it in Configuration Manager:
 
 - select the **Software Library** workspace
 - expand **Application Management**
@@ -80,25 +80,32 @@ The following screenshot shows the example used for this article.
 
 ![Applications](./media/edge-ent-deployment-sccm/edge-ent-create-app-8.png)
 
-## Examine the properties of the application and its deployment type  
+## Change application properties and deployment settings
 
-Now that you've created an application, you can refine the application settings if you need to. To look at the application properties, select the application, and then, in the **Home** tab in the **Properties** group, click **Properties**.  
+After you create an application, you can refine the application settings if you need to. To look at the application properties:
+
+- select the application
+- in **Home**>**Properties**, click **Properties**.  
 
    ![Configure the application properties](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-1.png)
 
- In the **<application name\> Application Properties** dialog box, you'll see many items that you can configure to refine the behavior of the application. For details about all the settings you can configure, see [Create applications](https://docs.microsoft.com/sccm/apps/deploy-use/create-applications). For the purposes of this example, you'll just be changing some properties of the application's deployment type.  
+ In the **<application name\> Application Properties** dialog page, you'll see a tabbed view of the items that you can configure to change the behavior of the application. For more information about the settings you can configure, see [Create applications](https://docs.microsoft.com/sccm/apps/deploy-use/create-applications).
 
- Click the **Deployment Types** tab > **application name** deployment type > **Edit**.
+For this example, you'll change some properties of the application's deployment type. To change the deployment properties:
+
+1. Click the **Deployment Types** tab.
+2. Under **Deployment types:**, select the application **Name**
+3. Click **Edit**.
 
    ![Edit deployment type](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-2.png)
 
-## Add a requirement to the deployment type
+### Add a requirement to the deployment type
 
- Requirements specify conditions that must be met before an application is installed on a device. You can choose from built-in requirements or you can create your own. For example, you can add a requirement that the application will only be installed on PCs that are running Windows 10 **x86** or **x64**, depending on the installation file's target processor architecture. In this example, you will specify Windows 10 **x86**.
+ Requirements specify conditions that must be met before an application is installed on a device. You can choose from built-in requirements or you can create your own. For example, you can add a requirement that the application will only be installed on PCs that are running Windows 10 **x86** or **x64**, depending on the installation file's target processor architecture. In this example, you'll specify Windows 10 **x86**.
 
 1. From the deployment type properties page you just opened, click the **Requirements** tab.
 
-2. Click **Add** to open the **Create Requirement** dialog box.
+2. Click **Add** to open the **Create Requirement** dialog.
 
     ![Create requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-3.png)
 
@@ -114,32 +121,32 @@ Now that you've created an application, you can refine the application settings 
 
     - From the operating systems list, select **Windows 10** > **All Windows 10 (32-bit)**.  
 
-    You'll end up with a dialog box that looks like this:
+    When you're finished, the dialog will look like the following screenshot example:
 
     ![Add requirement](./media/edge-ent-deployment-sccm/edge-ent-create-app-req-4.png)
 
-4. Click **OK** to close each property page that you opened. Then return to the **Applications** list in the Configuration Manager console.  
+4. Click **OK** to close each open property page and return to the **Applications** list in the Configuration Manager console.  
 
 ## Add the application content to a distribution point  
 
-Next, to deploy the application to PCs, make sure that the application content is copied to a distribution point. PCs access the distribution point to install the application.  
+To deploy the updated application to PCs, make sure that the application content is copied to a distribution point. PCs access the distribution point to install the application.  
 
 >[!TIP]
 >To find out more about distribution points and content management in Configuration Manager, see [Deploy and manage content for System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/deploy/configure/deploy-and-manage-content).  
 
 1. In the Configuration Manager console, click **Software Library**.  
 
-2. In the **Software Library** workspace, expand **Applications**. Then, in the list of applications, select the application that you created.
+2. In the **Software Library** workspace, expand **Applications**. Select the application you created in the list of applications.
 
-3. On the **Home** tab, in the **Deployment** group, click **Distribute Content**.  
+3. On the **Home** tab in the **Deployment** group, click **Distribute Content**.  
 
 4. On the **General** page of the **Distribute Content Wizard**, check that the application name is correct, and then click **Next**.  
 
 5. On the **Content** page, review the information that will be copied to the distribution point, and then click **Next**.  
 
-6. On the **Content Destination** page, click **Add** to select one or more collections, distribution points, or distribution point groups on which to install the application content.  
+6. On the **Content Destination** page, click **Add** to select one or more collections, distribution points, or distribution point groups on which to install the application content.
 
-7. Complete the wizard.  
+7. Complete the wizard.
 
 You can check that the application content was copied successfully to the distribution point from the **Monitoring** workspace, under **Distribution Status** > **Content Status**.  
 
@@ -199,7 +206,7 @@ Use the information in the following **Monitor the application** section to see 
 
     ![Monitor the deployment](./media/edge-ent-deployment-sccm/edge-ent-monitor-deployment.png)
 
-3. On the **Home** tab, in the **Deployment** group, click **View Status**.  
+3. On the **Home** tab in the **Deployment** group, click **View Status**.  
 
 4. Select one of the following tabs to see more status updates about the application deployment:  
 
@@ -209,16 +216,16 @@ Use the information in the following **Monitor the application** section to see 
 
     - **Error**: An error occurred installing the application on the indicated PCs. Further information about the error is also displayed.  
 
-    - **Requirements Not Met**: No installation attempt was made on the indicated devices because they did not meet the requirements you configured (in this example, because they do not run on Windows 10).  
+    - **Requirements Not Met**: No installation attempt was made on the indicated devices because they did not meet the requirements you configured (in this example, because they do not run on Windows 10.)
 
     - **Unknown**: Configuration Manager was unable to report the status of the deployment. Check back again later.  
 
     >[!TIP]
-    >There are several ways you can monitor application deployments. For more information, see [Monitor applications](https://docs.microsoft.com/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+    >There are several ways you can monitor application deployments. For more information, see [Monitor applications from the System Center Configuration Manager console](https://docs.microsoft.com/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
 ## End-user experience  
 
-Users who have PCs that are managed by Configuration Manager and running Windows 10 of the specified processor architecture see a message telling them that they must install the Microsoft Edge Dev application. Once they accept the installation, the application gets installed.  
+Users who have PCs that are managed by Configuration Manager and are running Windows 10 of the specified processor architecture, will see a message telling them that they must install the Microsoft Edge Dev application. When they accept this installation option, the application is installed.  
 
 ## See also
 
