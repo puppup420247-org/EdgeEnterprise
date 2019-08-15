@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 08/15/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -244,10 +244,10 @@ You're receiving the message because you started remote debugging and you naviga
 
 If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine.
 
-### I am trying to go to a site in IE mode, and it appears to be stuck navigating in a loop or tells me that I’m not authenticated. What is happening?
+### I am trying to go to a site in IE mode, and it appears to be stuck navigating in a loop or tells me that I’m not authenticated. What's happening?
 
-This is probably happening because the site you are trying to reach is redirecting to an authentication server that is not configured to open in IE mode. You can try opening the site in standalone IE11 with Developer Tools open to see the identity of the authentication server.
-The solution is to then configure the authentication server in your Enterprise  site list as “neutral”, like this:
+This is probably happening because the site you are trying to reach is redirecting to an authentication server that's not configured to open in IE mode. You can try opening the site in standalone IE11 with Developer Tools open to see the identity of the authentication server.
+The solution is to configure the authentication server in your Enterprise site list as “neutral”. You can do this using the Enterprise Mode Site List Manager or directly in the sitelist XML.
 
 - Through the Enterprise Mode Site List Manager:
  ![Configure the authentication server to open in None through the Enterprise Mode Site List Manager](./media/ie-mode/NeutralSites_SiteListManager.png)
