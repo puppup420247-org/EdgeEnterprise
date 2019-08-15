@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 08/15/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -24,7 +24,12 @@ This article explains how  to use Microsoft Edge with IE mode.
 - Windows 10 with the following minimum system requirements:
   - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/help/4501375) or higher
   - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/help/4509479) or higher)
-
+- Windows 8.1 and Windows Server 2012 R2 with the latest SSU ([KB4504418](https://support.microsoft.com/en-us/help/4504418/servicing-stack-update-kb4504418) or higher) and [KB4507463](https://support.microsoft.com/en-us/help/4507463/july-16-2019-kb4507463-os-build-preview-of-monthly-rollup) or higher 
+- Windows 8 Embedded and Windows Server 2012: 
+  - Install [KB4492872](https://support.microsoft.com/en-us/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11 
+  - Install latest IE11 cumulative updates [KB4510979](https://support.microsoft.com/en-us/help/4510979/cumulative-update-for-internet-explorer) or higher
+- Windows 7 SP1 and Windows Server 2008R2 with the latest SSU ([KB4490628](https://support.microsoft.com/en-us/help/4490628/servicing-stack-update-for-windows-7-sp1-and-windows-server-2008-r2) or higher) and [KB4507437](https://support.microsoft.com/en-us/help/4507437/windows-7-update-kb4507437) or higher 
+  
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge) for additional info)
 
 > [!NOTE]
@@ -157,7 +162,7 @@ The following table provides the additional element added to the v.2 of the Ente
 **Example:**
 
 ``` xml
-<site url=contoso.com>
+<site url="contoso.com">
 
   <open-in app="true">IE11</open-in>
 
@@ -181,7 +186,7 @@ The following table shows the possible values of the \<open-in\> element:
 If you have identified a site that needs to run in IE11, from business or technical reasons you can update the site list to set the specific website with the following structure.
 
 ``` xml
-<site url=contoso.com>
+<site url="contoso.com">
 
   <open-in app="true">IE11</open-in>
 
@@ -238,6 +243,23 @@ You're receiving this message because there was an unexpected error encountered 
 You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
 
 If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine.
+
+### I am trying to go to a site in IE mode, and it appears to be stuck navigating in a loop or tells me that I’m not authenticated. What's happening?
+
+This is probably happening because the site you are trying to reach is redirecting to an authentication server that's not configured to open in IE mode. You can try opening the site in standalone IE11 with Developer Tools open to see the identity of the authentication server.
+The solution is to configure the authentication server in your Enterprise site list as “neutral”. You can do this using the Enterprise Mode Site List Manager or directly in the sitelist XML.
+
+- Through the Enterprise Mode Site List Manager:
+ ![Configure the authentication server to open in None through the Enterprise Mode Site List Manager](./media/ie-mode/NeutralSites_SiteListManager.png)
+
+- Directly within the sitelist XML: 
+
+``` xml
+<site url="login.contoso.com">
+  <compat-mode>Default</compat-mode>
+  <open-in app="true">None</open-in>
+</site>
+```
 
 ## See also
 
