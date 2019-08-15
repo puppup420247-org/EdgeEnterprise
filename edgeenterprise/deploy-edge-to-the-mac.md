@@ -1,23 +1,23 @@
 ---
-title: "Deploy Microsoft Edge for macOS using Jamf"
+title: "Automate Microsoft Edge for macOS deployment"
 ms.author: srugh
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 08/15/2019
 audience: ITPro
-ms.topic: reference
+ms.topic: procedural
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
-description: "Documentation for automating Edge deployment with Jamf."
+description: "How to automate Microsoft Edge for macOS deployment with Intune and Jamf."
 ---
 
 # Deploy to macOS
 
 You can deploy Microsoft Edge for macOS using Microsoft Intune or Jamf.
 
-> [!NOTE]
-> This article applies to Microsoft Edge version 77 or later.
+>[!NOTE]
+>This article applies to Microsoft Edge version 77 or later.
 
 ## Deploy Microsoft Edge for macOS using Microsoft Intune
 
@@ -28,9 +28,10 @@ You can deploy the Microsoft Edge .pkg installer as a line-of-business applicati
 1. Download the [Intune App Wrapping Tool for macOS](https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac). The tool must be run on a macOS device.
 
 2. Mark the downloaded tool as an executable:
+
    - Start the Terminal app.
    - Change the directory to the location where `IntuneAppUtil` is located.
-   - Run the following command to make the tool executable:<br> 
+   - Run the following command to make the tool executable:<br>
      `chmod a+x ./IntuneAppUtil`
    - Test the tool by running: <br>
      `./IntuneAppUtil -h`
@@ -43,7 +44,7 @@ To deploy Microsoft Edge for macOS using Microsoft Intune:
 1. Sign in to [Intune](https://go.microsoft.com/fwlink/?linkid=2090973).
 2. On the **Intune** pane, choose **Client apps** > **Apps** > **Add** > **Line-of-business app** > **App package file**.
 3. On the **App package file** pane, choose the browse button, and select the wrapped Microsoft Edge installation file with the extension *.intunemac*. When you are finished, choose **OK**.
-4. Configure app information. When you are finished, choose **OK**. 
+4. Configure app information. When you are finished, choose **OK**.
 5. On the **Add app** pane, verify that the details for your app is correct.
 6. Choose **Add**, to upload the app to Intune.
 7. The app you have added is displayed in the apps list. You can now assign it to the groups you choose.
@@ -52,63 +53,70 @@ To deploy Microsoft Edge for macOS using Microsoft Intune:
 
 You can automate deployment of Microsoft Edge for macOS using Jamf.
 
-### Prerequisites
+### Prerequisites for deploying with Jamf
+
+Before you deploy Microsoft Edge, make sure you meet the following prerequisites:
 
 - Make sure that the Microsoft Edge installation file, **MicrosoftEdgeDev-\<version\>.pkg** is in an accessible location on your network. You can download the Microsoft Edge Enterprise installation files from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
-- Ensure that you have permissions and log in to your Jamf Cloud account.
+- Ensure that you have permissions and sign in to your Jamf Cloud account.
 
-To deploy Microsoft Edge for macOS using Jamf:
+To deploy Microsoft Edge using Jamf:
 
-1. Navigate to All Settings and click **Computer Management**.
+1. Navigate to **All Settings** and click **Computer Management**.
 
     ![Click Computer Management](./media/mac-deploy/mac-1.png)
 
-2. Click **Packages**.
+2. Under **Computer Management**, click **Packages**.
 
     ![Click Packages](./media/mac-deploy/mac-2.png)
 
-3. Click **New** to add a new package.
+3. On the **Packages** page, click **+ New** to add a new package.
 
-    ![Click New to add package](./media/mac-deploy/mac-3.png)
+    ![Click New to add a new package](./media/mac-deploy/mac-3.png)
 
-4. Enter the details of the new package and click **Save**.
+4. On the **New Package** page, enter the details about the package and then click **Save**. (For example, DISPLAY NAME, INFO, or NOTES.)
 
-    ![Click Save](./media/mac-deploy/mac-4.png)
+    ![Click Save for the package information](./media/mac-deploy/mac-4.png)
 
-    The new Microsoft Edge package is displayed under Packages.
+    The new Microsoft Edge package is displayed under **Packages**.
 
     ![New package is displayed](./media/mac-deploy/mac-4a.png)
 
-5. Navigate to **Computers**, select **Policies**, and then select **New**.
-    - The new Policy pane is displayed.
+5. Select **Computers** on the menu bar, and then select **Policies** in the navigation bar.
+
+6. Select **New** to display the **New Policy** pane.
 
     ![New policy pane](./media/mac-deploy/mac-5.png)
 
-6. In the Options tab, select **General**.
-    - Enter the display name for the policy.
-    - Select the event to trigger the policy.
+7. On the **Options** tab, select **General**.
 
-    ![Enter deployment details](./media/mac-deploy/mac-6.png)
+    - Under **DISPLAY NAME**, enter the display name for the policy.
+    - Under **Trigger**, select the event that will trigger the policy. (In the following example, the event is Startup.)
 
-7. Under the Options tab, click **Packages**. Then click **Configure**.
+    ![Enter deployment information](./media/mac-deploy/mac-6.png)
+
+8. On the **Options** tab, click **Packages**.
+
+9. On the **Configure Packages** popup, click **Configure**.
 
     ![Configure package](./media/mac-deploy/mac-7.png)
 
-8. The package that you added earlier is displayed. Click **Add**.
+10. The package that you added is displayed on the **Packages** pane. Click **Add**.
     ![Add package](./media/mac-deploy/mac-8.png)
 
-9. Select the distribution point and action, then click **Save**.
-    ![Select distribution point](./media/mac-deploy/mac-9.png)
+11. Use the drop-down lists to select the **DISTRIBUTION POINT** and **ACTION**, and then click **Save**. The following screenshot uses "Each computer's default distribution point" and "Install" as an example.
 
-10. Click the **Scope** tab. From the TARGET COMPUTERS drop-down list, select the computers to deploy the package to. Click **Save**.
+    ![Select distribution point and action](./media/mac-deploy/mac-9.png)
+
+12. On the New Policy page, select the **Scope** tab. From the **TARGET COMPUTERS** drop-down list, select the computers you want to deploy the package to. Click **Save**.
+
     ![Save the policy](./media/mac-deploy/mac-10.png)
 
-11. Click **Done**.
+13. Click **Done**.
+
     ![Click done](./media/mac-deploy/mac-11.png)
 
-Congratulations! You’ve just finished deploying Microsoft Edge for macOS using Jamf.
-
-You will have the deployed Microsoft Edge package configured when the defined trigger condition is true.
+Congratulations! You’ve just finished configuring Jamf to deploy Microsoft Edge for macOS. When the trigger condition you defined is true, the package will get deployed to the computers you specified.
 
 ## See also
 
