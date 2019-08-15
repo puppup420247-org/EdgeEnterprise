@@ -16,8 +16,8 @@ description: "Learn how to use Microsoft Edge with IE mode."
 
 This article explains how  to use Microsoft Edge with IE mode.
 
-> [!NOTE]
-> This article applies to Microsoft Edge **Dev** Channel (Canary is not supported), version 77 or later
+>[!NOTE]
+>This article applies to Microsoft Edge **Dev** Channel (Canary isn't supported), version 77 or later.
 
 ## Prerequisites
 
@@ -251,7 +251,8 @@ This is probably happening because the site you are trying to reach is redirecti
 The solution is to configure the authentication server in your Enterprise site list as “neutral”. You can do this using the Enterprise Mode Site List Manager or directly in the sitelist XML.
 
 - Through the Enterprise Mode Site List Manager:
- ![Configure the authentication server to open in None through the Enterprise Mode Site List Manager](./media/ie-mode/NeutralSites_SiteListManager.png)
+
+  ![Configure the authentication server to open in None through the Enterprise Mode Site List Manager](./media/ie-mode/NeutralSites_SiteListManager.png)
 
 - Directly within the sitelist XML:
 
