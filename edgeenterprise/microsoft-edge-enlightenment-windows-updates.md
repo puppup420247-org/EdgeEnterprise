@@ -38,7 +38,7 @@ When all the updates are applied AND the stable channel of the next version of M
 - All attempts to launch the current version of Microsoft Edge will redirect to the next version of Microsoft Edge.
 
   > [!NOTE]
-  > User level installs won’t trigger these behaviors.
+  > User-level installs won’t trigger these behaviors.
 
 Along with the previous changes, there are changes that will happen regardless of whether the stable channel of the next version of Microsoft Edge is installed.
 
