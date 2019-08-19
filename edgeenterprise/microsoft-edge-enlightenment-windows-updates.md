@@ -48,7 +48,7 @@ Along with the previous changes, there are changes that will happen regardless o
 
 The changes needed to support the described experience will be delivered with three updates for different versions of Windows.
 
-### For Windows version 1903
+### Windows version 1903
 
 - First set of changes in optional July 2019 update, delivered with the August 2019 security update.
 - Second set of changes in the optional August 2019 update, delivered with the September 2019 security update.
@@ -61,7 +61,7 @@ The changes needed to support the described experience will be delivered with th
   > [!NOTE]
   > This is the update where Microsoft Edge will no longer support eBooks.
 
-### For Windows versions 1709, 1803, and 1809
+### Windows versions 1709, 1803, and 1809
 
 - First set of changes in an optional August 2019 update, delivered with the September 2019 security update.
 - Second set of changes in an optional September 2019 update, delivered with the October 2019 security update.
