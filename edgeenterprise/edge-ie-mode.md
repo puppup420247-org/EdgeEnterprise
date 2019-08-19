@@ -33,7 +33,7 @@ This article explains how  to use Microsoft Edge with IE mode.
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge) for additional info)
 
   > [!NOTE]
-  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 RS4, RS3, RS1 and TH1.
+  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 versions 1803, 1709, 1607 and 1507.
 
 ## What is IE mode?
 
