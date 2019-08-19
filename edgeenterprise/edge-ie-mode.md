@@ -17,7 +17,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 This article explains how  to use Microsoft Edge with IE mode.
 
 >[!NOTE]
->This article applies to Microsoft Edge **Dev** Channel, version 77 or later.
+>This article applies to Microsoft Edge **Beta** and **Dev** Channels, version 77 or later.
 
 ## Prerequisites
 
