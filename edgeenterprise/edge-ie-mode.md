@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 08/15/2019
+ms.date: 08/19/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -17,7 +17,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 This article explains how  to use Microsoft Edge with IE mode.
 
 >[!NOTE]
->This article applies to Microsoft Edge **Dev** Channel (Canary isn't supported), version 77 or later.
+>This article applies to Microsoft Edge **Dev** Channel, version 77 or later.
 
 ## Prerequisites
 
@@ -32,8 +32,8 @@ This article explains how  to use Microsoft Edge with IE mode.
   
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge) for additional info)
 
-> [!NOTE]
-> IE mode will be supported on Windows versions where IE11 is supported, additional platforms will be coming soon.
+  > [!NOTE]
+  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 RS4, RS3, RS1 and TH1.
 
 ## What is IE mode?
 
@@ -153,7 +153,7 @@ There are 2 options for determining which sites should open in IE mode:
 
 #### Updated schema elements
 
-The following table provides the additional element added to the v.2 of the Enterprise Mode schema:
+The following table describes the \<open-in app\> element added to the v.2 of the Enterprise Mode schema:
 
 | **Element** | **Description** |
 | --- | --- |
