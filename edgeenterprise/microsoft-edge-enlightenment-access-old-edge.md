@@ -23,16 +23,13 @@ The procedures in this article apply to systems that have been updated with the 
 
 ## How operating system (OS) changes are triggered
 
-After the systems are fully updated and [Anaheim stable] is installed, the following registry key is set:<br>
+After the systems are fully updated and [Anaheim stable] is installed, the following registry key and value is set:
 
-```
-"SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}"
-Value: "BrowserReplacement"
-```
+- Key: `SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
+- Key value: `BrowserReplacement`
 
 > [!IMPORTANT]
 > This key is over-written every time [Anaheim stable] is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge.
-
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 
