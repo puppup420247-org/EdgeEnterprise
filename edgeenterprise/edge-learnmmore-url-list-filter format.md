@@ -3,23 +3,24 @@ title: "Filter format for Microsoft Edge URL policies"
 ms.author: brianalt
 author: dan-wesley
 manager: srugh
-ms.date: 08/05/2019
+ms.date: 08/23/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
-description: "Learn about the file format used for Microsoft Edge URLBlocklist and URLAllowlist policies."
+description: "Learn about the filter format used for Microsoft Edge URLBlocklist and URLAllowlist policies."
 ---
 
 # Filter format for URL list based policies
 
-This article describes the filter format used for the Microsoft Edge URL list based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#certificatetransparencyenforcementdisabledforurls) policies.
+This article describes the filter format used for the Microsoft Edge URL list-based policies (For example, [URLBlocklist](microsoft-edge-policies.md#urlblocklist), [URLAllowList](microsoft-edge-policies.md#urlallowlist), and [CertificateTransparencyEnforcementDisabledForUrls](microsoft-edge-policies.md#certificatetransparencyenforcementdisabledforurls) policies.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
 ## The filter format
+
 The filter format is:
 
 ```
@@ -37,6 +38,7 @@ The fields in the filter format are:
 | **query** (*optional*) | The **query** is either key-value or key-only tokens separated by an ampersand (“&”). Separate key-value tokens with an equal sign (“=”). To indicate a prefix match you can use an asterisk (“\*”) at the end of the **query**. |
 
 ## Comparing the filter format to the URL format
+
 The filter format resembles the URL format, except for the following:
 
 - If you include “user:pass” it will be ignored. For example, http://user:pass@ftp.contoso.com/pub/example.iso.
@@ -45,6 +47,7 @@ The filter format resembles the URL format, except for the following:
 - You can use a forward slash (“/”) or a dot (“.”) as a suffix for the **host**. In this case, the suffix is ignored.
 
 ## Filter selection criteria
+
 The filter selected for a URL is the most specific match found after processing the following filter selection rules:
 
 1. Filters with the longest **host** match are selected first.
@@ -54,20 +57,20 @@ The filter selected for a URL is the most specific match found after processing 
 5. If there's no valid filter remaining, then the left-most subdomain is removed from **host** and the selection process starts over at step 1. The special asterisk (“*”) **host** is the last searched and it matches all hosts.
 6. If a filter's available, it blocks or allows the URL request.
 
->[!NOTE]
->The default behavior is to allow the URL request if no filter is matched.
+   >[!NOTE]
+   >The default behavior is to allow the URL request if no filter is matched.
 
 ## Example filter selection criteria
 
-In this example, when searching for a match for “https://sub.contoso.com/docs” the filter selection will:
+In this example, when searching for a match to “https://sub.contoso.com/docs” the filter selection will:
 
-1. Search for a filter for "sub.contoso.com". If it finds a filter, the search moves to step 2. If no filter is found then it tries again with "contoso.com", "com”, and finally "".
-2. From the selected filters any that don’t have “http” in the **scheme** are removed.
-3. From the remaining filters, any that have an exact port number that is not “80” are removed.
+1. Search for a filter for "sub.contoso.com". If it finds a filter, the search moves to step 2. If a filter isn't found then it tries again with "contoso.com", "com”, and finally "".
+2. From the selected filters, any that don’t have “http” in the **scheme** are removed.
+3. From the remaining filters, any that have an exact port number that isn't “80” are removed.
 4. From the remaining filters, any that don't have "/docs" as a prefix of the **path** are removed.
-5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter is not found the selection process starts over again at step 1. The process is repeated with the next subdomain.
+5. From the remaining filters, the filter with the longest path prefix is selected and applied. If a filter isn't found, the selection process starts over again at step 1. The process is repeated with the next subdomain.
 
-## Aditional information
+### Additional filter information
 
 If a filter has a dot (“.”) prefixing the **host** then only exact **host** matches are filtered. For example:
 
@@ -93,6 +96,6 @@ Any other **schema** is treated as a custom **schema**, but only the _schema:*_ 
 
 > [!NOTE]
 > Portions of this page are modifications based on work created and shared by Chromium.org and used according to terms 
-  described in the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). The original page can be found [here](https://www.chromium.org/administrators/url-blacklist-filter-format).
+  described in the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). The original [Chromium page can be found here](https://www.chromium.org/administrators/url-blacklist-filter-format).
   
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
