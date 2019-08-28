@@ -42,7 +42,7 @@ When all the updates are applied AND the stable channel of the next version of M
 
 Along with the previous changes, there are changes that will happen regardless of whether the stable channel of the next version of Microsoft Edge is installed.
 
-- Microsoft Edge will de-register for the books and XML protocols that the next version of Microsoft Edge doesn't support. Users attempting to open these protocols will get a dialog that prompts them to choose a default app. Learn more about changes to books support ***LINK HERE***.
+- Microsoft Edge will de-register for the books and XML protocols that the next version of Microsoft Edge doesn't support. Users attempting to open these protocols will get a dialog that prompts them to choose a default app. Learn more about changes to books support at [Download an ePub app to keep reading e-books](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsupport.microsoft.com%2Fhelp%2F4517840&data=02%7C01%7Cv-danwes%40microsoft.com%7Cc9f8571b880549c30fcf08d72be5eaf9%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637026138803983526&sdata=qtb3DvVZQ6H%2FFXnBievkl%2B%2BngAQXwl340PcH8kRc3y4%3D&reserved=0).
 
 ## Timeline
 
@@ -79,7 +79,7 @@ The following table gives the details for specific updates in each set of change
 
 |Windows 10 |Changes, set 1  |Changes, set 2  |Changes, set 3  |
 |---------|---------|---------|---------|
-|Version 1709     |Optional: KB4512494<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1803     |Optional: KB4512509<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1809     |Optional: KB4512534<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1903     |Optional: KB4505903<br/>Recommended: KB4512508         |Optional: Not released yet<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1709     |Optional: [KB4512494](https://support.microsoft.com/en-us/help/4512494)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1803     |Optional: [KB4512509](https://support.microsoft.com/en-us/help/4512509)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1809     |Optional: [KB4512534](https://support.microsoft.com/en-us/help/4512534)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1903     |Optional: [KB4505903](https://support.microsoft.com/en-us/help/4505903/windows-10-update-kb4505903)<br/>Recommended: [KB4512508](https://support.microsoft.com/en-us/help/4512508/windows-10-update-kb4512508)         |Optional: Not released yet<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
