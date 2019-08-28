@@ -21,6 +21,11 @@ This article describes how access the old version of Microsoft Edge after the ne
 
 The procedures in this article apply to systems that have been updated with the latest security updates, up to and including November 2019. When the next version of Microsoft Edge is installed, the old version will be hidden. All  attempts to launch the old version will  redirect the user to the newly installed version Microsoft Edge.
 
+Before using the detailed instructions in this article, consider the following steps to enable a side-by-side experience:
+
+1. Prevent the automatic install of the next version of Microsoft Edge by Windows Update. For more information, see [Windows Update: FAQ](https://support.microsoft.com/help/12373/windows-update-faq)
+2. Install the [Beta channel](https://www.microsoftedgeinsider.com) of the next version of Microsoft Edge.
+
 ## How operating system (OS) changes are triggered
 
 After the systems are fully updated and [Anaheim stable] is installed, the following registry key and value is set:
