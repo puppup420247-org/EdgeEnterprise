@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -53,7 +53,7 @@ IE mode is policy enabled and applies to:
 - ActiveX controls
 - Browser Helper Objects
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
-- F12 chooser
+- IEChooser(https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Foffice%2Fdev%2Fadd-ins%2Ftesting%2Fdebug-add-ins-using-f12-developer-tools-on-windows-10%23when-the-add-in-is-running-in-internet-explorer&data=02%7C01%7Cv-danwes%40microsoft.com%7C890518ac8e8d4861aa2108d72c0da127%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637026309363592921&sdata=58dKnTfSIGWBwzEzB6jtoI9LgVPRluMUSQiqnxe4nDs%3D&reserved=0)
 - (Limited functionality) Microsoft Edge extensions
 
 ### IE mode doesn't support the following Internet Explorer functionality
