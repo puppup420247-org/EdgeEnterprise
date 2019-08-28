@@ -3,9 +3,9 @@ title: "Automate Microsoft Edge for macOS deployment"
 ms.author: srugh
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 08/15/2019
+ms.date: 08/26/2019
 audience: ITPro
-ms.topic: procedural
+ms.topic: technical
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
@@ -16,8 +16,8 @@ description: "How to automate Microsoft Edge for macOS deployment with Intune an
 
 You can deploy Microsoft Edge for macOS using Microsoft Intune or Jamf.
 
->[!NOTE]
->This article applies to Microsoft Edge version 77 or later.
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
 
 ## Deploy Microsoft Edge for macOS using Microsoft Intune
 
@@ -53,68 +53,72 @@ To deploy Microsoft Edge for macOS using Microsoft Intune:
 
 You can automate deployment of Microsoft Edge for macOS using Jamf.
 
-### Prerequisites for deploying with Jamf
+### Prerequisites for Jamf
 
 Before you deploy Microsoft Edge, make sure you meet the following prerequisites:
 
-- Make sure that the Microsoft Edge installation file, **MicrosoftEdgeDev-\<version\>.pkg** is in an accessible location on your network. You can download the Microsoft Edge Enterprise installation files from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
-- Ensure that you have permissions and sign in to your Jamf Cloud account.
+- The Microsoft Edge installation file,  **MicrosoftEdgeDev-\<version\>.pkg** is in an accessible location on your network. You can download the Microsoft Edge Enterprise installation files from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
+- You have a Jamf Cloud account with the level of access and privileges needed to create and deploy installation files to computers.
 
-To deploy Microsoft Edge using Jamf:
+### To deploy Microsoft Edge using Jamf:
 
-1. Navigate to **All Settings** and click **Computer Management**.
+1. Sign on to Jamf and go to **All Settings**.
 
-    ![Click Computer Management](./media/mac-deploy/mac-1.png)
+    ![Open All Settings](./media/mac-deploy/jamf-dash-main-open-settings.png)
 
-2. Under **Computer Management**, click **Packages**.
+2. Under **All Settings**, click **Computer Management**.
 
-    ![Click Packages](./media/mac-deploy/mac-2.png)
+    ![Select Computer Management](./media/mac-deploy/jamf-all-settings-computer-mgmt.png)
 
-3. On the **Packages** page, click **+ New** to add a new package.
+3. Under **Computer Management**, click **Packages**.
 
-    ![Click New to add a new package](./media/mac-deploy/mac-3.png)
+    ![Select Packages](./media/mac-deploy/jamf-all-settings-computer-mgmt-pkgs.png)
 
-4. On the **New Package** page, enter the details about the package and then click **Save**. (For example, DISPLAY NAME, INFO, or NOTES.)
+4. On the **Packages** page, click **+ New** to add a new package.
 
-    ![Click Save for the package information](./media/mac-deploy/mac-4.png)
+    ![Select New to add a new package](./media/mac-deploy/jamf-all-settings-computer-mgmt-new-pkg.png)
 
-    The new Microsoft Edge package is displayed under **Packages**.
+5. On the **New Package** page, enter the details about the package and then click **Save**. (For example, DISPLAY NAME, INFO, or NOTES.)
 
-    ![New package is displayed](./media/mac-deploy/mac-4a.png)
+    ![Select Save to save the package information](./media/mac-deploy/jamf-all-settings-computer-mgmt-save-pkg-info.png)
 
-5. Select **Computers** on the menu bar, and then select **Policies** in the navigation bar.
+6. Select **Computers** on the menu bar, and then select **Policies** in the navigation bar.
 
-6. Select **New** to display the **New Policy** pane.
+7. Select **+ New** to display the **New Policy** pane.
 
-    ![New policy pane](./media/mac-deploy/mac-5.png)
+    ![Select New to create a new policy](./media/mac-deploy/jamf-all-settings-computer-new-policy.png)
 
-7. On the **Options** tab, select **General**.
+8. On the **Options** tab, select **General**.
 
     - Under **DISPLAY NAME**, enter the display name for the policy.
     - Under **Trigger**, select the event that will trigger the policy. (In the following example, the event is Startup.)
 
-    ![Enter deployment information](./media/mac-deploy/mac-6.png)
+    ![Enter deployment information](./media/mac-deploy/jamf-all-settings-computer-cfg-policy.png)
 
-8. On the **Options** tab, click **Packages**.
+9. On the **Options** tab, click **Packages**.
 
-9. On the **Configure Packages** popup, click **Configure**.
+10. On the **Configure Packages** popup, click **Configure**.
 
-    ![Configure package](./media/mac-deploy/mac-7.png)
+    ![Configure package](./media/mac-deploy/jamf-all-settings-computer-policy-pkg-configure.png)
 
-10. The package that you added is displayed on the **Packages** pane. Click **Add**.
-    ![Add package](./media/mac-deploy/mac-8.png)
+11. The package that you added shows on the **Packages** pane. Click **Add**. For this example, the package is "MicrosoftEdgeBeta" in the following screenshot.
 
-11. Use the drop-down lists to select the **DISTRIBUTION POINT** and **ACTION**, and then click **Save**. The following screenshot uses "Each computer's default distribution point" and "Install" as an example.
+    ![Add package](./media/mac-deploy/jamf-all-settings-computer-policy-pkg-add-beta.png)
 
-    ![Select distribution point and action](./media/mac-deploy/mac-9.png)
+12. On the **New Policy** page, uUse the drop-down lists to select the **DISTRIBUTION POINT** and **ACTION** to take for the policy. Click **Save**. The following screenshot uses "Each computer's default distribution point" and "Install" as an example.
 
-12. On the New Policy page, select the **Scope** tab. From the **TARGET COMPUTERS** drop-down list, select the computers you want to deploy the package to. Click **Save**.
+    ![Select distribution point and action](./media/mac-deploy/jamf-all-settings-computer-mgmt-pkg-cfg-distro.png)
 
-    ![Save the policy](./media/mac-deploy/mac-10.png)
+13. On the **New Policy** page, select the **Scope** tab. You can manage the scope of the deployment based on computers or users. For this example, select **All Computers** from the **TARGET COMPUTERS** drop-down list and then click **Save**.
 
-13. Click **Done**.
+    ![Select the scope of the deployment](./media/mac-deploy/jamf-all-settings-computer-mgmt-add-target.png)
 
-    ![Click done](./media/mac-deploy/mac-11.png)
+14. At this point you can review the Microsoft Edge deployment policy. If the deployment options meet your requirements, click **Done**.
+
+    ![Click done](./media/mac-deploy/jamf-all-settings-computer-mgmt-finish-add-deployment.png)
+
+    > [!NOTE]
+    > You can return to a deployment policy at any time to change settings.
 
 Congratulations! You’ve just finished configuring Jamf to deploy Microsoft Edge for macOS. When the trigger condition you defined is true, the package will get deployed to the computers you specified.
 
