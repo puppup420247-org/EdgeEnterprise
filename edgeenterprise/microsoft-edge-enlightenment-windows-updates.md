@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -42,7 +42,7 @@ When all the updates are applied AND the stable channel of the next version of M
 
 Along with the previous changes, there are changes that will happen regardless of whether the stable channel of the next version of Microsoft Edge is installed.
 
-- Microsoft Edge will de-register for the books and XML protocols that the next version of Microsoft Edge doesn't support. Users attempting to open these protocols will get a dialog that prompts them to choose a default app.
+- Microsoft Edge will de-register for the books and XML protocols that the next version of Microsoft Edge doesn't support. Users attempting to open these protocols will get a dialog that prompts them to choose a default app. Learn more about changes to books support ***LINK HERE***.
 
 ## Timeline
 
@@ -74,10 +74,19 @@ The changes needed to support the described experience will be delivered with th
   > [!NOTE]
   > This is the update where Microsoft Edge will no longer support eBooks.
 
-<!-- TBD, wave stuff?    -->
+The following table gives the details for specific updates in each set of changes.
+
+
+|Windows 10 |Changes, set 1  |Changes, set 2  |Changes, set 3  |
+|---------|---------|---------|---------|
+|Version 1709     |Optional: KB4512494<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1803     |Optional: KB4512509<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1809     |Optional: KB4512534<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1903     |Optional: KB4505903<br/>Recommended: KB4512508         |Optional: Not released yet<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+<!-- TBD, wave stuff?   
 Wave 1
 Do customers need to see the specific details of what’s in each wave, or is that too much?
 Wave 2
 Do customers need to see the specific details of what’s in each wave, or is that too much?
 Wave 3
-Do customers need to see the specific details of what’s in each wave, or is that too much?
+Do customers need to see the specific details of what’s in each wave, or is that too much? -->
