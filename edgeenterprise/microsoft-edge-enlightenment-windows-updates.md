@@ -83,10 +83,3 @@ The following table gives the details for specific updates in each set of change
 |Version 1803     |Optional: KB4512509<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
 |Version 1809     |Optional: KB4512534<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
 |Version 1903     |Optional: KB4505903<br/>Recommended: KB4512508         |Optional: Not released yet<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-<!-- TBD, wave stuff?   
-Wave 1
-Do customers need to see the specific details of what’s in each wave, or is that too much?
-Wave 2
-Do customers need to see the specific details of what’s in each wave, or is that too much?
-Wave 3
-Do customers need to see the specific details of what’s in each wave, or is that too much? -->
