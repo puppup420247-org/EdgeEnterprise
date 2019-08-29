@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 08/19/2019
+ms.date: 08/28/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -24,6 +24,9 @@ This article explains how  to use Microsoft Edge with IE mode.
 - Windows 10 with the following minimum system requirements:
   - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/help/4501375) or higher
   - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/help/4509479) or higher)
+  - Windows 10, version 1803 with latest cumulative update ([KB4512509](https://support.microsoft.com/help/4512509) or higher)
+  - Windows 10, version 1709 with latest cumulative update ([KB4512494](https://support.microsoft.com/help/4512494) or higher)
+- Windows Server 2019 with the latest cumulative update ([KB4501371](https://support.microsoft.com/help/4501371) or higher)
 - Windows 8.1 and Windows Server 2012 R2 with the latest SSU ([KB4504418](https://support.microsoft.com/help/4504418/servicing-stack-update-kb4504418) or higher) and [KB4507463](https://support.microsoft.com/help/4507463/july-16-2019-kb4507463-os-build-preview-of-monthly-rollup) or higher
 - Windows 8 Embedded and Windows Server 2012:
   - Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11
@@ -33,7 +36,7 @@ This article explains how  to use Microsoft Edge with IE mode.
 - Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge) for additional info)
 
   > [!NOTE]
-  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 versions 1803, 1709, 1607 and 1507.
+  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 versions 1607 and 1507, Windows Server 2016.
 
 ## What is IE mode?
 
@@ -50,7 +53,7 @@ IE mode is policy enabled and applies to:
 - ActiveX controls
 - Browser Helper Objects
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
-- F12 chooser
+- [IEChooser](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Foffice%2Fdev%2Fadd-ins%2Ftesting%2Fdebug-add-ins-using-f12-developer-tools-on-windows-10%23when-the-add-in-is-running-in-internet-explorer&data=02%7C01%7Cv-danwes%40microsoft.com%7C890518ac8e8d4861aa2108d72c0da127%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637026309363592921&sdata=58dKnTfSIGWBwzEzB6jtoI9LgVPRluMUSQiqnxe4nDs%3D&reserved=0)
 - (Limited functionality) Microsoft Edge extensions
 
 ### IE mode doesn't support the following Internet Explorer functionality
@@ -259,7 +262,7 @@ The solution is to configure the authentication server in your Enterprise site l
 ``` xml
 <site url="login.contoso.com">
   <compat-mode>Default</compat-mode>
-  <open-in app="true">None</open-in>
+  <open-in>None</open-in>
 </site>
 ```
 
