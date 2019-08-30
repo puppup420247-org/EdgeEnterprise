@@ -26,6 +26,9 @@ Before using the detailed instructions in this article, consider the following s
 1. Prevent the automatic install of the next version of Microsoft Edge by Windows Update. For more information, see [Windows Update: FAQ](https://support.microsoft.com/help/12373/windows-update-faq)
 2. Install the [Beta channel](https://www.microsoftedgeinsider.com) of the next version of Microsoft Edge.
 
+   > [!NOTE]
+   > These steps will let your users run the current version of Microsoft Edge and the Microsoft Edge Beta channel side-by-side and with less complexity and management than  what is described in the following sections.
+
 ## How operating system (OS) changes are triggered
 
 After the systems are fully updated and [Anaheim stable] is installed, the following registry key and value is set:
