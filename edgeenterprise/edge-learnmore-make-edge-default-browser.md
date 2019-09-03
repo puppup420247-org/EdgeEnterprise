@@ -17,7 +17,7 @@ description: "Learn how to make Microsoft Edge the default browser"
 This article explains how you can make Microsoft Edge the default browser for your organization on Windows.
 
 > [!NOTE]
-> This article applies to Microsoft Edge version 77 or later on Windows 8 or later. For Windows 7 and Mac see the "[Set Microsoft Edge as default browser](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled)" policy.
+> This article applies to Microsoft Edge version 77 or later on Windows 8 or later. For Windows 7 and Mac see the [Set Microsoft Edge as default browser](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled) policy.
 
 ## Introduction
 
