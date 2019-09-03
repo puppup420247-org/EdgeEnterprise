@@ -3,7 +3,7 @@ title: "Make Microsoft Edge the default Windows browser"
 ms.author: brianalt
 author: dan-wesley
 manager: srugh
-ms.date: 08/27/2019
+ms.date: 09/03/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
