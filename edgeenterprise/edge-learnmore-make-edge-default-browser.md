@@ -42,7 +42,7 @@ To set Microsoft Edge Beta as the default browser for html files and http/https 
 
 ## Set Microsoft Edge as the default browser on domain-joined devices
 
-You can set Microsoft Edge as the default browser on domain-joined devices by configuring the **Set a default associations configuration file** group policy. Turning this group policy on requires you to create and store a default associations configuration file. This file is stored locally or on a network share. For more information about creating this file, see [Export or Import Default Application Associations](https://go.microsoft.com/fwlink/p/?LinkId=618268).
+You can set Microsoft Edge as the default browser on domain-joined devices by configuring the **Set a default associations configuration file** group policy. Turning this group policy on requires you to create and store a default associations configuration file. This file is stored locally or on a network share. For more information about creating this file, see [Export or Import Default Application Associations](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/export-or-import-default-application-associations).
 
 ### To configure the group policy for a default file type and protocol associations configuration file:
 
@@ -74,6 +74,7 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 ## See also
 
 <!-- - [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10)) -->
+- [Export or Import Default Application Associations](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)
 - [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
 - [DISM Overview](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism)
 <!-- - [DISM Default Application Association Servicing Command-Line Options](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-default-application-association-servicing-command-line-options) -->
