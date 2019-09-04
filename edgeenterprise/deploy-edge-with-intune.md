@@ -50,8 +50,15 @@ This procedure creates an app for deployment of Microsoft Edge in Intune. When y
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Client apps** | **Apps**.
 1. On the top bar, select **Add**.
-1. Initially, there is only one field named **App type**. Select **Line-of-business app** from the drop-down and additional fields appear.
+1. Initially, there is only one field named **App type**.
+
+    ![App type](./media/edge-ent-intune/edge-intune-app-add-app-1.png)
+1. Select **Line-of-business app** from the drop-down and additional fields appear.
+
+    ![Line-of-business app](./media/edge-ent-intune/edge-intune-app-add-app-2.png)
 1. Select **App package file**, and use the file chooser to select the .msi installation file. Information about the file will display under the file selection field. Click **OK** to continue.
+
+    ![App package file](./media/edge-ent-intune/edge-intune-app-package-file.png)
 1. Click **App information** and enter the following values:
 
     |Field  |Value  |
@@ -70,6 +77,8 @@ This procedure creates an app for deployment of Microsoft Edge in Intune. When y
     |Owner    |Optional    |
     |Notes    |Optional    |
     |Logo    |Optionally select a logo from an image file    |
+
+    ![App information](./media/edge-ent-intune/edge-intune-app-information.png)
 
 1. Optionally, select **Scope (Tags)** to apply existing tags for limiting deployment of the app to a specific scope.
 1. Click **Add** to add the app to Client apps.
@@ -98,6 +107,8 @@ This procedure creates a new custom profile and imports the settings and policie
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
 1. On the top bar, select **Create profile**.
+
+    ![Create profile](./media/edge-ent-intune/edge-intune-profile-create.png)
 1. Enter the following values:
 
     |Field  |Value  |
@@ -117,6 +128,8 @@ This procedure creates a new custom profile and imports the settings and policie
     |OMA-URI     |./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx         |
     |Data type     |String         |
 
+    ![Add row](./media/edge-ent-intune/edge-intune-profile-add-row.png)
+
 1. When you select **String** from the _Data type_ drop-down, a **Value** field appears below. In a text editor, copy the entire contents of the **msedge.admx** file from the policy template you downloaded earlier and paste it into the **Value** field.
 1. Click **OK** and **OK** again to save the OMA-URI settings.
 1. Click **Create** to create the custom profile.
@@ -129,7 +142,7 @@ This procedure creates a new custom profile and imports the settings and policie
 Now you can add specific application settings to the custom profile by adding rows containing OMA-URI strings and values. For a list of all available policies, see [Microsoft Edge - Policies](microsoft-edge-policies.md).
 
 >[!NOTE]
->You can calculate the OMA-URI value for a given policy
+>You can calculate the OMA-URI value for a given policy. See [URI format for configuring an app policy](https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration#uri-format-for-configuring-an-app-policy) for more information.
 
 In the following example, we will add a setting to always show the Home button in Microsoft Edge.
 
