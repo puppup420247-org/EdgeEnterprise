@@ -71,6 +71,7 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
   <Association ApplicationName="Microsoft Edge Beta" ProgId="MSEdgeBHTML" Identifier="https"/>  
 </DefaultAssociations>
 ```
+
 > [!NOTE]
 > To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
 
@@ -80,7 +81,8 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Set Microsoft Edge as default browser (Windows 7 and macOS)](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled)
 - [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)
-- [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
-- [DISM Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/what-is-dism)
+  - [DISM Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/what-is-dism)
+  - [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
+
 <!-- - [DISM Default Application Association Servicing Command-Line Options](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-default-application-association-servicing-command-line-options) -->
 <!-- - [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10)) -->
