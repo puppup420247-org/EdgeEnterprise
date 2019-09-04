@@ -14,7 +14,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 ---
 
 # Microsoft Edge - Policies
-The latest version of Microsoft Edge includes the following policies. You can use these policies to configure how Microsoft Edge runs in your environment.
+The latest version of Microsoft Edge includes the following policies. You can use these policies to configure how Microsoft Edge runs in your organization.
 
 For information about an additional set of policies used to control how and when Microsoft Edge is updated, check out [Microsoft Edge update policy reference](microsoft-edge-update-policies.md)
 
