@@ -29,9 +29,9 @@ These tables lists all of the browser-related group policies available in this r
 |[Cast](#cast-policies)|[Content settings](#content-settings-policies)|
 |[Default search provider](#default-search-provider-policies)|[Extensions](#extensions-policies)|
 |[HTTP authentication](#http-authentication-policies)|[Native Messaging](#native-messaging-policies)|
-|[Password manager and protection](password-manager-and-protection-policies)|[Printing](#printing-policies)|
+|[Password manager and protection](#password-manager-and-protection-policies)|[Printing](#printing-policies)|
 |[Proxy server](#proxy-server-policies)|[SmartScreen settings](#smartscreen-settings-policies)|
-|[Startup, home page and new tab page](#startup,-home-page-and-new-tab-page-policies)|[Additional](#additional-policies)|
+|[Startup home page and new tab page](#startup-home-page-and-new-tab-page-policies)|[Additional](#additional-policies)|
 
 
 ### [*Cast policies*](#cast)
@@ -136,7 +136,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which Microsoft Defender SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Configure Microsoft Defender SmartScreen for trusted downloads|
-### [*Startup, home page and new tab page policies*](#startup,-home-page-and-new-tab-page)
+### [*Startup home page and new tab page policies*](#startup-home-page-and-new-tab-page)
 |Policy Name|Caption|
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
@@ -4189,7 +4189,7 @@ False
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Startup, home page and new tab page
+  ## Startup home page and new tab page
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4555,7 +4555,7 @@ True
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Misc.
+  ## Additional
 
   [Back to top](#microsoft-edge---policies)
 
