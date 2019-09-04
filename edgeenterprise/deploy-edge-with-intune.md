@@ -45,9 +45,59 @@ Follow the procedures in [Add a Windows line-of-business app to Microsoft Intune
 
 See [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add) for general information about considerations, organization and troubleshooting apps in Intune.
 
-### Configure Microsoft Edge with a custom profile
+### Configure Microsoft Edge settings using a custom profile
 
-Using Microsoft Intune, you can add or create custom settings for your Windows 10 devices using "custom profiles". Windows 10 custom profiles use Open Mobile Alliance Uniform Resource Identifier (OMA-URI) settings to configure different features. You can create a custom profile that uses the msedge.admx
+Using Microsoft Intune, you can add or create custom settings for your Windows 10 devices using "custom profiles". Windows 10 custom profiles use Open Mobile Alliance Uniform Resource Identifier (OMA-URI) settings to configure different features. You can create a custom profile and import the Microsoft Edge policy template using ADMX ingestion to enable configuration of Microsoft Edge-specific application settings.
+
+#### Create a custom profile to manage Microsoft Edge
+
+This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedge.admx**. When you are done, go to 
+
+1. Download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
+
+    - [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
+    - [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
+    - [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
+
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
+1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
+1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
+1. On the top bar, select **Create profile**.
+1. Enter the following text:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _Edge Enterprise Configuration_         |
+    |Description     |Optionally enter a description         |
+    |Platform     |Windows 10 and later         |
+    |Profile type     |Custom         |
+
+1. Click **Settings**. The _Custom OMA-URI Settings_ blade opens to the right.
+1. Click **Add**, and enter the following text:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _Edge ADMX Ingestion_         |
+    |Description     |Optionally enter a description         |
+    |OMA-URI     |./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx         |
+    |Data type     |String         |
+
+1. When you select **String** from the _Data type_ drop-down, a **Value** field appears below. In a text editor, copy the entire contents of the **msedge.admx** file from the policy template you downloaded earlier and paste it into the **Value** field.
+1. Click **OK** and **OK** again to save the OMA-URI settings.
+1. Click **Create** to create the custom profile.
+
+>[!NOTE]
+>You can also configure the custom profile's **Scope** and **Applicability rules** to target specific devices.
+
+#### Add settings to the Microsoft Edge custom profile
+
+Now you can add specific application settings to the custom profile.
+
+
+
+When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to "assign" the profile to your Azure Active Directory (Azure AD) user or device groups.
+
+See [Use custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/en-us/intune/custom-settings-windows-10) for more information about custom profiles in Intune, and [Win32 and Desktop Bridge app policy configuration](https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration) for more information about how ADMX ingestion works for setting Windows policies using Intune.
 
 ## Add Microsoft Edge for macOS to Intune
 
