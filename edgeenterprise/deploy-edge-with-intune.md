@@ -27,13 +27,41 @@ You can read [Manage web access by using Microsoft Edge with Microsoft Intune](h
 
 ## Before you begin
 
-Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows). This article contains procedures for adding an app like Edge Enterprise to your Microsoft Intune instance.
+Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows).
 
 Download the Microsoft Edge Enterprise installation files (**MicrosoftEdgeDevEnterpriseX64.msi** and/or **MicrosoftEdgeDevEnterpriseX86.msi**) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 
 If you also want to configure settings for Microsoft Edge using Intune, download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Beta or Dev).
 
+- [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
+- [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
+- [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
+
 Make sure you store the Microsoft Edge installation and policy files in an accessible network location.
 
-## Add Microsoft Edge as an app in Intune
+## Add Microsoft Edge for Windows to Intune
 
+Follow the procedures in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows). This article contains procedures for adding an app like Edge Enterprise to your Microsoft Intune instance.
+
+See [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add) for general information about considerations, organization and troubleshooting apps in Intune.
+
+### Configure Microsoft Edge with a custom profile
+
+Using Microsoft Intune, you can add or create custom settings for your Windows 10 devices using "custom profiles". Windows 10 custom profiles use Open Mobile Alliance Uniform Resource Identifier (OMA-URI) settings to configure different features. You can create a custom profile that uses the msedge.admx
+
+## Add Microsoft Edge for macOS to Intune
+
+The process for adding a Microsoft Edge for macOS app is similar, but there are certain prerequisites for managing macOS and iOS devices in Intune.
+
+- [Get an Apple MDM push certificate](https://docs.microsoft.com/en-us/intune/apple-mdm-push-certificate-get)
+  
+    An Apple MDM Push certificate is required for Intune to manage iOS and macOS devices. After you add the certificate to Intune, your users can enroll their devices using:
+
+  - The Company Portal app.
+  - Apple's bulk enrollment methods like the Device Enrollment Program, Apple School Manager, or Apple Configurator.
+
+## Assign apps to groups with Microsoft Intune
+
+After you've added an app to Microsoft Intune, you can assign the app to users and devices. It is important to note that you can assign an app to a device whether or not the device is managed by Intune.
+
+For more information, see [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-deploy).
