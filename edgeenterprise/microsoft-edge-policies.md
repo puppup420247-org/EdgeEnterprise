@@ -24,20 +24,20 @@ For information about an additional set of policies used to control how and when
 These tables lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 |1|2|
 |-|-|
-|[Cast](#[*cast-table*](#cast))|[Content settings](#[*content-settings-table*](#content-settings))|
-|[Default search provider](#[*default-search-provider-table*](#default-search-provider))|[Extensions](#[*extensions-table*](#extensions))|
-|[HTTP authentication](#[*http-authentication-table*](#http-authentication))|[Native Messaging](#[*native-messaging-table*](#native-messaging))|
-|[Password manager and protection](#[*password-manager-and-protection-table*](#password-manager-and-protection))|[Printing](#[*printing-table*](#printing))|
-|[Proxy server](#[*proxy-server-table*](#proxy-server))|[SmartScreen settings](#[*smartscreen-settings-table*](#smartscreen-settings))|
-|[Startup, home page and new tab page](#[*startup,-home-page-and-new-tab-page-table*](#startup,-home-page-and-new-tab-page))|[Misc.](#[*misc-table*](#misc))|
+|[Cast](#[*cast-policies*](#cast))|[Content settings](#[*content-settings-policies*](#content-settings))|
+|[Default search provider](#[*default-search-provider-policies*](#default-search-provider))|[Extensions](#[*extensions-policies*](#extensions))|
+|[HTTP authentication](#[*http-authentication-policies*](#http-authentication))|[Native Messaging](#[*native-messaging-policies*](#native-messaging))|
+|[Password manager and protection](#[*password-manager-and-protection-policies*](#password-manager-and-protection))|[Printing](#[*printing-policies*](#printing))|
+|[Proxy server](#[*proxy-server-policies*](#proxy-server))|[SmartScreen settings](#[*smartscreen-settings-policies*](#smartscreen-settings))|
+|[Startup, home page and new tab page](#[*startup,-home-page-and-new-tab-page-policies*](#startup,-home-page-and-new-tab-page))|[Additional](#[*additional-policies*](#additional))|
 
 
-### [*Cast table*](#cast)
+### [*Cast policies*](#cast)
 |Policy Name|Caption|
 |-|-|
 |[EnableMediaRouter](#enablemediarouter)|Enable Google Cast|
 |[ShowCastIconInToolbar](#showcasticonintoolbar)|Show the cast icon in the toolbar|
-### [*Content settings table*](#content-settings)
+### [*Content settings policies*](#content-settings)
 |Policy Name|Caption|
 |-|-|
 |[AutoSelectCertificateForUrls](#autoselectcertificateforurls)|Automatically select client certificates for these sites|
@@ -67,7 +67,7 @@ These tables lists all of the browser-related group policies available in this r
 |[WebUsbAllowDevicesForUrls](#webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices|
 |[WebUsbAskForUrls](#webusbaskforurls)|Allow WebUSB on specific sites|
 |[WebUsbBlockedForUrls](#webusbblockedforurls)|Block WebUSB on specific sites|
-### [*Default search provider table*](#default-search-provider)
+### [*Default search provider policies*](#default-search-provider)
 |Policy Name|Caption|
 |-|-|
 |[DefaultSearchProviderEnabled](#defaultsearchproviderenabled)|Enable the default search provider|
@@ -78,7 +78,7 @@ These tables lists all of the browser-related group policies available in this r
 |[DefaultSearchProviderName](#defaultsearchprovidername)|Default search provider name|
 |[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl)|Default search provider search URL|
 |[DefaultSearchProviderSuggestURL](#defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
-### [*Extensions table*](#extensions)
+### [*Extensions policies*](#extensions)
 |Policy Name|Caption|
 |-|-|
 |[ExtensionAllowedTypes](#extensionallowedtypes)|Configure allowed extension types|
@@ -87,7 +87,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ExtensionInstallForcelist](#extensioninstallforcelist)|Control which extensions are installed silently|
 |[ExtensionInstallSources](#extensioninstallsources)|Configure extension and user script install sources|
 |[ExtensionSettings](#extensionsettings)|Configure extension management settings|
-### [*HTTP authentication table*](#http-authentication)
+### [*HTTP authentication policies*](#http-authentication)
 |Policy Name|Caption|
 |-|-|
 |[AllowCrossOriginAuthPrompt](#allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
@@ -97,20 +97,20 @@ These tables lists all of the browser-related group policies available in this r
 |[DisableAuthNegotiateCnameLookup](#disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
 |[EnableAuthNegotiatePort](#enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
 |[NtlmV2Enabled](#ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
-### [*Native Messaging table*](#native-messaging)
+### [*Native Messaging policies*](#native-messaging)
 |Policy Name|Caption|
 |-|-|
 |[NativeMessagingAllowlist](#nativemessagingallowlist)|Control which native messaging hosts users can use|
 |[NativeMessagingBlocklist](#nativemessagingblocklist)|Configure native messaging block list|
 |[NativeMessagingUserLevelHosts](#nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
-### [*Password manager and protection table*](#password-manager-and-protection)
+### [*Password manager and protection policies*](#password-manager-and-protection)
 |Policy Name|Caption|
 |-|-|
 |[PasswordManagerEnabled](#passwordmanagerenabled)|Enable saving passwords to the password manager|
 |[PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)|Configure the change password URL|
 |[PasswordProtectionLoginURLs](#passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
 |[PasswordProtectionWarningTrigger](#passwordprotectionwarningtrigger)|Configure password protection warning trigger|
-### [*Printing table*](#printing)
+### [*Printing policies*](#printing)
 |Policy Name|Caption|
 |-|-|
 |[DefaultPrinterSelection](#defaultprinterselection)|Default printer selection rules|
@@ -118,7 +118,7 @@ These tables lists all of the browser-related group policies available in this r
 |[PrintPreviewUseSystemDefaultPrinter](#printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
 |[PrintingEnabled](#printingenabled)|Enable printing|
 |[UseSystemPrintDialog](#usesystemprintdialog)|Print using system print dialog|
-### [*Proxy server table*](#proxy-server)
+### [*Proxy server policies*](#proxy-server)
 |Policy Name|Caption|
 |-|-|
 |[ProxyBypassList](#proxybypasslist)|Configure proxy bypass rules|
@@ -126,7 +126,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ProxyPacUrl](#proxypacurl)|Set the proxy .pac file URL|
 |[ProxyServer](#proxyserver)|Configure address or URL of proxy server|
 |[ProxySettings](#proxysettings)|Proxy settings|
-### [*SmartScreen settings table*](#smartscreen-settings)
+### [*SmartScreen settings policies*](#smartscreen-settings)
 |Policy Name|Caption|
 |-|-|
 |[PreventSmartScreenPromptOverride](#preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
@@ -134,7 +134,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which Microsoft Defender SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Configure Microsoft Defender SmartScreen for trusted downloads|
-### [*Startup, home page and new tab page table*](#startup,-home-page-and-new-tab-page)
+### [*Startup, home page and new tab page policies*](#startup,-home-page-and-new-tab-page)
 |Policy Name|Caption|
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
@@ -144,7 +144,7 @@ These tables lists all of the browser-related group policies available in this r
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
-### [*Misc. table*](#misc)
+### [*Additional policies*](#additional)
 |Policy Name|Caption|
 |-|-|
 |[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Ads setting for sites with intrusive ads|
