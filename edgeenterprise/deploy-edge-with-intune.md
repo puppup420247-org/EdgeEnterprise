@@ -170,6 +170,74 @@ See [Use custom settings for Windows 10 devices in Intune](https://docs.microsof
 
 You can create a custom profile to control Microsoft Edge updates using the msedgeupdate.admx file in the Microsoft Edge policy template file.
 
+This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedgeupdate.admx**. When you are done, go to [Add settings to the Microsoft Edge update custom profile](#add-settings-to-the-microsoft-edge-update-custom-profile) to configure specific settings.
+
+1. Download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
+
+    - [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
+    - [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
+    - [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
+
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
+1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
+1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
+1. On the top bar, select **Create profile**.
+
+    ![Create profile](./media/edge-ent-intune/edge-intune-profile-create.png)
+1. Enter the following values:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _Edge Enterprise Update Configuration_         |
+    |Description     |Optionally enter a description         |
+    |Platform     |Windows 10 and later         |
+    |Profile type     |Custom         |
+
+1. Click **Settings**. The _Custom OMA-URI Settings_ blade opens to the right.
+1. Click **Add**, and enter the following values:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _Edge Update ADMX Ingestion_         |
+    |Description     |Optionally enter a description         |
+    |OMA-URI     |./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/EdgeUpdate/Policy/EdgeUpdateAdmx         |
+    |Data type     |String         |
+
+    ![Add row](./media/edge-ent-intune/edge-intune-profile-add-row.png)
+
+1. When you select **String** from the _Data type_ drop-down, a **Value** field appears below. In a text editor, copy the entire contents of the **msedgeupdate.admx** file from the policy template you downloaded earlier and paste it into the **Value** field.
+1. Click **OK** and **OK** again to save the OMA-URI settings.
+1. Click **Create** to create the custom profile.
+
+#### Add settings to the Microsoft Edge update custom profile
+
+Now you can add specific update settings to the custom profile by adding rows containing OMA-URI strings and values. For a list of all available update policies, see [Microsoft Edge - Update Policies](microsoft-edge-update-policies.md).
+
+>[!NOTE]
+>You can calculate the OMA-URI value for a given policy. See [URI format for configuring an app policy](https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration#uri-format-for-configuring-an-app-policy) for more information.
+
+In the following example, we will add a setting to disallow installation of Microsoft Edge Canary.
+
+1. In Intune, select **Device configuration** | **Profiles**.
+1. Locate the profile you created earlier and select it.
+1. Click **Properties**, and in the pane that appears to the right, click **Settings**.
+1. In the _Custom OMA-URI Settings_ pane, click **Add** and enter the following values:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _DisallowMicrosoftEdgeCanary_         |
+    |Description     |Optionally enter a description         |
+    |OMA-URI     |./Device/Vendor/MSFT/Policy/Config/EdgeUpdate~Policy~Cat_GoogleUpdate~Cat_Applications~Cat_MicrosoftEdgeCanary/Pol_AllowInstallationMicrosoftEdgeCanary         |
+    |Data type     |String         |
+    |Value        |\<disabled/\>
+
+1. Click **OK** and **OK** again to save the OMA-URI settings.
+1. Click **Save**.
+
+When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to "assign" the profile to your Azure Active Directory (Azure AD) user or device groups.
+
+See [Use custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/en-us/intune/custom-settings-windows-10) for more information about custom profiles in Intune, and [Win32 and Desktop Bridge app policy configuration](https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration) for more information about how ADMX ingestion works for setting Windows policies using Intune.
+
 ## Add Microsoft Edge for macOS to Intune
 
 The process for adding a Microsoft Edge for macOS app is similar, but there are certain prerequisites for managing macOS and iOS devices in Intune.
