@@ -45,6 +45,8 @@ This procedure creates an app for deployment of Microsoft Edge in Intune. When y
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Client apps** | **Apps**.
+
+    ![Client apps](./media/edge-ent-intune/edge-intune-apps.png)
 1. On the top bar, select **Add**.
 1. Initially, there is only one field named **App type**.
 
