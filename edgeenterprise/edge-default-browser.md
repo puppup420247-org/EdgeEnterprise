@@ -71,6 +71,8 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
   <Association ApplicationName="Microsoft Edge Beta" ProgId="MSEdgeBHTML" Identifier="https"/>  
 </DefaultAssociations>
 ```
+> [!NOTE]
+> To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
 
 ## See also
 
