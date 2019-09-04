@@ -88,7 +88,7 @@ Using Microsoft Intune, you can add or create custom settings for your Windows 1
 
 This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedge.admx**. When you are done, go to [Add settings to the Microsoft Edge custom profile](#add-settings-to-the-microsoft-edge-custom-profile) to configure specific settings.
 
-1. Download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
+1. Download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
 
     - [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
     - [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
@@ -126,7 +126,10 @@ This procedure creates a new custom profile and imports the settings and policie
 
 #### Add settings to the Microsoft Edge custom profile
 
-Now you can add specific application settings to the custom profile. For a list of all available policies, see [Microsoft Edge - Policies](microsoft-edge-policies.md).
+Now you can add specific application settings to the custom profile by adding rows containing OMA-URI strings and values. For a list of all available policies, see [Microsoft Edge - Policies](microsoft-edge-policies.md).
+
+>[!NOTE]
+>You can calculate the OMA-URI value for a given policy
 
 In the following example, we will add a setting to always show the Home button in Microsoft Edge.
 
@@ -143,11 +146,16 @@ In the following example, we will add a setting to always show the Home button i
     |Data type     |String         |
     |Value        |\<enabled/\>
 
-1. 
+1. Click **OK** and **OK** again to save the OMA-URI settings.
+1. Click **Save**.
 
 When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to "assign" the profile to your Azure Active Directory (Azure AD) user or device groups.
 
 See [Use custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/en-us/intune/custom-settings-windows-10) for more information about custom profiles in Intune, and [Win32 and Desktop Bridge app policy configuration](https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration) for more information about how ADMX ingestion works for setting Windows policies using Intune.
+
+#### Create a custom profile to update Microsoft Edge
+
+You can create a custom profile to control Microsoft Edge updates using the msedgeupdate.admx file in the Microsoft Edge policy template file.
 
 ## Add Microsoft Edge for macOS to Intune
 
