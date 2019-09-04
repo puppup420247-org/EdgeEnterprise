@@ -19,7 +19,7 @@ This article shows you how to automate Microsoft Edge deployment and configurati
 >[!NOTE]
 >This article applies to Microsoft Edge version 77 or later.
 
-You can deploy Microsoft Edge to Windows and macOS clients that are managed in your company's Intune tenant by adding apps containing the Microsoft Edge installation files to Intune. You can deploy Microsoft Edge with either Mobile Device Management (MDM) or Mobile Application Management (MAM). Like any Intune apps, you can configure app assignments to force Microsoft Edge deployment to selected users or devices or make the app available in the Company Portal for users to install at their discretion.
+You can deploy Microsoft Edge to Windows and macOS clients that are managed in your company's Intune tenant by adding apps containing the Microsoft Edge installation files to Intune. Like any Intune apps, you can configure app assignments to force Microsoft Edge deployment to selected users or devices or make the app available in the Company Portal for users to install at their discretion.
 
 You can also configure Microsoft Edge policies and settings by adding a Device Configuration Profile. If your company primarily uses Intune to manage and enforce policies on user devices, this is a good alternative to using Active Directory Group Policy or local GPOs.
 
@@ -29,7 +29,7 @@ You can read [Manage web access by using Microsoft Edge with Microsoft Intune](h
 
 Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows).
 
-Download the Microsoft Edge Enterprise installation files (**MicrosoftEdgeDevEnterpriseX64.msi** and/or **MicrosoftEdgeDevEnterpriseX86.msi**) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
+Download the Microsoft Edge Enterprise installation **.msi files** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). The installation files use the build channel and processor architecture in their names, and will be named like **MicrosoftEdgeDevEnterpriseX86.msi** or **MicrosoftEdgeBetaEnterpriseX64.msi**.
 
 If you also want to configure settings for Microsoft Edge using Intune, download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Beta or Dev).
 
@@ -41,7 +41,42 @@ Make sure you store the Microsoft Edge installation and policy files in an acces
 
 ## Add Microsoft Edge for Windows to Intune
 
-Follow the procedures in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows). This article contains procedures for adding an app like Edge Enterprise to your Microsoft Intune instance.
+This procedure creates an app for deployment of Microsoft Edge in Intune. When you are done, see [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-deploy) to learn how to deploy the app to users.
+
+>[!NOTE]
+>You can only deploy Microsoft Edge with Mobile Device Management (MDM). Deployment with Mobile Application Management (MAM) is not supported.
+
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
+1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
+1. From the _Microsoft Intune - Overview_ blade, select **Client apps** | **Apps**.
+1. On the top bar, select **Add**.
+1. Initially, there is only one field named **App type**. Select **Line-of-business app** from the drop-down and additional fields appear.
+1. Select **App package file**, and use the file chooser to select the .msi installation file. Information about the file will display under the file selection field. Click **OK** to continue.
+1. Click **App information** and enter the following values:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |This field is populated from the installer, but you can change it if you want          |
+    |Description     |Enter a description         |
+    |Publisher     |Microsoft         |
+    |App install context     |This value is pre-selected and cannot be modified         |
+    |Ignore app version    |This slider should be set to yes for apps that are automatically updated like Microsoft Edge.    |
+    |Category    |Optionally select a category    |
+    |Display this as a featured app in the Company Portal    |Optionally set this to Yes    |
+    |Information URL    |Optionally add a URL to a page containing information about the app, such as <https://aka.ms/EdgeEnterprise>    |
+    |Privacy URL    |Optionally add a URL to a page containing app privacy information, such as <https://privacy.microsoft.com/en-US/privacystatement>    |
+    |Command-line arguments    |Optional. See [Microsoft Edge proxy settings](edge-learnmore-cmdline-options-proxy-settings.md) for information about command-line arguments    |
+    |Developer    |Optional    |
+    |Owner    |Optional    |
+    |Notes    |Optional    |
+    |Logo    |Optionally select a logo from an image file    |
+
+1. Optionally, select **Scope (Tags)** to apply existing tags for limiting deployment of the app to a specific scope.
+1. Click **Add** to add the app to Client apps.
+
+When you are done, see [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-deploy) to learn how to deploy the app to users.
+
+You can refer to the procedures in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows) for general guidance and details.
 
 See [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add) for general information about considerations, organization and troubleshooting apps in Intune.
 
@@ -51,7 +86,7 @@ Using Microsoft Intune, you can add or create custom settings for your Windows 1
 
 #### Create a custom profile to manage Microsoft Edge
 
-This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedge.admx**. When you are done, go to 
+This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedge.admx**. When you are done, go to [Add settings to the Microsoft Edge custom profile](#add-settings-to-the-microsoft-edge-custom-profile) to configure specific settings.
 
 1. Download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
 
@@ -63,7 +98,7 @@ This procedure creates a new custom profile and imports the settings and policie
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
 1. On the top bar, select **Create profile**.
-1. Enter the following text:
+1. Enter the following values:
 
     |Field  |Value  |
     |---------|---------|
@@ -73,7 +108,7 @@ This procedure creates a new custom profile and imports the settings and policie
     |Profile type     |Custom         |
 
 1. Click **Settings**. The _Custom OMA-URI Settings_ blade opens to the right.
-1. Click **Add**, and enter the following text:
+1. Click **Add**, and enter the following values:
 
     |Field  |Value  |
     |---------|---------|
@@ -91,9 +126,24 @@ This procedure creates a new custom profile and imports the settings and policie
 
 #### Add settings to the Microsoft Edge custom profile
 
-Now you can add specific application settings to the custom profile.
+Now you can add specific application settings to the custom profile. For a list of all available policies, see [Microsoft Edge - Policies](microsoft-edge-policies.md).
 
+In the following example, we will add a setting to always show the Home button in Microsoft Edge.
 
+1. In Intune, select **Device configuration** | **Profiles**.
+1. Locate the profile you created earlier and select it.
+1. Click **Properties**, and in the pane that appears to the right, click **Settings**.
+1. In the _Custom OMA-URI Settings_ pane, click **Add** and enter the following values:
+
+    |Field  |Value  |
+    |---------|---------|
+    |Name     |Enter a descriptive name, like _ShowHomeButton_         |
+    |Description     |Optionally enter a description         |
+    |OMA-URI     |./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton         |
+    |Data type     |String         |
+    |Value        |\<enabled/\>
+
+1. 
 
 When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to "assign" the profile to your Azure Active Directory (Azure AD) user or device groups.
 
