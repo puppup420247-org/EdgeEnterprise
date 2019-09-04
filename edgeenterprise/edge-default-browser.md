@@ -1,27 +1,27 @@
 ---
-title: "Make Microsoft Edge the default browser on Windows"
+title: "Set Microsoft Edge as the default browser on Windows"
 ms.author: brianalt
 author: dan-wesley
 manager: srugh
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
-description: "Learn how to make Microsoft Edge the default browser"
+description: "Learn how to set Microsoft Edge as the default browser"
 ---
 
-# How to make Microsoft Edge your default browser
+# Set Microsoft Edge as the default browser
 
-This article explains how you can make Microsoft Edge the default browser for your organization on Windows.
+This article explains how you can set Microsoft Edge as the default browser on Windows.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later on Windows 8 or later. For Windows 7 and Mac see the [Set Microsoft Edge as default browser](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled) policy.
 
 ## Introduction
 
-You can use the **Set a default associations configuration file** Group Policy or the [DefaultAssociationsConfiguration](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-applicationdefaults#applicationdefaults-defaultassociationsconfiguration) Mobile Device Management setting to make Microsoft Edge the default browser for your organization.
+You can use the **Set a default associations configuration file** Group Policy or the [DefaultAssociationsConfiguration](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-applicationdefaults#applicationdefaults-defaultassociationsconfiguration) Mobile Device Management setting to set Microsoft Edge the default browser for your organization.
 
 To set Microsoft Edge Beta as the default browser for html files and http/https links use the following application association file example:
 
@@ -35,10 +35,10 @@ To set Microsoft Edge Beta as the default browser for html files and http/https 
 ```
 
 > [!NOTE]
-> To make Microsoft Edge Dev the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML"
+> To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
 
 > [!NOTE]
-> The default file associations are not applied if Microsoft Edge isn't installed on the target device. In this event, users will be prompted to select their default application when they open a link or a htm/html file.
+> The default file associations aren't applied if Microsoft Edge isn't installed on the target device. In this scenario, users are prompted to select their default application when they open a link or a htm/html file.
 
 ## Set Microsoft Edge as the default browser on domain-joined devices
 
@@ -57,7 +57,7 @@ The example in the next screenshot shows an associations file named *appassoc.xm
    ![Enable file association in group policy](./media/edge-learnmore-make-edge-default-browser/edge-learnmore-app-associations.png)
 
    > [!NOTE]
-   > If this setting is enabled and the user's device is domain-joined, the file is processed, and default associations are applied at logon. If this setting isn't configured or is turned off, or if the user's device isn't domain-joined, no associations are applied.
+   > If this setting is enabled and the user's device is domain-joined, the associations configuration file is processed the next time the user signs on.
 
 ## Set Microsoft Edge as the default browser on Azure Active Directory joined devices
 
@@ -74,8 +74,10 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 
 ## See also
 
-<!-- - [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10)) -->
+- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)
 - [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
 - [DISM Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/what-is-dism)
 <!-- - [DISM Default Application Association Servicing Command-Line Options](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-default-application-association-servicing-command-line-options) -->
+<!-- - [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10)) -->

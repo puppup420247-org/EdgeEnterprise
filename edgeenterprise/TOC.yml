@@ -9,8 +9,8 @@
 - name: Configure Microsoft Edge
   href: configure-microsoft-edge.md
   items:
-   - name: Make Microsoft Edge your default browser
-     href: edge-learnmore-make-edge-default-browser.md 
+   - name: Set Microsoft Edge as the default browser
+     href: edge-default-browser.md 
    - name: Use Microsoft Edge in IE Mode
      href: edge-ie-mode.md
    - name: Browser policy reference
