@@ -30,7 +30,7 @@ These tables lists all of the browser-related group policies available in this r
 |[HTTP authentication](#http-authentication)|[Native Messaging](#native-messaging)|
 |[Password manager and protection](password-manager-and-protection)|[Printing](#printing)|
 |[Proxy server](#proxy-server)|[SmartScreen settings](#smartscreen-settings)|
-|[Startup, home page and new tab page](#startup,-home-page-and-new-tab-page))|[Additional](#additional)|
+|[Startup, home page and new tab page](#startup,-home-page-and-new-tab-page)|[Additional](#additional)|
 
 
 ### [*Cast policies*](#cast)
