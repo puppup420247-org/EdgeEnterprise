@@ -25,12 +25,12 @@ For information about an additional set of policies used to control how and when
 These tables lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 |Policy 1|Policy 2|
 |-|-|
-|[Cast](#cast)|[Content settings](#content-settings)|
-|[Default search provider](#default-search-provider)|[Extensions](#extensions)|
-|[HTTP authentication](#http-authentication)|[Native Messaging](#native-messaging)|
-|[Password manager and protection](password-manager-and-protection)|[Printing](#printing)|
-|[Proxy server](#proxy-server)|[SmartScreen settings](#smartscreen-settings)|
-|[Startup, home page and new tab page](#startup,-home-page-and-new-tab-page)|[Additional](#additional)|
+|[Cast](#cast-policies)|[Content settings](#content-settings-policies)|
+|[Default search provider](#default-search-provider-policies)|[Extensions](#extensions-policies)|
+|[HTTP authentication](#http-authentication-policies)|[Native Messaging](#native-messaging-policies)|
+|[Password manager and protection](password-manager-and-protection-policies)|[Printing](#printing-policies)|
+|[Proxy server](#proxy-server-policies)|[SmartScreen settings](#smartscreen-settings-policies)|
+|[Startup, home page and new tab page](#startup,-home-page-and-new-tab-page-policies)|[Additional](#additional-policies)|
 
 
 ### [*Cast policies*](#cast)
