@@ -31,11 +31,7 @@ Review the information in [Add a Windows line-of-business app to Microsoft Intun
 
 Download the Microsoft Edge Enterprise installation **.msi files** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). The installation files use the build channel and processor architecture in their names, and will be named like **MicrosoftEdgeDevEnterpriseX86.msi** or **MicrosoftEdgeBetaEnterpriseX64.msi**.
 
-If you also want to configure settings for Microsoft Edge using Intune, download the Microsoft Edge policy templates for Intune from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Beta or Dev).
-
-- [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
-- [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
-- [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
+If you also want to configure settings for Microsoft Edge using Intune, download the Microsoft Edge policy template file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 
 Make sure you store the Microsoft Edge installation and policy files in an accessible network location.
 
@@ -97,12 +93,7 @@ Using Microsoft Intune, you can add or create custom settings for your Windows 1
 
 This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedge.admx**. When you are done, go to [Add settings to the Microsoft Edge custom profile](#add-settings-to-the-microsoft-edge-custom-profile) to configure specific settings.
 
-1. Download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
-
-    - [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
-    - [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
-    - [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
-
+1. If you haven't already, download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). You'll find the msedge.admx file at _/windows/admx/msedge.admx_.
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
@@ -172,12 +163,7 @@ You can create a custom profile to control Microsoft Edge updates using the msed
 
 This procedure creates a new custom profile and imports the settings and policies from the Microsoft Edge policy template file **msedgeupdate.admx**. When you are done, go to [Add settings to the Microsoft Edge update custom profile](#add-settings-to-the-microsoft-edge-update-custom-profile) to configure specific settings.
 
-1. Download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). Make sure you download the policy template that matches the channel of your installation files (Stable, Beta or Dev).
-
-    - [Microsoft Edge (Stable) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099617&clcid=0x409)
-    - [Microsoft Edge (Beta) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2099618&clcid=0x409)
-    - [Microsoft Edge (Dev) Intune policy template](https://go.microsoft.com/fwlink/?linkid=2093504&clcid=0x409)
-
+1. If you haven't already, download the Microsoft Edge policy template .zip file from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). You'll find the msedgeupdate.admx file at _/windows/admx/msedgeupdate.admx_.
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 1. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 1. From the _Microsoft Intune - Overview_ blade, select **Device configuration** | **Profiles**.
