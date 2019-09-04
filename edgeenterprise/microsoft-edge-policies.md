@@ -22,7 +22,7 @@ For information about an additional set of policies used to control how and when
 
 ## Available policies
 These tables lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
-|||
+| | |
 |-|-|
 |[Cast](#[*cast-table*](#cast))|[Content settings](#[*content-settings-table*](#content-settings))|
 |[Default search provider](#[*default-search-provider-table*](#default-search-provider))|[Extensions](#[*extensions-table*](#extensions))|
