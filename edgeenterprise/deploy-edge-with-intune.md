@@ -21,17 +21,16 @@ This article shows you how to automate Microsoft Edge deployment and policy conf
 
 You can deploy Microsoft Edge to Windows and macOS clients that are managed in your company's Intune tenant by adding apps containing the Microsoft Edge installation files to Intune. Like any Intune apps, you can configure app assignments to require Microsoft Edge deployment for selected users or devices or simply make the app available in the Company Portal for users to install at their discretion.
 
-You can also configure Microsoft Edge policies and settings by adding a custom device configuration profile. If your company primarily uses Intune to manage and enforce policies on user devices, this is a good alternative to using Active Directory Group Policy or configuring local GPO settings on user devices.
+You can also configure Microsoft Edge policies and settings by adding a device configuration profile. Using Intune to manage and enforce policies is essentially equivalent to using Active Directory Group Policy or configuring local GPO settings on user devices.
 
-You can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge) to learn more, but keep in mind that this article is specific to Microsoft Edge (EdgeHTML), not Microsoft Edge Enterprise (Chromium-based).
+You can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge) to learn more, but keep in mind that this article is specific to Microsoft Edge (EdgeHTML), not Microsoft Edge Enterprise (Chromium-based), and may contain references that do not apply.
 
 ## Before you begin
 
 - Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows).
 - To create apps for **Windows 10**, download the Microsoft Edge Enterprise installation **.msi files** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). The installation files use the build channel and processor architecture in their names, and will be named like **MicrosoftEdgeDevEnterpriseX86.msi** or **MicrosoftEdgeBetaEnterpriseX64.msi**.
 - To create apps for **macOS**, download the Microsoft Edge Enterprise **PKG for macOS** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
-- If you want to configure policies and settings for Microsoft Edge for Windows 10 using Intune, download the **Microsoft Edge policy template file** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
-- Make sure you store the Microsoft Edge installation and policy files in an accessible network location.
+- Make sure you store the Microsoft Edge installation files in an accessible local or network location.
 
 ## Add an app to deploy Microsoft Edge for Windows 10 to Intune
 
@@ -86,7 +85,7 @@ When you are done, see [Assign apps to groups with Microsoft Intune](https://doc
 
 ## Create a profile to manage settings in Microsoft Edge for Windows 10
 
-Using Microsoft Intune, you can add or create a profile to manage settings for your Windows 10 devices. This section will help you create a profile to enable configuration of Microsoft Edge-specific application settings on Windows 10 devices.
+Using Microsoft Intune, you can add or create a configuration profile to manage settings for your Windows 10 devices with policies, functionality and experience equivalent to GPO. This section will help you create a profile to enable configuration of Microsoft Edge-specific application settings on Windows 10 devices.
 
 This procedure creates an Administrative Templates profile using Microsoft Edge policy settings built into Intune. When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to assign the profile to your Azure Active Directory (Azure AD) user or device groups.
 
