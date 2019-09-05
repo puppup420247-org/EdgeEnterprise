@@ -85,7 +85,7 @@ When you are done, see [Assign apps to groups with Microsoft Intune](https://doc
 
 ## Create a profile to manage settings in Microsoft Edge for Windows 10
 
-Using Microsoft Intune, you can add or create a configuration profile to manage settings for your Windows 10 devices with policies, functionality and experience equivalent to GPO. This section will help you create a profile to enable configuration of Microsoft Edge-specific application settings on Windows 10 devices.
+Using Microsoft Intune, you can create a configuration profile to manage settings for your Windows 10 devices with policies, functionality and experience equivalent to GPO. This section will help you create a profile to enable configuration of Microsoft Edge-specific application settings on Windows 10 devices.
 
 This procedure creates an Administrative Templates profile using Microsoft Edge policy settings built into Intune. When you are done, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/en-us/intune/device-profile-assign) for information about how to assign the profile to your Azure Active Directory (Azure AD) user or device groups.
 
@@ -97,7 +97,7 @@ This procedure creates an Administrative Templates profile using Microsoft Edge 
 
     |Field  |Value  |
     |---------|---------|
-    |Name     |Enter a descriptive name, like _Edge Enterprise Configuration_         |
+    |Name     |Enter a descriptive name, like _Microsoft Edge Policies_         |
     |Description     |Optionally enter a description         |
     |Platform     |Windows 10 and later         |
     |Profile type     |Administrative Templates         |
