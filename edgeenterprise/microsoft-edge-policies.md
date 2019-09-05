@@ -2403,9 +2403,9 @@ Use the following format to add an extension to the list:
 
 - extensionID - the 32-letter string found on edge://extensions when in developer mode.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (optional) is the address of the Update Manifest XML document for the app or extension. If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL.
 
 If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
 
@@ -2461,7 +2461,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 
 By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
 
 The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
 
@@ -2513,7 +2513,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 
 This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy overrides any legacy policies if both are set.
 
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043).
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -3235,7 +3235,7 @@ True
   #### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page, make sure it follows the guidelines on [https://go.microsoft.com/fwlink/?linkid=2094933](https://go.microsoft.com/fwlink/?linkid=2094933).
+Password protection service will send users to this URL to change their password after seeing a warning in the browser.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3284,7 +3284,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints, make sure your login pages follow the guidelines on [https://go.microsoft.com/fwlink/?linkid=2094933](https://go.microsoft.com/fwlink/?linkid=2094933).
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
