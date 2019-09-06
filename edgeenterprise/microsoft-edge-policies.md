@@ -26,20 +26,20 @@ These tables lists all of the browser-related group policies available in this r
  
 |||
 |-|-|
-|[Cast](#cast-policies)|[Content settings](#content-settings-policies)|
-|[Default search provider](#default-search-provider-policies)|[Extensions](#extensions-policies)|
-|[HTTP authentication](#http-authentication-policies)|[Native Messaging](#native-messaging-policies)|
-|[Password manager and protection](#password-manager-and-protection-policies)|[Printing](#printing-policies)|
-|[Proxy server](#proxy-server-policies)|[SmartScreen settings](#smartscreen-settings-policies)|
-|[Startup home page and new tab page](#startup-home-page-and-new-tab-page-policies)|[Additional](#additional-policies)|
+|[Cast](#cast)|[Content settings](#content-settings)|
+|[Default search provider](#default-search-provider)|[Extensions](#extensions)|
+|[HTTP authentication](#http-authentication)|[Native Messaging](#native-messaging)|
+|[Password manager and protection](#password-manager-and-protection)|[Printing](#printing)|
+|[Proxy server](#proxy-server)|[SmartScreen settings](#smartscreen-settings)|
+|[Startup, home page and new tab page](#startup-home-page-and-new-tab-page)|[Additional](#additional)|
 
 
-### [*Cast policies*](#cast)
+### [*Cast*](#cast-policies)
 |Policy Name|Caption|
 |-|-|
 |[EnableMediaRouter](#enablemediarouter)|Enable Google Cast|
 |[ShowCastIconInToolbar](#showcasticonintoolbar)|Show the cast icon in the toolbar|
-### [*Content settings policies*](#content-settings)
+### [*Content settings*](#content-settings-policies)
 |Policy Name|Caption|
 |-|-|
 |[AutoSelectCertificateForUrls](#autoselectcertificateforurls)|Automatically select client certificates for these sites|
@@ -69,7 +69,7 @@ These tables lists all of the browser-related group policies available in this r
 |[WebUsbAllowDevicesForUrls](#webusballowdevicesforurls)|Grant access to specific sites to connect to specific USB devices|
 |[WebUsbAskForUrls](#webusbaskforurls)|Allow WebUSB on specific sites|
 |[WebUsbBlockedForUrls](#webusbblockedforurls)|Block WebUSB on specific sites|
-### [*Default search provider policies*](#default-search-provider)
+### [*Default search provider*](#default-search-provider-policies)
 |Policy Name|Caption|
 |-|-|
 |[DefaultSearchProviderEnabled](#defaultsearchproviderenabled)|Enable the default search provider|
@@ -80,7 +80,7 @@ These tables lists all of the browser-related group policies available in this r
 |[DefaultSearchProviderName](#defaultsearchprovidername)|Default search provider name|
 |[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl)|Default search provider search URL|
 |[DefaultSearchProviderSuggestURL](#defaultsearchprovidersuggesturl)|Default search provider URL for suggestions|
-### [*Extensions policies*](#extensions)
+### [*Extensions*](#extensions-policies)
 |Policy Name|Caption|
 |-|-|
 |[ExtensionAllowedTypes](#extensionallowedtypes)|Configure allowed extension types|
@@ -89,7 +89,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ExtensionInstallForcelist](#extensioninstallforcelist)|Control which extensions are installed silently|
 |[ExtensionInstallSources](#extensioninstallsources)|Configure extension and user script install sources|
 |[ExtensionSettings](#extensionsettings)|Configure extension management settings|
-### [*HTTP authentication policies*](#http-authentication)
+### [*HTTP authentication*](#http-authentication-policies)
 |Policy Name|Caption|
 |-|-|
 |[AllowCrossOriginAuthPrompt](#allowcrossoriginauthprompt)|Allow cross-origin HTTP Basic Auth prompts|
@@ -99,20 +99,20 @@ These tables lists all of the browser-related group policies available in this r
 |[DisableAuthNegotiateCnameLookup](#disableauthnegotiatecnamelookup)|Disable CNAME lookup when negotiating Kerberos authentication|
 |[EnableAuthNegotiatePort](#enableauthnegotiateport)|Include non-standard port in Kerberos SPN|
 |[NtlmV2Enabled](#ntlmv2enabled)|Control whether NTLMv2 authentication is enabled|
-### [*Native Messaging policies*](#native-messaging)
+### [*Native Messaging*](#native-messaging-policies)
 |Policy Name|Caption|
 |-|-|
 |[NativeMessagingAllowlist](#nativemessagingallowlist)|Control which native messaging hosts users can use|
 |[NativeMessagingBlocklist](#nativemessagingblocklist)|Configure native messaging block list|
 |[NativeMessagingUserLevelHosts](#nativemessaginguserlevelhosts)|Allow user-level native messaging hosts (installed without admin permissions)|
-### [*Password manager and protection policies*](#password-manager-and-protection)
+### [*Password manager and protection*](#password-manager-and-protection-policies)
 |Policy Name|Caption|
 |-|-|
 |[PasswordManagerEnabled](#passwordmanagerenabled)|Enable saving passwords to the password manager|
 |[PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)|Configure the change password URL|
 |[PasswordProtectionLoginURLs](#passwordprotectionloginurls)|Configure the list of enterprise login URLs where password protection service should capture fingerprint of password|
 |[PasswordProtectionWarningTrigger](#passwordprotectionwarningtrigger)|Configure password protection warning trigger|
-### [*Printing policies*](#printing)
+### [*Printing*](#printing-policies)
 |Policy Name|Caption|
 |-|-|
 |[DefaultPrinterSelection](#defaultprinterselection)|Default printer selection rules|
@@ -120,7 +120,7 @@ These tables lists all of the browser-related group policies available in this r
 |[PrintPreviewUseSystemDefaultPrinter](#printpreviewusesystemdefaultprinter)|Set the system default printer as the default printer|
 |[PrintingEnabled](#printingenabled)|Enable printing|
 |[UseSystemPrintDialog](#usesystemprintdialog)|Print using system print dialog|
-### [*Proxy server policies*](#proxy-server)
+### [*Proxy server*](#proxy-server-policies)
 |Policy Name|Caption|
 |-|-|
 |[ProxyBypassList](#proxybypasslist)|Configure proxy bypass rules|
@@ -128,7 +128,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ProxyPacUrl](#proxypacurl)|Set the proxy .pac file URL|
 |[ProxyServer](#proxyserver)|Configure address or URL of proxy server|
 |[ProxySettings](#proxysettings)|Proxy settings|
-### [*SmartScreen settings policies*](#smartscreen-settings)
+### [*SmartScreen settings*](#smartscreen-settings-policies)
 |Policy Name|Caption|
 |-|-|
 |[PreventSmartScreenPromptOverride](#preventsmartscreenpromptoverride)|Prevent bypassing Microsoft Defender SmartScreen prompts for sites|
@@ -136,7 +136,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which Microsoft Defender SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Configure Microsoft Defender SmartScreen for trusted downloads|
-### [*Startup home page and new tab page policies*](#startup-home-page-and-new-tab-page)
+### [*Startup&comma; home page and new tab page*](#startup-home-page-and-new-tab-page-policies)
 |Policy Name|Caption|
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
@@ -146,7 +146,7 @@ These tables lists all of the browser-related group policies available in this r
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
-### [*Additional policies*](#additional)
+### [*Additional*](#additional-policies)
 |Policy Name|Caption|
 |-|-|
 |[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Ads setting for sites with intrusive ads|
@@ -266,7 +266,7 @@ These tables lists all of the browser-related group policies available in this r
 
 
 
-  ## Cast
+  ## Cast policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -364,7 +364,7 @@ False
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Content settings
+  ## Content settings policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -1806,7 +1806,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Default search provider
+  ## Default search provider policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -2226,7 +2226,7 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Extensions
+  ## Extensions policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -2707,7 +2707,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
 
   [Back to top](#microsoft-edge---policies)
 
-  ## HTTP authentication
+  ## HTTP authentication policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -3022,7 +3022,7 @@ True
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Native Messaging
+  ## Native Messaging policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -3175,7 +3175,7 @@ False
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Password manager and protection
+  ## Password manager and protection policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -3390,7 +3390,7 @@ If you disable or don't configure this policy, then the warning trigger is not s
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Printing
+  ## Printing policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -3635,7 +3635,7 @@ False
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Proxy server
+  ## Proxy server policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -3948,7 +3948,7 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
 
   [Back to top](#microsoft-edge---policies)
 
-  ## SmartScreen settings
+  ## SmartScreen settings policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4189,7 +4189,7 @@ False
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Startup home page and new tab page
+  ## Startup&comma; home page and new tab page policies
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4555,7 +4555,7 @@ True
 
   [Back to top](#microsoft-edge---policies)
 
-  ## Additional
+  ## Additional policies
 
   [Back to top](#microsoft-edge---policies)
 
