@@ -4,6 +4,8 @@
   items:
    - name: Deploy with Configuration Manager
      href: deploy-edge-with-configuration-manager.md
+   - name: Deploy with Intune
+     href: deploy-edge-with-intune.md
    - name: Deploy to MacOS
      href: deploy-edge-to-the-mac.md
 - name: Configure Microsoft Edge
