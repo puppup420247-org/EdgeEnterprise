@@ -82,44 +82,30 @@ Use the following steps to enable IE mode.
 
 7. Click **OK** or **Apply** to save this policy setting.
 
+   >[!NOTE]
+   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2 or v.2.1. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+
 <!--
     ![Click apply](./media/ie-mode/ie-mode-4.png)-->
 
-### Configure the sites should open in IE mode
+### Configure which sites should open in IE mode
 
-There are 2 options for determining which sites should open in IE mode:
+There are 2 options for identifying which sites should open in IE mode:
 
+- (Recommended) Sites on the Enterprise Site List XML should open in IE mode.
 - All intranet sites should open in IE mode.
-- Sites on the Enterprise Site List XML should open in IE mode.
 
-#### To configure all intranet sites to open in IE mode
+#### Use Site List XML to configure specific sites to open in IE mode
 
->[!NOTE]
->
->- This group policy may be most appropriate for an organization that does not currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
-> - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone”.
-> - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
->
+You can use the following group policies to configure specific sites to open in IE mode:
 
-1. Open Local Group Policy Editor.
-2. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
-3. Double-click **Send all intranet sites to Internet Explorer**.
+- Use the Enterprise Mode IE website list
+- Configure the Enterprise Mode Site List. This policy lets you create a separate Enterprise Mode Site list.
 
-    ![Open Send all intranet sites to Internet Explorer policy](./media/ie-mode/ie-mode-5.png)
+  > [!NOTE]
+  > Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
-4. Select **Enabled**, and then click **OK** or **Apply** to save the policy settings.
-
-    ![Select enabled](./media/ie-mode/ie-mode-6.png)
-
-<!--
-5. Click **Apply**.
-
-    ![Click apply](./media/ie-mode/ie-mode-7.png) -->
-
-#### To use a Site List to configure specific sites to open in IE mode
-
->[!NOTE]
->Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2 or v.2.1. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+**To configure the "Use the Enterprise Mode IE website list" policy:**
 
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
@@ -145,11 +131,63 @@ There are 2 options for determining which sites should open in IE mode:
 
     ![Set the path to the site list XML](./media/ie-mode/ie-mode-11-b.png)
 
+**To configure the "Configure the Enterprise Mode Site List" policy:**
+
+1. Create or re-use a Site List XML
+    1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
+2. Open Group Policy Editor.
+3. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
+4. Double-click **Configure the Enterprise Mode Site List**.
+
+    ![Open Use the Enterprise Mode IE website list policy](./media/ie-mode/ie-mode-8.png)
+
+5. Select **Enabled**.
+
+    ![Select enabled](./media/ie-mode/ie-mode-9.png)
+
+6. Under **Options**, type the location of website list. You can use one of the following locations:
+
+    - (Recommended) HTTPS location: **https://localhost:8080/sites.xml**
+    - Local network file: **\\\network\shares\sites.xml**
+    - Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
+
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-10-b.png)
+
+7. Click **OK** or **Apply** to save these settings.
+
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11-b.png)
+
+For more information about Enterprise Mode Site lists, see:
+
+- [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager)
+- [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool).
+
+#### Configure all intranet sites to open in IE mode
+
 >[!NOTE]
-> The following articles give more information about creating the Enterprise Mode Site List:
 >
->- [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager)
->- [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool).
+>- This group policy may be most appropriate for an organization that does not currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
+> - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
+> - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
+>
+
+**To configure all intranet sites to open in IE mode:**
+
+1. Open Local Group Policy Editor.
+2. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
+3. Double-click **Send all intranet sites to Internet Explorer**.
+
+    ![Open Send all intranet sites to Internet Explorer policy](./media/ie-mode/ie-mode-5.png)
+
+4. Select **Enabled**, and then click **OK** or **Apply** to save the policy settings.
+
+    ![Select enabled](./media/ie-mode/ie-mode-6.png)
+
+<!--
+5. Click **Apply**.
+
+    ![Click apply](./media/ie-mode/ie-mode-7.png) -->
+
 
 #### Updated schema elements
 
