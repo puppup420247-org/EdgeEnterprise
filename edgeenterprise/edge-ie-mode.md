@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 08/19/2019
+ms.date: 09/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -169,8 +169,6 @@ For more information about Enterprise Mode Site lists, see:
 > - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
 > - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
 >
-
-**To configure all intranet sites to open in IE mode:**
 
 1. Open Local Group Policy Editor.
 2. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
