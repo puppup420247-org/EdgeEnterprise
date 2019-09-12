@@ -41,8 +41,10 @@ IE mode on Microsoft Edge is a simplified experience that combines a modern rend
 
 IE mode is policy enabled and applies to:
 
-- Sites listed in the **Use the Enterprise Mode IE website list** Internet Explorer group policy
-- Intranet sites that have **Send all intranet sites to Internet Explorer** Microsoft Edge 77 or later group policy enabled
+- Sites listed in these group policies:
+  - Internet Explorer, "Use the Enterprise Mode IE website list"
+  - Microsoft Edge 78 or later, "Configure the Enterprise Mode Site List"
+- Intranet sites that have the **Send all intranet sites to Internet Explorer** group policy enabled (Microsoft Edge 77 or later.)
 
 ### IE mode supports the following Internet Explorer functionality
 
@@ -92,20 +94,22 @@ Use the following steps to enable IE mode.
 
 There are 2 options for identifying which sites should open in IE mode:
 
-- (Recommended) Sites on the Enterprise Site List XML should open in IE mode.
-- All intranet sites should open in IE mode.
+- (Recommended) [Sites on the Enterprise Site list](configure-sites-on-the-enterprise-site-list)
+- [All intranet sites](configure-all-intranet-sites-to-open-in-IE-mode)
 
-#### Use Site List XML to configure specific sites to open in IE mode
+## Configure sites on the Enterprise Site list
 
 You can use the following group policies to configure specific sites to open in IE mode:
 
-- **Use the Enterprise Mode IE website list**
-- **Configure the Enterprise Mode Site List**. This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+- **Use the Enterprise Mode IE website list** (Internet Explorer)
+- **Configure the Enterprise Mode Site List** (Microsoft Edge Dev Channel, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
-  > [!IMPORTANT]
-  > This policy applies to Microsoft Edge Dev Channel, version 78 or later.
+For more information about Enterprise Mode Site lists, see:
 
-**To configure the "Use the Enterprise Mode IE website list" policy:**
+- [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager)
+- [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool).
+
+### To configure the "Use the Enterprise Mode IE website list" policy:
 
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
@@ -131,7 +135,7 @@ You can use the following group policies to configure specific sites to open in 
 
     ![Click OK or Apply to save settings](./media/ie-mode/ie-mode-11-b.png)
 
-**To configure the "Configure the Enterprise Mode Site List" policy:**
+### To configure the "Configure the Enterprise Mode Site List" policy:
 
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
@@ -157,12 +161,7 @@ You can use the following group policies to configure specific sites to open in 
 
     ![Click OK or Apply to save settings](./media/ie-mode/ie-mode-sitelist-apply.png)
 
-For more information about Enterprise Mode Site lists, see:
-
-- [Use the Enterprise Mode Site List Manager](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/use-the-enterprise-mode-site-list-manager)
-- [Add multiple sites to the Enterprise Mode site list using a file and the Enterprise Mode Site List Manager (schema v.2)](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/add-multiple-sites-to-enterprise-mode-site-list-using-the-version-2-schema-and-enterprise-mode-tool).
-
-#### Configure all intranet sites to open in IE mode
+## Configure all intranet sites to open in IE mode
 
 >[!NOTE]
 >
