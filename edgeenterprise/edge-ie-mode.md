@@ -99,11 +99,11 @@ There are 2 options for identifying which sites should open in IE mode:
 
 You can use the following group policies to configure specific sites to open in IE mode:
 
-- Use the Enterprise Mode IE website list
-- Configure the Enterprise Mode Site List. This policy lets you create a separate Enterprise Mode Site list.
+- **Use the Enterprise Mode IE website list**
+- **Configure the Enterprise Mode Site List**. This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
-  > [!NOTE]
-  > Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+  > [!IMPORTANT]
+  > This policy applies to Microsoft Edge Dev Channel, version 78 or later.
 
 **To configure the "Use the Enterprise Mode IE website list" policy:**
 
@@ -129,7 +129,7 @@ You can use the following group policies to configure specific sites to open in 
 
 7. Click **OK** or **Apply** to save these settings.
 
-    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11-b.png)
+    ![Click OK or Apply to save settings](./media/ie-mode/ie-mode-11-b.png)
 
 **To configure the "Configure the Enterprise Mode Site List" policy:**
 
@@ -139,11 +139,11 @@ You can use the following group policies to configure specific sites to open in 
 3. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
 4. Double-click **Configure the Enterprise Mode Site List**.
 
-    ![Open Use the Enterprise Mode IE website list policy](./media/ie-mode/ie-mode-8.png)
+    ![Open Configure the Enterprise Mode site list policy](./media/ie-mode/ie-mode-sitelist-1.png)
 
 5. Select **Enabled**.
 
-    ![Select enabled](./media/ie-mode/ie-mode-9.png)
+    ![Select enabled](./media/ie-mode/ie-mode-sitelist-enable.png)
 
 6. Under **Options**, type the location of website list. You can use one of the following locations:
 
@@ -151,11 +151,11 @@ You can use the following group policies to configure specific sites to open in 
     - Local network file: **\\\network\shares\sites.xml**
     - Local file: **file:///c:/Users/\<user\>/Documents/sites.xml**
 
-    ![Set the path to the site list XML](./media/ie-mode/ie-mode-10-b.png)
+    ![Set the path to the site list XML](./media/ie-mode/ie-mode-sitelist-url.png)
 
 7. Click **OK** or **Apply** to save these settings.
 
-    ![Set the path to the site list XML](./media/ie-mode/ie-mode-11-b.png)
+    ![Click OK or Apply to save settings](./media/ie-mode/ie-mode-sitelist-apply.png)
 
 For more information about Enterprise Mode Site lists, see:
 
@@ -166,7 +166,7 @@ For more information about Enterprise Mode Site lists, see:
 
 >[!NOTE]
 >
->- This group policy may be most appropriate for an organization that does not currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
+>- This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
 > - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
 > - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
 >
@@ -181,13 +181,12 @@ For more information about Enterprise Mode Site lists, see:
 
 4. Select **Enabled**, and then click **OK** or **Apply** to save the policy settings.
 
-    ![Select enabled](./media/ie-mode/ie-mode-6.png)
+    ![Select enabled and Apply settings](./media/ie-mode/ie-mode-6.png)
 
 <!--
 5. Click **Apply**.
 
     ![Click apply](./media/ie-mode/ie-mode-7.png) -->
-
 
 #### Updated schema elements
 
