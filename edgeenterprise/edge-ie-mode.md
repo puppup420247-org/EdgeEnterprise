@@ -94,8 +94,8 @@ Use the following steps to enable IE mode.
 
 There are 2 options for identifying which sites should open in IE mode:
 
-- (Recommended) [Sites on the Enterprise Site list](configure-sites-on-the-enterprise-site-list)
-- [All intranet sites](configure-all-intranet-sites-to-open-in-IE-mode)
+- (Recommended) [Sites on the Enterprise Site list](#configure-sites-on-the-enterprise-site-list)
+- [All intranet sites](#configure-all-intranet-sites-to-open-in-IE-mode)
 
 ## Configure sites on the Enterprise Site list
 
