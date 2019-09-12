@@ -3,7 +3,7 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 07/12/2019
+ms.date: 08/19/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -18,24 +18,31 @@ description: "Frequently asked questions about deploying Microsoft Edge in the e
 > This article applies to Microsoft Edge version 77 or later.
 
 ## How do I know which version of Microsoft Edge I have?
-In the upper right corner of Microsoft Edge, click the ellipses icon (**...**), and then click **Settings**. Look in the _About Microsoft Edge_ section to know your version.
+
+In the upper right corner of Microsoft Edge, click the ellipses icon (**...**), and then click **Settings**. Select **About Microsoft Edge** to see your version of Microsoft Edge.
 
 ## Will Internet Explorer 11 continue to receive updates?
-We’re committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it’s installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will be available only in Microsoft Edge.
+
+We’re committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it’s installed. For more information, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While we continue to support and update Internet Explorer, the latest features and platform updates will be available only in Microsoft Edge.
 
 ## Can I run the current version of Microsoft Edge side by side when I'm trying the new version?
-Yes, you can. During the testing phase for the new version of Microsoft Edge, no changes will be made to the current version, and you will be able to continue using it. Additionally, each of the new Microsoft Edge channels are also supported side by side.
+
+Yes, you can. During the testing phase for the new version of Microsoft Edge, no changes will be made to the current version, and you will be able to continue using it. Additionally, each of the new Microsoft Edge channels are also support side by side testing.
 
 ## Will favorites be ported over from the current version of Microsoft Edge or will I have to re-add?
+
 Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
 
-## What is the difference between the Canary and Developer channels/builds?
-The Canary channel will update about daily, and the Dev channel will update about weekly. Also, offline installers (MSIs and PKG files) will only be available for the Dev channel. More information about other channels will be coming soon.
+## What's the difference between the Beta, Dev, and Canary channels/builds?
+
+The Beta of the next version of Microsoft Edge is the most stable preview channel we offer, with enterprise-focused features ready for you to [pilot and evaluate](https://www.microsoftedgeinsider.com/enterprise?form=MB1102&OCID=MB1102). The Beta channel will be updated approximately every six weeks. The Dev and Canary channels will continue to update weekly and daily respectively. Offline installers (MSIs and PKG files) are only available for the Beta and Dev channels.
 
 ## What kind of extension support do I have with the new version of Microsoft Edge?
+
 Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://go.microsoft.com/fwlink/?linkid=2081222) and [Chrome Web Store](https://go.microsoft.com/fwlink/?linkid=2072338).
 
 ## Do you support Mobile Device Management (MDM) and Microsoft Intune?
+
 Support for MDM and integration with Microsoft Intune is on our roadmap.
 
 ## See also
