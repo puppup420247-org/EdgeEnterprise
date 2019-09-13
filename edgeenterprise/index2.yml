@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/10/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/13/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -42,8 +42,8 @@ landingContent:
         links:
           - text: Deploy with Configuration Manager
             url: deploy-edge-with-configuration-manager.md
-#          - text: Deploy with Microsoft Intune
-#            url: deploy-edge-with-intune.md
+          - text: Deploy with Microsoft Intune
+            url: deploy-edge-with-intune.md
           - text: Deploy to macOS
             url: deploy-edge-to-the-mac.md
       - linkListType: how-to-guide
