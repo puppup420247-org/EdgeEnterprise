@@ -3,7 +3,7 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 08/19/2019
+ms.date: 09/13/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -43,7 +43,7 @@ Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://
 
 ## Do you support Mobile Device Management (MDM) and Microsoft Intune?
 
-Support for MDM and integration with Microsoft Intune is on our roadmap.
+Deployment and policy configuration of Microsoft Edge using MDM and Microsoft Intune is supported. For more information, see [Deploy Microsoft Edge using Microsoft Intune](deploy-edge-with-intune.md).
 
 ## See also
 

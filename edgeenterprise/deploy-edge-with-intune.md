@@ -3,7 +3,7 @@ title: "Deploy Microsoft Edge using Microsoft Intune"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 09/5/2019
+ms.date: 09/13/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -23,7 +23,7 @@ You can deploy Microsoft Edge to Windows and macOS clients that are managed in y
 
 Additionally, you can configure Microsoft Edge policies and settings by adding a device configuration profile. Using Intune to manage and enforce policies is essentially equivalent to using Active Directory Group Policy or configuring local Group Policy Object (GPO) settings on user devices.
 
-You can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge) to learn more, but keep in mind that this article is specific to Microsoft Edge (EdgeHTML), not Microsoft Edge Enterprise (Chromium-based), and may contain references that don't apply.
+You can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge) to learn more, but keep in mind that the linked article is specific to Microsoft Edge version 45 and earlier and therefore may contain information and references that don't apply to Microsoft Edge Enterprise version 77 and later.
 
 ## Before you begin
 
