@@ -20,7 +20,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (col 1)
+  # Card (col 1, 1st row)
   - title: About Microsoft Edge
     linkLists:
       - linkListType: get-started
@@ -35,7 +35,7 @@ landingContent:
             url: "https://www.microsoftedgeinsider.com/whats-new"
 
 
-  # Card (col 2)
+  # Card (col 2, 1st row)
   - title: Deploy and configure Microsoft Edge
     linkLists:
       - linkListType: deploy
@@ -56,7 +56,7 @@ landingContent:
             url: edge-ie-mode.md
 
 
-  # Card col 3
+  # Card (col 3, 1st row)
   - title: Configure group policies
     linkLists:
       - linkListType: reference
@@ -67,7 +67,7 @@ landingContent:
             url: microsoft-edge-update-policies.md
 
 
-  # Card col 4
+  # Card (col 1, 2nd row)
   - title: Security and privacy
     linkLists:
       - linkListType: how-to-guide
