@@ -20,7 +20,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+  # Card (col 1)
   - title: About Microsoft Edge
     linkLists:
       - linkListType: get-started
@@ -35,7 +35,7 @@ landingContent:
             url: "https://www.microsoftedgeinsider.com/whats-new"
 
 
-  # Card (optional)
+  # Card (col 2)
   - title: Deploy and configure Microsoft Edge
     linkLists:
       - linkListType: deploy
@@ -56,7 +56,7 @@ landingContent:
             url: edge-ie-mode.md
 
 
-  # Card
+  # Card col 3
   - title: Configure group policies
     linkLists:
       - linkListType: reference
