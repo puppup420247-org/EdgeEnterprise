@@ -46,8 +46,8 @@ landingContent:
             url: deploy-edge-with-intune.md
           - text: Deploy to macOS
             url: deploy-edge-to-the-mac.md
-      - linkListType: how-to-guide
-        links:
+#      - linkListType: how-to-guide
+#        links:
           - text: Configure Microsoft Edge
             url: configure-microsoft-edge.md
           - text: Set Microsoft Edge as the default browser
