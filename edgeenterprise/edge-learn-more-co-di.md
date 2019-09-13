@@ -3,7 +3,7 @@ title: "ClickOnce and DirectInvoke in Microsoft Edge"
 ms.author: kele
 author: dan-wesley
 manager: srugh
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -17,6 +17,7 @@ description: "Learn about ClickOnce and DirectInvoke in Microsoft Edge."
 ClickOnce and DirectInvoke are features available in IE and Microsoft Edge (EdgeHTML) that support the use of a file handler to download files from a website. Although they serve different purposes, both features let websites specify that a file requested for download is passed to a file handler on the user’s device. ClickOnce requests are handled by the native file handler in Windows. DirectInvoke requests are handled by a registered file handler specified by the website hosting the file.
 
 For more information about these features, see:
+
 - [ClickOnce](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-security-and-deployment?view=vs-2019)
 - [DirectInvoke]( https://technet.microsoft.com/en-us/learning/jj215788(v=vs.94).aspx)
 
@@ -86,23 +87,35 @@ There are 2 group policies that you can use to enable or disable ClickOnce and D
 
 ## ClickOnce and DirectInvoke behavior
 
-abcd
+The following examples show file handling when ClickOnce and DirectInvoke are enabled or disabled.
 
 ### ClickOnce enabled
 
-abcd
+1. A user navigates to a page with a button or link that requests ClickOnce support and clicks the button/link.
+2. After the user clicks the button/link, the browser shows a popup that asks the user if they're sure they want to open the file.
+3. When the user clicks **Open**, the ClickOnce file handler is activated and the file is opened.
+
+   > [!NOTE]
+   > The interface, messaging, and options shown by the ClickOnce file handler will vary depending on the type and configuration of the file that's accessed.
 
 ### ClickOnce disabled
 
-abcd
+1. A user navigates to a page with a button or link that requests ClickOnce support and clicks the button/link.
+2. After the user clicks on the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not execute as expected because the ClickOnce parameters aren't passed if ClickOnce is disabled.
 
 ### DirectInvoke enabled
 
-abcd
+1. A user navigates to a page with a button or link that requests DirectInvoke support and clicks the button/link.
+2. After the user clicks the button/link, the browser asks whether the user is sure they want to open the file.
+3. When the user clicks **Open**, the requested file handler is opened.
+
+   > [!NOTE]
+   > The interface, messaging, and options shown by the DirectInvoke file handler will vary depending on the type and configuration of the file that's accessed.
 
 ### DirectInvoke disabled
 
-abcd
+1. A user navigates to a page with a button or link that requests DirectInvoke support and clicks the button/link.
+2. After the user clicks the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not perform as expected because the DirectInvoke parameters aren't passed if DirectInvoke is disabled.
 
 ## See also
 
