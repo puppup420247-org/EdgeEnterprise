@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Microsoft Edge documentation # < 60 chars
-summary: Microsoft Edge (Chromium-based) enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # < 160 chars
+summary: Microsoft Edge enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # < 160 chars
 
 metadata:
   title: Microsoft Edge # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Microsoft Edge (Chromium-based) enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # Required; article description that is displayed in search results. < 160 chars.
+  description: Microsoft Edge enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: subservice
@@ -25,7 +25,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is Microsoft Edge (Chromium-based)?
+          - text: Microsoft Edge Insider
             url: "https://www.microsoftedgeinsider.com"
           - text: Frequently asked questions
             url: faqs-edge-in-the-enterprise.md            
@@ -67,7 +67,7 @@ landingContent:
             url: microsoft-edge-update-policies.md
 
 
-  # Card
+  # Card col 4
   - title: Security and privacy
     linkLists:
       - linkListType: how-to-guide
