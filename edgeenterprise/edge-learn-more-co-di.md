@@ -18,8 +18,8 @@ ClickOnce and DirectInvoke are features available in IE and Microsoft Edge (Edge
 
 For more information about these features, see:
 
-- [ClickOnce](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-security-and-deployment?view=vs-2019)
-- [DirectInvoke]( https://technet.microsoft.com/en-us/learning/jj215788(v=vs.94).aspx)
+- [ClickOnce](https://docs.microsoft.com/visualstudio/deployment/clickonce-security-and-deployment?view=vs-2019)
+- [DirectInvoke]( https://technet.microsoft.com/learning/jj215788(v=vs.94).aspx)
 
 > [!NOTE]
 > Currently, Chromium doesn't provide native support for ClickOnce or DirectInvoke.
@@ -53,7 +53,7 @@ Support for ClickOnce and DirectInvoke:
 - DirectInvoke is supported out of the box for all Windows users but ClickOnce is disabled for all Windows users.
 
   > [!NOTE]
-  > Users that need ClickOnce support can go to edge://flags. Scroll to **ClickOnce Support** and select **Enable** from the dropdown list.
+  > Users that need ClickOnce support can go to edge://flags. Scroll to **ClickOnce Support** and select **Enable** from the dropdown list. You'll have to **Restart** the browser.
 
 - ClickOnce and DirectInvoke aren’t supported on any platforms other than Windows.
 - Because ClickOnce is an enterprise-focused feature that’s used by a specific group of power users and not intended for general use, ClickOnce is disabled by default.
@@ -66,7 +66,7 @@ If a ClickOnce or a DirectInvoke request was is flagged by the Microsoft Defende
 
 The first popup asks the user if they want to open the file. This popup is displayed regardless of whether the file was flagged as safe or unsafe. The user can **Report the file as unsafe**, **Cancel** the request, or click **Open** to continue.
 
-   ![Prompt to open file](./media/edge-learn-more-co-di/unsafe-popup-1.png)
+   ![Prompt to open file](./media/edge-learn-more-co-di/edge-clickonce-modal-1.png)
 
 If the user tries to open the file, and the file was flagged as unsafe, a second popup is displayed.  This popup warns the user that the file was flagged as unsafe, and asks them if they’re sure they want to download the file.
 
@@ -76,7 +76,7 @@ The second popup only shows up if:
 - ClickOnce or DirectInvoke are enabled
 - the file is flagged as unsafe
 
- ![Prompt to open unsafe file](./media/edge-learn-more-co-di/unsafe-popup-2.png)
+ ![Prompt to open unsafe file](./media/edge-learn-more-co-di/edge-clickonce-modal-2.png)
 
 > [!NOTE]
 > If ClickOnce or DirectInvoke are disabled, requested files are treated as regular downloads and if flagged as unsafe, will be marked as unsafe. This is consistent with the treatment of other unsafe downloads.
@@ -91,21 +91,32 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
 ### ClickOnce enabled
 
-1. A user navigates to a page with a button or link that requests ClickOnce support and clicks the button/link.
-2. After the user clicks the button/link, the browser shows a popup that asks the user if they're sure they want to open the file.
-3. When the user clicks **Open**, the ClickOnce file handler is activated and the file is opened.
+1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
+
+   ![Prompt to open an unsafe file](./media/edge-learn-more-co-di/edge-clickonce-enabled-1.png)
+
+2. After the user clicks **Open**, the browser shows a popup that asks the user if they're sure they want to install the application.
+
+   ![Prompt to open the file](./media/edge-learn-more-co-di/edge-clickonce-enabled-2.png)
 
    > [!NOTE]
    > The interface, messaging, and options shown by the ClickOnce file handler will vary depending on the type and configuration of the file that's accessed.
 
+3. When the user clicks **Install**, Windows Defender SmartScreen blocks the installation.
+
+   ![Windows Defender SmartScreen prompt](./media/edge-learn-more-co-di/edge-clickonce-enabled-3.png)
+
 ### ClickOnce disabled
 
-1. A user navigates to a page with a button or link that requests ClickOnce support and clicks the button/link.
-2. After the user clicks on the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not execute as expected because the ClickOnce parameters aren't passed if ClickOnce is disabled.
+1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
+
+   ![File download prompt](./media/edge-learn-more-co-di/edge-clickonce-disabled-1.png)
+
+2. After the user clicks **Open** or **Open file**, the Windows Defender SmartScreen block is shown. <!-- the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not execute as expected because the ClickOnce parameters aren't passed if ClickOnce is disabled.-->
 
 ### DirectInvoke enabled
 
-1. A user navigates to a page with a button or link that requests DirectInvoke support and clicks the button/link.
+1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
 2. After the user clicks the button/link, the browser asks whether the user is sure they want to open the file.
 3. When the user clicks **Open**, the requested file handler is opened.
 
@@ -114,8 +125,8 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
 ### DirectInvoke disabled
 
-1. A user navigates to a page with a button or link that requests DirectInvoke support and clicks the button/link.
-2. After the user clicks the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not perform as expected because the DirectInvoke parameters aren't passed if DirectInvoke is disabled.
+1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.t.
+1. After the user clicks the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not perform as expected because the DirectInvoke parameters aren't passed if DirectInvoke is disabled.
 
 ## See also
 
