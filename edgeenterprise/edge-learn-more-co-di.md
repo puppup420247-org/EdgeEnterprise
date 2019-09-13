@@ -14,7 +14,7 @@ description: "Learn about ClickOnce and DirectInvoke in Microsoft Edge."
 
 # Understand the ClickOnce and DirectInvoke features in Microsoft Edge
 
-ClickOnce and DirectInvoke are features available in IE and Microsoft Edge (EdgeHTML) that support the use of a file handler to download files from a website. Although they serve different purposes, both features let websites specify that a file requested for download is passed to a file handler on the user’s device. ClickOnce requests are handled by the native file handler in Windows. DirectInvoke requests are handled by a registered file handler specified by the website hosting the file.
+ClickOnce and DirectInvoke are features available in IE and Microsoft Edge (version 45 and earlier) that support the use of a file handler to download files from a website. Although they serve different purposes, both features let websites specify that a file requested for download is passed to a file handler on the user’s device. ClickOnce requests are handled by the native file handler in Windows. DirectInvoke requests are handled by a registered file handler specified by the website hosting the file.
 
 For more information about these features, see:
 
