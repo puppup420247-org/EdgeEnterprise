@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 
 # Use Microsoft Edge with IE mode
 
-This article explains how  to use Microsoft Edge with IE mode.
+This article explains how to use Microsoft Edge with IE mode.
 
 >[!NOTE]
 >This article applies to Microsoft Edge **Beta** and **Dev** Channels, version 77 or later.
@@ -183,12 +183,7 @@ For more information about Enterprise Mode Site lists, see:
 
     ![Select enabled and Apply settings](./media/ie-mode/ie-mode-6.png)
 
-<!--
-5. Click **Apply**.
-
-    ![Click apply](./media/ie-mode/ie-mode-7.png) -->
-
-#### Updated schema elements
+### Updated schema elements
 
 The following table describes the \<open-in app\> element added to the v.2 of the Enterprise Mode schema:
 
@@ -304,4 +299,4 @@ The solution is to configure the authentication server in your Enterprise site l
 
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
-- [Additional Enterprise Mode info](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-overview-for-ie11)
+- [Additional Enterprise Mode information](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-overview-for-ie11)
