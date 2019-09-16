@@ -56,10 +56,10 @@ landingContent:
             url: edge-default-browser.md
           - text: Use Microsoft Edge in IE mode
             url: edge-ie-mode.md
-          - text: Review and use security tools
-            url: security-overview.md
-          - text: Configure privacy policy
-            url: microsoft-edge-privacy-policy.md
+#          - text: Review and use security tools
+#            url: security-overview.md
+#          - text: Configure privacy policy
+#            url: microsoft-edge-privacy-policy.md
 
   # Card (col 3, 1st row)
   - title: Configure group policies
@@ -73,11 +73,11 @@ landingContent:
 
 
   # Card (col 1, 2nd row)
-#  - title: Security and privacy
-#    linkLists:
-#      - linkListType: how-to-guide
-#        links:
-#          - text: Review and use security tools
-#            url: security-overview.md
-#          - text: Configure privacy policy
-#            url: microsoft-edge-privacy-policy.md
+  - title: Security and privacy
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Review and use security tools
+            url: security-overview.md
+          - text: Configure privacy policy
+            url: microsoft-edge-privacy-policy.md
