@@ -91,7 +91,7 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
 ### ClickOnce enabled
 
-1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
+1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screenshot.
 
    ![Prompt to open an unsafe file](./media/edge-learn-more-co-di/edge-clickonce-enabled-1.png)
 
@@ -108,17 +108,17 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
 ### ClickOnce disabled
 
-1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
+1. When a user opens a link to a page that requests ClickOnce support, they will see a message in the download tray that is similar to the one in the next screenshot.
 
    ![File download prompt](./media/edge-learn-more-co-di/edge-clickonce-disabled-1.png)
 
 ### DirectInvoke enabled
 
-1. A user opens a link to a page that requests DirectInvoke support and gets the prompt in the next screen capture.
+1. A user opens a link to a page that requests DirectInvoke support and gets the prompt in the next screenshot.
 
    ![Prompt to open file](./media/edge-learn-more-co-di/edge-directinvoke-open-link-1.png)
 
-2. When the user clicks **Open**, the requested file handler is opened. In this example, a Microsoft Word document.
+2. When the user clicks **Open**, the requested file handler is opened. In this example, Microsoft Word is used to open the document that's shown in the previous screenshot.
 
    > [!NOTE]
    > The interface, messaging, and options shown by the DirectInvoke file handler will vary depending on the type and configuration of the file that's accessed.
