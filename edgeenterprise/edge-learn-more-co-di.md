@@ -3,7 +3,7 @@ title: "ClickOnce and DirectInvoke in Microsoft Edge"
 ms.author: kele
 author: dan-wesley
 manager: srugh
-ms.date: 09/13/2019
+ms.date: 09/16/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -95,16 +95,16 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
    ![Prompt to open an unsafe file](./media/edge-learn-more-co-di/edge-clickonce-enabled-1.png)
 
-2. After the user clicks **Open**, the browser shows a popup that asks the user if they're sure they want to install the application.
+2. After the user clicks **Open**, ClickOnce attempts to launch the application.
+
+   ![ClickOnce tries to launch application](./media/edge-learn-more-co-di/edge-clickonce-enabled-launch-app.png)
+
+3. After the user clicks **Open**, the browser shows a popup that asks the user if they're sure they want to install the application.
 
    ![Prompt to open the file](./media/edge-learn-more-co-di/edge-clickonce-enabled-2.png)
 
    > [!NOTE]
    > The interface, messaging, and options shown by the ClickOnce file handler will vary depending on the type and configuration of the file that's accessed.
-
-3. When the user clicks **Install**, Windows Defender SmartScreen blocks the installation.
-
-   ![Windows Defender SmartScreen prompt](./media/edge-learn-more-co-di/edge-clickonce-enabled-3.png)
 
 ### ClickOnce disabled
 
@@ -112,21 +112,22 @@ The following examples show file handling when ClickOnce and DirectInvoke are en
 
    ![File download prompt](./media/edge-learn-more-co-di/edge-clickonce-disabled-1.png)
 
-2. After the user clicks **Open** or **Open file**, the Windows Defender SmartScreen block is shown. <!-- the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not execute as expected because the ClickOnce parameters aren't passed if ClickOnce is disabled.-->
-
 ### DirectInvoke enabled
 
-1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.
-2. After the user clicks the button/link, the browser asks whether the user is sure they want to open the file.
-3. When the user clicks **Open**, the requested file handler is opened.
+1. A user opens a link to a page that requests DirectInvoke support and gets the prompt in the next screen capture.
+
+   ![Prompt to open file](./media/edge-learn-more-co-di/edge-directinvoke-open-link-1.png)
+
+2. When the user clicks **Open**, the requested file handler is opened. In this example, a Microsoft Word document.
 
    > [!NOTE]
    > The interface, messaging, and options shown by the DirectInvoke file handler will vary depending on the type and configuration of the file that's accessed.
 
 ### DirectInvoke disabled
 
-1. A user opens a link to a page that requests ClickOnce support and gets the prompt in the next screen capture.t.
-1. After the user clicks the button/link, the browser automatically downloads the file instead of asking the user if they want to open the file. If the user attempts to run the file, the file may not perform as expected because the DirectInvoke parameters aren't passed if DirectInvoke is disabled.
+1. When a user opens a link to a page that requests DirectInvoke support, DirectInvoke behaves the same as when ClickOnce is disabled. They will see a message in the download tray that's similar to the one in the next screenshot.
+
+   ![Prompt to open file](./media/edge-learn-more-co-di/edge-directinvoke-open-link-2.png)
 
 ## See also
 
