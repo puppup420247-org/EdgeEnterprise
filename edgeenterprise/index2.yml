@@ -44,18 +44,18 @@ landingContent:
         links:
           - text: Deploy with Configuration Manager
             url: deploy-edge-with-configuration-manager.md
-          - text: Deploy with Microsoft Intune
-            url: deploy-edge-with-intune.md
-          - text: Deploy to macOS
-            url: deploy-edge-to-the-mac.md
+#          - text: Deploy with Microsoft Intune
+#            url: deploy-edge-with-intune.md
+#          - text: Deploy to macOS
+#            url: deploy-edge-to-the-mac.md
 #      - linkListType: how-to-guide
 #        links:
           - text: Configure Microsoft Edge
             url: configure-microsoft-edge.md
-          - text: Set Microsoft Edge as the default browser
+#          - text: Set Microsoft Edge as the default browser
             url: edge-default-browser.md
-          - text: Use Microsoft Edge in IE mode
-            url: edge-ie-mode.md
+#          - text: Use Microsoft Edge in IE mode
+##            url: edge-ie-mode.md
 #          - text: Review and use security tools
 #            url: security-overview.md
 #          - text: Configure privacy policy
