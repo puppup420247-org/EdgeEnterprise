@@ -39,7 +39,7 @@ You can deploy the Microsoft Edge .pkg installer as a line-of-business applicati
 3. Use the `IntuneAppUtil` command to wrap the .pkg installer to a .intunemac file: <br>
    `./IntuneAppUtil -c MicrosoftEdgeDev-77.0.223.0.pkg -o <output_directory>`
 
-To deploy Microsoft Edge for macOS using Microsoft Intune:
+## To deploy Microsoft Edge for macOS using Microsoft Intune:
 
 1. Sign in to [Intune](https://go.microsoft.com/fwlink/?linkid=2090973).
 2. On the **Intune** pane, choose **Client apps** > **Apps** > **Add** > **Line-of-business app** > **App package file**.
