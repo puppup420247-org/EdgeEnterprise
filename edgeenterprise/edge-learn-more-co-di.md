@@ -42,7 +42,7 @@ When a website receives a download request that requires ClickOnce or DirectInvo
 
 The following use cases are representative.
 
-You can use ClickOnce to easily deploy and update software on devices with minimal user interaction. Users can install and run a Windows-￼based application by clicking a link in a web page. If configured correctly, the ClickOnce application can install programs without having users set configurations for the installer. For example, file locations, what options to install, and so on.
+You can use ClickOnce to easily deploy and update software on devices with minimal user interaction. Users can install and run a Windows application by clicking a link in a web page. If configured correctly, the ClickOnce application can install programs without having users set configurations for the installer. For example, file locations, what options to install, and so on.
 
 DirectInvoke use cases depend on the intent of the website requesting DirectInvoke. For example, the collaborative file-editing feature of Microsoft Word. Instead of clicking a link and downloading the entire copy of a document you’re working on with your colleagues, DirectInvoke lets you download the parts of the document that have been changed. This reduces the amount of data transferred and can reduce the time needed to open the document.  
 
