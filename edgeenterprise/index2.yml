@@ -48,7 +48,7 @@ landingContent:
           - text: Configure Microsoft Edge
             url: configure-microsoft-edge.md
 #          - text: Set Microsoft Edge as the default browser
-            url: edge-default-browser.md
+#            url: edge-default-browser.md
 #          - text: Use Microsoft Edge in IE mode
 ##            url: edge-ie-mode.md
 #          - text: Review and use security tools
