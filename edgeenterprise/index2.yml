@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/16/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/17/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,20 +29,15 @@ landingContent:
             url: "https://www.microsoftedgeinsider.com"
           - text: What's New
             url: "https://www.microsoftedgeinsider.com/whats-new"
-          - text: Frequently asked questions
-            url: faqs-edge-in-the-enterprise.md            
-#      - linkListType: whats-new
-#        links:
-#          - text: Straight from the cutting edge
-#            url: "https://www.microsoftedgeinsider.com/whats-new"
-
+#          - text: Frequently asked questions
+#            url: faqs-edge-in-the-enterprise.md            
 
   # Card (col 2, 1st row)
-  - title: Deploy and configure Microsoft Edge
+  - title: Deploy and manage updates
     linkLists:
       - linkListType: deploy
         links:
-          - text: Deploy with Configuration Manager
+          - text: Deploy Microsoft Edge
             url: deploy-edge-with-configuration-manager.md
 #          - text: Deploy with Microsoft Intune
 #            url: deploy-edge-with-intune.md
@@ -60,16 +55,23 @@ landingContent:
 #            url: security-overview.md
 #          - text: Configure privacy policy
 #            url: microsoft-edge-privacy-policy.md
+  # Card (col 3, 1st row)
+  - title: Learn about enterprise features
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Use Microsoft Edge in IE mode
+            url: edge-ie-mode.md
 
   # Card (col 3, 1st row)
-  - title: Configure group policies
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Browser policy reference
-            url: microsoft-edge-policies.md
-          - text: Update policy reference
-            url: microsoft-edge-update-policies.md
+#  - title: Configure group policies
+#    linkLists:
+#      - linkListType: reference
+#        links:
+#          - text: Browser policy reference
+#            url: microsoft-edge-policies.md
+#          - text: Update policy reference
+#            url: microsoft-edge-update-policies.md
 
 
   # Card (col 1, 2nd row)
@@ -79,5 +81,4 @@ landingContent:
         links:
           - text: Review and use security tools
             url: security-overview.md
-          - text: Configure privacy policy
-            url: microsoft-edge-privacy-policy.md
+
