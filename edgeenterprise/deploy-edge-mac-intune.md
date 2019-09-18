@@ -3,7 +3,7 @@ title: "Automate Microsoft Edge for macOS deployment with Microsoft Intune"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 09/17/2019
+ms.date: 09/18/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
