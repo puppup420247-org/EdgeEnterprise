@@ -12,7 +12,7 @@
   items:
    - name: Configure Microsoft Edge
      href: configure-microsoft-edge.md
-   - name: Configure Microsoft Edge with Intune
+   - name: Configure with Intune
      href: configure-edge-with-intune.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md 

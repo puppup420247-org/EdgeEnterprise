@@ -23,6 +23,9 @@ You can configure Microsoft Edge policies and settings by adding a device config
 
 For more information about managing Microsoft Edge policies with Microsoft Intune, you can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge), but keep in mind that the linked article is specific to Microsoft Edge version 45 and earlier and therefore may contain information and references that don't apply to Microsoft Edge Enterprise version 77 and later.
 
+>[!TIP]
+> For information on how to configure Microsoft Edge on Mac using Microsoft Intune, see [Configure Microsoft Edge on Mac](configure-microsoft-edge.md#configure-microsoft-edge-on-mac).
+
 ## Create a profile to manage settings in Microsoft Edge for Windows 10
 
 Using Administrative Templates in Microsoft Intune, you can manage Microsoft Edge group policies on your Windows 10 devices using the cloud. This section will help you create a template to configure Microsoft Edge-specific application settings. When you create the template, it creates a device configuration profile. You can then assign or deploy this profile to Windows 10 devices in your organization.
