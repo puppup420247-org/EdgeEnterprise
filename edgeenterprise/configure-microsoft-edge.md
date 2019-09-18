@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge"
 ms.author: brianalt
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 08/20/2019
+ms.date: 09/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -24,6 +24,9 @@ Use the following information to configure Microsoft Edge on your Windows and Ma
 You can use group policy objects (GPO) to configure Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
 Microsoft Edge supports mandatory and recommended policies. Mandatory policies override user preferences and prevents the user from changing it, while recommended policy provide a default setting that may be overridden by the user. Most policies are mandatory only; a subset are mandatory and recommended. If both versions of a policy are set, the mandatory one takes precedence.
+
+>[!TIP]
+> You can use Microsoft Intune to configure Microsoft Edge policy settings. For more information, see [Configure Microsoft Edge using Microsoft Intune](configure-edge-with-intune.md).
 
 Microsoft Edge has two administrative templates:
 
