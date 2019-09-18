@@ -93,7 +93,7 @@ When you're finished, see [Assign apps to groups with Microsoft Intune](https://
 
 Using Administrative Templates in Microsoft Intune, you can manage Microsoft Edge group policies on your Windows 10 devices using the cloud. This section will help you create a template to configure Microsoft Edge-specific application settings. When you create the template, it creates a device configuration profile. You can then assign or deploy this profile to Windows 10 devices in your organization.
 
-## Prerequisites
+### Prerequisites
 
 - Windows 10 with the following minimum system requirements:
   - Windows 10, version 1903 with [KB4512941](https://support.microsoft.com/kb/4512941) installed
