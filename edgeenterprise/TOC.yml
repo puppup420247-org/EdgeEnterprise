@@ -6,7 +6,7 @@
 #   - name: About Microsoft Edge <- need to create
 #     href: edge-overview-about.md
    - name: Microsoft Edge Channels # new
-     href: "https://www.microsoftedgeinsider.com/en-us/enterprise"  # new 
+     href: "https://www.microsoftedgeinsider.com/enterprise"  # new 
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager # change to align with macOS
