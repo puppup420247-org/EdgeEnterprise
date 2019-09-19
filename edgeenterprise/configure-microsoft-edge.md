@@ -21,7 +21,7 @@ Use the following information to configure Microsoft Edge policy settings on you
 
 ## Configure Microsoft Edge on Windows
 
-You can use group policy objects (GPO) to configure policy settings for Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management in Intune.
+You can use group policy objects (GPO) to configure policy settings for Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management in Intune. To enable this functionality, you install administrative templates (.admx files) that add rules and settings for Microsoft Edge to the group policy store in your Active Directory domain or on individual computers and then configure the specific policies you want to set.
 
 You can use Active Directory Group Policy to configure Microsoft Edge policy settings if you want to set policy at the domain level. If you want to configure policy on individual computers, you can apply policy using the Local Group Policy Editor on the target computer.
 
@@ -39,13 +39,27 @@ To get started, download and install the Microsoft Edge administrative template.
 
 ### 1. Download and install the Microsoft Edge administrative template
 
-If you want to configure Microsoft Edge policy settings in Active Directory, download the files to a network location you can access from a domain controller or a workstation with the Windows Server Administrative Tools installed.
+If you want to configure Microsoft Edge policy settings in Active Directory, download the files to a network location you can access from a domain controller or a workstation with the Windows Server Administrative Tools installed. To configure on an individual computer, simply download the files to that computer.
+
+When you add the administrative template files to the appropriate location, Microsoft Edge policy settings are immediately available in the Group Policy Editor.
 
 Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the Microsoft Edge policy templates file (*MicrosoftEdgePolicyTemplates.zip*).
 
-To add the administrative template to configure Microsoft Edge:
+#### Add the administrative template to Active Directory
 
+1. On a domain controller or workstation with the Windows Server Administrative Tools installed, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For some Windows Server versions, you may need to create the PolicyDefinition folder. For more information and guidance, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/en-us/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 1. Open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
+1. Copy the *msedge.admx* file to the PolicyDefinition folder. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions)
+1. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
+1. Copy the *msedge.adml* file to the matching language folder in your PolicyDefinition folder. Create the folder if it does not already exist. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions\EN-US)
+1. If your domain has more than one domain controller, the new admx files will be copied to them at the next domain replication.
+1. To confirm the files loaded correctly, open the **Group Policy Management Editor** from Windows Administrative Tools and expand **Computer Configuration** > **Policies** > **Administrative Templates** > **Microsoft Edge**.
+
+  ![Microsoft Edge policies](./media/configure-microsoft-edge/edge-gpo-policies.png)
+
+#### Add the administrative template to an individual computer
+
+1. On the target computer, open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
 2. Copy the *msedge.admx* file to your Policy Definition template folder. (Example: C:\Windows\PolicyDefinitions)
 3. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
 4. Copy the *msedge.adml* file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\en-US)
@@ -66,27 +80,28 @@ To add the administrative template to manage Microsoft Edge updates:
 
 ### 2. Set mandatory or recommended policies
 
-In Local Group Policy Editor, you can set mandatory or recommended policies to configure Microsoft Edge.
+You can set mandatory or recommended policies to configure Microsoft Edge with the Group Policy Editor for both Active Directory and individual computers. You can scope policy settings to either the **Computer Configuration** or **User Configuration** by selecting the appropriate node as described below.
 
-To configure a mandatory policy, open Local Group Policy Editor and go to **Administrative Templates** > **Microsoft Edge**.
+- To configure a mandatory policy, open the Group Policy Editor and go to (**Computer Configuration** or **User Configuration**) > **Policies** > **Administrative Templates** > **Microsoft Edge**.
+- To configure a recommended policy, open the Group Policy Editor and go to (**Computer Configuration** or **User Configuration**) > **Policies** > **Administrative Templates** > **Microsoft Edge – Default Settings (users can override)**.
 
-To configure a recommended policy, open Local Group Policy Editor and go to **Administrative Templates** > **Microsoft Edge – Default Settings** (users can override).
-
-![Open Local Group Policy Editor](./media/configure-microsoft-edge/edge-policy.png)
+  ![Open the Group Policy Editor](./media/configure-microsoft-edge/edge-ad-policy.png)
 
 ### 3. Test your policies
 
-On a target client device, open Microsoft Edge and navigate to **edge://policy** to see all policies that are applied.
+On a target client device, open Microsoft Edge and navigate to **edge://policy** to see all policies that are applied. If you applied policy settings on the local computer, policies should appear immediately. You may need to close and reopen Microsoft Edge if it was open while you were configuring policy settings.
 
 ![View configured policies in browser](./media/configure-microsoft-edge/edge-gpEdit.png)
 
-If the policies haven't propagated to the test machine or user, try executing the following command from a command prompt to refresh policy settings on client device:
+For Active Directory group policy settings, policy settings are propagated to domain computers at a regular interval defined by your domain administrator, and target computers may not receive policy updates right away. To manually refresh Active Directory group policy settings on a target computer, execute the following command from a command prompt or PowerShell session on the target computer:
 
 ``` cmd
 gpupdate /force
 ```
 
-You can also use REGEDIT.exe on the client device to view the registry settings. These settings are located at the registry path **HKLM\SOFTWARE\Policies\Microsoft\Edge**.
+You may need to close and reopen Microsoft Edge before the new policies appear.
+
+You can also use REGEDIT.exe on a target computer to view the registry settings that store group policy settings. These settings are located at the registry path **HKLM\SOFTWARE\Policies\Microsoft\Edge**.
 
 ## Configure Microsoft Edge on Mac
 
