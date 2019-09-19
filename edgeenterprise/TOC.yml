@@ -1,28 +1,44 @@
+### draft toc for MGB
+- name: Microsoft Edge documentation # new title
+  href: index2.yml
 - name: Overview of Microsoft Edge in the enterprise
-  href: overview-edge-in-the-enterprise.md
+  items:
+#   - name: About Microsoft Edge <- need to create
+#     href: edge-overview-about.md
+   - name: Microsoft Edge Channels # new
+     href: "https://www.microsoftedgeinsider.com/en-us/enterprise"  # new 
 - name: Deploy Microsoft Edge
   items:
-   - name: Deploy with Configuration Manager
+   - name: Deploy to Windows with Configuration Manager # change to align with macOS
      href: deploy-edge-with-configuration-manager.md
-   - name: Deploy with Intune
+   - name: Deploy to Windows with Intune # change to align with macOS
      href: deploy-edge-with-intune.md
-   - name: Deploy to MacOS
-     href: deploy-edge-to-the-mac.md
+   - name: Deploy to macOS with Intune
+     href: deploy-edge-to-mac-intune.md
+   - name: Deploy to macOS with Jamf
+     href: deploy-edge-to-mac-jamf.md 
 - name: Configure Microsoft Edge
   items:
    - name: Configure Microsoft Edge
      href: configure-microsoft-edge.md
+   - name: Configure with Intune
+     href: configure-edge-with-intune.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md 
-   - name: Use Microsoft Edge in IE Mode
-     href: edge-ie-mode.md
    - name: Browser policy reference
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Security
-  href: security-overview.md
-- name: Privacy
-  href: microsoft-edge-privacy-policy.md
+- name: Enterprise features # new
+  items:
+   - name: Use Microsoft Edge in IE Mode #moved to Enterprise features
+     href: edge-ie-mode.md  
+- name: Security and privacy
+  items:     
+   - name: Security
+     href: security-overview.md
+   - name: Privacy
+     href: microsoft-edge-privacy-policy.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
+

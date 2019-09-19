@@ -79,6 +79,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Review and use security tools
+          - text: Security
             url: security-overview.md
 
