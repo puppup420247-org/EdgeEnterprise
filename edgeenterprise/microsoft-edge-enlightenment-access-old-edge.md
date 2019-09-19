@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -19,7 +19,7 @@ This article describes how access the old version of Microsoft Edge after the ne
 > [!NOTE]
 > This article applies to Microsoft Edge stable version 79 or later.
 
-The procedures in this article apply to systems that have been updated with the latest security updates, up to and including November 2019. When the next version of Microsoft Edge is installed, the old version will be hidden. All  attempts to launch the old version will  redirect the user to the newly installed version Microsoft Edge.
+The procedures in this article apply to systems that have been updated with the latest security updates, up to and including November 2019. When the next version of Microsoft Edge is installed, the old version will be hidden. All attempts to launch the old version will  redirect the user to the newly installed version Microsoft Edge.
 
 ## Before you begin
 
@@ -43,4 +43,7 @@ After the systems are fully updated and [Anaheim stable] is installed, the follo
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 
-If you want to allow your users to see both versions of Microsoft Edge…….
+When the Stable channel of the next version of Microsoft Edge is released, the current version of Microsoft Edge will be hidden after the next version is installed. If you want to let your users to see both versions of Microsoft Edge side-by-side in Windows, you can enable this experience by setting the **Allowsxs** group policy to "Enabled".  
+
+> [!NOTE]
+> By default this group policy is set to "Not configured", which results in the current version of Microsoft Edge being hidden when the next version of Microsoft Edge is installed.
