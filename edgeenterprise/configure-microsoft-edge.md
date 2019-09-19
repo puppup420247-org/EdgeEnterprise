@@ -39,7 +39,7 @@ To get started, download and install the Microsoft Edge administrative template.
 
 ### 1. Download and install the Microsoft Edge administrative template
 
-If you want to configure Microsoft Edge policy settings in Active Directory, download the files to a network location you can access from a domain controller or a workstation with the Windows Server Administrative Tools installed. To configure on an individual computer, simply download the files to that computer.
+If you want to configure Microsoft Edge policy settings in Active Directory, download the files to a network location you can access from a domain controller or a workstation with the Remote Server Administration Tools (RSAT) installed. To configure on an individual computer, simply download the files to that computer.
 
 When you add the administrative template files to the appropriate location, Microsoft Edge policy settings are immediately available in the Group Policy Editor.
 
@@ -47,13 +47,13 @@ Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise
 
 #### Add the administrative template to Active Directory
 
-1. On a domain controller or workstation with the Windows Server Administrative Tools installed, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For some Windows Server versions, you may need to create the PolicyDefinition folder. For more information and guidance, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/en-us/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+1. On a domain controller or workstation with RSAT, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For older versions of Windows Server, you may need to create the PolicyDefinition folder. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/en-us/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 1. Open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
 1. Copy the *msedge.admx* file to the PolicyDefinition folder. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions)
 1. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
-1. Copy the *msedge.adml* file to the matching language folder in your PolicyDefinition folder. Create the folder if it does not already exist. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions\EN-US)
+1. Copy the *msedge.adml* file to the matching language folder in the PolicyDefinition folder. Create the folder if it does not already exist. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions\EN-US)
 1. If your domain has more than one domain controller, the new ADMX files will be replicated to them at the next domain replication interval.
-1. To confirm the files loaded correctly, open the **Group Policy Management Editor** from Windows Administrative Tools and expand **Computer Configuration** > **Policies** > **Administrative Templates** > **Microsoft Edge**.
+1. To confirm the files loaded correctly, open the **Group Policy Management Editor** from Windows Administrative Tools and expand **Computer Configuration** > **Policies** > **Administrative Templates** > **Microsoft Edge**. You should see one or more Microsoft Edge nodes as shown below.
 
     ![Microsoft Edge policies](./media/configure-microsoft-edge/edge-gpo-policies.png)
 
@@ -95,7 +95,7 @@ On a target client device, open Microsoft Edge and navigate to **edge://policy**
 
 For Active Directory group policy settings, policy settings are propagated to domain computers at a regular interval defined by your domain administrator, and target computers may not receive policy updates right away. To manually refresh Active Directory group policy settings on a target computer, execute the following command from a command prompt or PowerShell session on the target computer:
 
-``` cmd
+``` powershell
 gpupdate /force
 ```
 
