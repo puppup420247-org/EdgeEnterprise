@@ -75,7 +75,7 @@ landingContent:
 
 
   # Card (col 1, 2nd row)
-  - title: Security and privacy
+  - title: Manage security and privacy
     linkLists:
       - linkListType: how-to-guide
         links:
