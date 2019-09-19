@@ -3,10 +3,12 @@
   href: index2.yml
 - name: Overview of Microsoft Edge in the enterprise
   items:
-#   - name: About Microsoft Edge <- need to create
-#     href: edge-overview-about.md
    - name: Microsoft Edge Channels # new
-     href: "https://www.microsoftedgeinsider.com/enterprise"  # new 
+     href: "https://www.microsoftedgeinsider.com/enterprise"  # new
+   - name: Enlightenment update
+     items:
+      - name: Windows updates to support Microsoft Edge
+        href: microsoft-edge-enlightenment-windows-updates-stub.md
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager # change to align with macOS
