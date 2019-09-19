@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge"
 ms.author: brianalt
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -21,11 +21,11 @@ Use the following information to configure Microsoft Edge policy settings on you
 
 ## Configure Microsoft Edge on Windows
 
-You can use group policy objects (GPO) to configure policy settings for Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management in Intune. To enable this functionality, you install administrative templates (.admx files) that add rules and settings for Microsoft Edge to the group policy store in your Active Directory domain or on individual computers and then configure the specific policies you want to set.
+You can use _group policy objects (GPO)_ to configure policy settings for Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain, or Windows 10 Pro or Enterprise instances enrolled for device management in Microsoft Intune. To configure Microsoft Edge with group policy objects, you install _administrative templates_ that add rules and settings for Microsoft Edge to the group policy Central Store in your Active Directory domain or to the Policy Definition template folder on individual computers and then configure the specific policies you want to set.
 
-You can use Active Directory Group Policy to configure Microsoft Edge policy settings if you want to set policy at the domain level. If you want to configure policy on individual computers, you can apply policy using the Local Group Policy Editor on the target computer.
+You can use Active Directory group policy to configure Microsoft Edge policy settings if you prefer to manage policy at the domain level. This enables you to manage policy settings globally, targeting different policy settings to specific OUs, or using WMI filters to apply settings only to users or computers returned by a particular query. If you want to configure policy on individual computers, you can apply policy settings that only affect the local device using the Local Group Policy Editor on the target computer.
 
-Microsoft Edge supports both mandatory and recommended policies. Mandatory policies override user preferences and prevents the user from changing it, while recommended policy provide a default setting that may be overridden by the user. Most policies are mandatory only; a subset are mandatory and recommended. If both versions of a policy are set, the mandatory setting takes precedence.
+Microsoft Edge supports both _mandatory_ and _recommended_ policies. Mandatory policies override user preferences and prevents the user from changing it, while recommended policy provide a default setting that may be overridden by the user. Most policies are mandatory only; a subset are mandatory and recommended. If both versions of a policy are set, the mandatory setting takes precedence.
 
 >[!TIP]
 > You can use Microsoft Intune to configure Microsoft Edge policy settings. For more information, see [Configure Microsoft Edge using Microsoft Intune](configure-edge-with-intune.md).
@@ -52,10 +52,10 @@ Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise
 1. Copy the *msedge.admx* file to the PolicyDefinition folder. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions)
 1. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
 1. Copy the *msedge.adml* file to the matching language folder in your PolicyDefinition folder. Create the folder if it does not already exist. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions\EN-US)
-1. If your domain has more than one domain controller, the new admx files will be copied to them at the next domain replication.
+1. If your domain has more than one domain controller, the new ADMX files will be replicated to them at the next domain replication interval.
 1. To confirm the files loaded correctly, open the **Group Policy Management Editor** from Windows Administrative Tools and expand **Computer Configuration** > **Policies** > **Administrative Templates** > **Microsoft Edge**.
 
-  ![Microsoft Edge policies](./media/configure-microsoft-edge/edge-gpo-policies.png)
+    ![Microsoft Edge policies](./media/configure-microsoft-edge/edge-gpo-policies.png)
 
 #### Add the administrative template to an individual computer
 
