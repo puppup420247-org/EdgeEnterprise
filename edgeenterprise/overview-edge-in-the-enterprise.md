@@ -7,7 +7,7 @@ ms.date: 09/20/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: high
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Overview of deploying Microsoft Edge in the enterprise"
 ---
