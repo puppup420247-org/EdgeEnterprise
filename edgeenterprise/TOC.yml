@@ -1,19 +1,19 @@
-### draft toc for MGB
-- name: Microsoft Edge documentation # new title
+# draft toc for MGB
+- name: Microsoft Edge documentation 
   href: index2.yml
 - name: Overview of Microsoft Edge in the enterprise
   items:
-   - name: Microsoft Edge Channels # new
-     href: "https://www.microsoftedgeinsider.com/enterprise"  # new
-#   - name: Enlightenment update
-#     items:
-   - name: Windows updates to support Microsoft Edge
-     href: microsoft-edge-enlightenment-windows-updates-stub.md
+   - name: Microsoft Edge Channels
+     href: "https://www.microsoftedgeinsider.com/enterprise"  
+   - name: Enlightenment update
+     items:
+      - name: Windows updates to support Microsoft Edge
+        href: microsoft-edge-enlightenment-windows-updates-stub.md
 - name: Deploy Microsoft Edge
   items:
-   - name: Deploy to Windows with Configuration Manager # change to align with macOS
+   - name: Deploy to Windows with Configuration Manager 
      href: deploy-edge-with-configuration-manager.md
-   - name: Deploy to Windows with Intune # change to align with macOS
+   - name: Deploy to Windows with Intune 
      href: deploy-edge-with-intune.md
    - name: Deploy to macOS with Jamf
      href: deploy-edge-mac-jamf.md
@@ -31,9 +31,9 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Enterprise features # new
+- name: Enterprise features 
   items:
-   - name: Use Microsoft Edge in IE Mode #moved to Enterprise features
+   - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md  
 - name: Security and privacy
   items:     
