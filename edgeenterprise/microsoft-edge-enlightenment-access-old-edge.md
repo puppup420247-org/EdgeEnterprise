@@ -55,7 +55,7 @@ If the group policy is enabled after Microsoft Edge is deployed, there are the f
 1. **Allowsxs** won't take effect until after the installer for the next version of Microsoft Edge is run again.
 
    > [!NOTE]
-   > The installer can be run directly or when the next version of Microsoft Edge updates.
+   > The installer can be run directly or automatically when the next version of Microsoft Edge updates.
 
 2. The current version of Microsoft Edge will need to be re-pinned to Start or the Taskbar because the pin is migrated when the next version of Microsoft Edge was deployed.
 3. Sites that were pinned to Start or the Taskbar for the current version of Microsoft Edge will be migrated to the next version of Microsoft Edge.
