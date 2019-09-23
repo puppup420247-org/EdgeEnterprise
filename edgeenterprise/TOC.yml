@@ -5,8 +5,8 @@
   items:
    - name: Microsoft Edge Channels
      href: "https://www.microsoftedgeinsider.com/enterprise"
-   - name: Lifecycle support
-     href: edge-content-wip.md    
+   - name: Lifecycle FAQ—Internet Explorer and Edge 
+     href: "https://support.microsoft.com/help/17454/lifecycle-faq-internet-explorer"    
    - name: Enlightenment update
      items:
       - name: Windows updates to support Microsoft Edge
