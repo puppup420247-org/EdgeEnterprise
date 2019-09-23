@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/23/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,14 +25,21 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Windows updates to support Microsoft Edge
-            url: microsoft-edge-enlightenment-windows-updates-stub.md
+          - text: Microsoft Edge channels
+            url: "https://www.microsoftedgeinsider.com/enterprise"
+          - text: FastTrack for Microsoft Edge
+            url: "https://www.microsoft.com/fasttrack/microsoft-365/office-365?rtc=1"
+
+  - title: Engage with enterprise community or get help
+    linkLists:
       - linkListType: get-started
         links:
-          - text: Microsoft Edge Insider
-            url: "https://www.microsoftedgeinsider.com"
-          - text: What's New
-            url: "https://www.microsoftedgeinsider.com/whats-new"
+          - text: Enterprise tech community
+            url: "https://techcommunity.microsoft.com/t5/Enterprise/bd-p/EdgeInsiderEnterprise"
+          - text: Contact Microsoft Edge support
+            url: "https://microsoftedgesupport.microsoft.com/hc/"
+
+
   # Card (col 2, 1st row)
   - title: Deploy and manage updates
     linkLists:
@@ -64,22 +71,11 @@ landingContent:
           - text: Use Microsoft Edge in IE mode
             url: edge-ie-mode.md
 
-  # Card (col 3, 1st row)
-#  - title: Configure group policies
-#    linkLists:
-#      - linkListType: reference
-#        links:
-#          - text: Browser policy reference
-#            url: microsoft-edge-policies.md
-#          - text: Update policy reference
-#            url: microsoft-edge-update-policies.md
-
 
   # Card (col 1, 2nd row)
   - title: Manage security and privacy
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
           - text: Security
             url: security-overview.md
-
