@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -79,7 +79,12 @@ The following table gives the details for specific updates in each set of change
 
 |Windows 10 |Changes, set 1  |Changes, set 2  |Changes, set 3  |
 |---------|---------|---------|---------|
-|Version 1709     |Optional: [KB4512494](https://support.microsoft.com/help/4512494)<br/>Recommended: [KB4516066](https://support.microsoft.com/help/4516066)         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1803     |Optional: [KB4512509](https://support.microsoft.com/help/4512509)<br/>Recommended: [KB4516058](https://support.microsoft.com/help/4516058)         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1809     |Optional: [KB4512534](https://support.microsoft.com/help/4512534)<br/>Recommended: [KB4512578](https://support.microsoft.com/help/4512578)         |Optional: Not released<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
-|Version 1903     |Optional: [KB4505903](https://support.microsoft.com/help/4505903/windows-10-update-kb4505903)<br/>Recommended: [KB4512508](https://support.microsoft.com/help/4512508/windows-10-update-kb4512508)         |Optional: [KB4512941](https://support.microsoft.com/help/4512941) <br/>Recommended: [KB4515384](https://support.microsoft.com/help/4515384)         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1709     |Optional: [KB4512494](https://support.microsoft.com/help/4512494)<br/>Recommended: [KB4516066](https://support.microsoft.com/help/4516066)         |Optional: [KB4516071](https://support.microsoft.com/help/4516071)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1803     |Optional: [KB4512509](https://support.microsoft.com/help/4512509)<br/>Recommended: [KB4516058](https://support.microsoft.com/help/4516058)         |Optional: [KB4516045](https://support.microsoft.com/help/4516045)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1809     |Optional: [KB4512534](https://support.microsoft.com/help/4512534)<br/>Recommended: [KB4512578](https://support.microsoft.com/help/4512578)         |Optional: [KB4516077](https://support.microsoft.com/help/4516077)<br/>Recommended: Not released         |Optional: Not released<br/>Recommended: Not released         |
+|Version 1903     |Optional: [KB4505903](https://support.microsoft.com/help/4505903/windows-10-update-kb4505903)<br/>Recommended: [KB4512508](https://support.microsoft.com/help/4512508/windows-10-update-kb4512508)         |Optional: [KB4512941](https://support.microsoft.com/help/4512941) <br/>Recommended: [KB4515384](https://support.microsoft.com/help/4515384)         |Optional: [KB4517211](https://support.microsoft.com/help/4517211)<br/>Recommended: Not released         |
+
+
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

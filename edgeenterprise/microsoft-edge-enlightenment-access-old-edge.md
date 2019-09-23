@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -43,7 +43,23 @@ After the systems are fully updated and [Anaheim stable] is installed, the follo
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 
-When the Stable channel of the next version of Microsoft Edge is released, the current version of Microsoft Edge will be hidden after the next version is installed. If you want to let your users to see both versions of Microsoft Edge side-by-side in Windows, you can enable this experience by setting the **Allowsxs** group policy to "Enabled".  
+Installing the Stable channel of the next version of Microsoft Edge at system-level will cause the current version of Microsoft Edge to be hidden. If you want to let your users to see both versions of Microsoft Edge side-by-side in Windows, you can enable this experience by setting the **Allowsxs** group policy to "Enabled".  
 
 > [!NOTE]
-> By default this group policy is set to "Not configured", which results in the current version of Microsoft Edge being hidden when the next version of Microsoft Edge is installed.
+> By default, this group policy is set to "Not configured", which results in the current version of Microsoft Edge being hidden when the next version of Microsoft Edge is installed.
+
+For the best experience, the **Allowsxs** should be enabled before the next version of Microsoft Edge is deployed to your users' devices.
+
+If the group policy is enabled after Microsoft Edge is deployed, there are the following side effects and required actions:
+
+1. **Allowsxs** won't take effect until after the installer for the next version of Microsoft Edge is run again.
+
+   > [!NOTE]
+   > The installer can be run directly or when the next version of Microsoft Edge updates.
+
+2. The current version of Microsoft Edge will need to be re-pinned to Start or the Taskbar because the pin is migrated when the next version of Microsoft Edge was deployed.
+3. Sites that were pinned to Start or the Taskbar for the current version of Microsoft Edge will be migrated to the next version of Microsoft Edge.
+
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
