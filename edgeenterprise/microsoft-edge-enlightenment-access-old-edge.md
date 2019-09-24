@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -33,13 +33,13 @@ Before using the detailed instructions in this article, consider the following 2
 
 ## How operating system (OS) changes are triggered
 
-After the systems are fully updated and [Anaheim stable] is installed, the following registry key and value is set:
+After the systems are fully updated and the Stable channel is installed, the following registry key and value is set:
 
 - Key: `SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
 - Key value: `BrowserReplacement`
 
 > [!IMPORTANT]
-> This key is over-written every time [Anaheim stable] is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge.
+> This key is over-written every time the Stable channel is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge.
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 
