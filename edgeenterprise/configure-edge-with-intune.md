@@ -36,7 +36,7 @@ Using Administrative Templates in Microsoft Intune, you can manage Microsoft Edg
   - Windows 10, version 1903 with [KB4512941](https://support.microsoft.com/kb/4512941) installed
   - Windows 10, version 1809 with [KB4512534](https://support.microsoft.com/kb/4512534) installed
   - Windows 10, version 1803 with [KB4512509](https://support.microsoft.com/kb/4512509) installed
-  <!-- - Windows 10, version 1709 with [KB?]() installed -->
+  - Windows 10, version 1709 with [KB4516071](https://support.microsoft.com/kb/4516071) installed
 
 ### Create an Administrative Templates profile
 
