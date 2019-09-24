@@ -43,12 +43,12 @@ If you want to configure Microsoft Edge policy settings in Active Directory, dow
 
 When you add the administrative template files to the appropriate location, Microsoft Edge policy settings are immediately available in the Group Policy Editor.
 
-Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the Microsoft Edge policy templates file (*MicrosoftEdgePolicyTemplates.zip*).
+Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) to download the Microsoft Edge policy templates file (*MicrosoftEdgePolicyTemplates.cab*) and extract the contents.
 
 #### Add the administrative template to Active Directory
 
 1. On a domain controller or workstation with RSAT, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For older versions of Windows Server, you may need to create the PolicyDefinition folder. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/en-us/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
-1. Open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
+1. Open *MicrosoftEdgePolicyTemplates* and go to **windows** > **admx**.
 1. Copy the *msedge.admx* file to the PolicyDefinition folder. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions)
 1. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
 1. Copy the *msedge.adml* file to the matching language folder in the PolicyDefinition folder. Create the folder if it does not already exist. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions\EN-US)
@@ -59,7 +59,7 @@ Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise
 
 #### Add the administrative template to an individual computer
 
-1. On the target computer, open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
+1. On the target computer, open *MicrosoftEdgePolicyTemplates* and go to **windows** > **admx**.
 2. Copy the *msedge.admx* file to your Policy Definition template folder. (Example: C:\Windows\PolicyDefinitions)
 3. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
 4. Copy the *msedge.adml* file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\en-US)
@@ -68,7 +68,7 @@ Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise
 <!--
 To add the administrative template to manage Microsoft Edge updates:
 
-1. Open the *MicrosoftEdgePolicyTemplates.zip* file and go to **windows** > **admx**.
+1. Open the *MicrosoftEdgePolicyTemplates* file and go to **windows** > **admx**.
 2. Copy the *msedgeupdate.admx* file to your Policy Definition template folder. (Example: C:\Windows\PolicyDefinitions)
 3. In the *updatepolicies* folder, open the appropriate language folder. For example, if you’re in Germany, open the **de-DE** folder.
 4. Copy the *msedgeupdate.adml* file to the matching language folder in your Policy Definition folder. (Example: C:\Windows\PolicyDefinitions\de-DE)
@@ -132,7 +132,7 @@ For a list of supported policies and their preference key names, see [Microsoft 
 
 3. Upload the converted plist to a Custom Settings payload in a new Configuration Profile in your MDM server or use your preferred conversion tool to create a configuration profile to upload.
 
-In the policy template zip file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings.
+In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings.
 
 ## See also
 
