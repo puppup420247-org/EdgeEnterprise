@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -18,9 +18,10 @@ This article describes how Windows will be updated to support the next version o
 
 > [!NOTE]
 > This article applies to Microsoft Edge stable version 79 or later.
+
 ## Microsoft Edge and the Windows release cycle
 
-The next version of Microsoft Edge isn’t bound to the Windows release cycle. Because the browser is de-coupled from the operating system (OS), changes will be made to Windows to ensure that the next version of Microsoft Edge fits seamlessly into Windows. As a result, feature updates will be released on a 6 -week cycle (approximately.) Security and compatibility updates  will be shipped as needed.
+The next version of Microsoft Edge isn’t bound to the Windows release cycle. Because the browser is de-coupled from the operating system (OS), changes will be made to Windows to ensure that the next version of Microsoft Edge fits seamlessly into Windows. As a result, feature updates will be released on a 6-week cycle (approximately.) Security and compatibility updates will be shipped as needed.
 
 ## Updates and the user experience
 
