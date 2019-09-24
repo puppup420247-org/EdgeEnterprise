@@ -38,7 +38,11 @@
 - name: Enterprise features 
   items:
    - name: Use Microsoft Edge in IE Mode 
-     href: edge-ie-mode.md  
+     href: edge-ie-mode.md
+   - name: Conditional access 
+     href: edge-content-wip.md  
+   - name: Windows Defender Application Guard 
+     href: edge-content-wip.md  
 - name: Security and privacy
   items:     
    - name: Security
