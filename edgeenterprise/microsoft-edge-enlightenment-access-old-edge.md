@@ -33,7 +33,7 @@ Before using the detailed instructions in this article, consider the following 2
 
 ## How operating system (OS) changes are triggered
 
-After the systems are fully updated and the Stable channel is installed, the following registry key and value is set:
+After the systems are fully updated and the stable channel of the next version of Microsoft Edge is installed, the following registry key and value is set:
 
 - Key: `SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
 - Key value: `BrowserReplacement`
@@ -43,16 +43,23 @@ After the systems are fully updated and the Stable channel is installed, the fol
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 
-Installing the Stable channel of the next version of Microsoft Edge at system-level will cause the current version of Microsoft Edge to be hidden. If you want to let your users to see both versions of Microsoft Edge side-by-side in Windows, you can enable this experience by setting the **Allowsxs** group policy to "Enabled".  
+Installing the Stable channel of the next version of Microsoft Edge at system-level will cause the current version of Microsoft Edge to be hidden. If you want to let your users to see both versions of Microsoft Edge side-by-side in Windows, you can enable this experience by setting the **Allow Microsoft Edge Side by Side browser experience** group policy to "Enabled".
+
+### To enable the side by side browser experience policy:
+
+1. Open the Group Policy Editor.
+2. Under **Computer Configuration**, go to *Administrative Templates>Microsoft Edge Update>Applications*.
+3. Under **Applications**, select "Allow Microsoft Edge Side by Side browser experience" and then click Edit **policy setting**.
+4. Select **Enabled** and then click **OK**.  
 
 > [!NOTE]
 > By default, this group policy is set to "Not configured", which results in the current version of Microsoft Edge being hidden when the next version of Microsoft Edge is installed.
 
-For the best experience, the **Allowsxs** should be enabled before the next version of Microsoft Edge is deployed to your users' devices.
+For the best experience, the **Allow Microsoft Edge Side by Side browser experience** should be enabled before the next version of Microsoft Edge is deployed to your users' devices.
 
 If the group policy is enabled after Microsoft Edge is deployed, there are the following side effects and required actions:
 
-1. **Allowsxs** won't take effect until after the installer for the next version of Microsoft Edge is run again.
+1. **Allow Microsoft Edge Side by Side browser experience** won't take effect until after the installer for the next version of Microsoft Edge is run again.
 
    > [!NOTE]
    > The installer can be run directly or automatically when the next version of Microsoft Edge updates.
