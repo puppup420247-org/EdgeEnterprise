@@ -30,13 +30,13 @@
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md
    - name: Use Microsoft Edge in IE Mode 
-     href: edge-ie-mode.md     
+     href: edge-ie-mode.md 
    - name: Browser policy reference
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
 - name: Security and privacy
-  items:     
+  items: 
    - name: Security
      href: security-overview.md
    - name: Privacy

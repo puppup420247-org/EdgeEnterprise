@@ -1,0 +1,83 @@
+### YamlMime:Landing
+
+title: Microsoft Edge documentation # < 60 chars
+summary: Microsoft Edge enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # < 160 chars
+
+metadata:
+  title: Microsoft Edge # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Microsoft Edge enhances and extends the browser experience. It runs on Windows, macOS, iOS and Android devices. # Required; article description that is displayed in search results. < 160 chars.
+  services: service
+  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: subservice
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
+  ms.author: kvice #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/16/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (col 1, 1st row)
+  - title: Learn about Microsoft Edge
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Microsoft Edge Insider
+            url: "https://www.microsoftedgeinsider.com"
+          - text: What's New
+            url: "https://www.microsoftedgeinsider.com/whats-new"
+          - text: Frequently asked questions
+            url: faqs-edge-in-the-enterprise.md            
+#      - linkListType: whats-new
+#        links:
+#          - text: Straight from the cutting edge
+#            url: "https://www.microsoftedgeinsider.com/whats-new"
+
+
+  # Card (col 2, 1st row)
+  - title: Deploy and configure Microsoft Edge
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Deploy with Configuration Manager
+            url: deploy-edge-with-configuration-manager.md
+#          - text: Deploy with Microsoft Intune
+#            url: deploy-edge-with-intune.md
+#          - text: Deploy to macOS
+#            url: deploy-edge-to-the-mac.md
+#      - linkListType: how-to-guide
+#        links:
+          - text: Configure Microsoft Edge
+            url: configure-microsoft-edge.md
+#          - text: Set Microsoft Edge as the default browser
+            url: edge-default-browser.md
+#          - text: Use Microsoft Edge in IE mode
+##            url: edge-ie-mode.md
+#          - text: Review and use security tools
+#            url: security-overview.md
+#          - text: Configure privacy policy
+#            url: microsoft-edge-privacy-policy.md
+
+  # Card (col 3, 1st row)
+  - title: Configure group policies
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Browser policy reference
+            url: microsoft-edge-policies.md
+          - text: Update policy reference
+            url: microsoft-edge-update-policies.md
+
+
+  # Card (col 1, 2nd row)
+  - title: Security and privacy
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Review and use security tools
+            url: security-overview.md
+          - text: Configure privacy policy
+            url: microsoft-edge-privacy-policy.md

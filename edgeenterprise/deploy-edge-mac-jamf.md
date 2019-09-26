@@ -1,66 +1,32 @@
 ---
-title: "Automate Microsoft Edge for macOS deployment"
-ms.author: srugh
-author: kelleyvice-MSFT
+title: "Automate Microsoft Edge for macOS deployment with Jamf"
+ms.author: kvice
+author: dan-wesley
 manager: laurawi
-ms.date: 08/26/2019
+ms.date: 09/18/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
 localization_priority: medium
 ms.collection: M365-modern-desktop
-description: "How to automate Microsoft Edge for macOS deployment with Intune and Jamf."
+description: "How to automate Microsoft Edge for macOS deployment with Jamf."
 ---
 
-# Deploy to macOS
+# Deploy to macOS with Jamf
 
-You can deploy Microsoft Edge for macOS using Microsoft Intune or Jamf.
+This article describes how to deploy Microsoft Edge for macOS using Jamf.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Deploy Microsoft Edge for macOS using Microsoft Intune
-
-You can deploy the Microsoft Edge .pkg installer as a line-of-business application using Microsoft Intune. This requires pre-processing the .pkg installer on a macOS device using the Intune App Wrapping Tool. The tool generates a .intunemac file that is uploaded to Microsoft Intune.
-
-### Prerequisites
-
-1. Download the [Intune App Wrapping Tool for macOS](https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac). The tool must be run on a macOS device.
-
-2. Mark the downloaded tool as an executable:
-
-   - Start the Terminal app.
-   - Change the directory to the location where `IntuneAppUtil` is located.
-   - Run the following command to make the tool executable:<br>
-     `chmod a+x ./IntuneAppUtil`
-   - Test the tool by running: <br>
-     `./IntuneAppUtil -h`
-
-3. Use the `IntuneAppUtil` command to wrap the .pkg installer to a .intunemac file: <br>
-   `./IntuneAppUtil -c MicrosoftEdgeDev-77.0.223.0.pkg -o <output_directory>`
-
-To deploy Microsoft Edge for macOS using Microsoft Intune:
-
-1. Sign in to [Intune](https://go.microsoft.com/fwlink/?linkid=2090973).
-2. On the **Intune** pane, choose **Client apps** > **Apps** > **Add** > **Line-of-business app** > **App package file**.
-3. On the **App package file** pane, choose the browse button, and select the wrapped Microsoft Edge installation file with the extension *.intunemac*. When you are finished, choose **OK**.
-4. Configure app information. When you are finished, choose **OK**.
-5. On the **Add app** pane, verify that the details for your app is correct.
-6. Choose **Add**, to upload the app to Intune.
-7. The app you have added is displayed in the apps list. You can now assign it to the groups you choose.
-
-## Deploy Microsoft Edge for macOS using Jamf
-
-You can automate deployment of Microsoft Edge for macOS using Jamf.
-
-### Prerequisites for Jamf
+## Prerequisites
 
 Before you deploy Microsoft Edge, make sure you meet the following prerequisites:
 
 - The Microsoft Edge installation file,  **MicrosoftEdgeDev-\<version\>.pkg** is in an accessible location on your network. You can download the Microsoft Edge Enterprise installation files from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 - You have a Jamf Cloud account with the level of access and privileges needed to create and deploy installation files to computers.
 
-### To deploy Microsoft Edge using Jamf:
+## To deploy Microsoft Edge using Jamf:
 
 1. Sign on to Jamf and go to **All Settings**.
 
@@ -127,3 +93,4 @@ Congratulations! You’ve just finished configuring Jamf to deploy Microsoft Edg
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Jamf.com](https://www.jamf.com/)
+- [Integrate Jamf with Microsoft Intune](https://docs.microsoft.com/intune/conditional-access-integrate-jamf)
