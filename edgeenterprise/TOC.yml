@@ -7,7 +7,7 @@
      items:
       - name: Windows updates to support Microsoft Edge
         href: microsoft-edge-enlightenment-windows-updates.md
-      - name: How to access the old version of Microsoft Edge after installing the new version
+      - name: How to access the old version of Microsoft Edge
         href: microsoft-edge-enlightenment-access-old-edge.md
 # Deploy
 - name: Deploy Microsoft Edge
