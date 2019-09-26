@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -39,7 +39,7 @@ After the systems are fully updated and the stable channel of the next version o
 - Key value: `BrowserReplacement`
 
 > [!IMPORTANT]
-> This key is over-written every time the Stable channel is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge.
+> This key is over-written every time the Microsoft Edge Stable channel is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge.
 
 ## How to enable a side-by-side experience with both versions of Microsoft Edge
 

@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,7 +21,7 @@ This article describes how Windows will be updated to support the next version o
 
 ## Microsoft Edge and the Windows release cycle
 
-The next version of Microsoft Edge isn’t bound to the Windows release cycle. Because the browser is de-coupled from the operating system (OS), changes will be made to Windows to ensure that the next version of Microsoft Edge fits seamlessly into Windows. As a result, feature updates will be released on a 6-week cycle (approximately.) Security and compatibility updates will be shipped as needed.
+The next version of Microsoft Edge features more frequent and more flexible updating capabilities. Because browser releases aren't bound to the Windows major releases, changes will be made to Windows to ensure that the next version of Microsoft Edge fits seamlessly into Windows. As a result, feature updates will be released on a 6-week cycle (approximately.) Security and compatibility updates will be shipped as needed.
 
 ## Updates and the user experience
 
@@ -29,10 +29,10 @@ Updates won’t change the user experience until the stable channel of the next 
 
 When all the updates are applied AND the stable channel of the next version of Microsoft Edge is installed at the system-level, the following changes will take effect on the system:
 
-- All start menu pins, tiles, and shortcuts will migrate to the next version of Microsoft Edge.
-- All taskbar pins and shortcuts will migrate to the next version of Microsoft Edge.
-- The next version of Microsoft Edge will be pinned to the taskbar.
-- The next version of Microsoft Edge will add a shortcut to the desktop.
+- All start menu pins, tiles, and shortcuts for the current version of Microsoft Edge will migrate to the next version of Microsoft Edge.
+- All taskbar pins and shortcuts for the current version of Microsoft Edge will migrate to the next version of Microsoft Edge.
+- The next version of Microsoft Edge will be pinned to the taskbar. If the current version of Microsoft Edge is already pinned, it will be replaced.
+- The next version of Microsoft Edge will add a shortcut to the desktop. If the current version of Microsoft Edge already has a shortcut, it will be replaced.
 - Most protocols that Microsoft Edge handles by default will be migrated to the next version of Microsoft Edge.
 - Current Microsoft Edge will be hidden from all UX surfaces in the OS, including settings, all apps, and any file or protocol support dialogs.
 - All attempts to launch the current version of Microsoft Edge will redirect to the next version of Microsoft Edge.
