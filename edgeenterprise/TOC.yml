@@ -7,7 +7,7 @@
      items:
       - name: Windows updates to support Microsoft Edge
         href: microsoft-edge-enlightenment-windows-updates.md
-      - name: How to access the old version of Microsoft Edge
+      - name: How to access the old version of Microsoft Edge after installing the new version
         href: microsoft-edge-enlightenment-access-old-edge.md
 # Deploy
 - name: Deploy Microsoft Edge
@@ -29,7 +29,7 @@
      href: configure-edge-with-intune.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md
-   - name: Use Microsoft Edge in IE Mode 
+   - name: Use Microsoft Edge in Internet Explorer mode 
      href: edge-ie-mode.md 
    - name: Browser policy reference
      href: microsoft-edge-policies.md
