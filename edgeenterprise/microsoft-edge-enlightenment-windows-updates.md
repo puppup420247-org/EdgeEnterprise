@@ -17,7 +17,7 @@ description: "Windows updates for Microsoft Edge."
 This article describes how Windows will be updated to support the next version of Microsoft Edge.
 
 > [!NOTE]
-> This article applies to Microsoft Edge stable version 79 or later.
+> This article applies to the Microsoft Edge Stable channel.
 
 ## Microsoft Edge and the Windows release cycle
 
@@ -25,9 +25,9 @@ The next version of Microsoft Edge features more frequent and more flexible upda
 
 ## Updates and the user experience
 
-Updates won’t change the user experience until the stable channel of the next version of Microsoft Edge is installed. Installing Microsoft Edge Beta, Dev, or Canary won’t trigger any changes in Windows. These browser releases will be installed alongside existing browsers.
+Updates won’t change the user experience until the Stable channel of the next version of Microsoft Edge is installed. Installing Microsoft Edge Beta, Dev, or Canary won’t trigger any changes in Windows. These browser releases will be installed alongside existing browsers.
 
-When all the updates are applied AND the stable channel of the next version of Microsoft Edge is installed at the system-level, the following changes will take effect on the system:
+When all the updates are applied AND the Stable channel of the next version of Microsoft Edge is installed at the system-level, the following changes will take effect on the system:
 
 - All start menu pins, tiles, and shortcuts for the current version of Microsoft Edge will migrate to the next version of Microsoft Edge.
 - All taskbar pins and shortcuts for the current version of Microsoft Edge will migrate to the next version of Microsoft Edge.
@@ -40,7 +40,7 @@ When all the updates are applied AND the stable channel of the next version of M
   > [!NOTE]
   > User-level installs won’t trigger these behaviors.
 
-Along with the previous changes, there are changes that will happen regardless of whether the stable channel of the next version of Microsoft Edge is installed.
+Along with the previous changes, there are changes that will happen regardless of whether the Stable channel of the next version of Microsoft Edge is installed.
 
 - Microsoft Edge will de-register for the books and XML protocols that the next version of Microsoft Edge doesn't support. Users attempting to open these protocols will get a dialog that prompts them to choose a default app. Learn more about changes to books support at [Download an ePub app to keep reading e-books](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsupport.microsoft.com%2Fhelp%2F4517840&data=02%7C01%7Cv-danwes%40microsoft.com%7Cc9f8571b880549c30fcf08d72be5eaf9%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637026138803983526&sdata=qtb3DvVZQ6H%2FFXnBievkl%2B%2BngAQXwl340PcH8kRc3y4%3D&reserved=0).
 

@@ -17,7 +17,7 @@ description: "How to access the old version of Microsoft Edge."
 This article describes how access the old version of Microsoft Edge after the new version is installed.
 
 > [!NOTE]
-> This article applies to Microsoft Edge stable version 79 or later.
+> This article applies to the Microsoft Edge Stable channel.
 
 The procedures in this article apply to systems that have been updated with the latest security updates, up to and including November 2019. When the next version of Microsoft Edge is installed, the old version will be hidden. All attempts to launch the old version will  redirect the user to the newly installed version Microsoft Edge.
 
@@ -33,7 +33,7 @@ Before using the detailed instructions in this article, consider the following 2
 
 ## How operating system (OS) changes are triggered
 
-After the systems are fully updated and the stable channel of the next version of Microsoft Edge is installed, the following registry key and value is set:
+After the systems are fully updated and the Stable channel of the next version of Microsoft Edge is installed, the following registry key and value is set:
 
 - Key: `SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
 - Key value: `BrowserReplacement`
