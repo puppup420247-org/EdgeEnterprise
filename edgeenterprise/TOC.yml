@@ -1,3 +1,4 @@
+# Revised: 09/27/2019
 - name: Overview of Microsoft Edge in the enterprise
   href: overview-edge-in-the-enterprise.md
   items:
@@ -6,9 +7,9 @@
    - name: System updates for Microsoft Edge
      items:
       - name: Windows updates to support Microsoft Edge
-        href: microsoft-edge-enlightenment-windows-updates.md
+        href: microsoft-edge-sysupdate-windows-updates.md
       - name: How to access the old version of Microsoft Edge
-        href: microsoft-edge-enlightenment-access-old-edge.md
+        href: microsoft-edge-sysupdate-access-old-edge.md
 # Deploy
 - name: Deploy Microsoft Edge
   items:
