@@ -23,7 +23,7 @@ For information about other policies available in Microsoft Edge, check out [Mic
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Available update policies
+## Available policies
 These tables lists all of the update-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 |||
@@ -31,7 +31,7 @@ These tables lists all of the update-related group policies available in this re
 |[Applications](#applications)|[Preferences](#preferences)|
 |[Proxy Server](#proxy-server)||
 
-## [Applications](#applications-policies)
+### [Applications](#applications-policies)
 |Policy Name|Caption|
 |-|-|
 |[InstallDefault](#installdefault)|Allow installation default|
@@ -40,13 +40,13 @@ These tables lists all of the update-related group policies available in this re
 |[Update](#update)|Update policy override (per channel)|
 |[Allowsxs](#allowsxs)|Allow Microsoft Edge Side by Side browser experience|
 
-## [Preferences](#preferences-policies)
+### [Preferences](#preferences-policies)
 |Policy Name|Caption|
 |-|-|
 |[AutoUpdateCheckPeriodMinutes](#autoupdatecheckperiodminutes)|Auto-update check period override|
 |[UpdatesSuppressed](#updatessuppressed)|Time period in each day to suppress auto-update check|
 
-## [Proxy Server](#proxy-server-policies)
+### [Proxy Server](#proxy-server-policies)
 |Policy Name|Caption|
 |-|-|
 |[ProxyMode](#proxymode)|Choose how to specify proxy server settings|
@@ -380,12 +380,6 @@ Allows you to specify the URL of the proxy server for Microsoft Edge Update to u
 https://www.microsoft.com
 ```
 [Back to top](#microsoft-edge---update-policies)
-  
-		   
-
-																					
-														   
-																		 
 
 ## See also
 - [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
