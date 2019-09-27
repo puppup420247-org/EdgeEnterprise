@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/26/2019
+ms.date: 09/27/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "How to access the old version of Microsoft Edge."
 
 # How to access the old version of Microsoft Edge after installing the new version
 
-This article describes how access the old version of Microsoft Edge after the new version is installed.
+This article describes how to access the old version of Microsoft Edge after the new version is installed.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge Stable channel.

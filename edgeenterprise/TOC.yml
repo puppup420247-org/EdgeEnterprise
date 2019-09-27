@@ -3,7 +3,7 @@
   items:
    - name: Microsoft Edge Channels
      href: "https://www.microsoftedgeinsider.com"
-   - name: Update and support notes
+   - name: System updates for Microsoft Edge
      items:
       - name: Windows updates to support Microsoft Edge
         href: microsoft-edge-enlightenment-windows-updates.md
