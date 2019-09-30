@@ -3,7 +3,7 @@ title: "Automate Microsoft Edge for macOS deployment with Microsoft Intune"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -49,12 +49,9 @@ You can deploy the Microsoft Edge .pkg installer as a line-of-business applicati
 6. Choose **Add**, to upload the app to Intune.
 7. The app you have added is displayed in the apps list. You can now assign it to the groups you choose.
 
-
-
-Congratulations! You’ve just finished configuring using Intune to deploy Microsoft Edge for macOS. 
+Congratulations! You’ve just finished configuring using Intune to deploy Microsoft Edge for macOS.
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Jamf.com](https://www.jamf.com/)

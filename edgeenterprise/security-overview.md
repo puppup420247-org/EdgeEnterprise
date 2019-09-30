@@ -3,7 +3,7 @@ title: "Overview of Microsoft Edge security"
 ms.author: srugh
 author: srugh
 manager: seanlyn
-ms.date: 07/12/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -20,11 +20,13 @@ description: "Overview of deploying Microsoft Edge security"
 IT admins in the enterprise are constantly facing a myriad of existing and emerging security challenges while protecting the corporate network and devices from malicious attacks and preventing unauthorized access and leaks of corporate data. Microsoft Edge provides several natively built, unique capabilities that help address these challenges.
 
 ## Conditional Access
+
 A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient. You also need to factor in how a resource is accessed. Azure Active Directory (Azure AD) Conditional Access helps you master the balance between security and productivity.
 
 Microsoft Edge natively supports Azure AD Conditional Access. Microsoft Edge profile associated with enterprise AAD credentials allows seamless access to enterprise cloud resources protected using Conditional Access. This support is available across all platforms, including all supported versions of Windows and MacOS.
 
 ### How to deploy Conditional Access in Azure Active Directory
+
 [Deploy Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access) provides a detailed guide to help deploy Conditional Access in Azure Active Directory.
 
 ## Application Guard
@@ -43,5 +45,4 @@ The following links provide additional information to get started using Applicat
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

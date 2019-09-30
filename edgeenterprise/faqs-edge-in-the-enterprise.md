@@ -3,7 +3,7 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -42,9 +42,9 @@ The Beta of the next version of Microsoft Edge is the most stable preview channe
 Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://go.microsoft.com/fwlink/?linkid=2081222) and [Chrome Web Store](https://go.microsoft.com/fwlink/?linkid=2072338).
 
 ## Do you support Mobile Device Management (MDM) and Microsoft Intune?
+
 Configuring Microsoft Edge on Windows 10 using Microsoft Intune is supported. For more information, see [Configure Microsoft Edge using Microsoft Intune](configure-edge-with-intune.md). MDM support is on our roadmap.
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

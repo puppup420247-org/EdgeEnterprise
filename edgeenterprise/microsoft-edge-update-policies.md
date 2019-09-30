@@ -3,7 +3,7 @@ title: "Microsoft Edge Update Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -382,6 +382,6 @@ https://www.microsoft.com
 [Back to top](#microsoft-edge---update-policies)
 
 ## See also
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
+
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
