@@ -3,7 +3,7 @@ title: "Automate Microsoft Edge for macOS deployment"
 ms.author: srugh
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -124,6 +124,5 @@ Congratulations! You’ve just finished configuring Jamf to deploy Microsoft Edg
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Jamf.com](https://www.jamf.com/)

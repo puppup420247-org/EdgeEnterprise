@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 09/25/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -10524,6 +10524,6 @@ If you don't configure this policy, or if you set it to an empty string or inval
 
 
 ## See also
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
+
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

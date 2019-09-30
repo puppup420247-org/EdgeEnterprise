@@ -3,7 +3,7 @@ title: "Deploy Microsoft Edge for Windows 10 using Microsoft Intune"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -92,7 +92,6 @@ When you're finished, see [Assign apps to groups with Microsoft Intune](https://
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Use Windows 10 templates to configure group policy settings in Microsoft Intune](https://docs.microsoft.com/en-us/intune/administrative-templates-windows)
 - [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add)
