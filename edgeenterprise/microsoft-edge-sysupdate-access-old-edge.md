@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/27/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge

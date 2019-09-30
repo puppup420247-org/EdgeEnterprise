@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 09/26/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
