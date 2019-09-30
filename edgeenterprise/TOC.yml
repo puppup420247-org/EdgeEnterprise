@@ -1,31 +1,43 @@
+# Revised: 09/27/2019
 - name: Overview of Microsoft Edge in the enterprise
   href: overview-edge-in-the-enterprise.md
+  items:
+   - name: Microsoft Edge Channels
+     href: "https://www.microsoftedgeinsider.com"
+   - name: System updates for Microsoft Edge
+     items:
+      - name: Windows updates to support Microsoft Edge
+        href: microsoft-edge-sysupdate-windows-updates.md
+      - name: How to access the old version of Microsoft Edge
+        href: microsoft-edge-sysupdate-access-old-edge.md
+# Deploy
 - name: Deploy Microsoft Edge
   items:
-   - name: Deploy with Configuration Manager
+   - name: Deploy to Windows with Configuration Manager 
      href: deploy-edge-with-configuration-manager.md
-   - name: Deploy with Intune
+   - name: Deploy to Windows with Intune 
      href: deploy-edge-with-intune.md
    - name: Deploy to macOS with Jamf
      href: deploy-edge-mac-jamf.md
    - name: Deploy to macOS with Intune  
      href: deploy-edge-mac-intune.md
-- name: Configure Microsoft Edge
+# Configure
+- name: Configure Microsoft Edge 
   items:
    - name: Configure Microsoft Edge
      href: configure-microsoft-edge.md
    - name: Configure with Intune
      href: configure-edge-with-intune.md
    - name: Set Microsoft Edge as the default browser
-     href: edge-default-browser.md 
-   - name: Use Microsoft Edge in IE Mode
-     href: edge-ie-mode.md
+     href: edge-default-browser.md
+   - name: Use Microsoft Edge in Internet Explorer mode 
+     href: edge-ie-mode.md 
    - name: Browser policy reference
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Security and Privacy
-  items:
+- name: Security and privacy
+  items: 
    - name: Security
      href: security-overview.md
    - name: Privacy
