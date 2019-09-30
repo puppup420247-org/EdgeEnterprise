@@ -3,7 +3,7 @@ title: "Set Microsoft Edge as the default browser on Windows"
 ms.author: brianalt
 author: dan-wesley
 manager: srugh
-ms.date: 09/04/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -77,7 +77,6 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Set Microsoft Edge as default browser (Windows 7 and macOS)](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled)
 - [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)

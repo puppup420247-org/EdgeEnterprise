@@ -3,7 +3,7 @@ title: "Deploy Microsoft Edge using System Center Configuration Manager"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 08/13/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -229,6 +229,5 @@ Users who have PCs that are managed by Configuration Manager and are running Win
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Create and deploy an application with System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/get-started/create-and-deploy-an-application)

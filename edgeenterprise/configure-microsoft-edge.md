@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge"
 ms.author: brianalt
 author: kelleyvice-MSFT
 manager: laurawi
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -136,5 +136,4 @@ In the policy templates file, which can be downloaded from the [Microsoft Edge E
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
