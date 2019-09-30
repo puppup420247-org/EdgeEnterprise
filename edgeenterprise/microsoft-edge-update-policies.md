@@ -38,7 +38,6 @@ These tables lists all of the update-related group policies available in this re
 |[UpdateDefault](#updatedefault)|Update policy override default|
 |[Install](#install)|Allow installation (per channel)|
 |[Update](#update)|Update policy override (per channel)|
-|[Allowsxs](#allowsxs)|Allow Microsoft Edge Side by Side browser experience|
 
 ### [Preferences](#preferences-policies)
 |Policy Name|Caption|
@@ -194,38 +193,6 @@ Specifies how Microsoft Edge Update handles available updates from Microsoft Edg
 0x00000001
 ```
 [Back to top](#microsoft-edge---update-policies)
-
-
-### Allowsxs
-#### Allow Microsoft Edge Side by Side browser experience
->Microsoft Edge Update 1.2.145.5 and later
-
-#### Description
-This policy lets a user run Microsoft Edge (Edge HTML) and Microsoft Edge (Chromium-based) side-by-side.
-
-If this policy is set to “Not configured”, Microsoft Edge (Chromium-based) will replace Microsoft Edge (Edge HTML) after the Microsoft Edge (Chromium-based) stable channel and the November 2019 security updates are installed.  This is the same behavior as the “Disabled” setting.
-
-The “Disabled” setting blocks a side-by-side experience and Microsoft Edge (Chromium-based) will replace Microsoft Edge (Edge HTML) after the Microsoft Edge (Chromium-based) stable channel and the November 2019 security updates are installed.  This is the same behavior as the “Not Configured” setting.
-
-When this policy is “Enabled”, Microsoft Edge (Chromium-based) and Microsoft Edge (Edge HTML) can run side-by-side after Microsoft Edge (Chromium-based) is installed.
-
-For this group policy to take affect, it must be configured before the automatic install of Microsoft Edge (Chromium-based) by Windows Update. Note: ​A user can block the automatic update of Microsoft Edge (Chromium-based) by using the Microsoft Edge (Chromium-based) Blocker Toolkit.
-#### Windows information and settings
-##### Group Policy (ADMX) info
-- GP unique name: Allowsxs
-- GP name: Allow Microsoft Edge Side by Side browser experience
-- GP path: Administrative Templates/Microsoft Edge Update/Applications
-- GP ADMX file name: edgeupdate.admx
-##### Windows Registry Settings
-- Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate
-- Value Name: Allowsxs
-- Value Type: REG_DWORD
-##### Example value:
-```
-0x00000001
-```
-[Back to top](#microsoft-edge---update-policies)
-
 
 ## Preferences policies
 
