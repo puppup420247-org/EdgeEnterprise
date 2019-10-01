@@ -1,18 +1,18 @@
-# draft toc for MGB
+# last revised 09/30/2019
 - name: Microsoft Edge documentation 
   href: index2.yml
 - name: Microsoft Edge in the enterprise
   items:
    - name: Microsoft Edge Channels
-     href: "https://www.microsoftedgeinsider.com/enterprise"
-   - name: Lifecycle FAQ—Internet Explorer and Edge 
-     href: "https://support.microsoft.com/help/17454/lifecycle-faq-internet-explorer"    
-   - name: Enlightenment update
+     href: microsoft-edge-channels.md
+   - name: System updates for Microsoft Edge
      items:
       - name: Windows updates to support Microsoft Edge
-        href: microsoft-edge-enlightenment-windows-updates-stub.md
-   - name: Migrate to the next version of Microsoft Edge
-     href: edge-content-wip.md       
+        href: microsoft-edge-sysupdate-windows-updates.md
+      - name: How to access the old version of Microsoft Edge
+        href: microsoft-edge-sysupdate-access-old-edge.md
+#   - name: Migrate to the next version of Microsoft Edge
+#     href: edge-content-wip.md       
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager 
@@ -39,10 +39,10 @@
   items:
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
-   - name: Conditional access 
-     href: edge-content-wip.md  
-   - name: Windows Defender Application Guard 
-     href: edge-content-wip.md  
+#   - name: Microsoft Edge support for Azure AD Conditional Access 
+#     href: edge-enterprise-conditional-access.md  
+#   - name: Microsoft Edge support for Windows Defender Application Guard 
+#     href: edge-enterprise-wdag.md  
 - name: Security and privacy
   items:     
    - name: Security
