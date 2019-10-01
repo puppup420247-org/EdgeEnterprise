@@ -27,10 +27,12 @@ landingContent:
         links:
           - text: Microsoft Edge channels
             url: microsoft-edge-channels.md
+          - text: Use enterprise features
+            url: edge-ie-mode.md
 #          - text: FastTrack for Microsoft Edge
 #            url: "https://www.microsoft.com/fasttrack/microsoft-365/office-365?rtc=1"
   # Card (col 2, 1st row)
-  - title: Deploy and configure Microsoft Edge
+  - title: Deploy and update Microsoft Edge
     linkLists:
       - linkListType: deploy
         links:
@@ -38,11 +40,20 @@ landingContent:
             url: deploy-edge-with-configuration-manager.md
           - text: Deploy to macOS
             url: deploy-edge-to-the-mac.md
-          - text: Configure Microsoft Edge for Windows
-            url: configure-microsoft-edge.md
+
 #          - text: Set Microsoft Edge policies
 #            url: microsoft-edge-policies.md
-  # Card 3 (col 3, 1st row)
+ # Card 3 (col 3, 1st row)
+  - title: Configure Microsoft Edge
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Microsoft Edge on Windows and macOS
+            url: configure-microsoft-edge.md
+          - text: Set Microsoft Edge as the default browser
+            url: edge-default-browser.md
+
+  # Card 4 (col 1, 2nd row)
   - title: Manage security and privacy
     linkLists:
       - linkListType: concept
@@ -50,12 +61,12 @@ landingContent:
           - text: Security
             url: security-overview.md
  # Card 4 (col 1, 2nd row)
-  - title: Use enterprise features
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Use Microsoft Edge in IE mode
-            url: edge-ie-mode.md
+#  - title: Use enterprise features
+#    linkLists:
+#      - linkListType: learn
+#        links:
+#          - text: Use Microsoft Edge in IE mode
+#            url: edge-ie-mode.md
  # Card 5 (col 2, 2nd row)
   - title: Policy reference
     linkLists:
