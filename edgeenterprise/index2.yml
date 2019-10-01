@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/30/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/01/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (col 1, 1st row)
-  - title: Learn about Microsoft Edge
+  - title: Learn about Microsoft Edge in the enterprise
     linkLists:
       - linkListType: overview
         links:
@@ -29,53 +29,39 @@ landingContent:
             url: microsoft-edge-channels.md
 #          - text: FastTrack for Microsoft Edge
 #            url: "https://www.microsoft.com/fasttrack/microsoft-365/office-365?rtc=1"
-
-  - title: Engage with enterprise community or get help
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Enterprise tech community
-            url: "https://techcommunity.microsoft.com/t5/Enterprise/bd-p/EdgeInsiderEnterprise"
-          - text: Contact Microsoft Edge support
-            url: "https://microsoftedgesupport.microsoft.com/hc/"
-
-
   # Card (col 2, 1st row)
   - title: Deploy and manage updates
     linkLists:
       - linkListType: deploy
         links:
-          - text: Deploy Microsoft Edge
+          - text: Deploy to Windows
             url: deploy-edge-with-configuration-manager.md
-#          - text: Deploy with Microsoft Intune
-#            url: deploy-edge-with-intune.md
-#          - text: Deploy to macOS
-#            url: deploy-edge-to-the-mac.md
-#      - linkListType: how-to-guide
-#        links:
-          - text: Configure Microsoft Edge
+          - text: Deploy to macOS
+            url: deploy-edge-to-the-mac.md
+          - text: Configure Microsoft Edge for Windows
             url: configure-microsoft-edge.md
-#          - text: Set Microsoft Edge as the default browser
-#            url: edge-default-browser.md
-#          - text: Use Microsoft Edge in IE mode
-##            url: edge-ie-mode.md
-#          - text: Review and use security tools
-#            url: security-overview.md
-#          - text: Configure privacy policy
-#            url: microsoft-edge-privacy-policy.md
+          - text: Set Microsoft Edge policies
+            url: microsoft-edge-policies.md
   # Card (col 3, 1st row)
-  - title: Learn about enterprise features
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Use Microsoft Edge in IE mode
-            url: edge-ie-mode.md
-
-
-  # Card (col 1, 2nd row)
   - title: Manage security and privacy
     linkLists:
       - linkListType: concept
         links:
           - text: Security
             url: security-overview.md
+ # Card (col 1, 2nd row)
+  - title: Learn about enterprise features
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Use Microsoft Edge in IE mode
+            url: edge-ie-mode.md
+  # Card 5 (col 2, 2nd row)
+  - title: Engage with enterprise community or get help
+    linkLists:
+       - linkListType: get-started
+         links:
+           - text: Enterprise tech community
+             url: "https://techcommunity.microsoft.com/t5/Enterprise/bd-p/EdgeInsiderEnterprise"
+           - text: Contact Microsoft Edge support
+             url: "https://microsoftedgesupport.microsoft.com/hc/"
