@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge for Windows 10 using Microsoft Intune"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -36,7 +36,7 @@ Using Administrative Templates in Microsoft Intune, you can manage Microsoft Edg
   - Windows 10, version 1903 with [KB4512941](https://support.microsoft.com/kb/4512941) installed
   - Windows 10, version 1809 with [KB4512534](https://support.microsoft.com/kb/4512534) installed
   - Windows 10, version 1803 with [KB4512509](https://support.microsoft.com/kb/4512509) installed
-  <!-- - Windows 10, version 1709 with [KB?]() installed -->
+  - Windows 10, version 1709 with [KB4516071](https://support.microsoft.com/kb/4516071) installed
 
 ### Create an Administrative Templates profile
 
@@ -77,7 +77,6 @@ For more information about Windows 10 profiles, see [Use Windows 10 templates to
 
 ## See also
 
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/en-us/intune/manage-microsoft-edge)
 - [Use Windows 10 templates to configure group policy settings in Microsoft Intune](https://docs.microsoft.com/en-us/intune/administrative-templates-windows)

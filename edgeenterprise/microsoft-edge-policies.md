@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Edge Browser Policy Documentation" 
+title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 09/04/2019
+ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -23,7 +23,7 @@ For information about an additional set of policies used to control how and when
 
 ## Available policies
 These tables lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
- 
+
 |||
 |-|-|
 |[Cast](#cast)|[Content settings](#content-settings)|
@@ -141,8 +141,10 @@ These tables lists all of the browser-related group policies available in this r
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
 |[HomepageLocation](#homepagelocation)|Configure the home page URL|
+|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Set new tab page company logo|
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
 |[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
+|[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Set new tab page quick links|
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
@@ -161,7 +163,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AutoImportAtFirstRun](#autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
 |[AutofillAddressEnabled](#autofilladdressenabled)|Enable AutoFill for addresses|
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
-|[AutoplayAllowed](#autoplayallowed)|Allow media autoplay|
+|[AutoplayAllowed](#autoplayallowed)|Allow media autoplay for websites|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
@@ -205,6 +207,7 @@ These tables lists all of the browser-related group policies available in this r
 |[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Forces direct intranet site navigation instead of searching on single word entries in the Address Bar.|
 |[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
 |[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
+|[ImportBrowserSettings](#importbrowsersettings)|Allow importing of browser settings|
 |[ImportFavorites](#importfavorites)|Allow importing of favorites|
 |[ImportHistory](#importhistory)|Allow importing of browsing history|
 |[ImportHomepage](#importhomepage)|Allow importing of home page settings|
@@ -229,12 +232,13 @@ These tables lists all of the browser-related group policies available in this r
 |[QuicAllowed](#quicallowed)|Allow QUIC protocol|
 |[RelaunchNotification](#relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
 |[RelaunchNotificationPeriod](#relaunchnotificationperiod)|Set the time period for update notifications|
+|[RendererCodeIntegrityEnabled](#renderercodeintegrityenabled)|Enable renderer code integrity|
 |[RequireOnlineRevocationChecksForLocalAnchors](#requireonlinerevocationchecksforlocalanchors)|Specify if online OCSP/CRL checks are required for local trust anchors|
 |[ResolveNavigationErrorsUseWebService](#resolvenavigationerrorsusewebservice)|Enable resolution of navigation errors using a web service|
 |[RestrictSigninToPattern](#restrictsignintopattern)|Restrict which accounts can be used as Microsoft Edge primary accounts|
 |[RunAllFlashInAllowMode](#runallflashinallowmode)|Extend Adobe Flash content setting to all content|
-|[SSLErrorOverrideAllowed](#sslerroroverrideallowed)|Allow users to proceed from the SSL warning page|
-|[SSLVersionMin](#sslversionmin)|Minimum SSL version enabled|
+|[SSLErrorOverrideAllowed](#sslerroroverrideallowed)|Allow users to proceed from the HTTPS warning page|
+|[SSLVersionMin](#sslversionmin)|Minimum TLS version enabled|
 |[SavingBrowserHistoryDisabled](#savingbrowserhistorydisabled)|Disable saving browser history|
 |[SearchSuggestEnabled](#searchsuggestenabled)|Enable search suggestions|
 |[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
@@ -326,7 +330,7 @@ True
 
 If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
 
-If you've also set the "EnableMediaRouter" policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -1625,15 +1629,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Define a list of sites that can automatically access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and URLs in order for the policy to be valid. Each device definition contains a vendor ID and product ID field. Any ID that's not defined is treated as a wildcard with one exception: you can't specify a product ID without a vendor ID. If you do, the policy isn't valid and is ignored.
+  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant access for the requesting URL to the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Because of this, the "urls" field can contain up to two URL strings, separated by a comma, to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices is granted when the requesting site's URL matches this URL, regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy is ignored.
+The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
 
-URL patterns in this policy shouldn't clash with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy. If there is a clash, this policy takes precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls) policies.
-
-Values for this policy and the DeviceWebUsbAllowDevicesForUrls policy are merged together.
+URL patterns in this policy should not clash with the ones configured via WebUsbBlockedForUrls. If there is a clash, this policy will take precedence over WebUsbBlockedForUrls and WebUsbAskForUrls.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -3235,7 +3237,7 @@ True
   #### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser.
+Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3284,7 +3286,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
@@ -4297,6 +4299,86 @@ This policy is available only on Windows instances that are joined to a Microsof
 
   [Back to top](#microsoft-edge---policies)
 
+  ### NewTabPageCompanyLogo
+  #### Set new tab page company logo
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
+
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Dictionary
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: NewTabPageCompanyLogo
+  - GP name: Set new tab page company logo
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: NewTabPageCompanyLogo
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
+  "default_logo": {
+    "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29", 
+    "url": "https://www.contoso.com/logo.png"
+  }, 
+  "light_logo": {
+    "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737", 
+    "url": "https://www.contoso.com/light_logo.png"
+  }
+}
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: NewTabPageCompanyLogo
+  - Example value:
+``` xml
+<key>NewTabPageCompanyLogo</key>
+<dict>
+  <key>default_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29</string>
+    <key>url</key>
+    <string>https://www.contoso.com/logo.png</string>
+  </dict>
+  <key>light_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737</string>
+    <key>url</key>
+    <string>https://www.contoso.com/light_logo.png</string>
+  </dict>
+</dict>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### NewTabPageHideDefaultTopSites
   #### Hide the default top sites from the new tab page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -4357,7 +4439,7 @@ This policy doesn't determine which page opens on startup; that's controlled by 
 
 If you don't configure this policy, the default new tab page is used.
 
-If you configure this policy *and* the 'NewTabPageSetFeedType' policy, this policy has precedence.
+If an invalid URL is provided, new tabs will open about://blank.
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
@@ -4392,6 +4474,85 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Example value:
 ```
 "https://www.fabrikam.com"
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### NewTabPageManagedQuickLinks
+  #### Set new tab page quick links
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  By default, Microsoft Edge displays quick links on the new tab page from user-added shortcuts and top sites based on browsing history. With this policy, you can configure up to three quick link tiles on the new tab page, expressed as a JSON object:
+
+[ { "url": "https://www.contoso.com", "title": "Contoso Portal", "pinned": true/false }, ... ]
+
+The 'url' field is required; 'title' and 'pinned' are optional. If 'title' is not provided, the URL is used as the default title. If 'pinned' is not provided, the default value is false.
+
+Microsoft Edge presents these in the order listed, from left to right, with all pinned tiles displayed ahead of non-pinned tiles.
+
+If the policy is set as mandatory, the 'pinned' field will be ignored and all tiles will be pinned. The tiles can't be deleted by the user and will always appear at the front of the quick links list.
+
+If the policy is set as recommended, pinned tiles will remain in the list but the user has the ability to edit and delete them. Quick link tiles that aren't pinned behave like default top sites and are pushed off the list if other websites are visited more frequently. When applying non-pinned links via this policy to an existing browser profile, the links may not appear at all, depending on how they rank compared to the user's browsing history.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Dictionary
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: NewTabPageManagedQuickLinks
+  - GP name: Set new tab page quick links
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: NewTabPageManagedQuickLinks
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
+  {
+    "pinned": true, 
+    "title": "Contoso Portal", 
+    "url": "https://contoso.com"
+  }, 
+  {
+    "title": "Fabrikam", 
+    "url": "https://fabrikam.com"
+  }
+]
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: NewTabPageManagedQuickLinks
+  - Example value:
+``` xml
+<key>NewTabPageManagedQuickLinks</key>
+<array>
+  <dict>
+    <key>pinned</key>
+    <true/>
+    <key>title</key>
+    <string>Contoso Portal</string>
+    <key>url</key>
+    <string>https://contoso.com</string>
+  </dict>
+  <dict>
+    <key>title</key>
+    <string>Fabrikam</string>
+    <key>url</key>
+    <string>https://fabrikam.com</string>
+  </dict>
+</array>
 ```
   
 
@@ -5144,17 +5305,19 @@ False
   [Back to top](#microsoft-edge---policies)
 
   ### AutoplayAllowed
-  #### Allow media autoplay
+  #### Allow media autoplay for websites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
 
   #### Description
-  Allows you to control if audio or video with audio content can play automatically in Microsoft Edge.
+  This policy sets the media autoplay policy for websites.
 
-If the policy is set to True, Microsoft Edge is allowed to autoplay media.
-If the policy is set to False, Microsoft Edge isn't allowed to autoplay media.
-By default, Microsoft Edge is allowed to autoplay media unless the user changes this behavior.
+The default setting, "Not configured" respects the current media autoplay settings and lets users configure their autoplay settings.
 
-Note that if Microsoft Edge is running and this policy changes, the change will only be applied to new tabs. Existing tabs will continue to observe the original policy behavior.
+Setting to "Enabled" sets media autoplay to "Allow".  All websites are allowed to autoplay media. Users can’t override this policy.
+
+Setting to "Disabled" sets media autoplay to "Block".  No websites are allowed to autoplay media. Users can’t override this policy.
+
+A tab will need to be closed and re-opened for this policy to take effect.
 
 
   #### Supported features:
@@ -5168,7 +5331,7 @@ Note that if Microsoft Edge is running and this policy changes, the change will 
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: AutoplayAllowed
-  - GP name: Allow media autoplay
+  - GP name: Allow media autoplay for websites
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -5764,7 +5927,7 @@ If you don't configure this policy, users can't open files using the ClickOnce p
 
 Disabling ClickOnce may prevent ClickOnce applications (.application files) from launching properly.
 
-For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?linkid=2099880](https://go.microsoft.com/fwlink/?linkid=2099880).
+For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?linkid=2103872](https://go.microsoft.com/fwlink/?linkid=2103872) and [https://go.microsoft.com/fwlink/?linkid=2099880](https://go.microsoft.com/fwlink/?linkid=2099880).
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6163,7 +6326,7 @@ If you disable this policy, users can't open files using the DirectInvoke protoc
 
 Note: Disabling DirectInvoke may prevent certain Microsoft SharePoint Online features from working as expected.
 
-For more information about DirectInvoke, see [https://go.microsoft.com/fwlink/?linkid=2099871](https://go.microsoft.com/fwlink/?linkid=2099871).
+For more information about DirectInvoke, see [https://go.microsoft.com/fwlink/?linkid=2103872](https://go.microsoft.com/fwlink/?linkid=2103872) and [https://go.microsoft.com/fwlink/?linkid=2099871](https://go.microsoft.com/fwlink/?linkid=2099871).
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6705,9 +6868,11 @@ True
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Enable this policy to use online OSCP/CRL checks, which are disabled by default in Microsoft Edge. (These soft-fail, online revocation checks provide no effective security benefit.)
+  Online revocation checks don't provide a significant security benefit and are disabled by default.
 
-If you disable the policy or don't configure it, Microsoft Edge doesn't perform online revocation checks.
+If you enable this policy, Microsoft Edge will perform soft-fail, online OCSP/CRL checks. "Soft fail" means that if the revocation server can't be reached, the certificate will be considered valid.
+
+If you disable the policy or don't configure it, Microsoft Edge won't perform online revocation checks.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6747,7 +6912,7 @@ False
 
   ### EnterpriseHardwarePlatformAPIEnabled
   #### Allow managed extensions to use the Enterprise Hardware Platform API
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
 
   #### Description
   When this policy is set to enabled, extensions installed by enterprise policy are allowed to use the Enterprise Hardware Platform API.
@@ -7197,7 +7362,7 @@ True
 
 Default navigation when typing a single word without punctuation will conduct a navigation to an intranet site matching the entered text.
 
-If you enable this policy, an auto-suggest result in the address bar suggestion list below the top result (often the second in the list), will conduct a web search exactly as it was entered, provided that this text is a single word without punctuation. The default search provider will be used unless a policy to prevent web search is also enabled.
+If you enable this policy, the second auto-suggest result in the address bar suggestion list will conduct a web search exactly as it was entered, provided that this text is a single word without punctuation. The default search provider will be used unless a policy to prevent web search is also enabled.
 
 Two effects of enabling this policy are:
 
@@ -7331,6 +7496,59 @@ True
 
   #### Mac information and settings
   - Preference Key Name: ImportAutofillFormData
+  - Example value:
+```
+True
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ImportBrowserSettings
+  #### Allow importing of browser settings
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
+
+  #### Description
+  Allows users to import browser settings from another browser into Microsoft Edge.
+
+If you enable this policy, the **Browser settings** check box is automatically selected in the **Import browser data** dialog box.
+
+If you disable this policy, browser settings aren't imported at first run, and users can’t import them manually.
+
+If you don’t configure this policy, browser settings are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports the settings on first run, but users can select or clear the **browser settings** option during manual import.
+
+**Note**: This policy currently manages importing Google Chrome (on Windows 7, 8, and 10 and on macOS).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ImportBrowserSettings
+  - GP name: Allow importing of browser settings
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ImportBrowserSettings
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+True
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ImportBrowserSettings
   - Example value:
 ```
 True
@@ -8657,6 +8875,45 @@ Restrictions:
 
   [Back to top](#microsoft-edge---policies)
 
+  ### RendererCodeIntegrityEnabled
+  #### Enable renderer code integrity
+  >Supported Versions: Microsoft Edge on Windows since version 78 or later
+
+  #### Description
+  If this policy is enabled or left unset, then Renderer Code Integrity is enabled. This policy should only be disabled if compatibility issues are encountered with third party software that must run inside Microsoft Edge's renderer processes.
+
+Disabling this policy has a detrimental effect on Microsoft Edge's security and stability because unknown and potentially hostile code will be allowed to load inside Microsoft Edge's renderer processes.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: RendererCodeIntegrityEnabled
+  - GP name: Enable renderer code integrity
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: RendererCodeIntegrityEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+False
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### RequireOnlineRevocationChecksForLocalAnchors
   #### Specify if online OCSP/CRL checks are required for local trust anchors
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -8845,7 +9102,7 @@ True
   [Back to top](#microsoft-edge---policies)
 
   ### SSLErrorOverrideAllowed
-  #### Allow users to proceed from the SSL warning page
+  #### Allow users to proceed from the HTTPS warning page
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
@@ -8866,7 +9123,7 @@ If you disable this policy, users are blocked from clicking through any warning 
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: SSLErrorOverrideAllowed
-  - GP name: Allow users to proceed from the SSL warning page
+  - GP name: Allow users to proceed from the HTTPS warning page
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -8892,7 +9149,7 @@ True
   [Back to top](#microsoft-edge---policies)
 
   ### SSLVersionMin
-  #### Minimum SSL version enabled
+  #### Minimum TLS version enabled
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
@@ -8917,7 +9174,7 @@ If you enable this policy, you can set the minimum version to one of the followi
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: SSLVersionMin
-  - GP name: Minimum SSL version enabled
+  - GP name: Minimum TLS version enabled
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -9227,7 +9484,7 @@ False
 
   ### SignedHTTPExchangeEnabled
   #### Enable Signed HTTP Exchange (SXG) support
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
 
   #### Description
   Enable support for Signed HTTP Exchange (SXG).
@@ -9415,7 +9672,7 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
 
   ### SpellcheckLanguageBlocklist
   #### Force disable spellcheck languages
-  >Supported Versions: Microsoft Edge on Windows since version 77 or later
+  >Supported Versions: Microsoft Edge on Windows since version 78 or later
 
   #### Description
   Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
@@ -10267,6 +10524,6 @@ If you don't configure this policy, or if you set it to an empty string or inval
 
 
 ## See also
-- [Overview of Microsoft Edge in the enterprise](overview-edge-in-the-enterprise.md)
+
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

@@ -11,8 +11,7 @@
         href: microsoft-edge-sysupdate-windows-updates.md
       - name: How to access the old version of Microsoft Edge
         href: microsoft-edge-sysupdate-access-old-edge.md
-#   - name: Migrate to the next version of Microsoft Edge
-#     href: edge-content-wip.md       
+# Deploy
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager 
@@ -23,7 +22,8 @@
      href: deploy-edge-mac-jamf.md
    - name: Deploy to macOS with Intune  
      href: deploy-edge-mac-intune.md
-- name: Configure Microsoft Edge
+# Configure
+- name: Configure Microsoft Edge 
   items:
    - name: Configure Microsoft Edge
      href: configure-microsoft-edge.md
