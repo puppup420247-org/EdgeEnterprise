@@ -50,7 +50,7 @@ landingContent:
           - text: Security
             url: security-overview.md
  # Card (col 1, 2nd row)
-  - title: Learn about enterprise features
+  - title: Use enterprise features
     linkLists:
       - linkListType: learn
         links:
