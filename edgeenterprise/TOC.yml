@@ -1,6 +1,6 @@
 # last revised 10/02/2019
 - name: Microsoft Edge documentation 
-  href: index2.yml
+  href: index.yml
 - name: Microsoft Edge in the enterprise
   items:
    - name: Microsoft Edge Channels
