@@ -40,10 +40,9 @@ landingContent:
             url: deploy-edge-with-configuration-manager.md
           - text: Deploy to macOS
             url: deploy-edge-to-the-mac.md
-
 #          - text: Set Microsoft Edge policies
 #            url: microsoft-edge-policies.md
-  # Card 3 (col 3, 1st row)
+ # Card 3 (col 3, 1st row)
   - title: Configure Microsoft Edge
     linkLists:
       - linkListType: how-to-guide
@@ -67,13 +66,13 @@ landingContent:
 #        links:
 #          - text: Use Microsoft Edge in IE mode
 #            url: edge-ie-mode.md
-  # Card 5 (col 2, 2nd row)
+ # Card 5 (col 2, 2nd row)
   - title: Policy reference
     linkLists:
       - linkListType: reference
         links:
           - text: Group policy reference
-            url: microsoft-edge-policies.md
+            url: microsoft-edge-policies.md           
   # Card 6 (col 3, 2nd row)
   - title: Engage with enterprise community or get help
     linkLists:
