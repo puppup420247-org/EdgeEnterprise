@@ -7,7 +7,7 @@ ms.date: 08/06/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Use command-line options to configure proxy settings "
 ---

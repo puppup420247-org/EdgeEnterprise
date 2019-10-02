@@ -7,7 +7,7 @@ ms.date: 09/30/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Learn how to deploy Microsoft Edge with System Center Configuration Manager (SCCM)."
 ---
