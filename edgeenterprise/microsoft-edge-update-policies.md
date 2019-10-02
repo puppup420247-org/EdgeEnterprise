@@ -7,7 +7,7 @@ ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom:
 description: "Documentation for all policies supported by the Microsoft Edge Updater"

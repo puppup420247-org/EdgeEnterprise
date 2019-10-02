@@ -7,7 +7,7 @@ ms.date: 09/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
-localization_priority: high
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom:
 description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser"

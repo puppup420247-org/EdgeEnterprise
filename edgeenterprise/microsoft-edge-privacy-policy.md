@@ -7,7 +7,7 @@ ms.date: 08/08/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Using Microsoft Edge privacy policy settings"
 ---
