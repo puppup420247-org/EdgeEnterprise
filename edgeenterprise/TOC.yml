@@ -1,9 +1,10 @@
-# Revised: 09/27/2019
-- name: Overview of Microsoft Edge in the enterprise
-  href: overview-edge-in-the-enterprise.md
+# last revised 10/02/2019
+- name: Microsoft Edge documentation 
+  href: index2.yml
+- name: Microsoft Edge in the enterprise
   items:
    - name: Microsoft Edge Channels
-     href: "https://www.microsoftedgeinsider.com"
+     href: microsoft-edge-channels.md
    - name: System updates for Microsoft Edge
      items:
       - name: Windows updates to support Microsoft Edge
@@ -29,15 +30,21 @@
    - name: Configure with Intune
      href: configure-edge-with-intune.md
    - name: Set Microsoft Edge as the default browser
-     href: edge-default-browser.md
-   - name: Use Microsoft Edge in Internet Explorer mode 
-     href: edge-ie-mode.md 
+     href: edge-default-browser.md 
    - name: Browser policy reference
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
+- name: Enterprise features 
+  items:
+   - name: Use Microsoft Edge in IE Mode 
+     href: edge-ie-mode.md
+#   - name: Microsoft Edge support for Azure AD Conditional Access 
+#     href: edge-enterprise-conditional-access.md  
+#   - name: Microsoft Edge support for Windows Defender Application Guard 
+#     href: edge-enterprise-wdag.md  
 - name: Security and privacy
-  items: 
+  items:     
    - name: Security
      href: security-overview.md
    - name: Privacy
