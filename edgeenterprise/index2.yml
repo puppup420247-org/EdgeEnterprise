@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/01/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/02/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -40,7 +40,6 @@ landingContent:
             url: deploy-edge-with-configuration-manager.md
           - text: Deploy to macOS
             url: deploy-edge-to-the-mac.md
-
 #          - text: Set Microsoft Edge policies
 #            url: microsoft-edge-policies.md
  # Card 3 (col 3, 1st row)
