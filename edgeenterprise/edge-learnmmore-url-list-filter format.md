@@ -7,7 +7,7 @@ ms.date: 08/23/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Learn about the filter format used for Microsoft Edge URLBlocklist and URLAllowlist policies."
 ---

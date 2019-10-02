@@ -7,7 +7,7 @@ ms.date: 08/02/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Learn how to create Microsoft Edge user data directory variables"
 ---

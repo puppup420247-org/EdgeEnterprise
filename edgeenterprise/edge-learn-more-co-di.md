@@ -7,7 +7,7 @@ ms.date: 09/16/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
-localization_priority: medium
+ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 description: "Learn about ClickOnce and DirectInvoke in Microsoft Edge."
 ---
