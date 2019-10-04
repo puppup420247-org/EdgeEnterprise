@@ -50,7 +50,7 @@ Configuring Microsoft Edge on Windows 10 using Microsoft Intune is supported. Fo
 This error code corresponds to the following Windows Information Protection error:
 *ERROR_EDP_POLICY_DENIES_OPERATION: The requested operation was blocked by Windows Information Protection policy. For more information, contact your system administrator*.
 
-Microsoft Edge shows this error when the organization has enabled Windows Information Protection (WIP) to only allow users with approved applications to access corporate resources. In this case because Microsoft Edge isn't on the approved applications list, the admin will have to update the WIP policies to grant access to Microsoft Edge.  Please download and apply the policy update in the [WIP Enterprise AppLocker Policy Files (zip file)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdownload.microsoft.com%2Fdownload%2F8%2F9%2F9%2F8995d820-065c-4ab1-aa2a-9d6dc0cd7ffa%2FMsEdge&data=02%7C01%7Cv-danwes%40microsoft.com%7C0d5be17a335a40746e2208d7483bbac8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637057293683204304&sdata=LevIc%2FMSFs5HKGOrYF%2FTMoK2Ww%2Br%2B3QzqBN8Iat37G8%3D&reserved=0).
+Microsoft Edge shows this error when the organization has enabled Windows Information Protection (WIP) to only allow users with approved applications to access corporate resources. In this case because Microsoft Edge isn't on the approved applications list, the admin will have to update the WIP policies to grant access to Microsoft Edge. Please download and apply the policy update in the [WIP Enterprise AppLocker Policy](https://download.microsoft.com/download/8/9/9/8995d820-065c-4ab1-aa2a-9d6dc0cd7ffa/MsEdge%20-%20WIP%20Enterprise%20AppLocker%20Policy%20Files.zip) file.
 
 ## See also
 
