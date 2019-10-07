@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 09/30/2019
+ms.date: 10/07/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -135,16 +135,14 @@ These tables lists all of the browser-related group policies available in this r
 |[PreventSmartScreenPromptOverrideForFiles](#preventsmartscreenpromptoverrideforfiles)|Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads|
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which Microsoft Defender SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
-|[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Configure Microsoft Defender SmartScreen for trusted downloads|
+|[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Force Microsoft Defender SmartScreen checks on downloads from trusted sources|
 ### [*Startup&comma; home page and new tab page*](#startup-home-page-and-new-tab-page-policies)
 |Policy Name|Caption|
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
 |[HomepageLocation](#homepagelocation)|Configure the home page URL|
-|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Set new tab page company logo|
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
 |[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
-|[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Set new tab page quick links|
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
@@ -307,15 +305,15 @@ By default, Google Cast is enabled.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EnableMediaRouter
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -354,15 +352,15 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ShowCastIconInToolbar
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -652,8 +650,8 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   #### Mac information and settings
   - Preference Key Name: DefaultCookiesSetting
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -703,8 +701,8 @@ If you don't configure this policy, 'AskGeolocation' policy is used and the user
   #### Mac information and settings
   - Preference Key Name: DefaultGeolocationSetting
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -752,8 +750,8 @@ If you don't configure this policy, images are allowed by default, and the user 
   #### Mac information and settings
   - Preference Key Name: DefaultImagesSetting
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -801,8 +799,8 @@ If you don't configure this policy, all sites can run JavaScript by default, and
   #### Mac information and settings
   - Preference Key Name: DefaultJavaScriptSetting
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -852,8 +850,8 @@ If you don't configure this policy, notifications are allowed by default, and th
   #### Mac information and settings
   - Preference Key Name: DefaultNotificationsSetting
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -905,8 +903,8 @@ The former '1' option set allow-all, but this functionality is now only handled 
   #### Mac information and settings
   - Preference Key Name: DefaultPluginsSetting
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -954,8 +952,8 @@ If you don't configure this policy, pop-up windows are blocked by default, and u
   #### Mac information and settings
   - Preference Key Name: DefaultPopupsSetting
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -1003,8 +1001,8 @@ If you don't configure this policy, the default value (3, meaning users are aske
   #### Mac information and settings
   - Preference Key Name: DefaultWebBluetoothGuardSetting
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -1054,8 +1052,8 @@ If you don't configure this policy, sites can ask users whether they can access 
   #### Mac information and settings
   - Preference Key Name: DefaultWebUsbGuardSetting
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -1853,15 +1851,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -1970,8 +1968,8 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURL
   - Example value:
-```
-"https://search.contoso.com/searchbyimage/upload"
+``` xml
+<string>https://search.contoso.com/searchbyimage/upload</string>
 ```
   
 
@@ -2021,8 +2019,8 @@ If you don’t set this policy, image search requests are sent using the GET met
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderImageURLPostParams
   - Example value:
-```
-"content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
+``` xml
+<string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
 ```
   
 
@@ -2068,8 +2066,8 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderKeyword
   - Example value:
-```
-"mis"
+``` xml
+<string>mis</string>
 ```
   
 
@@ -2117,8 +2115,8 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderName
   - Example value:
-```
-"My Intranet Search"
+``` xml
+<string>My Intranet Search</string>
 ```
   
 
@@ -2168,8 +2166,8 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSearchURL
   - Example value:
-```
-"https://search.contoso.com/search?q={searchTerms}"
+``` xml
+<string>https://search.contoso.com/search?q={searchTerms}</string>
 ```
   
 
@@ -2221,8 +2219,8 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   #### Mac information and settings
   - Preference Key Name: DefaultSearchProviderSuggestURL
   - Example value:
-```
-"https://search.contoso.com/suggest?q={searchTerms}"
+``` xml
+<string>https://search.contoso.com/suggest?q={searchTerms}</string>
 ```
   
 
@@ -2405,9 +2403,9 @@ Use the following format to add an extension to the list:
 
 - extensionID - the 32-letter string found on edge://extensions when in developer mode.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension. If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL.
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
 
 If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
 
@@ -2463,7 +2461,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
 
 By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
 
-Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
 
 The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
 
@@ -2515,7 +2513,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.conto
 
 This policy controls multiple settings, including settings controlled by any existing extension-related policies. This policy overrides any legacy policies if both are set.
 
-This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension.
+This policy maps an extension ID or an update URL to its configuration. With an extension ID, the configuration is applied only to the specified extension. Set a default configuration for the special ID "*", to apply to all extensions that aren't specifically listed in this policy. With an update URL, the configuration is applied to all extensions with the exact update URL stated in manifest of this extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043).
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -2744,15 +2742,15 @@ Typically, this is disabled as a phishing defense. If you don't configure this p
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AllowCrossOriginAuthPrompt
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -2798,8 +2796,8 @@ If you don't configure this policy Microsoft Edge won't delegate user credential
   #### Mac information and settings
   - Preference Key Name: AuthNegotiateDelegateAllowlist
   - Example value:
-```
-"contoso.com"
+``` xml
+<string>contoso.com</string>
 ```
   
 
@@ -2845,8 +2843,8 @@ If you don't configure this policy, all four schemes are used.
   #### Mac information and settings
   - Preference Key Name: AuthSchemes
   - Example value:
-```
-"basic,digest,ntlm,negotiate"
+``` xml
+<string>basic,digest,ntlm,negotiate</string>
 ```
   
 
@@ -2892,8 +2890,8 @@ If you don't configure this policy, Microsoft Edge tries to detect if a server i
   #### Mac information and settings
   - Preference Key Name: AuthServerAllowlist
   - Example value:
-```
-"*contoso.com,contoso.com"
+``` xml
+<string>*contoso.com,contoso.com</string>
 ```
   
 
@@ -2932,15 +2930,15 @@ If you disable this policy or don't configure it, the canonical name of the serv
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: DisableAuthNegotiateCnameLookup
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -2979,15 +2977,15 @@ If you don't configure or disable this policy, the generated Kerberos SPN won't 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EnableAuthNegotiatePort
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -3017,8 +3015,8 @@ If you don't configure this policy, NTLMv2 is enabled by default.
   #### Mac information and settings
   - Preference Key Name: NtlmV2Enabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -3163,15 +3161,15 @@ By default, if you don't configure this policy, Microsoft Edge will allow usage 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: NativeMessagingUserLevelHosts
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -3216,15 +3214,15 @@ If you enable or disable this policy, users can't change or override it in Micro
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PasswordManagerEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -3274,8 +3272,8 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Mac information and settings
   - Preference Key Name: PasswordProtectionChangePasswordURL
   - Example value:
-```
-"https://contoso.com/change_password.html"
+``` xml
+<string>https://contoso.com/change_password.html</string>
 ```
   
 
@@ -3385,8 +3383,8 @@ If you disable or don't configure this policy, then the warning trigger is not s
   #### Mac information and settings
   - Preference Key Name: PasswordProtectionWarningTrigger
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -3440,8 +3438,8 @@ Omitting a field means all values match; for example, if you don't specify conne
   #### Mac information and settings
   - Preference Key Name: DefaultPrinterSelection
   - Example value:
-```
-"{ "idPattern": ".*public", "namePattern": ".*Color" }"
+``` xml
+<string>{ "idPattern": ".*public", "namePattern": ".*Color" }</string>
 ```
   
 
@@ -3482,15 +3480,15 @@ If you enable this policy, users always print headers and footers.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PrintHeaderFooter
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -3529,15 +3527,15 @@ If you enable this policy, Print Preview uses the OS system default printer as t
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PrintPreviewUseSystemDefaultPrinter
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -3576,15 +3574,15 @@ If you disable this policy, users can't print from Microsoft Edge. Printing is d
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PrintingEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -3623,15 +3621,15 @@ If you don't configure or disable this policy, print commands trigger the Micros
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: UseSystemPrintDialog
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -3685,8 +3683,8 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   #### Mac information and settings
   - Preference Key Name: ProxyBypassList
   - Example value:
-```
-"https://www.contoso.com, https://www.fabrikam.com"
+``` xml
+<string>https://www.contoso.com, https://www.fabrikam.com</string>
 ```
   
 
@@ -3754,8 +3752,8 @@ If you don't configure this policy users can choose their own proxy settings.
   #### Mac information and settings
   - Preference Key Name: ProxyMode
   - Example value:
-```
-"direct"
+``` xml
+<string>direct</string>
 ```
   
 
@@ -3805,8 +3803,8 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   #### Mac information and settings
   - Preference Key Name: ProxyPacUrl
   - Example value:
-```
-"https://internal.contoso.com/example.pac"
+``` xml
+<string>https://internal.contoso.com/example.pac</string>
 ```
   
 
@@ -3856,8 +3854,8 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   #### Mac information and settings
   - Preference Key Name: ProxyServer
   - Example value:
-```
-"123.123.123.123:8080"
+``` xml
+<string>123.123.123.123:8080</string>
 ```
   
 
@@ -3987,15 +3985,15 @@ If you disable or don't configure this setting, users can ignore Microsoft Defen
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PreventSmartScreenPromptOverride
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4034,7 +4032,7 @@ If you disable or don't configure this policy, users can ignore Microsoft Defend
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
@@ -4134,22 +4132,22 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SmartScreenEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
   [Back to top](#microsoft-edge---policies)
 
   ### SmartScreenForTrustedDownloadsEnabled
-  #### Configure Microsoft Defender SmartScreen for trusted downloads
+  #### Force Microsoft Defender SmartScreen checks on downloads from trusted sources
   >Supported Versions: Microsoft Edge on Windows since version 78 or later
 
   #### Description
@@ -4172,7 +4170,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: SmartScreenForTrustedDownloadsEnabled
-  - GP name: Configure Microsoft Defender SmartScreen for trusted downloads
+  - GP name: Force Microsoft Defender SmartScreen checks on downloads from trusted sources
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/SmartScreen settings
   - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/SmartScreen settings
   - GP ADMX file name: MSEdge.admx
@@ -4183,7 +4181,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -4232,15 +4230,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: HomepageIsNewTabPage
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4292,90 +4290,10 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Mac information and settings
   - Preference Key Name: HomepageLocation
   - Example value:
-```
-"https://www.contoso.com"
-```
-  
-
-  [Back to top](#microsoft-edge---policies)
-
-  ### NewTabPageCompanyLogo
-  #### Set new tab page company logo
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
-
-  #### Description
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
-
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
-
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
-
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
-
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
-
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
-
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
-
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: No - Requires browser restart
-
-  #### Data Type:
-  Dictionary
-
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: NewTabPageCompanyLogo
-  - GP name: Set new tab page company logo
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: NewTabPageCompanyLogo
-  - Value Type: REG_SZ
-  ##### Example value:
-```
-SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
-  "default_logo": {
-    "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29", 
-    "url": "https://www.contoso.com/logo.png"
-  }, 
-  "light_logo": {
-    "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737", 
-    "url": "https://www.contoso.com/light_logo.png"
-  }
-}
-```
-
-
-  #### Mac information and settings
-  - Preference Key Name: NewTabPageCompanyLogo
-  - Example value:
 ``` xml
-<key>NewTabPageCompanyLogo</key>
-<dict>
-  <key>default_logo</key>
-  <dict>
-    <key>hash</key>
-    <string>cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29</string>
-    <key>url</key>
-    <string>https://www.contoso.com/logo.png</string>
-  </dict>
-  <key>light_logo</key>
-  <dict>
-    <key>hash</key>
-    <string>517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737</string>
-    <key>url</key>
-    <string>https://www.contoso.com/light_logo.png</string>
-  </dict>
-</dict>
+<string>https://www.contoso.com</string>
 ```
-  
+ 
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4412,15 +4330,15 @@ If you set this policy to false or don't configure it, the default top site tile
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: NewTabPageHideDefaultTopSites
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4472,89 +4390,9 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Mac information and settings
   - Preference Key Name: NewTabPageLocation
   - Example value:
-```
-"https://www.fabrikam.com"
-```
-  
-
-  [Back to top](#microsoft-edge---policies)
-
-  ### NewTabPageManagedQuickLinks
-  #### Set new tab page quick links
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
-
-  #### Description
-  By default, Microsoft Edge displays quick links on the new tab page from user-added shortcuts and top sites based on browsing history. With this policy, you can configure up to three quick link tiles on the new tab page, expressed as a JSON object:
-
-[ { "url": "https://www.contoso.com", "title": "Contoso Portal", "pinned": true/false }, ... ]
-
-The 'url' field is required; 'title' and 'pinned' are optional. If 'title' is not provided, the URL is used as the default title. If 'pinned' is not provided, the default value is false.
-
-Microsoft Edge presents these in the order listed, from left to right, with all pinned tiles displayed ahead of non-pinned tiles.
-
-If the policy is set as mandatory, the 'pinned' field will be ignored and all tiles will be pinned. The tiles can't be deleted by the user and will always appear at the front of the quick links list.
-
-If the policy is set as recommended, pinned tiles will remain in the list but the user has the ability to edit and delete them. Quick link tiles that aren't pinned behave like default top sites and are pushed off the list if other websites are visited more frequently. When applying non-pinned links via this policy to an existing browser profile, the links may not appear at all, depending on how they rank compared to the user's browsing history.
-
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: Yes
-  - Dynamic Policy Refresh: No - Requires browser restart
-
-  #### Data Type:
-  Dictionary
-
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: NewTabPageManagedQuickLinks
-  - GP name: Set new tab page quick links
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
-  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
-  - Value Name: NewTabPageManagedQuickLinks
-  - Value Type: REG_SZ
-  ##### Example value:
-```
-SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
-  {
-    "pinned": true, 
-    "title": "Contoso Portal", 
-    "url": "https://contoso.com"
-  }, 
-  {
-    "title": "Fabrikam", 
-    "url": "https://fabrikam.com"
-  }
-]
-```
-
-
-  #### Mac information and settings
-  - Preference Key Name: NewTabPageManagedQuickLinks
-  - Example value:
 ``` xml
-<key>NewTabPageManagedQuickLinks</key>
-<array>
-  <dict>
-    <key>pinned</key>
-    <true/>
-    <key>title</key>
-    <string>Contoso Portal</string>
-    <key>url</key>
-    <string>https://contoso.com</string>
-  </dict>
-  <dict>
-    <key>title</key>
-    <string>Fabrikam</string>
-    <key>url</key>
-    <string>https://fabrikam.com</string>
-  </dict>
-</array>
+<string>https://www.fabrikam.com</string>
 ```
-  
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4610,8 +4448,8 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Mac information and settings
   - Preference Key Name: RestoreOnStartup
   - Example value:
-```
-4
+``` xml
+<integer>4</integer>
 ```
   
 
@@ -4702,15 +4540,15 @@ If you don't configure the policy, users can choose whether to show the home but
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ShowHomeButton
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4760,8 +4598,8 @@ True
   #### Mac information and settings
   - Preference Key Name: AdsSettingForIntrusiveAdsSites
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -4804,15 +4642,15 @@ If you enable this policy, don't enable the 'Clear browsing data when Microsoft 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AllowDeletingBrowserHistory
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4851,15 +4689,15 @@ If you disable this policy, whenever the user performs an action that triggers a
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AllowFileSelectionDialogs
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -4900,15 +4738,15 @@ This policy will be removed in the future.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AllowPopupsDuringPageUnload
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -4999,15 +4837,15 @@ If you don't configure this policy or disable it, Microsoft Edge will open PDF f
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AlwaysOpenPdfExternally
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5089,15 +4927,15 @@ This policy affects all types of audio inputs, not only the built-in microphone.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AudioCaptureAllowed
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -5201,8 +5039,8 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
   #### Mac information and settings
   - Preference Key Name: AutoImportAtFirstRun
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -5243,15 +5081,15 @@ Note that if you disable this policy you also stop all activity for all web form
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AutofillAddressEnabled
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -5290,15 +5128,15 @@ If you enable this policy or don't configure it, users can control AutoFill for 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AutofillCreditCardEnabled
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -5342,15 +5180,15 @@ A tab will need to be closed and re-opened for this policy to take effect.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: AutoplayAllowed
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5391,7 +5229,7 @@ If you don't configure this policy, background mode is initially turned off, and
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
@@ -5434,15 +5272,15 @@ If you don't configure this policy, third-party cookies are enabled but users ca
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: BlockThirdPartyCookies
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -5480,15 +5318,15 @@ If you disable this policy, users cannot add new profiles from the Identity flyo
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: BrowserAddProfileEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5527,15 +5365,15 @@ If you disable this policy, Microsoft Edge doesn't let users browse in guest pro
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: BrowserGuestModeEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5574,15 +5412,15 @@ If you enable this policy or don't configure it, Microsoft Edge will occasionall
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: BrowserNetworkTimeQueriesEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5638,8 +5476,8 @@ If you don't configure this policy users can decide if they want to enable the b
   #### Mac information and settings
   - Preference Key Name: BrowserSignin
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -5680,15 +5518,15 @@ If you don't configure this policy, the built-in DNS client is enabled by defaul
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: BuiltInDnsClientEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5898,15 +5736,15 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ClearBrowsingDataOnExit
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -5951,7 +5789,7 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -6046,15 +5884,15 @@ On Windows, this policy is only available on instances that are joined to a Micr
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: CommandLineFlagSecurityWarningsEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6093,15 +5931,15 @@ However, some components are exempt from this policy. This includes any componen
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ComponentUpdatesEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6142,15 +5980,15 @@ If you don't configure this policy, users can choose whether to send these reque
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ConfigureDoNotTrack
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -6193,19 +6031,20 @@ Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-service
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ConfigureOnlineTextToSpeech
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
   [Back to top](#microsoft-edge---policies)
+
 
   ### DefaultBrowserSettingEnabled
   #### Set Microsoft Edge as default browser
@@ -6244,15 +6083,15 @@ Note for Windows administrators: This policy only works for PCs running Windows 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: DefaultBrowserSettingEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6306,8 +6145,8 @@ If you set this policy to 'DeveloperToolsDisallowed' (2), users can't access the
   #### Mac information and settings
   - Preference Key Name: DeveloperToolsAvailability
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -6350,7 +6189,7 @@ For more information about DirectInvoke, see [https://go.microsoft.com/fwlink/?l
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -6391,15 +6230,15 @@ If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: Disable3DAPIs
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -6440,15 +6279,15 @@ Please note this policy controls screenshots taken from within the browser itsel
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: DisableScreenshots
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6496,8 +6335,8 @@ If you don't configure this policy, the default cache directory is used, and use
   #### Mac information and settings
   - Preference Key Name: DiskCacheDir
   - Example value:
-```
-"${user_home}/Edge_cache"
+``` xml
+<string>${user_home}/Edge_cache</string>
 ```
   
 
@@ -6545,8 +6384,8 @@ If you don't configure this policy, the default size is used, but users can over
   #### Mac information and settings
   - Preference Key Name: DiskCacheSize
   - Example value:
-```
-104857600
+``` xml
+<integer>104857600</integer>
 ```
   
 
@@ -6592,8 +6431,8 @@ If you disable or don't configure this policy, the default download directory is
   #### Mac information and settings
   - Preference Key Name: DownloadDirectory
   - Example value:
-```
-"/home/${user_name}/Downloads"
+``` xml
+<string>/home/${user_name}/Downloads</string>
 ```
   
 
@@ -6655,8 +6494,8 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
   #### Mac information and settings
   - Preference Key Name: DownloadRestrictions
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -6695,15 +6534,15 @@ If you disable this policy, users can't access and use Collections in Microsoft 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EdgeCollectionsEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6740,15 +6579,15 @@ Disable this policy to stop users from adding, removing, or modifying favorites.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EditFavoritesEnabled
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -6849,15 +6688,15 @@ If you don't configure this policy, the list of Domain Actions will continue to 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EnableDomainActionsDownload
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -6896,15 +6735,15 @@ If you disable the policy or don't configure it, Microsoft Edge won't perform on
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EnableOnlineRevocationChecks
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -6941,15 +6780,15 @@ This policy also applies to component extensions.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: EnterpriseHardwarePlatformAPIEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7003,8 +6842,8 @@ If you don't configure this policy, the behavior is the same as the "Retrieve co
   #### Mac information and settings
   - Preference Key Name: ExperimentationAndConfigurationServiceControl
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -7045,15 +6884,15 @@ If this policy is not configured, then the user can decide to use the favorites 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: FavoritesBarEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7109,8 +6948,8 @@ If you disable this policy or don't configure it, SafeSearch in Bing search isn'
   #### Mac information and settings
   - Preference Key Name: ForceBingSafeSearch
   - Example value:
-```
-0
+``` xml
+<integer>0</integer>
 ```
   
 
@@ -7151,15 +6990,15 @@ In ephemeral mode, profile data is saved on disk only for the length of the user
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ForceEphemeralProfiles
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7198,15 +7037,15 @@ If you disable this policy or don't configure it, SafeSearch in Google Search is
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ForceGoogleSafeSearch
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -7247,7 +7086,7 @@ If this policy isn't set, networking code may run out of the browser process dep
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -7303,8 +7142,8 @@ Set to Off (0) or don't configure this policy to not enforce Restricted Mode on 
   #### Mac information and settings
   - Preference Key Name: ForceYouTubeRestrict
   - Example value:
-```
-0
+``` xml
+<integer>0</integer>
 ```
   
 
@@ -7345,7 +7184,7 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
@@ -7392,15 +7231,15 @@ Popular, single-word search terms will require manual selection of search sugges
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: GoToIntranetSiteForSingleWordEntryInAddressBar
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -7437,15 +7276,15 @@ If you disable this policy, hardware acceleration is disabled.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: HardwareAccelerationModeEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7490,15 +7329,15 @@ You can set this policy as a recommendation. This means that Microsoft Edge will
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportAutofillFormData
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7543,15 +7382,15 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportBrowserSettings
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7596,15 +7435,15 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportFavorites
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7649,15 +7488,15 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportHistory
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7702,15 +7541,15 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportHomepage
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7755,15 +7594,15 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportPaymentInfo
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7808,15 +7647,15 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportSavedPasswords
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7861,15 +7700,15 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ImportSearchEngine
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -7923,8 +7762,8 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
   #### Mac information and settings
   - Preference Key Name: InPrivateModeAvailability
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -8044,8 +7883,8 @@ If you don't configure the policy, the user can change this setting.
   #### Mac information and settings
   - Preference Key Name: IsolateOrigins
   - Example value:
-```
-"https://contoso.com/,https://fabrikam.com/"
+``` xml
+<string>https://contoso.com/,https://fabrikam.com/</string>
 ```
   
 
@@ -8322,8 +8161,8 @@ If you don't configure this policy, the default value (32) is used.
   #### Mac information and settings
   - Preference Key Name: MaxConnectionsPerProxy
   - Example value:
-```
-32
+``` xml
+<integer>32</integer>
 ```
   
 
@@ -8364,15 +8203,15 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: MediaRouterCastAllowAllIPs
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -8417,15 +8256,15 @@ On Windows 7, 8, and Mac this policy controls usage and crash related data. If t
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: MetricsReportingEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -8475,8 +8314,8 @@ If you don't configure this policy, network prediction is enabled but the user c
   #### Mac information and settings
   - Preference Key Name: NetworkPredictionOptions
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -8515,7 +8354,7 @@ When unset or not configured, the profile signed-in with the default account fro
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
@@ -8612,15 +8451,15 @@ If you don't configure this policy, Proactive Authentication is turned on.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ProactiveAuthEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -8659,15 +8498,15 @@ If you disable (set to false) this policy, Microsoft Edge can't show full-tab co
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PromotionalTabsEnabled
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -8706,15 +8545,15 @@ If you don't configure this policy, the user will be able to change this setting
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: PromptForDownloadLocation
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -8755,15 +8594,15 @@ QUIC is a transport layer network protocol that can improve performance of web a
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: QuicAllowed
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -8817,8 +8656,8 @@ The user's session is restored when the browser restarts.
   #### Mac information and settings
   - Preference Key Name: RelaunchNotification
   - Example value:
-```
-1
+``` xml
+<integer>1</integer>
 ```
   
 
@@ -8868,8 +8707,8 @@ Restrictions:
   #### Mac information and settings
   - Preference Key Name: RelaunchNotificationPeriod
   - Example value:
-```
-604800000
+``` xml
+<integer>604800000</integer>
 ```
   
 
@@ -8906,7 +8745,7 @@ Disabling this policy has a detrimental effect on Microsoft Edge's security and 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -8947,7 +8786,7 @@ If you don't configure or disable this policy, then Microsoft Edge uses the exis
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -8993,15 +8832,15 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ResolveNavigationErrorsUseWebService
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9047,8 +8886,8 @@ If you don't configure this policy or leave it blank, users can set any account 
   #### Mac information and settings
   - Preference Key Name: RestrictSigninToPattern
   - Example value:
-```
-".*@contoso.com"
+``` xml
+<string>.*@contoso.com</string>
 ```
   
 
@@ -9087,15 +8926,15 @@ If you disable this policy or don't configure it, Adobe Flash content from other
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: RunAllFlashInAllowMode
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9134,15 +8973,15 @@ If you disable this policy, users are blocked from clicking through any warning 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SSLErrorOverrideAllowed
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9192,8 +9031,8 @@ If you enable this policy, you can set the minimum version to one of the followi
   #### Mac information and settings
   - Preference Key Name: SSLVersionMin
   - Example value:
-```
-"tls1"
+``` xml
+<string>tls1</string>
 ```
   
 
@@ -9232,15 +9071,15 @@ If you disable this policy or don't configure it, browsing history is saved.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SavingBrowserHistoryDisabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9281,15 +9120,15 @@ If this policy is left not set, search suggestions are enabled but the user can 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SearchSuggestEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9372,7 +9211,7 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
@@ -9421,15 +9260,15 @@ On Windows 7, 8, and Mac this policy controls sending info about websites users 
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SendSiteInfoToImproveServices
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -9468,15 +9307,15 @@ If the policy is disabled, the shortcut won't be shown.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: ShowOfficeShortcutInFavoritesBar
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -9515,15 +9354,15 @@ If this policy is set to disabled, Signed HTTP Exchanges can't be loaded.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SignedHTTPExchangeEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9562,15 +9401,15 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SitePerProcess
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9607,15 +9446,15 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SpellcheckEnabled
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -9748,15 +9587,15 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SuppressUnsupportedOSWarning
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9795,15 +9634,15 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: SyncDisabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9842,7 +9681,7 @@ If you enable or don't configure this policy, the tab lifecycles feature is enab
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
@@ -9879,15 +9718,15 @@ False
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: TaskManagerEndProcessEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -9938,8 +9777,8 @@ If you disable this policy or don't configure it, users can set their own level 
   #### Mac information and settings
   - Preference Key Name: TrackingPrevention
   - Example value:
-```
-2
+``` xml
+<integer>2</integer>
 ```
   
 
@@ -9980,15 +9819,15 @@ If you don't configure the policy, users can choose whether to use the translati
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: TranslateEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -10172,8 +10011,8 @@ See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/f
   #### Mac information and settings
   - Preference Key Name: UserDataDir
   - Example value:
-```
-"${users}/${user_name}/Edge"
+``` xml
+<string>${users}/${user_name}/Edge</string>
 ```
   
 
@@ -10212,15 +10051,15 @@ If you disable this policy, users can't invoke Edge Feedback.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: UserFeedbackAllowed
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -10261,15 +10100,15 @@ This policy affects all types of video inputs, not only the built-in camera.
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-False
+0x00000000
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: VideoCaptureAllowed
   - Example value:
-```
-False
+``` xml
+<false/>
 ```
   
 
@@ -10358,15 +10197,15 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: WPADQuickCheckEnabled
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -10407,15 +10246,15 @@ Note: Currently, the [SitePerProcess](#siteperprocess) and [IsolateOrigins](#iso
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-True
+0x00000001
 ```
 
 
   #### Mac information and settings
   - Preference Key Name: WebDriverOverridesIncompatiblePolicies
   - Example value:
-```
-True
+``` xml
+<true/>
 ```
   
 
@@ -10468,8 +10307,8 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
   #### Mac information and settings
   - Preference Key Name: WebRtcLocalhostIpHandling
   - Example value:
-```
-"default"
+``` xml
+<string>default</string>
 ```
   
 
@@ -10515,8 +10354,8 @@ If you don't configure this policy, or if you set it to an empty string or inval
   #### Mac information and settings
   - Preference Key Name: WebRtcUdpPortRange
   - Example value:
-```
-"10000-11999"
+``` xml
+<string>10000-11999</string>
 ```
   
 
@@ -10524,6 +10363,6 @@ If you don't configure this policy, or if you set it to an empty string or inval
 
 
 ## See also
-
+	 
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
