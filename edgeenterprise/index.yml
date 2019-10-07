@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/02/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/07/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,8 +25,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft Edge channels
+          - text: Microsoft Edge channel overview
             url: microsoft-edge-channels.md
+          - text: Download a Microsoft Edge channel
+            url: "https://www.microsoftedgeinsider.com/download"
           - text: Use enterprise features
             url: edge-ie-mode.md
 #          - text: FastTrack for Microsoft Edge
@@ -82,3 +84,5 @@ landingContent:
              url: "https://techcommunity.microsoft.com/t5/Enterprise/bd-p/EdgeInsiderEnterprise"
            - text: Contact Microsoft Edge support
              url: "https://microsoftedgesupport.microsoft.com/hc/"
+           - text: Troubleshoot Microsoft Edge
+             url: microsoft-edge-troubleshooting.md

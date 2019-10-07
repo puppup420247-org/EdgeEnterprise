@@ -1,4 +1,4 @@
-# last revised 10/02/2019
+# last revised 10/07/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge in the enterprise
@@ -49,6 +49,8 @@
      href: security-overview.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
+- name: Troubleshoot Microsoft Edge
+  href: microsoft-edge-troubleshooting.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
