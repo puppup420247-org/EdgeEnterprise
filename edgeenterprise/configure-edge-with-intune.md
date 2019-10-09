@@ -1,20 +1,20 @@
 ---
-title: "Configure Microsoft Edge for Windows 10 using Microsoft Intune"
+title: "Configure Microsoft Edge for Windows using Microsoft Intune"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 audience: ITPro
-ms.topic: procedural
+ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Learn how to configure Microsoft Edge for Windows 10 with Microsoft Intune."
+description: "Configure Microsoft Edge policies for Windows using Microsoft Intune."
 ---
 
-# Configure Microsoft Edge using Microsoft Intune
+# Configure Microsoft Edge policies with Microsoft Intune
 
-This article shows you how to configure Microsoft Edge policy settings for Windows 10 using Microsoft Intune.
+This article explains how to configure Microsoft Edge policy settings for Windows 10 using Microsoft Intune.
 
 >[!NOTE]
 >This article applies to Microsoft Edge version 77 or later.
