@@ -1,25 +1,25 @@
 ---
-title: "Configure Microsoft Edge"
+title: "Configure Microsoft Edge for Windows"
 ms.author: brianalt
-author: kelleyvice-MSFT
+author: kvice
 manager: laurawi
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 audience: ITPro
-ms.topic: reference
+ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Configure Microsoft Edge on Windows and Mac devices"
+description: "Configure Microsoft Edge policy settings on Windows devices"
 ---
 
-# Configure Microsoft Edge
+# Configure Microsoft Edge policy settings on Windows
 
-Use the following information to configure Microsoft Edge policy settings on your Windows and Mac devices.
+Use the following information to configure Microsoft Edge policy settings on your Windows devices.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Configure Microsoft Edge on Windows
+## Configure policy settings on Windows
 
 You can use _group policy objects (GPO)_ to configure policy settings for Microsoft Edge and managed Microsoft Edge updates on all versions of Windows. You can also provision policy through the registry for Windows devices that are joined to a Microsoft Active Directory domain, or Windows 10 Pro or Enterprise instances enrolled for device management in Microsoft Intune. To configure Microsoft Edge with group policy objects, you install _administrative templates_ that add rules and settings for Microsoft Edge to the group policy Central Store in your Active Directory domain or to the Policy Definition template folder on individual computers and then configure the specific policies you want to set.
 
@@ -47,7 +47,7 @@ Go to the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise
 
 #### Add the administrative template to Active Directory
 
-1. On a domain controller or workstation with RSAT, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For older versions of Windows Server, you may need to create the PolicyDefinition folder. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/en-us/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+1. On a domain controller or workstation with RSAT, browse to the **PolicyDefinition** folder (also known as the _Central Store_) on any domain controller for your domain. For older versions of Windows Server, you may need to create the PolicyDefinition folder. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 1. Open *MicrosoftEdgePolicyTemplates* and go to **windows** > **admx**.
 1. Copy the *msedge.admx* file to the PolicyDefinition folder. (Example: %systemroot%\sysvol\domain\policies\PolicyDefinitions)
 1. In the *admx* folder, open the appropriate language folder. For example, if you’re in the U.S., open the **en-US** folder.
@@ -103,37 +103,8 @@ You may need to close and reopen Microsoft Edge before the new policies appear.
 
 You can also use REGEDIT.exe on a target computer to view the registry settings that store group policy settings. These settings are located at the registry path **HKLM\SOFTWARE\Policies\Microsoft\Edge**.
 
-## Configure Microsoft Edge on Mac
-
-Use a property list (.plist) file to set Microsoft Edge policies on Mac devices. You then convert this file to a configuration profile that can be deployed to your users' Mac devices using your preferred management tool, such as Microsoft Intune [using custom settings](https://docs.microsoft.com/intune/custom-settings-macos) or Jamf.
-
-You can create the plist file with any text editor. It's usually easier to edit a plist file using an editing tool that formats the XML code for you, such as *Xcode*, which is available for free from the [Apple developer website](https://developer.apple.com).
-
-After you create the contents of your plist file, you need to use a specific format for the file name. The plist file contains the name of the application (preference) domain for Edge in reverse-domain format, which is part of the file name. For example, the preference domain for the Dev channel is **com.microsoft.Edge**. Because this name is case sensitive, the plist file name has to match the domain name. The required name for your plist for the Dev channel would be *com.microsoft.Edge.plist*.
-
-> [!IMPORTANT]
-> Starting with build 78.0.249.2, all channels of Microsoft Edge on Mac will read from the **com.microsoft.Edge** preference domain. All prior releases will read from a channel specific domain, such as **com.microsoft.Edge.Dev**.
-
-For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md).
-
-### Create a configuration profile
-
-1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
-
-   ```cmd
-   /usr/bin/defaults write ~/Desktop/com.microsoft.Edge.plist RestoreOnStartup -int 1
-   ```
-
-2. Convert the plist from binary to plain text format:
-
-   ```cmd
-   /usr/bin/plutil -convert xml1 ~/Desktop/com.microsoft.Edge.plist
-   ```
-
-3. Upload the converted plist to a Custom Settings payload in a new Configuration Profile in your MDM server or use your preferred conversion tool to create a configuration profile to upload.
-
-In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings.
-
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Configure for Windows with Intune](configure-edge-with-intune.md)
+- [Configure for macOS](configure-microsoft-edge-on-mac.md)
