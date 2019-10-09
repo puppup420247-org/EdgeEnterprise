@@ -1,7 +1,7 @@
 ---
 title: "Configure Microsoft Edge for macOS"
 ms.author: brianalt
-author: kvice
+author: kelleyvice-msft
 manager: laurawi
 ms.date: 10/09/2019
 audience: ITPro
