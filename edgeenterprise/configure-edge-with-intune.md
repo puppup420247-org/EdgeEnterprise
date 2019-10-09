@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Configure Microsoft Edge policies for Windows using Microsoft Intune."
+description: "Configure Microsoft Edge policy settings for Windows using Microsoft Intune."
 ---
 
-# Configure Microsoft Edge policies with Microsoft Intune
+# Configure Microsoft Edge policy settings with Microsoft Intune
 
 This article explains how to configure Microsoft Edge policy settings for Windows 10 using Microsoft Intune.
 
