@@ -1,4 +1,4 @@
-# last revised 10/07/2019
+# last revised 10/09/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge in the enterprise
@@ -25,10 +25,12 @@
 # Configure
 - name: Configure Microsoft Edge 
   items:
-   - name: Configure Microsoft Edge
+   - name: Configure for Windows
      href: configure-microsoft-edge.md
-   - name: Configure with Intune
+   - name: Configure for Windows with Intune
      href: configure-edge-with-intune.md
+   - name: Configure for macOS
+     href: configure-microsoft-edge-on-mac.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md 
    - name: Browser policy reference
