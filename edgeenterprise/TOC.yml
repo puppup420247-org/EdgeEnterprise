@@ -51,6 +51,8 @@
      href: security-overview.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
+- name: Troubleshoot Microsoft Edge
+  href: microsoft-edge-troubleshooting.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
