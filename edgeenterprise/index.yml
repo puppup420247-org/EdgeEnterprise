@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/07/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/11/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -73,8 +73,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Group policy reference
-            url: microsoft-edge-policies.md           
+          - text: Browser policy reference
+            url: microsoft-edge-policies.md
+          - text: Update policy reference
+            url: microsoft-edge-update-policies.md
   # Card 6 (col 3, 2nd row)
   - title: Engage with enterprise community or get help
     linkLists:
