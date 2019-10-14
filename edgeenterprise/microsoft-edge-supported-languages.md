@@ -3,7 +3,7 @@ title: "Microsoft Edge language support"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,24 +14,46 @@ description: "Microsoft Edge language support"
 
 # Microsoft Edge language support
 
-This article lists the supported languages for the next version of Microsoft Edge.
+This article shows how you can use Microsoft Edge settings to add a supported language to the browser. Microsoft Edge supports 96 languages on Windows and 90 languages on macOS.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
+## Add a supported language to Microsoft Edge
+
+Use the following steps to see the list of supported languages and then add a language to Microsoft Edge.
+
+1. On the browser menu bar, click the ellipsis (**...**) or type **Alt+F** to open the "Settings and more" menu.
+2. Under **Settings**, click **Languages**.
+3. Under **Languages**, click **Add languages** to see the list of languages you can add.
+4. In the **Add languages** list, you can search for a language (**Search languages**) or use the use the scroll bar to find the language you want to add.
+5. When you find the language, select the checkbox for the language and then click **Add**. The language you added will appear at the bottom of the list of **Preferred languages** that are already set for Microsoft Edge. Websites you visit will appear in the first language in the list that they support.
+
+### Change preferred languages
+
+You can reorder your language preferences, get Microsoft Edge to offer translations, and see Microsoft Edge in a specific language.
+To change a language setting, click the ellipsis (**...**) next to the language to open for "More actions".
+Depending on the language, you will see one or more of the following options:
+
+- Display Microsoft Edge in this language.
+  - On Windows, select this box and then click **Restart**.
+  - On macOS, Microsoft Edge is displayed in the preferred language of your system. You can change the language in **System Preferences>Language & Region**. Restart Microsoft Edge.
+- Offer to translate pages in this language. This option is only available if you enable the **Offer to translate pages that aren't in a language you read**.
+- Move to the top
+- Move up
+- Remove
+
+> [!NOTE]
+> You can also set up spellcheck options (**Check Spelling**) based on your preferred language settings.
+
 ## Foreign language translator extension
 
-You can use the [Translator for Microsoft Edge](https://www.microsoft.com/p/translator-for-microsoft-edge/9nblggh4n4n3) extension to translate foreign language web pages and text selections for more than 60 languages.
+In addition to using a foreign language in the browser, you can use the [Translator for Microsoft Edge](https://www.microsoft.com/p/translator-for-microsoft-edge/9nblggh4n4n3) extension to translate foreign language web pages and text selections for more than 60 languages.
 
 > [!NOTE]
 > If the translator extension doesn't work after installation, restart Microsoft Edge. If the extension still doesn't work, provide feedback through the Feedback Hub.
 
 ## Supported languages
-
-Microsoft Edge supports all of the same languages as Windows 10.
-
-> [!TIP]
-> To see the list of supported languages and add a language to Microsoft Edge:<br> Go to *edge://settings/languages* and then click **Add languages**.
 
 The following table lists the languages that are supported by Microsoft Edge.
 
@@ -81,7 +103,7 @@ The following table lists the languages that are supported by Microsoft Edge.
 |                Hungarian (Hungary)                 |                 Hungary                 |     hu         |
 |                     Icelandic                      |                 Iceland                 |     is         |
 |               Indonesian (Indonesia)               |                Indonesia                |     id         |
-|                       Irish                        |                 Ireland                 |     ga         |
+|                       Irish (Gaeilge)              |                 Ireland                 |     ga         |
 |                  Italian (Italy)                   |                  Italy                  |     it         |
 |                  Italian (Switzerland)             |             Switzerland                 |     it-CH      |
 |                  Japanese (Japan)                  |                  Japan                  |     ja         |
