@@ -80,11 +80,6 @@ The following table lists the languages that are supported by Microsoft Edge.
 |               Czech (Czech Republic)               |             Czech Republic              |     cs         |
 |                  Danish (Denmark)                  |                 Denmark                 |     da         |
 |                Dutch (Netherlands)                 |               Netherlands               |     nl         |
-|          English (Australia)                       |              Australia                  |     en-AU      |
-|          English (Canada)                          |              Canada                     |     en-CA      |
-|          English (India)                           |              India                      |     en-IN      |
-|          English (New Zealand)                     |              New Zealand                |     en-NZ      |
-|          English (South Africa)                    |              South Africa               |     en-ZA      |
 |              English (United Kingdom)              |             United Kingdom              |     en-GB      |
 |              English (United States)               |              United States              |     en         |
 |                 Estonian (Estonia)                 |                 Estonia                 |     et         |
@@ -92,13 +87,9 @@ The following table lists the languages that are supported by Microsoft Edge.
 |                 Finnish (Finland)                  |                 Finland                 |     fi         |
 |                  French (Canada)                   |                 Canada                  |     fr-CA      |
 |                  French (France)                   |                 France                  |     fr         |
-|                French (Switzerland)                |               Switzerland               |     fr-CH      |
 |                Galician (Galician)                 |                 Galician                |     gl         |
 |                      Georgian (Georgia)            |                 Georgia                 |     ka         |
-|                  German (Austria)                  |                 Austria                 |     de-AT      |
 |                  German (Germany)                  |                 Germany                 |     de         |
-|                  German (Liechtenstein)            |                 Liechtenstein           |     de-LI      |
-|                  German (Switzerland)              |                 Switzerland             |     de-CH      |
 |                   Greek (Greece)                   |                 Greece                  |     el         |
 |                      Gujarati (India)              |                  India                  |     gu         |
 |                  Hebrew (Israel)                   |                 Israel                  |     he         |
@@ -144,18 +135,8 @@ The following table lists the languages that are supported by Microsoft Edge.
 |              Serbian (Latin, Serbia)               |                 Serbia                  |   sr-Latn-RS   |
 |                 Slovak (Slovakia)                  |                Slovakia                 |        sk      |
 |                Slovenian (Slovenia)                |                Slovenia                 |        sl      |
-|        Spanish (Argentina)                         |                  Argentina              |     es-AR      |
-|        Spanish (Chile)                             |                  Chile                  |     es-CL      |
-|        Spanish (Columbia)                          |                  Columbia               |     es-CO      |
-|        Spanish (Costa Rica)                        |                  Costa Rica             |     es-CR      |
-|        Spanish (Honduras)                          |                  Honduras               |     es-HN      |
-|        Spanish (Latin America)                     |         Latin America                   |    es-419      |
 |        Spanish (Mexico)                            |                 Mexico                  |     es-MX      |
-|        Spanish (Peru)                              |                  Peru                   |     es-PE      |
 |        Spanish (Spain, International Sort)         |                  Spain                  |        es      |
-|        Spanish (United States)                     |                  United States          |     es-US      |
-|        Spanish (Uruguay)                           |                  Uruguay                |     es-UY      |
-|        Spanish (Venezuela)                         |                  Venezuela              |     es-VE      |
 |                  Swedish (Sweden)                  |                 Sweden                  |     sv         |
 |                   Tamil (India)                    |                India                    |     ta         |
 |                       Tatar (Russia)               |                 Russia                  |     tt         |
