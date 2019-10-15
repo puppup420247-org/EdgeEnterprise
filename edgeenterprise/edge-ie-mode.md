@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,22 +21,23 @@ This article explains how to use Microsoft Edge with IE mode.
 
 ## Prerequisites
 
-- Windows 10 with the following minimum system requirements:
-  - Windows 10, version 1903 with the latest cumulative updates ([KB4503293](https://support.microsoft.com/help/4503293) or higher) and security update [KB4501375](https://support.microsoft.com/help/4501375) or higher
-  - Windows 10, version 1809 with latest cumulative update ([KB4509479](https://support.microsoft.com/help/4509479) or higher)
-  - Windows 10, version 1803 with latest cumulative update ([KB4512509](https://support.microsoft.com/help/4512509) or higher)
-  - Windows 10, version 1709 with latest cumulative update ([KB4512494](https://support.microsoft.com/help/4512494) or higher)
-- Windows Server 2019 with the latest cumulative update ([KB4501371](https://support.microsoft.com/help/4501371) or higher)
-- Windows 8.1 and Windows Server 2012 R2 with the latest SSU ([KB4504418](https://support.microsoft.com/help/4504418/servicing-stack-update-kb4504418) or higher) and [KB4507463](https://support.microsoft.com/help/4507463/july-16-2019-kb4507463-os-build-preview-of-monthly-rollup) or higher
-- Windows 8 Embedded and Windows Server 2012:
-  - Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11
-  - Install latest IE11 cumulative updates [KB4510979](https://support.microsoft.com/help/4510979/cumulative-update-for-internet-explorer) or higher
-- Windows 7 SP1 and Windows Server 2008R2 with the latest SSU ([KB4490628](https://support.microsoft.com/help/4490628/servicing-stack-update-for-windows-7-sp1-and-windows-server-2008-r2) or higher) and [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or higher
-  
-- Microsoft Edge administrative template available (See [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge) for additional info)
+The following prerequisites apply to using Microsoft Edge with IE mode. For the best experience, install the latest updates for Windows and Microsoft Edge.
 
-  > [!NOTE]
-  > IE mode will be supported on Windows versions that support IE11. IE mode will soon be available on Windows 10 versions 1607 and 1507, Windows Server 2016.
+1. The minimum operating system update versions.
+
+   - Windows 10, version 1903 and Windows Server, version 1903: [KB4501375](https://support.microsoft.com/help/4501375) or later
+   - Windows 10, version 1809, Windows Server, version 1809, and Windows Server 2019: [KB4501371](https://support.microsoft.com/help/4501371) or later
+   - Windows 10, version 1803: [KB4512509](https://support.microsoft.com/help/4512509) or later
+   - Windows 10, version 1709: [KB4512494](https://support.microsoft.com/help/4512494) or later
+   - Windows 10, version 1607 and Windows Server 2016: [KB4516061](https://support.microsoft.com/help/4516061) or later
+   - Windows 10 (initial version, released July 2015): [KB4520011](https://support.microsoft.com/help/4520011) or later
+   - Windows 8.1 and Windows Server 2012 R2: [KB4507463](https://support.microsoft.com/help/4507463) or later; or [KB4511872](https://support.microsoft.com/help/4511872) or later
+   - Windows 8 Embedded and Windows Server 2012:
+          - Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11
+          - [KB4507447](https://support.microsoft.com/help/4507447/windows-server-2012-update-kb4507447) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
+   - Windows 7 SP1 and Windows Server 2008R2: [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
+
+2. The Microsoft Edge administrative template. For more information, see [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge).
 
 ## What is IE mode?
 
@@ -246,10 +247,7 @@ We're committed to keeping Internet Explorer a supported, reliable, and safe bro
 
 ### Why am I receiving the following message “To open this page in IE mode, try updating your PC.”?
 
-You are receiving the message because you are missing the required Windows updates. The minimum Windows required updates are:
-
-- Windows 10, version 1903 with the latest cumulative updates (KB4503293 or higher) and security update KB4501375 or higher.
-- Windows 10, version 1809 with latest cumulative update (KB4509479 or higher.)
+You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
 ### Why am I receiving the following message “To open this page in IE mode, try reinstalling Microsoft Edge with administrator privileges.”?
 
