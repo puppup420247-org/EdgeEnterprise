@@ -3,7 +3,7 @@ title: "Microsoft Edge language support"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/15/2019
+ms.date: 10/16/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -62,93 +62,102 @@ The following table lists the languages that are supported by Microsoft Edge.
 
 |                      Language                      |             Country/region              |      Code      |
 |----------------------------------------------------|-----------------------------------------|----------------|
-|              Afrikaans (South Africa)              |              South Africa               |     af         |
-|                 Albanian (Albania)                 |                 Albania                 |     sq         |
-|            Amharic (Ethiopia)                      |                Ethiopia                 |     am         |
-|               Arabic (Saudi Arabia)                |              Saudi Arabia               |     ar         |
-|               Assamese (India)                     |                  India                  |     as         |
-|          Azerbaijani (Latin, Azerbaijan)           |               Azerbaijan                |    az          |
-|                   Bangla (India) *                 |                  India                  |     bn-IN      |
-|                  Basque (Basque)                   |                  Basque                 |     eu         |
-|        Bosnian (Latin, Bosnia and Herzegovina)     |   Latin, Bosnia and Herzegovina         |       bs       |
-|                Bulgarian (Bulgaria)                |                Bulgaria                 |     bg         |
-|                 Catalan (Catalan)                  |                Catalan                  |     ca         |
-|                Cherokee (Cherokee)                 |                   Cherokee              |      chr       |
-|            Chinese (Simplified, China)             |       People's Republic of China        |     zh-CN      |
-|           Chinese (Traditional, Taiwan)            |                 Taiwan                  |     zh-TW      |
-|                 Croatian (Croatia)                 |                 Croatia                 |     hr         |
-|               Czech (Czech Republic)               |             Czech Republic              |     cs         |
-|                  Danish (Denmark)                  |                 Denmark                 |     da         |
-|                Dutch (Netherlands)                 |               Netherlands               |     nl         |
-|              English (United Kingdom)              |             United Kingdom              |     en-GB      |
-|              English (United States)               |              United States              |     en         |
-|                 Estonian (Estonia)                 |                 Estonia                 |     et         |
-|               Filipino (Philippines)               |               Philippines               |     fil        |
-|                 Finnish (Finland)                  |                 Finland                 |     fi         |
-|                  French (Canada)                   |                 Canada                  |     fr-CA      |
-|                  French (France)                   |                 France                  |     fr         |
-|                Galician (Galician)                 |                 Galician                |     gl         |
-|                      Georgian (Georgia)            |                 Georgia                 |     ka         |
-|                  German (Germany)                  |                 Germany                 |     de         |
-|                   Greek (Greece)                   |                 Greece                  |     el         |
-|                      Gujarati (India)              |                  India                  |     gu         |
-|                  Hebrew (Israel)                   |                 Israel                  |     he         |
-|                   Hindi (India)                    |                  India                  |     hi         |
-|                Hungarian (Hungary)                 |                 Hungary                 |     hu         |
-|                     Icelandic (Iceland)            |                 Iceland                 |     is         |
-|               Indonesian (Indonesia)               |                Indonesia                |     id         |
-|                       Irish (Ireland)              |                 Ireland                 |     ga         |
-|                  Italian (Italy)                   |                  Italy                  |     it         |
-|                  Italian (Switzerland)             |             Switzerland                 |     it-CH      |
-|                  Japanese (Japan)                  |                  Japan                  |     ja         |
-|                      Kannada (India)               |                  India                  |     kn         |
-|                Kazakh (Kazakhstan)                 |               Kazakhstan                |     kk         |
-|                  Khmer (Cambodia)                  |                Cambodia                 |     km         |
-|                      Konkani (India)               |                  India                  |     kok        |
-|                   Korean (Korea)                   |                  Korea                  |     ko         |
-|                     Lao (Laos P.D.R.)              |               Laos P.D.R.               |     lo         |
-|                  Latvian (Latvia)                  |                 Latvia                  |     lv         |
-|               Lithuanian (Lithuania)               |                Lithuania                |     lt         |
-|             Luxembourgish (Luxembourg)             |               Luxembourg                |     lb         |
-|         Macedonian (North Macedonia)               |            North Macedonia              |     mk         |
-|                  Malay (Malaysia)                  |                Malaysia                 |     ms         |
-|              Malayalam (India)                     |                  India                  |     ml         |
-|               Maltese (Malta)                      |                  Malta                  |     mt         |
-|          Maori (New Zealand)                       |               New Zealand               |     mi         |
-|               Marathi (India)                      |                  India                  |     mr         |
-|                Nepali (Nepal)                      |               Nepal                     |     ne         |
-|             Norwegian, Bokmål (Norway)             |                 Norway                  |     nb         |
-|                Norwegian (Nynorsk)                 |                 Norway                  |     nn         |
-|                 Oriya (India)                      |                  India                  |     or         |
+|              Afrikaans                             |              South Africa               |     af         |
+|                 Albanian                           |                 Albania                 |     sq         |
+|            Amharic                                 |                Ethiopia                 |     am         |
+|               Arabic                               |              Saudi Arabia               |     ar         |
+|               Armenian                             |              Armenia                    |      hy        |
+|               Assamese                             |                  India                  |     as         |
+|          Azerbaijani                               |               Azerbaijan, Latin         |    az          |
+|                   Bangla *                         |              Bangladesh                 |     bn-BD      |
+|                                                    |                  India                  |     bn-IN      |
+|                  Basque                            |                  Basque                 |     eu         |
+|                   Belarusian                       |                  Belarus                |     be         |
+|              Bosnian                               |       Bosnia and Herzegovina, Latin     |       bs       |
+|                Bulgarian                           |                Bulgaria                 |     bg         |
+|                 Catalan                            |                Catalan                  |     ca         |
+|                Cherokee                            |                   Cherokee              |      chr       |
+|            Chinese                                 |              China, Simplified          |     zh-CN      |
+|                                                    |             Taiwan, Traditional         |     zh-TW      |
+|                 Croatian                           |                 Croatia                 |     hr         |
+|                 Czech                              |             Czech Republic              |     cs         |
+|                  Danish                            |                 Denmark                 |     da         |
+|                   Dari                             |                  Afghanistan            |     prs        |
+|                Dutch                               |               Netherlands               |     nl         |
+|              English                               |             United Kingdom              |     en-GB      |
+|                                                    |              United States              |     en         |
+|                 Estonian                           |                 Estonia                 |     et         |
+|               Filipino                             |               Philippines               |     fil        |
+|                 Finnish                            |                 Finland                 |     fi         |
+|                  French                            |                 Canada                  |     fr-CA      |
+|                                                    |                 France                  |     fr         |
+|                Galician                            |                 Galician                |     gl         |
+|                      Georgian                      |                 Georgia                 |     ka         |
+|                  German                            |                 Germany                 |     de         |
+|                   Greek                            |                 Greece                  |     el         |
+|                      Gujarati                      |                  India                  |     gu         |
+|                  Hebrew                            |                 Israel                  |     he         |
+|                   Hindi                            |                  India                  |     hi         |
+|                Hungarian                           |                 Hungary                 |     hu         |
+|                     Icelandic                      |                 Iceland                 |     is         |
+|               Indonesian                           |                Indonesia                |     id         |
+|                       Irish                        |                 Ireland                 |     ga         |
+|                  Italian                           |                  Italy                  |     it         |
+|                  Japanese                          |                  Japan                  |     ja         |
+|                      Kannada                       |                  India                  |     kn         |
+|                Kazakh                              |               Kazakhstan                |     kk         |
+|                  Khmer                             |                Cambodia                 |     km         |
+|                   Kiswahili                        |                    Kenya                |     sw         |
+|                      Konkani                       |                  India                  |     kok        |
+|                   Korean                           |                  Korea                  |     ko         |
+|                    Kyrgyz                          |              Kyrgyzstan                 |     ky         |
+|                     Lao                            |               Laos P.D.R.               |     lo         |
+|                  Latvian                           |                 Latvia                  |     lv         |
+|               Lithuanian                           |                Lithuania                |     lt         |
+|             Luxembourgish                          |               Luxembourg                |     lb         |
+|         Macedonian                                 |            North Macedonia              |     mk         |
+|                  Malay                             |                Malaysia                 |     ms         |
+|              Malayalam                             |                  India                  |     ml         |
+|               Maltese                              |                  Malta                  |     mt         |
+|          Maori                                     |               New Zealand               |     mi         |
+|               Marathi                              |                  India                  |     mr         |
+|                Mongolian                           |           Mongolia, Cyrillic            |     mn         |
+|                Nepali                              |               Nepal                     |     ne         |
+|             Norwegian                              |                 Norway, Bokmål          |     nb         |
+|                                                    |                 Norway, Nynorsk         |     nn         |
+|                 Odia                               |                  India                  |     or         |
 |               Persian                              |            Afghanistan                  |    fa          |
-|                  Polish (Poland)                   |                 Poland                  |     pl         |
-|                Portuguese (Brazil)                 |                 Brazil                  |     pt-BR      |
-|               Portuguese (Portugal)                |                Portugal                 |     pt-PT      |
-|               Punjabi (India)                      |                  India                  |     pa         |
-|                Quechua (Peru)                      |                  Peru                   |     quz        |
-|                 Romanian (Romania)                 |                 Romania                 |     ro         |
-|                 Romanian (Moldova)                 |                Moldova                  |    ro-MD       |
-|                  Russian (Russia)                  |                 Russia                  |     ru         |
-|       Scottish Gaelic (United Kingdom)             |             United Kingdom              |     gd         |
-|    Serbian (Cyrillic, Bosnia, and Herzegovina) *   |         Bosnia and Herzegovina          |   sr-Cyrl-BA   |
-|             Serbian (Cyrillic, Serbia)             |                 Serbia                  |   sr-Cyrl-RS   |
-|              Serbian (Latin, Serbia)               |                 Serbia                  |   sr-Latn-RS   |
-|                 Slovak (Slovakia)                  |                Slovakia                 |        sk      |
-|                Slovenian (Slovenia)                |                Slovenia                 |        sl      |
-|        Spanish (Mexico)                            |                 Mexico                  |     es-MX      |
-|        Spanish (Spain, International Sort)         |                  Spain                  |        es      |
-|                  Swedish (Sweden)                  |                 Sweden                  |     sv         |
-|                   Tamil (India)                    |                India                    |     ta         |
-|                       Tatar (Russia)               |                 Russia                  |     tt         |
-|                Telugu (India)                      |                  India                  |     te         |
-|                  Thai (Thailand)                   |                Thailand                 |     th         |
-|                  Turkish (Turkey)                  |                 Turkey                  |     tr         |
-|                Ukrainian (Ukraine)                 |                 Ukraine                 |     uk         |
-|             Urdu (Islamic Republic of Pakistan)    |       Islamic Republic of Pakistan      |     ur         |
-|              Uyghur (PRC)                          |                   PRC                   |     ug         |
-|               Valencian (Spain) *                  |                  Spain                  | ca-Es-VALENCIA |
-|            Vietnamese (Vietnam)                    |                 Vietnam                 |     vi         |
-|            Welsh (United Kingdom)                  |             United Kingdom              |     cy         |
+|                  Polish                            |                 Poland                  |     pl         |
+|                Portuguese                          |                 Brazil                  |     pt-BR      |
+|                                                    |                Portugal                 |     pt-PT      |
+|               Punjabi                              |                  India                  |     pa         |
+|                Quechua                             |                  Peru                   |     quz        |
+|                 Romanian                           |                 Romania                 |     ro         |
+|                  Russian                           |                 Russia                  |     ru         |
+|            Scottish Gaelic                         |             United Kingdom              |     gd         |
+|            Serbian *                               |    Bosnia and Herzegovina, Cyrillic     |   sr-Cyrl-BA   |
+|                                                    |                 Serbia, Cyrillic        |   sr-Cyrl-RS   |
+|                                                    |                 Serbia, Latin           |   sr-Latn-RS   |
+|                   Sindhi                           |               Pakistan                  |      sd        |
+|                 Sinhala                            |           Sri Lanka                     |      si        |
+|                 Slovak                             |                Slovakia                 |        sk      |
+|                Slovenian                           |                Slovenia                 |        sl      |
+|              Spanish                               |                 Mexico                  |     es-MX      |
+|              Spanish                               |    Spain, International Sort            |        es      |
+|                  Swedish                           |                 Sweden                  |     sv         |
+|                   Tamil                            |                India                    |     ta         |
+|                       Tatar                        |                 Russia                  |     tt         |
+|                Telugu                              |                  India                  |     te         |
+|                  Thai                              |                Thailand                 |     th         |
+|                  Turkish                           |                 Turkey                  |     tr         |
+|                  Turkmen                           |         Turkmenistan                    |      tk        |
+|                Ukrainian                           |                 Ukraine                 |     uk         |
+|             Urdu                                   |       Islamic Republic of Pakistan      |     ur         |
+|              Uyghur                                |                   PRC                   |     ug         |
+|              Uzbek                                 |         Uzbekistan, Latin               |   uz-Latn-UZ   |
+|               Valencian *                          |                  Spain                  | ca-Es-VALENCIA |
+|            Vietnamese                              |                 Vietnam                 |     vi         |
+|            Welsh                                   |             United Kingdom              |     cy         |
 
 ---
 
