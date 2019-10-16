@@ -143,7 +143,7 @@ The following table lists the languages that are supported by Microsoft Edge.
 |                 Slovak                             |                Slovakia                 |        sk      |
 |                Slovenian                           |                Slovenia                 |        sl      |
 |              Spanish                               |                 Mexico                  |     es-MX      |
-|              Spanish                               |    Spain, International Sort            |        es      |
+|                                                    |         Spain, International Sort       |        es      |
 |                  Swedish                           |                 Sweden                  |     sv         |
 |                   Tamil                            |                India                    |     ta         |
 |                       Tatar                        |                 Russia                  |     tt         |
