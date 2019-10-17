@@ -177,7 +177,6 @@ These tables lists all of the browser-related group policies available in this r
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
 |[ClearBrowsingDataOnExit](#clearbrowsingdataonexit)|Clear browsing data when Microsoft Edge closes|
 |[ClickOnceEnabled](#clickonceenabled)|Allow users to open files using the ClickOnce protocol|
-																																																	   
 |[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Enable security warnings for command-line flags|
 |[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
 |[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
@@ -256,7 +255,6 @@ These tables lists all of the browser-related group policies available in this r
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Force disable spellcheck languages|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
-																		
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
 |[TrackingPrevention](#trackingprevention)|Block tracking of users' web-browsing activity|
 |[TranslateEnabled](#translateenabled)|Enable Translate|
@@ -270,8 +268,6 @@ These tables lists all of the browser-related group policies available in this r
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
-
-
 
 
   ## Cast policies
