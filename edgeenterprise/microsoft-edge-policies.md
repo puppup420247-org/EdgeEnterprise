@@ -3237,7 +3237,7 @@ If you enable or disable this policy, users can't change or override it in Micro
   #### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page.
+Password protection service will send users to this URL to change their password after seeing a warning in the browser.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3286,7 +3286,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints.
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
