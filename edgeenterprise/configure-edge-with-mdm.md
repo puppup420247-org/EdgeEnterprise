@@ -96,8 +96,8 @@ The recommended way to configure Microsoft Edge is to use Microsoft Intune "Admi
 
    - Click **OK**.
 
-8. On Custom OMA-URI Settings, click OK.
-9. On the "Microsoft Edge ADMX ingested configuration - Properties" profile (or the name you used), click **Save**.
+8. On **Custom OMA-URI Settings**, click **OK**.
+9. On the "**Microsoft Edge ADMX ingested configuration - Properties**" profile (or the name you used), click **Save**.
 
 After the profile is created and the properties set, you have to [assign the profile in Microsoft Intune](https://docs.microsoft.com/intune/configuration/device-profile-assign).
 
