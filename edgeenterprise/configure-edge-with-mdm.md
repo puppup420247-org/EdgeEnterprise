@@ -1,0 +1,347 @@
+---
+title: "Configure Microsoft Edge using Mobile Device Management"
+ms.author: kvice
+author: dan-wesley
+manager: laurawi
+ms.date: 10/18/2019
+audience: ITPro
+ms.topic: technical
+ms.prod: microsoft-edge
+ms.localizationpriority: high
+ms.collection: M365-modern-desktop
+description: "Configure Microsoft Edge using Mobile Device Management."
+---
+
+# Configure Microsoft Edge using Mobile Device Management
+
+This article explains how to ingest the Microsoft Edge administrative template into Microsoft Intune and then use this template to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI). You can use this OMA-URI to set the Mobile Device Management (MDM) settings for Microsoft Edge.
+
+In addition to using Microsoft Intune to configure Microsoft Edge on Windows 10 you can use [Mobile Device Management (MDM)](https://docs.microsoft.com/windows/client-management/mdm/) with your preferred Enterprise Mobility Management (EMM) or an MDM provider that supports [ADMX Ingestion](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration).
+
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
+
+## Prerequisites
+
+Windows 10, with the following minimum system requirements:
+
+- Windows 10, version 1903 with [KB4512941](https://support.microsoft.com/help/4512941/) and [KB4517211](https://support.microsoft.com/help/4517211/) installed
+- Windows 10, version 1809 with [KB4512534](https://support.microsoft.com/help/4512534/) installed
+- Windows 10, version 1803 with [KB4512509](https://support.microsoft.com/help/4512509/) installed
+- Windows 10, version 1709 with [KB4516071](https://support.microsoft.com/help/4516071/) installed
+
+## Configure Microsoft Edge using MDM via custom OMA URI using ADMX Ingestion in Microsoft Intune
+
+This section describes how to ingest the Microsoft Edge administrative template into Microsoft Intune and configure an MDM setting using custom OMA URI. For details on how to create custom OMA URI for Microsoft Edge, see [Create a OMA URI for a Microsoft Edge policy](#create-an-oma-uri-for-a-microsoft-edge-policy).
+
+The recommended way to configure Microsoft Edge is to use Microsoft Intune "Administrative Templates profile" as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). The custom settings option is helpful for evaluating or testing a Microsoft Edge setting that isn’t available yet in the Microsoft Intune "Administrative Templates profile".
+
+> [!IMPORTANT]
+> As a best practice, don’t use a custom OMA URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA URI and an Administrative template profile, but with different values the end user will get unpredictable results. We strongly recommend backing out your OMA URI profile before using the Adminstration templates profile.
+
+### To ingest the Microsoft Edge ADMX file into Intune
+
+   > [!WARNING]
+   > Don't modify the ADMX file before ingesting the file.
+
+1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the Microsoft Edge Enterprise landing page and extract the contents.
+2. Sign in to the [Microsoft Intune](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Intune=1&Microsoft_Intune_DeviceSettings=ctip&microsoft_intune_enrollment=ctip&Microsoft_Intune_Apps=ctip&Microsoft_Intune_Devices=ctip#blade/Microsoft_Intune_DeviceSettings/ExtensionLandingBlade/overview) page in Microsoft Azure.
+3. Go to **Intune**>**Device configuration**>**Profiles**.
+4. Click **+ Create profile**.
+5. Provide the following profile information:
+
+   - **Name**: Enter a descriptive name. For this example, "Microsoft Edge ADMX ingested configuration".
+   - **Platform**: Select "Windows 10 and later"
+   - **Profile type**: Select "Custom"
+
+6. On **Custom OMA-URI Settings**, click **Add** to add an ADMX ingestion.
+7. On **Add Row**, provide the following information:
+
+   - **Name**: Enter a descriptive name. For this example, "Microsoft Edge ADMX ingestion".
+   - **Description**: Enter a description for the setting.
+   - **OMA-URI**: Enter "*./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx*"
+   - **Data type**: Select "String"
+   - **Value**: Open the msedge.admx from the Microsoft Edge policy templates file you extracted in step 1. Copy the full text from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
+
+          ![Add an ADMX ingestion](./media/edge-cfg-with-mdm/configure-edge-intune-mdm-omauri-addrow-ingest.png)
+
+   - Click **OK**.
+
+8. On **Custom OMA-URI Settings**, click **OK**.
+9. On **Create profile**, click **Create**.
+
+> [!NOTE]
+> You can ingest the msedgeupate.admx file using the preceding steps.
+
+## Configure a Microsoft Edge policy with Microsoft Intune using Custom OMA-URI Settings
+
+> [!NOTE]
+> Before using the steps in this section you must complete the steps described in [To ingest the Microsoft Edge ADMX file into Intune](#to-ingest-the-microsoft-edge-admx-file-into-intune).
+
+1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the Microsoft Edge Enterprise landing page and extract the contents.
+2. Sign in to the [Microsoft Intune](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Intune=1&Microsoft_Intune_DeviceSettings=ctip&microsoft_intune_enrollment=ctip&Microsoft_Intune_Apps=ctip&Microsoft_Intune_Devices=ctip#blade/Microsoft_Intune_DeviceSettings/ExtensionLandingBlade/overview) page in Microsoft Azure.
+3. Go to **Intune**>**Device configuration**>**Profiles**.
+4. Select the "Microsoft Edge ADMX ingested configuration" profile or the name you used for the profile.
+5. To add Microsoft Edge policy settings, you have to open **Custom OMA-URI Settings**. Under **Manage**, click **Properties**, and then click **Settings**.
+6. On **Custom OMA-URI Settings**, click **Add**.
+7. On **Add Row**, provide the following information:
+
+   - **Name**: Enter a descriptive name. We suggest using the policy name you want to configure. For this example, use "ShowHomeButton".
+   - **Description** (Optional): Enter a description for the setting.
+   - **OMA-URI**: Enter the OMA-URI for the policy. For example, using the for "ShowHomeButton" policy, use this string: "*./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton*"
+   - **Data type**: Select the policy settings data type. For the "ShowHomeButton" policy, use "String"
+   - **Value**: Enter the setting that you want to configure for the policy. For the "ShowHomeButton" example, enter "\<enabled/>". The following screenshot shows the settings for configuring a policy.
+
+          ![Add Row, OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
+
+   - Click **OK**.
+
+8. On Custom OMA-URI Settings, click OK.
+9. On the "Microsoft Edge ADMX ingested configuration - Properties" profile (or the name you used), click **Save**.
+
+After the profile is created and the properties set, you have to [assign the profile in Microsoft Intune](https://docs.microsoft.com/intune/configuration/device-profile-assign).
+
+> [!NOTE]
+> See [Create an OMA URI for a Microsoft Edge policy](#create-an-oma-uri-for-a-microsoft-edge-policy) for instructions for creating mandatory and recommended policies; and to see examples by policy type.
+
+### Confirm that the policy was set
+
+Use the following steps to confirm that the Microsoft Edge policy is using the profile you created. (Give Microsoft Intune time to propagate the policy to a device you assigned in the "Microsoft Edge ADMX ingested configuration" profile example.)
+
+1. Open Microsoft Edge and go to *edge://policy*.
+2. On the **Policies** page, see if the policy you set in the profile is listed.
+3. If your policy isn't shown, see [Diagnose MDM failures in Windows 10](https://docs.microsoft.com/windows/client-management/mdm/diagnose-mdm-failures-in-windows-10) or [Troubleshoot a policy setting](#troubleshoot-a-policy-setting).
+
+### Troubleshoot a policy setting
+
+If a Microsoft Edge policy isn’t taking effect, try the following steps:
+
+Open the edge://policy page on the target device (a device you assigned the profile to in Microsoft Intune) and search for the policy. If the policy isn’t on the edge://policy page, try the following:
+
+- Check that the policy is in the registry and is correct. On the target device open the Windows 10 Registry Editor (**Windows key + r**, enter “*regedit*” and then press **Enter**.) Check that the policy is correctly defined in the *\Software\Policies\ Microsoft\Edge* path. If you don’t find the policy in the expected path, then the policy wasn’t pushed to the device correctly.
+- Check that the OMA-URI path is correct, and the value is a valid XML string. If either of these are incorrect the policy won’t be pushed to the target device.
+
+For more trouble shooting tips, see [Set up Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/setup-steps) and [Sync devices](https://docs.microsoft.com/intune/remote-actions/device-sync).
+
+## Create an OMA URI for a Microsoft Edge policy
+
+To configure a policy setting using a custom OMA URI you have to:
+
+- create the OMA URI path
+- use “String” as the path type
+- set the value for the path
+
+The following sections describe how to create the OMA URI path, look up and define the value in XML format for mandatory and recommended browser polices, and update policies.
+
+### Define the OMA URI path
+
+You can use the following URI path formula as a guide for creating the OMA URI path.
+
+**URI path formula:**<br>
+*./Device/Vendor/MSFT/Policy/Config/\<ADMXIngestName>~Policy~\<ADMXNamespace>~\<ADMXCategory>/\<PolicyName>*
+
+The next table shows the URI path parameters.
+
+| Parameter         | Description                                                                                   |
+|-------------------|-----------------------------------------------------------------------------------------------|
+| \<ADMXIngestName> | Use "Edge" or what you defined when ingesting the administrative template. It must match what you set in the URI string when you ingested the ADMX file. For example, if you used “./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/MicrosoftEdge/Policy/EdgeAdmx”, then use “MicrosoftEdge”. |
+| \<ADMXNamespace>  | Either "microsoft_edge" or "microsoft_edge_recommended" depending on if you are setting a mandatory or a recommended policy.                                                                                  |
+| \<ADMXCategory>   | The "ParentCategory" of the policy in the ADMX file. If the policy isn't grouped with a "ParentCategory" then the \<ADMXCategory> isn't used.                            |
+| \<PolicyName>     | This is the policy name found in [Browser policy reference](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies) and [Update policy reference](https://docs.microsoft.com/DeployEdge/microsoft-edge-update-policies)     |
+
+#### URI path example
+
+For this example, assume the \<ADMXIngestName> node was named “Edge" and you're setting a mandatory policy. The URI path would be:<br>
+*./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~\<ADMXCategory>/\<PolicyName>*
+
+If the policy isn't in a group (for example, DiskCacheSize) drop "~\<ADMXCategory>". Replace \<PolicyName> with the policy name. The URI path would be:<br>
+*./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/DiskCacheSize*
+
+If the policy is in a group:
+
+1. Open msedge.admx
+2. Search for the policy name you want to set. For example, “ExtensionInstallForceList".
+3. Use the value of the *ref* attribute from the *parentCategory* element. For example, “Extensions” from \<parentCategory ref=" Extensions"/>.
+4. Replace \<ADMXCategory> with the *ref* attribute value to construct the URI path. The URI path for this example will be:<br>.*/Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist*
+
+### Define the data type
+
+The OMA URI data type is always “String”.
+
+### Define the value for browser policies
+
+This section describes how to define the value in XML format for each data type. For non-Boolean data types, the value must start with the \<enabled/> element.
+
+#### Boolean data type
+
+For policies that are Boolean types use \<enabled/> or \<disabled/>.
+
+#### Integer data type
+
+The value always needs to start with the \<enabled/> element followed by \<data id="[valueName]" value="[decimal value]"/>.
+
+To find the value name and decimal value for a new tab page, use the following steps:
+
+1. Open msedge.admx
+2. Search for the \<policy> element where the name attribute matches the policy name you want to set. For example, search for "*name="RestoreOnStartup"*".
+3. In the \<elements> node, find the value you want to set.
+4. Use the value in the "valueName" attribute. For example, "RestoreOnStartup".
+5. Use the value in the "value" attribute in the \<decimal> node. For example, to open the new tab page the value is "5".
+
+In this example, the setting to open the new tab page would be:<br>
+`<enabled/> <data id="RestoreOnStartup" value="5"/>`
+
+#### List of strings data type
+
+The value always needs to start with the \<enabled/> element followed by \<data id="[listID]" value="[string 1];[string 2];[string 3]"/>.
+
+> [!NOTE]
+> The "id=" attribute name isn't the policy name, even though in most cases it matches the policy name. This is the `<list>` node id attribute value, which is found in the ADMX file.
+
+To find the listID and define the value to block a URL, follow these steps:
+
+1. Open msedge.admx
+2. Search for the \<policy> element where the name attribute matches the policy name you want to set. For example, search for name="URLBlocklist".
+3. Use the value in the "id" attribute of the \<list> node for [listID].
+4. The "value" is a list of URLs separated by a semicolon (;)
+
+In this example, the setting to block access to contoso.com and https://ssl.server.com is:<br>
+`<enabled/> <data id=" URLBlocklistDesc" value="contoso.com;https://ssl.server.com"/>`
+
+#### Dictionary or String data type
+
+The value always needs to start with the \<enabled/> followed by \<data id="[textID]" value="[string]"/> .
+
+To find the textID and define the value for a locale, follow these steps:
+
+1. Open msedge.admx
+2. Search for the \<policy> element where the name attribute matches the policy name you want to set. For example, search for name="ApplicationLocaleValue".
+3. Use the value in the "id" attribute of the \<text> node for [textID].
+4. Set the "value" to the culture code.
+
+In this example, the setting to set the locale to "es-US" is:<br>
+`<enabled/> <data id="ApplicationLocaleValue" value="es-US"/>`
+
+## Create the OMA-URI for a recommended policy
+
+Defining the URI path for recommended policies depends on the policy you want to configure.
+
+### To define the URI path for a recommended policy
+
+Use the URI path formula (*./Device/Vendor/MSFT/Policy/Config/\<ADMXIngestName>~Policy~\<ADMXNamespace>~\<ADMXCategory>/\<PolicyName>*) and the following steps to define the URI path:
+
+1. Open msedge.admx
+2. If the policy you want to configure isn't in a group, skip to step 4 and remove ~\<ADMXCategory> from the path.
+3. If the policy you want to configure is in a group:
+   - To look up the \<ADMXCategory>, search for the policy you want to set. When searching, append “_recommended” to the policy name. For example, RegisteredProtocolHandlers_recommended”.
+   - Copy the value of the *ref* attribute from the parentCategory element. For example, “ContentSettings _recommended” from \<parentCategory ref=" ContentSettings _recommended"/>.
+   - Replace \<ADMXCategory> with the *ref* attribute value to construct the URI path in the URI path formula.
+
+4. The \<PolicyName> is the name of the policy with "_recommended" appended to it.
+
+#### OMA-URI path examples
+
+The following table shows examples of OMA-URI paths for recommended policies.
+
+|              Policy               |             OMA-URI                      |
+|-----------------------------------|------------------------------------------|
+| [RegisteredProtocolHandlers](https://docs.microsoft.com/deployedge/microsoft-edge-policies#registeredprotocolhandlers)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~ContentSettings_recommended/RegisteredProtocolHandlers_recommended                        |
+| [PasswordManagerEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#passwordmanagerenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~PasswordManager_recommended/PasswordManagerEnabled_recommended                        |
+| [PrintHeaderFooter](https://docs.microsoft.com/deployedge/microsoft-edge-policies#printheaderfooter)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Printing_recommended/PrintHeaderFooter_recommended                        |
+| [SmartScreenEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#smartscreenenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~SmartScreen_recommended/SmartScreenEnabled_recommended                        |
+| [HomePageLocation](https://docs.microsoft.com/deployedge/microsoft-edge-policies#homepagelocation)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/HomepageLocation_recommended                        |
+| [ShowHomeButton](https://docs.microsoft.com/deployedge/microsoft-edge-policies#showhomebutton)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/ShowHomeButton_recommended                        |
+| [FavoritesBarEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#favoritesbarenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~/FavoritesBarEnabled_recommended                        |
+
+## Example OMA-URI paths and values
+
+This section shows OMA-URI examples that use different data types for values.
+
+### Boolean data type examples
+
+*ShowHomeButton:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: ShowHomeButton                                                       |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton |
+| type    | String                                                                               |
+| Value   | \<enabled/>                                                                          |
+
+*DefaultSearchProviderEnabled:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: DefaultSearchProviderEnabled                                         |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~DefaultSearchProvider/DefaultSearchProviderEnabled    |
+| type    | String                                                                               |
+| Value   | \<disable/>                                                                          |
+
+### Integer data type examples
+
+*AutoImportAtFirstRun:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: AutoImportAtFirstRun                                                 |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/AutoImportAtFirstRun   |
+| type    | String                                                                               |
+| Value   | \<enabled/>\<data id="AutoImportAtFirstRun" value="1"\/>                             |
+
+*DefaultImagesSetting:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: DefaultImagesSetting                                                 |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/DefaultImagesSetting    |
+| type    | String                                                                               |
+| Value   | \<enabled/>\<data id="DefaultImagesSetting" value="2"\/>                             |
+
+*DiskCacheSize:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: DiskCacheSize                                                        |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/DiskCacheSize          |
+| type    | String                                                                               |
+| Value   | \<enabled/>\<data id="DiskCacheSize" value="1000000"\/>                              |
+
+### List of strings data type examples
+
+*NotificationsAllowedForUrls:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: NotificationsAllowedForUrls                                          |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/NotificationsAllowedForUrls    |
+| Type    | String                                                                               |
+| Value   | \<enabled/>\<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com"\/><br>For multiple list items\: \<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com;[*.]contoso.edu"\/>                               |
+
+*RestoreOnStartupURLS:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: RestoreOnStartupURLS                                                 |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/RestoreOnStartupURLs    |
+| Type    | String                                                                               |
+| Value   | \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com"\/><br>For multiple list items\: \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com\&#xF000;2\&#xF000;http://www.microsoft.com"\/>  |
+
+*ExtensionInstallForcelist:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: ExtensionInstallForcelist                                            |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist    |
+| Type    | String                                                                               |
+| Value   | \<enabled/>\<data id="ExtensionInstallForcelistDesc" value="1\&#xF000;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"/>                               |
+
+### Dictionary and String data type example
+
+*ProxyMode:*
+| Field   | Value                                                                                |
+|---------|--------------------------------------------------------------------------------------|
+| Name    | Microsoft Edge: ProxyMode                                                            |
+| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ProxyMode/ProxyMode    |
+| Type    | String                                                                               |
+| Value   | \<enabled/>\<data id="ProxyMode" value="auto_detect"/>                               |
+
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Configure Microsoft Edge policy settings with Microsoft Intune](configure-edge-with-intune.md)
+- [Mobile device management](https://docs.microsoft.com/windows/client-management/mdm/)
+- [Use custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10)
+- [Win32 and Desktop Bridge app policy configuration](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration)
+- [Understanding ADMX-backed policies](https://docs.microsoft.com/windows/client-management/mdm/understanding-admx-backed-policies)
