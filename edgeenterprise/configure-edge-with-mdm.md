@@ -63,7 +63,7 @@ The recommended way to configure Microsoft Edge is to use Microsoft Intune "Admi
    - **Data type**: Select "String"
    - **Value**: Open the msedge.admx from the Microsoft Edge policy templates file you extracted in step 1. Copy the full text from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
 
-          ![Add an ADMX ingestion](./media/edge-cfg-with-mdm/configure-edge-intune-mdm-omauri-addrow-ingest.png)
+        ![Add an ADMX ingestion](./media/edge-cfg-with-mdm/configure-edge-intune-mdm-omauri-addrow-ingest.png)
 
    - Click **OK**.
 
@@ -92,7 +92,7 @@ The recommended way to configure Microsoft Edge is to use Microsoft Intune "Admi
    - **Data type**: Select the policy settings data type. For the "ShowHomeButton" policy, use "String"
    - **Value**: Enter the setting that you want to configure for the policy. For the "ShowHomeButton" example, enter "\<enabled/>". The following screenshot shows the settings for configuring a policy.
 
-          ![Add Row, OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
+         ![Add Row, OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
 
    - Click **OK**.
 
@@ -260,6 +260,7 @@ This section shows OMA-URI examples that use different data types for values.
 ### Boolean data type examples
 
 *ShowHomeButton:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ShowHomeButton                                                       |
@@ -268,6 +269,7 @@ This section shows OMA-URI examples that use different data types for values.
 | Value   | \<enabled/>                                                                          |
 
 *DefaultSearchProviderEnabled:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DefaultSearchProviderEnabled                                         |
@@ -278,6 +280,7 @@ This section shows OMA-URI examples that use different data types for values.
 ### Integer data type examples
 
 *AutoImportAtFirstRun:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: AutoImportAtFirstRun                                                 |
@@ -286,6 +289,7 @@ This section shows OMA-URI examples that use different data types for values.
 | Value   | \<enabled/>\<data id="AutoImportAtFirstRun" value="1"\/>                             |
 
 *DefaultImagesSetting:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DefaultImagesSetting                                                 |
@@ -294,6 +298,7 @@ This section shows OMA-URI examples that use different data types for values.
 | Value   | \<enabled/>\<data id="DefaultImagesSetting" value="2"\/>                             |
 
 *DiskCacheSize:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DiskCacheSize                                                        |
@@ -304,6 +309,7 @@ This section shows OMA-URI examples that use different data types for values.
 ### List of strings data type examples
 
 *NotificationsAllowedForUrls:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: NotificationsAllowedForUrls                                          |
@@ -312,6 +318,7 @@ This section shows OMA-URI examples that use different data types for values.
 | Value   | \<enabled/>\<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com"\/><br>For multiple list items\: \<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com;[*.]contoso.edu"\/>                               |
 
 *RestoreOnStartupURLS:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: RestoreOnStartupURLS                                                 |
@@ -320,6 +327,7 @@ This section shows OMA-URI examples that use different data types for values.
 | Value   | \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com"\/><br>For multiple list items\: \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com\&#xF000;2\&#xF000;http://www.microsoft.com"\/>  |
 
 *ExtensionInstallForcelist:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ExtensionInstallForcelist                                            |
@@ -330,6 +338,7 @@ This section shows OMA-URI examples that use different data types for values.
 ### Dictionary and String data type example
 
 *ProxyMode:*
+
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ProxyMode                                                            |
