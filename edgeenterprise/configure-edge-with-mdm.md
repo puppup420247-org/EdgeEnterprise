@@ -46,7 +46,7 @@ This section describes how to ingest the Microsoft Edge administrative template 
 
 To ingest the ADMX file, follow these steps:
 
-1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the Microsoft Edge Enterprise landing page and extract the contents.
+1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) and extract the contents.
 2. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 3. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 4. From _Microsoft Intune - Overview_, select **Device configuration** | **Profiles**.
@@ -81,7 +81,7 @@ To ingest the ADMX file, follow these steps:
 > [!NOTE]
 > Before using the steps in this section you must complete the steps described in [Ingest the Microsoft Edge ADMX file into Intune](#ingest-the-microsoft-edge-admx-file-into-intune).
 
-1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the Microsoft Edge Enterprise landing page and extract the contents.
+1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) and extract the contents.
 2. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 3. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 4. Go to **Intune**>**Device configuration**>**Profiles**.
@@ -148,9 +148,9 @@ The next table shows the URI path parameters.
 
 | Parameter         | Description                                                                                   |
 |-------------------|-----------------------------------------------------------------------------------------------|
-| \<ADMXIngestName> | Use "Edge" or what you defined when ingesting the administrative template. It must match what you set in the URI string when you ingested the ADMX file. For example, if you used “./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/MicrosoftEdge/Policy/EdgeAdmx”, then use “MicrosoftEdge”. |
-| \<ADMXNamespace>  | Either "microsoft_edge" or "microsoft_edge_recommended" depending on if you are setting a mandatory or a recommended policy.                                                                                  |
-| \<ADMXCategory>   | The "ParentCategory" of the policy in the ADMX file. If the policy isn't grouped with a "ParentCategory" then the \<ADMXCategory> isn't used.                            |
+| \<ADMXIngestName> | Use "Edge" or what you defined when ingesting the administrative template. It must match what you set in the URI string when you ingested the ADMX file. For example, if you used "./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/MicrosoftEdge/Policy/EdgeAdmx", then use "MicrosoftEdge". |
+| \<ADMXNamespace>  | Either "microsoft_edge" or "microsoft_edge_recommended" depending on whether you're setting a mandatory or a recommended policy.                                                                                  |
+| \<ADMXCategory>   | The "ParentCategory" of the policy in the ADMX file. If the policy isn't grouped with a "ParentCategory" then the `<ADMXCategory>` isn't used.                            |
 | \<PolicyName>     | This is the policy name found in [Browser policy reference](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies) and [Update policy reference](https://docs.microsoft.com/DeployEdge/microsoft-edge-update-policies)     |
 
 #### Examples for setting the URI path
@@ -192,7 +192,7 @@ To find the value name and decimal value for a new tab page, use the following s
 4. Use the value in the "valueName" attribute. For example, "RestoreOnStartup".
 5. Use the value in the "value" attribute in the `<decimal>` node. For example, to open the new tab page the value is "5".
 
-In this example, the setting to open the new tab page would be:<br>
+For example, the setting to open the new tab page would be:<br>
 `<enabled/> <data id="RestoreOnStartup" value="5"/>`
 
 #### List of strings data type
@@ -209,7 +209,7 @@ To find the listID and define the value to block a URL, follow these steps:
 3. Use the value in the "id" attribute of the `<list> node for [listID]`.
 4. The "value" is a list of URLs separated by a semicolon (;)
 
-In this example, the setting to block access to contoso.com and https://ssl.server.com is:<br>
+For example, the setting to block access to contoso.com and https://ssl.server.com is:<br>
 `<enabled/> <data id=" URLBlocklistDesc" value="contoso.com;https://ssl.server.com"/>`
 
 #### Dictionary or String data type
@@ -223,7 +223,7 @@ To find the textID and define the value for a locale, follow these steps:
 3. Use the value in the "id" attribute of the `<text>` node for `[textID]`.
 4. Set the "value" to the culture code.
 
-In this example, the setting to set the locale to "es-US" is:<br>
+For example, the setting to set the locale to "es-US" is:<br>
 `<enabled/> <data id="ApplicationLocaleValue" value="es-US"/>`
 
 ## Create the OMA-URI for a recommended policy
