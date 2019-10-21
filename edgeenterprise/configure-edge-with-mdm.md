@@ -249,17 +249,17 @@ The following table shows examples of OMA-URI paths for recommended policies.
 
 |              Policy               |             OMA-URI                      |
 |-----------------------------------|------------------------------------------|
-| [RegisteredProtocolHandlers](https://docs.microsoft.com/deployedge/microsoft-edge-policies#registeredprotocolhandlers)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~ContentSettings_recommended/RegisteredProtocolHandlers_recommended                        |
-| [PasswordManagerEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#passwordmanagerenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~PasswordManager_recommended/PasswordManagerEnabled_recommended                        |
-| [PrintHeaderFooter](https://docs.microsoft.com/deployedge/microsoft-edge-policies#printheaderfooter)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Printing_recommended/PrintHeaderFooter_recommended                        |
-| [SmartScreenEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#smartscreenenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~SmartScreen_recommended/SmartScreenEnabled_recommended                        |
-| [HomePageLocation](https://docs.microsoft.com/deployedge/microsoft-edge-policies#homepagelocation)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/HomepageLocation_recommended                        |
-| [ShowHomeButton](https://docs.microsoft.com/deployedge/microsoft-edge-policies#showhomebutton)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/ShowHomeButton_recommended                        |
-| [FavoritesBarEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#favoritesbarenabled)                       | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~/FavoritesBarEnabled_recommended                        |
+| [RegisteredProtocolHandlers](https://docs.microsoft.com/deployedge/microsoft-edge-policies#registeredprotocolhandlers)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~ContentSettings_recommended/RegisteredProtocolHandlers_recommended`                        |
+| [PasswordManagerEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#passwordmanagerenabled)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~PasswordManager_recommended/PasswordManagerEnabled_recommended`                        |
+| [PrintHeaderFooter](https://docs.microsoft.com/deployedge/microsoft-edge-policies#printheaderfooter)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Printing_recommended/PrintHeaderFooter_recommended`                        |
+| [SmartScreenEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#smartscreenenabled)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~SmartScreen_recommended/SmartScreenEnabled_recommended`                        |
+| [HomePageLocation](https://docs.microsoft.com/deployedge/microsoft-edge-policies#homepagelocation)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/HomepageLocation_recommended`                        |
+| [ShowHomeButton](https://docs.microsoft.com/deployedge/microsoft-edge-policies#showhomebutton)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~Startup_recommended/ShowHomeButton_recommended`                        |
+| [FavoritesBarEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#favoritesbarenabled)                       | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge_recommended~/FavoritesBarEnabled_recommended`                        |
 
-## Example OMA-URI paths and values
+## OMA-URI examples
 
-This section shows OMA-URI examples that use different data types for values.
+This section shows OMA-URI examples with their paths, data types, and values.
 
 ### Boolean data type examples
 
@@ -268,18 +268,18 @@ This section shows OMA-URI examples that use different data types for values.
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ShowHomeButton                                                       |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton` |
 | type    | String                                                                               |
-| Value   | \<enabled/>                                                                          |
+| Value   | `<enabled/>`                                                                          |
 
 *DefaultSearchProviderEnabled:*
 
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DefaultSearchProviderEnabled                                         |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~DefaultSearchProvider/DefaultSearchProviderEnabled    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~DefaultSearchProvider/DefaultSearchProviderEnabled`    |
 | type    | String                                                                               |
-| Value   | \<disable/>                                                                          |
+| Value   | `<disable/>`                                                                          |
 
 ### Integer data type examples
 
@@ -288,27 +288,27 @@ This section shows OMA-URI examples that use different data types for values.
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: AutoImportAtFirstRun                                                 |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/AutoImportAtFirstRun   |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/AutoImportAtFirstRun`   |
 | type    | String                                                                               |
-| Value   | \<enabled/>\<data id="AutoImportAtFirstRun" value="1"\/>                             |
+| Value   | `<enabled/><data id="AutoImportAtFirstRun" value="1"/>`                             |
 
 *DefaultImagesSetting:*
 
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DefaultImagesSetting                                                 |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/DefaultImagesSetting    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/DefaultImagesSetting`    |
 | type    | String                                                                               |
-| Value   | \<enabled/>\<data id="DefaultImagesSetting" value="2"\/>                             |
+| Value   | `<enabled/><data id="DefaultImagesSetting" value="2"/>`                             |
 
 *DiskCacheSize:*
 
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: DiskCacheSize                                                        |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/DiskCacheSize          |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/DiskCacheSize`          |
 | type    | String                                                                               |
-| Value   | \<enabled/>\<data id="DiskCacheSize" value="1000000"\/>                              |
+| Value   | `<enabled/><data id="DiskCacheSize" value="1000000"/>`                              |
 
 ### List of strings data type examples
 
@@ -317,27 +317,27 @@ This section shows OMA-URI examples that use different data types for values.
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: NotificationsAllowedForUrls                                          |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/NotificationsAllowedForUrls    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/NotificationsAllowedForUrls`    |
 | Type    | String                                                                               |
-| Value   | \<enabled/>\<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com"\/><br>For multiple list items\: \<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com;[*.]contoso.edu"\/>                               |
+| Value   | `<enabled/><data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com"/>`<br>For multiple list items: `<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com;[*.]contoso.edu"/>`                               |
 
 *RestoreOnStartupURLS:*
 
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: RestoreOnStartupURLS                                                 |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/RestoreOnStartupURLs    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/RestoreOnStartupURLs`    |
 | Type    | String                                                                               |
-| Value   | \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com"\/><br>For multiple list items\: \<enabled/>\<data id="RestoreOnStartupURLsDesc" value="1\&#xF000;http://www.bing.com\&#xF000;2\&#xF000;http://www.microsoft.com"\/>  |
+| Value   | `<enabled/><data id="RestoreOnStartupURLsDesc" value="1&#xF000;http://www.bing.com"/>`<br>For multiple list items: `<enabled/><data id="RestoreOnStartupURLsDesc" value="1&#xF000;http://www.bing.com&#xF000;2&#xF000;http://www.microsoft.com"/>`  |
 
 *ExtensionInstallForcelist:*
 
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ExtensionInstallForcelist                                            |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist`    |
 | Type    | String                                                                               |
-| Value   | \<enabled/>\<data id="ExtensionInstallForcelistDesc" value="1\&#xF000;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"/>                               |
+| Value   | `<enabled/><data id="ExtensionInstallForcelistDesc" value="1&#xF000;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"/>`                               |
 
 ### Dictionary and String data type example
 
@@ -346,9 +346,9 @@ This section shows OMA-URI examples that use different data types for values.
 | Field   | Value                                                                                |
 |---------|--------------------------------------------------------------------------------------|
 | Name    | Microsoft Edge: ProxyMode                                                            |
-| OMA-URI | ./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ProxyMode/ProxyMode    |
+| OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ProxyMode/ProxyMode`    |
 | Type    | String                                                                               |
-| Value   | \<enabled/>\<data id="ProxyMode" value="auto_detect"/>                               |
+| Value   | `<enabled/><data id="ProxyMode" value="auto_detect"/>`                               |
 
 ## See also
 
