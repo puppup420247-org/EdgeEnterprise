@@ -74,7 +74,7 @@ To ingest the ADMX file, follow these steps:
 10. On **Create profile**, click **Create**.
 
 > [!NOTE]
-> You can ingest the msedgeupate.admx file using the preceding steps.
+> You can use the preceding steps to ingest the msedgeupate.admx policy template file.
 
 ## Configure a policy using custom OMA-URI settings
 
