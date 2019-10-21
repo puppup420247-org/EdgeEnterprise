@@ -14,7 +14,7 @@ description: "Configure Microsoft Edge using Mobile Device Management."
 
 # Configure Microsoft Edge using Mobile Device Management
 
-This article explains how to ingest the Microsoft Edge administrative template into Microsoft Intune and then use this template to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI). You can use this OMA-URI to set the Mobile Device Management (MDM) settings for Microsoft Edge.
+This article explains how to ingest the Microsoft Edge administrative template into Microsoft Intune and then use this template to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI). You can use the OMA-URI you create to set up the Mobile Device Management (MDM) settings for Microsoft Edge.
 
 In addition to using Microsoft Intune to configure Microsoft Edge on Windows 10 you can use [Mobile Device Management (MDM)](https://docs.microsoft.com/windows/client-management/mdm/) with your preferred Enterprise Mobility Management (EMM) or an MDM provider that supports [ADMX Ingestion](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration).
 
@@ -35,7 +35,7 @@ Windows 10, with the following minimum system requirements:
 The recommended way to configure Microsoft Edge is to use Microsoft Intune "Administrative Templates profile" as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). The custom settings option is helpful for evaluating or testing a Microsoft Edge setting that isn’t available yet in the Microsoft Intune "Administrative Templates profile".
 
 > [!IMPORTANT]
-> As a best practice, don’t use a custom OMA URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA URI and an Administrative template profile, but with different values the end user will get unpredictable results. We strongly recommend backing out your OMA URI profile before using the Adminstration templates profile.
+> As a best practice, don’t use a custom OMA URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA URI profile before using the Adminstration templates profile.
 
 ## Ingest the Microsoft Edge ADMX file into Intune
 
@@ -60,11 +60,11 @@ To ingest the ADMX file, follow these steps:
 7. On **Custom OMA-URI Settings**, click **Add** to add an ADMX ingestion.
 8. On **Add Row**, provide the following information:
 
-   - **Name**: Enter a descriptive name. For this example, "Microsoft Edge ADMX ingestion".
+   - **Name**: Enter a descriptive name. For this example, use "Microsoft Edge ADMX ingestion".
    - **Description**: Enter a description for the setting.
    - **OMA-URI**: Enter "*./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx*"
    - **Data type**: Select "String"
-   - **Value**: Open the msedge.admx from the Microsoft Edge policy templates file you extracted in step 1. Copy the full text from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
+   - **Value**: Open the msedge.admx file from the Microsoft Edge policy templates file you extracted in step 1. Copy **ALL the text** from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
 
         ![Add an ADMX ingestion](./media/edge-cfg-with-mdm/configure-edge-intune-mdm-omauri-addrow-ingest.png)
 
@@ -92,9 +92,9 @@ To ingest the ADMX file, follow these steps:
 
    - **Name**: Enter a descriptive name. We suggest using the policy name you want to configure. For this example, use "ShowHomeButton".
    - **Description** (Optional): Enter a description for the setting.
-   - **OMA-URI**: Enter the OMA-URI for the policy. For example, using the for "ShowHomeButton" policy, use this string: "*./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton*"
+   - **OMA-URI**: Enter the OMA-URI for the policy. Using the for "ShowHomeButton" policy as an example, use this string: "*./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Startup/ShowHomeButton*"
    - **Data type**: Select the policy settings data type. For the "ShowHomeButton" policy, use "String"
-   - **Value**: Enter the setting that you want to configure for the policy. For the "ShowHomeButton" example, enter "\<enabled/>". The following screenshot shows the settings for configuring a policy.
+   - **Value**: Enter the setting that you want to configure for the policy. For "ShowHomeButton" example, enter "\<enabled/>". The following screenshot shows the settings for configuring a policy.
 
         ![Add Row, OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
 
