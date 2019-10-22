@@ -111,7 +111,7 @@ To ingest the ADMX file, follow these steps:
    - **Data type**: Select the policy settings data type. For the "ShowHomeButton" policy, use "String"
    - **Value**: Enter the setting that you want to configure for the policy. For "ShowHomeButton" example, enter "\<enabled/>". The following screenshot shows the settings for configuring a policy.
 
-        ![Add Row, OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
+        ![Add Row, Custom OMA-URI Settings](./media/edge-cfg-with-mdm/configure-edge-mdm-custom-omauri-setting.png)
 
    - Click **OK**.
 
