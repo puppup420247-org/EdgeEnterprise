@@ -23,7 +23,7 @@ This article shows how you can use Microsoft Edge settings to add a supported la
 
 Use the following steps to see the list of supported languages and then add a language to Microsoft Edge.
 
-1. On the browser menu bar, click the ellipsis (**...**) or type **Alt+F** to open the "Settings and more" menu.
+1. On the browser menu bar, click the **Settings and more** icon (**...**) or type **Alt+F** to open the "Settings and more" menu.
 2. Under **Settings**, click **Languages**.
 3. Under **Languages**, click **Add languages** to see the list of languages you can add.
 4. In the **Add languages** list, you can search for a language (**Search languages**) or use the scroll bar to find the language you want to add.
