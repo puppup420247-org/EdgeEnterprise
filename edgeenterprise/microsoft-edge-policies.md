@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 10/07/2019
+ms.date: 10/16/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -141,8 +141,10 @@ These tables lists all of the browser-related group policies available in this r
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
 |[HomepageLocation](#homepagelocation)|Configure the home page URL|
+|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Set new tab page company logo|
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
 |[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
+|[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Set new tab page quick links|
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
@@ -153,6 +155,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
+|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
@@ -174,11 +177,11 @@ These tables lists all of the browser-related group policies available in this r
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
 |[ClearBrowsingDataOnExit](#clearbrowsingdataonexit)|Clear browsing data when Microsoft Edge closes|
 |[ClickOnceEnabled](#clickonceenabled)|Allow users to open files using the ClickOnce protocol|
-|[CoalesceH2ConnectionsWithClientCertificatesForHosts](#coalesceh2connectionswithclientcertificatesforhosts)|Allow HTTP/2 connection coalescing for these hosts even when client certificates are used|
 |[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Enable security warnings for command-line flags|
 |[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
 |[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
 |[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
+|[CustomHelpLink](#customhelplink)|Specify custom help link|
 |[DefaultBrowserSettingEnabled](#defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
 |[DeveloperToolsAvailability](#developertoolsavailability)|Control where developer tools can be used|
 |[DirectInvokeEnabled](#directinvokeenabled)|Allow users to open files using the DirectInvoke protocol|
@@ -202,19 +205,21 @@ These tables lists all of the browser-related group policies available in this r
 |[ForceNetworkInProcess](#forcenetworkinprocess)|Force networking code to run in the browser process|
 |[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
 |[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
-|[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Forces direct intranet site navigation instead of searching on single word entries in the Address Bar.|
+|[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Force direct intranet site navigation instead of searching on single word entries in the Address Bar|
 |[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
 |[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
 |[ImportBrowserSettings](#importbrowsersettings)|Allow importing of browser settings|
 |[ImportFavorites](#importfavorites)|Allow importing of favorites|
 |[ImportHistory](#importhistory)|Allow importing of browsing history|
 |[ImportHomepage](#importhomepage)|Allow importing of home page settings|
+|[ImportOpenTabs](#importopentabs)|Allow importing of open tabs|
 |[ImportPaymentInfo](#importpaymentinfo)|Allow importing of payment info|
 |[ImportSavedPasswords](#importsavedpasswords)|Allow importing of saved passwords|
 |[ImportSearchEngine](#importsearchengine)|Allow importing of search engine settings|
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configure Internet Explorer integration|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configure the Enterprise Mode Site List|
+|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages|
 |[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
 |[ManagedFavorites](#managedfavorites)|Configure favorites|
 |[ManagedSearchEngines](#managedsearchengines)|Manage Search Engines|
@@ -250,7 +255,6 @@ These tables lists all of the browser-related group policies available in this r
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Force disable spellcheck languages|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
-|[TabLifecyclesEnabled](#tablifecyclesenabled)|Configure tab lifecycles|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
 |[TrackingPrevention](#trackingprevention)|Block tracking of users' web-browsing activity|
 |[TranslateEnabled](#translateenabled)|Enable Translate|
@@ -264,8 +268,6 @@ These tables lists all of the browser-related group policies available in this r
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
-
-
 
 
   ## Cast policies
@@ -3235,7 +3237,7 @@ If you enable or disable this policy, users can't change or override it in Micro
   #### Description
   Configures the change password URL (HTTP and HTTPS schemes only).
 
-Password protection service will send users to this URL to change their password after seeing a warning in the browser. In order for Microsoft Edge to correctly capture the new password fingerprint on your change password page.
+Password protection service will send users to this URL to change their password after seeing a warning in the browser.
 
 If you enable this policy, then password protection service sends users to this URL to change their password.
 
@@ -3284,7 +3286,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection. In order for Microsoft Edge to correctly capture password fingerprints.
+  Configure the list of enterprise login URLs (HTTP and HTTPS schemes only) where Microsoft Edge should capture the fingerprint of passwords and use it for password reuse detection.
 
 If you enable this policy, the password protection service captures fingerprints of passwords on the defined URLs.
 
@@ -4293,7 +4295,87 @@ This policy is available only on Windows instances that are joined to a Microsof
 ``` xml
 <string>https://www.contoso.com</string>
 ```
- 
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### NewTabPageCompanyLogo
+  #### Set new tab page company logo
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
+
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Dictionary
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: NewTabPageCompanyLogo
+  - GP name: Set new tab page company logo
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: NewTabPageCompanyLogo
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
+  "default_logo": {
+    "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29", 
+    "url": "https://www.contoso.com/logo.png"
+  }, 
+  "light_logo": {
+    "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737", 
+    "url": "https://www.contoso.com/light_logo.png"
+  }
+}
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: NewTabPageCompanyLogo
+  - Example value:
+``` xml
+<key>NewTabPageCompanyLogo</key>
+<dict>
+  <key>default_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29</string>
+    <key>url</key>
+    <string>https://www.contoso.com/logo.png</string>
+  </dict>
+  <key>light_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737</string>
+    <key>url</key>
+    <string>https://www.contoso.com/light_logo.png</string>
+  </dict>
+</dict>
+```
+  
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4393,6 +4475,86 @@ This policy is available only on Windows instances that are joined to a Microsof
 ``` xml
 <string>https://www.fabrikam.com</string>
 ```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### NewTabPageManagedQuickLinks
+  #### Set new tab page quick links
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  By default, Microsoft Edge displays quick links on the new tab page from user-added shortcuts and top sites based on browsing history. With this policy, you can configure up to three quick link tiles on the new tab page, expressed as a JSON object:
+
+[ { "url": "https://www.contoso.com", "title": "Contoso Portal", "pinned": true/false }, ... ]
+
+The 'url' field is required; 'title' and 'pinned' are optional. If 'title' is not provided, the URL is used as the default title. If 'pinned' is not provided, the default value is false.
+
+Microsoft Edge presents these in the order listed, from left to right, with all pinned tiles displayed ahead of non-pinned tiles.
+
+If the policy is set as mandatory, the 'pinned' field will be ignored and all tiles will be pinned. The tiles can't be deleted by the user and will always appear at the front of the quick links list.
+
+If the policy is set as recommended, pinned tiles will remain in the list but the user has the ability to edit and delete them. Quick link tiles that aren't pinned behave like default top sites and are pushed off the list if other websites are visited more frequently. When applying non-pinned links via this policy to an existing browser profile, the links may not appear at all, depending on how they rank compared to the user's browsing history.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Dictionary
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: NewTabPageManagedQuickLinks
+  - GP name: Set new tab page quick links
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: NewTabPageManagedQuickLinks
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
+  {
+    "pinned": true, 
+    "title": "Contoso Portal", 
+    "url": "https://contoso.com"
+  }, 
+  {
+    "title": "Fabrikam", 
+    "url": "https://fabrikam.com"
+  }
+]
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: NewTabPageManagedQuickLinks
+  - Example value:
+``` xml
+<key>NewTabPageManagedQuickLinks</key>
+<array>
+  <dict>
+    <key>pinned</key>
+    <true/>
+    <key>title</key>
+    <string>Contoso Portal</string>
+    <key>url</key>
+    <string>https://contoso.com</string>
+  </dict>
+  <dict>
+    <key>title</key>
+    <string>Fabrikam</string>
+    <key>url</key>
+    <string>https://fabrikam.com</string>
+  </dict>
+</array>
+```
+  
 
   [Back to top](#microsoft-edge---policies)
 
@@ -4744,6 +4906,55 @@ This policy will be removed in the future.
 
   #### Mac information and settings
   - Preference Key Name: AllowPopupsDuringPageUnload
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### AllowSyncXHRInPageDismissal
+  #### Allow pages to send synchronous XHR requests during page dismissal
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  This policy lets you specify that a page can send synchronous XHR requests during page dismissal.
+
+If you enable this policy, pages can send synchronous XHR requests during page dismissal.
+
+If you disable this policy or don't configure this policy, pages aren't allowed to send synchronous XHR requests during page dismissal.
+
+This policy is temporary and will be removed in a future release.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AllowSyncXHRInPageDismissal
+  - GP name: Allow pages to send synchronous XHR requests during page dismissal
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AllowSyncXHRInPageDismissal
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AllowSyncXHRInPageDismissal
   - Example value:
 ``` xml
 <false/>
@@ -5797,57 +6008,57 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 
   [Back to top](#microsoft-edge---policies)
 
-  ### CoalesceH2ConnectionsWithClientCertificatesForHosts
-  #### Allow HTTP/2 connection coalescing for these hosts even when client certificates are used
-  >Supported Versions: This is a future policy
+														 
+																								
+											  
 
-  #### Description
-  If you enable this policy, coalescing of HTTP/2 connections is allowed even when client certificates are being used.
+				  
+																													  
 
-If you leave this policy unconfigured, HTTP/2 connection coalescing isn't allowed on connections that are using client certificates. This is the default behavior.
+																																								  
 
-In order to coalesce, both the host name of the potential new connection and the host name of an existing connection must match one or more patterns prescribed by this policy. This policy specifies a list of hosts, using the URLBlocklist filter format: "contoso.com" matches "contoso.com" and all subdomains (for example, "sub.contoso.com"), while ".contoso.net" matches exactly "contoso.net".
+																																																																																																		 
 
-Coalescing requests to different hosts over connections that use client certificates can trigger security and privacy issues, as the ambient authority will be conveyed to all requests, even if the user did not explicitly approve this. Therefore, this policy is temporary and will be removed in a future release. For more info, see https://crbug.com/855690.
+																																																																																									
 
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: Yes
+						  
+						 
+						  
+							   
 
-  #### Data Type:
-  List of strings
+				 
+				 
 
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: CoalesceH2ConnectionsWithClientCertificatesForHosts
-  - GP name: Allow HTTP/2 connection coalescing for these hosts even when client certificates are used
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForHosts
-  - Path (Recommended): N/A
-  - Value Name: 1, 2, 3, ...
-  - Value Type: list of REG_SZ
-  ##### Example value:
-```
-SOFTWARE\Policies\Microsoft\Edge\CoalesceH2ConnectionsWithClientCertificatesForHosts\0 = "contoso.com"
+									   
+								
+																	   
+																									  
+																 
+							  
+								  
+								 
+																										  
+						   
+							
+							  
+					  
+   
+																									  
 
-```
+   
 
 
-  #### Mac information and settings
-  - Preference Key Name: CoalesceH2ConnectionsWithClientCertificatesForHosts
-  - Example value:
-``` xml
-<array>
-  <string>contoso.com</string>
-</array>
-```
+								   
+																			
+				  
+	   
+	   
+							  
+		
+   
   
 
-  [Back to top](#microsoft-edge---policies)
+										   
 
   ### CommandLineFlagSecurityWarningsEnabled
   #### Enable security warnings for command-line flags
@@ -6045,6 +6256,52 @@ Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-service
 
   [Back to top](#microsoft-edge---policies)
 
+  ### CustomHelpLink
+  #### Specify custom help link
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Specify a link for the Help menu or the F1 key.
+
+If you enable this policy, an admin can specify a link for the Help menu or the F1 key.
+
+If you disable or don't configure this policy, the default link for the Help menu or the F1 key is used.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  String
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: CustomHelpLink
+  - GP name: Specify custom help link
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: CustomHelpLink
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+"https://go.microsoft.com/fwlink/?linkid=2080734"
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: CustomHelpLink
+  - Example value:
+``` xml
+<string>https://go.microsoft.com/fwlink/?linkid=2080734</string>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
 
   ### DefaultBrowserSettingEnabled
   #### Set Microsoft Edge as default browser
@@ -6464,6 +6721,8 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 * 2 = Block potentially dangerous downloads
 
 * 3 = Block all downloads
+
+* 4 = Block malicious downloads
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -7193,7 +7452,7 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
   [Back to top](#microsoft-edge---policies)
 
   ### GoToIntranetSiteForSingleWordEntryInAddressBar
-  #### Forces direct intranet site navigation instead of searching on single word entries in the Address Bar.
+  #### Force direct intranet site navigation instead of searching on single word entries in the Address Bar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
 
   #### Description
@@ -7220,7 +7479,7 @@ Popular, single-word search terms will require manual selection of search sugges
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: GoToIntranetSiteForSingleWordEntryInAddressBar
-  - GP name: Forces direct intranet site navigation instead of searching on single word entries in the Address Bar.
+  - GP name: Force direct intranet site navigation instead of searching on single word entries in the Address Bar
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -7555,6 +7814,59 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
 
   [Back to top](#microsoft-edge---policies)
 
+  ### ImportOpenTabs
+  #### Allow importing of open tabs
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Allows users to import open and pinned tabs from another browser into Microsoft Edge.
+
+If you enable this policy, the **Open tabs** check box is automatically selected in the **Import browser data** dialog box.
+
+If you disable this policy, open tabs aren't imported at first run, and users can't import them manually.
+
+If you don't configure this policy, open tabs are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports open tabs on first run, but users can select or clear the **Open tabs** option during manual import.
+
+**Note**: This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ImportOpenTabs
+  - GP name: Allow importing of open tabs
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ImportOpenTabs
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ImportOpenTabs
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ImportPaymentInfo
   #### Allow importing of payment info
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -7836,6 +8148,59 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
   ##### Example value:
 ```
 "https://internal.contoso.com/sitelist.xml"
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### InternetExplorerIntegrationSiteRedirect
+  #### Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
+  >Supported Versions: Microsoft Edge on Windows since version 79 or later
+
+  #### Description
+  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+
+This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+
+This setting works in conjunction with:
+Configure Internet Explorer integration (InternetExplorerIntegrationLevel) is set to "Internet Explorer mode" (1)
+and
+Configure the Enterprise Mode Site List (InternetExplorerIntegrationSiteList) policy where the list has at least one entry.
+
+If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+
+If you enable this policy, you can choose one of the following navigation options:
+0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
+2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+
+To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: InternetExplorerIntegrationSiteRedirect
+  - GP name: Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: InternetExplorerIntegrationSiteRedirect
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
 ```
 
 
@@ -9648,46 +10013,46 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   [Back to top](#microsoft-edge---policies)
 
-  ### TabLifecyclesEnabled
-  #### Configure tab lifecycles
-  >Supported Versions: This is a future policy
+						  
+							   
+											  
 
-  #### Description
-  The tab lifecycles feature reclaims CPU and memory associated with running tabs that haven't been used in a long time, by first throttling, then freezing, and finally discarding them.
+				  
+																																														 
 
-If you disable this policy, the tab lifecycles feature is disabled, and all tabs are left running normally.
+																										   
 
-If you enable or don't configure this policy, the tab lifecycles feature is enabled.
+																					
 
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: No - Requires browser restart
+						  
+						 
+						  
+														 
 
-  #### Data Type:
-  Boolean
+				 
+		 
 
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: TabLifecyclesEnabled
-  - GP name: Configure tab lifecycles
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: TabLifecyclesEnabled
-  - Value Type: REG_DWORD
-  ##### Example value:
-```
-0x00000000
-```
+									   
+								
+										
+									 
+																 
+							  
+								  
+								 
+													  
+						   
+									
+						 
+					  
+   
+		  
+   
 
 
   
 
-  [Back to top](#microsoft-edge---policies)
+										   
 
   ### TaskManagerEndProcessEnabled
   #### Enable ending processes in the Browser task manager
@@ -10363,6 +10728,6 @@ If you don't configure this policy, or if you set it to an empty string or inval
 
 
 ## See also
-	 
+  
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

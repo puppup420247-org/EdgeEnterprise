@@ -3,7 +3,7 @@ title: "Frequently asked questions about Edge in the enterprise"
 ms.author: jwhit
 author: jwhit-MSFT
 manager: laurawi
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -44,13 +44,6 @@ Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://
 ## Do you support Mobile Device Management (MDM) and Microsoft Intune?
 
 Configuring Microsoft Edge on Windows 10 using Microsoft Intune is supported. For more information, see [Configure Microsoft Edge using Microsoft Intune](configure-edge-with-intune.md). MDM support is on our roadmap.
-
-## How do I resolve Error Code -2147024540?
-
-This error code corresponds to the following Windows Information Protection error:
-*ERROR_EDP_POLICY_DENIES_OPERATION: The requested operation was blocked by Windows Information Protection policy. For more information, contact your system administrator*.
-
-Microsoft Edge shows this error when the organization has enabled Windows Information Protection (WIP) to only allow users with approved applications to access corporate resources. In this case because Microsoft Edge isn't on the approved applications list, the admin will have to update the WIP policies to grant access to Microsoft Edge. Please download and apply the policy update in the [WIP Enterprise AppLocker Policy](https://download.microsoft.com/download/8/9/9/8995d820-065c-4ab1-aa2a-9d6dc0cd7ffa/MsEdge%20-%20WIP%20Enterprise%20AppLocker%20Policy%20Files.zip) file.
 
 ## See also
 
