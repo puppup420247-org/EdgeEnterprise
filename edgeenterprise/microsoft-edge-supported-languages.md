@@ -3,7 +3,7 @@ title: "Microsoft Edge language support"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
