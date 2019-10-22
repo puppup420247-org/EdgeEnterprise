@@ -35,11 +35,11 @@ Windows 10, with the following minimum system requirements:
 The recommended way to configure Microsoft Edge is to use Microsoft Intune "Administrative Templates profile" as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). The custom settings option is helpful for evaluating or testing a Microsoft Edge setting that isn’t available yet in the Microsoft Intune "Administrative Templates profile".
 
 > [!IMPORTANT]
-> As a best practice, don’t use a custom OMA URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA URI profile before using the Adminstration templates profile.
+> As a best practice, don’t use a custom OMA-URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA-URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA-URI profile before using the Adminstration templates profile.
 
 ## Ingest the Microsoft Edge ADMX file into Intune
 
-This section describes how to ingest the Microsoft Edge administrative template into Microsoft Intune and configure an MDM setting using custom OMA URI. For details on how to create custom OMA URI for Microsoft Edge, see [Introduction to OMA URIs for Microsoft Edge policies](#introduction-to-oma-uris-for-microsoft-edge-policies) .
+This section describes how to ingest the Microsoft Edge administrative template into Microsoft Intune and configure an MDM setting using custom OMA-URI. For details on how to create custom OMA-URI for Microsoft Edge, see [Introduction to OMA-URIs for Microsoft Edge policies](#introduction-to-oma-uris-for-microsoft-edge-policies) .
 
    > [!WARNING]
    > Don't modify the ADMX file before ingesting the file.
@@ -106,7 +106,7 @@ To ingest the ADMX file, follow these steps:
 After the profile is created and the properties set, you have to [assign the profile in Microsoft Intune](https://docs.microsoft.com/intune/configuration/device-profile-assign).
 
 > [!NOTE]
-> See [Introduction to OMA URIs for Microsoft Edge policies](#introduction-to-oma-uris-for-microsoft-edge-policies) for instructions for creating mandatory and recommended policies; and to see examples by policy type.
+> See [Introduction to OMA-URIs for Microsoft Edge policies](#introduction-to-oma-uris-for-microsoft-edge-policies) for instructions for creating mandatory and recommended policies; and to see examples by policy type.
 
 ### Confirm that the policy was set
 
@@ -127,19 +127,19 @@ Open the *edge://policy* page on the target device (a device you assigned the pr
 
 For more trouble shooting tips, see [Set up Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/setup-steps) and [Sync devices](https://docs.microsoft.com/intune/remote-actions/device-sync).
 
-## Introduction to OMA URIs for Microsoft Edge policies
+## Introduction to OMA-URIs for Microsoft Edge policies
 
-To configure a policy setting using a custom OMA URI you have to:
+To configure a policy setting using a custom OMA-URI you have to:
 
-- create the OMA URI path
+- create the OMA-URI path
 - use "String" as the path type
 - set the value for the path
 
-The following sections describe how to create the OMA URI path, look up and define the value in XML format for mandatory and recommended browser polices, and update policies.
+The following sections describe how to create the OMA-URI path, look up and define the value in XML format for mandatory and recommended browser polices, and update policies.
 
-### Define the OMA URI path
+### Define the OMA-URI path
 
-You can use the following URI path formula as a guide for creating the OMA URI path.
+You can use the following URI path formula as a guide for creating the OMA-URI path.
 
 **URI path formula:**<br>
 *`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~Policy~<ADMXNamespace>~<ADMXCategory>/<PolicyName>`*
@@ -170,7 +170,7 @@ If the policy is in a group, follow these steps:
 
 ### Define the data type
 
-The OMA URI data type is always “String”.
+The OMA-URI data type is always “String”.
 
 ### Define the value for browser policies
 
@@ -237,8 +237,8 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
 1. Open msedge.admx
 2. If the policy you want to configure isn't in a group, skip to step 4 and remove `~<ADMXCategory>` from the path.
 3. If the policy you want to configure is in a group:
-   - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append “_recommended” to the policy name. For example, "RegisteredProtocolHandlers_recommended”.
-   - Copy the value of the *ref* attribute from the parentCategory element. For example, “ContentSettings _recommended” from \<parentCategory ref=" ContentSettings _recommended"/>.
+   - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append "_recommended" to the policy name. For example, "RegisteredProtocolHandlers_recommended”.
+   - Copy the value of the *ref* attribute from the parentCategory element. For example, "ContentSettings _recommended" from `<parentCategory ref=" ContentSettings _recommended"/>`.
    - Replace `<ADMXCategory>` with the *ref* attribute value to construct the URI path in the URI path formula.
 
 4. The `<PolicyName>` is the name of the policy with "_recommended" appended to it.
