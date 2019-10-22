@@ -50,18 +50,25 @@ To ingest the ADMX file, follow these steps:
 2. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 3. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 4. From _Microsoft Intune - Overview_, select **Device configuration** | **Profiles**.
-5. On the top command bar, select **Create profile**.
+5. On the top command bar, select **+ Create profile**.
+
+   ![Create a device profile](./media/edge-cfg-with-mdm/configure-edge-mdm-intune-create-profile.png)
+
 6. Provide the following profile information:
 
    - **Name**: Enter a descriptive name. For this example, "Microsoft Edge ADMX ingested configuration".
+   - **Description**: Enter an optional description for the profile.
    - **Platform**: Select "Windows 10 and later"
    - **Profile type**: Select "Custom"
 
 7. On **Custom OMA-URI Settings**, click **Add** to add an ADMX ingestion.
+
+   ![Add ingestion for OMA-URI](./media/edge-cfg-with-mdm/configure-edge-mdm-intune-create-profile-add-omauri.png)
+
 8. On **Add Row**, provide the following information:
 
    - **Name**: Enter a descriptive name. For this example, use "Microsoft Edge ADMX ingestion".
-   - **Description**: Enter a description for the setting.
+   - **Description**: Enter an optional description for the setting.
    - **OMA-URI**: Enter "*./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx*"
    - **Data type**: Select "String"
    - **Value**: Open the msedge.admx file from the Microsoft Edge policy templates file you extracted in step 1. Copy **ALL the text** from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
@@ -71,7 +78,9 @@ To ingest the ADMX file, follow these steps:
    - Click **OK**.
 
 9. On **Custom OMA-URI Settings**, click **OK**.
-10. On **Create profile**, click **Create**.
+10. On **Create profile**, click **Create**. The next screenshot shows information about the newly created profile.
+
+    ![New device profile information ](./media/edge-cfg-with-mdm/configure-edge-mdm-intune-create-profile-done.png)
 
 > [!NOTE]
 > You can use the preceding steps to ingest the msedgeupate.admx policy template file.
