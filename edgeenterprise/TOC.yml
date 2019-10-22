@@ -1,10 +1,12 @@
-# last revised 10/09/2019
+# last revised 10/22/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge in the enterprise
   items:
    - name: Microsoft Edge Channels
      href: microsoft-edge-channels.md
+   - name: Supported languages
+     href: microsoft-edge-supported-languages.md
    - name: System updates for Microsoft Edge
      items:
       - name: Windows updates to support Microsoft Edge
