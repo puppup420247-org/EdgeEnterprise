@@ -96,7 +96,13 @@ To ingest the ADMX file, follow these steps:
 4. Go to **Intune**>**Device configuration**>**Profiles**.
 5. Select the "Microsoft Edge ADMX ingested configuration" profile or the name you used for the profile.
 6. To add Microsoft Edge policy settings, you have to open **Custom OMA-URI Settings**. Under **Manage**, click **Properties**, and then click **Settings**.
+
+    ![Configure profile settings](./media/edge-cfg-with-mdm/configure-edge-mdm-intune-add-policy-settings.png)
+
 7. On **Custom OMA-URI Settings**, click **Add**.
+
+    ![Add row to OMA-URI settings](./media/edge-cfg-with-mdm/configure-edge-mdm-intune-add-policy-settings-add-row.png)
+
 8. On **Add Row**, provide the following information:
 
    - **Name**: Enter a descriptive name. We suggest using the policy name you want to configure. For this example, use "ShowHomeButton".
