@@ -258,9 +258,9 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
 2. If the policy you want to configure isn't in a group, skip to step 4 and remove `~<ADMXCategory>` from the path.
 3. If the policy you want to configure is in a group:
 
-   - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append "_recommended" to the policy name. For example, a search for "RegisteredProtocolHandlers_recommended” has the following result:
+   - To look up the `<ADMXCategory>`, search for the policy you want to set. When you search, append "_recommended" to the policy name. For example, a search for "RegisteredProtocolHandlers_recommended” has the following result:
 
-         ```xml
+        ```xml
          <policy class="Both" displayName="$(string.RegisteredProtocolHandlers)" explainText="$(string.RegisteredProtocolHandlers_Explain)" key="Software\Policies\Microsoft\Edge\Recommended" name="RegisteredProtocolHandlers_recommended" presentation="$(presentation.RegisteredProtocolHandlers)">
            <parentCategory ref="ContentSettings_recommended"/>
            <supportedOn ref="SUPPORTED_WIN7_V77"/>
@@ -268,7 +268,7 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
              <text id="RegisteredProtocolHandlers" maxLength="1000000" valueName="RegisteredProtocolHandlers"/>
            </elements>
          </policy>
-         ```
+        ```
 
    - Copy the value of the *ref* attribute from the parentCategory element. For example, "ContentSettings _recommended" from `<parentCategory ref=" ContentSettings _recommended"/>`.
    - Replace `<ADMXCategory>` with the *ref* attribute value to construct the URI path in the URI path formula.
