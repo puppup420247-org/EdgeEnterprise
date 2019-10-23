@@ -39,7 +39,7 @@ To sign in and work with your profile, click the account picture in the top righ
 - Create a profile. Click **Add a profile**.
 - Manage your profiles. Click **Manage profile settings**.
 
-This support is available across all platforms, including all supported versions of Windows and MacOS.
+This support is available across all platforms, including all supported versions of Windows and macOS.
 
 ### How to deploy Conditional Access in Azure Active Directory
 
