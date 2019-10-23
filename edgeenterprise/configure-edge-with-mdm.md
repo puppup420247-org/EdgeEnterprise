@@ -36,13 +36,11 @@ The recommended way to configure Microsoft Edge is to use Microsoft Intune "Admi
 
 Configuring Microsoft Edge with MDM requires the following two part process:
 
-- Ingest the Microsoft Edge amdx file into Intune.
+- Ingest the Microsoft Edge ADMX file into Intune.
 - Configure a policy using custom OMA-URI settings.
 
 > [!IMPORTANT]
 > As a best practice, don’t use a custom OMA-URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA-URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA-URI profile before using the Adminstration templates profile.
-
-
 
 ## Ingest the Microsoft Edge ADMX file into Intune
 
