@@ -3,7 +3,7 @@ title: "Overview of Microsoft Edge security"
 ms.author: srugh
 author: srugh
 manager: seanlyn
-ms.date: 09/30/2019
+ms.date: 10/22/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -23,13 +23,30 @@ IT admins in the enterprise are constantly facing a myriad of existing and emerg
 
 A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient. You also need to factor in how a resource is accessed. Azure Active Directory (Azure AD) Conditional Access helps you master the balance between security and productivity.
 
-Microsoft Edge natively supports Azure AD Conditional Access. Microsoft Edge profile associated with enterprise AAD credentials allows seamless access to enterprise cloud resources protected using Conditional Access. This support is available across all platforms, including all supported versions of Windows and MacOS.
+### Accessing Conditional Access protected resources in Microsoft Edge
+
+Microsoft Edge natively supports Azure AD Conditional Access. There's no need to install a separate extension. When you’re signed into a Microsoft Edge profile with enterprise AAD credentials, Microsoft Edge allows seamless access to enterprise cloud resources protected using Conditional Access.
+
+On a compliant device, the identity accessing the resource should match the identity on the profile.  If it doesn't, you'll see the message in the next screenshot.
+
+![Choose Internet Explorer mode](./media/edge-security/microsoft-edge-security-conditional-access.png)
+
+To continue, you have to switch to the right profile (if you have one) or create a profile with matching identity.
+
+To work with your profile, click the account picture in the top right corner of the browser. You can use the dropdown menu to:
+
+- Select another profile. Click the profile name.
+- Create a profile. Click **Add a profile**.
+- Manage your profiles. Click **Manage profile settings**.
+
+This support is available across all platforms, including all supported versions of Windows and MacOS.
 
 ### How to deploy Conditional Access in Azure Active Directory
 
 [Deploy Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access) provides a detailed guide to help deploy Conditional Access in Azure Active Directory.
 
 ## Application Guard
+
 Browsers remain the primary attack surface on client devices today because it’s their fundamental job to download and execute untrusted content from untrusted sources. Security incident prevention or detection/response strategies cannot guarantee 100% safety. Malicious actors are constantly at work to social engineer new forms of attacks against the browser. One of the security strategies to consider is the assume breach principle and ensure corporate network and other resources remain protected in such scenarios.
 
 Designed for Windows 10 and Microsoft Edge, Application Guard uses a hardware isolation approach to isolate untrusted site navigations that launch inside a container. This helps enterprises safeguard their corporate network and data in assumed breach scenarios while the employees browse the Internet. The enterprise administrator defines what are trusted web sites, cloud resources, and internal networks; everything not on that list is considered untrusted and gets isolated from the corporate network and data on the device. Learn more about Application Guard [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview).
