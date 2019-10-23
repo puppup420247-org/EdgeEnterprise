@@ -258,7 +258,7 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
 2. If the policy you want to configure isn't in a group, skip to step 4 and remove `~<ADMXCategory>` from the path.
 3. If the policy you want to configure is in a group:
 
-   - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append "_recommended" to the policy name. For example, searching for "RegisteredProtocolHandlers_recommended” has the following result:
+   - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append "_recommended" to the policy name. For example, a search for "RegisteredProtocolHandlers_recommended” has the following result:
 
          ```xml
          <policy class="Both" displayName="$(string.RegisteredProtocolHandlers)" explainText="$(string.RegisteredProtocolHandlers_Explain)" key="Software\Policies\Microsoft\Edge\Recommended" name="RegisteredProtocolHandlers_recommended" presentation="$(presentation.RegisteredProtocolHandlers)">
