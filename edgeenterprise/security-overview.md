@@ -27,13 +27,13 @@ A key aspect of cloud security is identity and access when it comes to managing 
 
 Microsoft Edge natively supports Azure AD Conditional Access. There's no need to install a separate extension. When you’re signed into a Microsoft Edge profile with enterprise AAD credentials, Microsoft Edge allows seamless access to enterprise cloud resources protected using Conditional Access.
 
-On a compliant device, the identity accessing the resource should match the identity on the profile.  If it doesn't, you'll see the message in the next screenshot.
+On a compliant device, the identity accessing the resource should match the identity on the profile.  If it doesn't, you'll see the message in the next screenshot. In the browser screenshot, "**A**" shows the sign-in account needed to access the resource.
 
-![Choose Internet Explorer mode](./media/edge-security/microsoft-edge-security-conditional-access.png)
+![Conditional access message in browser](./media/edge-security/microsoft-edge-security-conditional-access.png)
 
 To continue, you have to switch to the right profile (if you have one) or create a profile with matching identity.
 
-To work with your profile, click the account picture in the top right corner of the browser. You can use the dropdown menu to:
+To work with your profile, click the account picture ("**B**" in browser screenshot) in the top right corner of the browser. You can use the dropdown menu to:
 
 - Select another profile. Click the profile name.
 - Create a profile. Click **Add a profile**.
