@@ -34,8 +34,15 @@ Windows 10, with the following minimum system requirements:
 
 The recommended way to configure Microsoft Edge is to use Microsoft Intune "Administrative Templates profile" as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). The custom settings option is helpful for evaluating or testing a Microsoft Edge setting that isn’t available yet in the Microsoft Intune "Administrative Templates profile".
 
+Configuring Microsoft Edge with MDM requires the following two part process:
+
+- Ingest the Microsoft Edge amdx file into Intune.
+- Configure a policy using custom OMA-URI settings.
+
 > [!IMPORTANT]
 > As a best practice, don’t use a custom OMA-URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA-URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA-URI profile before using the Adminstration templates profile.
+
+
 
 ## Ingest the Microsoft Edge ADMX file into Intune
 
@@ -241,7 +248,7 @@ To find the textID and define the value for a locale, follow these steps:
 For example, the setting to set the locale to "es-US" is:<br>
 `<enabled/> <data id="ApplicationLocaleValue" value="es-US"/>`
 
-## Create the OMA-URI for a recommended policy
+## Example: Create the OMA-URI for a recommended policy
 
 Defining the URI path for recommended policies depends on the policy you want to configure.
 
