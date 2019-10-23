@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge using Mobile Device Management"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/21/2019
+ms.date: 10/23/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -46,7 +46,7 @@ This section describes how to ingest the Microsoft Edge administrative template 
 
 To ingest the ADMX file, follow these steps:
 
-1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) and extract the contents.
+1. Download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) and extract the contents. The file that will get ingested is **msedge.admx**, which is an xml file that can be opened with any editor that supports xml.
 2. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 3. Select **Intune** from _All Services_, or search for Intune in the portal search box.
 4. From _Microsoft Intune - Overview_, select **Device configuration** | **Profiles**.
@@ -71,7 +71,7 @@ To ingest the ADMX file, follow these steps:
    - **Description**: Enter an optional description for the setting.
    - **OMA-URI**: Enter "*./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Edge/Policy/EdgeAdmx*"
    - **Data type**: Select "String"
-   - **Value**: Open the msedge.admx file from the Microsoft Edge policy templates file you extracted in step 1. Copy **ALL the text** from the msedge.admx file and paste it into the **Value** text area shown in the following screenshot.
+   - **Value**: This input area appears after you select the **Data type**. Open the msedge.admx file from the Microsoft Edge policy templates file you extracted in step 1. Copy **ALL the text** from the msedge.admx file and paste it in the **Value** text area shown in the following screenshot.
 
         ![Add an ADMX ingestion](./media/edge-cfg-with-mdm/configure-edge-intune-mdm-omauri-addrow-ingest.png)
 
@@ -146,13 +146,13 @@ For more trouble shooting tips, see [Set up Microsoft Intune](https://docs.micro
 
 To configure a policy setting using a custom OMA-URI you have to:
 
-- create the OMA-URI path
-- use "String" as the path type
-- set the value for the path
+- Create the OMA-URI path.
+- Specify the path data type.
+- Set the value for a browser policy.
 
 The following sections describe how to create the OMA-URI path, look up and define the value in XML format for mandatory and recommended browser polices, and update policies.
 
-### Define the OMA-URI path
+### Create the OMA-URI path
 
 You can use the following URI path formula as a guide for creating the OMA-URI path.
 
@@ -178,18 +178,18 @@ If the policy isn't in a group (for example, DiskCacheSize) drop "`~<ADMXCategor
 
 If the policy is in a group, follow these steps:
 
-1. Open msedge.admx
+1. Open msedge.admx with any xml editor.
 2. Search for the policy name you want to set. For example, "ExtensionInstallForceList".
 3. Use the value of the *ref* attribute from the *parentCategory* element. For example, "Extensions" from \<parentCategory ref=" Extensions"/>.
 4. Replace `<ADMXCategory>` with the *ref* attribute value to construct the URI path. The URI path for this example will be:<br>.*`/Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist`*
 
-### Define the data type
+### Specify the path data type
 
 The OMA-URI data type is always “String”.
 
-### Define the value for browser policies
+### Set the value for a browser policy
 
-This section describes how to define the value in XML format for each data type. For non-Boolean data types, the value must start with the `<enabled/>` element.
+This section describes how to set the value, in XML format, for each data type. For non-Boolean data types, the value must start with the `<enabled/>` element.
 
 #### Boolean data type
 
@@ -201,7 +201,7 @@ The value always needs to start with the `<enabled/>` element followed by `<data
 
 To find the value name and decimal value for a new tab page, use the following steps:
 
-1. Open msedge.admx
+1. Open msedge.admx with any xml editor.
 2. Search for the `<policy>` element where the name attribute matches the policy name you want to set. For example, search for "*name="RestoreOnStartup"*".
 3. In the `<elements>` node, find the value you want to set.
 4. Use the value in the "valueName" attribute. For example, "RestoreOnStartup".
@@ -219,7 +219,7 @@ The value always needs to start with the `<enabled/>` element followed by `<data
 
 To find the listID and define the value to block a URL, follow these steps:
 
-1. Open msedge.admx
+1. Open msedge.admx with any xml editor.
 2. Search for the `<policy>` element where the name attribute matches the policy name you want to set. For example, search for name="URLBlocklist".
 3. Use the value in the "id" attribute of the `<list> node for [listID]`.
 4. The "value" is a list of URLs separated by a semicolon (;)
@@ -233,7 +233,7 @@ The value always needs to start with the `<enabled/>` followed by `<data id="[te
 
 To find the textID and define the value for a locale, follow these steps:
 
-1. Open msedge.admx
+1. Open msedge.admx with any xml editor.
 2. Search for the `<policy>` element where the name attribute matches the policy name you want to set. For example, search for name="ApplicationLocaleValue".
 3. Use the value in the "id" attribute of the `<text>` node for `[textID]`.
 4. Set the "value" to the culture code.
@@ -249,7 +249,7 @@ Defining the URI path for recommended policies depends on the policy you want to
 
 Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~Policy~<ADMXNamespace>~<ADMXCategory>/<PolicyName>`*) and the following steps to define the URI path:
 
-1. Open msedge.admx
+1. Open msedge.admx with any xml editor.
 2. If the policy you want to configure isn't in a group, skip to step 4 and remove `~<ADMXCategory>` from the path.
 3. If the policy you want to configure is in a group:
    - To look up the `<ADMXCategory>`, search for the policy you want to set. When searching, append "_recommended" to the policy name. For example, "RegisteredProtocolHandlers_recommended”.
