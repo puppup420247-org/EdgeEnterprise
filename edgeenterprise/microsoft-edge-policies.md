@@ -3,11 +3,11 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
-ms.localizationpriority: high
+ms.localizationpriority: medium
 ms.collection: M365-modern-desktop
 ms.custom:
 description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser"
@@ -155,7 +155,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
-|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
+|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allows a page to perform synchronous XHR requests during page dismissal.|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
@@ -166,6 +166,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
 |[AutoplayAllowed](#autoplayallowed)|Allow media autoplay for websites|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates.|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Enable guest mode|
@@ -206,6 +207,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
 |[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
 |[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Force direct intranet site navigation instead of searching on single word entries in the Address Bar|
+|[HSTSPolicyBypassList](#hstspolicybypasslist)|Configure the list of names that will bypass the HSTS policy check|
 |[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
 |[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
 |[ImportBrowserSettings](#importbrowsersettings)|Allow importing of browser settings|
@@ -227,7 +229,7 @@ These tables lists all of the browser-related group policies available in this r
 |[MediaRouterCastAllowAllIPs](#mediaroutercastallowallips)|Allow Google Cast to connect to Cast devices on all IP addresses|
 |[MetricsReportingEnabled](#metricsreportingenabled)|Enable usage and crash-related data reporting|
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
-|[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Enable a non-removable default sign-in profile|
+|[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Enable Proactive Authentication|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Enable full-tab promotional content|
@@ -268,6 +270,8 @@ These tables lists all of the browser-related group policies available in this r
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
+
+
 
 
   ## Cast policies
@@ -2405,9 +2409,9 @@ Use the following format to add an extension to the list:
 
 - extensionID - the 32-letter string found on edge://extensions when in developer mode.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://extensionwebstorebase.edgesv.net/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://extensionwebstorebase.edgesv.net/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
 
 If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
 
@@ -2435,7 +2439,7 @@ Note that this policy doesn't apply to InPrivate mode.
   - Value Type: list of REG_SZ
   ##### Example value:
 ```
-SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\0 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\0 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx"
 SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnopabcdefghijklmnop"
 
 ```
@@ -2446,7 +2450,7 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   - Example value:
 ``` xml
 <array>
-  <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://extensionwebstorebase.edgesv.net/v1/crx</string>
+  <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx</string>
   <string>abcdefghijklmnopabcdefghijklmnop</string>
 </array>
 ```
@@ -4915,17 +4919,15 @@ This policy will be removed in the future.
   [Back to top](#microsoft-edge---policies)
 
   ### AllowSyncXHRInPageDismissal
-  #### Allow pages to send synchronous XHR requests during page dismissal
+  #### Allows a page to perform synchronous XHR requests during page dismissal.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
-  This policy lets you specify that a page can send synchronous XHR requests during page dismissal.
+  This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.
 
-If you enable this policy, pages can send synchronous XHR requests during page dismissal.
+When the policy is set to enabled, pages are allowed to send synchronous XHR requests during page dismissal.
 
-If you disable this policy or don't configure this policy, pages aren't allowed to send synchronous XHR requests during page dismissal.
-
-This policy is temporary and will be removed in a future release.
+When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4938,7 +4940,7 @@ This policy is temporary and will be removed in a future release.
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: AllowSyncXHRInPageDismissal
-  - GP name: Allow pages to send synchronous XHR requests during page dismissal
+  - GP name: Allows a page to perform synchronous XHR requests during page dismissal.
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -5444,6 +5446,53 @@ If you don't configure this policy, background mode is initially turned off, and
 ```
 
 
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### BackgroundTemplateListUpdatesEnabled
+  #### Enables background updates to the list of available templates for Collections and other features that use templates.
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Lets you enable or disable background updates to the list of available templates for Collections and other features that use templates.  Templates are used to extract rich metadata from a webpage when the page is saved to a collection.
+
+If you enable this setting or the setting is unconfigured, the list of available templates will be downloaded in the background from a Microsoft service every 24 hours.
+
+If you disable this setting the list of available templates will be downloaded on demand. This type of download might result in small performance penalties for Collections and other features.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: BackgroundTemplateListUpdatesEnabled
+  - GP name: Enables background updates to the list of available templates for Collections and other features that use templates.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: BackgroundTemplateListUpdatesEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: BackgroundTemplateListUpdatesEnabled
+  - Example value:
+``` xml
+<true/>
+```
   
 
   [Back to top](#microsoft-edge---policies)
@@ -6004,62 +6053,62 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 ```
 
 
-  
-
+		  
+   
   [Back to top](#microsoft-edge---policies)
 
-														 
-																								
-											  
-
-				  
-																													  
-
-																																								  
-
-																																																																																																		 
-
-																																																																																									
-
-						  
-						 
-						  
-							   
-
-				 
-				 
-
-									   
-								
-																	   
-																									  
-																 
-							  
-								  
-								 
-																										  
-						   
-							
-							  
-					  
-   
-																									  
-
-   
-
-
-								   
-																			
-				  
-	   
-	   
-							  
-		
-   
   
 
 										   
 
+			   
+						
+			 
+
+	  
+							   
+
+										  
+
+																								   
+
+																						 
+
+		
+	   
+		
+		  
+
+	 
+	 
+
+			
+		
+					
+						   
+				 
+		 
+		  
+		 
+							
+		 
+	   
+		 
+	   
+   
+						   
+
+   
+
+
+		   
+				   
+	  
+	
+	
+		 
+  
+   
   ### CommandLineFlagSecurityWarningsEnabled
   #### Enable security warnings for command-line flags
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
@@ -6722,7 +6771,7 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 
 * 3 = Block all downloads
 
-* 4 = Block malicious downloads
+										   
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -7499,6 +7548,52 @@ Popular, single-word search terms will require manual selection of search sugges
   - Example value:
 ``` xml
 <false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### HSTSPolicyBypassList
+  #### Configure the list of names that will bypass the HSTS policy check
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Hostnames specified in this list will be exempt from the HSTS policy check that could potentially upgrade requests from "http://" to "https://". Only single-label hostnames are allowed in this policy. Hostnames must be canonicalized. Any IDNs must be converted to their A-label format, and all ASCII letters must be lowercase. This policy only applies to the specific hostnames specified; it doesn't apply to subdomains of the names in the list.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: HSTSPolicyBypassList
+  - GP name: Configure the list of names that will bypass the HSTS policy check
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
+
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: HSTSPolicyBypassList
+  - Example value:
+``` xml
+<array>
+  <string>meet</string>
+</array>
 ```
   
 
@@ -8687,15 +8782,15 @@ If you don't configure this policy, network prediction is enabled but the user c
   [Back to top](#microsoft-edge---policies)
 
   ### NonRemovableProfileEnabled
-  #### Enable a non-removable default sign-in profile
+  #### Configure whether a user always has a default profile automatically signed in with their work or school account
   >Supported Versions: Microsoft Edge on Windows since version 78 or later
 
   #### Description
-  This policy determines the presence of the non-removable default sign-in profile.
+  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
 
-When enabled, a profile with the default signed-in account from the OS will always be present, and it can't be signed out or removed.
+If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-When unset or not configured, the profile signed-in with the default account from the OS may be signed out or removed by the user.
+When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -8708,7 +8803,7 @@ When unset or not configured, the profile signed-in with the default account fro
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: NonRemovableProfileEnabled
-  - GP name: Enable a non-removable default sign-in profile
+  - GP name: Configure whether a user always has a default profile automatically signed in with their work or school account
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -10013,46 +10108,46 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   [Back to top](#microsoft-edge---policies)
 
-						  
-							   
-											  
-
-				  
-																																														 
-
-																										   
-
-																					
-
-						  
-						 
-						  
-														 
-
-				 
-		 
-
-									   
-								
-										
-									 
-																 
-							  
-								  
-								 
-													  
-						   
-									
-						 
-					  
-   
-		  
-   
-
-
   
 
 										   
+
+		
+		  
+			 
+
+	  
+											   
+
+							 
+
+					 
+
+		
+	   
+		
+			   
+
+	 
+   
+
+			
+		
+		  
+		  
+				 
+		 
+		  
+		 
+			   
+		 
+		 
+	   
+	   
+   
+	
+   
+
 
   ### TaskManagerEndProcessEnabled
   #### Enable ending processes in the Browser task manager
@@ -10727,7 +10822,6 @@ If you don't configure this policy, or if you set it to an empty string or inval
   [Back to top](#microsoft-edge---policies)
 
 
-## See also
-  
+## See also									   
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
