@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge using Mobile Device Management"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -14,9 +14,10 @@ description: "Configure Microsoft Edge using Mobile Device Management."
 
 # Configure Microsoft Edge using Mobile Device Management
 
-This article explains how to ingest the Microsoft Edge administrative template into Microsoft Intune and then use this template to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI). You can use the OMA-URI you create to set up the Mobile Device Management (MDM) settings for Microsoft Edge.
+This article explains how to configure Microsoft Edge using Mobile Device Management (MDM).
+<!-- This article explains how to ingest the Microsoft Edge administrative template into Microsoft Intune and then use this template to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI). You can use the OMA-URI you create to set up the Mobile Device Management (MDM) settings for Microsoft Edge.
 
-In addition to using Microsoft Intune to configure Microsoft Edge on Windows 10 you can use [Mobile Device Management (MDM)](https://docs.microsoft.com/windows/client-management/mdm/) with your preferred Enterprise Mobility Management (EMM) or an MDM provider that supports [ADMX Ingestion](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration).
+In addition to using Microsoft Intune to configure Microsoft Edge on Windows 10 you can use [Mobile Device Management (MDM)](https://docs.microsoft.com/windows/client-management/mdm/) with your preferred Enterprise Mobility Management (EMM) or an MDM provider that supports [ADMX Ingestion](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration). -->
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -32,12 +33,14 @@ Windows 10, with the following minimum system requirements:
 
 ## Overview
 
-The recommended way to configure Microsoft Edge is to use Microsoft Intune "Administrative Templates profile" as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). The custom settings option is helpful for evaluating or testing a Microsoft Edge setting that isn’t available yet in the Microsoft Intune "Administrative Templates profile".
+The recommended way to configure Microsoft Edge is to use Administrative Templates in a Microsoft Intune profile, as described in the [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune) article. You can also configure Microsoft Edge using [custom settings for Windows 10 devices](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10) if you want to evaluate or test a setting that isn’t available yet in the Microsoft Edge Administrative Templates.
 
-Configuring Microsoft Edge with MDM requires the following two part process:
+Configuring Microsoft Edge with MDM uses the following two part process:
 
-- Ingest the Microsoft Edge ADMX file into Intune.
-- Configure a policy using custom OMA-URI settings.
+- [Ingest the Microsoft Edge ADMX file into Intune](#ingest-the-microsoft-edge-admx-file-into-intune). The Microsoft Edge administrative template is ingested into Intune  to create an Open Mobile Alliance Uniform Resource Identifier (OMA-URI).
+- [Configure a policy using custom OMA-URI settings](#configure-a-policy-using-custom-oma-uri-settings). Use the custom OMA-URI to configure a Microsoft Edge policy with Intune.
+
+In addition to using Microsoft Intune to configure Microsoft Edge on Windows 10, you can use [Mobile Device Management (MDM)](https://docs.microsoft.com/windows/client-management/mdm/) with your preferred Enterprise Mobility Management (EMM) or an MDM provider that supports [ADMX Ingestion](https://docs.microsoft.com/windows/client-management/mdm/win32-and-centennial-app-policy-configuration).
 
 > [!IMPORTANT]
 > As a best practice, don’t use a custom OMA-URI and the Administration templates profile to configure the same Microsoft Edge setting. If an organization deploys the same policy using both a custom OMA-URI and an Administrative template profile, but with different values, users will get unpredictable results. We strongly recommend backing out your OMA-URI profile before using the Adminstration templates profile.
