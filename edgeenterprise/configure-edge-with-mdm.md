@@ -67,10 +67,10 @@ Use the following formula as a guide for creating the OMA-URI paths. <br/><br/>
 
 #### URI path example:
 
-For this example, assume the `<ADMXIngestName>` node was named “Edge" and you're setting a mandatory policy. The URI path would be:<br>
+For this example, assume the `<ADMXIngestName>` node was named “Edge" and you're setting a mandatory policy. The URI path would be:<br/><br/>
 *`./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~<ADMXCategory>/<PolicyName>`*
 
-If the policy isn't in a group (for example, DiskCacheSize) remove "`~<ADMXCategory>`". Replace `<PolicyName>` with the name of the policy, DiskCacheSize. The URI path would be:<br>
+If the policy isn't in a group (for example, DiskCacheSize) remove "`~<ADMXCategory>`". Replace `<PolicyName>` with the name of the policy, DiskCacheSize. The URI path would be:<br/><br/>
 *`./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge/DiskCacheSize`*
 
 If the policy is in a group, follow these steps:
@@ -78,7 +78,8 @@ If the policy is in a group, follow these steps:
 1. Open **msedge.admx** with any xml editor.
 2. Search for the policy name you want to set. For example, "ExtensionInstallForceList".
 3. Use the value of the *ref* attribute from the *parentCategory* element. For example, "Extensions" from \<parentCategory ref=" Extensions"/>.
-4. Replace `<ADMXCategory>` with the *ref* attribute value to construct the URI path. The URI path would be:<br>.*`/Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist`*
+4. Replace `<ADMXCategory>` with the *ref* attribute value to construct the URI path. The URI path would be:<br/><br/>
+*`/Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~Extensions/ExtensionInstallForcelist`*
 
 ### Specify the data type
 
