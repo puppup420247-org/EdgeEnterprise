@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge using Mobile Device Management"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/24/2019
+ms.date: 10/25/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -38,11 +38,14 @@ You can configure Microsoft Edge on Windows 10 using MDM with your preferred Ent
 Configuring Microsoft Edge with MDM is a two part process:
 
 1. Ingesting the Microsoft Edge ADMX file into your EMM or MDM provider. See your provider for instructions on how to ingest an ADMX file.
+
+   > [!NOTE]
+   > For Microsoft Intune, see [Configure Microsoft Edge in Intune using ADMX ingestion](#configure-microsoft-edge-in-intune-using-admx-ingestion).
+
 2. [Creating an OMA-URI for a Microsoft Edge policy](#create-an-oma-uri-for-microsoft-edge-policies).
 
-For Microsoft Intune, see [Configure Microsoft Edge in Intune using ADMX ingestion](#configure-microsoft-edge-in-intune-using-admx-ingestion).
-
 ## Create an OMA-URI for Microsoft Edge policies
+
 The following sections describe how to create the OMA-URI path and look up and define the value in XML format for mandatory and recommended browser polices.
 
 Before you get started download the Microsoft Edge policy templates file (MicrosoftEdgePolicyTemplates.cab) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise) and extract the contents.
@@ -90,7 +93,7 @@ The OMA-URI data type is always “String”.
 This section describes how to set the value, in XML format, for each data type. Go to [Browser policy reference](https://docs.microsoft.com/deployedge/microsoft-edge-policies) to look up the data type of the policy.
 
 > [!NOTE]
-> For non-Boolean data types, the value always start with `<enabled/>`.
+> For non-Boolean data types, the value always starts with `<enabled/>`.
 
 #### Boolean data type
 
@@ -116,7 +119,7 @@ To open the new tab page on startup use:<br>
 The value always needs to start with the `<enabled/>` element followed by `<data id="[listID]" value="[string 1];[string 2];[string 3]"/>`.
 
 > [!NOTE]
-> The "id=" attribute name isn't the policy name, even though in most cases it matches the policy name. Use the `<list>` node id attribute value.
+> The "id=" attribute name isn't the policy name, even though in most cases it matches the policy name. It's the \<list> node id attribute value, which is found in the ADMX file.
 
 To find the listID and define the value to block a URL, follow these steps:
 
@@ -125,7 +128,7 @@ To find the listID and define the value to block a URL, follow these steps:
 3. Use the value in the "id" attribute of the `<list> node for [listID]`.
 4. The "value" is a list of URLs separated by a semicolon (;)
 
-To block access to contoso.com and <https://ssl.server.com> with the "URLBlocklist" policy:<br>
+For example, to block access to `contoso.com` and `https://ssl.server.com`:<br>
 `<enabled/> <data id=" URLBlocklistDesc" value="contoso.com;https://ssl.server.com"/>`
 
 #### Dictionary or String data type
@@ -173,7 +176,7 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
 
 #### OMA-URI path examples for recommended policies
 
-The following table has examples of OMA-URI paths for recommended policies.
+The following table shows examples of OMA-URI paths for recommended policies.
 
 |              Policy               |             OMA-URI                      |
 |-----------------------------------|------------------------------------------|
@@ -239,7 +242,7 @@ OMA-URI examples with their URI path, type, and an example value.
 | Value   | `<enabled/><data id="DiskCacheSize" value="1000000"/>`                               |
 
 #### List of strings data type examples
-
+<!--
 *[NotificationsAllowedForUrls](https://docs.microsoft.com/deployedge/microsoft-edge-policies#NotificationsAllowedForUrls):*
 
 | Field   | Value                                                                                |
@@ -248,7 +251,7 @@ OMA-URI examples with their URI path, type, and an example value.
 | OMA-URI | `./Device/Vendor/MSFT/Policy/Config/Edge~Policy~microsoft_edge~ContentSettings/NotificationsAllowedForUrls`    |
 | Type    | String                                                                               |
 | Value   | `<enabled/><data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com"/>`<br>For multiple list items: `<data id="NotificationsAllowedForUrlsDesc" value="https://www.contoso.com;[*.]contoso.edu"/>`                               |
-
+-->
 *[RestoreOnStartupURLS](https://docs.microsoft.com/deployedge/microsoft-edge-policies#RestoreOnStartupURLS):*
 
 | Field   | Value                                                                                |
@@ -280,7 +283,7 @@ OMA-URI examples with their URI path, type, and an example value.
 
 ## Configure Microsoft Edge in Intune using ADMX ingestion
 
-The recommended way to configure Microsoft Edge with Microsoft Intune is to use the Administrative Templates profile as described in [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune). If you want to evaluate a policy that isn’t currently available in the Microsoft Edge Administrative Templates in Intune you can configure Microsoft Edge using [custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10).
+The recommended way to configure Microsoft Edge with Microsoft Intune is to use the Administrative Templates profile as described in [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune). If you want to evaluate a policy that is currently not available in the Microsoft Edge Administrative Templates in Intune you can configure Microsoft Edge using  [custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10).
 
 This section describes how to:
 
@@ -294,8 +297,8 @@ This section describes how to:
 
 This section describes how to ingest the Microsoft Edge administrative template (**msedge.admx** file) into Intune.
 
-   > [!WARNING]
-   > Don't modify the ADMX file before ingesting the file.
+> [!WARNING]
+> Don't modify the ADMX file before ingesting the file.
 
 To ingest the ADMX file, follow these steps:
 
