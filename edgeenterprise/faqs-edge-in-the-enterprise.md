@@ -47,5 +47,5 @@ Yes. Configuring Microsoft Edge on Windows 10 using Microsoft Intune and Mobile 
 
 ## See also
 
-- [Microsoft Edge documentation landing page](https://docs.microsoft.com/en-us/DeployEdge/)
+- [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)

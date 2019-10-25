@@ -31,7 +31,7 @@
      href: configure-microsoft-edge.md
    - name: Configure for Windows with Intune
      href: configure-edge-with-intune.md
-     name: Configure for Windows with Mobile Device Management
+   - name: Configure for Windows with Mobile Device Management
      href: configure-edge-with-mdm.md
    - name: Configure for macOS
      href: configure-microsoft-edge-on-mac.md
