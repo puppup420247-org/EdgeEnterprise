@@ -92,7 +92,7 @@ The OMA-URI data type is always “String”.
 This section describes how to set the value, in XML format, for each data type. To look up the data type of the policy you are settings see [Browser policy reference](https://docs.microsoft.com/deployedge/microsoft-edge-policies)
 
 > [!NOTE]
-> For non-Boolean data types, the value always start with `<enabled/>`.
+> For non-Boolean data types, the value always starts with `<enabled/>`.
 
 #### Boolean data type
 
@@ -175,7 +175,7 @@ Use the URI path formula (*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~
 
 #### OMA-URI path examples for recommended policies
 
-The following table has examples of OMA-URI paths for recommended policies.
+The following table shows examples of OMA-URI paths for recommended policies.
 
 |              Policy               |             OMA-URI                      |
 |-----------------------------------|------------------------------------------|
@@ -282,7 +282,9 @@ This section shows OMA-URI examples with their paths, data types, and values.
 
 ## Configure Microsoft Edge in Intune using ADMX ingestion
 
-The recommended way to configure Microsoft Edge with Microsoft Intune is to use the Administrative Templates profile as described in [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune). If you want to evaluate a policy that isn’t currently available in the Microsoft Edge Administrative Templates in Intune you can configure Microsoft Edge using  [custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10). This section describes how to:
+The recommended way to configure Microsoft Edge with Microsoft Intune is to use the Administrative Templates profile as described in [Configure Microsoft Edge policy settings with Microsoft Intune](https://docs.microsoft.com/deployedge/configure-edge-with-intune). If you want to evaluate a policy that isn’t currently available in the Microsoft Edge Administrative Templates in Intune you can configure Microsoft Edge using  [custom settings for Windows 10 devices in Intune](https://docs.microsoft.com/intune/configuration/custom-settings-windows-10).
+
+This section describes how to:
 
 1. [Ingest the Microsoft Edge ADMX file into Intune](#ingest-the-microsoft-edge-admx-file-into-intune)
 2. [Set a policy using custom OMA-URI in Intune](#set-a-policy-using-custom-oma-uri-in-intune)
@@ -294,8 +296,8 @@ The recommended way to configure Microsoft Edge with Microsoft Intune is to use 
 
 This section describes how to ingest the Microsoft Edge administrative template into Intune.
 
-   > [!WARNING]
-   > Don't modify the ADMX file before ingesting the file.
+> [!WARNING]
+> Don't modify the ADMX file before ingesting the file.
 
 To ingest the ADMX file, follow these steps:
 
