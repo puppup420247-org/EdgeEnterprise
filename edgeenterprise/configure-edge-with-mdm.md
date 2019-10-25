@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge using Mobile Device Management"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/24/2019
+ms.date: 10/25/2019
 audience: ITPro
 ms.topic: technical
 ms.prod: microsoft-edge
@@ -38,9 +38,11 @@ You can configure Microsoft Edge on Windows 10 using MDM with your preferred Ent
 Configuring Microsoft Edge with MDM is a two part process:
 
 1. Ingesting the Microsoft Edge ADMX file into your EMM or MDM provider. See your provider for instructions on how to ingest an ADMX file.
-2. [Creating an OMA-URI for a Microsoft Edge policy](#create-an-oma-uri-for-microsoft-edge-policies).
 
-For Microsoft Intune, see [Configure Microsoft Edge in Intune using ADMX ingestion](#configure-microsoft-edge-in-intune-using-admx-ingestion).
+   > [!NOTE]
+   > For Microsoft Intune, see [Configure Microsoft Edge in Intune using ADMX ingestion](#configure-microsoft-edge-in-intune-using-admx-ingestion).
+
+2. [Creating an OMA-URI for a Microsoft Edge policy](#create-an-oma-uri-for-microsoft-edge-policies).
 
 ## Create an OMA-URI for Microsoft Edge policies
 
@@ -116,7 +118,7 @@ For example, to open the new tab page:<br>
 The value always needs to start with the `<enabled/>` element followed by `<data id="[listID]" value="[string 1];[string 2];[string 3]"/>`.
 
 > [!NOTE]
-> The "id=" attribute name isn't the policy name, even though in most cases it matches the policy name. This is the `<list>` node id attribute value, which is found in the ADMX file.
+> The "id=" attribute name isn't the policy name, even though in most cases it matches the policy name. It's the \<list> node id attribute value, which is found in the ADMX file.
 
 To find the listID and define the value to block a URL, follow these steps:
 
@@ -125,7 +127,7 @@ To find the listID and define the value to block a URL, follow these steps:
 3. Use the value in the "id" attribute of the `<list> node for [listID]`.
 4. The "value" is a list of URLs separated by a semicolon (;)
 
-For example, to block access to contoso.com and https://ssl.server.com:<br>
+For example, to block access to `contoso.com` and `https://ssl.server.com`:<br>
 `<enabled/> <data id=" URLBlocklistDesc" value="contoso.com;https://ssl.server.com"/>`
 
 #### Dictionary or String data type
