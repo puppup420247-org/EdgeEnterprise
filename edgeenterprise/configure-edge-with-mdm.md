@@ -55,8 +55,8 @@ There are three steps for defining the OMA-URI:
 
 ### Create the OMA-URI path
 
-Use the following formula as a guide for creating the OMA-URI paths.
-*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~Policy~<ADMXNamespace>~<ADMXCategory>/<PolicyName>`*
+Use the following formula as a guide for creating the OMA-URI paths. <br/><br/>
+*`./Device/Vendor/MSFT/Policy/Config/<ADMXIngestName>~Policy~<ADMXNamespace>~<ADMXCategory>/<PolicyName>`* <br/><br/>
 
 | Parameter         | Description                                                                                   |
 |-------------------|-----------------------------------------------------------------------------------------------|
