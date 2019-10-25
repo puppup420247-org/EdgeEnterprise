@@ -37,18 +37,18 @@ You can configure Microsoft Edge on Windows 10 using MDM with your preferred Ent
 
 Configuring Microsoft Edge with MDM is a two part process:
 
-1. Ingesting the Microsoft Edge ADMX file into your EMM or MDM provider. See your providers for instructions on how to ingest an ADMX file.
-2. [Creating an OMA-URI for a Microsoft Edge policy](Creating-an-OMA-URI-for-Microsoft-Edge-policies).
+1. Ingesting the Microsoft Edge ADMX file into your EMM or MDM provider. See your provider for instructions on how to ingest an ADMX file.
+2. [Creating an OMA-URI for a Microsoft Edge policy](#creating-an-oma-uri-for-microsoft-edge-policies).
 
-For Microsoft Intune see [Configure Microsoft Edge in Intune using ADMX ingestion](configure-microsoft-edge-in-intune-using-admx-ingestion)
+For Microsoft Intune, see [Configure Microsoft Edge in Intune using ADMX ingestion](#configure-microsoft-edge-in-intune-using-admx-ingestion).
 
 ## Creating an OMA-URI for Microsoft Edge policies
 
 There are three steps for defining the OMA-URI, they are:
 
-1. [Create the OMA-URI path](#create-the-oma-uri-path)
-2. [Specify the OMA-URI data type](#specify-the-data-type)
-3. [Set the OMA-URI value](#set-the-value-for-a-browser-policy)
+1. [Creating the OMA-URI path](#create-the-oma-uri-path)
+2. [Specifying the OMA-URI data type](#specify-the-data-type)
+3. [Setting the OMA-URI value](#set-the-value-for-a-browser-policy)
 
 The following sections describe how to create the OMA-URI path and look up and define the value in XML format for mandatory and recommended browser polices.
 
@@ -370,9 +370,6 @@ To ingest the ADMX file, follow these steps:
 10. On the "**Microsoft Edge ADMX ingested configuration - Properties**" profile (or the name you used), click **Save**.
 
 After the profile is created and the properties set, you have to [assign the profile in Microsoft Intune](https://docs.microsoft.com/intune/configuration/device-profile-assign).
-
-> [!NOTE]
-> See [Introduction to OMA-URIs for Microsoft Edge policies](#introduction-to-oma-uris-for-microsoft-edge-policies) for instructions for creating mandatory and recommended policies; and to see examples by policy type.
 
 ### Confirm that the policy was set
 
