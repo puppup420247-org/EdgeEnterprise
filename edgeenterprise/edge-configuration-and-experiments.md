@@ -3,7 +3,7 @@ title: "Microsoft Edge configurations and experimentation"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/25/2019
+ms.date: 10/28/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,21 +21,23 @@ This article describes the interaction between Microsoft Edge and the Experiment
 
 ## Configurations, Controlled Feature Rollout, and Experiments
 
-Configurations are the payload meant to ensure product health, security, and privacy compliance, and are intended to have the same value for 100% of the audience. This could be to enable a feature flag such as domain actions, or to disable a feature flag in the event of a bug.
+Configurations are the payload meant to ensure product health, security, and privacy compliance, and are intended to have the same value for the audience based on platforms and channels. This could be to enable a feature flag for a domain action such as user agent string spoofing or telemetry sampling control. A configuration payload can also be used to disable a feature flag in the event of a bug.
 
 ### Controlled Feature Rollout
 
-Controlled Feature Rollout (CFR)
+Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size of the user group that receives a feature. By distributing a new feature to a randomly selected subset of the user population, it’s possible to  compare user feedback to an equally sized  subset without the feature to measure the impact of the feature. The kind of information collected is reliability, performance, and any other metrics to ensure the new code is functional and useful, and ready to release to all the users.
 
 ### Experiments
 
-Microsoft Edge builds have features and functionality that are still in development or are experimental. 
+Microsoft Edge builds have features and functionality that are still in development or are experimental. Experiments are like CFR, but the size of the user group is much smaller for testing the new concept.  These features are hidden by default until the feature is rolled out or the experiment's finished. Experiment flags are used to enable and disable these features.
 
+### About the service
 
+In all the preceding cases, the service delivers the feature flag values to the browser client, and the new values are applied the next time the user opens the browser.
+
+Organizations can control the interaction with this service using the settings of the [ExperimentationAndConfigurationServiceControl](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#experimentationandconfigurationservicecontrol) policy. You can use this policy to receive configurations, and get feature rollouts/experiments. Although you can also disable communications with the service, do so with the understanding that this will affect Microsoft’s ability to respond to a severe bug in a timely manner.
 
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
-
-
