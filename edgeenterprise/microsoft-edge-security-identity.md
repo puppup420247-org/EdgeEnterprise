@@ -43,21 +43,21 @@ Microsoft Edge supports the following approaches to single sign-on.
 #### Seamless SSO
 
 Point to SSO docs. No special config needed for Edge.
-[Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso)
+[Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)
 
 #### SSO with Primary Refresh Token (PRT)
 
 No config needed
-[What is a Primary Refresh Token?](https://docs.microsoft.com/en-us/azure/active-directory/devices/concept-primary-refresh-token)
+[What is a Primary Refresh Token?](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token)
 
 #### Windows Integrated Authentication (WIA)
 
 UA string needs to be updated in ADFS
-[Configure browsers to use Windows Integrated Authentication (WIA) with AD FS](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia)
+[Configure browsers to use Windows Integrated Authentication (WIA) with AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia)
 
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
-- [Identity and access management](https://www.microsoft.com/en-us/security/technology/identity-access-management)
-- [Identity platform](https://developer.microsoft.com/en-us/identity)
+- [Identity and access management](https://www.microsoft.com/security/technology/identity-access-management)
+- [Identity platform](https://developer.microsoft.com/identity)
