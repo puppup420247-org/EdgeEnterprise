@@ -36,6 +36,16 @@ Users can sign into Microsoft Edge with more than one account, add profiles and 
 
 The type of account used sign in determines which authentication and identity-based features are available and supported in Microsoft Edge. The following table summarizes the feature support for each type of account.
 
+|                 | AAD Premium   | AAD Free      | On-premise AD | MSA           |
+|-----------------|---------------|---------------|---------------|---------------|
+| Seamless SSO    | Yes           | Yes           | ?             |               |
+| SSO with Primary Refresh Token | Yes          |Yes          |               | Yes          |
+| Windows Integrated Authentication | Yes          |Yes          |Yes          |               |
+| Sync            | Yes          |               |               |Yes          |
+| New tab page    |Yes          | Yes          |               |               |
+| Microsoft Search | Yes          |Yes          |               |               |
+| Microsoft Information Protection |Yes          | ?             | ?             |               |
+
 ### Single Sign-On
 
 Microsoft Edge supports the following approaches to single sign-on.
