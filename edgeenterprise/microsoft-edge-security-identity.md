@@ -3,7 +3,7 @@ title: "Microsoft Edge identity support and configuration"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/28/2019
+ms.date: 10/29/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -42,18 +42,18 @@ Microsoft Edge supports the following approaches to single sign-on.
 
 #### Seamless SSO
 
-Point to SSO docs. No special config needed for Edge.
-[Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)
+Seamless Single Sign-On automatically signs users in when they are on corporate devices connected to a corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. For more information, see [Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
 
 #### SSO with Primary Refresh Token (PRT)
 
-No config needed
-[What is a Primary Refresh Token?](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token)
+A Primary Refresh Token (PRT) is an AAD key that’s used for authentication on Windows 10, iOS, and Android devices. It enables single sign-on (SSO) across the applications used on those devices. For more information, see [What is a Primary Refresh Token?](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token).
 
 #### Windows Integrated Authentication (WIA)
 
-UA string needs to be updated in ADFS
-[Configure browsers to use Windows Integrated Authentication (WIA) with AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia)
+Windows Integrated Authentication (WIA) is enabled in Active Directory Federation Services (AD FS) for authentication requests within an organization's internal network for any application that uses a browser for its authentication. For AD FS 2016 and later, you no longer have to configure individual user agent strings to support common Microsoft Edge scenarios.
+
+> [!NOTE]
+> For other browsers, configure the AD FS property **WiaSupportedUserAgents** to add the required values based on the browser you're using. For more information, see [Configure browsers to use Windows Integrated Authentication (WIA) with AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia).
 
 ## See also
 
