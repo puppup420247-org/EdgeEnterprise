@@ -21,11 +21,11 @@ This article describes how Microsoft Edge uses identity to support features such
 
 ## Overview
 
-When users sign in, they automatically benefit from single sign-on (SSO) when they visit websites that support their logged in account. When signed in, users can choose to sync their browsing data between their devices. Signing in is also needed to use authenticated browser features such as enterprise New tab page, Microsoft Search and Microsoft Information Protection.
+When users sign in, they automatically benefit from single sign-on (SSO) when they visit websites that support their logged in account. When signed in, users can choose to sync their browsing data between their devices. Signing in is also needed to use authenticated browser features such as the **New tab page**, [Microsoft Search](https://docs.microsoft.com/microsoftsearch/) and [Microsoft Information Protection](https://www.microsoft.com/security/technology/information-protection).
 
 ## Authentication
 
-To ensure that users are always authenticated and can benefit from authenticated features, they’re automatically signed into Microsoft Edge if they’re signed into Windows.  In addition, users can’t remove their signed profile for their work or school account. This setting can be changed using the [NonRemovableProfileEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#nonremovableprofileenabled) policy.
+To ensure that users are always authenticated and can benefit from authenticated features, they’re automatically signed into Microsoft Edge if they’re signed into Windows. In addition, users can’t remove their sign-in profile for their work or school account. This setting can be changed using the [NonRemovableProfileEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#nonremovableprofileenabled) policy.
 
 Users can sign into Microsoft Edge with more than one account, add profiles and then sign into each profile using different accounts.
 
