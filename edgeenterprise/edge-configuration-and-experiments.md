@@ -33,7 +33,7 @@ Microsoft Edge builds have features and functionality that are still in developm
 
 ### About the service
 
-In all the preceding cases, the service delivers the feature flag values to the browser client, and the new values are applied the next time the user opens the browser.
+In all the preceding scenarios, the service delivers the feature flag values to the browser client so they can be applied. Depending on the update, configurations are applied immediately or when the user restarts the browser when prompted to do so.  
 
 Organizations can control the interaction with this service using the settings of the [ExperimentationAndConfigurationServiceControl](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#experimentationandconfigurationservicecontrol) policy. You can use this policy to receive configurations, and get feature rollouts/experiments. Although you can also disable communications with the service, do so with the understanding that this will affect Microsoft’s ability to respond to a severe bug in a timely manner.
 
