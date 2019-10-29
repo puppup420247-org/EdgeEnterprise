@@ -23,6 +23,9 @@ This article describes the interaction between Microsoft Edge and the Experiment
 
 Configurations are the payload meant to ensure product health, security, and privacy compliance, and are intended to have the same value for the audience based on platforms and channels. This could be to enable a feature flag for a domain action such as user agent string spoofing or telemetry sampling control. A configuration payload can also be used to disable a feature flag in the event of a bug.
 
+> [!IMPORTANT]
+> If the client is air-gapped without Internet access, add the "ecs.skype.com" endpoint to the allowed list to make sure feature flag values can still be received.
+
 ### Controlled Feature Rollout
 
 Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size of the user group that receives a feature. By distributing a new feature to a randomly selected subset of the user population, it’s possible to  compare user feedback to an equally sized  subset without the feature to measure the impact of the feature. The kind of information collected is reliability, performance, and any other metrics to ensure the new code is functional and useful, and ready to release to all the users.
@@ -31,7 +34,7 @@ Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size o
 
 Microsoft Edge builds have features and functionality that are still in development or are experimental. Experiments are like CFR, but the size of the user group is much smaller for testing the new concept.  These features are hidden by default until the feature is rolled out or the experiment's finished. Experiment flags are used to enable and disable these features.
 
-### About the service
+## About the service
 
 In all the preceding scenarios, the service delivers the feature flag values to the browser client so they can be applied. Depending on the update, configurations are applied immediately or when the user restarts the browser when prompted to do so.  
 
