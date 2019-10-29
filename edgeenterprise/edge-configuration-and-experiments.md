@@ -3,7 +3,7 @@ title: "Microsoft Edge configurations and experimentation"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/28/2019
+ms.date: 10/29/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
