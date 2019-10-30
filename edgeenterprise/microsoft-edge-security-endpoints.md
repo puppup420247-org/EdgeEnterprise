@@ -57,12 +57,12 @@ Allow the following domain URLs for Microsoft Edge.
 > [!NOTE]
 > To simplify the allow list for HTTP and HTTPS downloads you can use this URL:  `*.dl.delivery.mp.microsoft.com`.
 
-### Optionally for Delivery Optimization Peer-to-Peer
+### Optionally for delivery optimization
 
-- Client to Service communication: `*.do.dsp.mp.microsoft.com` (HTTP port 80, HTTPS port 443)
+- Client to Service communication: `*.do.dsp.mp.microsoft.com` (HTTP Port 80, HTTPS Port 443)
 - Client to Client communication: Port 7680 should be open for inbound traffic
 
-For more information about delivery optimization, see [Delivery Optimization for Windows 10 updates](http://aka.ms/waas-do) 
+For more information about delivery optimization, see [Delivery Optimization for Windows 10 updates](https://aka.ms/waas-do).
 
 ## See also
 
