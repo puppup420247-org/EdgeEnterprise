@@ -44,7 +44,7 @@
 - name: Enterprise features 
   items:
    - name: Configurations and experimentation
-     href: edge-configuration-and-experiments
+     href: edge-configuration-and-experiments.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
 - name: Security and privacy
