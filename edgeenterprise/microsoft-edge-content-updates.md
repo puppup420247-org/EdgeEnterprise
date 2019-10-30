@@ -16,4 +16,4 @@ description: "Microsoft Edge content updates"
 
 This article lists Microsoft Edge articles that have been changed over the last several weeks.
 
-[!INCLUDE edgeenterprise-content-updates](includes/edgeenterprise-content-updates.md)
+[!INCLUDE edgeenterprise-content-updates](./includes/edgeenterprise-content-updates.md)
