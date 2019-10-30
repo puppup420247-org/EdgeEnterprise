@@ -1,4 +1,4 @@
-# last revised 10/25/2019
+# last revised 10/30/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge in the enterprise
@@ -43,12 +43,10 @@
      href: microsoft-edge-update-policies.md
 - name: Enterprise features 
   items:
+   - name: Configurations and experimentation
+     href: edge-configuration-and-experiments
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
-#   - name: Microsoft Edge support for Azure AD Conditional Access 
-#     href: edge-enterprise-conditional-access.md  
-#   - name: Microsoft Edge support for Windows Defender Application Guard 
-#     href: edge-enterprise-wdag.md  
 - name: Security and privacy
   items:     
    - name: Security

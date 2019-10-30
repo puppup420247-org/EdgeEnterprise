@@ -32,13 +32,13 @@ Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size o
 
 ### Experiments
 
-Microsoft Edge builds have features and functionality that are still in development or are experimental. Experiments are like CFR, but the size of the user group is much smaller for testing the new concept.  These features are hidden by default until the feature is rolled out or the experiment's finished. Experiment flags are used to enable and disable these features.
+Microsoft Edge builds have features and functionality that are still in development or are experimental. Experiments are like CFR, but the size of the user group is much smaller for testing the new concept. These features are hidden by default until the feature is rolled out or the experiment's finished. Experiment flags are used to enable and disable these features.
 
 ## About the service
 
 In all the preceding scenarios, the service delivers the feature flag values to the browser client so they can be applied. Depending on the update, configurations are applied immediately or when the user restarts the browser.  
 
-Organizations can control the interaction with this service using the settings of the [ExperimentationAndConfigurationServiceControl](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#experimentationandconfigurationservicecontrol) policy. You can use this policy to receive configurations only, or get configurations and feature rollouts/experiments.
+Organizations can control the interaction with this service using the settings of the [ExperimentationAndConfigurationServiceControl](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#experimentationandconfigurationservicecontrol) policy. You can use this policy to receive configurations only, or to get configurations and feature rollouts/experiments.
 
 > [!CAUTION]
 > If you disable communications with the service, this will affect Microsoft’s ability to respond to a severe bug in a timely manner.
