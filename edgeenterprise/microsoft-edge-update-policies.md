@@ -3,7 +3,7 @@ title: "Microsoft Edge Update Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 09/30/2019
+ms.date: 10/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -15,10 +15,7 @@ description: "Documentation for all policies supported by the Microsoft Edge Upd
 
 # Microsoft Edge - Update policies
 
-The latest version of Microsoft Edge includes the following policies that you can use to control how and when Microsoft Edge is updated.
-
-																																				  
-
+The latest version of Microsoft Edge includes the following policies that you can use to control how and when Microsoft Edge is updated.					  
 For information about other policies available in Microsoft Edge, check out [Microsoft Edge browser policy reference](microsoft-edge-policies.md)
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -38,6 +35,7 @@ These tables lists all of the update-related group policies available in this re
 |[UpdateDefault](#updatedefault)|Update policy override default|
 |[Install](#install)|Allow installation (per channel)|
 |[Update](#update)|Update policy override (per channel)|
+|[Allowsxs](#allowsxs)|Allow Microsoft Edge Side by Side browser experience|
 
 ### [Preferences](#preferences-policies)
 |Policy Name|Caption|
@@ -60,8 +58,8 @@ These tables lists all of the update-related group policies available in this re
 >Microsoft Edge Update 1.2.145.5 and later
 
 #### Description
-Lets you specify the default behavior for all channels where allowing or blocking Microsoft Edge browser installation by Microsoft Edge Update is concerned.																									  
-  
+Lets you specify the default behavior for all channels where allowing or blocking Microsoft Edge browser installation by Microsoft Edge Update is concerned.
+
   Can be overridden for individual channels by specifying the ['Allow installation'](#install) policy for those specific channels. If you disable this policy, installation of Microsoft Edge through Microsoft Edge Update is blocked.
 
   Affects installation of Microsoft Edge software only when users are running Microsoft Edge Update and only when they haven't configured the ['Allow installation'](#install) policy.
@@ -194,6 +192,38 @@ Specifies how Microsoft Edge Update handles available updates from Microsoft Edg
 ```
 [Back to top](#microsoft-edge---update-policies)
 
+
+### Allowsxs
+#### Allow Microsoft Edge Side by Side browser experience
+>Microsoft Edge Update 1.2.145.5 and later
+
+#### Description
+This policy lets a user run Microsoft Edge (Edge HTML) and Microsoft Edge (Chromium-based) side-by-side.
+
+If this policy is set to “Not configured”, Microsoft Edge (Chromium-based) will replace Microsoft Edge (Edge HTML) after the Microsoft Edge (Chromium-based) stable channel and the November 2019 security updates are installed.  This is the same behavior as the “Disabled” setting.
+
+The “Disabled” setting blocks a side-by-side experience and Microsoft Edge (Chromium-based) will replace Microsoft Edge (Edge HTML) after the Microsoft Edge (Chromium-based) stable channel and the November 2019 security updates are installed.  This is the same behavior as the “Not Configured” setting.
+
+When this policy is “Enabled”, Microsoft Edge (Chromium-based) and Microsoft Edge (Edge HTML) can run side-by-side after Microsoft Edge (Chromium-based) is installed.
+
+For this group policy to take affect, it must be configured before the automatic install of Microsoft Edge (Chromium-based) by Windows Update. Note: ​A user can block the automatic update of Microsoft Edge (Chromium-based) by using the Microsoft Edge (Chromium-based) Blocker Toolkit.
+#### Windows information and settings
+##### Group Policy (ADMX) info
+- GP unique name: Allowsxs
+- GP name: Allow Microsoft Edge Side by Side browser experience
+- GP path: Administrative Templates/Microsoft Edge Update/Applications
+- GP ADMX file name: edgeupdate.admx
+##### Windows Registry Settings
+- Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate
+- Value Name: Allowsxs
+- Value Type: REG_DWORD
+##### Example value:
+```
+0x00000001
+```
+[Back to top](#microsoft-edge---update-policies)
+
+
 ## Preferences policies
 
 [Back to top](#microsoft-edge---update-policies)
@@ -254,8 +284,8 @@ start min  : 0x00000002
 
 
 ## Proxy Server policies
-											   
-								
+			  
+		
 
 [Back to top](#microsoft-edge---update-policies)
 ### ProxyMode
@@ -348,7 +378,8 @@ https://www.microsoft.com
 ```
 [Back to top](#microsoft-edge---update-policies)
 
-## See also
+		   
 
-- [Configuring Microsoft Edge](configure-microsoft-edge.md)
-- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+## See also
+  - [Configuring Microsoft Edge](configure-microsoft-edge.md)
+  - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
