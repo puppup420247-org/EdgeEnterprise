@@ -3,7 +3,7 @@ title: "Microsoft Edge configurations and experimentation"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "Microsoft Edge configurations and experimentation"
 
 # Microsoft Edge configurations and experimentation
 
-This article describes the interaction between Microsoft Edge and the Experimentation and Configuration service. Microsoft Edge communicates with this service to request and receive different kinds of payloads. These payloads can include configurations, feature rollouts and experiments, as well as settings for features and experiments.
+This article describes the interaction between Microsoft Edge and the Configuration and Experimentation service. Microsoft Edge communicates with this service to request and receive different kinds of payloads. These payloads can include configurations, feature rollouts and experiments, as well as settings for features and experiments.
 
 > [!NOTE]
 > This applies to Microsoft Edge version 77 or later.
@@ -36,7 +36,7 @@ Microsoft Edge builds have features and functionality that are still in developm
 
 ## About the service
 
-In all the preceding scenarios, the service delivers the feature flag values to the browser client so they can be applied. Depending on the update, configurations are applied immediately or when the user restarts the browser when prompted to do so.  
+In all the preceding scenarios, the service delivers the feature flag values to the browser client so they can be applied. Depending on the update, configurations are applied immediately or when the user restarts the browser.  
 
 Organizations can control the interaction with this service using the settings of the [ExperimentationAndConfigurationServiceControl](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#experimentationandconfigurationservicecontrol) policy. You can use this policy to receive configurations only, or get configurations and feature rollouts/experiments.
 
