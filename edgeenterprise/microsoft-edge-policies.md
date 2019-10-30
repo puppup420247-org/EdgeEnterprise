@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 10/23/2019
+ms.date: 10/30/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -155,7 +155,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
-|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allows a page to perform synchronous XHR requests during page dismissal.|
+|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
@@ -4919,15 +4919,17 @@ This policy will be removed in the future.
   [Back to top](#microsoft-edge---policies)
 
   ### AllowSyncXHRInPageDismissal
-  #### Allows a page to perform synchronous XHR requests during page dismissal.
+  #### Allow pages to send synchronous XHR requests during page dismissal
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
-  This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.
+  This policy lets you specify that a page can send synchronous XHR requests during page dismissal.
 
-When the policy is set to enabled, pages are allowed to send synchronous XHR requests during page dismissal.
+If you enable this policy, pages can send synchronous XHR requests during page dismissal.
 
-When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
+If you disable this policy or don't configure this policy, pages aren't allowed to send synchronous XHR requests during page dismissal.
+
+This policy is temporary and will be removed in a future release.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4940,7 +4942,7 @@ When the policy is set to disabled or not set, pages are not allowed to send syn
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: AllowSyncXHRInPageDismissal
-  - GP name: Allows a page to perform synchronous XHR requests during page dismissal.
+  - GP name: Allow pages to send synchronous XHR requests during page dismissal
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -6006,8 +6008,6 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
 ``` xml
 <true/>
 ```
-  
-
   [Back to top](#microsoft-edge---policies)
 
   ### ClickOnceEnabled
@@ -6053,62 +6053,17 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 ```
 
 
-		  
-   
+ 
   [Back to top](#microsoft-edge---policies)
 
-  
-
+	
+   
 										   
 
-			   
+  
 						
 			 
 
-	  
-							   
-
-										  
-
-																								   
-
-																						 
-
-		
-	   
-		
-		  
-
-	 
-	 
-
-			
-		
-					
-						   
-				 
-		 
-		  
-		 
-							
-		 
-	   
-		 
-	   
-   
-						   
-
-   
-
-
-		   
-				   
-	  
-	
-	
-		 
-  
-   
   ### CommandLineFlagSecurityWarningsEnabled
   #### Enable security warnings for command-line flags
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
@@ -6771,8 +6726,8 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 
 * 3 = Block all downloads
 
-										   
 
+					   
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -7113,13 +7068,15 @@ Experimentation payload consists of a list of early in development features that
 
 Configuration payload consists of a list of settings that Microsoft wants to deploy to Microsoft Edge to optimize user experience. For example, configuration payload may specify how often Microsoft Edge sends requests to the Experimentation and Configuration Service to retrieve the newest payload.
 
-If you set this policy to "Retrieve configurations and experiments" mode (value is set to 2), the full payload is downloaded from the Experimentation and Configuration Service. This includes both experimentation and configuration payload.
+If you set this policy to "Retrieve configurations and experiments" mode, the full payload is downloaded from the Experimentation and Configuration Service. This includes both the experimentation and configuration payloads.
 
-If you set this policy to "Retrieve configurations only" mode (value is set to 1), only the configuration payload is delivered.
+If you set this policy to "Retrieve configurations only" mode, only the configuration payload is delivered.
 
-If you set this policy to "Disable communication with the Experimentation and Configuration Service" mode (value is set to 0), the communication with the Experimentation and Configuration Service is stopped completely.
+If you set this policy to "Disable communication with the Experimentation and Configuration Service" mode, the communication with the Experimentation and Configuration Service is stopped completely.
 
-If you don't configure this policy, the behavior is the same as the "Retrieve configurations and experiments" mode (value is set to 2).
+If you don't configure this policy, on a managed device on Stable and Beta channels the behavior is the same as the "Retrieve configurations only" mode.
+
+If you don't configure this policy, on an unmanaged device the behavior is the same as the "Retrieve configurations and experiments" mode.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10108,47 +10065,47 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   [Back to top](#microsoft-edge---policies)
 
+									   
+								
+												
+												
+																 
+							  
+								  
+								 
+													  
+						   
+											
+						 
+					  
+   
+		  
+   
+
+
+								   
+													 
+				  
+	   
+	   
+   
   
 
 										   
 
-		
-		  
-			 
+				  
+																	
+																				  
 
-	  
-											   
+				  
+																								 
 
-							 
+																				 
 
-					 
+																																						 
 
-		
-	   
-		
-			   
-
-	 
-   
-
-			
-		
-		  
-		  
-				 
-		 
-		  
-		 
-			   
-		 
-		 
-	   
-	   
-   
-	
-   
-
-
+						  
+						 
   ### TaskManagerEndProcessEnabled
   #### Enable ending processes in the Browser task manager
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -10822,6 +10779,7 @@ If you don't configure this policy, or if you set it to an empty string or inval
   [Back to top](#microsoft-edge---policies)
 
 
-## See also									   
+## See also
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+																 
