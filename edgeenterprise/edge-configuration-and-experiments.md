@@ -28,7 +28,7 @@ Configurations are the payload meant to ensure product health, security, and pri
 
 ## Controlled Feature Rollout
 
-Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size of the user group that receives a feature. By distributing a new feature to a randomly selected subset of the user population, it’s possible to  compare user feedback to an equally sized  subset without the feature to measure the impact of the feature. The kind of information collected is reliability, performance, and any other metrics to ensure the new code is functional and useful, and ready to release to all the users.
+Controlled Feature Rollout (CFR) is a procedure for slowly increasing the size of the user group that receives a feature. By distributing a new feature to a randomly selected subset of the user population, it’s possible to  compare user feedback to an equally sized subset without the feature to measure the impact of the feature. Various metrics are collected to ensure the new code is ready to release to all the users.
 
 ## Experiments
 
