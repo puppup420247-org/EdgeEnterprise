@@ -24,7 +24,7 @@ This article describes the interaction between Microsoft Edge and the Experiment
 
 ## Configurations
 
-Configurations are the payload meant to ensure product health, security, and privacy compliance, and are intended to have the same value for all the users (based on platforms and channels.) This could be to enable a feature flag for a domain action such as user agent string spoofing or telemetry sampling control. A configuration payload can also be used to disable a feature flag in the event of a bug.
+Configurations are the payload meant to ensure product health, security, and privacy compliance, and are intended to have the same value for all the users (based on platforms and channels.) This could be to enable a feature flag for a domain action, and can also be used to disable a feature flag in the event of a bug.
 
 ## Controlled Feature Rollout
 
