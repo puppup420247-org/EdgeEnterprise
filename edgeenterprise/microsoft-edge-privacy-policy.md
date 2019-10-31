@@ -3,7 +3,7 @@ title: "Microsoft Edge privacy policy"
 ms.author: likravit
 author: dan-wesley
 manager: srugh
-ms.date: 08/08/2019
+ms.date: 10/31/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -70,4 +70,7 @@ You may want to consider the following group policies related to data privacy:
 
 ## See also
 
+- [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
 - [Microsoft Edge policies](microsoft-edge-policies.md)
+- [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)
+- [Privacy at Microsoft](https://www.microsoft.com/trust-center/privacy)
