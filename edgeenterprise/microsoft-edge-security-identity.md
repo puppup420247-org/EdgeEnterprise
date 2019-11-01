@@ -3,7 +3,7 @@ title: "Microsoft Edge identity support and configuration"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/29/2019
+ms.date: 11/01/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -30,7 +30,7 @@ To ensure that users are always authenticated and can benefit from authenticated
 Users can sign into Microsoft Edge with more than one account, add profiles and then sign into each profile using different accounts.
 
 > [!NOTE]
-> If users want to browse unauthenticated, they can a profile or browse using the Guest profile.
+> If users want to browse unauthenticated, they can add profile or browse using the Guest profile.
 
 ## Authentication and features
 
@@ -60,10 +60,11 @@ A Primary Refresh Token (PRT) is an AAD key that’s used for authentication on 
 
 #### Windows Integrated Authentication (WIA)
 
-Windows Integrated Authentication (WIA) is enabled in Active Directory Federation Services (AD FS) for authentication requests within an organization's internal network for any application that uses a browser for its authentication. For AD FS 2016 and later, you no longer have to configure individual user agent strings to support common Microsoft Edge scenarios.
+Windows Integrated Authentication (WIA) is enabled in Active Directory Federation Services (AD FS) for authentication requests within an organization's internal network for any application that uses a browser for its authentication.
 
-> [!NOTE]
-> For other browsers, configure the AD FS property **WiaSupportedUserAgents** to add the required values based on the browser you're using. For more information, see [Configure browsers to use Windows Integrated Authentication (WIA) with AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia).
+To use WIA with Microsoft Edge (version 77 and later) you have to configure the AD FS property **WiaSupportedUserAgents** and add the following user agent string: `"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3951.0 Safari/537.36 Edg/80.0.319.0"`
+
+For information about configuring WIA in AD FS, see [View WIASupportedUserAgent settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia#view-wiasupporteduseragent-settings) and [Change WIASupportedUserAgent settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia#change-wiasupporteduseragent-settings).
 
 ## See also
 
