@@ -3,7 +3,7 @@ title: "Microsoft Edge identity support and configuration"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/01/2019
+ms.date: 11/04/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -30,7 +30,7 @@ To ensure that users are always authenticated and can benefit from authenticated
 Users can sign into Microsoft Edge with more than one account, add profiles and then sign into each profile using different accounts.
 
 > [!NOTE]
-> If users want to browse unauthenticated, they can add profile or browse using the Guest profile.
+> If users want to browse unauthenticated, they can add a profile or browse using the Guest profile.
 
 ## Authentication and features
 
