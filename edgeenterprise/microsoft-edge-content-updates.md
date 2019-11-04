@@ -1,9 +1,9 @@
 ---
 title: "Microsoft Edge content updates"
-ms.author: brianalt
+ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
