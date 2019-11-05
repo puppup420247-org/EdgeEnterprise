@@ -72,3 +72,4 @@ For information about configuring WIA in AD FS, see [View WIASupportedUserAgent 
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
 - [Identity and access management](https://www.microsoft.com/security/technology/identity-access-management)
 - [Identity platform](https://developer.microsoft.com/identity)
+- [Four steps to a strong identity foundation with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/four-steps)
