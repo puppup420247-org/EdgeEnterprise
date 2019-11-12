@@ -3,7 +3,7 @@ title: "Allow list for Microsoft Edge endpoints"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/30/2019
+ms.date: 11/12/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -68,3 +68,4 @@ For more information about delivery optimization, see [Delivery Optimization for
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
+- [Manage connection endpoints for Windows 10 Enterprise, version 1903](https://docs.microsoft.com/windows/privacy/manage-windows-1903-endpoints)
