@@ -4381,7 +4381,7 @@ If you enable this policy, Microsoft Edge downloads and shows the specified logo
 
 If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6349,8 +6349,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, the voice fonts aren't available.
 
 Read more about this feature here:
-SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+SpeechSynthesis API: https://developer.mozilla.org/docs/Web/API/SpeechSynthesis
+Cognitive Services: https://azure.microsoft.com/services/cognitive-services/text-to-speech/
 
   #### Supported features:
   - Can be mandatory: Yes
