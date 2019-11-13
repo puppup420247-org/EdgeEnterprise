@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/03/2019
+ms.date: 11/06/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -6180,15 +6180,15 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 
 
  
-										   
+			 
 
  
    
-			 
+	
 
   
-	  
-	
+   
+ 
 
   [Back to top](#microsoft-edge---policies)
 
@@ -6855,7 +6855,7 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 * 3 = Block all downloads
 
 
-		
+  
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -10245,36 +10245,36 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   ### TabFreezingEnabled
   #### Allow freezing of background tabs
   >Supported Versions: Microsoft Edge on Windows since version 79 or later
-			
-				 
-		 
-		  
-		 
-			   
-		 
-		   
-	   
-	   
+   
+	 
    
 	
+   
+	  
+   
+	 
+	
+	
+   
+ 
    
 
   #### Description
   Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
 
 Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
-			  
-	  
-	
-	
+	 
+   
+ 
+ 
    
   
 
 If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
 
 If you disable this policy, no tabs will be frozen.
-				 
-					  
+	 
+	   
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10833,9 +10833,8 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-
 This policy allows users of the WebDriver feature to override policies which can interfere with its operation. Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
-
+												
 If you enable this policy, WebDriver can be configured to override incompatible policies.												
 
 If you disable this policy or don't configure it, WebDriver can't be configured to override incompatible policies.
@@ -10981,3 +10980,4 @@ If you don't configure this policy, or if you set it to an empty string or inval
 ## See also
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+  
