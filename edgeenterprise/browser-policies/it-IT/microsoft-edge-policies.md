@@ -1,0 +1,10957 @@
+---
+title: "Microsoft Edge Browser Policy Documentation"
+ms.author: stmoody
+author: brianalt-msft
+manager: tahills
+ms.date: 11/06/2019
+audience: ITPro
+ms.topic: reference
+ms.prod: microsoft-edge
+ms.localizationpriority: medium
+ms.collection: M365-modern-desktop
+ms.custom:
+description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser"
+---
+
+# Microsoft Edge - Criteri
+L'ultima versione di Microsoft Edge include i criteri seguenti. Puoi utilizzare questi criteri per configurare il modo in cui Microsoft Edge viene eseguito nell'organizzazione.
+
+Per informazioni su un set aggiuntivo di criteri utilizzati per controllare come e quando Microsoft Edge viene aggiornato, vedi [Riferimento ai criteri di aggiornamento di Microsoft Edge](microsoft-edge-update-policies.md)
+
+> [!NOTA]
+> Questo articolo si applica a Microsoft Edge versione 77 o successiva.
+
+## Criteri disponibili
+Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibili in questa versione di Microsoft Edge. Utilizza i collegamenti nella tabella per ottenere altri dettagli sui criteri specifici.
+
+|||
+|-|-|
+|[Autenticazione HTTP](#autenticazione-http)|[Avvio, pagina iniziale e nuova scheda](#avvio,-pagina-iniziale-e-nuova-scheda)|
+|[Cast](#cast)|[Estensioni](#estensioni)|
+|[Impostazioni SmartScreen](#impostazioni-smartscreen)|[Impostazioni dei contenuti](#impostazioni-dei-contenuti)|
+|[Messaggi nativi](#messaggi-nativi)|[Protezione e gestione password](#protezione-e-gestione-password)|
+|[Provider di ricerca predefinito](#provider-di-ricerca-predefinito)|[Server proxy](#server-proxy)|
+|[Stampa](#stampa)|[Additional](#additional)|
+
+
+### [*Autenticazione HTTP*](#autenticazione-http-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[AllowCrossOriginAuthPrompt](#allowcrossoriginauthprompt)|Consenti le richieste di autenticazione di base HTTP tra le origini|
+|[AuthNegotiateDelegateAllowlist](#authnegotiatedelegateallowlist)|Specifica un elenco di server a cui Microsoft Edge può delegare le credenziali dell'utente|
+|[AuthSchemes](#authschemes)|Schemi di autenticazione supportati|
+|[AuthServerAllowlist](#authserverallowlist)|Configura l'elenco dei server di autenticazione consentiti|
+|[DisableAuthNegotiateCnameLookup](#disableauthnegotiatecnamelookup)|Disabilita la ricerca CNAME durante la negoziazione dell'autenticazione Kerberos|
+|[EnableAuthNegotiatePort](#enableauthnegotiateport)|Includi la porta non standard in SPN Kerberos|
+|[NtlmV2Enabled](#ntlmv2enabled)|Controlla se è abilitata l'autenticazione NTLMv2|
+### [*Avvio&comma; pagina iniziale e nuova scheda*](#avvio-pagina-iniziale-e-nuova-scheda-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[HomepageIsNewTabPage](#homepageisnewtabpage)|Imposta la nuova scheda come home page|
+|[HomepageLocation](#homepagelocation)|Configura l'URL della home page|
+|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Imposta logo aziendale nuova scheda|
+|[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Nascondi i siti principali predefiniti dalla nuova scheda|
+|[NewTabPageLocation](#newtabpagelocation)|Configura l'URL della nuova scheda|
+|[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Imposta collegamenti rapidi per la nuova scheda|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[RestoreOnStartup](#restoreonstartup)|Azione da eseguire all'avvio|
+|[RestoreOnStartupURLs](#restoreonstartupurls)|Siti da aprire quando si avvia il browser|
+|[ShowHomeButton](#showhomebutton)|Mostra pulsante Home sulla barra degli strumenti|
+### [*Cast*](#cast-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[EnableMediaRouter](#enablemediarouter)|Abilita Google Cast|
+|[ShowCastIconInToolbar](#showcasticonintoolbar)|Mostra l'icona cast nella barra degli strumenti|
+### [*Estensioni*](#estensioni-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[ExtensionAllowedTypes](#extensionallowedtypes)|Configura i tipi di estensione consentiti|
+|[ExtensionInstallAllowlist](#extensioninstallallowlist)|Consenti l'installazione di estensioni specifiche|
+|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Controlla le estensioni che non possono essere installate|
+|[ExtensionInstallForcelist](#extensioninstallforcelist)|Controlla quali estensioni vengono installate automaticamente|
+|[ExtensionInstallSources](#extensioninstallsources)|Configura le origini di installazione degli script degli utenti e delle estensioni|
+|[ExtensionSettings](#extensionsettings)|Configura le impostazioni di gestione delle estensioni|
+### [*Impostazioni SmartScreen*](#impostazioni-smartscreen-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[PreventSmartScreenPromptOverride](#preventsmartscreenpromptoverride)|Impedisci di ignorare i prompt di Microsoft Defender SmartScreen per i siti|
+|[PreventSmartScreenPromptOverrideForFiles](#preventsmartscreenpromptoverrideforfiles)|Impedisci di ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download|
+|[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configura l'elenco dei domini per cui Microsoft Defender SmartScreen non attiva gli avvisi|
+|[SmartScreenEnabled](#smartscreenenabled)|Configura Microsoft Defender SmartScreen|
+|[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Forza i controlli Microsoft Defender SmartScreen per i download da origini attendibili|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+### [*Impostazioni dei contenuti*](#impostazioni-dei-contenuti-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[AutoSelectCertificateForUrls](#autoselectcertificateforurls)|Seleziona automaticamente i certificati client per questi siti|
+|[CookiesAllowedForUrls](#cookiesallowedforurls)|Consenti i cookie per siti specifici|
+|[CookiesBlockedForUrls](#cookiesblockedforurls)|Blocca i cookie per siti specifici|
+|[CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)|Limita i cookie provenienti da siti Web specifici per la sessione corrente|
+|[DefaultCookiesSetting](#defaultcookiessetting)|Configura i cookie|
+|[DefaultGeolocationSetting](#defaultgeolocationsetting)|Impostazione predefinita per la georilevazione|
+|[DefaultImagesSetting](#defaultimagessetting)|Impostazione predefinita per le immagini|
+|[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Impostazione predefinita per JavaScript|
+|[DefaultNotificationsSetting](#defaultnotificationssetting)|Impostazione predefinita per la notifica|
+|[DefaultPluginsSetting](#defaultpluginssetting)|Impostazione predefinita per Adobe Flash|
+|[DefaultPopupsSetting](#defaultpopupssetting)|Impostazione predefinita per la finestra popup|
+|[DefaultWebBluetoothGuardSetting](#defaultwebbluetoothguardsetting)|Controlla l'uso dell'API Web Bluetooth|
+|[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Controlla l'uso dell'API WebUSB|
+|[ImagesAllowedForUrls](#imagesallowedforurls)|Consenti le immagini per questi siti|
+|[ImagesBlockedForUrls](#imagesblockedforurls)|Blocca le immagini per siti specifici|
+|[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Consenti JavaScript per siti specifici|
+|[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Blocca JavaScript per siti specifici|
+|[NotificationsAllowedForUrls](#notificationsallowedforurls)|Consenti le notifiche per siti specifici|
+|[NotificationsBlockedForUrls](#notificationsblockedforurls)|Blocca le notifiche per siti specifici|
+|[PluginsAllowedForUrls](#pluginsallowedforurls)|Consenti il plug-in Adobe Flash per siti specifici|
+|[PluginsBlockedForUrls](#pluginsblockedforurls)|Blocca il plug-in Adobe Flash per siti specifici|
+|[PopupsAllowedForUrls](#popupsallowedforurls)|Consenti le finestre popup per siti specifici|
+|[PopupsBlockedForUrls](#popupsblockedforurls)|Blocca le finestre popup per siti specifici|
+|[RegisteredProtocolHandlers](#registeredprotocolhandlers)|Registra gestori di protocollo|
+|[WebUsbAllowDevicesForUrls](#webusballowdevicesforurls)|Concedi l'accesso a siti specifici per la connessione a dispositivi USB specifici|
+|[WebUsbAskForUrls](#webusbaskforurls)|Consenti WebUSB per siti specifici|
+|[WebUsbBlockedForUrls](#webusbblockedforurls)|Blocca WebUSB per siti specifici|
+### [*Messaggi nativi*](#messaggi-nativi-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[NativeMessagingAllowlist](#nativemessagingallowlist)|Controlla quali host di messaggistica nativa possono essere utilizzati dagli utenti|
+|[NativeMessagingBlocklist](#nativemessagingblocklist)|Configura l'elenco degli host di messaggistica nativa bloccati|
+|[NativeMessagingUserLevelHosts](#nativemessaginguserlevelhosts)|Consenti host di messaggistica nativa a livello di utente (installati senza autorizzazioni di amministratore)|
+### [*Protezione e gestione password*](#protezione-e-gestione-password-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[PasswordManagerEnabled](#passwordmanagerenabled)|Abilita salvataggio password nella gestione delle password|
+|[PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)|Configura l'URL di modifica password|
+|[PasswordProtectionLoginURLs](#passwordprotectionloginurls)|Configura l'elenco degli URL di accesso aziendali in cui il servizio di protezione password deve acquisire l'impronta digitale della password|
+|[PasswordProtectionWarningTrigger](#passwordprotectionwarningtrigger)|Configura il trigger di avviso di protezione password|
+### [*Provider di ricerca predefinito*](#provider-di-ricerca-predefinito-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[DefaultSearchProviderEnabled](#defaultsearchproviderenabled)|Abilita il provider di ricerca predefinito|
+|[DefaultSearchProviderEncodings](#defaultsearchproviderencodings)|Codifiche del provider di ricerca predefinito|
+|[DefaultSearchProviderImageURL](#defaultsearchproviderimageurl)|Specifica la funzionalità di ricerca per immagini per il provider di ricerca predefinito|
+|[DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams)|Parametri per l'URL di un'immagine che utilizza POST|
+|[DefaultSearchProviderKeyword](#defaultsearchproviderkeyword)|Parola chiave del provider di ricerca predefinito|
+|[DefaultSearchProviderName](#defaultsearchprovidername)|Nome del provider di ricerca predefinito|
+|[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl)|URL di ricerca del provider di ricerca predefinito|
+|[DefaultSearchProviderSuggestURL](#defaultsearchprovidersuggesturl)|URL del provider di ricerca predefinito per i suggerimenti|
+### [*Server proxy*](#server-proxy-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[ProxyBypassList](#proxybypasslist)|Configura le regole di bypass proxy|
+|[ProxyMode](#proxymode)|Configura le impostazioni del server proxy|
+|[ProxyPacUrl](#proxypacurl)|Imposta l'URL del file .pac del proxy|
+|[ProxyServer](#proxyserver)|Configura l'indirizzo o l'URL del server proxy|
+|[ProxySettings](#proxysettings)|Impostazioni proxy|
+### [*Stampa*](#stampa-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[DefaultPrinterSelection](#defaultprinterselection)|Regole di selezione della stampante predefinita|
+|[PrintHeaderFooter](#printheaderfooter)|Stampa intestazioni e piè di pagina|
+|[PrintPreviewUseSystemDefaultPrinter](#printpreviewusesystemdefaultprinter)|Imposta stampante predefinita del sistema come stampante predefinita|
+|[PrintingEnabled](#printingenabled)|Abilita stampa|
+|[UseSystemPrintDialog](#usesystemprintdialog)|Stampa utilizzando la finestra di dialogo Stampa del sistema|
+### [*Additional*](#additional-policies)
+|Nome criteri|Sottotitolo|
+|-|-|
+|[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Impostazione degli annunci per i siti con annunci intrusivi|
+|[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Abilita eliminazione cronologia del browser e download|
+|[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Consenti le finestre di dialogo di selezione file|
+|[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Consente a una pagina di visualizzare i popup durante lo scaricamento|
+|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Consenti alle pagine di inviare richieste XHR sincrone durante la chiusura della pagina|
+|[AllowTrackingForUrls](#allowtrackingforurls)|Configura le eccezioni di prevenzione del monitoraggio per siti specifici|
+|[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Apri sempre i file PDF esternamente|
+|[ApplicationLocaleValue](#applicationlocalevalue)|Specifica le impostazioni locali dell'applicazione|
+|[AudioCaptureAllowed](#audiocaptureallowed)|Consenti o blocca l'acquisizione audio|
+|[AudioCaptureAllowedUrls](#audiocaptureallowedurls)|Siti che possono accedere ai dispositivi di acquisizione audio senza richiedere l'autorizzazione|
+|[AutoImportAtFirstRun](#autoimportatfirstrun)|Importa automaticamente i dati e le impostazioni di un altro browser alla prima esecuzione|
+|[AutofillAddressEnabled](#autofilladdressenabled)|Abilita riempimento automatico per gli indirizzi|
+|[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Abilita riempimento automatico per le carte di credito|
+|[AutoplayAllowed](#autoplayallowed)|Consenti AutoPlay di supporti per siti Web|
+|[BackgroundModeEnabled](#backgroundmodeenabled)|Continua a eseguire le app in background dopo che Microsoft Edge viene chiuso|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Abilita gli aggiornamenti in background all'elenco di modelli disponibili per le raccolte e le altre funzionalità che utilizzano i modelli.|
+|[BlockThirdPartyCookies](#blockthirdpartycookies)|Blocca i cookie di terze parti|
+|[BrowserAddProfileEnabled](#browseraddprofileenabled)|Abilita la creazione del profilo dal menu a comparsa Identità o dalla pagina Impostazioni|
+|[BrowserGuestModeEnabled](#browserguestmodeenabled)|Abilita modalità guest|
+|[BrowserNetworkTimeQueriesEnabled](#browsernetworktimequeriesenabled)|Consenti le query a un servizio di ora di rete del browser|
+|[BrowserSignin](#browsersignin)|Impostazioni di accesso del browser|
+|[BuiltInDnsClientEnabled](#builtindnsclientenabled)|Utilizza il client DNS predefinito|
+|[CertificateTransparencyEnforcementDisabledForCas](#certificatetransparencyenforcementdisabledforcas)|Disabilita l'applicazione della trasparenza dei certificati per un elenco di hash subjectPublicKeyInfo|
+|[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disabilita l'applicazione della trasparenza dei certificati per un elenco di autorità di certificazione legacy|
+|[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disabilita l'applicazione della trasparenza dei certificati per URL specifici|
+|[ClearBrowsingDataOnExit](#clearbrowsingdataonexit)|Cancella i dati di navigazione quando Microsoft Edge viene chiuso|
+|[ClickOnceEnabled](#clickonceenabled)|Consenti agli utenti di aprire file tramite il protocollo ClickOnce|
+|[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Abilita gli avvisi di sicurezza per i flag della riga di comando|
+|[ComponentUpdatesEnabled](#componentupdatesenabled)|Abilita gli aggiornamenti dei componenti in Microsoft Edge|
+|[ConfigureDoNotTrack](#configuredonottrack)|Configura Non tenere traccia|
+|[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configura la sintesi vocale online|
+|[CustomHelpLink](#customhelplink)|Specifica il collegamento della Guida personalizzato|
+|[DefaultBrowserSettingEnabled](#defaultbrowsersettingenabled)|Imposta Microsoft Edge come browser predefinito|
+|[DeveloperToolsAvailability](#developertoolsavailability)|Controlla dove possono essere utilizzati gli strumenti di sviluppo|
+|[DirectInvokeEnabled](#directinvokeenabled)|Consenti agli utenti di aprire file tramite il protocollo DirectInvoke|
+|[Disable3DAPIs](#disable3dapis)|Disabilita il supporto per le API di grafica 3D|
+|[DisableScreenshots](#disablescreenshots)|Disabilita l'acquisizione di screenshot|
+|[DiskCacheDir](#diskcachedir)|Imposta directory cache disco|
+|[DiskCacheSize](#diskcachesize)|Imposta le dimensioni della cache disco, in byte|
+|[DownloadDirectory](#downloaddirectory)|Imposta directory di download|
+|[DownloadRestrictions](#downloadrestrictions)|Consenti le restrizioni di download|
+|[EdgeCollectionsEnabled](#edgecollectionsenabled)|Abilita la funzionalità Raccolte|
+|[EditFavoritesEnabled](#editfavoritesenabled)|Consente agli utenti di modificare i Preferiti|
+|[EnableDeprecatedWebPlatformFeatures](#enabledeprecatedwebplatformfeatures)|Riattiva le funzionalità della piattaforma Web deprecate per un periodo di tempo limitato|
+|[EnableDomainActionsDownload](#enabledomainactionsdownload)|Abilita download azioni di dominio da Microsoft|
+|[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Abilita i controlli CRL/OCSP online|
+|[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Consenti alle estensioni gestite di utilizzare l'API della piattaforma hardware aziendale|
+|[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Controlla le comunicazioni con il servizio di sperimentazione e configurazione|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[FavoritesBarEnabled](#favoritesbarenabled)|Abilita barra Preferiti|
+|[ForceBingSafeSearch](#forcebingsafesearch)|Applica Ricerca sicura Bing|
+|[ForceEphemeralProfiles](#forceephemeralprofiles)|Abilita l'utilizzo di profili temporanei|
+|[ForceGoogleSafeSearch](#forcegooglesafesearch)|Applica Google SafeSearch|
+|[ForceNetworkInProcess](#forcenetworkinprocess)|Forza codice di rete da eseguire nel processo del browser|
+|[ForceYouTubeRestrict](#forceyoutuberestrict)|Forza modalità con restrizioni YouTube minima|
+|[FullscreenAllowed](#fullscreenallowed)|Consenti la modalità a schermo intero|
+|[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Forza l'esplorazione diretta del sito Intranet anziché cercare le singole parole immesse nella barra degli indirizzi|
+|[HSTSPolicyBypassList](#hstspolicybypasslist)|Configura l'elenco dei nomi che ignoreranno il controllo dei criteri HSTS|
+|[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Utilizza l'accelerazione hardware se disponibile|
+|[ImportAutofillFormData](#importautofillformdata)|Consenti l'importazione dei dati del modulo di riempimento automatico|
+|[ImportBrowserSettings](#importbrowsersettings)|Consenti l'importazione delle impostazioni del browser|
+|[ImportFavorites](#importfavorites)|Consenti l'importazione dei preferiti|
+|[ImportHistory](#importhistory)|Consenti l'importazione della cronologia esplorazioni|
+|[ImportHomepage](#importhomepage)|Consenti l'importazione delle impostazioni della home page|
+|[ImportOpenTabs](#importopentabs)|Consenti l'importazione delle schede aperte|
+|[ImportPaymentInfo](#importpaymentinfo)|Consenti importazione delle info di pagamento|
+|[ImportSavedPasswords](#importsavedpasswords)|Consenti l'importazione delle password salvate|
+|[ImportSearchEngine](#importsearchengine)|Consenti l'importazione delle impostazioni del motore di ricerca|
+|[InPrivateModeAvailability](#inprivatemodeavailability)|Configura la disponibilità della modalità InPrivate|
+|[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configura l'integrazione di Internet Explorer|
+|[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configura l'elenco dei siti in modalità Enterprise|
+|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Specifica il comportamento della modalità di spostamento dei siti non configurati "nella pagina" quando avviati dalle pagine in modalità Internet Explorer|
+|[IsolateOrigins](#isolateorigins)|Abilita l'isolamento del sito per origini specifiche|
+|[ManagedFavorites](#managedfavorites)|Configura i preferiti|
+|[ManagedSearchEngines](#managedsearchengines)|Gestisci motori di ricerca|
+|[MaxConnectionsPerProxy](#maxconnectionsperproxy)|Numero massimo di connessioni simultanee al server proxy|
+|[MediaRouterCastAllowAllIPs](#mediaroutercastallowallips)|Consenti a Google Cast di connettersi ai dispositivi Cast su tutti gli indirizzi IP|
+|[MetricsReportingEnabled](#metricsreportingenabled)|Abilita creazione di report sui dati di utilizzo e relativi all'arresto anomalo del sistema|
+|[NetworkPredictionOptions](#networkpredictionoptions)|Abilita completamento rete|
+|[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configura se un utente ha sempre un profilo predefinito connesso automaticamente al proprio account aziendale o dell'istituto di istruzione|
+|[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Controlla dove vengono applicate le restrizioni di sicurezza alle origini non sicure|
+|[ProactiveAuthEnabled](#proactiveauthenabled)|Abilita l'autenticazione proattiva|
+|[PromotionalTabsEnabled](#promotionaltabsenabled)|Abilitare il contenuto promozionale della scheda completa|
+|[PromptForDownloadLocation](#promptfordownloadlocation)|Richiedi la posizione in cui salvare i file scaricati|
+|[QuicAllowed](#quicallowed)|Consenti il protocollo QUIC|
+|[RelaunchNotification](#relaunchnotification)|Notifica a un utente che è consigliato o obbligatorio eseguire un riavvio del browser per gli aggiornamenti in sospeso|
+|[RelaunchNotificationPeriod](#relaunchnotificationperiod)|Imposta il periodo di tempo per le notifiche di aggiornamento|
+|[RendererCodeIntegrityEnabled](#renderercodeintegrityenabled)|Abilita l'integrità del codice di rendering|
+|[RequireOnlineRevocationChecksForLocalAnchors](#requireonlinerevocationchecksforlocalanchors)|Specifica se i controlli CRL/OCSP online sono necessari per i trust anchor locali|
+|[ResolveNavigationErrorsUseWebService](#resolvenavigationerrorsusewebservice)|Abilita la risoluzione degli errori di navigazione tramite un servizio Web|
+|[RestrictSigninToPattern](#restrictsignintopattern)|Limita gli account che possono essere utilizzati come account principali di Microsoft Edge|
+|[RunAllFlashInAllowMode](#runallflashinallowmode)|Estendi l'impostazione dei contenuti Adobe Flash a tutti i contenuti|
+|[SSLErrorOverrideAllowed](#sslerroroverrideallowed)|Consenti agli utenti di continuare dalla pagina di avviso HTTPS|
+|[SSLVersionMin](#sslversionmin)|Versione TLS minima abilitata|
+|[SavingBrowserHistoryDisabled](#savingbrowserhistorydisabled)|Disabilita il salvataggio della cronologia del browser|
+|[SearchSuggestEnabled](#searchsuggestenabled)|Abilita suggerimenti di ricerca|
+|[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Siti Web o i domini che non richiedono l'autorizzazione per utilizzare l'attestazione per la chiave di sicurezza diretta|
+|[SendIntranetToInternetExplorer](#sendintranettointernetexplorer)|Invia tutti i siti Intranet a Internet Explorer|
+|[SendSiteInfoToImproveServices](#sendsiteinfotoimproveservices)|Invia informazioni sul sito per migliorare i servizi Microsoft|
+|[ShowOfficeShortcutInFavoritesBar](#showofficeshortcutinfavoritesbar)|Mostra collegamento Microsoft Office sulla barra Preferiti|
+|[SignedHTTPExchangeEnabled](#signedhttpexchangeenabled)|Abilita supporto Signed HTTP Exchange (SXG)|
+|[SitePerProcess](#siteperprocess)|Abilita l'isolamento per ogni sito|
+|[SpellcheckEnabled](#spellcheckenabled)|Abilita controllo ortografia|
+|[SpellcheckLanguage](#spellchecklanguage)|Attiva lingua specifica per controllo ortografia|
+|[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Forza disattivazione lingue per controllo ortografico|
+|[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Elimina l'avviso di sistema operativo non supportato|
+|[SyncDisabled](#syncdisabled)|Disabilita la sincronizzazione dei dati mediante i servizi di sincronizzazione Microsoft|
+|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Abilita l'interruzione dei processi in Gestione attività del browser|
+|[TrackingPrevention](#trackingprevention)|Blocca il rilevamento dell'attività di esplorazione Web degli utenti|
+|[TranslateEnabled](#translateenabled)|Abilita traduzione|
+|[URLAllowlist](#urlallowlist)|Definisci un elenco di URL consentiti|
+|[URLBlocklist](#urlblocklist)|Blocca l'accesso a un elenco di URL|
+|[UserDataDir](#userdatadir)|Imposta la directory dei dati dell'utente|
+|[UserFeedbackAllowed](#userfeedbackallowed)|Consenti feedback utente|
+|[VideoCaptureAllowed](#videocaptureallowed)|Consenti o blocca l'acquisizione video|
+|[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Siti che possono accedere ai dispositivi di acquisizione video senza richiedere l'autorizzazione|
+|[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Imposta ottimizzazione WPAD|
+|[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Consenti a WebDriver di sostituire i criteri non compatibili|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Limita l'esposizione dell'indirizzo IP localhost per WebRTC|
+|[WebRtcUdpPortRange](#webrtcudpportrange)|Limita l'intervallo di porte UDP locali utilizzato da WebRTC|
+
+
+
+
+  ## Autenticazione HTTP policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowCrossOriginAuthPrompt
+  #### Consenti le richieste di autenticazione di base HTTP tra le origini
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se i contenuti secondari di terze parti in una pagina possono aprire una finestra di dialogo di autenticazione di base HTTP.
+
+In genere, questi criteri sono disabilitati per difesa dal phishing. Se non configuri questi criteri, sono disabilitati e i contenuti secondari di terze parti non possono aprire una finestra di dialogo di autenticazione di base HTTP.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowCrossOriginAuthPrompt
+  - Nome GP: Consenti le richieste di autenticazione di base HTTP tra le origini
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AllowCrossOriginAuthPrompt
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowCrossOriginAuthPrompt
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AuthNegotiateDelegateAllowlist
+  #### Specifica un elenco di server a cui Microsoft Edge può delegare le credenziali dell'utente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura l'elenco dei server a cui è possibile delegare Microsoft Edge.
+
+Separa più nomi di server con una virgola. I caratteri jolly (*) sono consentiti.
+
+Se non configuri questi criteri Microsoft Edge non delega le credenziali dell'utente anche se un server viene rilevato come Intranet.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AuthNegotiateDelegateAllowlist
+  - Nome GP: Specifica un elenco di server a cui Microsoft Edge può delegare le credenziali dell'utente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AuthNegotiateDelegateAllowlist
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"contoso.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AuthNegotiateDelegateAllowlist
+  - Valore di esempio:
+``` xml
+<string>contoso.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AuthSchemes
+  #### Schemi di autenticazione supportati
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica quali schemi di autenticazione HTTP sono supportati.
+
+Puoi configurare i criteri utilizzando questi valori: 'basic', 'digest', 'ntlm' e 'negotiate'. Separa più valori con virgole.
+
+Se non configuri questi criteri, verranno utilizzati tutti gli schemi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AuthSchemes
+  - Nome GP: Schemi di autenticazione supportati
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AuthSchemes
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"basic,digest,ntlm,negotiate"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AuthSchemes
+  - Valore di esempio:
+``` xml
+<string>basic,digest,ntlm,negotiate</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AuthServerAllowlist
+  #### Configura l'elenco dei server di autenticazione consentiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica quali server abilitare per l'autenticazione integrata. L'autenticazione integrata viene abilitata solo quando Microsoft Edge riceve una richiesta di autenticazione da un proxy o da un server presente in questo elenco.
+
+Separa più nomi server con le virgole. Sono consentiti i caratteri jolly (*).
+
+Se non configuri questi criteri, Microsoft Edge tenta di rilevare se un server si trova nella rete Intranet: solo allora risponde alle richieste di autenticazione integrata di Windows. Se il server è su Internet, le richieste di autenticazione integrata di Windows vengono ignorate da Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AuthServerAllowlist
+  - Nome GP: Configura l'elenco dei server di autenticazione consentiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AuthServerAllowlist
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"*contoso.com,contoso.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AuthServerAllowlist
+  - Valore di esempio:
+``` xml
+<string>*contoso.com,contoso.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DisableAuthNegotiateCnameLookup
+  #### Disabilita la ricerca CNAME durante la negoziazione dell'autenticazione Kerberos
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Determina se l'SPN Kerberos generato è basato sul nome canonico DNS (CNAME) o sul nome originale immesso.
+
+Se abiliti questi criteri, la ricerca CNAME viene ignorata e il nome del server verrà utilizzato (come immesso).
+
+Se disabiliti o non configuri questi criteri, il nome canonico del server verrà utilizzato e sarà determinato mediante una ricerca CNAME.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DisableAuthNegotiateCnameLookup
+  - Nome GP: Disabilita la ricerca CNAME durante la negoziazione dell'autenticazione Kerberos
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DisableAuthNegotiateCnameLookup
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DisableAuthNegotiateCnameLookup
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnableAuthNegotiatePort
+  #### Includi la porta non standard in SPN Kerberos
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se l'SPN Kerberos generato deve includere una porta non standard.
+
+Se abiliti questi criteri e un utente include una porta non standard (una porta diversa da 80 o 443) in un URL, tale porta è inclusa nell'SPN Kerberos generato.
+
+Se non configuri o disabiliti questi criteri, l'SPN Kerberos generato non includerà una porta in ogni caso.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnableAuthNegotiatePort
+  - Nome GP: Includi la porta non standard in SPN Kerberos
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Autenticazione HTTP
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EnableAuthNegotiatePort
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnableAuthNegotiatePort
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NtlmV2Enabled
+  #### Controlla se è abilitata l'autenticazione NTLMv2
+  >Versioni supportate: Microsoft Edge in Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se NTLMv2 è abilitato.
+
+Tutte le versioni recenti dei server Samba e Windows supportano NTLMv2. Disattiva NTLMv2 solo per risolvere i problemi di compatibilità con le versioni precedenti in quanto riduce la sicurezza dell'autenticazione.
+
+Se non configuri questi criteri, NTLMv2 è abilitato per impostazione predefinita.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NtlmV2Enabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Avvio&comma; pagina iniziale e nuova scheda policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### HomepageIsNewTabPage
+  #### Imposta la nuova scheda come home page
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura la home page predefinita in Microsoft Edge. Puoi impostare la home page su un URL specificato o sulla nuova scheda.
+
+Se abiliti questi criteri, la nuova scheda viene sempre utilizzata per la home page e la posizione dell'URL della home page viene ignorata.
+
+Se disabiliti questi criteri, la home page dell'utente non può essere la nuova scheda, a meno che l'URL non sia impostato su "edge://newtab".
+
+Se non configuri questi criteri, gli utenti possono scegliere se la nuova scheda è la home page.
+
+Questi criteri sono disponibili solo per le istanze di Windows aggiunte a un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: HomepageIsNewTabPage
+  - Nome GP: Imposta la nuova scheda come home page
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: HomepageIsNewTabPage
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: HomepageIsNewTabPage
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### HomepageLocation
+  #### Configura l'URL della home page
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configures the default home page URL in Microsoft Edge.
+
+The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+
+You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+
+If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+
+If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: HomepageLocation
+  - Nome GP: Configura l'URL della home page
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: HomepageLocation
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://www.contoso.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: HomepageLocation
+  - Valore di esempio:
+``` xml
+<string>https://www.contoso.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NewTabPageCompanyLogo
+  #### Imposta logo aziendale nuova scheda
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Specifica il logo aziendale da utilizzare nella nuova scheda in Microsoft Edge.
+
+I criteri devono essere configurati come stringa che esprime il logo o i loghi in formato JSON. Ad esempio: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+
+Per configurare questi criteri, specifica l'URL da cui Microsoft Edge può scaricare il logo e l'hash di crittografia (Agente integrità sistema-256) utilizzato per verificare l'integrità del download. Il logo deve essere in formato PNG o SVG e le dimensioni del file non devono superare i 16 MB. Il logo viene scaricato e memorizzato nella cache e verrà riscaricato ogni volta che l'URL o l'hash viene modificato. L'URL deve essere accessibile senza alcuna autenticazione.
+
+Il valore "default_logo" è obbligatorio e viene utilizzato quando non c'è un'immagine di sfondo. Se fornito, "light_logo" viene utilizzato quando la nuova scheda dell'utente ha un'immagine di sfondo. È consigliabile utilizzare un logo orizzontale con uno sfondo trasparente allineato a sinistra e centrato verticalmente. Il logo deve avere un'altezza minima di 32 pixel e proporzioni da 1:1 a 4:1. "default_logo" deve avere un contrasto corretto rispetto a uno sfondo bianco/nero mentre "light_logo" deve avere un contrasto corretto rispetto all'immagine di sfondo.
+
+Se abiliti questi criteri, Microsoft Edge scarica e mostra i logo specificati nella nuova scheda. Gli utenti non possono ignorare o nascondere il logo.
+
+Se disabiliti o non configuri questi criteri, Microsoft Edge non visualizza alcun logo aziendale o Microsoft nella nuova scheda.
+
+Per informazioni sulla determinazione dell'hash Agente integrità sistema-256, vedi https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NewTabPageCompanyLogo
+  - Nome GP: Imposta logo aziendale nuova scheda
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: NewTabPageCompanyLogo
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
+  "default_logo": {
+    "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29", 
+    "url": "https://www.contoso.com/logo.png"
+  }, 
+  "light_logo": {
+    "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737", 
+    "url": "https://www.contoso.com/light_logo.png"
+  }
+}
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NewTabPageCompanyLogo
+  - Valore di esempio:
+``` xml
+<key>NewTabPageCompanyLogo</key>
+<dict>
+  <key>default_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29</string>
+    <key>url</key>
+    <string>https://www.contoso.com/logo.png</string>
+  </dict>
+  <key>light_logo</key>
+  <dict>
+    <key>hash</key>
+    <string>517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737</string>
+    <key>url</key>
+    <string>https://www.contoso.com/light_logo.png</string>
+  </dict>
+</dict>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NewTabPageHideDefaultTopSites
+  #### Nascondi i siti principali predefiniti dalla nuova scheda
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Nasconde i siti principali predefiniti dalla nuova scheda in Microsoft Edge.
+
+Se imposti questi criteri su true, i riquadri predefiniti sulla parte superiore del sito vengono nascosti.
+
+Se imposti questi criteri su false o non li configuri, i riquadri predefiniti sulla parte superiore del sito rimangono visibili.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NewTabPageHideDefaultTopSites
+  - Nome GP: Nascondi i siti principali predefiniti dalla nuova scheda
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: NewTabPageHideDefaultTopSites
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NewTabPageHideDefaultTopSites
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NewTabPageLocation
+  #### Configura l'URL della nuova scheda
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configures the default URL for the new tab page.
+
+This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+
+This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+
+If you don't configure this policy, the default new tab page is used.
+
+If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+
+If an invalid URL is provided, new tabs will open about://blank.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NewTabPageLocation
+  - Nome GP: Configura l'URL della nuova scheda
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: NewTabPageLocation
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://www.fabrikam.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NewTabPageLocation
+  - Valore di esempio:
+``` xml
+<string>https://www.fabrikam.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NewTabPageManagedQuickLinks
+  #### Imposta collegamenti rapidi per la nuova scheda
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Per impostazione predefinita, Microsoft Edge visualizza i collegamenti rapidi nella nuova scheda dai collegamenti aggiunti dall'utente e i siti principali in base alla cronologia esplorazioni. Grazie a questi criteri, puoi configurare fino a tre riquadri di collegamento rapido nella nuova scheda, espressa come oggetto JSON:
+
+[ { "url": "https://www.contoso.com", "title": "Contoso Portal", "pinned": true/false }, ... ]
+
+Il campo 'URL' è obbligatorio. 'title' e 'bloccato' sono facoltativi. Se 'title' non è specificato, l'URL viene utilizzato come titolo predefinito. Se 'bloccato' non è specificato, il valore predefinito è false.
+
+Microsoft Edge li presenta nell'ordine elencato, da sinistra a destra, con tutti i riquadri bloccati davanti ai riquadri non bloccati.
+
+Se i criteri sono impostati come obbligatori, il campo 'bloccato' verrà ignorato e tutti i riquadri verranno bloccati. I riquadri non possono essere eliminati dall'utente e verranno sempre visualizzati nella parte anteriore dell'elenco dei collegamenti rapidi.
+
+Se i criteri sono impostati come consigliato, i riquadri aggiunti rimarranno nell'elenco, ma l'utente potrà modificarli ed eliminarli. I riquadri collegamenti rapidi non bloccati si comportano come i siti principali predefiniti e vengono spostati fuori dall'elenco se altri siti Web vengono visitati più di frequente. Quando si applicano collegamenti non bloccati tramite questi criteri a un profilo del browser esistente, i collegamenti potrebbero non essere visualizzati, a seconda del livello di classificazione rispetto alla cronologia esplorazioni dell'utente.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NewTabPageManagedQuickLinks
+  - Nome GP: Imposta collegamenti rapidi per la nuova scheda
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: NewTabPageManagedQuickLinks
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
+  {
+    "pinned": true, 
+    "title": "Contoso Portal", 
+    "url": "https://contoso.com"
+  }, 
+  {
+    "title": "Fabrikam", 
+    "url": "https://fabrikam.com"
+  }
+]
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NewTabPageManagedQuickLinks
+  - Valore di esempio:
+``` xml
+<key>NewTabPageManagedQuickLinks</key>
+<array>
+  <dict>
+    <key>pinned</key>
+    <true/>
+    <key>title</key>
+    <string>Contoso Portal</string>
+    <key>url</key>
+    <string>https://contoso.com</string>
+  </dict>
+  <dict>
+    <key>title</key>
+    <string>Fabrikam</string>
+    <key>url</key>
+    <string>https://fabrikam.com</string>
+  </dict>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NewTabPageSetFeedType
+  #### Configure the Microsoft Edge new tab page experience
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+
+When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+
+When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+
+If you disable or don't configure this policy:
+
+- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+
+- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+
+If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+
+Default setting:  Disabled or not configured.
+
+* 0 = Microsoft News feed experience
+
+* 1 = Office 365 feed experience
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NewTabPageSetFeedType
+  - Nome GP: Configure the Microsoft Edge new tab page experience
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: NewTabPageSetFeedType
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NewTabPageSetFeedType
+  - Valore di esempio:
+``` xml
+<integer>0</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RestoreOnStartup
+  #### Azione da eseguire all'avvio
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica come Microsoft Edge deve comportarsi all'avvio.
+
+Se vuoi che una nuova scheda si apra sempre all'avvio, scegli "Apri una nuova scheda" (5).
+
+Se vuoi riaprire l'URL che era aperto l'ultima volta che Microsoft Edge è stato chiuso, scegli "Ripristina l'ultima sessione" (1). Viene ripristinata la sessione di esplorazione precedente. Tieni presente che questa opzione disabilita alcune impostazioni che si basano su sessioni o che eseguono azioni in uscita (ad esempio cancellare i dati di navigazione all'uscita o i cookie solo della sessione).
+
+Se vuoi aprire un set specifico di URL, scegli "Apri un elenco di URL" (4).
+
+La disattivazione di questa impostazione equivale a lasciarla non configurata. Gli utenti possono modificarla in Microsoft Edge.
+
+Questi criteri sono disponibili solo per istanze di Windows che fanno parte di un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+* 5 = Apri una nuova scheda
+
+* 1 = Ripristina l'ultima sessione
+
+* 4 = Apri un elenco di URL
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RestoreOnStartup
+  - Nome GP: Azione da eseguire all'avvio
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: RestoreOnStartup
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000004
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RestoreOnStartup
+  - Valore di esempio:
+``` xml
+<integer>4</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RestoreOnStartupURLs
+  #### Siti da aprire quando si avvia il browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+
+This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+
+This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RestoreOnStartupURLs
+  - Nome GP: Siti da aprire quando si avvia il browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati\RestoreOnStartupURLs
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\0 = "https://contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RestoreOnStartupURLs
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://contoso.com</string>
+  <string>https://www.fabrikam.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ShowHomeButton
+  #### Mostra pulsante Home sulla barra degli strumenti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Mostra il pulsante Home nella barra degli strumenti di Microsoft Edge.
+
+Abilita questi criteri per visualizzare sempre il pulsante Home. Disabilitali in modo da non visualizzare mai il pulsante.
+
+Se non configuri i criteri, gli utenti possono scegliere se visualizzare il pulsante Home.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ShowHomeButton
+  - Nome GP: Mostra pulsante Home sulla barra degli strumenti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ShowHomeButton
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ShowHomeButton
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Cast policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnableMediaRouter
+  #### Abilita Google Cast
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita questi criteri per attivare Google Cast. Gli utenti saranno in grado di avviarla dal menu app, dai menu di scelta rapida della pagina, dai controlli multimediali nei siti Web abilitati per Cast e (se visualizzata) dall'icona sulla barra degli strumenti di Cast.
+
+Disabilita questi criteri per disabilitare Google Cast.
+
+Per impostazione predefinita, Google Cast è abilitata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnableMediaRouter
+  - Nome GP: Abilita Google Cast
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Cast
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EnableMediaRouter
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnableMediaRouter
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ShowCastIconInToolbar
+  #### Mostra l'icona cast nella barra degli strumenti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+
+If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+
+If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ShowCastIconInToolbar
+  - Nome GP: Mostra l'icona cast nella barra degli strumenti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Cast
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ShowCastIconInToolbar
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ShowCastIconInToolbar
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Estensioni policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionAllowedTypes
+  #### Configura i tipi di estensione consentiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controls which extension types can be installed and limits runtime access.
+
+This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+
+Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+
+If you enable this policy, only extensions that match a type in the list are installed.
+
+If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionAllowedTypes
+  - Nome GP: Configura i tipi di estensione consentiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\0 = "hosted_app"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionAllowedTypes
+  - Valore di esempio:
+``` xml
+<array>
+  <string>hosted_app</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionInstallAllowlist
+  #### Consenti l'installazione di estensioni specifiche
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Per impostazione predefinita sono consentite tutte le estensioni. Tuttavia, se blocchi tutte le estensioni impostando i criteri "ExtensionInstallBlockList" su "*" gli utenti potranno installare solo le estensioni definite in questi criteri.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionInstallAllowlist
+  - Nome GP: Consenti l'installazione di estensioni specifiche
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\0 = "extension_id1"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension_id2"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionInstallAllowlist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>extension_id1</string>
+  <string>extension_id2</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionInstallBlocklist
+  #### Controlla le estensioni che non possono essere installate
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Elenca estensioni specifiche che gli utenti NON possono installare in Microsoft Edge. Quando distribuisci questi criteri, tutte le estensioni in questo elenco installate in precedenza vengono disabilitate e l'utente non può più abilitarle. Se rimuovi una voce dall'elenco delle estensioni bloccate, tale estensione viene riabilitata automaticamente laddove era installata in precedenza.
+
+Utilizza "*" per bloccare tutte le estensioni che non sono elencate in modo esplicito nell'elenco Consenti.
+
+Se non configuri questi criteri, gli utenti possono installare le estensioni in Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionInstallBlocklist
+  - Nome GP: Controlla le estensioni che non possono essere installate
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\0 = "extension_id1"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionInstallBlocklist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>extension_id1</string>
+  <string>extension_id2</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionInstallForcelist
+  #### Controlla quali estensioni vengono installate automaticamente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+
+This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+
+For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+
+Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+
+Use the following format to add an extension to the list:
+
+[extensionID];[updateURL]
+
+- extensionID - the 32-letter string found on edge://extensions when in developer mode.
+
+- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+
+For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+
+If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+
+Note that this policy doesn't apply to InPrivate mode.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionInstallForcelist
+  - Nome GP: Controlla quali estensioni vengono installate automaticamente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\0 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnopabcdefghijklmnop"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionInstallForcelist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx</string>
+  <string>abcdefghijklmnopabcdefghijklmnop</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionInstallSources
+  #### Configura le origini di installazione degli script degli utenti e delle estensioni
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define URLs that can install extensions and themes.
+
+By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+
+Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+
+The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionInstallSources
+  - Nome GP: Configura le origini di installazione degli script degli utenti e delle estensioni
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources\0 = "https://corp.contoso.com/*"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionInstallSources
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://corp.contoso.com/*</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExtensionSettings
+  #### Configura le impostazioni di gestione delle estensioni
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura le impostazioni di gestione delle estensioni per Microsoft Edge.
+
+Questi criteri gestiscono diverse impostazioni, incluse quelle controllate dai criteri correlati alle estensioni. Questi criteri sostituiscono i criteri legacy, se entrambi impostati.
+
+Questi criteri eseguono il mapping di un ID estensione o un URL di aggiornamento alla configurazione. Con l'ID estensione, la configurazione viene applicata solo all'estensione specificata. Imposta una configurazione predefinita per l'ID speciale "*", da applicare a tutte le estensioni specificatamente elencate in questi criteri. Con un URL di aggiornamento, la configurazione viene applicata a tutte le estensioni con l'URL di aggiornamento esatto specificato nel manifesto dell'estensione, come descritto in [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExtensionSettings
+  - Nome GP: Configura le impostazioni di gestione delle estensioni
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Estensioni
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ExtensionSettings
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
+  "*": {
+    "allowed_types": [
+      "hosted_app"
+    ], 
+    "blocked_install_message": "Custom error message.", 
+    "blocked_permissions": [
+      "downloads", 
+      "bookmarks"
+    ], 
+    "install_sources": [
+      "https://company-intranet/apps"
+    ], 
+    "installation_mode": "blocked", 
+    "runtime_allowed_hosts": [
+      "*://good.contoso.com"
+    ], 
+    "runtime_blocked_hosts": [
+      "*://*.contoso.com"
+    ]
+  }, 
+  "abcdefghijklmnopabcdefghijklmnop": {
+    "blocked_permissions": [
+      "history"
+    ], 
+    "installation_mode": "allowed", 
+    "minimum_version_required": "1.0.1"
+  }, 
+  "bcdefghijklmnopabcdefghijklmnopa": {
+    "allowed_permissions": [
+      "downloads"
+    ], 
+    "installation_mode": "force_installed", 
+    "runtime_allowed_hosts": [
+      "*://good.contoso.com"
+    ], 
+    "runtime_blocked_hosts": [
+      "*://*.contoso.com"
+    ], 
+    "update_url": "https://contoso.com/update_url"
+  }, 
+  "cdefghijklmnopabcdefghijklmnopab": {
+    "blocked_install_message": "Custom error message.", 
+    "installation_mode": "blocked"
+  }, 
+  "defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd": {
+    "blocked_install_message": "Custom error message.", 
+    "installation_mode": "blocked"
+  }, 
+  "fghijklmnopabcdefghijklmnopabcde": {
+    "blocked_install_message": "Custom removal message.", 
+    "installation_mode": "removed"
+  }, 
+  "update_url:https://www.contoso.com/update.xml": {
+    "allowed_permissions": [
+      "downloads"
+    ], 
+    "blocked_permissions": [
+      "wallpaper"
+    ], 
+    "installation_mode": "allowed"
+  }
+}
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExtensionSettings
+  - Valore di esempio:
+``` xml
+<key>ExtensionSettings</key>
+<dict>
+  <key>*</key>
+  <dict>
+    <key>allowed_types</key>
+    <array>
+      <string>hosted_app</string>
+    </array>
+    <key>blocked_install_message</key>
+    <string>Custom error message.</string>
+    <key>blocked_permissions</key>
+    <array>
+      <string>downloads</string>
+      <string>bookmarks</string>
+    </array>
+    <key>install_sources</key>
+    <array>
+      <string>https://company-intranet/apps</string>
+    </array>
+    <key>installation_mode</key>
+    <string>blocked</string>
+    <key>runtime_allowed_hosts</key>
+    <array>
+      <string>*://good.contoso.com</string>
+    </array>
+    <key>runtime_blocked_hosts</key>
+    <array>
+      <string>*://*.contoso.com</string>
+    </array>
+  </dict>
+  <key>abcdefghijklmnopabcdefghijklmnop</key>
+  <dict>
+    <key>blocked_permissions</key>
+    <array>
+      <string>history</string>
+    </array>
+    <key>installation_mode</key>
+    <string>allowed</string>
+    <key>minimum_version_required</key>
+    <string>1.0.1</string>
+  </dict>
+  <key>bcdefghijklmnopabcdefghijklmnopa</key>
+  <dict>
+    <key>allowed_permissions</key>
+    <array>
+      <string>downloads</string>
+    </array>
+    <key>installation_mode</key>
+    <string>force_installed</string>
+    <key>runtime_allowed_hosts</key>
+    <array>
+      <string>*://good.contoso.com</string>
+    </array>
+    <key>runtime_blocked_hosts</key>
+    <array>
+      <string>*://*.contoso.com</string>
+    </array>
+    <key>update_url</key>
+    <string>https://contoso.com/update_url</string>
+  </dict>
+  <key>cdefghijklmnopabcdefghijklmnopab</key>
+  <dict>
+    <key>blocked_install_message</key>
+    <string>Custom error message.</string>
+    <key>installation_mode</key>
+    <string>blocked</string>
+  </dict>
+  <key>defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd</key>
+  <dict>
+    <key>blocked_install_message</key>
+    <string>Custom error message.</string>
+    <key>installation_mode</key>
+    <string>blocked</string>
+  </dict>
+  <key>fghijklmnopabcdefghijklmnopabcde</key>
+  <dict>
+    <key>blocked_install_message</key>
+    <string>Custom removal message.</string>
+    <key>installation_mode</key>
+    <string>removed</string>
+  </dict>
+  <key>update_url:https://www.contoso.com/update.xml</key>
+  <dict>
+    <key>allowed_permissions</key>
+    <array>
+      <string>downloads</string>
+    </array>
+    <key>blocked_permissions</key>
+    <array>
+      <string>wallpaper</string>
+    </array>
+    <key>installation_mode</key>
+    <string>allowed</string>
+  </dict>
+</dict>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Impostazioni SmartScreen policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PreventSmartScreenPromptOverride
+  #### Impedisci di ignorare i prompt di Microsoft Defender SmartScreen per i siti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Questa impostazione dei criteri consente di decidere se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen sui siti Web potenzialmente dannosi.
+
+Se abiliti questa impostazione, gli utenti non possono ignorare gli avvisi di Microsoft Defender SmartScreen e non possono passare al sito.
+
+Se disabiliti o non configuri questa impostazione, gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen e passare al sito.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PreventSmartScreenPromptOverride
+  - Nome GP: Impedisci di ignorare i prompt di Microsoft Defender SmartScreen per i siti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PreventSmartScreenPromptOverride
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PreventSmartScreenPromptOverride
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PreventSmartScreenPromptOverrideForFiles
+  #### Impedisci di ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Questi criteri consentono di determinare se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download non verificati.
+
+Se abiliti questi criteri, gli utenti dell'organizzazione non possono ignorare gli avvisi di Microsoft Defender SmartScreen in quanto impossibilitati a completare i download non verificati.
+
+Se disabiliti o non configuri questi criteri, gli utenti possono ignorare gli avvisi Microsoft Defender SmartScreen e completare i download non verificati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PreventSmartScreenPromptOverrideForFiles
+  - Nome GP: Impedisci di ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PreventSmartScreenPromptOverrideForFiles
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PreventSmartScreenPromptOverrideForFiles
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SmartScreenAllowListDomains
+  #### Configura l'elenco dei domini per cui Microsoft Defender SmartScreen non attiva gli avvisi
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura l'elenco dei domini attendibili di Microsoft Defender SmartScreen. Ciò significa che:
+Microsoft Defender SmartScreen non verifica la presenza di risorse potenzialmente dannose come il software di phishing e altri malware se gli URL di origine corrispondono a questi domini.
+Il servizio di protezione download di Microsoft Defender SmartScreen non verifica i download ospitati in questi domini.
+
+Se abiliti questi criteri, Microsoft Defender SmartScreen considera attendibili questi domini.
+Se disabiliti o non imposti questi criteri, la protezione Microsoft Defender SmartScreen predefinita viene applicata a tutte le risorse.
+Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o sulle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+Tieni inoltre presente che questi criteri non si applicano se l'organizzazione ha abilitato Microsoft Defender Advanced Threat Protection. In questo caso, devi configurare gli elenchi Consenti e Blocca in Microsoft Defender Security Center.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SmartScreenAllowListDomains
+  - Nome GP: Configura l'elenco dei domini per cui Microsoft Defender SmartScreen non attiva gli avvisi
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\0 = "mydomain.com"
+SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SmartScreenAllowListDomains
+  - Valore di esempio:
+``` xml
+<array>
+  <string>mydomain.com</string>
+  <string>myuniversity.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SmartScreenEnabled
+  #### Configura Microsoft Defender SmartScreen
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+
+If you enable this setting, Microsoft Defender SmartScreen is turned on.
+
+If you disable this setting, Microsoft Defender SmartScreen is turned off.
+
+If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SmartScreenEnabled
+  - Nome GP: Configura Microsoft Defender SmartScreen
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Impostazioni SmartScreen
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: SmartScreenEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SmartScreenEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SmartScreenForTrustedDownloadsEnabled
+  #### Forza i controlli Microsoft Defender SmartScreen per i download da origini attendibili
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Questa impostazione dei criteri consente di specificare se Microsoft Defender SmartScreen controlla la reputazione di download da una fonte attendibile.
+
+Se abiliti o non configuri questa impostazione, Microsoft Defender SmartScreen controlla la reputazione di download indipendentemente dall'origine.
+
+Se disabiliti questa impostazione, Microsoft Defender SmartScreen non controlla la reputazione di download durante il download da una fonte attendibile.
+
+Questi criteri sono disponibili solo nelle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o nelle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SmartScreenForTrustedDownloadsEnabled
+  - Nome GP: Forza i controlli Microsoft Defender SmartScreen per i download da origini attendibili
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Impostazioni SmartScreen
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: SmartScreenForTrustedDownloadsEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SmartScreenPuaEnabled
+  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
+
+  #### Descrizione
+  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+
+If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+
+If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+
+If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SmartScreenPuaEnabled
+  - Nome GP: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Impostazioni SmartScreen
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: SmartScreenPuaEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SmartScreenPuaEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Impostazioni dei contenuti policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AutoSelectCertificateForUrls
+  #### Seleziona automaticamente i certificati client per questi siti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+
+The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+
+If you don't configure this policy, auto-selection isn't done for any site.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AutoSelectCertificateForUrls
+  - Nome GP: Seleziona automaticamente i certificati client per questi siti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AutoSelectCertificateForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>{"pattern":"https://www.contoso.com","filter":{"ISSUER":{"CN":"certificate issuer name", "L": "certificate issuer location", "O": "certificate issuer org", "OU": "certificate issuer org unit"}, "SUBJECT":{"CN":"certificate subject name", "L": "certificate subject location", "O": "certificate subject org", "OU": "certificate subject org unit"}}}</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CookiesAllowedForUrls
+  #### Consenti i cookie per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+
+If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+
+See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+
+Note there cannot be conflicting URL patterns set between these three policies:
+
+- [CookiesBlockedForUrls](#cookiesblockedforurls)
+
+- CookiesAllowedForUrls
+
+- [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CookiesAllowedForUrls
+  - Nome GP: Consenti i cookie per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CookiesAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CookiesBlockedForUrls
+  #### Blocca i cookie per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can't set cookies.
+
+If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+
+See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+
+Note there cannot be conflicting URL patterns set between these three policies:
+
+- CookiesBlockedForUrls
+
+- [CookiesAllowedForUrls](#cookiesallowedforurls)
+
+- [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CookiesBlockedForUrls
+  - Nome GP: Blocca i cookie per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CookiesBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CookiesSessionOnlyForUrls
+  #### Limita i cookie provenienti da siti Web specifici per la sessione corrente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+
+Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+
+If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+
+You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
+
+Note there cannot be conflicting URL patterns set between these three policies:
+
+- [CookiesBlockedForUrls](#cookiesblockedforurls)
+
+- [CookiesAllowedForUrls](#cookiesallowedforurls)
+
+- CookiesSessionOnlyForUrls
+
+If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CookiesSessionOnlyForUrls
+  - Nome GP: Limita i cookie provenienti da siti Web specifici per la sessione corrente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CookiesSessionOnlyForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultCookiesSetting
+  #### Configura i cookie
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+
+Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+
+If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+
+* 1 = Let all sites create cookies
+
+* 2 = Don't let any site create cookies
+
+* 4 = Keep cookies for the duration of the session
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultCookiesSetting
+  - Nome GP: Configura i cookie
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultCookiesSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultCookiesSetting
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultGeolocationSetting
+  #### Impostazione predefinita per la georilevazione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se i siti Web possono tenere traccia delle posizioni fisiche degli utenti. Puoi consentire la registrazione per impostazione predefinita (1), rifiutarla per impostazione predefinita (2) oppure chiedere all'utente ogni volta che un sito Web richiede la loro posizione (3).
+
+Se non configuri questi criteri, vengono utilizzati i criteri 'AskGeolocation' e gli utenti possono modificarli.
+
+* 1 = Consenti ai siti di tener traccia della posizione degli utenti
+
+* 2 = Non consentire a nessun sito di tener traccia della posizione fisica degli utenti
+
+* 3 = Chiedi ogni volta che un sito vuole tener traccia della posizione fisica degli utenti
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultGeolocationSetting
+  - Nome GP: Impostazione predefinita per la georilevazione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultGeolocationSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultGeolocationSetting
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultImagesSetting
+  #### Impostazione predefinita per le immagini
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se i siti Web possono visualizzare immagini. Puoi consentire immagini in tutti i siti (1) o bloccarle in tutti i siti (2).
+
+Se non configuri questi criteri, le immagini sono consentite per impostazione predefinita e l'utente può modificare questa impostazione.
+
+* 1 = Consenti a tutti i siti di visualizzare tutte le immagini
+
+* 2 = Non consentire ai siti di visualizzare le immagini
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultImagesSetting
+  - Nome GP: Impostazione predefinita per le immagini
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultImagesSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultImagesSetting
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultJavaScriptSetting
+  #### Impostazione predefinita per JavaScript
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se i siti Web possono eseguire JavaScript. Puoi consentirlo per tutti i siti (1) o bloccarlo per tutti i siti (2).
+
+Se non configuri questi criteri, tutti i siti possono eseguire JavaScript per impostazione predefinita e l'utente potrà modificare questa impostazione.
+
+* 1 = Consenti a tutti i siti di eseguire JavaScript
+
+* 2 = Non consentire a tutti i siti di eseguire JavaScript
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultJavaScriptSetting
+  - Nome GP: Impostazione predefinita per JavaScript
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultJavaScriptSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultJavaScriptSetting
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultNotificationsSetting
+  #### Impostazione predefinita per la notifica
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se i siti Web possono visualizzare notifiche sul desktop. Puoi consentirle per impostazione predefinita (1), rifiutarle per impostazione predefinita (2) oppure fare in modo che all'utente venga richiesto ogni volta che un sito Web sta tentando di visualizzare una notifica (3).
+
+Se non configuri questi criteri, le notifiche sono consentite per impostazione predefinita e l'utente potrà modificare questa impostazione.
+
+* 1 = Consenti ai siti di visualizzare notifiche sul desktop
+
+* 2 = Non consentire ai siti di mostrare le notifiche sul desktop
+
+* 3 = Chiedi ogni volta che un sito sta tentando di visualizzare notifiche sul desktop
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultNotificationsSetting
+  - Nome GP: Impostazione predefinita per la notifica
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultNotificationsSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultNotificationsSetting
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultPluginsSetting
+  #### Impostazione predefinita per Adobe Flash
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+
+Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+
+If you don't configure this policy, the user can change this setting manually.
+
+* 2 = Block the Adobe Flash plug-in
+
+* 3 = Click to play
+
+The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultPluginsSetting
+  - Nome GP: Impostazione predefinita per Adobe Flash
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultPluginsSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultPluginsSetting
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultPopupsSetting
+  #### Impostazione predefinita per la finestra popup
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se i siti Web possono visualizzare finestre popup. Puoi consentirle su tutti i siti Web (1) o bloccarle su tutti i siti (2).
+
+Se non configuri questi criteri, le finestre popup sono bloccate per impostazione predefinita e gli utenti possono modificare questa impostazione.
+
+* 1 = Consenti a tutti i siti di mostrare i popup
+
+* 2 = Non consentire ai siti di visualizzare le finestre popup
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultPopupsSetting
+  - Nome GP: Impostazione predefinita per la finestra popup
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultPopupsSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultPopupsSetting
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultWebBluetoothGuardSetting
+  #### Controlla l'uso dell'API Web Bluetooth
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se i siti Web possono accedere ai dispositivi Bluetooth nelle vicinanze. Puoi totalmente bloccare l'accesso o fare in modo che il sito visualizzi una richiesta per l'utente ogni volta che vuole accedere a un dispositivo Bluetooth.
+
+Se non configuri questi criteri, viene usato il valore predefinito (3, ossia viene visualizzata ogni volta la richiesta per gli utenti) e gli utenti possono modificare il valore.
+
+* 2 = Non consentire ai siti di richiedere l'accesso ai dispositivi Bluetooth utilizzando l'API Web Bluetooth
+
+* 3 = Consenti ai siti di chiedere all'utente di concedere l'accesso a un dispositivo Bluetooth nelle vicinanze
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultWebBluetoothGuardSetting
+  - Nome GP: Controlla l'uso dell'API Web Bluetooth
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultWebBluetoothGuardSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultWebBluetoothGuardSetting
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultWebUsbGuardSetting
+  #### Controlla l'uso dell'API WebUSB
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+
+You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+
+If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+
+* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+
+* 3 = Allow sites to ask the user to grant access to a connected USB device
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultWebUsbGuardSetting
+  - Nome GP: Controlla l'uso dell'API WebUSB
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultWebUsbGuardSetting
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultWebUsbGuardSetting
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImagesAllowedForUrls
+  #### Consenti le immagini per questi siti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can display images.
+
+If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImagesAllowedForUrls
+  - Nome GP: Consenti le immagini per questi siti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImagesAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImagesBlockedForUrls
+  #### Blocca le immagini per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+
+If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImagesBlockedForUrls
+  - Nome GP: Blocca le immagini per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImagesBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### JavaScriptAllowedForUrls
+  #### Consenti JavaScript per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+
+If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: JavaScriptAllowedForUrls
+  - Nome GP: Consenti JavaScript per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: JavaScriptAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### JavaScriptBlockedForUrls
+  #### Blocca JavaScript per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+
+If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: JavaScriptBlockedForUrls
+  - Nome GP: Blocca JavaScript per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: JavaScriptBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NotificationsAllowedForUrls
+  #### Consenti le notifiche per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can display notifications.
+
+If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NotificationsAllowedForUrls
+  - Nome GP: Consenti le notifiche per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NotificationsAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NotificationsBlockedForUrls
+  #### Blocca le notifiche per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+
+If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NotificationsBlockedForUrls
+  - Nome GP: Blocca le notifiche per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NotificationsBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PluginsAllowedForUrls
+  #### Consenti il plug-in Adobe Flash per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+
+If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PluginsAllowedForUrls
+  - Nome GP: Consenti il plug-in Adobe Flash per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PluginsAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PluginsBlockedForUrls
+  #### Blocca il plug-in Adobe Flash per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+
+If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PluginsBlockedForUrls
+  - Nome GP: Blocca il plug-in Adobe Flash per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PluginsBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PopupsAllowedForUrls
+  #### Consenti le finestre popup per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can open pop-up windows.
+
+If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PopupsAllowedForUrls
+  - Nome GP: Consenti le finestre popup per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PopupsAllowedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PopupsBlockedForUrls
+  #### Blocca le finestre popup per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+
+If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PopupsBlockedForUrls
+  - Nome GP: Blocca le finestre popup per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PopupsBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RegisteredProtocolHandlers
+  #### Registra gestori di protocollo
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Registra un elenco di gestori di protocollo. Imposta la proprietà del protocollo sullo schema (ad esempio, 'mailto)' e la proprietà dell'URL sul modello di URL dell'applicazione che gestisce lo schema. Il modello può includere un valore '%s', che verrà sostituito con l'URL gestito.
+
+Puoi suggerire un valore specifico per questi criteri, ma non puoi obbligare gli utenti ad utilizzarli.
+
+I gestori di protocollo registrati dai criteri vengono uniti agli eventuali gestori registrati dall'utente ed entrambi sono disponibili per l'utilizzo. L'utente può ignorare i gestori di protocollo installati dai criteri installando un nuovo gestore predefinito, ma non può rimuovere un gestore di protocollo registrato dai criteri.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: No
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RegisteredProtocolHandlers
+  - Nome GP: Registra gestori di protocollo
+  - Percorso GP (Obbligatorio): N/D
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Impostazioni dei contenuti
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): N/D
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: RegisteredProtocolHandlers
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
+  {
+    "default": true, 
+    "protocol": "mailto", 
+    "url": "https://mail.contoso.com/mail/?extsrc=mailto&url=%s"
+  }
+]
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RegisteredProtocolHandlers
+  - Valore di esempio:
+``` xml
+<key>RegisteredProtocolHandlers</key>
+<array>
+  <dict>
+    <key>default</key>
+    <true/>
+    <key>protocol</key>
+    <string>mailto</string>
+    <key>url</key>
+    <string>https://mail.contoso.com/mail/?extsrc=mailto&url=%s</string>
+  </dict>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebUsbAllowDevicesForUrls
+  #### Concedi l'accesso a siti specifici per la connessione a dispositivi USB specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+
+The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+
+If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+
+URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebUsbAllowDevicesForUrls
+  - Nome GP: Concedi l'accesso a siti specifici per la connessione a dispositivi USB specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: WebUsbAllowDevicesForUrls
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
+  {
+    "devices": [
+      {
+        "product_id": 5678, 
+        "vendor_id": 1234
+      }
+    ], 
+    "urls": [
+      "https://contoso.com", 
+      "https://fabrikam.com"
+    ]
+  }
+]
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebUsbAllowDevicesForUrls
+  - Valore di esempio:
+``` xml
+<key>WebUsbAllowDevicesForUrls</key>
+<array>
+  <dict>
+    <key>devices</key>
+    <array>
+      <dict>
+        <key>product_id</key>
+        <integer>5678</integer>
+        <key>vendor_id</key>
+        <integer>1234</integer>
+      </dict>
+    </array>
+    <key>urls</key>
+    <array>
+      <string>https://contoso.com</string>
+      <string>https://fabrikam.com</string>
+    </array>
+  </dict>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebUsbAskForUrls
+  #### Consenti WebUSB per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+
+If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+
+The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebUsbAskForUrls
+  - Nome GP: Consenti WebUSB per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebUsbAskForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebUsbBlockedForUrls
+  #### Blocca WebUSB per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+
+If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+
+URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebUsbBlockedForUrls
+  - Nome GP: Blocca WebUSB per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebUsbBlockedForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Messaggi nativi policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NativeMessagingAllowlist
+  #### Controlla quali host di messaggistica nativa possono essere utilizzati dagli utenti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  List specific native messaging hosts that users can use in Microsoft Edge.
+
+By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NativeMessagingAllowlist
+  - Nome GP: Controlla quali host di messaggistica nativa possono essere utilizzati dagli utenti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Messaggi nativi
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\0 = "com.native.messaging.host.name1"
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messaging.host.name2"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NativeMessagingAllowlist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>com.native.messaging.host.name1</string>
+  <string>com.native.messaging.host.name2</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NativeMessagingBlocklist
+  #### Configura l'elenco degli host di messaggistica nativa bloccati
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica gli host di messaggistica nativa che non devono essere utilizzati.
+
+Utilizza "*" per bloccare tutti gli host di messaggistica nativa, a meno che non siano elencati in modo esplicito nell'elenco Consenti.
+
+Se non configuri questi criteri, Microsoft Edge carica tutti gli host di messaggistica nativa installati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NativeMessagingBlocklist
+  - Nome GP: Configura l'elenco degli host di messaggistica nativa bloccati
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Messaggi nativi
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\0 = "com.native.messaging.host.name1"
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messaging.host.name2"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NativeMessagingBlocklist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>com.native.messaging.host.name1</string>
+  <string>com.native.messaging.host.name2</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NativeMessagingUserLevelHosts
+  #### Consenti host di messaggistica nativa a livello di utente (installati senza autorizzazioni di amministratore)
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita l'installazione a livello di utente di host di messaggistica nativa.
+
+Se disabiliti questi criteri, Microsoft Edge utilizza solo gli host di messaggistica nativa installati a livello di sistema.
+
+Per impostazione predefinita, se non configuri questi criteri, Microsoft Edge consente l'utilizzo di host di messaggistica nativa a livello di utente.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NativeMessagingUserLevelHosts
+  - Nome GP: Consenti host di messaggistica nativa a livello di utente (installati senza autorizzazioni di amministratore)
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Messaggi nativi
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: NativeMessagingUserLevelHosts
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NativeMessagingUserLevelHosts
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Protezione e gestione password policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PasswordManagerEnabled
+  #### Abilita salvataggio password nella gestione delle password
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita Microsoft Edge per salvare le password degli utenti.
+
+Se abiliti questi criteri, gli utenti possono salvare le password in Microsoft Edge. La prossima volta che accedono al sito, Microsoft Edge immette automaticamente la password.
+
+Se disabiliti questi criteri, gli utenti non possono salvare le nuove password, ma possono comunque utilizzare le password salvate in precedenza.
+
+Se abiliti o disabiliti questi criteri, gli utenti non possono modificare o sostituire la password in Microsoft Edge. Se non vengono configurati, gli utenti possono salvare le password, nonché disattivare questa funzionalità.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PasswordManagerEnabled
+  - Nome GP: Abilita salvataggio password nella gestione delle password
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Protezione e gestione password
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Protezione e gestione password
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: PasswordManagerEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PasswordManagerEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PasswordProtectionChangePasswordURL
+  #### Configura l'URL di modifica password
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura l'URL per la modifica della password (solo schemi HTTP e HTTPS).
+
+Il servizio password di protezione reindirizza gli utenti a questo URL per cambiare la password a seguito dell'avviso visualizzato nel browser.
+
+Se abiliti questi criteri, il servizio password di protezione reindirizza gli utenti a questo URL per cambiare la password.
+
+Se disabiliti o non configuri questi criteri, il servizio password di protezione non reindirizza gli utenti a un URL per la modifica della password.
+
+Questi criteri sono disponibili solo per le istanze di Windows aggiunte a un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PasswordProtectionChangePasswordURL
+  - Nome GP: Configura l'URL di modifica password
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Protezione e gestione password
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PasswordProtectionChangePasswordURL
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://contoso.com/change_password.html"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PasswordProtectionChangePasswordURL
+  - Valore di esempio:
+``` xml
+<string>https://contoso.com/change_password.html</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PasswordProtectionLoginURLs
+  #### Configura l'elenco degli URL di accesso aziendali in cui il servizio di protezione password deve acquisire l'impronta digitale della password
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura l'elenco degli URL di accesso aziendali (solo schemi HTTP e HTTPS) per cui Microsoft Edge deve acquisire l'impronta digitale della password e utilizzarla per il rilevamento del riutilizzo della password.
+
+Se abiliti questi criteri, il servizio password di protezione acquisisce le impronte digitali delle password per gli URL definiti.
+
+Se disabiliti o non configuri questi criteri, non viene acquisita alcuna impronta digitale della password.
+
+Questi criteri sono disponibili solo per le istanze di Windows aggiunte a un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PasswordProtectionLoginURLs
+  - Nome GP: Configura l'elenco degli URL di accesso aziendali in cui il servizio di protezione password deve acquisire l'impronta digitale della password
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Protezione e gestione password
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\0 = "https://contoso.com/login.html"
+SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.contoso.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PasswordProtectionLoginURLs
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://contoso.com/login.html</string>
+  <string>https://login.contoso.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PasswordProtectionWarningTrigger
+  #### Configura il trigger di avviso di protezione password
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+
+You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+
+Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+
+Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+
+Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+
+If you disable or don't configure this policy, then the warning trigger is not shown.
+
+* 0 = Password protection warning is off.
+
+* 1 = Password protection warning is triggered by password reuse.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PasswordProtectionWarningTrigger
+  - Nome GP: Configura il trigger di avviso di protezione password
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Protezione e gestione password
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PasswordProtectionWarningTrigger
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PasswordProtectionWarningTrigger
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Provider di ricerca predefinito policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderEnabled
+  #### Abilita il provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente l'uso di un provider di ricerca predefinito.
+
+Se abiliti questi criteri, un utente può cercare un termine digitando nella barra degli indirizzi (purché non stia digitando un URL).
+
+Puoi specificare il provider di ricerca predefinito da utilizzare abilitando il resto dei criteri di ricerca predefiniti. Se questi vengono lasciati in bianco (non configurati), l'utente può scegliere il provider predefinito.
+
+Se disabiliti questi criteri, l'utente non può eseguire la ricerca dalla barra degli indirizzi.
+
+Se abiliti o disabiliti questi criteri, gli utenti non possono modificarli o eseguirne l'override.
+
+Se non configuri questi criteri, il provider di ricerca predefinito è abilitato e l'utente potrà scegliere il provider di ricerca predefinito e impostare l'elenco di provider di ricerca.
+
+Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderEnabled
+  - Nome GP: Abilita il provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderEncodings
+  #### Codifiche del provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+
+This policy is optional. If not configured, the default, UTF-8, is used.
+
+This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderEncodings
+  - Nome GP: Codifiche del provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\0 = "UTF-8"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\1 = "UTF-16"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\2 = "GB2312"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderEncodings
+  - Valore di esempio:
+``` xml
+<array>
+  <string>UTF-8</string>
+  <string>UTF-16</string>
+  <string>GB2312</string>
+  <string>ISO-8859-1</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderImageURL
+  #### Specifica la funzionalità di ricerca per immagini per il provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+
+This policy is optional. If you don't configure it, image search isn't available.
+
+Specify Bing's Image Search URL as:
+'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+
+Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+
+See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+
+This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderImageURL
+  - Nome GP: Specifica la funzionalità di ricerca per immagini per il provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderImageURL
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://search.contoso.com/searchbyimage/upload"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderImageURL
+  - Valore di esempio:
+``` xml
+<string>https://search.contoso.com/searchbyimage/upload</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderImageURLPostParams
+  #### Parametri per l'URL di un'immagine che utilizza POST
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+Specify Bing's Image Search URL Post Params as:
+'imageBin={google:imageThumbnailBase64}'.
+
+Specify Google's Image Search URL Post Params as:
+'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
+
+If you don’t set this policy, image search requests are sent using the GET method.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderImageURLPostParams
+  - Nome GP: Parametri per l'URL di un'immagine che utilizza POST
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderImageURLPostParams
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"content={imageThumbnail},url={imageURL},sbisrc={SearchSource}"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderImageURLPostParams
+  - Valore di esempio:
+``` xml
+<string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderKeyword
+  #### Parola chiave del provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+
+This policy is optional. If you don't configure it, no keyword activates the search provider.
+
+This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderKeyword
+  - Nome GP: Parola chiave del provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderKeyword
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"mis"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderKeyword
+  - Valore di esempio:
+``` xml
+<string>mis</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderName
+  #### Nome del provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the name of the default search provider.
+
+If you enable this policy, you set the name of the default search provider.
+
+If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+
+'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderName
+  - Nome GP: Nome del provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderName
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"My Intranet Search"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderName
+  - Valore di esempio:
+``` xml
+<string>My Intranet Search</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderSearchURL
+  #### URL di ricerca del provider di ricerca predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+
+Specify Bing's search URL as:
+
+'{bing:baseURL}search?q={searchTerms}'.
+
+Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+
+This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderSearchURL
+  - Nome GP: URL di ricerca del provider di ricerca predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderSearchURL
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://search.contoso.com/search?q={searchTerms}"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderSearchURL
+  - Valore di esempio:
+``` xml
+<string>https://search.contoso.com/search?q={searchTerms}</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultSearchProviderSuggestURL
+  #### URL del provider di ricerca predefinito per i suggerimenti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+
+This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+
+Bing's suggest URL can be specified as:
+
+'{bing:baseURL}qbox?query={searchTerms}'.
+
+Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+
+This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultSearchProviderSuggestURL
+  - Nome GP: URL del provider di ricerca predefinito per i suggerimenti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Provider di ricerca predefinito
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultSearchProviderSuggestURL
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://search.contoso.com/suggest?q={searchTerms}"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultSearchProviderSuggestURL
+  - Valore di esempio:
+``` xml
+<string>https://search.contoso.com/suggest?q={searchTerms}</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Server proxy policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProxyBypassList
+  #### Configura le regole di bypass proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+
+This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+
+If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+
+If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+
+For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProxyBypassList
+  - Nome GP: Configura le regole di bypass proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Server proxy
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProxyBypassList
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://www.contoso.com, https://www.fabrikam.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProxyBypassList
+  - Valore di esempio:
+``` xml
+<string>https://www.contoso.com, https://www.fabrikam.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProxyMode
+  #### Configura le impostazioni del server proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+
+If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+
+If you choose to use system proxy settings, all other options are ignored.
+
+If you choose to auto detect the proxy server, all other options are ignored.
+
+If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+
+If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+
+For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+
+If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+
+If you don't configure this policy users can choose their own proxy settings.
+
+* "direct" = Never use a proxy
+
+* "auto_detect" = Auto detect proxy settings
+
+* "pac_script" = Use a .pac proxy script
+
+* "fixed_servers" = Use fixed proxy servers
+
+* "system" = Use system proxy settings
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProxyMode
+  - Nome GP: Configura le impostazioni del server proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Server proxy
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProxyMode
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"direct"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProxyMode
+  - Valore di esempio:
+``` xml
+<string>direct</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProxyPacUrl
+  #### Imposta l'URL del file .pac del proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the URL for a proxy auto-config (PAC) file.
+
+This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+
+If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+
+If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+
+For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProxyPacUrl
+  - Nome GP: Imposta l'URL del file .pac del proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Server proxy
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProxyPacUrl
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://internal.contoso.com/example.pac"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProxyPacUrl
+  - Valore di esempio:
+``` xml
+<string>https://internal.contoso.com/example.pac</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProxyServer
+  #### Configura l'indirizzo o l'URL del server proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifies the URL of the proxy server.
+
+This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+
+If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+
+If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+
+For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProxyServer
+  - Nome GP: Configura l'indirizzo o l'URL del server proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Server proxy
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProxyServer
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"123.123.123.123:8080"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProxyServer
+  - Valore di esempio:
+``` xml
+<string>123.123.123.123:8080</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProxySettings
+  #### Impostazioni proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configures the proxy settings for Microsoft Edge.
+
+If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+
+If you don't configure this policy, users can choose their own proxy settings.
+
+This policy overrides the following individual policies:
+
+[ProxyMode](#proxymode)
+[ProxyPacUrl](#proxypacurl)
+[ProxyServer](#proxyserver)
+[ProxyBypassList](#proxybypasslist)
+
+The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+
+The ProxyPacUrl field is a URL to a proxy .pac file.
+
+The ProxyServer field is a URL for the proxy server.
+
+The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+
+If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+
+If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+
+If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+
+If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+
+If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProxySettings
+  - Nome GP: Impostazioni proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Server proxy
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProxySettings
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
+  "ProxyBypassList": "https://www.example1.com,https://www.example2.com,https://internalsite/", 
+  "ProxyMode": "direct", 
+  "ProxyPacUrl": "https://internal.site/example.pac", 
+  "ProxyServer": "123.123.123.123:8080"
+}
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProxySettings
+  - Valore di esempio:
+``` xml
+<key>ProxySettings</key>
+<dict>
+  <key>ProxyBypassList</key>
+  <string>https://www.example1.com,https://www.example2.com,https://internalsite/</string>
+  <key>ProxyMode</key>
+  <string>direct</string>
+  <key>ProxyPacUrl</key>
+  <string>https://internal.site/example.pac</string>
+  <key>ProxyServer</key>
+  <string>123.123.123.123:8080</string>
+</dict>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Stampa policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultPrinterSelection
+  #### Regole di selezione della stampante predefinita
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Sostituisce le regole di selezione della stampante predefinita di Microsoft Edge. Questi criteri determinano le regole per la selezione della stampante predefinita in Microsoft Edge che viene effettuata la prima volta che un utente tenta di stampare una pagina.
+
+Quando questi criteri sono impostati, Microsoft Edge tenta di trovare una stampante che corrisponda a tutti gli attributi specificati e la utilizza come stampante predefinita. Se sono presenti più stampanti che soddisfano i criteri, viene utilizzata la prima stampante corrispondente.
+
+Se non configuri questi criteri o nessuna stampante corrispondente viene trovata entro il timeout, l'impostazione predefinita è la stampante PDF incorporata o nessuna stampante, se la stampante PDF non è disponibile.
+
+Il valore viene analizzato come un oggetto JSON, in base allo schema seguente: { "type": "object", "properties": { "idPattern": { "description": "Regular expression to match printer id.", "type": "string" }, "namePattern": { "description": "Regular expression to match printer display name.", "type": "string" } } }
+
+L'omissione di un campo indica che tutti i valori corrispondono. Se ad esempio non specifichi la connettività, Anteprima di stampa inizia a cercare tutti i tipi di stampanti locali. I modelli di espressione regolare devono seguire la sintassi RegExp JavaScript e le corrispondenze rispettano la differenza tra maiuscolo e minuscolo.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultPrinterSelection
+  - Nome GP: Regole di selezione della stampante predefinita
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Stampa
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultPrinterSelection
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"{ "idPattern": ".*public", "namePattern": ".*Color" }"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultPrinterSelection
+  - Valore di esempio:
+``` xml
+<string>{ "idPattern": ".*public", "namePattern": ".*Color" }</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PrintHeaderFooter
+  #### Stampa intestazioni e piè di pagina
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Forza l'attivazione o la disattivazione di 'intestazioni e piè di pagina' nella finestra di dialogo di stampa.
+
+Se non configuri questi criteri, gli utenti possono decidere se stampare intestazioni e piè di pagina.
+
+Se disabiliti questi criteri, gli utenti non possono stampare intestazioni e piè di pagina.
+
+Se abiliti questi criteri, gli utenti stampano sempre intestazioni e piè di pagina.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PrintHeaderFooter
+  - Nome GP: Stampa intestazioni e piè di pagina
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Stampa
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Stampa
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: PrintHeaderFooter
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PrintHeaderFooter
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PrintPreviewUseSystemDefaultPrinter
+  #### Imposta stampante predefinita del sistema come stampante predefinita
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Indica a Microsoft Edge di utilizzare la stampante predefinita di sistema come opzione predefinita nella finestra Anteprima di stampa anziché la stampante utilizzata più di recente.
+
+Se disabiliti o non configuri questi criteri, Anteprima di stampa utilizza la stampante utilizzata più di recente come scelta di destinazione predefinita.
+
+Se abiliti questi criteri, Anteprima di stampa utilizza la stampante predefinita del sistema operativo come scelta di destinazione predefinita.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PrintPreviewUseSystemDefaultPrinter
+  - Nome GP: Imposta stampante predefinita del sistema come stampante predefinita
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Stampa
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Stampa
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: PrintPreviewUseSystemDefaultPrinter
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PrintPreviewUseSystemDefaultPrinter
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PrintingEnabled
+  #### Abilita stampa
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita la stampa in Microsoft Edge e impedisce agli utenti di modificare questa impostazione.
+
+Se abiliti o non configuri questi criteri, gli utenti possono stampare.
+
+Se disabiliti questi criteri, gli utenti non possono stampare da Microsoft Edge. La stampa è disabilitata nel menu chiave inglese, nelle estensioni, nelle applicazioni JavaScript e così via. Gli utenti possono comunque stampare dai plug-in che ignorano Microsoft Edge durante la stampa. Ad esempio, alcune applicazioni Adobe Flash hanno l'opzione di stampa nel menu di scelta rapida, che non è coperto da questi criteri.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PrintingEnabled
+  - Nome GP: Abilita stampa
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Stampa
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PrintingEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PrintingEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### UseSystemPrintDialog
+  #### Stampa utilizzando la finestra di dialogo Stampa del sistema
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Mostra la finestra di dialogo di stampa del sistema anziché l'anteprima di stampa.
+
+Se abiliti questi criteri, Microsoft Edge apre la finestra di dialogo di stampa del sistema anziché l'anteprima di stampa incorporata quando un utente stampa una pagina.
+
+Se non configuri questi criteri, i comandi di stampa attivano la schermata di anteprima di stampa di Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: UseSystemPrintDialog
+  - Nome GP: Stampa utilizzando la finestra di dialogo Stampa del sistema
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Stampa
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: UseSystemPrintDialog
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: UseSystemPrintDialog
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ## Additional policies
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AdsSettingForIntrusiveAdsSites
+  #### Impostazione degli annunci per i siti con annunci intrusivi
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Controlla se gli annunci sono bloccati per i siti con annunci intrusivi. Puoi impostare questi criteri su una delle seguenti opzioni:
+
+* 1 = Consenti gli annunci per tutti i siti
+
+* 2 = Blocca gli annunci per i siti con annunci intrusivi (valore predefinito).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AdsSettingForIntrusiveAdsSites
+  - Nome GP: Impostazione degli annunci per i siti con annunci intrusivi
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AdsSettingForIntrusiveAdsSites
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AdsSettingForIntrusiveAdsSites
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowDeletingBrowserHistory
+  #### Abilita eliminazione cronologia del browser e download
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente l'eliminazione della cronologia del browser e della cronologia di download e impedisce agli utenti di modificare questa impostazione.
+
+Tieni presente che anche con questi criteri disabilitati, non viene garantito il mantenimento della cronologia esplorazioni e download: gli utenti possono modificare o eliminare direttamente i file del database della cronologia e il browser stesso potrebbe rimuovere (in base alla scadenza) o archiviare alcuni o tutti gli elementi della cronologia in qualsiasi momento.
+
+Se abiliti o non configuri questi criteri, gli utenti possono eliminare la cronologia esplorazioni e download.
+
+Se disabiliti o non configuri questi criteri, gli utenti non possono eliminare la cronologia esplorazioni e download.
+
+Se abiliti questi criteri, non abilitare i criteri "Cancella i dati di navigazione quando Microsoft Edge viene chiuso", poiché entrambi vengono utilizzati per l'eliminazione dei dati. Se abiliti entrambi, i criteri "Cancella i dati di navigazione quando Microsoft Edge viene chiuso" sono prioritari e tutti i dati vengono eliminati quando Microsoft Edge viene chiuso, indipendentemente dalla configurazione di questi criteri.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowDeletingBrowserHistory
+  - Nome GP: Abilita eliminazione cronologia del browser e download
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AllowDeletingBrowserHistory
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowDeletingBrowserHistory
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowFileSelectionDialogs
+  #### Consenti le finestre di dialogo di selezione file
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consenti l'accesso ai file locali permettendo a Microsoft Edge di visualizzare le finestre di dialogo di selezione file.
+
+Se abiliti o non configuri questi criteri, gli utenti possono aprire le finestre di dialogo di selezione file come di consueto.
+
+Se disabiliti questi criteri, ogni volta che l'utente esegue un'azione che attiva una finestra di selezione file (come l'importazione di preferiti, il caricamento di file o il salvataggio di collegamenti), viene visualizzato un messaggio e si presume che l'utente abbia fatto clic su Annulla nella finestra di dialogo di selezione file.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowFileSelectionDialogs
+  - Nome GP: Consenti le finestre di dialogo di selezione file
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AllowFileSelectionDialogs
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowFileSelectionDialogs
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowPopupsDuringPageUnload
+  #### Consente a una pagina di visualizzare i popup durante lo scaricamento
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Questo criterio consente ad un amministratore di indicare che una pagina può visulizzare i popup durante lo scaricamento.
+
+Quando i criteri sono abilitati, alle pagine viene consentito di mostrare i popup mentre si scaricano.
+
+Quando i criteri sono disabilitati o non sono impostati, alle pagine non è consentito di mostrare i popup mentre vengono scaricati. Ciò avviene grazie alla specifica: (https://html.spec.whatwg.org/#apis-for-creating-and-navigating-browsing-contexts-by-name).
+
+Questi criteri verranno rimossi in futuro.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowPopupsDuringPageUnload
+  - Nome GP: Consente a una pagina di visualizzare i popup durante lo scaricamento
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AllowPopupsDuringPageUnload
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowPopupsDuringPageUnload
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowSyncXHRInPageDismissal
+  #### Consenti alle pagine di inviare richieste XHR sincrone durante la chiusura della pagina
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Questi criteri consentono di specificare che una pagina può inviare richieste XHR sincrone durante l'operazione di chiusura della pagina.
+
+Se abiliti questi criteri, le pagine potranno inviare richieste XHR sincrone durante l'operazione di chiusura della pagina.
+
+Se disabiliti o non configuri questi criteri, le pagine non saranno in grado di inviare richieste XHR sincrone durante l'operazione di chiusura della pagina.
+
+Questi criteri sono temporanei e verranno rimossi in una versione futura.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowSyncXHRInPageDismissal
+  - Nome GP: Consenti alle pagine di inviare richieste XHR sincrone durante la chiusura della pagina
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AllowSyncXHRInPageDismissal
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowSyncXHRInPageDismissal
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AllowTrackingForUrls
+  #### Configura le eccezioni di prevenzione del monitoraggio per siti specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Configura l'elenco dei modelli di URL esclusi dalla prevenzione del monitoraggio.
+
+Se configuri questi criteri, l'elenco dei modelli di URL configurati viene escluso dalla prevenzione del monitoraggio.
+
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri "Blocca il rilevamento dell'attività di esplorazione Web degli utenti" (se impostati) o la configurazione personale dell'utente.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AllowTrackingForUrls
+  - Nome GP: Configura le eccezioni di prevenzione del monitoraggio per siti specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AllowTrackingForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AlwaysOpenPdfExternally
+  #### Apri sempre i file PDF esternamente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disabilita il visualizzatore PDF interno in Microsoft Edge.
+
+Se abiliti questi criteri Microsoft Edge considera i file PDF come download e consente agli utenti di aprirli con l'applicazione predefinita.
+
+Se non configuri o disabiliti questi criteri, Microsoft Edge apre i file PDF (a meno che l'utente non li disabiliti).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AlwaysOpenPdfExternally
+  - Nome GP: Apri sempre i file PDF esternamente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AlwaysOpenPdfExternally
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AlwaysOpenPdfExternally
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ApplicationLocaleValue
+  #### Specifica le impostazioni locali dell'applicazione
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura le impostazioni locali dell'applicazione in Microsoft Edge e impedisce agli utenti di modificarle.
+
+Se abiliti questo criterio, Microsoft Edge utilizza le impostazioni locali specificate. Se le impostazioni locali configurate non sono supportate, viene utilizzato "en-US".
+
+Se disabiliti o non configuri questa impostazione, Microsoft Edge utilizza le impostazioni locali preferite specificate dall'utente (se configurate) o le impostazioni locali di fallback "en-US".
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ApplicationLocaleValue
+  - Nome GP: Specifica le impostazioni locali dell'applicazione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ApplicationLocaleValue
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"en"
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AudioCaptureAllowed
+  #### Consenti o blocca l'acquisizione audio
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+
+If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+
+If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+
+This policy affects all types of audio inputs, not only the built-in microphone.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AudioCaptureAllowed
+  - Nome GP: Consenti o blocca l'acquisizione audio
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AudioCaptureAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AudioCaptureAllowed
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AudioCaptureAllowedUrls
+  #### Siti che possono accedere ai dispositivi di acquisizione audio senza richiedere l'autorizzazione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica i siti Web, in base agli schemi URL, che possono utilizzare dispositivi di acquisizione audio senza richiedere l'autorizzazione all'utente. I modelli in questo elenco vengono messi a confronto con l'origine di sicurezza dell'URL di richiesta. Se corrispondono, al sito viene automaticamente consentito l'accesso ai dispositivi di acquisizione audio.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AudioCaptureAllowedUrls
+  - Nome GP: Siti che possono accedere ai dispositivi di acquisizione audio senza richiedere l'autorizzazione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\0 = "https://www.contoso.com/"
+SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AudioCaptureAllowedUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com/</string>
+  <string>https://[*.]contoso.edu/</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AutoImportAtFirstRun
+  #### Importa automaticamente i dati e le impostazioni di un altro browser alla prima esecuzione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Se abiliti questi criteri, Microsoft Edge importa automaticamente tutti i tipi di dati e le impostazioni supportati dal browser predefinito o da un altro browser specificato. Inoltre Microsoft Edge viene forzato a ignorare la sezione di importazione dell'esperienza di prima esecuzione.
+
+Se imposti questi criteri su "DisabledAutoImport" (4), la sezione di importazione dell'esperienza di prima esecuzione viene ignorata completamente e Microsoft Edge non importa automaticamente i dati del browser
+
+* 0 = Importa automaticamente tutti i tipi di dati e le impostazioni supportati dal browser predefinito
+
+* 1 = Importa automaticamente tutti i tipi di dati e le impostazioni supportati da Internet Explorer
+
+* 2 = Importa automaticamente tutti i tipi di dati e le impostazioni supportati da Google Chrome
+
+* 3 = Importa automaticamente tutti i tipi di dati e le impostazioni supportati da Safari
+
+* 4 = Disabilita l'importazione automatica e la sezione di importazione dell'esperienza di prima esecuzione viene ignorata
+
+**Nota**: questi criteri supportano al momento l'importazione dai browser Internet Explorer (su Windows 7, 8 e 10), Google Chrome (su Windows 7, 8 e 10 e su macOS) e Apple Safari (su macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AutoImportAtFirstRun
+  - Nome GP: Importa automaticamente i dati e le impostazioni di un altro browser alla prima esecuzione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AutoImportAtFirstRun
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AutoImportAtFirstRun
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AutofillAddressEnabled
+  #### Abilita riempimento automatico per gli indirizzi
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita la funzionalità di riempimento automatico e consente agli utenti di completare automaticamente le informazioni sull'indirizzo nei moduli Web utilizzando informazioni archiviate in precedenza.
+
+Se disabiliti questi criteri, il riempimento automatico non suggerisce né compila le informazioni sull'indirizzo, né salva altre informazioni sull'indirizzo che l'utente potrebbe inviare durante l'esplorazione del Web.
+
+Se abiliti o non configuri questi criteri, gli utenti possono controllare il riempimento automatico degli indirizzi nell'interfaccia utente.
+
+Tieni presente che se disabiliti questi criteri interrompi anche tutte le attività per tutti i moduli Web, ad eccezione dei moduli di pagamento e password. Non vengono salvate altre voci e Microsoft Edge non suggerisce né compila automaticamente le voci precedenti.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AutofillAddressEnabled
+  - Nome GP: Abilita riempimento automatico per gli indirizzi
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: AutofillAddressEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AutofillAddressEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AutofillCreditCardEnabled
+  #### Abilita riempimento automatico per le carte di credito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita la funzionalità Riempimento automatico di Microsoft Edge e consente agli utenti di completare automaticamente le informazioni della carta di credito nei moduli Web utilizzando le informazioni archiviate in precedenza.
+
+Se disabiliti questi criteri, il riempimento automatico non suggerisce né compila mai le informazioni della carta di credito e non vengono salvate le informazioni aggiuntive della carta di credito che gli utenti potrebbero inviare durante l'esplorazione del Web.
+
+Se abiliti o non configuri questi criteri, gli utenti possono controllare il riempimento automatico per le carte di credito.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AutofillCreditCardEnabled
+  - Nome GP: Abilita riempimento automatico per le carte di credito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: AutofillCreditCardEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AutofillCreditCardEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### AutoplayAllowed
+  #### Consenti AutoPlay di supporti per siti Web
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Questo criterio consente di impostare il criterio AutoPlay dei supporti per i siti Web.
+
+L'impostazione predefinita, "Non configurato", rispetta le impostazioni di AutoPlay dei supporti correnti e consente agli utenti di configurare le impostazioni di AutoPlay.
+
+La selezione di "Abilitato" imposta la riproduzione automatica dei supporti su "Consenti".  Tutti i siti Web sono autorizzati a eseguire la riproduzione automatica dei supporti. Gli utenti non possono ignorare questo criterio.
+
+La selezione di "Disabilitato" imposta la riproduzione automatica su "Blocco".  Nessun sito Web è autorizzato a eseguire la riproduzione automatica dei supporti. Gli utenti non possono ignorare questo criterio.
+
+Per rendere effettive le modifiche, è necessario chiudere e riaprire una scheda.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: AutoplayAllowed
+  - Nome GP: Consenti AutoPlay di supporti per siti Web
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: AutoplayAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: AutoplayAllowed
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BackgroundModeEnabled
+  #### Continua a eseguire le app in background dopo che Microsoft Edge viene chiuso
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente ai processi di Microsoft Edge di essere avviati su un accesso del sistema operativo e di essere mantenuti in esecuzione quando viene chiusa l'ultima finestra del browser. In questo scenario, le app in background e la sessione di esplorazione corrente rimangono attive, inclusi i cookie di sessione. Un processo in background aperto visualizza un'icona sulla barra delle applicazioni e può sempre essere chiuso da lì.
+
+Se abiliti questi criteri, la modalità in background è attivata.
+
+Se disabiliti questi criteri, la modalità in background è disattivata.
+
+Se non configuri questi criteri, la modalità in background è inizialmente disattivata e l'utente può configurarne il comportamento in edge://settings/system.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BackgroundModeEnabled
+  - Nome GP: Continua a eseguire le app in background dopo che Microsoft Edge viene chiuso
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: BackgroundModeEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BackgroundTemplateListUpdatesEnabled
+  #### Abilita gli aggiornamenti in background all'elenco di modelli disponibili per le raccolte e le altre funzionalità che utilizzano i modelli.
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Consente di abilitare o disabilitare gli aggiornamenti in background per l'elenco dei modelli disponibili per le raccolte e altre caratteristiche che utilizzano modelli.  I modelli vengono utilizzati per estrarre i metadati avanzati da una pagina Web quando la pagina viene salvata in una raccolta.
+
+Se abiliti questa impostazione o l'impostazione non è configurata, l'elenco dei modelli disponibili verrà scaricato in background da un servizio Microsoft ogni 24 ore.
+
+Se si disabilita questa impostazione, l'elenco dei modelli disponibili verrà scaricato su richiesta. Questo tipo di download potrebbe causare piccole prestazioni per le raccolte e altre caratteristiche.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BackgroundTemplateListUpdatesEnabled
+  - Nome GP: Abilita gli aggiornamenti in background all'elenco di modelli disponibili per le raccolte e le altre funzionalità che utilizzano i modelli.
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BackgroundTemplateListUpdatesEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BackgroundTemplateListUpdatesEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BlockThirdPartyCookies
+  #### Blocca i cookie di terze parti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Blocca l'impostazione dei cookie per gli elementi delle pagine Web che non provengono dal dominio presente nella barra degli indirizzi.
+
+Se abiliti questi criteri, gli elementi della pagina Web che non provengono dal dominio presente nella barra degli indirizzi non possono impostare i cookie.
+
+Se disabiliti questi criteri, gli elementi della pagina Web che non provengono dal dominio presente nella barra degli indirizzi possono impostare i cookie.
+
+Se non configuri questi criteri, sono abilitati i cookie di terze parti, ma gli utenti possono modificare l'impostazione.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BlockThirdPartyCookies
+  - Nome GP: Blocca i cookie di terze parti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: BlockThirdPartyCookies
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BlockThirdPartyCookies
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BrowserAddProfileEnabled
+  #### Abilita la creazione del profilo dal menu a comparsa Identità o dalla pagina Impostazioni
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di creare nuovi profili, utilizzando l'opzione **Aggiungi profilo**.
+Se abiliti o non configuri questi criteri, Microsoft Edge consente agli utenti di utilizzare l'opzione **Aggiungi profilo** dal menu a comparsa Identità o dalla pagina Impostazioni per creare nuovi profili.
+
+Se disabiliti questi criteri, gli utenti non possono aggiungere nuovi profili dal menu a comparsa Identità o dalla pagina Impostazioni.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BrowserAddProfileEnabled
+  - Nome GP: Abilita la creazione del profilo dal menu a comparsa Identità o dalla pagina Impostazioni
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BrowserAddProfileEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BrowserAddProfileEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BrowserGuestModeEnabled
+  #### Abilita modalità guest
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita l'opzione per consentire l'uso di profili guest in Microsoft Edge. In un profilo guest, il browser non importa i dati di navigazione dai profili esistenti e li elimina quando tutti i profili guest vengono chiusi.
+
+Se abiliti o non configuri questi criteri, Microsoft Edge consente agli utenti di navigare nei profili guest.
+
+Se disattivi questi criteri, Microsoft Edge non consente agli utenti di navigare nei profili guest.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BrowserGuestModeEnabled
+  - Nome GP: Abilita modalità guest
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BrowserGuestModeEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BrowserGuestModeEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BrowserNetworkTimeQueriesEnabled
+  #### Consenti le query a un servizio di ora di rete del browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Impedisce a Microsoft Edge di inviare occasionalmente query a un servizio ora di rete del browser per recuperare un timestamp accurato.
+
+Se disabiliti questi criteri, Microsoft Edge interrompe l'invio di query a un servizio ora di rete del browser.
+
+Se abiliti o non configuri questi criteri, Microsoft Edge invia occasionalmente le query a un servizio ora di rete del browser.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BrowserNetworkTimeQueriesEnabled
+  - Nome GP: Consenti le query a un servizio di ora di rete del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BrowserNetworkTimeQueriesEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BrowserNetworkTimeQueriesEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BrowserSignin
+  #### Impostazioni di accesso del browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+
+If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+
+If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+
+If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+
+If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+
+* 0 = Disable browser sign-in
+
+* 1 = Enable browser sign-in
+
+* 2 = Force users to sign-in to use the browser
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BrowserSignin
+  - Nome GP: Impostazioni di accesso del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BrowserSignin
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BrowserSignin
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### BuiltInDnsClientEnabled
+  #### Utilizza il client DNS predefinito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se utilizzare il client DNS incorporato.
+
+Se abiliti questi criteri, il client DNS predefinito viene utilizzato, se disponibile.
+
+Se disabiliti questi criteri, il client non viene mai utilizzato.
+
+Se non configuri questi criteri, il client DNS incorporato è abilitato per impostazione predefinita in MacOS e gli utenti possono specificare se utilizzare il client DNS incorporato modificando edge://flags oppure specificando un flag della riga di comando.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: BuiltInDnsClientEnabled
+  - Nome GP: Utilizza il client DNS predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: BuiltInDnsClientEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: BuiltInDnsClientEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CertificateTransparencyEnforcementDisabledForCas
+  #### Disabilita l'applicazione della trasparenza dei certificati per un elenco di hash subjectPublicKeyInfo
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disabilita l'applicazione dei requisiti di trasparenza dei certificati per un elenco di hash subjectPublicKeyInfo.
+
+Questi criteri consentono di disabilitare i requisiti di divulgazione di trasparenza dei certificati per le catene di certificati che contengono certificati con uno degli hash subjectPublicKeyInfo specificati. In tal modo i certificati che altrimenti non sarebbero attendibili perché non divulgati pubblicamente, continuano ad essere utilizzati per gli host aziendali.
+
+Affinché l'applicazione della trasparenza dei certificati venga disabilitata quando questi criteri sono impostati, è necessario soddisfare una delle seguenti condizioni:
+1. L'hash è di un subjectPublicKeyInfo del certificato del server.
+2. L'hash è di un subjectPublicKeyInfo presente in un certificato della CA nella catena di certificati e tale certificato della CA è vincolato tramite l'estensione nameConstraints X.509v3, uno o più nameConstraints directoryName sono presenti in permittedSubtrees e directoryName contiene un attributo organizationName.
+3. L'hash è di un subjectPublicKeyInfo che viene visualizzato in un certificato della CA nella catena di certificati, il certificato della CA include uno o più attributi organizationName nell'oggetto del certificato e il certificato del server contiene lo stesso numero di attributi organizationName, nello stesso ordine e con gli stessi valori byte per byte.
+
+Specifica l'hash subjectPublicKeyInfo concatenando il nome dell'algoritmo di hash, il carattere "/" e la codifica Base64 dell'algoritmo di hash applicato a subjectPublicKeyInfo con codifica DER del certificato specificato. Questa codifica Base64 ha lo stesso formato di un'impronta digitale SPKI, come definito nella RFC 7469, Sezione 2.4. Gli algoritmi di hash non riconosciuti vengono ignorati. L'unico algoritmo di hash supportato in questo momento è "sha256".
+
+Se non configuri questi criteri, qualsiasi certificato che deve essere divulgato con trasparenza dei certificati è considerato non attendibile se non viene divulgato in base ai criteri di trasparenza dei certificati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CertificateTransparencyEnforcementDisabledForCas
+  - Nome GP: Disabilita l'applicazione della trasparenza dei certificati per un elenco di hash subjectPublicKeyInfo
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCas\1 = "sha256//////////////////////w=="
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CertificateTransparencyEnforcementDisabledForCas
+  - Valore di esempio:
+``` xml
+<array>
+  <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
+  <string>sha256//////////////////////w==</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CertificateTransparencyEnforcementDisabledForLegacyCas
+  #### Disabilita l'applicazione della trasparenza dei certificati per un elenco di autorità di certificazione legacy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disabilita l'applicazione dei requisiti di trasparenza dei certificati per un elenco di autorità di certificazione (CA) legacy.
+
+Questi criteri consentono di disabilitare i requisiti di divulgazione di trasparenza dei certificati per le catene che contengono certificati con un hash subjectPublicKeyInfo specificato. In tal modo i certificati che altrimenti non sarebbero attendibili perché non correttamente divulgati pubblicamente, continuano ad essere utilizzati per gli host aziendali.
+
+Per disabilitare l'applicazione della trasparenza dei certificati, devi impostare l'hash su un subjectPublicKeyInfo specificato in un certificato della CA riconosciuto come autorità di certificazione (CA) legacy. Una CA legacy è un'autorità di certificazione che è stata pubblicamente attendibile per impostazione predefinita per uno o più sistemi operativi supportati da Microsoft Edge.
+
+Specifica l'hash subjectPublicKeyInfo concatenando il nome dell'algoritmo di hash, il carattere "/" e la codifica Base64 dell'algoritmo di hash applicato a subjectPublicKeyInfo con codifica DER del certificato specificato. Questa codifica Base64 ha lo stesso formato di un'impronta digitale SPKI, come definito nella RFC 7469, Sezione 2.4. Gli algoritmi di hash non riconosciuti vengono ignorati. L'unico algoritmo di hash supportato in questo momento è "sha256".
+
+Se non configuri questi criteri, qualsiasi certificato che deve essere divulgato con trasparenza dei certificati è considerato non attendibile se non viene divulgato in base ai criteri di trasparenza dei certificati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CertificateTransparencyEnforcementDisabledForLegacyCas
+  - Nome GP: Disabilita l'applicazione della trasparenza dei certificati per un elenco di autorità di certificazione legacy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\0 = "sha256/AAAAAAAAAAAAAAAAAAAAAA=="
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForLegacyCas\1 = "sha256//////////////////////w=="
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CertificateTransparencyEnforcementDisabledForLegacyCas
+  - Valore di esempio:
+``` xml
+<array>
+  <string>sha256/AAAAAAAAAAAAAAAAAAAAAA==</string>
+  <string>sha256//////////////////////w==</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CertificateTransparencyEnforcementDisabledForUrls
+  #### Disabilita l'applicazione della trasparenza dei certificati per URL specifici
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disabilita l'applicazione dei requisiti di trasparenza dei certificati per gli URL elencati.
+
+Questi criteri consentono di non divulgare i certificati per i nomi host negli URL specificati tramite la trasparenza dei certificati. Consente di utilizzare certificati che sarebbero altrimenti non attendibili, in quanto non erano stati correttamente divulgati, ma rende più difficile rilevare i certificati rilasciati erroneamente per tali host.
+
+Crea il modello di URL in base al formato [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Poiché i certificati sono validi per un nome host specificato, indipendentemente dallo schema, dalla porta o dal percorso, solo la parte del nome host dell'URL viene considerata. Gli host con caratteri jolly non sono supportati.
+
+Se non configuri questi criteri, tutti i certificati che devono essere divulgati tramite trasparenza dei certificati vengono considerati non attendibili se non vengono divulgati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CertificateTransparencyEnforcementDisabledForUrls
+  - Nome GP: Disabilita l'applicazione della trasparenza dei certificati per URL specifici
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\0 = "contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUrls\1 = ".contoso.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CertificateTransparencyEnforcementDisabledForUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>contoso.com</string>
+  <string>.contoso.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ClearBrowsingDataOnExit
+  #### Cancella i dati di navigazione quando Microsoft Edge viene chiuso
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+
+If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+
+If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+
+If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ClearBrowsingDataOnExit
+  - Nome GP: Cancella i dati di navigazione quando Microsoft Edge viene chiuso
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ClearBrowsingDataOnExit
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ClearBrowsingDataOnExit
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ClickOnceEnabled
+  #### Consenti agli utenti di aprire file tramite il protocollo ClickOnce
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Consenti agli utenti di aprire i file utilizzando il protocollo ClickOnce. Il protocollo ClickOnce permette ai siti Web di richiedere che il browser apra i file da un URL specifico utilizzando il gestore di file ClickOnce nel computer o nel dispositivo dell'utente.
+
+Se abiliti questi criteri, gli utenti possono aprire i file utilizzando il protocollo ClickOnce. Questi criteri sostituiscono l'impostazione ClickOnce dell'utente nella pagina edge://flags/.
+
+Se disabiliti questi criteri, gli utenti non possono aprire i file con il protocollo ClickOnce. Il file verrà invece salvato nel file system utilizzando il browser. Questi criteri sostituiscono l'impostazione ClickOnce dell'utente nella pagina edge://flags/.
+
+Se non configuri questi criteri, gli utenti non possono aprire i file utilizzando il protocollo ClickOnce. Gli utenti hanno la possibilità di abilitare l'utilizzo del protocollo ClickOnce nella pagina edge://flags/.
+
+La disabilitazione di ClickOnce può impedire l'avvio corretto delle applicazioni ClickOnce (file .application).
+
+Per ulteriori informazioni su ClickOnce, vedi [https://go.microsoft.com/fwlink/?linkid=2103872](https://go.microsoft.com/fwlink/?linkid=2103872) e [https://go.microsoft.com/fwlink/?linkid=2099880](https://go.microsoft.com/fwlink/?linkid=2099880).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ClickOnceEnabled
+  - Nome GP: Consenti agli utenti di aprire file tramite il protocollo ClickOnce
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ClickOnceEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CommandLineFlagSecurityWarningsEnabled
+  #### Abilita gli avvisi di sicurezza per i flag della riga di comando
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Se disabilitato, questi criteri impediscono la visualizzazione degli avvisi di sicurezza quando Microsoft Edge viene avviato con flag della riga di comando potenzialmente pericolosi.
+
+Se abilitato o non impostato, gli avvisi di sicurezza vengono visualizzati quando questi flag della riga di comando vengono utilizzati per avviare Microsoft Edge.
+
+Ad esempio, il flag --disable-gpu-sandbox genera questo avviso: Stai utilizzando un flag della riga di comando non supportato--disable-gpu-sandbox. Questa azione comporta rischi di stabilità e sicurezza.
+
+In Windows questi criteri sono disponibili solo per le istanze che fanno parte di un dominio Microsoft Active Directory o le istanze di Windows 10 Pro (o Enterprise) registrate per la gestione dei dispositivi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CommandLineFlagSecurityWarningsEnabled
+  - Nome GP: Abilita gli avvisi di sicurezza per i flag della riga di comando
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: CommandLineFlagSecurityWarningsEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CommandLineFlagSecurityWarningsEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ComponentUpdatesEnabled
+  #### Abilita gli aggiornamenti dei componenti in Microsoft Edge
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Se abiliti o non configuri questi criteri, gli aggiornamenti dei componenti sono abilitati in Microsoft Edge.
+
+Se questi criteri vengono disabilitati o impostati su false, gli aggiornamenti dei componenti sono disabilitati per tutti i componenti in Microsoft Edge.
+
+Alcuni componenti non sono tuttavia interessati da questi criteri, incluso qualsiasi componente che non contenga codice eseguibile, che non alteri in modo significativo il comportamento del browser o che sia fondamentale per la sicurezza. Gli aggiornamenti che sono considerati "critici per la sicurezza" vengono comunque applicati anche se disabiliti questi criteri.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ComponentUpdatesEnabled
+  - Nome GP: Abilita gli aggiornamenti dei componenti in Microsoft Edge
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ComponentUpdatesEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ComponentUpdatesEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ConfigureDoNotTrack
+  #### Configura Non tenere traccia
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se inviare richieste Non tenere traccia ai siti Web che richiedono info di registrazione. Le richieste Non tenere traccia consentono ai siti Web visitati di sapere se non vuoi che la tua attività di esplorazione vena registrata. Per impostazione predefinita, Microsoft Edge non invia nessuna richiesta Non tenere traccia, ma gli utenti possono attivare questa funzionalità per inviarle.
+
+Se abiliti questi criteri, le richieste Non tenere traccia vengono sempre inviate ai siti Web che richiedono info di registrazione.
+
+Se disabiliti questi criteri, le richieste non vengono mai inviate.
+
+Se non configuri questi criteri, gli utenti possono scegliere se inviare le richieste.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ConfigureDoNotTrack
+  - Nome GP: Configura Non tenere traccia
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ConfigureDoNotTrack
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ConfigureDoNotTrack
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ConfigureOnlineTextToSpeech
+  #### Configura la sintesi vocale online
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se il browser può sfruttare i caratteri voce di Sintesi vocale online, parte di Servizi cognitivi di Azure. Questi caratteri voce sono di qualità superiore rispetto ai caratteri voce di sistema preinstallati.
+
+Se abiliti o non configuri questi criteri, le applicazioni basate sul Web che utilizzano l'API SpeechSynthesis possono utilizzare i caratteri voce di Sintesi vocale online.
+
+Se disabiliti questi criteri, i caratteri voce non sono disponibili.
+
+Leggi altre informazioni su questa funzionalità in:
+API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+Servizi cognitivi: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ConfigureOnlineTextToSpeech
+  - Nome GP: Configura la sintesi vocale online
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ConfigureOnlineTextToSpeech
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ConfigureOnlineTextToSpeech
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### CustomHelpLink
+  #### Specifica il collegamento della Guida personalizzato
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Specifica un collegamento per il menu Guida o il tasto F1.
+
+Se abiliti questi criteri, un amministratore può specificare un collegamento per il menu Guida o il tasto F1.
+
+Se disabiliti o non configuri questi criteri, verrà utilizzato il collegamento predefinito per il menu Guida o il tasto F1.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: CustomHelpLink
+  - Nome GP: Specifica il collegamento della Guida personalizzato
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: CustomHelpLink
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://go.microsoft.com/fwlink/?linkid=2080734"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: CustomHelpLink
+  - Valore di esempio:
+``` xml
+<string>https://go.microsoft.com/fwlink/?linkid=2080734</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DefaultBrowserSettingEnabled
+  #### Imposta Microsoft Edge come browser predefinito
+  >Versioni supportate: Microsoft Edge in Windows 7 e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura i controlli predefiniti del browser in Microsoft Edge e impedisce agli utenti di modificarli.
+
+Se abiliti questi criteri, Microsoft Edge controlla sempre all'avvio se si tratta del browser predefinito e lo registra automaticamente, se possibile.
+
+Se disabiliti questi criteri, Microsoft Edge non esegue alcun controllo e disabilita i controlli dell'utente per l'impostazione di questa opzione.
+
+Se non configuri questi criteri, Microsoft Edge consente all'utente di controllare se si tratta del browser predefinito e se visualizzare le notifiche quando non lo è.
+
+Nota per gli amministratori di Windows: questi criteri funzionano solo per i PC con Windows 7. Per le versioni successive di Windows è necessario distribuire un file di "associazioni di applicazioni predefinite" che consente a Microsoft Edge di gestire i protocolli HTTPS e HTTP (e facoltativamente il protocollo ftp e i formati di file quali .html, .htm, .pdf, .svg, .webp). Per ulteriori informazioni, vedi [https://go.microsoft.com/fwlink/?linkid=2094932](https://go.microsoft.com/fwlink/?linkid=2094932).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DefaultBrowserSettingEnabled
+  - Nome GP: Imposta Microsoft Edge come browser predefinito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DefaultBrowserSettingEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DefaultBrowserSettingEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DeveloperToolsAvailability
+  #### Controlla dove possono essere utilizzati gli strumenti di sviluppo
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla dove possono essere utilizzati gli strumenti di sviluppo.
+
+Se imposti questi criteri su "DeveloperToolsDisallowedForForceInstalledExtensions" (0, predefinito), gli utenti possono accedere agli strumenti di sviluppo e alla console JavaScript in generale, ma non nel contesto delle estensioni installate dai criteri aziendali.
+
+Se imposti questi criteri su "DeveloperToolsAllowed" (1), gli utenti possono accedere agli strumenti di sviluppo e alla console JavaScript in tutti i contesti, incluse le estensioni installate dai criteri aziendali.
+
+Se imposti questi criteri su "DeveloperToolsDisallowed" (2), gli utenti non possono accedere agli strumenti di sviluppo o ispezionare gli elementi del sito Web. I tasti di scelta rapida e le voci dei menu o dei menu contestuali che aprono gli strumenti di sviluppo o la console JavaScript sono disabilitati.
+
+* 0 = Blocca gli strumenti di sviluppo per le estensioni installate dai criteri aziendali, consenti in altri contesti
+
+* 1 = Consenti l'uso degli strumenti di sviluppo
+
+* 2 = Non consentire l'uso degli strumenti di sviluppo
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DeveloperToolsAvailability
+  - Nome GP: Controlla dove possono essere utilizzati gli strumenti di sviluppo
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DeveloperToolsAvailability
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DeveloperToolsAvailability
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DirectInvokeEnabled
+  #### Consenti agli utenti di aprire file tramite il protocollo DirectInvoke
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Consenti agli utenti di aprire i file tramite il protocollo DirectInvoke. Il protocollo DirectInvoke consente ai siti Web di richiedere che il browser apra i file da un URL specifico utilizzando un gestore di file specifico nel computer o nel dispositivo dell'utente.
+
+Se abiliti o non configuri questi criteri, gli utenti possono aprire i file usando il protocollo DirectInvoke.
+
+Se disabiliti questi criteri, gli utenti non possono aprire i file tramite il protocollo DirectInvoke. I file vengono invece salvati nel file system.
+
+Nota: la disabilitazione di DirectInvoke può impedire il funzionamento previsto di determinate funzionalità di Microsoft Office SharePoint Online.
+
+Per ulteriori informazioni su DirectInvoke, vedi [https://go.microsoft.com/fwlink/?linkid=2103872](https://go.microsoft.com/fwlink/?linkid=2103872) e [https://go.microsoft.com/fwlink/?linkid=2099871](https://go.microsoft.com/fwlink/?linkid=2099871).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DirectInvokeEnabled
+  - Nome GP: Consenti agli utenti di aprire file tramite il protocollo DirectInvoke
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DirectInvokeEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### Disable3DAPIs
+  #### Disabilita il supporto per le API di grafica 3D
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+
+If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+
+If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: Disable3DAPIs
+  - Nome GP: Disabilita il supporto per le API di grafica 3D
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: Disable3DAPIs
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: Disable3DAPIs
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DisableScreenshots
+  #### Disabilita l'acquisizione di screenshot
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se gli utenti possono acquisire screenshot della pagina del browser.
+
+Se abiliti questi criteri, l'utente non può acquisire screenshot utilizzando i tasti di scelta rapida o le API di estensione.
+
+Se disabiliti o non configuri questi criteri, gli utenti possono acquisire screenshot.
+
+Tieni presente che questi criteri controllano gli screenshot acquisiti dal browser. Anche se abiliti questi criteri, gli utenti potrebbero comunque essere in grado di acquisire schermate usando un metodo diverso dal browser (ad esempio una funzione del sistema operativo o un'altra applicazione).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DisableScreenshots
+  - Nome GP: Disabilita l'acquisizione di screenshot
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DisableScreenshots
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DisableScreenshots
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DiskCacheDir
+  #### Imposta directory cache disco
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura la directory da utilizzare per archiviare i file memorizzati nella cache.
+
+Se abiliti questi criteri, Microsoft Edge utilizza la directory specificata indipendentemente dal flag "--disk-cache-dir" eventualmente specificato dall'utente. Per evitare la perdita di dati o altri errori imprevisti, non configurare questi criteri per la directory radice di un volume o una directory utilizzata per altri scopi, perché Microsoft Edge ne gestisce il contenuto.
+
+Visita la pagina [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) per un elenco di variabili da utilizzare quando specifichi le directory e i percorsi.
+
+Se non configuri questi criteri, viene utilizzata la directory della cache predefinita e gli utenti possono sostituire tale impostazione predefinita con il flag della riga di comando "--disk-cache-dir".
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DiskCacheDir
+  - Nome GP: Imposta directory cache disco
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DiskCacheDir
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"${user_home}/Edge_cache"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DiskCacheDir
+  - Valore di esempio:
+``` xml
+<string>${user_home}/Edge_cache</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DiskCacheSize
+  #### Imposta le dimensioni della cache disco, in byte
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura le dimensioni in byte della cache utilizzata per archiviare i file sul disco.
+
+Se abiliti questi criteri, Microsoft Edge utilizza le dimensioni della cache specificate, indipendentemente dal flag "--disk-cache-size" eventualmente specificato dall'utente. Il valore specificato nei criteri non è un limite rigido, piuttosto un suggerimento per il sistema di memorizzazione nella cache. Se un valore è troppo basso perché inferiore di pochi MB, viene arrotondato al minimo ragionevole.
+
+Se imposti questi criteri su 0, vengono utilizzate le dimensioni predefinite della cache e gli utenti non possono modificare l'impostazione.
+
+Se non configuri questi criteri, viene utilizzata la dimensione predefinita, ma gli utenti possono sostituirla usando il flag "--disk-cache-size".
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DiskCacheSize
+  - Nome GP: Imposta le dimensioni della cache disco, in byte
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: DiskCacheSize
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x06400000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DiskCacheSize
+  - Valore di esempio:
+``` xml
+<integer>104857600</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DownloadDirectory
+  #### Imposta directory di download
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura la directory da utilizzare per il download dei file.
+
+Se abiliti questi criteri, Microsoft Edge utilizza la directory fornita indipendentemente dal fatto che l'utente ne abbia specificata una o abbia scelto di ricevere ogni volta la richiesta del percorso di download. Per l'elenco delle variabili che puoi utilizzare, vedi [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041).
+
+Se disabiliti o non configuri questi criteri, viene utilizzata la directory di download predefinita e l'utente può modificarla.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DownloadDirectory
+  - Nome GP: Imposta directory di download
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: DownloadDirectory
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"/home/${user_name}/Downloads"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DownloadDirectory
+  - Valore di esempio:
+``` xml
+<string>/home/${user_name}/Downloads</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### DownloadRestrictions
+  #### Consenti le restrizioni di download
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura il tipo di download che Microsoft Edge blocca completamente, senza consentire agli utenti di ignorare la decisione sulla sicurezza.
+
+Imposta "Blocca download pericolosi" (1) per consentire tutti i download ad eccezione di quelli che contengono avvisi di Microsoft Defender SmartScreen.
+
+Imposta "Blocca download potenzialmente pericolosi" (2) per consentire tutti i download ad eccezione di quelli che includono avvisi di Microsoft Defender SmartScreen per i download potenzialmente pericolosi.
+
+Imposta "Blocca tutti i download" (3) per bloccare tutti i download.
+
+Se non configuri questi criteri o imposti l'opzione "Nessuna restrizione speciale" (0), i download passano attraverso le consuete restrizioni di sicurezza basate sui risultati dell'analisi di Microsoft Defender SmartScreen.
+
+Tieni presente che queste restrizioni si applicano ai download di contenuti della pagina Web, nonché all'opzione di menu di scelta rapida "Collegamento di download...". Queste restrizioni non si applicano al salvataggio o al download della pagina attualmente visualizzata e non si applicano all'opzione Salva come PDF delle opzioni di stampa.
+
+Per ulteriori informazioni su Microsoft Defender SmartScreen, vedi [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/fwlink/?linkid=2094934).
+
+* 0 = Nessuna restrizione speciale
+
+* 1 = Blocca download pericolosi
+
+* 2 = Blocca download potenzialmente pericolosi
+
+* 3 = Blocca tutti i download
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: DownloadRestrictions
+  - Nome GP: Consenti le restrizioni di download
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: DownloadRestrictions
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: DownloadRestrictions
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EdgeCollectionsEnabled
+  #### Abilita la funzionalità Raccolte
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Consente di autorizzare l'accesso degli utenti alla funzionalità Raccolte con cui possono raccogliere, organizzare, condividere ed esportare i contenuti in modo più efficiente e con l'integrazione di Office.
+
+Se abiliti o non configuri questi criteri, gli utenti possono accedere e usare la funzionalità Raccolte in Microsoft Edge.
+
+Se disabiliti questi criteri, gli utenti non possono accedere e usare la funzionalità Raccolte in Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EdgeCollectionsEnabled
+  - Nome GP: Abilita la funzionalità Raccolte
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EdgeCollectionsEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EdgeCollectionsEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EditFavoritesEnabled
+  #### Consente agli utenti di modificare i Preferiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita questi criteri per consentire agli utenti di aggiungere, rimuovere e modificare i preferiti. Questo è il comportamento predefinito se non configuri i criteri.
+
+Disabilita questi criteri per impedire agli utenti di aggiungere, rimuovere o modificare i preferiti. I preferiti esistenti possono comunque essere utilizzati.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EditFavoritesEnabled
+  - Nome GP: Consente agli utenti di modificare i Preferiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EditFavoritesEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EditFavoritesEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnableDeprecatedWebPlatformFeatures
+  #### Riattiva le funzionalità della piattaforma Web deprecate per un periodo di tempo limitato
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica un elenco delle funzionalità deprecate della piattaforma Web da riabilitare temporaneamente.
+
+Questi criteri consentono di abilitare di nuovo le funzionalità deprecate della piattaforma Web per un periodo di tempo limitato. Le funzionalità sono identificate da un tag di stringa.
+
+Se non configuri questi criteri, se l'elenco è vuoto oppure se una funzionalità non corrisponde a uno dei tag stringa supportati, tutte le funzionalità deprecate della piattaforma Web rimangono disabilitate.
+
+Sebbene i criteri stessi siano supportati sulle piattaforme illustrate sopra, la funzionalità che si sta abilitando potrebbe non essere disponibile su tutte le piattaforme. Non tutte le funzionalità deprecate della piattaforma Web possono essere nuovamente abilitate. Solo quelle elencate in modo esplicito di seguito possono essere abilitate nuovamente e solo per un periodo di tempo limitato, che differisce a seconda della funzionalità. Puoi rivedere lo scopo dietro le modifiche della funzionalità della piattaforma Web su https://bit.ly/blinkintents.
+
+Il formato generico del tag stringa è [DeprecatedFeatureName]_EffectiveUntil[ddmmaaaa].
+
+* "ExampleDeprecatedFeature_EffectiveUntil20080902" = Abilita API ExampleDeprecatedFeature fino a 02/09/2008
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnableDeprecatedWebPlatformFeatures
+  - Nome GP: Riattiva le funzionalità della piattaforma Web deprecate per un periodo di tempo limitato
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "ExampleDeprecatedFeature_EffectiveUntil20080902"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnableDeprecatedWebPlatformFeatures
+  - Valore di esempio:
+``` xml
+<array>
+  <string>ExampleDeprecatedFeature_EffectiveUntil20080902</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnableDomainActionsDownload
+  #### Abilita download azioni di dominio da Microsoft
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  In Microsoft Edge, le azioni del dominio rappresentano una serie di funzionalità di compatibilità che consentono al browser di funzionare correttamente sul Web.
+
+Microsoft mantiene un elenco di azioni da intraprendere in domini specifici per motivi di compatibilità. Ad esempio, il browser può sostituire la stringa agente utente in un sito Web se tale sito Web non funziona a causa della nuova stringa agente utente su Microsoft Edge. Ognuna di queste operazioni deve essere temporanea mentre Microsoft tenta di risolvere il problema insieme al proprietario del sito.
+
+All'avvio del browser e quindi periodicamente in seguito, il browser contatterà il servizio di sperimentazione e configurazione che contiene l'elenco più aggiornato delle azioni di compatibilità da eseguire. Questo elenco viene salvato in locale dopo essere stato prima recuperato in modo che le richieste successive aggiornino l'elenco solo se la copia del server viene modificata.
+
+Se abiliti questi criteri, l'elenco di azioni di dominio continua a essere scaricato dal servizio di sperimentazione e configurazione.
+
+Se disabiliti questi criteri, l'elenco di azioni di dominio non viene più scaricato dal servizio di sperimentazione e configurazione.
+
+Se non configuri questi criteri, l'elenco di azioni di dominio continua a essere scaricato dal servizio di sperimentazione e configurazione.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnableDomainActionsDownload
+  - Nome GP: Abilita download azioni di dominio da Microsoft
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EnableDomainActionsDownload
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnableDomainActionsDownload
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnableOnlineRevocationChecks
+  #### Abilita i controlli CRL/OCSP online
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  I controlli sulle revoche online non forniscono un notevole vantaggio per la sicurezza e sono disabilitati per impostazione predefinita.
+
+Se abiliti questi criteri, Microsoft Edge esegue i controlli CRL/OCSP online per gli errori non bloccanti. Per "errori non bloccanti" si intendono quelli per cui non è possibile raggiungere il server di revoca, il certificato verrà considerato valido.
+
+Se disabiliti o non configuri questi criteri, Microsoft Edge non esegue i controlli sulle revoche online.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnableOnlineRevocationChecks
+  - Nome GP: Abilita i controlli CRL/OCSP online
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EnableOnlineRevocationChecks
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnableOnlineRevocationChecks
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### EnterpriseHardwarePlatformAPIEnabled
+  #### Consenti alle estensioni gestite di utilizzare l'API della piattaforma hardware aziendale
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Quando questi criteri sono abilitati, le estensioni installate dai criteri dell'azienda sono autorizzate a utilizzare l'API della piattaforma hardware aziendale.
+Quando questi criteri sono disabilitati o non impostati, nessuna estensione è autorizzata a utilizzare l'API della piattaforma hardware aziendale.
+Questi criteri si applicano anche alle estensioni dei componenti.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: EnterpriseHardwarePlatformAPIEnabled
+  - Nome GP: Consenti alle estensioni gestite di utilizzare l'API della piattaforma hardware aziendale
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: EnterpriseHardwarePlatformAPIEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: EnterpriseHardwarePlatformAPIEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExperimentationAndConfigurationServiceControl
+  #### Controlla le comunicazioni con il servizio di sperimentazione e configurazione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  In Microsoft Edge, il servizio di sperimentazione e configurazione viene utilizzato per distribuire il payload di sperimentazione e configurazione.
+
+Il payload di sperimentazione è costituito dall'elenco delle prime funzionalità di sviluppo che Microsoft abilita per il testing e il feedback.
+
+Il payload di configurazione è costituito dall'elenco delle impostazioni che Microsoft desidera distribuire in Microsoft Edge per ottimizzare l'esperienza utente. Ad esempio, il payload di configurazione può specificare la frequenza con cui Microsoft Edge invia le richieste al servizio di sperimentazione e configurazione per recuperare il payload più recente.
+
+Se imposti questi criteri sulla modalità "Recupera configurazioni ed esperimenti", viene scaricato il payload completo dal servizio di sperimentazione e configurazione, ossia il payload di entrambe sperimentazione e configurazione.
+
+Se imposti questi criteri sulla modalità "Recupera solo configurazioni", viene recuperato solo il payload di configurazione.
+
+Se imposti questi criteri su "Disabilita le comunicazioni con il servizio di sperimentazione e configurazione", le comunicazioni con il servizio di sperimentazione e configurazione vengono completamente interrotte.
+
+Se non configuri questi criteri, in un dispositivo gestito nei canali Stable e Beta, il comportamento è uguale a quello della modalità "Recupera solo configurazioni".
+
+Se non configuri questi criteri, il comportamento è quello della modalità "Recupera configurazioni ed esperimenti".
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExperimentationAndConfigurationServiceControl
+  - Nome GP: Controlla le comunicazioni con il servizio di sperimentazione e configurazione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ExperimentationAndConfigurationServiceControl
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExperimentationAndConfigurationServiceControl
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ExternalProtocolDialogShowAlwaysOpenCheckbox
+  #### Show an "Always open" checkbox in external protocol dialog.
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Nome GP: Show an "Always open" checkbox in external protocol dialog.
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### FavoritesBarEnabled
+  #### Abilita barra Preferiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Attiva o disattiva la barra Preferiti.
+
+Se abiliti questi criteri, gli utenti visualizzeranno la barra Preferiti.
+
+Se disabiliti questi criteri, gli utenti non visualizzeranno la barra Preferiti.
+
+Se questo criterio non è configurato, l'utente potrà decidere se utilizzare o meno la barra Preferiti.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: FavoritesBarEnabled
+  - Nome GP: Abilita barra Preferiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: FavoritesBarEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: FavoritesBarEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ForceBingSafeSearch
+  #### Applica Ricerca sicura Bing
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Verifica che le query in Ricerca Web Bing vengano eseguite con Ricerca sicura impostata sul valore specificato. Gli utenti non possono modificare questa impostazione.
+
+Se imposti questi criteri su "Disattivato", Ricerca sicura in Ricerca Bing torna al valore bing.com.
+
+Se imposti questi criteri su "Media", viene utilizzata l'impostazione Media in Ricerca sicura. L'impostazione Media filtra video e immagini per adulti, ma non il testo dai risultati di ricerca.
+
+Se imposti questi criteri su "Strict", viene utilizzata l'impostazione della modalità Strict di Ricerca sicura. L'impostazione Strict filtra testo, immagini e video per adulti.
+
+Se disabiliti o non configuri questa impostazione, Ricerca sicura in Ricerca Bing non viene applicata e gli utenti possono impostare il valore che desiderano su bing.com.
+
+* 0 = Non configurare le restrizioni sulla ricerca in Bing
+
+* 1 = Configura le restrizioni sulla ricerca medie in Bing
+
+* 2 = Configura le restrizioni sulla ricerca strict in Bing
+
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ForceBingSafeSearch
+  - Nome GP: Applica Ricerca sicura Bing
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ForceBingSafeSearch
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ForceBingSafeSearch
+  - Valore di esempio:
+``` xml
+<integer>0</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ForceEphemeralProfiles
+  #### Abilita l'utilizzo di profili temporanei
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se i profili utente vengono passati alla modalità temporanea. Un profilo temporaneo viene creato quando viene avviata la sessione, viene eliminato alla chiusura della sessione e associato al profilo originale dell'utente.
+
+Se si abilitano questi criteri, i profili vengono eseguiti in modalità temporanea. Ciò consente agli utenti di lavorare dai propri dispositivi senza salvare i dati delle esplorazioni su tali dispositivi. Se abiliti questi criteri come criteri del sistema operativo (ad esempio utilizzando Oggetto Criteri di gruppo in Windows) vengono applicati a tutti i profili nel sistema.
+
+Se disattivi questi criteri o non li configuri, gli utenti disporranno dei profili normali eseguendo l'accesso al browser.
+
+In modalità temporanea, i dati dei profili vengono salvati sul disco solo per la durata della sessione utente. Funzionalità quali la cronologia del browser, le estensioni e i relativi dati, i dati Web come i cookie e i database Web non vengono salvati alla chiusura del browser. Questa operazione non impedisce a un utente di scaricare manualmente i dati su disco, di salvare le pagine o stamparle. Se l'utente ha abilitato la sincronizzazione, tutti i dati vengono conservati nei relativi account di sincronizzazione come per i profili normali. Gli utenti possono inoltre utilizzare la funzionalità InPrivate Browsing in modalità temporanea a meno che non venga esplicitamente disabilitata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ForceEphemeralProfiles
+  - Nome GP: Abilita l'utilizzo di profili temporanei
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ForceEphemeralProfiles
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ForceEphemeralProfiles
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ForceGoogleSafeSearch
+  #### Applica Google SafeSearch
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Forza l'esecuzione delle query nella ricerca Web di Google con SafeSearch impostata come attiva e impedisce agli utenti di modificare questa impostazione.
+
+Se abiliti questi criteri, SafeSearch è sempre attiva nella ricerca di Google.
+
+Se disabiliti o non configuri questi criteri, SafeSearch non è attiva nella ricerca di Google.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ForceGoogleSafeSearch
+  - Nome GP: Applica Google SafeSearch
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ForceGoogleSafeSearch
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ForceGoogleSafeSearch
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ForceNetworkInProcess
+  #### Forza codice di rete da eseguire nel processo del browser
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Questi criteri impongono l'esecuzione del codice di rete nel processo del browser.
+
+Questi criteri sono disabilitati per impostazione predefinita e, se abilitati, lasciano gli utenti esposti ai problemi di sicurezza quando il processo di rete viene integrato nella sandbox.
+
+L'obiettivo di questi criteri è offrire la possibilità di eseguire la migrazione a software di terze parti che non dipende dall'hook delle API di rete. I server proxy sono consigliati per l'applicazione di patch per le API LSP e Win32.
+
+Se questi criteri non sono impostati, il codice di rete potrebbe essere eseguito esternamente al processo del browser in base alle prove sul campo dell'esperimento NetworkService.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ForceNetworkInProcess
+  - Nome GP: Forza codice di rete da eseguire nel processo del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ForceNetworkInProcess
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ForceYouTubeRestrict
+  #### Forza modalità con restrizioni YouTube minima
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Applica una modalità con restrizioni minima su YouTube e impedisce agli utenti di selezionare una modalità con meno restrizioni.
+
+Imposta su Strict (2) per applicare la modalità Strict con restrizioni su YouTube.
+
+Imposta su Media (1) per imporre all'utente di utilizzare solo la modalità Media con restrizioni e la modalità Strict con restrizioni su YouTube. Non è possibile disabilitare la modalità con restrizioni.
+
+Imposta su Disattivata (0) o non configurare questi criteri per non applicare la modalità con restrizioni su YouTube. Criteri esterni, ad esempio i criteri di YouTube potrebbero imporre comunque la modalità con restrizioni.
+
+* 0 = non applicare la modalità con restrizioni su YouTube
+
+* 1 = applica almeno la modalità Media con restrizioni su YouTube
+
+* 2 = applica la modalità Strict con restrizioni per YouTube
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ForceYouTubeRestrict
+  - Nome GP: Forza modalità con restrizioni YouTube minima
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ForceYouTubeRestrict
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ForceYouTubeRestrict
+  - Valore di esempio:
+``` xml
+<integer>0</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### FullscreenAllowed
+  #### Consenti la modalità a schermo intero
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Imposta la disponibilità della modalità a schermo intero: l'intera interfaccia utente di Microsoft Edge è nascosta e solo il contenuto Web è visibile.
+
+Se abiliti o non configuri questi criteri, l'utente, le app e le estensioni con le autorizzazioni appropriate possono accedere alla modalità a schermo intero.
+
+Se disabiliti questi criteri, gli utenti, le app e le estensioni non possono accedere alla modalità a schermo intero.
+
+L'apertura di Microsoft Edge in modalità tutto schermo tramite la riga di comando non è disponibile quando la modalità a schermo intero è disabilitata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: FullscreenAllowed
+  - Nome GP: Consenti la modalità a schermo intero
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: FullscreenAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### GoToIntranetSiteForSingleWordEntryInAddressBar
+  #### Forza l'esplorazione diretta del sito Intranet anziché cercare le singole parole immesse nella barra degli indirizzi
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Se abiliti questi criteri, il primo risultato del suggerimento automatico dell'elenco dei suggerimenti della barra degli indirizzi passa al sito Intranet se il testo immesso nella barra degli indirizzi è una singola parola senza punteggiatura.
+
+La navigazione predefinita quando si digita una singola parola senza punteggiatura conduce a un sito Intranet corrispondente al testo inserito.
+
+Se abiliti questi criteri, il secondo suggerimento automatico dell'elenco dei suggerimenti della barra degli indirizzi eseguirà una ricerca Web del termine esattamente come è stato immesso, a condizione che il testo sia una singola parola senza punteggiatura. Verrà utilizzato il provider di ricerca predefinito a meno che non siano abilitati anche criteri per impedire la ricerca Web.
+
+Gli effetti dell'abilitazione di questi criteri sono due:
+
+non verrà più eseguita la navigazione ai siti in risposta alle query a parola singola che normalmente si risolvono in un elemento della cronologia. Al contrario, il browser tenterà di accedere a siti interni che potrebbero non esistere nella rete Intranet di un'organizzazione. Viene restituito un errore 404.
+
+I termini di ricerca popolari a parola singola richiedono la selezione manuale dei suggerimenti di ricerca per condurre correttamente una ricerca.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: GoToIntranetSiteForSingleWordEntryInAddressBar
+  - Nome GP: Forza l'esplorazione diretta del sito Intranet anziché cercare le singole parole immesse nella barra degli indirizzi
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: GoToIntranetSiteForSingleWordEntryInAddressBar
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: GoToIntranetSiteForSingleWordEntryInAddressBar
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### HSTSPolicyBypassList
+  #### Configura l'elenco dei nomi che ignoreranno il controllo dei criteri HSTS
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  I nomi host specificati in questo elenco saranno esenti dal controllo dei criteri HSTS che potrebbe potenzialmente aggiornare le richieste da "http://" a "https://". In questo criterio sono consentiti solo nomi host con etichetta singola. I nomi host devono essere in forma canonica. Qualsiasi IDN deve essere convertito nel formato A-Label e tutte le lettere ASCII devono essere minuscole. Questo criterio si applica solo a specifici nomi host specificati e non si applica ai sottodomini dei nomi nell'elenco.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: HSTSPolicyBypassList
+  - Nome GP: Configura l'elenco dei nomi che ignoreranno il controllo dei criteri HSTS
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: HSTSPolicyBypassList
+  - Valore di esempio:
+``` xml
+<array>
+  <string>meet</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### HardwareAccelerationModeEnabled
+  #### Utilizza l'accelerazione hardware se disponibile
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica l'utilizzo dell'accelerazione hardware, se disponibile. Se abiliti o non configuri questo criteri, l'accelerazione hardware è abilitata a meno che una funzionalità GPU non sia bloccata in modo esplicito.
+
+Se disabiliti questi criteri, l'accelerazione hardware è disabilitata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: HardwareAccelerationModeEnabled
+  - Nome GP: Utilizza l'accelerazione hardware se disponibile
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: HardwareAccelerationModeEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: HardwareAccelerationModeEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportAutofillFormData
+  #### Consenti l'importazione dei dati del modulo di riempimento automatico
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare i dati del modulo di riempimento automatico da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, l'opzione per l'importazione manuale dei dati di riempimento automatico è selezionata automaticamente.
+
+Se disabiliti questi criteri, i dati del modulo di riempimento automatico non vengono importati alla prima esecuzione e gli utenti non possono importarli manualmente.
+
+Se non configuri questi criteri, i dati di riempimento automatico vengono importati alla prima esecuzione e gli utenti possono scegliere se importare manualmente questi dati durante le sessioni di esplorazione successive.
+
+Puoi impostare questi criteri come suggerimento. Ciò significa che Microsoft Edge importa i dati di riempimento automatico alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **Dati riempimento automatico** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione da Google Chrome (in Windows 7, 8 e 10 e macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportAutofillFormData
+  - Nome GP: Consenti l'importazione dei dati del modulo di riempimento automatico
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportAutofillFormData
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportAutofillFormData
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportBrowserSettings
+  #### Consenti l'importazione delle impostazioni del browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Consenti agli utenti di importare le impostazioni del browser da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, la casella di controllo **impostazioni browser** è selezionata automaticamente nella finestra di dialogo **Importa dati del browser**.
+
+Se disabiliti questi criteri, le impostazioni del browser non vengono importate alla prima operazione e gli utenti non possono importarle manualmente.
+
+Se non configuri questi criteri, le impostazioni del browser vengono importate alla prima operazione e gli utenti possono scegliere se importarle manualmente durante le sessioni di esplorazione successive.
+
+Puoi inoltre impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa le impostazioni alla prima operazione, ma gli utenti possono selezionare o deselezionare l'opzione **impostazioni del browser** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione di Google Chrome (in Windows 7, 8 e 10 e su macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportBrowserSettings
+  - Nome GP: Consenti l'importazione delle impostazioni del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportBrowserSettings
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportBrowserSettings
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportFavorites
+  #### Consenti l'importazione dei preferiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare i preferiti da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, la casella di controllo **Preferiti** è selezionata automaticamente nella finestra di dialogo **Importa dati del browser**.
+
+Se disabiliti questi criteri, i preferiti non vengono importati alla prima esecuzione e gli utenti non possono importarli manualmente.
+
+Se non configuri questi criteri, i preferiti vengono importati alla prima esecuzione e gli utenti possono scegliere se importarli manualmente durante le sessioni di esplorazione successive.
+
+Puoi inoltre impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa i preferiti alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **preferiti** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione dai browser Internet Explorer (in Windows 7, 8 e 10), Google Chrome (in Windows 7, 8 e 10 e macOS) e Apple Safari (in macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportFavorites
+  - Nome GP: Consenti l'importazione dei preferiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportFavorites
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportFavorites
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportHistory
+  #### Consenti l'importazione della cronologia esplorazioni
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare la cronologia esplorazioni da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, la casella di controllo **Cronologia esplorazioni** è selezionata automaticamente nella finestra di dialogo **Importa dati del browser**.
+
+Se disabiliti questi criteri, i dati relativi alla cronologia esplorazioni non vengono importati alla prima esecuzione e gli utenti non possono importare manualmente questi dati.
+
+Se non configuri questi criteri, i dati relativi alla cronologia esplorazioni vengono importati alla prima esecuzione e gli utenti possono scegliere se importarli manualmente durante le sessioni di esplorazione successive.
+
+Puoi inoltre impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa la cronologia esplorazioni alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **cronologia** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione dai browser Internet Explorer (in Windows 7, 8 e 10), Google Chrome (in Windows 7, 8 e 10 e macOS) e Apple Safari (macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportHistory
+  - Nome GP: Consenti l'importazione della cronologia esplorazioni
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportHistory
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportHistory
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportHomepage
+  #### Consenti l'importazione delle impostazioni della home page
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare l'impostazione della home page da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, l'opzione per importare manualmente l'impostazione della home page è selezionata automaticamente.
+
+Se disabiliti questi criteri, l'impostazione della home page non viene importata alla prima esecuzione e gli utenti non possono importarla manualmente.
+
+Se non configuri questi criteri, l'impostazione della home page viene importata alla prima esecuzione e gli utenti possono scegliere se importare manualmente questi dati durante le sessioni di esplorazione successive.
+
+Puoi impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa l'impostazione della home page alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **home page** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione da Internet Explorer (in Windows 7, 8 e 10).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportHomepage
+  - Nome GP: Consenti l'importazione delle impostazioni della home page
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ImportHomepage
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportHomepage
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportOpenTabs
+  #### Consenti l'importazione delle schede aperte
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+
+  #### Descrizione
+  Consenti agli utenti di importare le schede aperte e bloccate da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, la casella di controllo **Schede aperte** è selezionata automaticamente nella finestra di dialogo **Importa dati del browser**.
+
+Se disabiliti questi criteri, le schede aperte non vengono importate alla prima esecuzione e gli utenti non possono importarle manualmente.
+
+Se non configuri questi criteri, le schede aperte vengono importate alla prima esecuzione e gli utenti possono scegliere se importarle manualmente durante le sessioni di esplorazione successive.
+
+Puoi inoltre impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa le schede aperte alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **Schede aperte** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione di Google Chrome (in Windows 7, 8 e 10 e su macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportOpenTabs
+  - Nome GP: Consenti l'importazione delle schede aperte
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportOpenTabs
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportOpenTabs
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportPaymentInfo
+  #### Consenti importazione delle info di pagamento
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare le info di pagamento da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, la casella di controllo **Info di pagamento** è selezionata automaticamente nella finestra di dialogo **Importa dati del browser**.
+
+Se disabiliti questi criteri, le info di pagamento non vengono importate alla prima esecuzione e gli utenti non possono importarle manualmente.
+
+Se non configuri questi criteri, le info di pagamento vengono importate alla prima esecuzione e gli utenti possono scegliere se importare manualmente questi dati durante le sessioni di esplorazione successive.
+
+Puoi anche impostare questi criteri come suggerimento. Ciò significa che Microsoft Edge importa le info di pagamento alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **Info di pagamento** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione da Google Chrome (in Windows 7, 8 e 10 e macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportPaymentInfo
+  - Nome GP: Consenti importazione delle info di pagamento
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportPaymentInfo
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportPaymentInfo
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportSavedPasswords
+  #### Consenti l'importazione delle password salvate
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare le password salvate da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, l'opzione per importare manualmente le password salvate è selezionata automaticamente.
+
+Se disabiliti questi criteri, le password salvate non vengono importate alla prima esecuzione e gli utenti non possono importarle manualmente.
+
+Se non configuri questi criteri, le password vengono importate alla prima esecuzione e gli utenti possono scegliere se importarle manualmente durante le sessioni di esplorazione successive.
+
+Puoi impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa le password alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **password** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione dai browser Internet Explorer (in Windows 7, 8 e 10) e Google Chrome (in Windows 7, 8 e 10 e macOS).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportSavedPasswords
+  - Nome GP: Consenti l'importazione delle password salvate
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportSavedPasswords
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportSavedPasswords
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ImportSearchEngine
+  #### Consenti l'importazione delle impostazioni del motore di ricerca
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente agli utenti di importare le impostazioni del motore di ricerca da un altro browser in Microsoft Edge.
+
+Se abiliti questi criteri, l'opzione per l'importazione delle impostazioni del motore di ricerca è selezionata automaticamente.
+
+Se disabiliti questi criteri, le impostazioni del motore di ricerca non vengono importate alla prima esecuzione e gli utenti non possono importarle manualmente.
+
+Se non configuri questi criteri, le impostazioni del motore di ricerca vengono importate alla prima esecuzione e gli utenti possono scegliere se importare manualmente questi dati durante le sessioni di esplorazione successive.
+
+Puoi impostare questi criteri come suggerimento. Questo significa che Microsoft Edge importa le impostazioni del motore di ricerca alla prima esecuzione, ma gli utenti possono selezionare o deselezionare l'opzione **motore di ricerca** durante l'importazione manuale.
+
+**Nota**: questi criteri gestiscono attualmente l'importazione da Internet Explorer (in Windows 7, 8 e 10).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ImportSearchEngine
+  - Nome GP: Consenti l'importazione delle impostazioni del motore di ricerca
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ImportSearchEngine
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ImportSearchEngine
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### InPrivateModeAvailability
+  #### Configura la disponibilità della modalità InPrivate
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se l'utente può aprire le pagine in modalità InPrivate in Microsoft Edge.
+
+Se non configuri questi criteri o li imposti su "Abilitato" (0), gli utenti possono aprire le pagine in modalità InPrivate.
+
+Imposta questi criteri su "Disabilita" (1) per arrestare l'utilizzo della modalità InPrivate da parte degli utenti.
+
+Imposta questi criteri su "Forzato" (2) per utilizzare sempre la modalità InPrivate.
+
+* 0 = Modalità InPrivate disponibile
+
+* 1 = Modalità InPrivate disabilitata
+
+* 2 = Modalità InPrivate forzata
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: InPrivateModeAvailability
+  - Nome GP: Configura la disponibilità della modalità InPrivate
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: InPrivateModeAvailability
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: InPrivateModeAvailability
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### InternetExplorerIntegrationLevel
+  #### Configura l'integrazione di Internet Explorer
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Per informazioni sulla configurazione dell'esperienza ottimale per la modalità Internet Explorer, vedi [https://go.microsoft.com/fwlink/?linkid=2094210](https://go.microsoft.com/fwlink/?linkid=2094210)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: InternetExplorerIntegrationLevel
+  - Nome GP: Configura l'integrazione di Internet Explorer
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: InternetExplorerIntegrationLevel
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### InternetExplorerIntegrationSiteList
+  #### Configura l'elenco dei siti in modalità Enterprise
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Per informazioni sulla configurazione dell'esperienza ottimale per la modalità Internet Explorer, vedi [https://go.microsoft.com/fwlink/?linkid=2094210](https://go.microsoft.com/fwlink/?linkid=2094210)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: InternetExplorerIntegrationSiteList
+  - Nome GP: Configura l'elenco dei siti in modalità Enterprise
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: InternetExplorerIntegrationSiteList
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://internal.contoso.com/sitelist.xml"
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### InternetExplorerIntegrationSiteRedirect
+  #### Specifica il comportamento della modalità di spostamento dei siti non configurati "nella pagina" quando avviati dalle pagine in modalità Internet Explorer
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 79 o successiva
+
+  #### Descrizione
+  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+
+This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+
+This setting works in conjunction with:
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
+and
+[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+
+If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+
+If you enable this policy, you can choose one of the following navigation options:
+0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
+2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+
+To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: InternetExplorerIntegrationSiteRedirect
+  - Nome GP: Specifica il comportamento della modalità di spostamento dei siti non configurati "nella pagina" quando avviati dalle pagine in modalità Internet Explorer
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: InternetExplorerIntegrationSiteRedirect
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### IsolateOrigins
+  #### Abilita l'isolamento del sito per origini specifiche
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specify origins to run in isolation, in their own process.
+This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
+If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
+If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
+If you don't configure the policy, the user can change this setting.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: IsolateOrigins
+  - Nome GP: Abilita l'isolamento del sito per origini specifiche
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: IsolateOrigins
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"https://contoso.com/,https://fabrikam.com/"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: IsolateOrigins
+  - Valore di esempio:
+``` xml
+<string>https://contoso.com/,https://fabrikam.com/</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ManagedFavorites
+  #### Configura i preferiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Configura un elenco di preferiti gestiti.
+
+I criteri creano un elenco di preferiti. Ogni preferito contiene le chiavi "name" e "url" che contengono il nome e la destinazione del preferito. Puoi configurare una sottocartella definendo un preferito senza una chiave "url" ma con un ulteriore chiave "children" che contiene un elenco di preferiti come definito sopra (alcuni dei quali potrebbero essere di nuovo cartelle). Microsoft Edge modifica gli URL incompleti come se fossero stati inviati tramite la barra degli indirizzi, ad esempio "microsoft.com" diventa "https://microsoft.com/".
+
+Questi preferiti sono inseriti in una cartella che non può essere modificata dall'utente (ma l'utente può scegliere di nasconderla dalla barra dei preferiti). Per impostazione predefinita, il nome della cartella è "Preferiti gestiti", ma è possibile modificarlo aggiungendo all'elenco dei preferiti un dizionario contenente la chiave "toplevel_name" con il nome della cartella desiderata come valore.
+
+I preferiti gestiti non vengono sincronizzati con l'account utente e non possono essere modificati dalle estensioni.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ManagedFavorites
+  - Nome GP: Configura i preferiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ManagedFavorites
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
+  {
+    "toplevel_name": "My managed favorites folder"
+  }, 
+  {
+    "name": "Microsoft", 
+    "url": "microsoft.com"
+  }, 
+  {
+    "name": "Bing", 
+    "url": "bing.com"
+  }, 
+  {
+    "children": [
+      {
+        "name": "Microsoft Edge Insiders", 
+        "url": "www.microsoftedgeinsider.com"
+      }, 
+      {
+        "name": "Microsoft Edge", 
+        "url": "www.microsoft.com/windows/microsoft-edge"
+      }
+    ], 
+    "name": "Microsoft Edge links"
+  }
+]
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ManagedFavorites
+  - Valore di esempio:
+``` xml
+<key>ManagedFavorites</key>
+<array>
+  <dict>
+    <key>toplevel_name</key>
+    <string>My managed favorites folder</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>Microsoft</string>
+    <key>url</key>
+    <string>microsoft.com</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>Bing</string>
+    <key>url</key>
+    <string>bing.com</string>
+  </dict>
+  <dict>
+    <key>children</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>Microsoft Edge Insiders</string>
+        <key>url</key>
+        <string>www.microsoftedgeinsider.com</string>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Microsoft Edge</string>
+        <key>url</key>
+        <string>www.microsoft.com/windows/microsoft-edge</string>
+      </dict>
+    </array>
+    <key>name</key>
+    <string>Microsoft Edge links</string>
+  </dict>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ManagedSearchEngines
+  #### Gestisci motori di ricerca
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding for any search engine.
+
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+
+If you disable or don't configure this policy, users can modify the search engines list as desired.
+
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Dizionario
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ManagedSearchEngines
+  - Nome GP: Gestisci motori di ricerca
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ManagedSearchEngines
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
+  {
+    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
+    "is_default": true, 
+    "keyword": "example1.com", 
+    "name": "Example1", 
+    "search_url": "https://www.example1.com/search?q={searchTerms}", 
+    "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
+    "keyword": "example2.com", 
+    "name": "Example2", 
+    "search_url": "https://www.example2.com/search?q={searchTerms}", 
+    "suggest_url": "https://www.example2.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "encoding": "UTF-8", 
+    "image_search_url": "https://www.example3.com/images/detail/search?iss=sbiupload", 
+    "keyword": "example3.com", 
+    "name": "Example3", 
+    "search_url": "https://www.example3.com/search?q={searchTerms}", 
+    "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }
+]
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ManagedSearchEngines
+  - Valore di esempio:
+``` xml
+<key>ManagedSearchEngines</key>
+<array>
+  <dict>
+    <key>image_search_url</key>
+    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
+    <key>is_default</key>
+    <true/>
+    <key>keyword</key>
+    <string>example1.com</string>
+    <key>name</key>
+    <string>Example1</string>
+    <key>search_url</key>
+    <string>https://www.example1.com/search?q={searchTerms}</string>
+    <key>suggest_url</key>
+    <string>https://www.example1.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>image_search_url</key>
+    <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
+    <key>keyword</key>
+    <string>example2.com</string>
+    <key>name</key>
+    <string>Example2</string>
+    <key>search_url</key>
+    <string>https://www.example2.com/search?q={searchTerms}</string>
+    <key>suggest_url</key>
+    <string>https://www.example2.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>encoding</key>
+    <string>UTF-8</string>
+    <key>image_search_url</key>
+    <string>https://www.example3.com/images/detail/search?iss=sbiupload</string>
+    <key>keyword</key>
+    <string>example3.com</string>
+    <key>name</key>
+    <string>Example3</string>
+    <key>search_url</key>
+    <string>https://www.example3.com/search?q={searchTerms}</string>
+    <key>suggest_url</key>
+    <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### MaxConnectionsPerProxy
+  #### Numero massimo di connessioni simultanee al server proxy
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica il numero massimo di connessioni simultanee al server proxy.
+
+Alcuni server proxy non possono gestire un numero elevato di connessioni simultanee per client, ma puoi risolvere il problema impostando questi criteri su un valore inferiore.
+
+Il valore di questi criteri deve essere inferiore a 100 e superiore a 6. Il valore predefinito è 32.
+
+Alcune app sono note per l'utilizzo di un numero eccessivo di connessioni con GET bloccato: la riduzione del numero massimo di connessioni a meno di 32 potrebbe comportare il blocco del collegamento di rete del browser se un numero eccessivo di questo tipo di app Web vengono aperte.
+
+Se non configuri questi criteri, viene utilizzato il valore predefinito (32).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: MaxConnectionsPerProxy
+  - Nome GP: Numero massimo di connessioni simultanee al server proxy
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: MaxConnectionsPerProxy
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000020
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: MaxConnectionsPerProxy
+  - Valore di esempio:
+``` xml
+<integer>32</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### MediaRouterCastAllowAllIPs
+  #### Consenti a Google Cast di connettersi ai dispositivi Cast su tutti gli indirizzi IP
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+
+Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+
+If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+
+If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: MediaRouterCastAllowAllIPs
+  - Nome GP: Consenti a Google Cast di connettersi ai dispositivi Cast su tutti gli indirizzi IP
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: MediaRouterCastAllowAllIPs
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: MediaRouterCastAllowAllIPs
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### MetricsReportingEnabled
+  #### Abilita creazione di report sui dati di utilizzo e relativi all'arresto anomalo del sistema
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Per i canali Windows 10 Beta e Stable di Microsoft Edge, questi criteri quando sono configurati sostituiscono l'impostazione dei dati di diagnostica Windows per la raccolta o la non raccolta dei dati relativi all'utilizzo e agli arresti anomali di Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+
+Questi criteri abilitano la reazione di report sui dati relativi all'utilizzo e agli arresti anomali di Microsoft Edge a Microsoft e impedisce agli utenti di modificare questa impostazione.
+
+Abilita questi criteri per inviare report sui dati relativi all'utilizzo e agli arresti anomali a Microsoft. Disabilita questi criteri per non inviare i dati a Microsoft. In entrambi i casi, gli utenti non possono modificare o sostituire l'impostazione.
+
+Per i canali Windows 10 Beta e Stable, questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati, Microsoft Edge usa per impostazione predefinita l'impostazione dei dati di diagnostica Windows.
+
+Nel canali Windows 10 Canary e Dev, questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati Microsoft Edge usa per impostazione predefinita la preferenza dell'utente.
+
+In Windows 7, 8 e Mac questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati, Microsoft Edge usa per impostazione predefinita la preferenza dell'utente.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: MetricsReportingEnabled
+  - Nome GP: Abilita creazione di report sui dati di utilizzo e relativi all'arresto anomalo del sistema
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: MetricsReportingEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: MetricsReportingEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NetworkPredictionOptions
+  #### Abilita completamento rete
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita la previsione della rete e impedisce agli utenti di modificare questa impostazione.
+
+Controlla la prelettura DNS, la preconnessione TCP e SSL e il rendering preliminare di pagine Web.
+
+Se non configuri questi criteri, la previsione della rete è abilitata ma l'utente può modificarla.
+
+* 0 = Prevede azioni di rete su qualsiasi connessione di rete
+
+* 2 = Non prevede azioni di rete su qualsiasi connessione di rete
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NetworkPredictionOptions
+  - Nome GP: Abilita completamento rete
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: NetworkPredictionOptions
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: NetworkPredictionOptions
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### NonRemovableProfileEnabled
+  #### Configura se un utente ha sempre un profilo predefinito connesso automaticamente al proprio account aziendale o dell'istituto di istruzione
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+
+If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+
+When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+
+If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: NonRemovableProfileEnabled
+  - Nome GP: Configura se un utente ha sempre un profilo predefinito connesso automaticamente al proprio account aziendale o dell'istituto di istruzione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: NonRemovableProfileEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### OverrideSecurityRestrictionsOnInsecureOrigin
+  #### Controlla dove vengono applicate le restrizioni di sicurezza alle origini non sicure
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica un elenco di origini (URL) o modelli di nome host (ad esempio "*.contoso.com") per cui non si applicano restrizioni di sicurezza per le origini non sicure.
+
+Questi criteri consentono di specificare le origini consentite per le applicazioni legacy che non possono distribuire TLS o impostare un server di gestione temporanea per lo sviluppo Web interno in modo che gli sviluppatori possano testare le funzionalità che richiedono contesti protetti senza la necessità di eseguire la distribuzione di TLS nel server di gestione temporanea. Questi criteri impediscono inoltre all'origine di essere etichettata come "Non protetta" nell'omnibox.
+
+L'impostazione di un elenco di URL in questi criteri ha lo stesso effetto dell'impostazione del flag della riga di comando "--unsafely-treat-insecure-origin-as-secure" su un elenco delimitato da virgole degli stessi URL. Se abiliti questi criteri, viene eseguito l'override del flag della riga di comando.
+
+Per ulteriori informazioni sui contesti protetti, vedi https://www.w3.org/TR/secure-contexts/.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: OverrideSecurityRestrictionsOnInsecureOrigin
+  - Nome GP: Controlla dove vengono applicate le restrizioni di sicurezza alle origini non sicure
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\0 = "http://testserver.contoso.com/"
+SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 = "*.contoso.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: OverrideSecurityRestrictionsOnInsecureOrigin
+  - Valore di esempio:
+``` xml
+<array>
+  <string>http://testserver.contoso.com/</string>
+  <string>*.contoso.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ProactiveAuthEnabled
+  #### Abilita l'autenticazione proattiva
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente di configurare se attivare l'autenticazione proattiva.
+
+Se abiliti questi criteri, Microsoft Edge tenta di autenticare in modo proattivo l'utente connesso ai servizi Microsoft. Microsoft Edge verifica a intervalli regolari un servizio online per la presenza di un manifesto aggiornato contenente la configurazione che determina come eseguire questa operazione.
+
+Se disabiliti questi criteri, Microsoft Edge non tenta di autenticare in modo proattivo l'utente connesso ai servizi Microsoft. Microsoft Edge non esegue più la verifica di un servizio online per la presenza di un manifesto aggiornato contenente la configurazione per questa operazione.
+
+Se non configuri questi criteri, l'autenticazione proattiva è attivata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ProactiveAuthEnabled
+  - Nome GP: Abilita l'autenticazione proattiva
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ProactiveAuthEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ProactiveAuthEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PromotionalTabsEnabled
+  #### Abilitare il contenuto promozionale della scheda completa
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla la presentazione dei contenuti promozionali o formativi a scheda intera. Questa impostazione controlla la presentazione delle pagine di benvenuto che consentono agli utenti di accedere a Microsoft Edge, scegliere il browser predefinito o visualizzare informazioni sulle caratteristiche del prodotto.
+
+Se abiliti questi criteri (true) o non li configuri, Microsoft Edge può visualizzare i contenuti a scheda intera agli utenti per fornire informazioni sul prodotto.
+
+Se disabiliti questa impostazione (false), Microsoft Edge non mostra agli utenti i contenuti a scheda intera.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PromotionalTabsEnabled
+  - Nome GP: Abilitare il contenuto promozionale della scheda completa
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PromotionalTabsEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PromotionalTabsEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PromptForDownloadLocation
+  #### Richiedi la posizione in cui salvare i file scaricati
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se chiedere la posizione in cui salvare il file prima di scaricarlo.
+
+Se abiliti questi criteri, viene richiesta all'utente la posizione in cui salvare i file prima del download; se non li configuri, i file vengono salvati automaticamente nel percorso predefinito, senza chiedere all'utente.
+
+Se non configuri questi criteri, l'utente sarà in grado di modificare questa impostazione.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PromptForDownloadLocation
+  - Nome GP: Richiedi la posizione in cui salvare i file scaricati
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PromptForDownloadLocation
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: PromptForDownloadLocation
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### QuicAllowed
+  #### Consenti il protocollo QUIC
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente di utilizzare il protocollo QUIC in Microsoft Edge.
+
+Se abiliti o non configuri questi criteri, il protocollo QUIC è consentito.
+
+Se disabiliti questi criteri, il protocollo QUIC è bloccato.
+
+QUIC è un protocollo di rete a livello trasporto che consente di migliorare le prestazioni delle applicazioni Web che attualmente utilizzano TCP.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: QuicAllowed
+  - Nome GP: Consenti il protocollo QUIC
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: QuicAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: QuicAllowed
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RelaunchNotification
+  #### Notifica a un utente che è consigliato o obbligatorio eseguire un riavvio del browser per gli aggiornamenti in sospeso
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Notify users that they need to restart Microsoft Edge to apply a pending update.
+
+If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+
+If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+
+If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+
+The user's session is restored when the browser restarts.
+
+* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+
+* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RelaunchNotification
+  - Nome GP: Notifica a un utente che è consigliato o obbligatorio eseguire un riavvio del browser per gli aggiornamenti in sospeso
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RelaunchNotification
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RelaunchNotification
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RelaunchNotificationPeriod
+  #### Imposta il periodo di tempo per le notifiche di aggiornamento
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+
+During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+
+If you don't configure this policy, the default period is 604800000 milliseconds (one week).
+
+Restrictions:
+
+* Minimum:3600000
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RelaunchNotificationPeriod
+  - Nome GP: Imposta il periodo di tempo per le notifiche di aggiornamento
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RelaunchNotificationPeriod
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x240c8400
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RelaunchNotificationPeriod
+  - Valore di esempio:
+``` xml
+<integer>604800000</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RendererCodeIntegrityEnabled
+  #### Abilita l'integrità del codice di rendering
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Se questi criteri sono abilitati o non impostati, l'integrità del codice di rendering è abilitata. Questi criteri devono essere disabilitati solo se si rilevano problemi di compatibilità con software di terze parti che deve essere utilizzato all'interno ei processi di rendering di Microsoft Edge.
+
+La disabilitazione di questi criteri ha un effetto negativo sulla sicurezza e sulla stabilità di Microsoft Edge perché il codice sconosciuto e potenzialmente ostile può essere caricato all'interno dei processi di rendering di Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RendererCodeIntegrityEnabled
+  - Nome GP: Abilita l'integrità del codice di rendering
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RendererCodeIntegrityEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RequireOnlineRevocationChecksForLocalAnchors
+  #### Specifica se i controlli CRL/OCSP online sono necessari per i trust anchor locali
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Controlla se sono necessarie le verifiche delle revoche online (controlli CRL/OCSP). Se Microsoft Edge non ottiene le informazioni sullo stato di revoca, questi certificati vengono considerati come revocati ("errore bloccante").
+
+Se abiliti questi criteri, Microsoft Edge esegue sempre il controllo della revoca dei certificati del server che vengono convalidati correttamente e quelli firmati da certificati della CA installati localmente.
+
+Se non configuri o disabiliti questi criteri, Microsoft Edge utilizza le impostazioni di controllo della revoca online esistenti.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RequireOnlineRevocationChecksForLocalAnchors
+  - Nome GP: Specifica se i controlli CRL/OCSP online sono necessari per i trust anchor locali
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RequireOnlineRevocationChecksForLocalAnchors
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ResolveNavigationErrorsUseWebService
+  #### Abilita la risoluzione degli errori di navigazione tramite un servizio Web
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+
+If you enable this policy, a web service is used for network connectivity tests.
+
+If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+
+**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ResolveNavigationErrorsUseWebService
+  - Nome GP: Abilita la risoluzione degli errori di navigazione tramite un servizio Web
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: ResolveNavigationErrorsUseWebService
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ResolveNavigationErrorsUseWebService
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RestrictSigninToPattern
+  #### Limita gli account che possono essere utilizzati come account principali di Microsoft Edge
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Determina gli account che possono essere impostati come account principali del browser in Microsoft Edge (l'account che viene scelto durante il flusso di consenso esplicito per la sincronizzazione).
+
+Se un utente tenta di impostare un account principale del browser con un nome utente che non corrisponde a questo modello, viene bloccato e viene visualizzato un messaggio di errore appropriato.
+
+Se non configuri o non specifichi questi criteri, gli utenti possono impostare qualsiasi account come account principale del browser Microsoft Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RestrictSigninToPattern
+  - Nome GP: Limita gli account che possono essere utilizzati come account principali di Microsoft Edge
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RestrictSigninToPattern
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+".*@contoso.com"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RestrictSigninToPattern
+  - Valore di esempio:
+``` xml
+<string>.*@contoso.com</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### RunAllFlashInAllowMode
+  #### Estendi l'impostazione dei contenuti Adobe Flash a tutti i contenuti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+
+To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+
+If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: RunAllFlashInAllowMode
+  - Nome GP: Estendi l'impostazione dei contenuti Adobe Flash a tutti i contenuti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: RunAllFlashInAllowMode
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: RunAllFlashInAllowMode
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SSLErrorOverrideAllowed
+  #### Consenti agli utenti di continuare dalla pagina di avviso HTTPS
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Microsoft Edge mostra una pagina di avviso quando gli utenti visitano i siti che presentano errori SSL.
+
+Se abiliti o non configuri (predefinito) questi criteri, gli utenti possono fare clic su queste pagine di avviso.
+
+Se disabiliti questi criteri, agli utenti viene impedito di fare clic su una pagina di avviso.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SSLErrorOverrideAllowed
+  - Nome GP: Consenti agli utenti di continuare dalla pagina di avviso HTTPS
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SSLErrorOverrideAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SSLErrorOverrideAllowed
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SSLVersionMin
+  #### Versione TLS minima abilitata
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Imposta la versione minima supportata del protocollo SSL. Se non configuri questi criteri, Microsoft Edge utilizza una versione minima predefinita, TLS 1.0.
+
+Se abiliti questi criteri, puoi impostare la versione minima su uno dei valori seguenti: "tls1", "tls1.1" o "tls1.2". Se impostati, Microsoft Edge non utilizza una versione di SSL/TLS inferiore a quella specificata. Qualsiasi valore non riconosciuto viene ignorato.
+
+* "tls1" = TLS 1.0
+
+* "tls1.1" = TLS 1.1
+
+* "tls1.2" = TLS 1.2
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SSLVersionMin
+  - Nome GP: Versione TLS minima abilitata
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SSLVersionMin
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"tls1"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SSLVersionMin
+  - Valore di esempio:
+``` xml
+<string>tls1</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SavingBrowserHistoryDisabled
+  #### Disabilita il salvataggio della cronologia del browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disabilita il salvataggio della cronologia del browser e impedisce agli utenti di modificare questa impostazione.
+
+Se abiliti questi criteri la cronologia esplorazioni non verrà salvata. Disabilita inoltre la sincronizzazione della scheda.
+
+Se disabiliti o non configuri questi criteri, la cronologia esplorazioni verrà salvata.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SavingBrowserHistoryDisabled
+  - Nome GP: Disabilita il salvataggio della cronologia del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SavingBrowserHistoryDisabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SavingBrowserHistoryDisabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SearchSuggestEnabled
+  #### Abilita suggerimenti di ricerca
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita i suggerimenti di ricerca Web nell'elenco dei suggerimenti automatici e nella barra degli indirizzi di Microsoft Edge e impedisce agli utenti di modificare questi criteri.
+
+Se abiliti questi criteri, i suggerimenti di ricerca Web vengono utilizzati.
+
+Se disabiliti questi criteri, i suggerimenti di ricerca Web non vengono mai utilizzati, tuttavia vengono comunque visualizzati i suggerimenti della cronologia e dei preferiti locali. Se disabiliti questi criteri, né i caratteri digitati né gli URL visitati vengono inclusi nella telemetria in Microsoft.
+
+Se questi criteri vengono lasciati non impostati, i suggerimenti di ricerca sono abilitati ma l'utente può modificare tale impostazione.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SearchSuggestEnabled
+  - Nome GP: Abilita suggerimenti di ricerca
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: SearchSuggestEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SearchSuggestEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SecurityKeyPermitAttestation
+  #### Siti Web o i domini che non richiedono l'autorizzazione per utilizzare l'attestazione per la chiave di sicurezza diretta
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica i siti Web e i domini che non richiedono l'autorizzazione esplicita dell'utente quando vengono richiesti i certificati di attestazione dalle chiavi di sicurezza. Inoltre, alla chiave di sicurezza viene inviato un segnale che indica che è possibile utilizzare un'unica attestazione. Senza questa impostazione, agli utenti viene inviata una richiesta ogni volta che un sito richiede l'attestazione delle chiavi di sicurezza.
+
+I siti (ad esempio https://contoso.com/some/path) corrispondono solo come U2F appID. I domini (ad esempio, contoso.com) corrispondono solo come ID RP webauthn. Per coprire entrambi U2F e le API webauthn per un determinato sito, devi elencare il dominio e l'URL appID.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SecurityKeyPermitAttestation
+  - Nome GP: Siti Web o i domini che non richiedono l'autorizzazione per utilizzare l'attestazione per la chiave di sicurezza diretta
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://contoso.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SecurityKeyPermitAttestation
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://contoso.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SendIntranetToInternetExplorer
+  #### Invia tutti i siti Intranet a Internet Explorer
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Per informazioni sulla configurazione dell'esperienza ottimale per la modalità Internet Explorer, vedi [https://go.microsoft.com/fwlink/?linkid=2094210](https://go.microsoft.com/fwlink/?linkid=2094210)
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SendIntranetToInternetExplorer
+  - Nome GP: Invia tutti i siti Intranet a Internet Explorer
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SendIntranetToInternetExplorer
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SendSiteInfoToImproveServices
+  #### Invia informazioni sul sito per migliorare i servizi Microsoft
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Per i canali Windows 10 Beta e Stable di Microsoft Edge, questi criteri quando sono configurati sostituiscono l'impostazione dei dati di diagnostica Windows per la raccolta o la non raccolta delle informazioni di esplorazione dei siti Web di Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+
+Questa impostazione dei criteri ti consente di decidere se gli utenti possono inviare informazioni sui siti Web visitati in Microsoft Edge a Microsoft per migliorare i servizi come la ricerca.
+
+Se abiliti questi criteri, le informazioni sui siti Web visitati in Microsoft Edge vengono inviate a Microsoft.
+
+Se disabiliti questi criteri, le informazioni sui siti Web visitati in Microsoft Edge non vengono inviate a Microsoft.
+
+Nei canali Windows 10 Beta e Stable, questi criteri controllano l'invio di informazioni sui siti Web visitati dagli utenti. Se questi criteri non vengono configurati, Microsoft Edge utilizza per impostazione predefinita i dati di diagnostica Windows.
+
+Nei canali Windows 10 Canary e Dev questi criteri controllano l'invio di informazioni sui siti Web visitati dagli utenti. Se questi criteri non vengono configurati, Microsoft Edge utilizza per impostazione predefinita la preferenza dell'utente.
+
+In Windows 7, 8 e Mac questi criteri controllano l'invio di informazioni sui siti Web visitati dagli utenti. Se questi criteri non vengono configurati, Microsoft Edge utilizza per impostazione predefinita la preferenza dell'utente.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SendSiteInfoToImproveServices
+  - Nome GP: Invia informazioni sul sito per migliorare i servizi Microsoft
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SendSiteInfoToImproveServices
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SendSiteInfoToImproveServices
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### ShowOfficeShortcutInFavoritesBar
+  #### Mostra collegamento Microsoft Office sulla barra Preferiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica se includere un collegamento a Office.com nella barra Preferiti. Per gli utenti che hanno effettuato l'accesso a Microsoft Edge il collegamento indirizza gli utenti verso le app e i documenti di Microsoft Office.
+
+Se questi criteri sono abilitati o non configurati, gli utenti possono scegliere se visualizzare il collegamento modificando l'interruttore nel menu di scelta rapida della barra Preferiti.
+
+Se i criteri sono disabilitati, il collegamento non viene visualizzato.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: ShowOfficeShortcutInFavoritesBar
+  - Nome GP: Mostra collegamento Microsoft Office sulla barra Preferiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: ShowOfficeShortcutInFavoritesBar
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: ShowOfficeShortcutInFavoritesBar
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SignedHTTPExchangeEnabled
+  #### Abilita supporto Signed HTTP Exchange (SXG)
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Abilita il supporto Signed HTTP Exchange (SXG).
+
+Se questi criteri non sono impostati o abilitati, Microsoft Edge accetta i contenuti Web serviti come Signed HTTP Exchange.
+
+Se questi criteri sono disabilitati, non è possibile caricare Signed HTTP Exchange.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SignedHTTPExchangeEnabled
+  - Nome GP: Abilita supporto Signed HTTP Exchange (SXG)
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SignedHTTPExchangeEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SignedHTTPExchangeEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SitePerProcess
+  #### Abilita l'isolamento per ogni sito
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  
+The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
+If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
+
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SitePerProcess
+  - Nome GP: Abilita l'isolamento per ogni sito
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SitePerProcess
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SitePerProcess
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SpellcheckEnabled
+  #### Abilita controllo ortografia
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  If you enable or don't configure this policy, the user can use spellcheck.
+
+If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SpellcheckEnabled
+  - Nome GP: Abilita controllo ortografia
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SpellcheckEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SpellcheckEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SpellcheckLanguage
+  #### Attiva lingua specifica per controllo ortografia
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
+
+  #### Descrizione
+  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+
+If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+
+If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+
+If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+
+If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+
+The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SpellcheckLanguage
+  - Nome GP: Attiva lingua specifica per controllo ortografia
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\0 = "fr"
+SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
+
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SpellcheckLanguageBlocklist
+  #### Forza disattivazione lingue per controllo ortografico
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
+
+  #### Descrizione
+  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+
+If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+
+If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+
+If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+
+If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+
+The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SpellcheckLanguageBlocklist
+  - Nome GP: Forza disattivazione lingue per controllo ortografico
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\0 = "fr"
+SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
+
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SuppressUnsupportedOSWarning
+  #### Elimina l'avviso di sistema operativo non supportato
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Elimina l'avviso che viene visualizzato quando Microsoft Edge è in esecuzione in un computer o un sistema operativo non più supportato.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SuppressUnsupportedOSWarning
+  - Nome GP: Elimina l'avviso di sistema operativo non supportato
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: SuppressUnsupportedOSWarning
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SuppressUnsupportedOSWarning
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### SyncDisabled
+  #### Disabilita la sincronizzazione dei dati mediante i servizi di sincronizzazione Microsoft
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+
+If this policy is not set, users will be able to either turn on or turn off sync.
+
+Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: SyncDisabled
+  - Nome GP: Disabilita la sincronizzazione dei dati mediante i servizi di sincronizzazione Microsoft
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: SyncDisabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: SyncDisabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### TabFreezingEnabled
+  #### Allow freezing of background tabs
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 79 o successiva
+
+  #### Descrizione
+  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+
+Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+
+If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+
+If you disable this policy, no tabs will be frozen.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: TabFreezingEnabled
+  - Nome GP: Allow freezing of background tabs
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: TabFreezingEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### TaskManagerEndProcessEnabled
+  #### Abilita l'interruzione dei processi in Gestione attività del browser
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Se abiliti o non configuri questi criteri, gli utenti possono terminare i processi in Gestione attività del browser. Se li disabiliti, gli utenti non possono terminare i processi e pulsante Termina processo è disabilitato in Gestione attività del browser.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: TaskManagerEndProcessEnabled
+  - Nome GP: Abilita l'interruzione dei processi in Gestione attività del browser
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: TaskManagerEndProcessEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: TaskManagerEndProcessEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### TrackingPrevention
+  #### Blocca il rilevamento dell'attività di esplorazione Web degli utenti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
+
+  #### Descrizione
+  Consente di decidere se impedire ai siti Web di tenere traccia dell'attività di esplorazione Web degli utenti.
+
+Se abiliti questi criteri, sono disponibili le opzioni seguenti per impostare il livello di prevenzione del monitoraggio:
+
+0 = Disattivato (nessuna prevenzione del monitoraggio)
+1 = Di base (blocca i tracker dannosi, i contenuti e gli annunci vengono personalizzati)
+2 = Bilanciato (blocca i tracker dannosi e i tracker dei siti che l'utente non ha visitato, i contenuti e gli annunci sono meno personalizzati)
+3 = Rigido (blocca i tracker dannosi e la maggior parte dei tracker di tutti i siti, i contenuti e gli annunci dispongono di personalizzazione minima. Alcune parti dei siti potrebbero non funzionare)
+
+Se disabiliti o non configuri questi criteri, gli utenti possono impostare il proprio livello di prevenzione del monitoraggio.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: TrackingPrevention
+  - Nome GP: Blocca il rilevamento dell'attività di esplorazione Web degli utenti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: TrackingPrevention
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000002
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: TrackingPrevention
+  - Valore di esempio:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### TranslateEnabled
+  #### Abilita traduzione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Abilita il servizio di traduzione Microsoft integrato in Microsoft Edge.
+
+Se abiliti questi criteri, Microsoft Edge offre funzionalità di traduzione all'utente visualizzando un riquadro a comparsa di traduzione integrato (ove appropriato) e l'opzione di traduzione nel menu di scelta rapida del pulsante destro del mouse.
+
+Disabilita questi criteri per disabilitare tutte le funzionalità di traduzione predefinite.
+
+Se non configuri i criteri, gli utenti possono scegliere se utilizzare o meno la funzionalità di traduzione.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: Sì
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: TranslateEnabled
+  - Nome GP: Abilita traduzione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): SOFTWARE\Policies\Microsoft\Edge\Consigliati
+  - Nome valore: TranslateEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: TranslateEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### URLAllowlist
+  #### Definisci un elenco di URL consentiti
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Allow access to the listed URLs, as exceptions to the URL block list.
+
+Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+
+You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+
+The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+
+This policy is limited to 1000 entries; subsequent entries are ignored.
+
+If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: URLAllowlist
+  - Nome GP: Definisci un elenco di URL consentiti
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\URLAllowlist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\0 = "contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\1 = "https://ssl.server.com"
+SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\2 = "hosting.com/good_path"
+SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\3 = "https://server:8080/path"
+SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: URLAllowlist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>contoso.com</string>
+  <string>https://ssl.server.com</string>
+  <string>hosting.com/good_path</string>
+  <string>https://server:8080/path</string>
+  <string>.exact.hostname.com</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### URLBlocklist
+  #### Blocca l'accesso a un elenco di URL
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+
+Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+
+You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+
+Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+
+This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+
+If you don't configure this policy, no URLs are blocked.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: URLBlocklist
+  - Nome GP: Blocca l'accesso a un elenco di URL
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\URLBlocklist
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\0 = "contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\1 = "https://ssl.server.com"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\2 = "hosting.com/bad_path"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\3 = "https://server:8080/path"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\4 = ".exact.hostname.com"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\5 = "file://*"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\6 = "custom_scheme:*"
+SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: URLBlocklist
+  - Valore di esempio:
+``` xml
+<array>
+  <string>contoso.com</string>
+  <string>https://ssl.server.com</string>
+  <string>hosting.com/bad_path</string>
+  <string>https://server:8080/path</string>
+  <string>.exact.hostname.com</string>
+  <string>file://*</string>
+  <string>custom_scheme:*</string>
+  <string>*</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### UserDataDir
+  #### Imposta la directory dei dati dell'utente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Imposta la directory da utilizzare per l'archiviazione dei dati dell'utente.
+
+Se abiliti questi criteri, Microsoft Edge utilizza la directory specificata indipendentemente dal fatto che l'utente abbia impostato il flag della riga di comando "--user-data-dir".
+
+Se non abiliti questi criteri, viene utilizzato il percorso del profilo predefinito, ma l'utente può sostituirlo utilizzando il flag "--user-data-dir". Gli utenti possono trovare la directory per il profilo in edge://version/ nel percorso del profilo.
+
+Per evitare la perdita di dati o altri errori, non configurare questi criteri sulla directory radice di un volume o su una directory utilizzata per altri scopi, perché Microsoft Edge ne gestisce il contenuto.
+
+Per un elenco di variabili che è possibile utilizzare, vedi [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041).
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: UserDataDir
+  - Nome GP: Imposta la directory dei dati dell'utente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: UserDataDir
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"${users}/${user_name}/Edge"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: UserDataDir
+  - Valore di esempio:
+``` xml
+<string>${users}/${user_name}/Edge</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### UserFeedbackAllowed
+  #### Consenti feedback utente
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Microsoft Edge utilizza la funzionalità Feedback di Edge (abilitata per impostazione predefinita) per consentire agli utenti di inviare feedback, suggerimenti o sondaggi del cliente e segnalare problemi con il browser. Inoltre, per impostazione predefinita, gli utenti non possono disabilitare (disattivare) la funzionalità Feedback di Edge.
+
+Se abiliti o non configuri questi criteri, gli utenti possono richiamare Feedback di Edge.
+
+Se disabiliti questi criteri, gli utenti non possono richiamare Feedback di Edge.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: UserFeedbackAllowed
+  - Nome GP: Consenti feedback utente
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: UserFeedbackAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: UserFeedbackAllowed
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### VideoCaptureAllowed
+  #### Consenti o blocca l'acquisizione video
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Control whether sites can capture video.
+
+If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+
+If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+
+This policy affects all types of video inputs, not only the built-in camera.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: VideoCaptureAllowed
+  - Nome GP: Consenti o blocca l'acquisizione video
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: VideoCaptureAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: VideoCaptureAllowed
+  - Valore di esempio:
+``` xml
+<false/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### VideoCaptureAllowedUrls
+  #### Siti che possono accedere ai dispositivi di acquisizione video senza richiedere l'autorizzazione
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Specifica i siti Web, in base agli schemi URL, che possono utilizzare dispositivi di acquisizione video senza richiedere l'autorizzazione all'utente. I modelli in questo elenco vengono messi a confronto con l'origine di sicurezza dell'URL di richiesta. Se corrispondono, al sito viene automaticamente consentito l'accesso ai dispositivi di acquisizione video.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: VideoCaptureAllowedUrls
+  - Nome GP: Siti che possono accedere ai dispositivi di acquisizione video senza richiedere l'autorizzazione
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\0 = "https://www.contoso.com/"
+SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contoso.edu/"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: VideoCaptureAllowedUrls
+  - Valore di esempio:
+``` xml
+<array>
+  <string>https://www.contoso.com/</string>
+  <string>https://[*.]contoso.edu/</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WPADQuickCheckEnabled
+  #### Imposta ottimizzazione WPAD
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente di disattivare l'ottimizzazione WPAD (Web Proxy Auto-Discovery) in Microsoft Edge.
+
+Se disabiliti questi criteri, l'ottimizzazione WPAD è disabilitata e pertanto l'attesa del browser per i server WPAD basati su DNS è più lunga.
+
+Se abiliti o non configuri i criteri, l'ottimizzazione WPAD è abilitata.
+
+Indipendentemente dall'abilitazione o meno di questi criteri, l'impostazione dell'ottimizzazione WPAD non può essere modificata dagli utenti.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WPADQuickCheckEnabled
+  - Nome GP: Imposta ottimizzazione WPAD
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: WPADQuickCheckEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WPADQuickCheckEnabled
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebDriverOverridesIncompatiblePolicies
+  #### Consenti a WebDriver di sostituire i criteri non compatibili
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  
+This policy was removed in M80, because it is not necessary anymore as
+WebDriver is now compatible with all existing policies.
+
+This policy allows users of the WebDriver feature to override
+policies which can interfere with its operation.
+
+Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+
+If the policy is enabled, WebDriver will be able to override incomaptible
+policies.
+If the policy is disabled or not configured, WebDriver will not be allowed
+to override incompatible policies.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebDriverOverridesIncompatiblePolicies
+  - Nome GP: Consenti a WebDriver di sostituire i criteri non compatibili
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: WebDriverOverridesIncompatiblePolicies
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebDriverOverridesIncompatiblePolicies
+  - Valore di esempio:
+``` xml
+<true/>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebRtcLocalhostIpHandling
+  #### Limita l'esposizione dell'indirizzo IP localhost per WebRTC
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Consente di specificare se WebRTC espone o meno l'indirizzo IP localhost dell'utente.
+
+Se imposti questi criteri su "AllowAllInterfaces" ("impostazione predefinita") o "AllowPublicAndPrivateInterfaces" ("default_public_and_private_interfaces"), WebRTC espone l'indirizzo IP localhost.
+
+Se imposti questi criteri su "AllowPublicInterfaceOnly" ("default_public_interface_only") o "DisableNonProxiedUdp" ("disable_non_proxied_udp"), WebRTC non espone l'indirizzo IP localhost.
+
+Se non imposti questi criteri o se disabiliti questa impostazione dei criteri, WebRTC espone l'indirizzo IP localhost.
+
+  * "default" = Consenti tutte le interfacce. Espone l'indirizzo IP localhost.
+  * "default_public_and_private_interfaces" = Consenti le interfacce pubbliche e private sulla route predefinita http. Espone l'indirizzo IP localhost.
+  * "default_public_interface_only" = Consenti l'interfaccia pubblica sulla route predefinita http. L'indirizzo IP localhost non viene esposto.
+  * "disable_non_proxied_udp" = Utilizza TCP a meno che il server proxy non supporti UDP. L'indirizzo IP localhost non viene esposto.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebRtcLocalhostIpHandling
+  - Nome GP: Limita l'esposizione dell'indirizzo IP localhost per WebRTC
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: WebRtcLocalhostIpHandling
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"default"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebRtcLocalhostIpHandling
+  - Valore di esempio:
+``` xml
+<string>default</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### WebRtcUdpPortRange
+  #### Limita l'intervallo di porte UDP locali utilizzato da WebRTC
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
+
+  #### Descrizione
+  Limita l'intervallo di porte UDP utilizzato dal WebRTC a un intervallo di porta specificato (inclusi gli endpoint).
+Mediante la configurazione di questi criteri, specifichi l'intervallo delle porte UDP locali che WebRTC può utilizzare.
+
+Se non configuri questi criteri o li imposti su una stringa vuota o un intervallo di porte non valido, WebRTC può utilizzare qualsiasi porta UDP locale disponibile.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Stringa
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: WebRtcUdpPortRange
+  - Nome GP: Limita l'intervallo di porte UDP locali utilizzato da WebRTC
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: WebRtcUdpPortRange
+  - Tipo di valore: REG_SZ
+  ##### Valore di esempio:
+```
+"10000-11999"
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: WebRtcUdpPortRange
+  - Valore di esempio:
+``` xml
+<string>10000-11999</string>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+
+## Vedi anche
+- [Configurazione di Microsoft Edge in corso](configure-microsoft-edge.md)
+- [Pagina di destinazione di Microsoft Edge Enterprise](https://aka.ms/EdgeEnterprise)
