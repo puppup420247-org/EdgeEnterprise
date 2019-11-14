@@ -3,7 +3,7 @@ title: "Allow list for Microsoft Edge endpoints"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/12/2019
+ms.date: 11/14/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -34,30 +34,26 @@ Allow the following domain URLs for Microsoft Edge.
 
 ### HTTP traffic shaping, downloads, extensions and delivery optimization
 
-- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
-
+- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
 - `http://msedge.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
 - `http://msedge.b.dl.delivery.mp.microsoft.com` `(Backend download)`
-- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
 - `http://msedgeextensions.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
 - `http://msedgeextensions.b.dl.delivery.mp.microsoft.com` `(Backend download)`
-
 - `http://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
 
 ### HTTPS traffic shaping, downloads, extensions and delivery optimization
 
-- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
 - `https://msedge.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
 - `https://msedge.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
-
-- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
 - `https://msedgeextensions.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
 - `https://msedgeextensions.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
-
 - `https://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
 
   > [!TIP]
