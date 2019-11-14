@@ -10,8 +10,6 @@ ms.prod: microsoft-edge
 ms.localizationpriority: medium
 ms.collection: M365-modern-desktop
 ms.custom:
-
-
 description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser"
 ---
 
