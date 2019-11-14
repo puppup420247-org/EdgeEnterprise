@@ -60,8 +60,8 @@ Allow the following domain URLs for Microsoft Edge.
 
 - `https://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
 
-> [!TIP]
-> To simplify the allow list for HTTP and HTTPS downloads you can use this endpoint:  `*.dl.delivery.mp.microsoft.com`.
+  > [!TIP]
+  > To simplify the allow list for HTTP and HTTPS downloads you can use a wild card in this endpoint:  `*.dl.delivery.mp.microsoft.com`.
 
 ### Optionally for delivery optimization
 
@@ -69,6 +69,11 @@ Allow the following domain URLs for Microsoft Edge.
 - Client to Client communication: Port 7680 should be open for inbound traffic
 
 For more information about delivery optimization, see [Delivery Optimization for Windows 10 updates](https://aka.ms/waas-do).
+
+## Mesh Services
+
+- `http://edge.microsoft.com/`
+- `https://edge.microsoft.com/`  
 
 ## See also
 
