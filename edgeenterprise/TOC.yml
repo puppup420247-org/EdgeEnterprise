@@ -1,6 +1,8 @@
-# last revised 10/30/2019
+# last revised 11/04/2019
 - name: Microsoft Edge documentation 
   href: index.yml
+- name: Microsoft Edge content updates
+  href: microsoft-edge-content-updates.md
 - name: Microsoft Edge in the enterprise
   items:
    - name: Microsoft Edge Channels
