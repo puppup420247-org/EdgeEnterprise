@@ -23,39 +23,45 @@ Microsoft Edge requires connectivity to the Internet to support its features. Th
 
 Allow the following domain URLs for Microsoft Edge.
 
-### URLs to support frontend service
+### Frontend services
 
 - `https://msedge.api.cdp.microsoft.com`
 - `https://msedgeextensions.api.cdp.microsoft.com`
 
-### URLs to support the Configuration and Experimentation service
+### Experimentation and Configuration service
 
 - `https://ecs.skype.com`
 
-### URLs to support HTTP downloads
+### HTTP traffic shaping, downloads, extensions and delivery optimization
 
-- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com`
-- `http://msedge.f.dl.delivery.mp.microsoft.com`
-- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com`
-- `http://msedge.b.dl.delivery.mp.microsoft.com`
-- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com`
-- `http://msedgeextensions.f.dl.delivery.mp.microsoft.com`
-- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com`
-- `http://msedgeextensions.b.dl.delivery.mp.microsoft.com`
+- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
 
-### URLs to support HTTPS downloads
+- `http://msedge.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
+- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `http://msedge.b.dl.delivery.mp.microsoft.com` `(Backend download)`
+- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `http://msedgeextensions.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
+- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `http://msedgeextensions.b.dl.delivery.mp.microsoft.com` `(Backend download)`
 
-- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com`
-- `https://msedge.sf.dl.delivery.mp.microsoft.com`
-- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com`
-- `https://msedge.sb.dl.delivery.mp.microsoft.com`
-- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com`
-- `https://msedgeextensions.sf.dl.delivery.mp.microsoft.com`
-- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com`
-- `https://msedgeextensions.sb.dl.delivery.mp.microsoft.com`
+- `http://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
 
-> [!NOTE]
-> To simplify the allow list for HTTP and HTTPS downloads you can use this URL:  `*.dl.delivery.mp.microsoft.com`.
+### HTTPS traffic shaping, downloads, extensions and delivery optimization
+
+- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `https://msedge.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
+- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `https://msedge.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
+
+- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com` `(Frontend traffic shaping)`
+- `https://msedgeextensions.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
+- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com` `(Backend traffic shaping)`
+- `https://msedgeextensions.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
+
+- `https://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
+
+> [!TIP]
+> To simplify the allow list for HTTP and HTTPS downloads you can use this endpoint:  `*.dl.delivery.mp.microsoft.com`.
 
 ### Optionally for delivery optimization
 
