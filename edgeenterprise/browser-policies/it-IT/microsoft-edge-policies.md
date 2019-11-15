@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/13/2019
+ms.date: 11/07/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -53,7 +53,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Nascondi i siti principali predefiniti dalla nuova scheda|
 |[NewTabPageLocation](#newtabpagelocation)|Configura l'URL della nuova scheda|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Imposta collegamenti rapidi per la nuova scheda|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configura l'esperienza della nuova scheda di Microsoft Edge|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
 |[RestoreOnStartup](#restoreonstartup)|Azione da eseguire all'avvio|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Siti da aprire quando si avvia il browser|
 |[ShowHomeButton](#showhomebutton)|Mostra pulsante Home sulla barra degli strumenti|
@@ -100,8 +100,6 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Blocca le immagini per siti specifici|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Consenti JavaScript per siti specifici|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Blocca JavaScript per siti specifici|
-|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Consenti le notifiche per siti specifici|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Blocca le notifiche per siti specifici|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Consenti il plug-in Adobe Flash per siti specifici|
@@ -203,7 +201,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Abilita i controlli CRL/OCSP online|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Consenti alle estensioni gestite di utilizzare l'API della piattaforma hardware aziendale|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Controlla le comunicazioni con il servizio di sperimentazione e configurazione|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Abilita barra Preferiti|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Applica Ricerca sicura Bing|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Abilita l'utilizzo di profili temporanei|
@@ -262,7 +260,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Forza disattivazione lingue per controllo ortografico|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Elimina l'avviso di sistema operativo non supportato|
 |[SyncDisabled](#syncdisabled)|Disabilita la sincronizzazione dei dati mediante i servizi di sincronizzazione Microsoft|
-|[TabFreezingEnabled](#tabfreezingenabled)|Consenti blocco delle schede in background|
+|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Abilita l'interruzione dei processi in Gestione attività del browser|
 |[TrackingPrevention](#trackingprevention)|Blocca il rilevamento dell'attività di esplorazione Web degli utenti|
 |[TranslateEnabled](#translateenabled)|Abilita traduzione|
@@ -965,29 +963,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### NewTabPageSetFeedType
-  #### Configura l'esperienza della nuova scheda di Microsoft Edge
+  #### Configure the Microsoft Edge new tab page experience
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Consente di scegliere l'esperienza di feed di Microsoft News o Office 365 per la nuova scheda.
+  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
 
-Quando imposti questi criteri sull'esperienza del feed di Microsoft News (0), gli utenti visualizzeranno l'esperienza del feed di Microsoft News nella nuova scheda.
+When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
 
-Quando imposti questi criteri nell'esperienza di feed di Office 365 (1), gli utenti con un accesso browser Azure Active Directory vedranno l'esperienza del feed di Office 365 nella nuova scheda.
+When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
 
-Se disabiliti o non configuri questi criteri:
+If you disable or don't configure this policy:
 
-- Agli utenti con un accesso browser Azure Active Directory l'accesso al browser verrà offerta l'esperienza di feed su nuova scheda di Office 365, oltre all'esperienza di feed su nuova scheda standard.
+- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
 
-- Agli utenti che non dispongono di un accesso browser Azure Active Directory vedranno l'esperienza su nuova scheda standard.
+- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
 
-Se configuri questi criteri *e* i criteri [NewTabPageLocation](#newtabpagelocation), [NewTabPageLocation](#newtabpagelocation) ha la precedenza.
+If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
 
-Impostazione predefinita: disabilitati o non configurati.
+Default setting:  Disabled or not configured.
 
-* 0 = Esperienza di feed di Microsoft News
+* 0 = Microsoft News feed experience
 
-* 1 = Esperienza di feed di Office 365
+* 1 = Office 365 feed experience
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1000,7 +998,7 @@ Impostazione predefinita: disabilitati o non configurati.
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: NewTabPageSetFeedType
-  - Nome GP: Configura l'esperienza della nuova scheda di Microsoft Edge
+  - Nome GP: Configure the Microsoft Edge new tab page experience
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
   - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
   - Nome file ADMX GP: MSEdge.admx
@@ -1771,13 +1769,11 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  Questa impostazione dei criteri consente di decidere se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen sui siti Web potenzialmente dannosi.
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+Se abiliti questa impostazione, gli utenti non possono ignorare gli avvisi di Microsoft Defender SmartScreen e non possono passare al sito.
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Se disabiliti o non configuri questa impostazione, gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen e passare al sito.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1820,13 +1816,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  Questi criteri consentono di determinare se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download non verificati.
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+Se abiliti questi criteri, gli utenti dell'organizzazione non possono ignorare gli avvisi di Microsoft Defender SmartScreen in quanto impossibilitati a completare i download non verificati.
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Se disabiliti o non configuri questi criteri, gli utenti possono ignorare gli avvisi Microsoft Defender SmartScreen e completare i download non verificati.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1869,15 +1863,14 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Configura l'elenco dei domini attendibili di Microsoft Defender SmartScreen. Ciò significa che:
+Microsoft Defender SmartScreen non verifica la presenza di risorse potenzialmente dannose come il software di phishing e altri malware se gli URL di origine corrispondono a questi domini.
+Il servizio di protezione download di Microsoft Defender SmartScreen non verifica i download ospitati in questi domini.
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+Se abiliti questi criteri, Microsoft Defender SmartScreen considera attendibili questi domini.
+Se disabiliti o non imposti questi criteri, la protezione Microsoft Defender SmartScreen predefinita viene applicata a tutte le risorse.
+Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o sulle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
+Tieni inoltre presente che questi criteri non si applicano se l'organizzazione ha abilitato Microsoft Defender Advanced Threat Protection. In questo caso, devi configurare gli elenchi Consenti e Blocca in Microsoft Defender Security Center.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2952,113 +2945,6 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
-</array>
-```
-  
-
-  [Torna all'inizio](#microsoft-edge---criteri)
-
-  ### LegacySameSiteCookieBehaviorEnabled
-  #### Enable default legacy SameSite cookie behavior setting
-  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
-
-  #### Descrizione
-  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-You can set the following values for this policy:
-
-* 1 = Revert to legacy SameSite behavior for cookies on all sites
-
-* 2 = Use SameSite-by-default behavior for cookies on all sites
-
-If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
-
-  #### Funzionalità supportate:
-  - Può essere obbligatorio: Sì
-  - Può essere consigliato: No
-  - Aggiornamento criteri dinamici: Sì
-
-  #### Tipo di dati:
-  Numero intero
-
-  #### Informazioni e impostazioni di Windows
-  ##### Info su Criteri di gruppo (ADMX)
-  - Nome univoco GP: LegacySameSiteCookieBehaviorEnabled
-  - Nome GP: Enable default legacy SameSite cookie behavior setting
-  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
-  - Percorso GP (Consigliati): N/D
-  - Nome file ADMX GP: MSEdge.admx
-  ##### Impostazioni Registro di sistema di Windows
-  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
-  - Percorso (Consigliati): N/D
-  - Nome valore: LegacySameSiteCookieBehaviorEnabled
-  - Tipo di valore: REG_DWORD
-  ##### Valore di esempio:
-```
-0x00000001
-```
-
-
-  #### Informazioni e impostazioni per Mac
-  - Nome chiave preferenza: LegacySameSiteCookieBehaviorEnabled
-  - Valore di esempio:
-``` xml
-<integer>1</integer>
-```
-  
-
-  [Torna all'inizio](#microsoft-edge---criteri)
-
-  ### LegacySameSiteCookieBehaviorEnabledForDomainList
-  #### Revert to legacy SameSite behavior for cookies on specified sites
-  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
-
-  #### Descrizione
-  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
-
-Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
-
-The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
-
-Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
-
-  #### Funzionalità supportate:
-  - Può essere obbligatorio: Sì
-  - Può essere consigliato: No
-  - Aggiornamento criteri dinamici: Sì
-
-  #### Tipo di dati:
-  Elenco di stringhe
-
-  #### Informazioni e impostazioni di Windows
-  ##### Info su Criteri di gruppo (ADMX)
-  - Nome univoco GP: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Nome GP: Revert to legacy SameSite behavior for cookies on specified sites
-  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
-  - Percorso GP (Consigliati): N/D
-  - Nome file ADMX GP: MSEdge.admx
-  ##### Impostazioni Registro di sistema di Windows
-  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Percorso (Consigliati): N/D
-  - Nome valore: 1, 2, 3, ...
-  - Tipo di valore: elenco di REG_SZ
-  ##### Valore di esempio:
-```
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
-
-```
-
-
-  #### Informazioni e impostazioni per Mac
-  - Nome chiave preferenza: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Valore di esempio:
-``` xml
-<array>
-  <string>www.example.com</string>
-  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -6446,15 +6332,15 @@ Se non configuri questi criteri, gli utenti possono scegliere se inviare le rich
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
+  Specifica se il browser può sfruttare i caratteri voce di Sintesi vocale online, parte di Servizi cognitivi di Azure. Questi caratteri voce sono di qualità superiore rispetto ai caratteri voce di sistema preinstallati.
 
-If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.
+Se abiliti o non configuri questi criteri, le applicazioni basate sul Web che utilizzano l'API SpeechSynthesis possono utilizzare i caratteri voce di Sintesi vocale online.
 
-If you disable this policy, the voice fonts aren't available.
+Se disabiliti questi criteri, i caratteri voce non sono disponibili.
 
-Read more about this feature here:
-SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
-Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
+Leggi altre informazioni su questa funzionalità in:
+API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+Servizi cognitivi: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -7345,15 +7231,15 @@ Se non configuri questi criteri, il comportamento è quello della modalità "Rec
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.
+  #### Show an "Always open" checkbox in external protocol dialog.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Questi criteri controllano se la casella di controllo "Sempre aperto" viene visualizzata nei prompt di conferma dell'avvio del protocollo esterno.
+  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
 
-Se imposti questi criteri su True, quando viene visualizzato un prompt di conferma del protocollo esterno, l'utente può selezionare "Sempre aperto". L'utente non riceverà futuri prompt di conferma per questo protocollo.
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
 
-Se imposti questi criteri su False o se i criteri non vengono impostati, la casella di controllo "Sempre aperto" non verrà visualizzata. All'utente verrà richiesta conferma ogni volta che viene richiamato un protocollo esterno.
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -7366,7 +7252,7 @@ Se imposti questi criteri su False o se i criteri non vengono impostati, la case
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Nome GP: Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.
+  - Nome GP: Show an "Always open" checkbox in external protocol dialog.
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
   - Percorso GP (Consigliati): N/D
   - Nome file ADMX GP: MSEdge.admx
@@ -9021,13 +8907,13 @@ Se non configuri questi criteri, la previsione della rete è abilitata ma l'uten
   >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
 
   #### Descrizione
-  Questi criteri determinano se il profilo Microsoft Edge che ha automaticamente effettuato l'accesso con un account di lavoro o dell'istituto di istruzione dell'utente è rimovibile.
+  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
 
-Se abiliti o non configuri questi criteri, un profilo non rimovibile verrà creato con l'account di lavoro o dell'istituto di istruzione su Windows. Questo profilo non può essere disconnesso o rimosso.
+If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-Se disabiliti questi criteri, il profilo che ha automaticamente effettuato l'accesso con un account di lavoro o dell'istituto di istruzione dell'utente da Windows può essere disconnesso o rimosso dall'utente.
+When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
 
-Se vuoi disabilitare completamente l'accesso browser, utilizza i criteri 'BrowserSignIn'.
+If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10070,9 +9956,11 @@ Se questi criteri sono disabilitati, non è possibile caricare Signed HTTP Excha
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+  
+The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
+
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10344,22 +10232,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### TabFreezingEnabled
-  #### Consenti blocco delle schede in background
-  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
+  #### Allow freezing of background tabs
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 79 o successiva
 
   #### Descrizione
-  Controlla se Microsoft Edge è in grado di bloccare le schede in background per almeno 5 minuti.
+  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
 
-Il blocco delle schede riduce l'uso della CPU, della batteria e della memoria. Microsoft Edge utilizza l'euristica per evitare di bloccare le schede che svolgono funzioni utili in background, ad esempio notifiche di visualizzazione, riproduzione audio e riproduzione in streaming di video.
+Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
 
-Se abiliti questi criteri o non li configuri, le schede in background per almeno 5 minuti potrebbero essere bloccate.
+If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
 
-Se disabiliti questi criteri, nessuna scheda verrà bloccata.
+If you disable this policy, no tabs will be frozen.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
   - Può essere consigliato: No
-  - Aggiornamento criteri dinamici: Sì
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
 
   #### Tipo di dati:
   Booleano
@@ -10367,7 +10255,7 @@ Se disabiliti questi criteri, nessuna scheda verrà bloccata.
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: TabFreezingEnabled
-  - Nome GP: Consenti blocco delle schede in background
+  - Nome GP: Allow freezing of background tabs
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
   - Percorso GP (Consigliati): N/D
   - Nome file ADMX GP: MSEdge.admx
@@ -10382,12 +10270,6 @@ Se disabiliti questi criteri, nessuna scheda verrà bloccata.
 ```
 
 
-  #### Informazioni e impostazioni per Mac
-  - Nome chiave preferenza: TabFreezingEnabled
-  - Valore di esempio:
-``` xml
-<false/>
-```
   
 
   [Torna all'inizio](#microsoft-edge---criteri)
@@ -10919,7 +10801,8 @@ Indipendentemente dall'abilitazione o meno di questi criteri, l'impostazione del
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  This policy was removed in M80, because it is not necessary anymore as
+  
+This policy was removed in M80, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
