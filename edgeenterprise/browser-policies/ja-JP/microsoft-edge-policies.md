@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/13/2019
+ms.date: 11/07/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -78,8 +78,6 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[ImagesBlockedForUrls](#imagesblockedforurls)|特定のサイトで画像をブロックする|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|特定のサイトで JavaScript を許可する|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|特定のサイトで JavaScript をブロックする|
-|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|特定のサイトで通知を許可する|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|特定のサイトで通知をブロックする|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|特定のサイトで Adobe Flash プラグインを許可する|
@@ -99,7 +97,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|新しいタブ ページで既定のトップ サイトを非表示にする|
 |[NewTabPageLocation](#newtabpagelocation)|新しいタブ ページの URL を構成する|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|新しいタブ ページのクイック リンクを設定する|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
 |[RestoreOnStartup](#restoreonstartup)|スタートアップ時に実行するアクション|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|ブラウザーの起動時に開くサイト|
 |[ShowHomeButton](#showhomebutton)|ツール バーに [ホーム] ボタンを表示する|
@@ -203,7 +201,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|オンライン OCSP/CRL チェックを有効にする|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|管理された拡張機能を有効にして、エンタープライズ ハードウェア プラットフォーム API を使用する|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|実験および構成サービスとの通信を制御する|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|お気に入りバーを有効にする|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing セーフサーチを適用する|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|一時プロファイルの使用を有効にする|
@@ -262,7 +260,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|スペルチェック言語を強制的に無効にする|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|サポートされていない OS の警告を表示しない|
 |[SyncDisabled](#syncdisabled)|Microsoft 同期サービスを使用しているデータの同期を無効にする|
-|[TabFreezingEnabled](#tabfreezingenabled)|バックグラウンド タブの固定を許可する|
+|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|ブラウザーのタスク マネージャーでプロセスの終了を有効にする|
 |[TrackingPrevention](#trackingprevention)|ユーザーの Web 閲覧アクティビティの追跡をブロックする|
 |[TranslateEnabled](#translateenabled)|翻訳を有効にする|
@@ -702,13 +700,11 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  このポリシー設定では、有害である可能性のある Web サイトに関する Microsoft Defender SmartScreen の警告をユーザーがオーバーライドできるかどうかを指定できます。
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+この設定を有効にした場合、ユーザーは Microsoft Defender SmartScreen の警告を無視できず、サイトへの移動がブロックされます。
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+この設定を無効にした場合または構成しなかった場合、ユーザーは Microsoft Defender SmartScreen の警告を無視して、サイトに移動することができます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -751,13 +747,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >サポートされているバージョン: Windows (バージョン 77 以降)、および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  このポリシー設定では、未確認のダウンロードに関する Microsoft Defender SmartScreen の警告をユーザーがオーバーライドできるかどうかを指定できます。
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+このポリシーを有効にした場合、組織内のユーザーは Microsoft Defender SmartScreen の警告を無視できず、未確認のダウンロードを完了することはできません。
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+このポリシーを無効にした場合または構成しなかった場合、ユーザーは Microsoft Defender SmartScreen の警告を無視して、未確認のダウンロードを完了することができます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -800,15 +794,14 @@ This policy is available only on Windows instances that are joined to a Microsof
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Microsoft Defender SmartScreen で信頼するドメインのリストを構成します。これは以下を意味します。
+Microsoft Defender SmartScreen では、ソース URL がこれらのドメインに一致すると、フィッシング ソフトウェアや他のマルウェアなど、悪意があると考えられるリソースを確認しません。
+Microsoft Defender SmartScreen のダウンロード保護サービスでは、これらのドメインでホストされているダウンロードを確認しません。
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+このポリシーを有効にした場合、Microsoft Defender SmartScreen はこれらのドメインを信頼します。
+このポリシーを無効にした場合または設定しなかった場合、既定の Microsoft Defender SmartScreen 保護がすべてのリソースに適用されます。
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
+また、組織で Microsoft Defender Advanced Threat Protection が有効になっていると、このポリシーが適用されません。代わりに、Microsoft Defender セキュリティ センターで許可リストと禁止リストを構成する必要があります。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1889,113 +1882,6 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [トップに戻る](#microsoft-edge---ポリシー)
 
-  ### LegacySameSiteCookieBehaviorEnabled
-  #### Enable default legacy SameSite cookie behavior setting
-  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
-
-  #### 説明
-  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-You can set the following values for this policy:
-
-* 1 = Revert to legacy SameSite behavior for cookies on all sites
-
-* 2 = Use SameSite-by-default behavior for cookies on all sites
-
-If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
-
-  #### サポートされている機能:
-  - 必須になる場合があります: はい
-  - 推奨される場合があります: いいえ
-  - 動的ポリシーの更新: はい
-
-  #### データ型:
-  整数
-
-  #### Windows の情報と設定
-  ##### グループ ポリシー (ADMX) 情報
-  - GP 固有の名前: LegacySameSiteCookieBehaviorEnabled
-  - GP の名前: Enable default legacy SameSite cookie behavior setting
-  - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
-  - GP パス (おすすめ): N/A
-  - GP ADMX ファイル名: MSEdge.admx
-  ##### Windows レジストリの設定
-  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
-  - パス (おすすめ): N/A
-  - 値の名前: LegacySameSiteCookieBehaviorEnabled
-  - 値の種類: REG_DWORD
-  ##### サンプル値:
-```
-0x00000001
-```
-
-
-  #### Mac の情報と設定
-  - 優先されるキーの名前: LegacySameSiteCookieBehaviorEnabled
-  - サンプル値:
-``` xml
-<integer>1</integer>
-```
-  
-
-  [トップに戻る](#microsoft-edge---ポリシー)
-
-  ### LegacySameSiteCookieBehaviorEnabledForDomainList
-  #### Revert to legacy SameSite behavior for cookies on specified sites
-  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
-
-  #### 説明
-  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
-
-Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
-
-The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
-
-Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
-
-  #### サポートされている機能:
-  - 必須になる場合があります: はい
-  - 推奨される場合があります: いいえ
-  - 動的ポリシーの更新: はい
-
-  #### データ型:
-  文字列の一覧
-
-  #### Windows の情報と設定
-  ##### グループ ポリシー (ADMX) 情報
-  - GP 固有の名前: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - GP の名前: Revert to legacy SameSite behavior for cookies on specified sites
-  - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
-  - GP パス (おすすめ): N/A
-  - GP ADMX ファイル名: MSEdge.admx
-  ##### Windows レジストリの設定
-  - パス (必須): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
-  - パス (おすすめ): N/A
-  - 値の名前: 1, 2, 3, ...
-  - 値の種類: REG_SZ の一覧
-  ##### サンプル値:
-```
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
-
-```
-
-
-  #### Mac の情報と設定
-  - 優先されるキーの名前: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - サンプル値:
-``` xml
-<array>
-  <string>www.example.com</string>
-  <string>[*.]example.edu</string>
-</array>
-```
-  
-
-  [トップに戻る](#microsoft-edge---ポリシー)
-
   ### NotificationsAllowedForUrls
   #### 特定のサイトで通知を許可する
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
@@ -2913,29 +2799,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### NewTabPageSetFeedType
-  #### Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する
+  #### Configure the Microsoft Edge new tab page experience
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  新しいタブページに対して、Microsoft News または Office 365 のいずれかのフィード エクスペリエンスを選択できます。
+  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
 
-このポリシーを Microsoft News フィード エクスペリエンスに設定すると (0)、新しいタブ ページに Microsoft News フィード エクスペリエンスが表示されます。
+When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
 
-このポリシーを Office 365 フィード エクスペリエンスに設定すると (1)、ユーザーが Azure Active Directory ブラウザー サインインを使用している場合は、新しいタブ ページに Office 365 フィード エクスペリエンスが表示されます。
+When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
 
-このポリシーを無効にした場合または構成しなかった場合:
+If you disable or don't configure this policy:
 
-- ユーザーが Azure Active Directory ブラウザー サインインを使用している場合は、Office 365 の新しいタブ ページ フィード エクスペリエンス、および標準の新しいタブ ページ フィード エクスペリエンスが提供されます。
+- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
 
-- ユーザーが Azure Active Directory ブラウザー サインインを使用していない場合は、標準の新しいタブ ページ エクスペリエンスが表示されます。
+- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
 
-このポリシー*および* [NewTabPageLocation](#newtabpagelocation) ポリシーを構成した場合は、[NewTabPageLocation](#newtabpagelocation) が優先されます。
+If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
 
-既定の設定: 無効または未構成。
+Default setting:  Disabled or not configured.
 
-* 0 = Microsoft News フィード エクスペリエンス
+* 0 = Microsoft News feed experience
 
-* 1 = Office 365 フィード エクスペリエンス
+* 1 = Office 365 feed experience
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2948,7 +2834,7 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: NewTabPageSetFeedType
-  - GP の名前: Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する
+  - GP の名前: Configure the Microsoft Edge new tab page experience
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/スタートアップ、ホーム ページ、新しいタブ ページ
   - GP パス (おすすめ): 管理用テンプレート/Microsoft Edge - 既定の設定 (ユーザーはオーバーライドできます)/スタートアップ、ホーム ページ、新しいタブ ページ
   - GP ADMX ファイル名: MSEdge.admx
@@ -6446,15 +6332,15 @@ Windows では、このポリシーは、Microsoft Active Directory ドメイン
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
+  ブラウザーでオンライン音声合成の音声フォント (Azure Cognitive Services の一部) を活用できるかどうかを設定します。これらの音声フォントは、プレインストールされているシステム音声フォントよりも品質が高くなっています。
 
-If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.
+このポリシーを有効にした場合または構成しなかった場合、SpeechSynthesis API を使用する Web ベースのアプリケーションは、オンライン音声合成の音声フォントを利用できます。
 
-If you disable this policy, the voice fonts aren't available.
+このポリシーを無効にした場合、音声フォントは利用できなくなります。
 
-Read more about this feature here:
-SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
-Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
+この機能の詳細については以下をご覧ください:
+SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7345,15 +7231,15 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
+  #### Show an "Always open" checkbox in external protocol dialog.
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  このポリシーでは、外部プロトコルの起動確認プロンプトに [常に開く] チェック ボックスを表示するかどうかを制御します。
+  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
 
-このポリシーを True に設定した場合、外部プロトコルの確認プロンプトが表示されたときに、ユーザーは [常に開く] を選択できます。今後、ユーザーに対してこのプロトコルの確認プロンプトは表示されなくなります。
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
 
-このポリシーを False に設定した場合またはこのポリシーを設定しなかった場合、[常に開く] チェック ボックスは表示されません。外部プロトコルを呼び出すたびに、ユーザーは確認を求められます。
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7366,7 +7252,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP の名前: 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
+  - GP の名前: Show an "Always open" checkbox in external protocol dialog.
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -9020,13 +8906,13 @@ Windows 7、8、および Mac では、このポリシーがユーザーが使�
   >サポートされているバージョン: Windows (バージョン 78 以降) の Microsoft Edge
 
   #### 説明
-  このポリシーでは、ユーザーの職場または学校アカウントを使用して自動的にサインインされる Microsoft Edge のプロファイルが削除可能であるかどうかを決定します。
+  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
 
-このポリシーを有効にした場合または構成しなかった場合、Windows におけるユーザーの職場または学校アカウントを使用して、削除不可能なプロファイルが作成されます。このプロファイルからサインアウトしたり、このプロファイルを削除したりすることはできません。
+If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-このポリシーを無効にした場合、Windows におけるユーザーの職場または学校アカウントを使用して自動的にサインインされるプロファイルについては、ユーザーはサインアウトしたり、削除したりすることができます。
+When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
 
-ブラウザー サインインを完全に無効する場合は、'BrowserSignIn' ポリシーを使用します。
+If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10069,9 +9955,11 @@ Windows 7、8、および Mac では、このポリシーがユーザーがア�
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+  
+The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
+
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10343,22 +10231,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### TabFreezingEnabled
-  #### バックグラウンド タブの固定を許可する
-  >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
+  #### Allow freezing of background tabs
+  >サポートされているバージョン: Windows (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  Microsoft Edge で、5 分以上バックグラウンドで開かれるタブを固定できるかどうかを制御します。
+  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
 
-タブを固定すると、CPU、バッテリ、およびメモリの使用量を減らすことができます。Microsoft Edge では、ヒューリスティックを使用して、重要な処理 (通知の表示、サウンドの再生、動画のストリーム配信など) をバックグラウンドで実行するタブが固定されるのを回避します。
+Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
 
-このポリシーを有効にした場合または構成しなかった場合、5 分以上バックグラウンドで表示されていたタブが固定される可能性があります。
+If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
 
-このポリシーを無効にした場合、タブは固定されません。
+If you disable this policy, no tabs will be frozen.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
   - 推奨される場合があります: いいえ
-  - 動的ポリシーの更新: はい
+  - 動的ポリシーの更新: いいえ - ブラウザーの再起動が必要です
 
   #### データ型:
   ブール値
@@ -10366,7 +10254,7 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: TabFreezingEnabled
-  - GP の名前: バックグラウンド タブの固定を許可する
+  - GP の名前: Allow freezing of background tabs
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -10381,12 +10269,6 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 ```
 
 
-  #### Mac の情報と設定
-  - 優先されるキーの名前: TabFreezingEnabled
-  - サンプル値:
-``` xml
-<false/>
-```
   
 
   [トップに戻る](#microsoft-edge---ポリシー)
@@ -10918,7 +10800,8 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  This policy was removed in M80, because it is not necessary anymore as
+  
+This policy was removed in M80, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
