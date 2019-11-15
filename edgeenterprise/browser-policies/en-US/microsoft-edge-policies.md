@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/13/2019
+ms.date: 11/07/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -59,8 +59,6 @@ These tables lists all of the browser-related group policies available in this r
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Block images on specific sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Allow JavaScript on specific sites|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Block JavaScript on specific sites|
-|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Allow notifications on specific sites|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Block notifications on specific sites|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites|
@@ -1265,113 +1263,6 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
-</array>
-```
-  
-
-  [Back to top](#microsoft-edge---policies)
-
-  ### LegacySameSiteCookieBehaviorEnabled
-  #### Enable default legacy SameSite cookie behavior setting
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
-
-  #### Description
-  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-You can set the following values for this policy:
-
-* 1 = Revert to legacy SameSite behavior for cookies on all sites
-
-* 2 = Use SameSite-by-default behavior for cookies on all sites
-
-If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
-
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: Yes
-
-  #### Data Type:
-  Integer
-
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: LegacySameSiteCookieBehaviorEnabled
-  - GP name: Enable default legacy SameSite cookie behavior setting
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: LegacySameSiteCookieBehaviorEnabled
-  - Value Type: REG_DWORD
-  ##### Example value:
-```
-0x00000001
-```
-
-
-  #### Mac information and settings
-  - Preference Key Name: LegacySameSiteCookieBehaviorEnabled
-  - Example value:
-``` xml
-<integer>1</integer>
-```
-  
-
-  [Back to top](#microsoft-edge---policies)
-
-  ### LegacySameSiteCookieBehaviorEnabledForDomainList
-  #### Revert to legacy SameSite behavior for cookies on specified sites
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
-
-  #### Description
-  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
-
-Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
-
-The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
-
-Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
-
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: Yes
-
-  #### Data Type:
-  List of strings
-
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - GP name: Revert to legacy SameSite behavior for cookies on specified sites
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Path (Recommended): N/A
-  - Value Name: 1, 2, 3, ...
-  - Value Type: list of REG_SZ
-  ##### Example value:
-```
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
-
-```
-
-
-  #### Mac information and settings
-  - Preference Key Name: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Example value:
-``` xml
-<array>
-  <string>www.example.com</string>
-  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -4082,8 +3973,6 @@ If you enable this setting, users can't ignore Microsoft Defender SmartScreen wa
 
 If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -4130,8 +4019,6 @@ This policy is available only on Windows instances that are joined to a Microsof
 If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
 If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4180,7 +4067,6 @@ The Microsoft Defender SmartScreen download protection service won't check downl
 
 If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
 If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
-
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
@@ -6454,8 +6340,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, the voice fonts aren't available.
 
 Read more about this feature here:
-SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
-Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
+SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10347,7 +10233,7 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   ### TabFreezingEnabled
   #### Allow freezing of background tabs
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+  >Supported Versions: Microsoft Edge on Windows since version 79 or later
 
   #### Description
   Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
@@ -10361,7 +10247,7 @@ If you disable this policy, no tabs will be frozen.
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
-  - Dynamic Policy Refresh: Yes
+  - Dynamic Policy Refresh: No - Requires browser restart
 
   #### Data Type:
   Boolean
@@ -10384,12 +10270,6 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
-  #### Mac information and settings
-  - Preference Key Name: TabFreezingEnabled
-  - Example value:
-``` xml
-<false/>
-```
   
 
   [Back to top](#microsoft-edge---policies)
