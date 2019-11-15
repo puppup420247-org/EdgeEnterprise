@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/13/2019
+ms.date: 11/07/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -86,8 +86,6 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|在特定站点上阻止图像|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|在特定站点上允许 JavaScript|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|在特定站点上阻止 JavaScript|
-|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|在特定站点上允许通知|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|在特定站点上阻止通知|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|允许对特定站点使用 Adobe Flash 插件|
@@ -107,7 +105,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|从新选项卡页中隐藏默认的热门站点|
 |[NewTabPageLocation](#newtabpagelocation)|配置新的选项卡页 URL|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|设置新标签页快速链接|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|配置 Microsoft Edge 新标签页体验|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
 |[RestoreOnStartup](#restoreonstartup)|要在启动时执行的操作|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|浏览器启动时打开的站点|
 |[ShowHomeButton](#showhomebutton)|在工具栏上显示“主页”按钮|
@@ -203,7 +201,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|启用联机 OCSP/CRL 检查|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|允许托管扩展使用企业硬件平台 API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|控制与实验和配置服务的通信|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|在外部协议对话框中显示“始终打开”复选框。|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|启用收藏夹栏|
 |[ForceBingSafeSearch](#forcebingsafesearch)|强制执行必应安全搜索|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|启用临时配置文件|
@@ -262,7 +260,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|强制禁用拼写检查功能的语言|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|禁止不支持的操作系统警告|
 |[SyncDisabled](#syncdisabled)|使用 Microsoft 同步服务禁用数据同步|
-|[TabFreezingEnabled](#tabfreezingenabled)|允许冻结后台标签页|
+|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|启用在浏览器任务管理器中结束进程|
 |[TrackingPrevention](#trackingprevention)|阻止跟踪用户的 Web 浏览活动|
 |[TranslateEnabled](#translateenabled)|启用翻译|
@@ -702,13 +700,11 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  此策略设置让你决定用户是否可以忽略关于可能的恶意网站的 Microsoft Defender SmartScreen 警告。
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+如果启用此设置，则用户无法忽略 Microsoft Defender SmartScreen 警告，并且会阻止用户继续访问该站点。
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+如果禁用或未配置此设置，则用户可以忽略 Microsoft Defender SmartScreen 警告并继续访问该站点。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -751,13 +747,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支持的版本: Windows 上版本 77 或更高版本的 Microsoft Edge，和 Mac 上版本 79 或更高版本的 Microsoft Edge
 
   #### 描述
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  此策略允许你确定用户是否可以覆盖有关未验证下载的 Microsoft Defender SmartScreen 警告。
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+如果启用此策略，组织中的用户无法忽略 Microsoft Defender SmartScreen 警告，并且用户无法完成未验证的下载。
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+如果禁用或未配置此策略，用户可以忽略 Microsoft Defender SmartScreen 警告并完成未验证的下载。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -800,15 +794,14 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  配置 Microsoft Defender SmartScreen 信任的域列表。这意味着:
+如果源 URL 与这些域匹配，Microsoft Defender SmartScreen 不会检查可能的恶意资源，例如钓鱼软件和其他恶意软件。
+Microsoft Defender SmartScreen 下载保护服务不会检查在这些域上托管的下载。
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+如果启用此策略，Microsoft Defender SmartScreen 将信任这些域。
+如果禁用或未设置此策略，默认的 Microsoft Defender SmartScreen 保护将适用于所有资源。
+此策略仅在加入 Microsoft Active Directory 域的 Windows 实例上或注册设备管理的 Windows 10 专业版或企业版实例上可用。
+另请注意，如果你的组织已启用 Microsoft Defender 高级威胁防护，则此策略不适用。你必须改为在 Microsoft Defender 安全中心中配置允许和阻止名单。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -2202,113 +2195,6 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [返回顶部](#microsoft-edge---策略)
 
-  ### LegacySameSiteCookieBehaviorEnabled
-  #### Enable default legacy SameSite cookie behavior setting
-  >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
-
-  #### 描述
-  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-You can set the following values for this policy:
-
-* 1 = Revert to legacy SameSite behavior for cookies on all sites
-
-* 2 = Use SameSite-by-default behavior for cookies on all sites
-
-If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
-
-  #### 支持的功能:
-  - 可以为必填字段: 是
-  - 可以推荐: 否
-  - 动态策略刷新: 是
-
-  #### 数据类型:
-  整数
-
-  #### Windows 信息和设置
-  ##### 组策略(ADMX)信息
-  - GP 唯一名称: LegacySameSiteCookieBehaviorEnabled
-  - GP 名称: Enable default legacy SameSite cookie behavior setting
-  - GP 路径 (强制): 管理模板/Microsoft Edge/内容设置
-  - GP 路径 (推荐): 不适用
-  - GP ADMX 文件名: MSEdge.admx
-  ##### Windows 注册表设置
-  - 路径 (强制): SOFTWARE\Policies\Microsoft\Edge
-  - 路径 (推荐): 不适用
-  - 值名称: LegacySameSiteCookieBehaviorEnabled
-  - 值类型: REG_DWORD
-  ##### 示例值:
-```
-0x00000001
-```
-
-
-  #### Mac 信息和设置
-  - 首选项密钥名称: LegacySameSiteCookieBehaviorEnabled
-  - 示例值:
-``` xml
-<integer>1</integer>
-```
-  
-
-  [返回顶部](#microsoft-edge---策略)
-
-  ### LegacySameSiteCookieBehaviorEnabledForDomainList
-  #### Revert to legacy SameSite behavior for cookies on specified sites
-  >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
-
-  #### 描述
-  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
-
-Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
-
-If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
-
-The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
-
-Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
-
-  #### 支持的功能:
-  - 可以为必填字段: 是
-  - 可以推荐: 否
-  - 动态策略刷新: 是
-
-  #### 数据类型:
-  字符串列表
-
-  #### Windows 信息和设置
-  ##### 组策略(ADMX)信息
-  - GP 唯一名称: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - GP 名称: Revert to legacy SameSite behavior for cookies on specified sites
-  - GP 路径 (强制): 管理模板/Microsoft Edge/内容设置
-  - GP 路径 (推荐): 不适用
-  - GP ADMX 文件名: MSEdge.admx
-  ##### Windows 注册表设置
-  - 路径 (强制): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
-  - 路径 (推荐): 不适用
-  - 值名称: 1, 2, 3, ...
-  - 值类型: REG_SZ 列表
-  ##### 示例值:
-```
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
-SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
-
-```
-
-
-  #### Mac 信息和设置
-  - 首选项密钥名称: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - 示例值:
-``` xml
-<array>
-  <string>www.example.com</string>
-  <string>[*.]example.edu</string>
-</array>
-```
-  
-
-  [返回顶部](#microsoft-edge---策略)
-
   ### NotificationsAllowedForUrls
   #### 在特定站点上允许通知
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
@@ -3226,29 +3112,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [返回顶部](#microsoft-edge---策略)
 
   ### NewTabPageSetFeedType
-  #### 配置 Microsoft Edge 新标签页体验
+  #### Configure the Microsoft Edge new tab page experience
   >支持的版本: Windows 和 Mac 上版本 79 或更高版本的 Microsoft Edge
 
   #### 描述
-  允许你为新标签页选择 Microsoft 资讯或是 Office 365 信息提要体验。
+  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
 
-将此策略设置为 Microsoft 资讯信息提要体验(0)时，用户将在新标签页上获得 Microsoft 资讯信息提要体验。
+When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
 
-将此策略设置为 Office 365 信息提要体验(1)时，通过 Azure Active Directory 登录浏览器的用户将在新标签页上获得 Office 365 信息提要体验。
+When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
 
-如果禁用或未配置此策略:
+If you disable or don't configure this policy:
 
-- 通过 Azure Active Directory 登录浏览器的用户将获得 Office 365 新标签页信息提要体验，以及标准的新标签页信息提要体验。
+- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
 
-- 未通过 Azure Active Directory 登录浏览器的用户将获得标准的新标签页体验。
+- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
 
-如果配置此策略 *以及* [NewTabPageLocation](#newtabpagelocation) 策略，则 [NewTabPageLocation](#newtabpagelocation) 优先。
+If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
 
-默认设置: 已禁用或未配置。
+Default setting:  Disabled or not configured.
 
-* 0 = Microsoft 资讯信息提要体验
+* 0 = Microsoft News feed experience
 
-* 1 = Office 365 信息提要体验
+* 1 = Office 365 feed experience
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -3261,7 +3147,7 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   #### Windows 信息和设置
   ##### 组策略(ADMX)信息
   - GP 唯一名称: NewTabPageSetFeedType
-  - GP 名称: 配置 Microsoft Edge 新标签页体验
+  - GP 名称: Configure the Microsoft Edge new tab page experience
   - GP 路径 (强制): 管理模板/Microsoft Edge/启动、主页和新选项卡页
   - GP 路径 (推荐): 管理模板/Microsoft Edge - 默认设置（用户可以覆盖）/启动、主页和新选项卡页
   - GP ADMX 文件名: MSEdge.admx
@@ -6446,15 +6332,15 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
+  设置浏览器是否可以利用在线文本到语音的语音字体，这是 Azure 认知服务的一部分。这些语音字体比预先安装的系统语音字体质量更高。
 
-If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.
+如果启用或未配置此策略，则使用 SpeechSynthesis API 的基于 Web 的应用程序可以使用在线文本到语音的语音字体。
 
-If you disable this policy, the voice fonts aren't available.
+如果禁用此策略，则语音字体不可用。
 
-Read more about this feature here:
-SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
-Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
+可在此处了解有关此功能的详细信息:
+SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+认知服务: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -7345,15 +7231,15 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [返回顶部](#microsoft-edge---策略)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### 在外部协议对话框中显示“始终打开”复选框。
+  #### Show an "Always open" checkbox in external protocol dialog.
   >支持的版本: Windows 和 Mac 上版本 79 或更高版本的 Microsoft Edge
 
   #### 描述
-  此策略控制“始终打开”复选框是否在外部协议启动确认提示上显示。
+  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
 
-如果将此策略设置为 True，则显示外部协议确认提示时，用户可以选择“始终打开”。用户以后将不会再收到此协议的任何确认提示。
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
 
-如果将此策略设置为 False，或未设置此策略，则不会显示“始终打开”复选框。每次调用外部协议时，系统都将提示用户进行确认。
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -7366,7 +7252,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   #### Windows 信息和设置
   ##### 组策略(ADMX)信息
   - GP 唯一名称: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 名称: 在外部协议对话框中显示“始终打开”复选框。
+  - GP 名称: Show an "Always open" checkbox in external protocol dialog.
   - GP 路径 (强制): 管理模板/Microsoft Edge/
   - GP 路径 (推荐): 不适用
   - GP ADMX 文件名: MSEdge.admx
@@ -9020,13 +8906,13 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >支持的版本: Windows 上版本 78 或更高版本的 Microsoft Edge
 
   #### 描述
-  此策略确定使用用户工作或学校帐户自动登录的 Microsoft Edge 配置文件是否可删除。
+  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
 
-如果启用或未配置此策略，则将使用用户的工作或学校帐户在 Windows 上创建不可删除的配置文件。此配置文件无法注销或删除。
+If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-如果禁用此策略，则用户可以注销或删除使用用户的工作或学校帐户从 Windows 中自动登录的配置文件。
+When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
 
-如果要完全禁用浏览器登录，请使用 "BrowserSignIn" 策略。
+If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -10069,9 +9955,11 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+  
+The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
+
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -10343,22 +10231,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [返回顶部](#microsoft-edge---策略)
 
   ### TabFreezingEnabled
-  #### 允许冻结后台标签页
-  >支持的版本: Windows 和 Mac 上版本 79 或更高版本的 Microsoft Edge
+  #### Allow freezing of background tabs
+  >支持的版本: Windows 上版本 79 或更高版本的 Microsoft Edge
 
   #### 描述
-  控制 Microsoft Edge 是否可以将后台中的标签页至少冻结 5 分钟。
+  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
 
-标签页冻结可减少 CPU、电池和内存的使用量。Microsoft Edge 使用试探法来避免冻结在后台执行有用工作(例如显示通知、播放声音和流式传输视频)的标签页。
+Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
 
-如果启用此策略或未配置此策略，则后台中已至少存在 5 分钟的标签页可能会被冻结。
+If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
 
-如果禁用此策略，则不会冻结任何标签页。
+If you disable this policy, no tabs will be frozen.
 
   #### 支持的功能:
   - 可以为必填字段: 是
   - 可以推荐: 否
-  - 动态策略刷新: 是
+  - 动态策略刷新: 否 - 需要重启浏览器
 
   #### 数据类型:
   布尔
@@ -10366,7 +10254,7 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   #### Windows 信息和设置
   ##### 组策略(ADMX)信息
   - GP 唯一名称: TabFreezingEnabled
-  - GP 名称: 允许冻结后台标签页
+  - GP 名称: Allow freezing of background tabs
   - GP 路径 (强制): 管理模板/Microsoft Edge/
   - GP 路径 (推荐): 不适用
   - GP ADMX 文件名: MSEdge.admx
@@ -10381,12 +10269,6 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 ```
 
 
-  #### Mac 信息和设置
-  - 首选项密钥名称: TabFreezingEnabled
-  - 示例值:
-``` xml
-<false/>
-```
   
 
   [返回顶部](#microsoft-edge---策略)
@@ -10918,7 +10800,8 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  This policy was removed in M80, because it is not necessary anymore as
+  
+This policy was removed in M80, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
