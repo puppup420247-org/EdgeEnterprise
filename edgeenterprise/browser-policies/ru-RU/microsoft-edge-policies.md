@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/06/2019
+ms.date: 11/13/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -55,7 +55,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Скрыть популярные сайты по умолчанию со страницы новой вкладки|
 |[NewTabPageLocation](#newtabpagelocation)|Настроить URL-адрес страницы новой вкладки|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Настройка быстрых ссылок для страницы новой вкладки|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Настройка интерфейса страницы новой вкладки Microsoft Edge|
 |[RestoreOnStartup](#restoreonstartup)|Действие, выполняемое при запуске|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Сайты, которые открываются при запуске браузера|
 |[ShowHomeButton](#showhomebutton)|Показать кнопку домашней страницы на панели инструментов|
@@ -88,6 +88,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Блокировать изображения на определенных сайтах|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Разрешить скрипты JavaScript на определенных сайтах|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Блокировать скрипты JavaScript на определенных сайтах|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Разрешить уведомления на определенных сайтах|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Блокировать уведомления на определенных сайтах|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Разрешить подключаемый модуль Adobe Flash на определенных сайтах|
@@ -201,7 +203,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Включить проверки OCSP/CRL в сети|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Разрешить управляемым расширениям использовать API платформы оборудования предприятия|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Управление связью со службой "Эксперименты и конфигурация"|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Включить панель "Избранное"|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Принудительно применить функцию "Безопасный поиск Bing"|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Разрешить использование временных профилей|
@@ -260,7 +262,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Принудительное отключение языков проверки орфографии|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Отключить предупреждение о неподдерживаемой ОС|
 |[SyncDisabled](#syncdisabled)|Отключить синхронизацию данных с помощью служб синхронизации Майкрософт|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|Разрешить блокировку работы фоновых вкладок|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Включить завершение процессов в диспетчере задач браузера|
 |[TrackingPrevention](#trackingprevention)|Блокировка отслеживания просмотренных веб-страниц|
 |[TranslateEnabled](#translateenabled)|Включить перевод|
@@ -961,29 +963,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [В начало](#microsoft-edge:-политики)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Настройка интерфейса страницы новой вкладки Microsoft Edge
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  Позволяет выбрать интерфейс веб-канала Microsoft News или Office 365 на странице новой вкладки.
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+Если для этого параметра политики выбрано значение интерфейса веб-канала Microsoft News (0), для пользователей будет отображаться интерфейс веб-канала Microsoft News на странице новой вкладки.
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+Если для этого параметра политики выбрано значение интерфейса веб-канала Office 365 (1), пользователи со входом в Azure Active Directory с помощью браузера будут видеть интерфейс веб-канала Office 365 на странице новой вкладки.
 
-If you disable or don't configure this policy:
+Если отключить или не настроить этот параметр политики:
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- Пользователям со входом в Azure Active Directory с помощью браузера будет предлагаться интерфейс веб-канала Office 365 на странице новой вкладки, а также стандартный интерфейс веб-канала на странице новой вкладки.
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- Пользователям без входа в Azure Active Directory с помощью браузера будет отображаться стандартный интерфейс веб-канала на странице новой вкладки.
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+Если настроить эту политику *и* политику [NewTabPageLocation](#newtabpagelocation), [NewTabPageLocation](#newtabpagelocation) будет иметь преимущество.
 
-Default setting:  Disabled or not configured.
+По умолчанию: отключено или не настроено.
 
-* 0 = Microsoft News feed experience
+* 0 = интерфейс веб-канала Microsoft News
 
-* 1 = Office 365 feed experience
+* 1 = интерфейс веб-канала Office 365
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -996,7 +998,7 @@ Default setting:  Disabled or not configured.
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: NewTabPageSetFeedType
-  - Имя групповой политики: Configure the Microsoft Edge new tab page experience
+  - Имя групповой политики: Настройка интерфейса страницы новой вкладки Microsoft Edge
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Запуск, домашняя страница и страница новой вкладки
   - Путь групповой политики (Рекомендовано): Административные шаблоны/Microsoft Edge - Параметры по умолчанию (пользователи могут переопределять)/Запуск, домашняя страница и страница новой вкладки
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -1188,11 +1190,13 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  С помощью этого параметра политики можно разрешить или запретить пользователям переопределять предупреждения фильтра SmartScreen в Microsoft Defender, касающиеся потенциально вредоносных веб-сайтов.
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-Если включить этот параметр, пользователи не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и переходить на соответствующие веб-сайты.
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-Если отключить или не настроить этот параметр, пользователи смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и переходить на соответствующие веб-сайты.
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1235,11 +1239,13 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows с 77 или более поздней версии, а также на Mac с 79 или более поздней версии
 
   #### Описание
-  С помощью этого параметра политики можно разрешить или запретить сотрудникам переопределять предупреждения о непроверенных загрузках, отправляемые фильтром SmartScreen в Microsoft Defender.
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-Если включить этот параметр, сотрудники не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и загружать непроверенные элементы.
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-Если отключить или не настроить этот параметр, сотрудники смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и загружать непроверенные элементы.
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1282,14 +1288,15 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Настройка списка доменов, которым доверяет фильтр SmartScreen в Microsoft Defender. Это означает следующее.
-Фильтр SmartScreen в Microsoft Defender не будет проверять потенциально вредоносные ресурсы (например, программы для фишинга и другое вредоносное ПО), если исходные URL-адреса совпадают с этими доменами.
-Служба защиты загрузок фильтра SmartScreen в Microsoft Defender не будет проверять загружаемые файлы, размещенные на этих доменах.
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-Если включить этот параметр политики, фильтр SmartScreen в Microsoft Defender будет доверять этим доменам.
-Если отключить или не настроить этот параметр политики, ко всем ресурсам применяется стандартная защита фильтра SmartScreen в Microsoft Defender.
-Этот параметр политики доступен только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, либо экземплярах Windows 10 Pro или Windows 10 Корпоративная, зарегистрированных для управления устройствами.
-Также обратите внимание: этот параметр политики не применяется, если ваша организация включила функцию Advanced Threat Protection в Microsoft Defender. В этом случае следует настроить списки разрешенных и запрещенных URL-адресов в Центре безопасности в Microsoft Defender.
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2364,6 +2371,113 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Enable default legacy SameSite cookie behavior setting
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+You can set the following values for this policy:
+
+* 1 = Revert to legacy SameSite behavior for cookies on all sites
+
+* 2 = Use SameSite-by-default behavior for cookies on all sites
+
+If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Целое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: LegacySameSiteCookieBehaviorEnabled
+  - Имя групповой политики: Enable default legacy SameSite cookie behavior setting
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: LegacySameSiteCookieBehaviorEnabled
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000001
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: LegacySameSiteCookieBehaviorEnabled
+  - Пример значения:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Revert to legacy SameSite behavior for cookies on specified sites
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
+
+Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
+
+The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
+
+Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Список строк
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Имя групповой политики: Revert to legacy SameSite behavior for cookies on specified sites
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: 1, 2, 3, ...
+  - Тип значения: Список REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Пример значения:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -6332,15 +6446,15 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Этот параметр политики позволяет указать, можно ли в браузере использовать голоса веб-службы преобразования текста в речь (в рамках Azure Cognitive Services). Эти голоса имеют более высокое качество, чем предустановленные в системе голоса.
+  Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
 
-Если этот параметр политики включен или не настроен, веб-приложения, использующие API SpeechSynthesis, могут использовать голоса веб-службы преобразования текста в речь.
+If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.
 
-Если этот параметр политики выключен, такие голоса недоступны.
+If you disable this policy, the voice fonts aren't available.
 
-Ниже указано, где можно узнать больше об этой функции.
-API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Службы Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+Read more about this feature here:
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7231,15 +7345,15 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [В начало](#microsoft-edge:-политики)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  Этот параметр политики определяет, отображается ли флажок "Всегда открывать" во всех запросах на подтверждение запуска внешних протоколов.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+Если для этого параметра политики задано значение "True", при появлении запроса на подтверждение внешнего протокола пользователь может выбрать параметр "Всегда открывать". Пользователь больше не будет получать запросы на подтверждение для этого протокола.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+Если для этого параметра политики задано значение "False" или эта политика не задана, флажок "Всегда открывать" не отображается. Пользователь будет получать запрос на подтверждение при каждом вызове внешнего протокола.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7252,7 +7366,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Имя групповой политики: Show an "Always open" checkbox in external protocol dialog.
+  - Имя групповой политики: Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -8906,13 +9020,13 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Поддерживаемые версии: Microsoft Edge на Windows с 78 или более поздней версии
 
   #### Описание
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  Эта политика определяет, можно ли удалить профиль Microsoft Edge, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Если эта политика включена или не настроена, в Windows будет создан неудаляемый профиль на основе рабочей или учебной учетной записи пользователя. Пользователь не сможет выйти из этого профиля или удалить его.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+Если эта политика отключена, пользователь может выйти из профиля, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя в Windows, или удалить его.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+Если необходимо полностью отключить вход в браузер, используйте политику "BrowserSignIn".
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9955,11 +10069,9 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+  The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10231,22 +10343,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [В начало](#microsoft-edge:-политики)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >Поддерживаемые версии: Microsoft Edge на Windows с 79 или более поздней версии
+  #### Разрешить блокировку работы фоновых вкладок
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Определяет, может ли Microsoft Edge блокировать работу вкладок, которые находятся в фоновом режиме не менее 5 минут.
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+Блокировка работы вкладок позволяет уменьшить использование ЦП, аккумулятора и памяти. Microsoft Edge использует эвристику, чтобы не блокировать работу вкладок, которые выполняют полезные процессы в фоновом режиме (например, отображают уведомления, воспроизводят звук и передают в потоковом режиме видео).
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+Если эта политика включена или не настроена, работа вкладок, которые находятся в фоновом режиме не менее 5 минут, может быть заблокирована.
 
-If you disable this policy, no tabs will be frozen.
+Если эта политика отключена, работа вкладок не будет блокироваться.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
   - Может быть рекомендованной: Нет
-  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
+  - Динамическое обновление политики: Да
 
   #### Тип данных:
   Логическое
@@ -10254,7 +10366,7 @@ If you disable this policy, no tabs will be frozen.
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: TabFreezingEnabled
-  - Имя групповой политики: Allow freezing of background tabs
+  - Имя групповой политики: Разрешить блокировку работы фоновых вкладок
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -10269,6 +10381,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: TabFreezingEnabled
+  - Пример значения:
+``` xml
+<false/>
+```
   
 
   [В начало](#microsoft-edge:-политики)
@@ -10800,8 +10918,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  
-This policy was removed in M80, because it is not necessary anymore as
+  This policy was removed in M80, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
