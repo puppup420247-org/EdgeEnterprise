@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/06/2019
+ms.date: 11/13/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -84,7 +84,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|새 탭 페이지에서 기본 상위 사이트 숨기기|
 |[NewTabPageLocation](#newtabpagelocation)|새 탭 페이지 URL 구성|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|새 탭 페이지 빠른 연결 설정|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Microsoft Edge 새 탭 페이지 환경 구성|
 |[RestoreOnStartup](#restoreonstartup)|시작 시 수행할 작업|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|브라우저가 시작될 때 열 사이트|
 |[ShowHomeButton](#showhomebutton)|도구 모음에 홈 버튼 표시|
@@ -123,6 +123,8 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[ImagesBlockedForUrls](#imagesblockedforurls)|특정 사이트에서 이미지 차단|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|특정 사이트에서 JavaScript 허용|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|특정 사이트에서 JavaScript 차단|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|특정 사이트에서 알림 허용|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|특정 사이트에서 알림 차단|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|특정 사이트에서 Adobe Flash 플러그 인 허용|
@@ -201,7 +203,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|온라인 OCSP/CRL 검사 사용|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|관리되는 확장에서 엔터프라이즈 하드웨어 플랫폼 API를 사용하도록 허용|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|실험 및 구성 서비스와의 통신 제어|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|즐겨찾기 모음 사용|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing 유해 정보 차단 적용|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|임시 프로필 사용 설정|
@@ -260,7 +262,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|맞춤법 검사 언어 강제 사용 안 함|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|지원 되지 않는 OS 경고 표시 안 함|
 |[SyncDisabled](#syncdisabled)|Microsoft 동기화 서비스를 사용한 데이터의 동기화 사용 안 함|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|배경 탭의 고정 허용|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|브라우저 작업 관리자에서 종료 프로세스 사용|
 |[TrackingPrevention](#trackingprevention)|사용자의 웹 검색 활동 추적 차단|
 |[TranslateEnabled](#translateenabled)|번역 사용|
@@ -700,11 +702,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  이 정책 설정을 통해 사용자가 잠재적으로 악성 웹 사이트에 대한 Microsoft Defender SmartScreen 경고를 재정의할 수 있는지 여부를 결정할 수 있습니다.
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-이 설정을 사용하면 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 사이트로 이동하지 못합니다.
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-이 설정을 사용하지 않도록 설정하거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 사이트로 이동할 수 있습니다.
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -747,11 +751,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows의 Microsoft Edge, 버전 77 이상부터 및 Mac, 버전 79 이상부터
 
   #### 설명
-  이 정책을 통해 확인되지 않은 다운로드에 대한 Microsoft Defender SmartScreen 경고를 무시할수 있는지 여부를 결정할 수 있습니다.
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-이 정책을 사용하면 조직의 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 확인되지 않은 다운로드를 완료할 수 없습니다.
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-이 정책을 사용하지 않거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 확인되지 않은 다운로드를 완료할 수 있습니다.
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -794,14 +800,15 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Microsoft Defender SmartScreen에서 트러스트된 도메인 목록을 구성합니다. 즉,
-원본 URL이 이 도메인과 일치하는 경우 Microsoft Defender SmartScreen은 피싱 소프트웨어 및 기타 맬웨어와 같은 잠재적 악성 리소스를 확인하지 않습니다.
-Microsoft Defender SmartScreen 다운로드 보호 서비스는 해당 도메인에서 호스팅되는 다운로드를 확인하지 않습니다.
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-이 정책을 사용하면 Microsoft Defender SmartScreen에서 이러한 도메인을 신뢰합니다.
-이 정책을 사용하지 않거나 설정하지 않으면 기본 Microsoft Defender SmartScreen 보호가 모든 리소스에 적용됩니다.
-이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
-또한 조직에서 Microsoft Defender Advanced Threat Protection을 사용하도록 설정한 경우에는 이 정책이 적용되지 않습니다. Microsoft Defender 보안 센터에서 허용 및 차단 목록을 구성해야 합니다.
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1932,29 +1939,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Microsoft Edge 새 탭 페이지 환경 구성
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  새 탭 페이지에 대해 Microsoft 뉴스 또는 Office 365 피드 환경을 선택할 수 있습니다.
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+이 정책을 Microsoft 뉴스 피드 환경(0)으로 설정하면 새 탭 페이지에 Microsoft 뉴스 피드 환경이 표시됩니다.
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+이 정책을 Office 365 피드 환경(1)으로 설정하면 Azure Active Directory 로그인을 사용하는 사용자는 새 탭 페이지에서 Office 365 피드 환경을 볼 수 있습니다.
 
-If you disable or don't configure this policy:
+이 정책을 사용하지 않거나 구성하지 않으면
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- Azure Active Directory 브라우저 로그인을 사용하는 사용자에게는 표준 새 탭 페이지 피드 환경뿐만 아니라 Office 365 새 탭 페이지 피드 환경도 제공됩니다.
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- Azure Active Directory 브라우저 로그인을 사용하지 않는 사용자에게는 표준 새 탭 페이지 환경이 표시됩니다.
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+이 정책 *및* [NewTabPageLocation](#newtabpagelocation) 정책을 구성하면, [NewTabPageLocation](#newtabpagelocation) 정책이 우선합니다.
 
-Default setting:  Disabled or not configured.
+기본 설정: 사용 안 함 또는 구성되지 않음.
 
-* 0 = Microsoft News feed experience
+* 0 = Microsoft 뉴스 피드 환경
 
-* 1 = Office 365 feed experience
+* 1 = Office 365 피드 환경
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1967,7 +1974,7 @@ Default setting:  Disabled or not configured.
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: NewTabPageSetFeedType
-  - GP 이름: Configure the Microsoft Edge new tab page experience
+  - GP 이름: Microsoft Edge 새 탭 페이지 환경 구성
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/시작, 홈 페이지 및 새 탭 페이지
   - GP 경로 (맞춤): 관리 템플릿/Microsoft Edge - 기본 설정(사용자가 재정의할 수 없음)/시작, 홈 페이지 및 새 탭 페이지
   - GP ADMX 파일 이름: MSEdge.admx
@@ -3497,6 +3504,113 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Enable default legacy SameSite cookie behavior setting
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+You can set the following values for this policy:
+
+* 1 = Revert to legacy SameSite behavior for cookies on all sites
+
+* 2 = Use SameSite-by-default behavior for cookies on all sites
+
+If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  정수
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: LegacySameSiteCookieBehaviorEnabled
+  - GP 이름: Enable default legacy SameSite cookie behavior setting
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: LegacySameSiteCookieBehaviorEnabled
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000001
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: LegacySameSiteCookieBehaviorEnabled
+  - 예제 값:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Revert to legacy SameSite behavior for cookies on specified sites
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
+
+Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
+
+The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
+
+Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  문자열 목록
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - GP 이름: Revert to legacy SameSite behavior for cookies on specified sites
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: 1, 2, 3, ...
+  - 값 형식: REG_SZ 목록
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 예제 값:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -6332,15 +6446,15 @@ Windows에서 이 정책은 Microsoft Active Directory 도메인에 가입된 �
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Azure인식 서비스의 한 부분인 브라우저에서 온라인 텍스트 음성 변환 글꼴을 활용할 수 있는지 여부를 설정합니다.
+  Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.
 
-이 정책을 사용하거나 구성하지 않으면 SpeechSynthesis API를 사용하는 웹 기반 응용 프로그램에서 온라인 텍스트 음성 변환 글꼴을 사용할 수 있습니다.
+If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.
 
-사이 정책을 사용하지 않으면 음성 글꼴을 사용할 수 없습니다.
+If you disable this policy, the voice fonts aren't available.
 
-이 기능에 대한 자세한 내용은 다음을 참조하세요:
-SpeechSynthesis API: https://developer.mozilla.org/ko-KR/docs/Web/API/SpeechSynthesis
-인식 서비스: https://azure.microsoft.com/ko-kr/services/cognitive-services/text-to-speech/
+Read more about this feature here:
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7231,15 +7345,15 @@ Microsoft는 호환성을 위해 특정 도메인에서 수행할 작업 목록�
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  이 정책은 "항상 열기" 확인란이 외부 프로토콜 시작 확인 프롬프트에 표시되는지 여부를 제어합니다.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+이 정책을 True로 설정하면 외부 프로토콜 확인 프롬프트가 표시될 때 사용자가 "항상 열기"를 선택할 수 있습니다. 이 프로토콜에 대한 확인 메시지가 더 이상 사용자에게 표시되지 않습니다.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+이 정책을 False로 설정하거나 정책을 설정하지 않으면 "항상 열기" 확인란이 표시되지 않습니다. 외부 프로토콜이 호출될 때마다 확인하라는 메시지가 사용자에게 표시됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7252,7 +7366,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 이름: Show an "Always open" checkbox in external protocol dialog.
+  - GP 이름: 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -8906,13 +9020,13 @@ Windows 7, 8 및 Mac에서는 이 정책이 사용량 및 크래시 관련 데�
   >지원되는 버전: Windows의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  이 정책은 사용자의 회사 또는 학교 계정으로 자동으로 로그인되어 있는 Microsoft Edge 프로필이 제거 가능한지 여부를 결정합니다.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+이 정책을 사용하도록 설정하거나 구성하지 않으면 제거할 수 없는 프로필이 Windows에서 사용자의 회사 또는 학교 계정으로 만들어집니다.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+이 정책을 사용하지 않으면 사용자가 Windows에서 사용자의 회사 또는 학교 계정으로 자동으로 로그인한 프로필을 로그아웃하거나 제거할 수 있습니다.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+브라우저 로그인을 완전히 사용하지 않도록 설정하려면 'BrowserSignIn' 정책을 사용하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9955,11 +10069,9 @@ Windows 7, 8 및 Mac에서는 이 정책이 사용자가 방문하는 웹 사이
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
+  The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10231,22 +10343,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >지원되는 버전: Windows의 Microsoft Edge, 버전 79 이상부터
+  #### 배경 탭의 고정 허용
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Microsoft Edge가 5분 이상 백그라운드에 있는 탭을 고정할 수 있는지 여부를 제어합니다.
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+탭 고정은 CPU, 배터리, 및 메모리 사용량을 줄입니다. Microsoft Edge는 경험적 접근을 사용하여 알림 표시, 소리 재생 및 비디오 스트리밍과 같이 백그라운드에서 유용한 작업을 수행하는 탭이 고정되는 것을 방지합니다.
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+이 정책을 사용하도록 설정하거나 구성하지 않으면 5분 이상 백그라운드에 있었던 탭이 고정될 수 있습니다.
 
-If you disable this policy, no tabs will be frozen.
+이 정책을 사용하지 않도록 설정하면 탭이 고정되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
   - 권장될 수 있음: 아니요
-  - 동적 정책 새로 고침: 아니요 - 브라우저 다시 시작 필요
+  - 동적 정책 새로 고침: 예
 
   #### 데이터 형식:
   부울
@@ -10254,7 +10366,7 @@ If you disable this policy, no tabs will be frozen.
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: TabFreezingEnabled
-  - GP 이름: Allow freezing of background tabs
+  - GP 이름: 배경 탭의 고정 허용
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -10269,6 +10381,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: TabFreezingEnabled
+  - 예제 값:
+``` xml
+<false/>
+```
   
 
   [맨 위로 이동](#microsoft-edge---정책)
@@ -10800,8 +10918,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  
-This policy was removed in M80, because it is not necessary anymore as
+  This policy was removed in M80, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
