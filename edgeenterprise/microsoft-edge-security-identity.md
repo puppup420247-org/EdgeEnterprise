@@ -3,7 +3,7 @@ title: "Microsoft Edge identity support and configuration"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,13 +21,11 @@ This article describes how Microsoft Edge uses identity to support features such
 
 ## Overview
 
-When users sign in, they automatically benefit from single sign-on (SSO) when they visit websites that support their logged in account. When signed in, users can choose to sync their browsing data between their devices. Signing in is also needed to use authenticated browser features such as the **New tab page**, [Microsoft Search](https://docs.microsoft.com/microsoftsearch/) and [Microsoft Information Protection](https://www.microsoft.com/security/technology/information-protection).
+When users sign in, they automatically benefit from single sign-on (SSO) when they visit websites that support their logged in account. When signed in, users can choose to sync their browsing data between their devices. Signing in is also needed to use authenticated browser features such as the **Enterprise New tab page**, [Microsoft Search](https://docs.microsoft.com/microsoftsearch/) and [Microsoft Information Protection](https://www.microsoft.com/security/technology/information-protection).
 
 ## Authentication
 
-To ensure that users are always authenticated and can benefit from authenticated features, they’re automatically signed into Microsoft Edge if they’re signed into Windows. In addition, users can’t remove their sign-in profile for their work or school account. This setting can be changed using the [NonRemovableProfileEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#nonremovableprofileenabled) policy.
-
-Users can sign into Microsoft Edge with more than one account, add profiles and then sign into each profile using different accounts.
+To ensure that users are always authenticated and can benefit from authenticated features, they’re automatically signed into Microsoft Edge if they’re signed into Windows. Users can sign into Microsoft Edge with more than one account by adding a profile and then signing into it using a different account.
 
 > [!NOTE]
 > If users want to browse unauthenticated, they can add a profile or browse using the Guest profile.
@@ -38,13 +36,13 @@ The type of account used sign in determines which authentication and identity-ba
 
 |                 | AAD Premium   | AAD Free      | On-premise AD | MSA           |
 |-----------------|---------------|---------------|---------------|---------------|
-| Seamless SSO    | Yes           | Yes           | ?             |               |
-| SSO with Primary Refresh Token | Yes          |Yes          |               | Yes          |
-| Windows Integrated Authentication | Yes          |Yes          |Yes          |               |
-| Sync            | Yes          |               |               |Yes          |
-| New tab page    |Yes          | Yes          |               |               |
-| Microsoft Search | Yes          |Yes          |               |               |
-| Microsoft Information Protection |Yes          | ?             | ?             |               |
+| Sync            | Yes           | No            | No            | Yes           |
+| SSO with Primary Refresh Token | Yes          |Yes          | No            | Yes          |
+| Seamless SSO    | Yes           | Yes           | Yes           | N/A           |
+| Windows Integrated Authentication | Yes          |Yes          |Yes          | N/A           |
+| Enterprise New tab page | Requires O365 | Requires O365 | No            | N/A           |
+| Microsoft Search | Requires O365 | Requires O365 | No           | N/A          |
+| Microsoft Information Protection | Requires O365 E3 or E5 | Requires O365 E3 or E5 | Requires O365 E3 or E5 | N/A             |
 
 ### Single Sign-On
 
@@ -62,7 +60,7 @@ A Primary Refresh Token (PRT) is an AAD key that’s used for authentication on 
 
 Windows Integrated Authentication (WIA) is enabled in Active Directory Federation Services (AD FS) for authentication requests within an organization's internal network for any application that uses a browser for its authentication.
 
-To use WIA with Microsoft Edge (version 77 and later) you have to configure the AD FS property **WiaSupportedUserAgents** and add the following user agent string: `"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3951.0 Safari/537.36 Edg/80.0.319.0"`
+To use WIA with Microsoft Edge (version 77 and later) you have to configure the AD FS property **WiaSupportedUserAgents** and add the following user agent string:<br> `"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3951.0 Safari/537.36 Edg/80.0.319.0"`
 
 For information about configuring WIA in AD FS, see [View WIASupportedUserAgent settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia#view-wiasupporteduseragent-settings) and [Change WIASupportedUserAgent settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-browser-wia#change-wiasupporteduseragent-settings).
 
