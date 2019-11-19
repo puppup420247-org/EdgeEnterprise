@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/07/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -53,7 +53,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Nascondi i siti principali predefiniti dalla nuova scheda|
 |[NewTabPageLocation](#newtabpagelocation)|Configura l'URL della nuova scheda|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Imposta collegamenti rapidi per la nuova scheda|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configura l'esperienza della nuova scheda di Microsoft Edge|
 |[RestoreOnStartup](#restoreonstartup)|Azione da eseguire all'avvio|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Siti da aprire quando si avvia il browser|
 |[ShowHomeButton](#showhomebutton)|Mostra pulsante Home sulla barra degli strumenti|
@@ -79,7 +79,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configura l'elenco dei domini per cui Microsoft Defender SmartScreen non attiva gli avvisi|
 |[SmartScreenEnabled](#smartscreenenabled)|Configura Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Forza i controlli Microsoft Defender SmartScreen per i download da origini attendibili|
-|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configura Microsoft Defender SmartScreen per bloccare le app potenzialmente indesiderate|
 ### [*Impostazioni dei contenuti*](#impostazioni-dei-contenuti-policies)
 |Nome criteri|Sottotitolo|
 |-|-|
@@ -100,6 +100,8 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Blocca le immagini per siti specifici|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Consenti JavaScript per siti specifici|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Blocca JavaScript per siti specifici|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Abilita impostazione predefinita del comportamento dei cookie SameSite|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Ripristina il comportamento SameSite legacy per i cookie nei siti specificati|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Consenti le notifiche per siti specifici|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Blocca le notifiche per siti specifici|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Consenti il plug-in Adobe Flash per siti specifici|
@@ -201,7 +203,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Abilita i controlli CRL/OCSP online|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Consenti alle estensioni gestite di utilizzare l'API della piattaforma hardware aziendale|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Controlla le comunicazioni con il servizio di sperimentazione e configurazione|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Abilita barra Preferiti|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Applica Ricerca sicura Bing|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Abilita l'utilizzo di profili temporanei|
@@ -234,6 +236,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[NetworkPredictionOptions](#networkpredictionoptions)|Abilita completamento rete|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configura se un utente ha sempre un profilo predefinito connesso automaticamente al proprio account aziendale o dell'istituto di istruzione|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Controlla dove vengono applicate le restrizioni di sicurezza alle origini non sicure|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Abilita l'autenticazione proattiva|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Abilitare il contenuto promozionale della scheda completa|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Richiedi la posizione in cui salvare i file scaricati|
@@ -260,7 +263,7 @@ Queste tabelle elencano tutti i criteri di gruppo correlati al browser disponibi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Forza disattivazione lingue per controllo ortografico|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Elimina l'avviso di sistema operativo non supportato|
 |[SyncDisabled](#syncdisabled)|Disabilita la sincronizzazione dei dati mediante i servizi di sincronizzazione Microsoft|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|Consenti blocco delle schede in background|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Abilita l'interruzione dei processi in Gestione attività del browser|
 |[TrackingPrevention](#trackingprevention)|Blocca il rilevamento dell'attività di esplorazione Web degli utenti|
 |[TranslateEnabled](#translateenabled)|Abilita traduzione|
@@ -653,17 +656,17 @@ Questi criteri sono disponibili solo per le istanze di Windows aggiunte a un dom
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Configures the default home page URL in Microsoft Edge.
+  Configura l'URL predefinito della home page in Microsoft Edge.
 
-The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+La home page è la pagina che viene aperta dal pulsante Home. Le pagine che vengono aperte all'avvio sono controllate dai criteri [RestoreOnStartup](#restoreonstartup).
 
-You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+Puoi impostare un URL o la home page per aprire la nuova scheda. Se scegli di aprire la nuova scheda, i criteri non sono effettivi.
 
-If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+Se abiliti questi criteri, gli utenti non possono modificare l'URL della home page, ma possono scegliere di utilizzare la nuova scheda come home page.
 
-If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+Se disabiliti o non configuri questa impostazione dei criteri, gli utenti possono scegliere la propria home page, a condizione che i criteri [HomepageIsNewTabPage](#homepageisnewtabpage) non siano abilitati.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+Questi criteri sono disponibili solo nelle istanze di Windows aggiunte a un dominio Microsoft Active Directory o nelle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -706,19 +709,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Specifica il logo aziendale da utilizzare nella nuova scheda in Microsoft Edge.
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
 
-I criteri devono essere configurati come stringa che esprime il logo o i loghi in formato JSON. Ad esempio: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-Per configurare questi criteri, specifica l'URL da cui Microsoft Edge può scaricare il logo e l'hash di crittografia (Agente integrità sistema-256) utilizzato per verificare l'integrità del download. Il logo deve essere in formato PNG o SVG e le dimensioni del file non devono superare i 16 MB. Il logo viene scaricato e memorizzato nella cache e verrà riscaricato ogni volta che l'URL o l'hash viene modificato. L'URL deve essere accessibile senza alcuna autenticazione.
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
 
-Il valore "default_logo" è obbligatorio e viene utilizzato quando non c'è un'immagine di sfondo. Se fornito, "light_logo" viene utilizzato quando la nuova scheda dell'utente ha un'immagine di sfondo. È consigliabile utilizzare un logo orizzontale con uno sfondo trasparente allineato a sinistra e centrato verticalmente. Il logo deve avere un'altezza minima di 32 pixel e proporzioni da 1:1 a 4:1. "default_logo" deve avere un contrasto corretto rispetto a uno sfondo bianco/nero mentre "light_logo" deve avere un contrasto corretto rispetto all'immagine di sfondo.
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
 
-Se abiliti questi criteri, Microsoft Edge scarica e mostra i logo specificati nella nuova scheda. Gli utenti non possono ignorare o nascondere il logo.
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
 
-Se disabiliti o non configuri questi criteri, Microsoft Edge non visualizza alcun logo aziendale o Microsoft nella nuova scheda.
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-Per informazioni sulla determinazione dell'hash Agente integrità sistema-256, vedi https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -833,19 +836,19 @@ Se imposti questi criteri su false o non li configuri, i riquadri predefiniti su
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Configures the default URL for the new tab page.
+  Configura l'URL predefinito per la nuova scheda.
 
-This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+Questi criteri determinano la pagina che viene aperta quando vengono create nuove schede (inclusa l'apertura di nuove finestre). Influisce anche sulla pagina di avvio se è impostata per l'apertura nella nuova scheda.
 
-This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+Questi criteri non determinano la pagina che viene aperta all'avvio che è controllata dai criteri [RestoreOnStartup](#restoreonstartup) né interessano la home page, se è impostata per l'apertura nella nuova scheda.
 
-If you don't configure this policy, the default new tab page is used.
+Se non configuri questi criteri, viene utilizzata la nuova scheda predefinita.
 
-If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+Se configuri questi criteri *e* i criteri [NewTabPageSetFeedType](#newtabpagesetfeedtype), questi criteri sono prioritari.
 
-If an invalid URL is provided, new tabs will open about://blank.
+Se viene specificato un URL non valido, le nuove schede vengono aperte con about://blank.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Questi criteri sono disponibili solo nelle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o nelle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -963,29 +966,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Configura l'esperienza della nuova scheda di Microsoft Edge
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  Consente di scegliere l'esperienza di feed di Microsoft News o Office 365 per la nuova scheda.
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+Quando imposti questi criteri sull'esperienza del feed di Microsoft News (0), gli utenti visualizzeranno l'esperienza del feed di Microsoft News nella nuova scheda.
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+Quando imposti questi criteri nell'esperienza di feed di Office 365 (1), gli utenti con un accesso browser Azure Active Directory vedranno l'esperienza del feed di Office 365 nella nuova scheda.
 
-If you disable or don't configure this policy:
+Se disabiliti o non configuri questi criteri:
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- Agli utenti con un accesso browser Azure Active Directory l'accesso al browser verrà offerta l'esperienza di feed su nuova scheda di Office 365, oltre all'esperienza di feed su nuova scheda standard.
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- Agli utenti che non dispongono di un accesso browser Azure Active Directory vedranno l'esperienza su nuova scheda standard.
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+Se configuri questi criteri *e* i criteri [NewTabPageLocation](#newtabpagelocation), [NewTabPageLocation](#newtabpagelocation) ha la precedenza.
 
-Default setting:  Disabled or not configured.
+Impostazione predefinita: disabilitati o non configurati.
 
-* 0 = Microsoft News feed experience
+* 0 = Esperienza di feed di Microsoft News
 
-* 1 = Office 365 feed experience
+* 1 = Esperienza di feed di Office 365
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -998,7 +1001,7 @@ Default setting:  Disabled or not configured.
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: NewTabPageSetFeedType
-  - Nome GP: Configure the Microsoft Edge new tab page experience
+  - Nome GP: Configura l'esperienza della nuova scheda di Microsoft Edge
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Avvio, pagina iniziale e nuova scheda
   - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Avvio, pagina iniziale e nuova scheda
   - Nome file ADMX GP: MSEdge.admx
@@ -1087,11 +1090,11 @@ Questi criteri sono disponibili solo per istanze di Windows che fanno parte di u
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+  Specifica un elenco di siti Web da aprire automaticamente quando viene avviato il browser. Se non configuri questi criteri, all'avvio non viene aperto alcun sito.
 
-This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+Questi criteri funzionano solo se hai impostato anche i criteri [RestoreOnStartup](#restoreonstartup) su Apri un elenco di URL' (4).
 
-This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1237,11 +1240,11 @@ Per impostazione predefinita, Google Cast è abilitata.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+  Imposta questi criteri su true per visualizzare l'icona Cast nella barra degli strumenti o nel menu extra. Gli utenti non sono in grado di rimuoverla.
 
-If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+Se non configuri o disabiliti questi criteri, gli utenti possono aggiungere o rimuovere l'icona utilizzando il menu contestuale.
 
-If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+Se hai impostato i criteri [EnableMediaRouter](#enablemediarouter) su false, questi criteri vengono ignorati e l'icona della barra degli strumenti non viene visualizzata.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1288,15 +1291,15 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Controls which extension types can be installed and limits runtime access.
+  Controlla quali tipi di estensioni possono essere installati e limita l'accesso del runtime.
 
-This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+Questa impostazione definisce i tipi di estensioni consentiti e gli host con cui possono interagire. Il valore è un elenco di stringhe, ognuna delle quali deve essere una delle seguenti: "extension", "theme", "user_script" e "hosted_app". Per ulteriori informazioni su questi tipi, vedi la documentazione delle estensioni Microsoft Edge.
 
-Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+Tieni presente che questi criteri influiscono anche sulle estensioni con installazione forzata tramite i criteri [ExtensionInstallForcelist](#extensioninstallforcelist).
 
-If you enable this policy, only extensions that match a type in the list are installed.
+Se abiliti questi criteri, vengono installate solo le estensioni corrispondenti a un tipo nell'elenco.
 
-If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+Se non configuri questa impostazione dei criteri, non vengono applicate restrizioni per i tipi di estensioni accettabili.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1442,27 +1445,27 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+  Specifica le estensioni installate automaticamente, senza interazione da parte dell'utente e impossibili da installare o disabilitare ("con installazione forzata"). Tutte le autorizzazioni richieste dalle estensioni sono implicitamente garantite, senza interazione da parte dell'utente, incluse le autorizzazioni aggiuntive richieste dalle versioni future dell'estensione. Inoltre, le autorizzazioni sono garantite dalle API delle estensioni enterprise.deviceAttributes ed enterprise.platformKeys. Queste due API sono disponibili solo per le estensioni con installazione forzata.
 
-This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+Questi criteri hanno la precedenza su eventuali criteri [ExtensionInstallBlocklist](#extensioninstallblocklist) in conflitto. Quando rimuovi un'estensione dall'elenco delle estensioni con installazione forzata, questa viene disinstallata automaticamente da Microsoft Edge.
 
-For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+Per i dispositivi Windows che non sono stati aggiunti a un dominio Microsoft Active Directory, l'installazione forzata è limitata alle estensioni disponibili in Microsoft Store.
 
-Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+Tieni presente che gli utenti possono modificare il codice sorgente delle estensioni utilizzando gli strumenti di sviluppo, eseguendo potenzialmente un rendering anomalo dell'estensione. Se questo è un problema, imposta i criteri [DeveloperToolsAvailability](#developertoolsavailability).
 
-Use the following format to add an extension to the list:
+Per aggiungere un'estensione all'elenco, utilizza il formato seguente:
 
 [extensionID];[updateURL]
 
-- extensionID - the 32-letter string found on edge://extensions when in developer mode.
+- extensionID - stringa di 32 lettere trovata su edge://estensioni in modalità sviluppatore.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (facoltativo) è l'indirizzo del documento XML del manifesto di aggiornamento per l'app o estensione, come descritto in [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). Se non imposti la proprietà updateURL, viene utilizzato l'URL di aggiornamento di Microsoft Store (attualmente https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Tieni presente che l'URL di aggiornamento impostato in questi criteri viene utilizzato solo per l'installazione iniziale; gli aggiornamenti successivi dell'estensione utilizzano l'URL aggiornamento indicato nel manifesto dell'estensione.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+Ad esempio, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installa l'app Microsoft Online dall'URL di aggiornamento di Microsoft Store. Per ulteriori informazioni sull'hosting delle estensioni, vedi: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
 
-If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+Se non configuri questi criteri, nessuna estensione viene installata automaticamente e puoi disinstallare le estensioni in Microsoft Edge.
 
-Note that this policy doesn't apply to InPrivate mode.
+Tieni presente che questi criteri non si applicano alla modalità InPrivate.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1510,13 +1513,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define URLs that can install extensions and themes.
+  Definisci gli URL che possono installare estensioni e temi.
 
-By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+Per impostazione predefinita, gli utenti devono scaricare un file *.crx per ogni estensione o script che vogliono installare, quindi devono trascinarlo sulla pagina delle impostazioni di Microsoft Edge. Questi criteri consentono a URL specifici di installare l'estensione o lo script per l'utente.
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+Ogni voce di questo elenco è un modello di corrispondenza a livello di estensione (vedi [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Gli utenti possono facilmente installare elementi da qualsiasi URL corrispondente a una voce di questo elenco. La posizione del file *.crx e la pagina da cui viene avviato il download (in altre parole, il referrer) devono essere consentiti da questi modelli.
 
-The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+I criteri [ExtensionInstallBlocklist](#extensioninstallblocklist) sono prioritari rispetto a questi criteri. Le estensioni presenti nell'elenco Blocca non vengono installate, anche se provengono da un sito presente in questo elenco.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1769,11 +1772,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Questa impostazione dei criteri consente di decidere se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen sui siti Web potenzialmente dannosi.
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-Se abiliti questa impostazione, gli utenti non possono ignorare gli avvisi di Microsoft Defender SmartScreen e non possono passare al sito.
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-Se disabiliti o non configuri questa impostazione, gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen e passare al sito.
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1816,11 +1821,13 @@ Se disabiliti o non configuri questa impostazione, gli utenti possono ignorare g
   >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Questi criteri consentono di determinare se gli utenti possono ignorare gli avvisi di Microsoft Defender SmartScreen relativi ai download non verificati.
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-Se abiliti questi criteri, gli utenti dell'organizzazione non possono ignorare gli avvisi di Microsoft Defender SmartScreen in quanto impossibilitati a completare i download non verificati.
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-Se disabiliti o non configuri questi criteri, gli utenti possono ignorare gli avvisi Microsoft Defender SmartScreen e completare i download non verificati.
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1863,14 +1870,15 @@ Se disabiliti o non configuri questi criteri, gli utenti possono ignorare gli av
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Configura l'elenco dei domini attendibili di Microsoft Defender SmartScreen. Ciò significa che:
-Microsoft Defender SmartScreen non verifica la presenza di risorse potenzialmente dannose come il software di phishing e altri malware se gli URL di origine corrispondono a questi domini.
-Il servizio di protezione download di Microsoft Defender SmartScreen non verifica i download ospitati in questi domini.
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-Se abiliti questi criteri, Microsoft Defender SmartScreen considera attendibili questi domini.
-Se disabiliti o non imposti questi criteri, la protezione Microsoft Defender SmartScreen predefinita viene applicata a tutte le risorse.
-Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o sulle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
-Tieni inoltre presente che questi criteri non si applicano se l'organizzazione ha abilitato Microsoft Defender Advanced Threat Protection. In questo caso, devi configurare gli elenchi Consenti e Blocca in Microsoft Defender Security Center.
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -1918,15 +1926,15 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+  Questa impostazione dei criteri consente di configurare se abilitare Microsoft Defender SmartScreen. Microsoft Defender SmartScreen fornisce messaggi di avviso che contribuiscono a proteggere gli utenti da tentativi di phishing e software dannoso. Per impostazione predefinita, Microsoft Defender SmartScreen è abilitato.
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on.
+Se abiliti questa impostazione, Microsoft Defender SmartScreen è attivato.
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off.
+Se disabiliti questa impostazione, Microsoft Defender SmartScreen è disattivato.
 
-If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+Se non configuri questa impostazione, gli utenti possono scegliere se usare Microsoft Defender SmartScreen.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Questi criteri sono disponibili solo per le istanze di Windows che fanno parte di un dominio Microsoft Active Directory o le istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2008,19 +2016,19 @@ Questi criteri sono disponibili solo nelle istanze di Windows che fanno parte di
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### SmartScreenPuaEnabled
-  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  #### Configura Microsoft Defender SmartScreen per bloccare le app potenzialmente indesiderate
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
 
   #### Descrizione
-  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+  Questa impostazione dei criteri consente di configurare se abilitare il blocco per le app potenzialmente indesiderate in Microsoft Defender SmartScreen. Il blocco di app potenzialmente indesiderate in Microsoft Defender SmartScreen fornisce messaggi di avviso per proteggere gli utenti da adware, coin miner, bundleware e altre app di scarsa reputazione ospitate da siti Web. Il blocco di app potenzialmente indesiderate in Microsoft Defender SmartScreen è disattivato per impostazione predefinita.
 
-If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+Se abiliti questa impostazione, il blocco di app potenzialmente indesiderate in Microsoft Defender SmartScreen è attivato.
 
-If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+Se disabiliti questa impostazione, il blocco di app potenzialmente indesiderate in Microsoft Defender SmartScreen verrà disattivato.
 
-If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+Se non configuri questa impostazione, gli utenti possono scegliere se usare il blocco di app potenzialmente indesiderate in Microsoft Defender SmartScreen.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Questo criterio è disponibile solo nelle istanze di Windows che fanno parte di un dominio Microsoft Active Directory o nelle istanze di Windows 10 Pro o Enterprise registrate per la gestione dei dispositivi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2033,7 +2041,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: SmartScreenPuaEnabled
-  - Nome GP: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - Nome GP: Configura Microsoft Defender SmartScreen per bloccare le app potenzialmente indesiderate
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni SmartScreen
   - Percorso GP (Consigliati): Modelli amministrativi/Microsoft Edge - Impostazioni predefinite (sostituibili dagli utenti)/Impostazioni SmartScreen
   - Nome file ADMX GP: MSEdge.admx
@@ -2067,11 +2075,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+  Specifica un elenco di siti, in base ai modelli di URL, per cui Microsoft Edge deve selezionare automaticamente un certificato client, se il sito ne richiede uno.
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+Il valore deve essere una matrice di dizionari JSON sotto forma di stringa. Il modulo per ogni dizionario è { "pattern": "$URL_PATTERN", "filter" : $FILTER }, dove $URL_PATTERN è un modello di impostazione di contenuto. $FILTER limita i certificati client che il browser può selezionare automaticamente. Indipendente del filtro, solo i certificati che corrispondono alla richiesta di certificato del server possono essere utilizzati. Ad esempio, se $FILTER ha il formato { "ISSUER": { "CN": "$ISSUER_CN" } }, possono essere utilizzati solo i certificati client emessi da un certificato con CommonName $ISSUER_CN. Se $FILTER contiene una sezione "ISSUER" e una sezione "SUBJECT" un certificato client deve soddisfare entrambe le condizioni per essere selezionato. Se $FILTER specifica un'organizzazione ("O"), un certificato deve avere almeno un'organizzazione che corrisponde al valore specificato. Se $FILTER specifica un'unità organizzativa ("OU"), un certificato deve avere almeno una unità organizzativa che corrisponde al valore specificato. Se $FILTER corrisponde al dizionario vuoto {}, la selezione dei certificati client non prevede restrizioni aggiuntive.
 
-If you don't configure this policy, auto-selection isn't done for any site.
+Se non configuri questi criteri, la selezione automatica non è prevista per nessun sito.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2117,13 +2125,13 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  Definisci un elenco di siti basati sui modelli di URL che non possono impostare i cookie.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultCookiesSetting](#defaultcookiessetting) (se impostati) o la configurazione personale dell'utente.
 
-See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+Per ulteriori informazioni, vedi i criteri [CookiesBlockedForUrls](#cookiesblockedforurls) e [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls).
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Tieni presente che non ci possono essere modelli di URL in conflitto tra questi tre criteri:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -2177,15 +2185,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can't set cookies.
+  Definisci un elenco di siti basati sui modelli di URL che non possono impostare i cookie.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultCookiesSetting](#defaultcookiessetting) (se impostati) o la configurazione personale dell'utente.
 
-See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+Per ulteriori informazioni, vedi i criteri [CookiesAllowedForUrls](#cookiesallowedforurls) e [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls).
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Tieni presente che non ci possono essere modelli di URL in conflitto tra questi tre criteri:
 
-- CookiesBlockedForUrls
+CookiesBlockedForUrls
 
 - [CookiesAllowedForUrls](#cookiesallowedforurls)
 
@@ -2237,15 +2245,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+  I cookie creati da siti Web che corrispondono a un modello di URL definito vengono cancellati al termine della sessione (quando viene chiusa la finestra).
 
-Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+I cookie creati da siti Web che non corrispondono al modello sono controllati dai criteri [DefaultCookiesSetting](#defaultcookiessetting) (se impostati) o dalla configurazione personale dell'utente. Questo è il comportamento predefinito se non configuri questi criteri.
 
-If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Se Microsoft Edge è in esecuzione in background, la sessione potrebbe non chiudersi quando viene chiusa l'ultima finestra, il che significa che i cookie non vengono cancellati alla chiusura della finestra. Vedi i criteri [BackgroundModeEnabled](#backgroundmodeenabled) per informazioni sulla configurazione delle azioni quando Microsoft Edge è in esecuzione in background.
 
-You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
+Inoltre puoi utilizzare i criteri [CookiesAllowedForUrls](#cookiesallowedforurls) e [CookiesBlockedForUrls](#cookiesblockedforurls) per controllare quali siti Web possono creare cookie.
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Tieni presente che non ci possono essere modelli di URL in conflitto tra questi tre criteri:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -2253,7 +2261,7 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesSessionOnlyForUrls
 
-If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+Se imposti i criteri [RestoreOnStartup](#restoreonstartup) per il ripristino degli URL delle sessioni precedenti, questi criteri vengono ignorati e i cookie sono archiviati in modo permanente per i siti.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2301,17 +2309,17 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+  Controlla se i siti web possono creare cookie sul dispositivo dell'utente. Questi criteri sono per tutti i siti o per nessuno di essi: puoi consentire a tutti i siti Web di creare cookie oppure nessun sito Web crea cookie. Non puoi utilizzare questi criteri per abilitare i cookie di siti Web specifici.
 
-Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Imposta i criteri su "SessionOnly" (4) per cancellare i cookie quando la sessione viene chiusa. Se Microsoft Edge è in esecuzione in background, la sessione potrebbe non chiudersi quando l'ultima finestra viene chiusa, il che significa che i cookie non vengono cancellati quando viene chiusa la finestra. Vedi i criteri [BackgroundModeEnabled](#backgroundmodeenabled) per informazioni sulla configurazione delle operazioni quando Microsoft Edge è in esecuzione in background.
 
-If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+Se non configuri questi criteri, vengono usati i criteri predefiniti "AllowCookies" (1) e gli utenti possono cambiare questo valore nelle impostazioni di Microsoft Edge. Se non desideri che gli utenti possano modificare questa impostazione, è necessario impostare i criteri.
 
-* 1 = Let all sites create cookies
+* 1 = Consenti la creazione di cookie per tutti i siti
 
-* 2 = Don't let any site create cookies
+* 2 = Non consentire la creazione di cookie per tutti i siti
 
-* 4 = Keep cookies for the duration of the session
+* 4 = Conserva i cookies per la durata della sessione
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2554,17 +2562,17 @@ Se non configuri questi criteri, le notifiche sono consentite per impostazione p
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+  Determina se i siti Web che non sono coperti da [PluginsAllowedForUrls](#pluginsallowedforurls) o [PluginsBlockedForUrls](#pluginsblockedforurls) possono eseguire automaticamente il plug-in Adobe Flash. Puoi selezionare "BlockPlugins" (2) per bloccare Adobe Flash in tutti i siti oppure puoi selezionare "ClickToPlay" (3) per consentire l'esecuzione di Adobe Flash, ma richiede all'utente di fare clic sul segnaposto per avviarlo. In ogni caso, i criteri [PluginsAllowedForUrls](#pluginsallowedforurls) e [PluginsBlockedForUrls](#pluginsblockedforurls) sono prioritari rispetto a [DefaultPluginsSetting](#defaultpluginssetting).
 
-Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+La riproduzione automatica è consentita solo per i domini elencati in modo esplicito nei criteri [PluginsAllowedForUrls](#pluginsallowedforurls). Per abilitare la riproduzione automatica per tutti i siti, è consigliabile aggiungere http://* e https://* all'elenco.
 
-If you don't configure this policy, the user can change this setting manually.
+Se non configuri questi criteri, l'utente può modificare questa impostazione manualmente.
 
-* 2 = Block the Adobe Flash plug-in
+* 2 = Blocca il plug-in Adobe Flash
 
-* 3 = Click to play
+* 3 = Fai clic per riprodurre
 
-The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+L'opzione precedente "1" imposta Consenti tutto, ma questa funzionalità è ora gestita solo dai criteri [PluginsAllowedForUrls](#pluginsallowedforurls). I criteri esistenti "1" funzioneranno in modalità Fai clic per riprodurre.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2705,15 +2713,15 @@ Se non configuri questi criteri, viene usato il valore predefinito (3, ossia vie
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+  Specifica se i siti Web possono accedere a dispositivi USB connessi. Puoi bloccare completamente l'accesso o chiedere all'utente ogni volta che un sito Web sta tentando di accedere ai dispositivi USB connessi.
 
-You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+Puoi eseguire l'override di questi criteri per modelli di URL specifici tramite i criteri [WebUsbAskForUrls](#webusbaskforurls) e [WebUsbBlockedForUrls](#webusbblockedforurls).
 
-If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+Se non configuri questi criteri, i siti possono chiedere agli utenti se possono accedere ai dispositivi USB connessi (3) per impostazione predefinita e gli utenti possono modificare questa impostazione.
 
-* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+* 2 = Non consentire ai siti di richiedere l'accesso ai dispositivi USB tramite l'API WebUSB
 
-* 3 = Allow sites to ask the user to grant access to a connected USB device
+* 3 = Consenti ai siti di chiedere all'utente di concedere l'accesso a un dispositivo USB connesso
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2756,9 +2764,9 @@ If you don't configure this policy, sites can ask users whether they can access 
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can display images.
+  Definisci un elenco di siti basati sui modelli di URL che possono visualizzare le immagini.
 
-If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultImagesSetting](#defaultimagessetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2806,9 +2814,10 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+  Definisci un elenco di siti basati sui modelli di URL a cui non è consentito visualizzare le immagini.
 
-If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultImagesSetting](#defaultimagessetting) (se impostati) o la configurazione personale dell'utente.
+
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2856,9 +2865,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+  Definisci un elenco di siti basati sui modelli di URL che sono autorizzati a eseguire JavaScript.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultJavaScriptSetting](#defaultjavascriptsetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2906,9 +2915,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+  Definisci un elenco di siti basati sui modelli di URL per cui non è consentita l'esecuzione di JavaScript.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultJavaScriptSetting](#defaultjavascriptsetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -2951,14 +2960,121 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [Torna all'inizio](#microsoft-edge---criteri)
 
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Abilita impostazione predefinita del comportamento dei cookie SameSite
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
+
+  #### Descrizione
+  Consente di ripristinare tutti i cookie sul comportamento SameSite legacy. Se si ripristina il comportamento legacy, i cookie che non specificano un attributo SameSite vengono considerati come se fossero "SameSite=None" e viene rimosso il requisito per cui i cookie "SameSite=None" devono includere l'attributo "Secure".
+
+Puoi impostare i valori seguenti per questi criteri:
+
+* 1 = Ripristina il comportamento SameSite legacy per i cookie in tutti i siti
+
+* 2 = Utilizza il comportamento SameSite-by-default per i cookie in tutti i siti
+
+Se non imposti questi criteri, il comportamento predefinito per i cookie che non specificano un attributo SameSite dipenderà da altre origini di configurazione per la funzionalità SameSite-by-default. Questa funzionalità può essere impostata da una versione di valutazione sul campo o abilitando il flag same-site-by-default-cookies in Microsoft Edge://flags.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Numero intero
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: LegacySameSiteCookieBehaviorEnabled
+  - Nome GP: Abilita impostazione predefinita del comportamento dei cookie SameSite
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: LegacySameSiteCookieBehaviorEnabled
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000001
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: LegacySameSiteCookieBehaviorEnabled
+  - Valore di esempio:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Ripristina il comportamento SameSite legacy per i cookie nei siti specificati
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 80 o successiva
+
+  #### Descrizione
+  I cookie impostati per i domini che corrispondono a modelli specificati verranno ripristinati sul comportamento SameSite legacy.
+
+Se si ripristina il comportamento legacy, i cookie che non specificano un attributo SameSite verranno considerati come se fossero da considerare come se fossero "SameSite=None" e verrà rimosso il requisito per cui i cookie "SameSite=None" devono includere l'attributo "Secure".
+
+Se non si impostano questi criteri, verrà utilizzato il valore predefinito globale. Verrà utilizzato il valore predefinito globale anche per i cookie nei domini non coperti dai modelli specificati.
+
+È possibile configurare il valore predefinito globale utilizzando i criteri [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled). se i criteri [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) non sono impostati, il valore predefinito globale tornerà su altre origini di configurazione.
+
+Tieni presente che i modelli elencati in questi criteri vengono considerati come domini, non URL, pertanto non devi specificare uno schema o una porta.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: Sì
+
+  #### Tipo di dati:
+  Elenco di stringhe
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Nome GP: Ripristina il comportamento SameSite legacy per i cookie nei siti specificati
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/Impostazioni dei contenuti
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Percorso (Consigliati): N/D
+  - Nome valore: 1, 2, 3, ...
+  - Tipo di valore: elenco di REG_SZ
+  ##### Valore di esempio:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Valore di esempio:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
   ### NotificationsAllowedForUrls
   #### Consenti le notifiche per siti specifici
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can display notifications.
+  Definisci un elenco di siti basati sui modelli di URL che possono visualizzare le notifiche.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultNotificationsSetting](#defaultnotificationssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3006,9 +3122,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+  Definisci un elenco di siti basati sui modelli di URL per cui la visualizzazione delle notifiche è bloccata.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultNotificationsSetting](#defaultnotificationssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3056,9 +3172,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+  Definisci un elenco di siti basati sui modelli di URL che possono eseguire il plug-in Adobe Flash.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultPluginsSetting](#defaultpluginssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3106,9 +3222,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+  Definisci un elenco di siti, in base ai modelli di URL, per cui è bloccata l'esecuzione di Adobe Flash.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultPluginsSetting](#defaultpluginssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3156,9 +3272,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can open pop-up windows.
+  Definisci un elenco di siti basati sui modelli di URL che possono aprire le finestre popup.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultPopupsSetting](#defaultpopupssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3206,9 +3322,9 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+  Definisci un elenco di siti basati sui modelli di URL per cui è impedita l'apertura delle finestre popup.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultPopupsSetting](#defaultpopupssetting) (se impostati) o la configurazione personale dell'utente.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3319,13 +3435,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+  Consente di impostare un elenco di URL che specifica a quali siti viene automaticamente concessa l'autorizzazione per accedere a un dispositivo USB con il fornitore e gli ID di prodotto specificati. Ogni voce dell'elenco deve contenere sia i dispositivi che gli URL affinché i criteri siano validi. Ogni elemento nei dispositivi può contenere un campo ID fornitore e ID prodotto. Qualsiasi ID omesso viene considerato un carattere jolly con un'eccezione e tale eccezione indica che non è possibile specificare un ID prodotto senza specificare anche un ID fornitore. In caso contrario, i criteri non sono validi e vengono ignorati.
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+Il modello di autorizzazione USB utilizza l'URL del sito richiedente ("URL richiedente") e l'URL del sito frame principale ("URL di incorporamento") per concedere l'autorizzazione all'URL che richiede l'accesso al dispositivo USB. L'URL richiedente può essere diverso dall'URL di incorporamento quando il sito richiedente viene caricato in un iFrame. Pertanto, il campo "URL" può contenere fino a due stringhe di URL delimitate da una virgola per specificare rispettivamente l'URL richiedente e di incorporamento. Se viene specificato un solo URL, l'accesso ai dispositivi USB corrispondenti viene concesso quando l'URL del sito richiedente corrisponde a questo URL indipendentemente dallo stato di incorporamento. Gli URL in "URL" devono essere validi, in caso contrario i criteri vengono ignorati.
 
-If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+Se questi criteri non vengono impostati, per tutti i siti verrà utilizzato il valore predefinito globale dei criteri [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) se impostati o in caso contrario la configurazione personale dell'utente.
 
-URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+I modelli di URL in questi criteri non devono essere in conflitto con quelli configurati tramite [WebUsbBlockedForUrls](#webusbblockedforurls). In caso di conflitto, questi criteri sono prioritari rispetto a [WebUsbBlockedForUrls](#webusbblockedforurls) e [WebUsbAskForUrls](#webusbaskforurls).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3399,11 +3515,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+  Definisci un elenco di siti basati sui modelli di URL che possono richiedere all'utente l'accesso a un dispositivo USB.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) (se impostati) o la configurazione personale dell'utente.
 
-The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+I modelli di URL definiti in questi criteri non possono essere in conflitto con quelli configurati in [WebUsbBlockedForUrls](#webusbblockedforurls) in quanto non è possibile contemporaneamente consentire e bloccare un URL.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3451,11 +3567,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+  Definisci un elenco di siti basati sui modelli di URL che non possono richiedere all'utente di concedere l'accesso a un dispositivo USB.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+Se non configuri questi criteri, per tutti i siti viene utilizzato il valore predefinito globale dei criteri [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) (se impostati) o la configurazione personale dell'utente.
 
-URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+I modelli di URL definiti in questi criteri non possono essere in conflitto con quelli configurati in [WebUsbAskForUrls](#webusbaskforurls) in quanto non è possibile contemporaneamente consentire e bloccare un URL.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3507,9 +3623,9 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  List specific native messaging hosts that users can use in Microsoft Edge.
+  Elenca gli host di messaggistica nativa specifici che gli utenti possono utilizzare in Microsoft Edge.
 
-By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+Per impostazione predefinita, sono consentiti tutti gli host di messaggistica nativa. Se imposti i criteri [NativeMessagingBlocklist](#nativemessagingblocklist) su *, tutti gli host di messaggistica nativa sono bloccati e vengono caricati solo gli host di messaggistica nativa presenti nell'elenco.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3814,21 +3930,21 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+  Consente di controllare quando attivare l'avviso di protezione password. La protezione password avvisa gli utenti quando riutilizzano la propria password protetta su siti potenzialmente sospetti.
 
-You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+Puoi utilizzare i criteri [PasswordProtectionLoginURLs](#passwordprotectionloginurls) e [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)  per configurare la password da proteggere.
 
-Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+Esenzioni: le password per i siti elencati in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) e [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), nonché per i siti elencati in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), non attivano un avviso di protezione della password.
 
-Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+Imposta su "PasswordProtectionWarningOff" (0) per non visualizzare avvisi della protezione password.
 
-Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+Imposta su "PasswordProtectionWarningOnPasswordReuse" (1) per visualizzare gli avvisi della protezione password quando l'utente riutilizza la propria password protetta su un sito non autorizzato.
 
-If you disable or don't configure this policy, then the warning trigger is not shown.
+Se disabiliti o non configuri questi criteri, il trigger di avviso non viene visualizzato.
 
-* 0 = Password protection warning is off.
+* 0 = L'avviso di protezione password è disattivato
 
-* 1 = Password protection warning is triggered by password reuse.
+* 1 = L'avviso di protezione password viene attivato dal riutilizzo della password.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3930,11 +4046,11 @@ Questi criteri sono disponibili solo sulle istanze di Windows che fanno parte di
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+  Specifica le codifiche dei caratteri supportate dal provider di ricerca. Le codifiche sono nomi di tabella codici, come UTF-8, GB2312 e ISO-8859-1. Vengono provate nell'ordine indicato.
 
-This policy is optional. If not configured, the default, UTF-8, is used.
+Questi criteri sono facoltativi. Se non configurati, verrà utilizzata l'impostazione predefinita UTF-8.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Questi criteri vengono applicati solo se abiliti i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) e [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -3986,18 +4102,19 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+  Specifica l'URL per il motore di ricerca utilizzato per la ricerca dell'immagine. Le richieste di ricerca vengono inviate tramite il metodo GET.
 
-This policy is optional. If you don't configure it, image search isn't available.
+Questi criteri sono facoltativi. Se non li configuri, la ricerca di immagini non è disponibile.
 
-Specify Bing's Image Search URL as:
-'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+Specifica l'URL di ricerca dell'immagine di Bing come:
 
-Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+"{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights".
 
-See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+Specifica l'URL di ricerca dell'immagine di Google come: "{google:baseURL}searchbyimage/upload".
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Vedi i criteri [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) per finire la configurazione della ricerca dell'immagine.
+
+Questi criteri vengono applicati solo se abiliti anche i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) e [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4040,15 +4157,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+  Se abiliti questi criteri, vengono specificati i parametri utilizzati quando si esegue la ricerca di immagini con POST. I criteri consistono in coppie nome/valore delimitate da virgole. Se un valore è un parametro di modello, come {imageThumbnail} nel precedente esempio, verrà sostituito con i dati dell'anteprima dell'immagine reale. Questi criteri vengono applicati solo se abiliti i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) e [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
-Specify Bing's Image Search URL Post Params as:
-'imageBin={google:imageThumbnailBase64}'.
+Specifica i parametri di pubblicazione dell'URL di ricerca immagini di Bing come:
+"imageBin={google:imageThumbnailBase64}".
 
-Specify Google's Image Search URL Post Params as:
-'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
+Specifica i parametri di pubblicazione dell'URL di ricerca dell'immagine di Google come:
+"encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}".
 
-If you don’t set this policy, image search requests are sent using the GET method.
+Se non imposti questi criteri, le richieste di ricerca dell'immagine vengono inviate tramite il metodo GET.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4091,11 +4208,11 @@ If you don’t set this policy, image search requests are sent using the GET met
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+  Specifica la parola chiave, che è il collegamento utilizzato nella barra degli indirizzi per attivare la ricerca per questo provider.
 
-This policy is optional. If you don't configure it, no keyword activates the search provider.
+Questi criteri sono facoltativi. Se non li configuri, nessuna parola chiave attiva il provider di ricerca.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Questi criteri vengono applicati solo se abiliti i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) e [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4138,13 +4255,13 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the name of the default search provider.
+  Specifica il nome del provider di ricerca predefinito.
 
-If you enable this policy, you set the name of the default search provider.
+Se abiliti questi criteri, verrà impostato il nome del provider di ricerca predefinito.
 
-If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+Se non abiliti questi criteri o li lasci vuoti, verrà utilizzato il nome host specificato dall'URL di ricerca.
 
-'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+[DefaultSearchProviderName](#defaultsearchprovidername) deve essere impostato su un provider di ricerca crittografato approvato dall'organizzazione che corrisponde al provider di ricerca crittografato impostato in DTBC-0008. Questi criteri vengono applicati solo se abiliti i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) e [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4187,15 +4304,15 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+  Specifica l'URL del motore di ricerca utilizzato per una ricerca predefinita. L'URL contiene la stringa '{searchTerms}', che viene sostituita in fase di query con i termini che l'utente sta cercando.
 
-Specify Bing's search URL as:
+Specifica l'URL di ricerca di Bing come:
 
 '{bing:baseURL}search?q={searchTerms}'.
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+Specifica l'URL di ricerca Google come: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
 
-This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+Questi criteri sono obbligatori quando abiliti i criteri [DefaultSearchProviderEnabled](#defaultsearchproviderenabled); se non abiliti questi ultimi, questi criteri vengono ignorati.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4238,17 +4355,17 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+  Specifica l'URL del motore di ricerca utilizzato per fornire suggerimenti per la ricerca. L'URL contiene la stringa "{searchTerms}", che viene sostituita in fase di query con il testo che l'utente ha immesso finora.
 
-This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+Questi criteri sono facoltativi. Se non li configuri, gli utenti non visualizzeranno i suggerimenti di ricerca; i suggerimenti verranno visualizzati dalla loro cronologia esplorazione e dai preferiti.
 
-Bing's suggest URL can be specified as:
+L'URL per i suggerimenti di Bing può essere specificato come:
 
-'{bing:baseURL}qbox?query={searchTerms}'.
+"{bing:baseURL}qbox?query={searchTerms}".
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+L'URL per i suggerimenti di Google può essere specificato come: "{google:baseURL}complete/search?output=chrome&q={searchTerms}".
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Questi criteri vengono applicati solo se abiliti i criteri "[DefaultSearchProviderEnabled](#defaultsearchproviderenabled)" e "[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl)".
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4295,15 +4412,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+  Definisce un elenco di host per cui Microsoft Edge ignora qualsiasi proxy.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Questi criteri vengono applicati solo se hai selezionato "Utilizza server proxy fissi" nei criteri [ProxyMode](#proxymode). Se hai selezionato altre modalità per la configurazione dei criteri del proxy, non abilitare o configurare questi criteri.
 
-If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+Se abiliti questi criteri, puoi creare un elenco di host per cui Microsoft Edge non utilizza un proxy.
 
-If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Se non configuri questi criteri, non viene creato alcun elenco di host per cui Microsoft Edge ignora un proxy. Lascia non configurati questi criteri se hai specificato un altro metodo per l'impostazione dei criteri del proxy.
 
-For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Per esempi più dettagliati, vai a [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4346,33 +4463,33 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+  Specifica le impostazioni del server proxy utilizzate da Microsoft Edge. Se abiliti questi criteri, gli utenti non possono modificare le impostazioni del proxy.
 
-If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+Se scegli di non utilizzare mai un server proxy e di utilizzare sempre la connessione diretta, tutte le altre opzioni vengono ignorate.
 
-If you choose to use system proxy settings, all other options are ignored.
+Se scegli di utilizzare le impostazioni del proxy del sistema, tutte le altre opzioni vengono ignorate.
 
-If you choose to auto detect the proxy server, all other options are ignored.
+Se scegli di rilevare automaticamente il server proxy, tutte le altre opzioni vengono ignorate.
 
-If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+Se scegli una modalità del server proxy fissa, puoi specificare altre opzioni in "[ProxyServer](#proxyserver)" e in "Elenco delle regole di bypass proxy separate da virgole".
 
-If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+Se scegli di utilizzare uno script proxy .pac, devi specificare l'URL dello script in "URL di un file proxy con estensione .pac".
 
-For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Per esempi dettagliati, visita [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
-If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+Se abiliti questi criteri, Microsoft Edge ignora tutte le opzioni relative al proxy specificate dalla riga di comando.
 
-If you don't configure this policy users can choose their own proxy settings.
+Se non configuri questi criteri, gli utenti possono scegliere le proprie impostazioni del proxy.
 
-* "direct" = Never use a proxy
+* "direct" = Non utilizzare mai un proxy
 
-* "auto_detect" = Auto detect proxy settings
+* "auto_detect" = Rileva automaticamente le impostazioni del proxy
 
-* "pac_script" = Use a .pac proxy script
+* "pac_script" = Utilizza uno script proxy .pac
 
-* "fixed_servers" = Use fixed proxy servers
+* "fixed_servers" = Utilizza server proxy fissi
 
-* "system" = Use system proxy settings
+* "system" = Utilizza impostazioni del proxy del sistema
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4415,15 +4532,15 @@ If you don't configure this policy users can choose their own proxy settings.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the URL for a proxy auto-config (PAC) file.
+  Specifica l'URL di un file di configurazione automatica del proxy (PAC).
 
-This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Questi criteri vengono applicati solo hai selezionato "Utilizza uno script proxy .pac" nei criteri [ProxyMode](#proxymode). Se hai selezionato altre modalità per la configurazione dei criteri del proxy, non abilitare o configurare questi criteri.
 
-If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+Se abiliti questi criteri, puoi specificare l'URL di un file PAC che definisca il modo in cui il browser sceglie automaticamente il server proxy appropriato per il recupero di un determinato sito Web.
 
-If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Se disabiliti o non configuri questi criteri, non è specificato alcun file PAC. Lascia non configurati questi criteri se hai specificato un altro metodo per l'impostazione dei criteri del proxy.
 
-For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Per esempi dettagliati, vedi [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4466,15 +4583,15 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specifies the URL of the proxy server.
+  Specifica l'URL del server proxy.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Questi criteri vengono applicati solo se hai selezionato "Utilizza server proxy fissi" nei criteri [ProxyMode](#proxymode). Se hai selezionato altre modalità per la configurazione dei criteri del proxy, non abilitare o configurare questi criteri.
 
-If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+Se abiliti questi criteri, il server proxy configurato da questi criteri viene utilizzato per tutti gli URL.
 
-If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Se disabiliti o non configuri questi criteri, gli utenti possono scegliere le proprie impostazioni del proxy in questa modalità proxy. Lascia non configurati questi criteri se hai specificato un altro metodo per l'impostazione dei criteri del proxy.
 
-For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Per altre opzioni ed esempi dettagliati, vedi [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -4517,36 +4634,36 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Configures the proxy settings for Microsoft Edge.
+  Configura le impostazioni del proxy per Microsoft Edge.
 
-If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+Se abiliti questi criteri, Microsoft Edge ignora tutte le opzioni relative al proxy specificate dalla riga di comando.
 
-If you don't configure this policy, users can choose their own proxy settings.
+Se non configuri questi criteri, gli utenti possono scegliere le proprie impostazioni del proxy.
 
-This policy overrides the following individual policies:
+Questi criteri sostituiscono i singoli criteri seguenti:
 
 [ProxyMode](#proxymode)
 [ProxyPacUrl](#proxypacurl)
 [ProxyServer](#proxyserver)
 [ProxyBypassList](#proxybypasslist)
 
-The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+Il campo ProxyMode consente di specificare il server proxy utilizzato da Microsoft Edge e impedisce agli utenti di modificare le impostazioni del proxy.
 
-The ProxyPacUrl field is a URL to a proxy .pac file.
+Il campo ProxyPacUrl  è l'URL di un file .pac del proxy.
 
-The ProxyServer field is a URL for the proxy server.
+Il campo ProxyServer è l'URL del server proxy.
 
-The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+Il campo ProxyBypassList è un elenco di host proxy che vengono ignorati da Microsoft Edge.
 
-If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+Se scegli il valore "direct" come [ProxyMode](#proxymode), non viene mai usato un proxy e tutti gli altri campi vengono ignorati.
 
-If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+Se scegli il valore "system" come [ProxyMode](#proxymode), viene utilizzato il proxy del sistema e tutti gli altri campi vengono ignorati.
 
-If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+Se scegli il valore "auto_detect" come [ProxyMode](#proxymode), tutti gli altri campi vengono ignorati.
 
-If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+Se scegli il valore "fixed_server" come [ProxyMode](#proxymode), vengono utilizzati i campi [ProxyServer](#proxyserver) e [ProxyBypassList](#proxybypasslist).
 
-If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+Se scegli il valore "pac_script" come [ProxyMode](#proxymode), vengono utilizzati i campi "'ProxyPacUrl" e [ProxyBypassList](#proxybypasslist).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -5236,13 +5353,13 @@ Se disabiliti o non configuri questa impostazione, Microsoft Edge utilizza le im
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+  Consente di specificare se a un utente viene richiesto di concedere un accesso tramite sito Web al dispositivo di acquisizione audio. Questi criteri si applicano a tutti gli URL ad eccezione di quelli configurati nell'elenco [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
 
-If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+Se abiliti o non configuri questi criteri (impostazione predefinita), all'utente verrà richiesto l'accesso all'acquisizione audio tranne dagli URL inclusi nell'elenco [AudioCaptureAllowedUrls](#audiocaptureallowedurls). A questi URL elencati viene concesso l'accesso senza richiedere conferma.
 
-If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+Se disabiliti questi criteri, all'utente non viene inviata la richiesta e l'acquisizione audio sarà accessibile solo agli URL configurati in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
 
-This policy affects all types of audio inputs, not only the built-in microphone.
+Questi criteri interessano tutti i tipi di input audio, non solo il microfono incorporato.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -5816,21 +5933,21 @@ Se abiliti o non configuri questi criteri, Microsoft Edge invia occasionalmente 
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+  Specifica se un utente può accedere a Microsoft Edge con il proprio account e utilizzare servizi correlati all'account, come la sincronizzazione e Single Sign-On. Per controllare la disponibilità della sincronizzazione, utilizza invece i criteri [SyncDisabled](#syncdisabled).
 
-If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+Se imposti questi criteri su 'Disabilita accesso al browser', assicurati di impostare anche i criteri [NonRemovableProfileEnabled](#nonremovableprofileenabled) su disabilitato perché [NonRemovableProfileEnabled](#nonremovableprofileenabled) disabilita la creazione di un profilo browser con accesso automatico. Se sono impostati entrambi i criteri, Microsoft Edge utilizzerà i criteri 'Disabilita accesso al browser' e agisci come se [NonRemovableProfileEnabled](#nonremovableprofileenabled) siano impostati su disabilitato.
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+Se imposti questi criteri su "Abilita accesso al browser" (1), gli utenti possono accedere al browser. L'accesso al browser non significa che la sincronizzazione sia attivata per impostazione predefinita e per utilizzare questa funzionalità, l'utente deve fornire il consenso esplicito separatamente.
 
-If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+Se imposti questi criteri su "Forza accesso al browser" (2), gli utenti devono accedere a un profilo per utilizzare il browser. Per impostazione predefinita, questa opzione consente all'utente di scegliere se desidera eseguire la sincronizzazione con il proprio account, a meno che la sincronizzazione non sia stata disabilitata dall'amministratore del dominio o con i criteri [SyncDisabled](#syncdisabled). Il valore predefinito dei criteri [BrowserGuestModeEnabled](#browserguestmodeenabled) è impostato su false.
 
-If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+Se non configuri questa impostazione, gli utenti possono decidere se desiderano abilitare l'opzione di accesso al browser e usarla in modo appropriato.
 
-* 0 = Disable browser sign-in
+* 0 = Disabilita accesso al browser
 
-* 1 = Enable browser sign-in
+* 1 = Abilita accesso al browser
 
-* 2 = Force users to sign-in to use the browser
+* 2 = Forza accesso al browser
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -6091,13 +6208,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 78 o successiva
 
   #### Descrizione
-  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+  Microsoft Edge per impostazione predefinita non cancella i dati di navigazione quando viene chiuso. I dati di navigazione includono le informazioni inserite nei moduli, le password e persino i siti Web visitati.
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+Se abiliti questi criteri, tutti i dati di navigazione vengono eliminati ogni volta che Microsoft Edge viene chiuso.
 
-If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+Se disabiliti o non configuri questi criteri, gli utenti possono configurare l'opzione Cancella i dati delle esplorazioni in Impostazioni.
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+Se abiliti questi criteri, non abilitare i criteri [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) perché entrambi si occupano dell'eliminazione dei dati. Se li abiliti entrambi, questi criteri sono prioritari e pertanto tutti i dati vengono cancellati quando Microsoft Edge viene chiuso, indipendentemente da come hai configurato [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -6339,8 +6456,8 @@ Se abiliti o non configuri questi criteri, le applicazioni basate sul Web che ut
 Se disabiliti questi criteri, i caratteri voce non sono disponibili.
 
 Leggi altre informazioni su questa funzionalità in:
-API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Servizi cognitivi: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+API SpeechSynthesis: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Servizi cognitivi: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -6581,11 +6698,11 @@ Per ulteriori informazioni su DirectInvoke, vedi [https://go.microsoft.com/fwlin
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+  Impedisci alle pagine Web di accedere all'unità di elaborazione grafica (GPU). In particolare, le pagine Web non possono accedere all'API WebGL e i plug-in non possono utilizzare l'API 3D Pepper.
 
-If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+Se non configuri o disabiliti questi criteri, le pagine Web possono potenzialmente utilizzare l'API WebGL e i plug-in possono utilizzare l'API 3D Pepper. Microsoft Edge potrebbe comunque richiedere, per impostazione predefinita, il passaggio degli argomenti della riga di comando per poter utilizzare le API.
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+Se i criteri [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) sono impostati su false, l'impostazione dei criteri "'Disable3DAPIs" viene ignorata: ciò equivale all'impostazione dei criteri [Disable3DAPIs](#disable3dapis) su true.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -7231,15 +7348,15 @@ Se non configuri questi criteri, il comportamento è quello della modalità "Rec
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  Questi criteri controllano se la casella di controllo "Sempre aperto" viene visualizzata nei prompt di conferma dell'avvio del protocollo esterno.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+Se imposti questi criteri su True, quando viene visualizzato un prompt di conferma del protocollo esterno, l'utente può selezionare "Sempre aperto". L'utente non riceverà futuri prompt di conferma per questo protocollo.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+Se imposti questi criteri su False o se i criteri non vengono impostati, la casella di controllo "Sempre aperto" non verrà visualizzata. All'utente verrà richiesta conferma ogni volta che viene richiamato un protocollo esterno.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -7252,7 +7369,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Nome GP: Show an "Always open" checkbox in external protocol dialog.
+  - Nome GP: Mostra una casella di controllo "Sempre aperto" nella finestra di dialogo del protocollo esterno.
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
   - Percorso GP (Consigliati): N/D
   - Nome file ADMX GP: MSEdge.admx
@@ -8376,23 +8493,26 @@ Imposta questi criteri su "Forzato" (2) per utilizzare sempre la modalità InPri
   >Versioni supportate: Microsoft Edge in Windows dalla versione 79 o successiva
 
   #### Descrizione
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+  Lo spostamento "nella pagina" viene avviato da un collegamento, uno script o un modulo nella pagina corrente. Può anche essere un reindirizzamento lato server di un precedente tentativo di spostamento nella pagina. Al contrario, un utente può avviare uno spostamento che non è "nella pagina" indipendentemente dalla pagina corrente in diversi modi utilizzando i controlli del browser. Ad esempio, utilizzando la barra degli indirizzi, il pulsante Indietro o un collegamento preferito.
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+Questa impostazione consente di specificare se gli spostamenti dalle pagine caricate in modalità Internet Explorer in siti non configurati (non configurati nell'elenco dei siti in modalità Enterprise) tornano su Microsoft Edge o rimangono in modalità Internet Explorer.
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+Questa impostazione funziona in combinazione con:
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) impostata su "modalità Internet Explorer" (1)
+e
+[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) in cui l'elenco contiene almeno una voce.
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+Se disabiliti o non configuri questi criteri, in tale modalità verranno aperti solo i siti configurati per l'apertura in modalità Internet Explorer. Qualsiasi sito non configurato per l'apertura in modalità Internet Explorer verrà reindirizzato a Microsoft Edge.
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+Se abiliti questi criteri, puoi scegliere una delle seguenti opzioni di spostamento:
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+0 - Impostazione predefinita. In tale modalità si apriranno solo i siti configurati per l'apertura in modalità Internet Explorer. Qualsiasi sito non configurato per l'apertura in modalità Internet Explorer verrà reindirizzato a Microsoft Edge.
+
+1 - Mantieni solo gli spostamenti automatici in modalità Internet Explorer. Utilizza questa opzione se vuoi che l'esperienza predefinita, ad eccezione del fatto che tutti gli spostamenti automatici (ad esempio, 302 reindirizzamenti) in siti non configurati verranno mantenuti in modalità Internet Explorer.
+
+2 - Mantieni tutti gli spostamenti nella pagina in modalità Internet Explorer (scelta non consigliata). Tutti gli spostamenti dalle pagine caricate in modalità IE in siti non configurati vengono mantenuti in modalità Internet Explorer.
+
+Per altre informazioni sulla modalità Internet Explorer, vedi [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8429,11 +8549,11 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Specify origins to run in isolation, in their own process.
-This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
-If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
-If you don't configure the policy, the user can change this setting.
+  Specifica l'esecuzione delle origini in isolamento nel proprio processo.
+Questi criteri isolano inoltre le origini denominate da sottodomini, ad esempio specificando che https://contoso.com/ comporterà l'isolamento di https://foo.contoso.com/ come parte del sito https://contoso.com/.
+Se i criteri sono abilitati, ciascuna delle origini denominate in un elenco delimitato da virgole verrà eseguita nel proprio processo.
+Se disabiliti questi criteri, le funzionalità [IsolateOrigins](#isolateorigins) and [SitePerProcess](#siteperprocess) sono disabilitate. Gli utenti possono comunque abilitare i criteri [IsolateOrigins](#isolateorigins) manualmente, tramite i flag della riga di comando.
+Se non configuri i criteri, l'utente può modificare questa impostazione.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8587,14 +8707,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding for any search engine.
+  Consente di configurare un elenco di un massimo di 10 motori di ricerca, uno dei quali deve essere contrassegnato come motore di ricerca predefinito.
+Non è necessario specificare la codifica per un motore di ricerca.
 
-If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+Se abiliti questi criteri, gli utenti non possono aggiungere, rimuovere o modificare alcun motore di ricerca nell'elenco. Gli utenti possono impostare il motore di ricerca predefinito su qualsiasi motore di ricerca nell'elenco.
 
-If you disable or don't configure this policy, users can modify the search engines list as desired.
+Se disabiliti o non configuri questi criteri, gli utenti possono modificare l'elenco dei motori di ricerca come desiderano.
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+Se i criteri [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) sono impostati, questi criteri (ManagedSearchEngines) vengono ignorati. L'utente deve riavviare il browser per completare l'applicazione dei criteri.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8754,13 +8874,13 @@ Se non configuri questi criteri, viene utilizzato il valore predefinito (32).
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+  Abilita questi criteri per consentire a Google Cast di connettersi a dispositivi Cast su tutti gli indirizzi IP, non solo gli indirizzi privati RFC1918/RFC4193.
 
-Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+Disabilita questi criteri per limitare Google Cast ai dispositivi Cast sugli indirizzi privati RFC1918/RFC4193.
 
-If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+Se non configuri questi criteri, Google Cast si connette ai dispositivi Cast solo sugli indirizzi privati RFC1918/RFC4193, a meno che non abiliti la funzionalità CastAllowAllIPs.
 
-If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+Se i criteri [EnableMediaRouter](#enablemediarouter) sono disabilitati, questi criteri non hanno effetto.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8803,17 +8923,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Per i canali Windows 10 Beta e Stable di Microsoft Edge, questi criteri quando sono configurati sostituiscono l'impostazione dei dati di diagnostica Windows per la raccolta o la non raccolta dei dati relativi all'utilizzo e agli arresti anomali di Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-Questi criteri abilitano la reazione di report sui dati relativi all'utilizzo e agli arresti anomali di Microsoft Edge a Microsoft e impedisce agli utenti di modificare questa impostazione.
+This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
-Abilita questi criteri per inviare report sui dati relativi all'utilizzo e agli arresti anomali a Microsoft. Disabilita questi criteri per non inviare i dati a Microsoft. In entrambi i casi, gli utenti non possono modificare o sostituire l'impostazione.
+Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-Per i canali Windows 10 Beta e Stable, questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati, Microsoft Edge usa per impostazione predefinita l'impostazione dei dati di diagnostica Windows.
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
-Nel canali Windows 10 Canary e Dev, questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati Microsoft Edge usa per impostazione predefinita la preferenza dell'utente.
+On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
-In Windows 7, 8 e Mac questi criteri controllano i dati relativi all'utilizzo e agli arresti anomali. Se questi criteri non vengono configurati, Microsoft Edge usa per impostazione predefinita la preferenza dell'utente.
+On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8907,13 +9029,13 @@ Se non configuri questi criteri, la previsione della rete è abilitata ma l'uten
   >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
 
   #### Descrizione
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  Questi criteri determinano se il profilo Microsoft Edge che ha automaticamente effettuato l'accesso con un account di lavoro o dell'istituto di istruzione dell'utente è rimovibile.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Se abiliti o non configuri questi criteri, un profilo non rimovibile verrà creato con l'account di lavoro o dell'istituto di istruzione su Windows. Questo profilo non può essere disconnesso o rimosso.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+Se disabiliti questi criteri, il profilo che ha automaticamente effettuato l'accesso con un account di lavoro o dell'istituto di istruzione dell'utente da Windows può essere disconnesso o rimosso dall'utente.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+Se vuoi disabilitare completamente l'accesso browser, utilizza i criteri 'BrowserSignIn'.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -8995,6 +9117,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [Torna all'inizio](#microsoft-edge---criteri)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >Versioni supportate: Microsoft Edge in Windows dalla versione 80 o successiva
+
+  #### Descrizione
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### Funzionalità supportate:
+  - Può essere obbligatorio: Sì
+  - Può essere consigliato: No
+  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+
+  #### Tipo di dati:
+  Booleano
+
+  #### Informazioni e impostazioni di Windows
+  ##### Info su Criteri di gruppo (ADMX)
+  - Nome univoco GP: PinningWizardAllowed
+  - Nome GP: Allow Pin to taskbar wizard
+  - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
+  - Percorso GP (Consigliati): N/D
+  - Nome file ADMX GP: MSEdge.admx
+  ##### Impostazioni Registro di sistema di Windows
+  - Percorso (Obbligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Percorso (Consigliati): N/D
+  - Nome valore: PinningWizardAllowed
+  - Tipo di valore: REG_DWORD
+  ##### Valore di esempio:
+```
+0x00000000
+```
+
+
   
 
   [Torna all'inizio](#microsoft-edge---criteri)
@@ -9196,19 +9361,19 @@ QUIC è un protocollo di rete a livello trasporto che consente di migliorare le 
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Notify users that they need to restart Microsoft Edge to apply a pending update.
+  Avvisa gli utenti che è necessario riavviare Microsoft Edge per applicare un aggiornamento in sospeso.
 
-If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+Se non configuri questi criteri, Microsoft Edge informa l'utente che è necessario riavviare il browser aggiungendo un'icona Cestino al menu.
 
-If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+Se abiliti questi criteri e li imposti su "Consigliato" (1), un avviso ricorrente indica agli utenti che è consigliabile riavviare il computer. L'utente può ignorare questo avviso e rimandare il riavvio.
 
-If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+Se imposti i criteri su "Obbligatorio" (2), un avviso ricorrente indica agli utenti che il browser viene riavviato automaticamente non appena trascorre il periodo di notifica. Il periodo predefinito è di sette giorni. Puoi configurare questo periodo con i criteri [RelaunchNotificationPeriod](#relaunchnotificationperiod).
 
-The user's session is restored when the browser restarts.
+La sessione dell'utente viene ripristinata quando si riavvia il browser.
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+* Consigliato (1) = Visualizza un prompt ricorrente all'utente che indica che è consigliabile riavviare il computer
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+* Obbligatorio (2) = Visualizza un prompt ricorrente all'utente che indica che il riavvio è obbligatorio.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -9251,15 +9416,11 @@ The user's session is restored when the browser restarts.
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -9382,16 +9543,17 @@ Se non configuri o disabiliti questi criteri, Microsoft Edge utilizza le imposta
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+  Consenti a Microsoft Edge di stabilire una connessione dataless a un servizio Web per eseguire il probe delle reti per la connettività, ad esempio per il Wi-Fi in aeroporto e in hotel.
 
-If you enable this policy, a web service is used for network connectivity tests.
+Se abiliti questi criteri, viene utilizzato un servizio Web per i test della connettività di rete.
 
-If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+Se disabiliti questi criteri, Microsoft Edge utilizza le API native per provare a risolvere i problemi di connettività di rete e di navigazione.
 
-**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+**Nota**: ad eccezione di Windows 8 e versioni successive di Windows, Microsoft Edge utilizza *sempre* le API native per risolvere i problemi di connettività.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+Se non configuri questi criteri, Microsoft Edge rispetta le preferenze dell'utente impostate in Servizi in edge://settings/privacy.
+
+In particolare, è disponibile un interruttore **Utilizza un servizio Web per aiutare a risolvere gli errori di navigazione** che l'utente può attivare o disattivare. Tieni presente che se hai abilitato questi criteri (ResolveNavigationErrorsUseWebService), l'impostazione **Utilizza un servizio Web per aiutare a risolvere gli errori di navigazione** è attivata, ma l'utente non può modificarla utilizzando l'interruttore. Se hai disabilitato questi criteri, l'impostazione **Utilizza un servizio Web per aiutare a risolvere gli errori di navigazione** è disattivata e l'utente non può modificarla utilizzando l'interruttore.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -9481,11 +9643,11 @@ Se non configuri o non specifichi questi criteri, gli utenti possono impostare q
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+  Se abiliti questi criteri, vengono eseguiti tutti i contenuti Adobe Flash incorporati in siti Web che sono impostati per consentire Adobe Flash nelle impostazioni dei contenuti, dall'utente o dai criteri aziendali. Sono inclusi i contenuti di altre origini e/o di piccole dimensioni.
 
-To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+Per controllare i siti Web che possono eseguire Adobe Flash, vedi le specifiche nei criteri [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls).
 
-If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+Se disabiliti o non configuri questi criteri, i contenuti Adobe Flash da altre origini (dai siti che non sono specificati nei tre criteri indicati in precedenza) o di piccole dimensioni potrebbero essere bloccati.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -9956,11 +10118,9 @@ Se questi criteri sono disabilitati, non è possibile caricare Signed HTTP Excha
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
-If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
-If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
+  È possibile utilizzare i criteri [SitePerProcess](#siteperprocess) per impedire agli utenti di rifiutare esplicitamente il comportamento predefinito dell'isolamento di tutti i siti. Tieni presente che è inoltre possibile utilizzare i criteri [IsolateOrigins](#isolateorigins) per isolare altre origini in modo più dettagliato.
+Se abiliti questi criteri, gli utenti non potranno rifiutare esplicitamente il comportamento predefinito per cui ogni sito viene eseguito nel proprio processo.
+Se disabiliti o non configuri questi criteri, un utente può rifiutare esplicitamente l'isolamento del sito, ad esempio utilizzando la voce "Disabilita isolamento sito" in edge://flags. Se disabiliti o non configuri i criteri, l'isolamento del sito non viene disattivato.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10003,9 +10163,9 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  If you enable or don't configure this policy, the user can use spellcheck.
+  Se abiliti o non configuri questi criteri, l'utente può utilizzare il controllo ortografico.
 
-If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+Se disabiliti questi criteri, l'utente non può utilizzare il controllo ortografico e anche i criteri [SpellcheckLanguage](#spellchecklanguage) e [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) sono disabilitati.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10048,17 +10208,17 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   >Versioni supportate: Microsoft Edge in Windows dalla versione 77 o successiva
 
   #### Descrizione
-  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+  Abilita diverse lingue per il controllo ortografico. Qualsiasi lingua specificata che non viene riconosciuta viene ignorata.
 
-If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+Se abiliti questi criteri, il controllo ortografico è abilitato per le lingue specificate, nonché per tutte le lingue abilitate dall'utente.
 
-If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+Se non configuri o disabiliti questi criteri, nessuna modifica viene apportata alle preferenze del controllo ortografico dell'utente.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+Se i criteri [SpellcheckEnabled](#spellcheckenabled) sono disabilitati, non hanno effetto.
 
-If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+Se una lingua è inclusa in entrambi i criteri [SpellcheckLanguage](#spellchecklanguage) e [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist), la lingua del controllo ortografico viene abilitata.
 
-The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+Le lingue supportate sono: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10097,17 +10257,17 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   >Versioni supportate: Microsoft Edge in Windows dalla versione 78 o successiva
 
   #### Descrizione
-  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+  Forza la disabilitazione delle lingue del controllo ortografico. Le lingue non riconosciute in questo elenco vengono ignorate.
 
-If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+Se abiliti questi criteri, il controllo ortografico è disabilitato per le lingue specificate. L'utente può comunque abilitare o disabilitare il controllo ortografico per le lingue non incluse nell'elenco.
 
-If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+Se non imposti o disabiliti questi criteri, nessuna modifica viene apportata alle preferenze del controllo ortografico dell'utente.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+Se i criteri [SpellcheckEnabled](#spellcheckenabled) sono disabilitati, non hanno effetto.
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+Se una lingua è inclusa in entrambi i criteri [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist, la lingua del controllo ortografico viene abilitata.
 
-The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+Le lingue attualmente supportate sono: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10189,11 +10349,11 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  Disabilita la sincronizzazione dei dati in Microsoft Edge e impedisce agli utenti di modificare questa impostazione.
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+Se questi criteri non vengono impostati, gli utenti sono in grado di attivare o disattivare la sincronizzazione.
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+Non abilitare questi criteri quando il criterio "RoamingProfileSupportEnabled" è abilitato, in quanto "RoamingProfileSupportEnabled" duplica la funzionalità di sincronizzazione.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10232,22 +10392,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [Torna all'inizio](#microsoft-edge---criteri)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >Versioni supportate: Microsoft Edge in Windows dalla versione 79 o successiva
+  #### Consenti blocco delle schede in background
+  >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 79 o successiva
 
   #### Descrizione
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Controlla se Microsoft Edge è in grado di bloccare le schede in background per almeno 5 minuti.
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+Il blocco delle schede riduce l'uso della CPU, della batteria e della memoria. Microsoft Edge utilizza l'euristica per evitare di bloccare le schede che svolgono funzioni utili in background, ad esempio notifiche di visualizzazione, riproduzione audio e riproduzione in streaming di video.
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+Se abiliti questi criteri o non li configuri, le schede in background per almeno 5 minuti potrebbero essere bloccate.
 
-If you disable this policy, no tabs will be frozen.
+Se disabiliti questi criteri, nessuna scheda verrà bloccata.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
   - Può essere consigliato: No
-  - Aggiornamento criteri dinamici: No - Richiede il riavvio del browser
+  - Aggiornamento criteri dinamici: Sì
 
   #### Tipo di dati:
   Booleano
@@ -10255,7 +10415,7 @@ If you disable this policy, no tabs will be frozen.
   #### Informazioni e impostazioni di Windows
   ##### Info su Criteri di gruppo (ADMX)
   - Nome univoco GP: TabFreezingEnabled
-  - Nome GP: Allow freezing of background tabs
+  - Nome GP: Consenti blocco delle schede in background
   - Percorso GP (Obbligatorio): Modelli amministrativi/Microsoft Edge/
   - Percorso GP (Consigliati): N/D
   - Nome file ADMX GP: MSEdge.admx
@@ -10270,6 +10430,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Informazioni e impostazioni per Mac
+  - Nome chiave preferenza: TabFreezingEnabled
+  - Valore di esempio:
+``` xml
+<false/>
+```
   
 
   [Torna all'inizio](#microsoft-edge---criteri)
@@ -10423,17 +10589,17 @@ Se non configuri i criteri, gli utenti possono scegliere se utilizzare o meno la
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Allow access to the listed URLs, as exceptions to the URL block list.
+  Consenti l'accesso agli URL nell'elenco, come eccezioni all'elenco degli URL bloccati.
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Usa il formato di modello di URL indicato in [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
-You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+Puoi utilizzare questi criteri per aprire eccezioni per gli elenchi Blocca. Ad esempio, puoi includere "*" nell'elenco Blocca per bloccare tutte le richieste e quindi utilizzare questi criteri per consentire l'accesso a un elenco limitato di URL. Puoi usare questi criteri per aprire eccezioni a determinati schemi, sottodomini di altri domini, porte o percorsi specifici.
 
-The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+Il filtro più specifico determina se un URL è bloccato o consentito. L'elenco Consenti è prioritario rispetto all'elenco Blocca.
 
-This policy is limited to 1000 entries; subsequent entries are ignored.
+Questi criteri sono limitati a 1000 voci, le voci successive vengono ignorate.
 
-If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+Se non configuri questi criteri, non sono presenti eccezioni all'elenco Blocca nei criteri [URLBlocklist](#urlblocklist).
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10487,17 +10653,17 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+  Definisci un elenco di siti basati sui modelli di URL che sono bloccati (gli utenti non possono caricarli).
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Usa il formato di modello di URL indicato in [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
-You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+Puoi definire le eccezioni nei criteri [URLAllowlist](#urlallowlist). Questi criteri sono limitati a 1000 voci. Le voci successive vengono ignorate.
 
-Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+Tieni presente che non è consigliato bloccare gli URL interni "edge://*" in quanto possono verificarsi errori imprevisti.
 
-This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+Questi criteri non impediscono l'aggiornamento dinamico della pagina tramite JavaScript. Ad esempio, se blocchi "contoso.com/abc", gli utenti potrebbero comunque essere in grado di visitare "contoso.com" e fare clic su un collegamento per aprire "contoso.com/abc" fintanto che la pagina non viene aggiornata.
 
-If you don't configure this policy, no URLs are blocked.
+Se non configuri questi criteri, nessun URL è bloccato.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10655,13 +10821,13 @@ Se disabiliti questi criteri, gli utenti non possono richiamare Feedback di Edge
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  Control whether sites can capture video.
+  Controlla se i siti possono acquisire video.
 
-If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+Se abiliti o non configuri (predefinito) questi criteri, all'utente viene richiesto di confermare l'accesso all'acquisizione video per tutti i siti, ad eccezione di quelli con gli URL configurati nell'elenco dei criteri [VideoCaptureAllowedUrls](#videocaptureallowedurls), a cui verrà concesso l'accesso senza chiedere conferma.
 
-If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+Se disabiliti questi criteri, non viene visualizzata alcuna richiesta per l'utente e l'acquisizione video è disponibile solo per gli URL configurati nei criteri [VideoCaptureAllowedUrls](#videocaptureallowedurls).
 
-This policy affects all types of video inputs, not only the built-in camera.
+Questi criteri interessano tutti i tipi di input video e non solo la videocamera integrata.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
@@ -10801,19 +10967,22 @@ Indipendentemente dall'abilitazione o meno di questi criteri, l'impostazione del
   >Versioni supportate: Microsoft Edge in Windows e Mac dalla versione 77 o successiva
 
   #### Descrizione
-  
-This policy was removed in M80, because it is not necessary anymore as
-WebDriver is now compatible with all existing policies.
+  Questi criteri sono stati rimossi in M80, perché non più necessari in quanto
+WebDriver è ora compatibile con tutti i criteri esistenti.
 
-This policy allows users of the WebDriver feature to override
-policies which can interfere with its operation.
+Questi criteri consentono agli utenti della funzionalità WebDriver di ignorare
 
-Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+i criteri che possono interferire con l'operazione.
 
-If the policy is enabled, WebDriver will be able to override incomaptible
-policies.
-If the policy is disabled or not configured, WebDriver will not be allowed
-to override incompatible policies.
+Attualmente questi criteri disabilitano i criteri [SitePerProcess](#siteperprocess) e [IsolateOrigins](#isolateorigins).
+
+Se i criteri sono abilitati, WebDriver sarà in grado di ignorare i criteri
+
+incompatibili.
+
+Se i criteri sono disabilitato o non configurati, a WebDriver non sarà consentito
+
+di ignorare i criteri non compatibili.
 
   #### Funzionalità supportate:
   - Può essere obbligatorio: Sì
