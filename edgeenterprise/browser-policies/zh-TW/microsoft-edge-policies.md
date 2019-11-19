@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/07/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -65,7 +65,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|設定的網域的 Microsoft Defender SmartScreen 篩選工具將不會觸發警告的清單|
 |[SmartScreenEnabled](#smartscreenenabled)|設定 Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|強制 Microsoft Defender SmartScreen 檢查來自受信任來源的下載|
-|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|設定 Microsoft Defender SmartScreen 以封鎖潛在不需要的應用程式|
 ### [*內容設定*](#內容設定-policies)
 |原則名稱|標題|
 |-|-|
@@ -86,6 +86,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|特定網站上的封鎖影像|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|允許特定網站上的 JavaScript|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|封鎖特定網站上的 JavaScript|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|啟用預設舊版 SameSite Cookie 行為設定|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|將指定網站上的 Cookie 恢復至舊版 SameSite 行為|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|允許特定網站上的通知|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|封鎖特定網站上的通知|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|允許特定網站上的 Adobe Flash 外掛程式|
@@ -119,7 +121,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|隱藏新索引標籤頁面中的預設熱門網站|
 |[NewTabPageLocation](#newtabpagelocation)|設定新索引標籤頁面 URL|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|設定新的索引標籤頁面快速連結|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|設定 Microsoft Edge 的新索引標籤頁面體驗|
 |[RestoreOnStartup](#restoreonstartup)|啟動時所採取的動作|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|瀏覽器啟動時開啟的網站|
 |[ShowHomeButton](#showhomebutton)|在工具列上顯示 [首頁] 按鈕|
@@ -201,7 +203,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|啟用線上 OCSP/CRL 檢查|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|允許受管理的擴充程式使用企業硬體平台 API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|透過 [實驗] 和 [設定服務] 控制通訊|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|在外部通訊協定對話方塊中顯示「一律開啟」核取方塊。|
 |[FavoritesBarEnabled](#favoritesbarenabled)|啟用 [我的最愛] 列|
 |[ForceBingSafeSearch](#forcebingsafesearch)|強制執行 Bing 安全搜尋|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|啟用使用暫時設定檔|
@@ -234,6 +236,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|啟用網路預測|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|設定使用者是否一律擁有其公司或學校帳戶自動登入的預設設定檔|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|控制不安全來源中安全性限制套用的地方|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|啟用主動式驗證|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|啟用全分頁促銷內容|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|詢問下載檔案的儲存位置|
@@ -260,7 +263,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|強制停用拼字檢查語言|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|隱藏不支援的 OS 警告|
 |[SyncDisabled](#syncdisabled)|透過 Microsoft 同步服務停用資料同步處理|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|允許凍結背景索引標籤|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|在瀏覽器工作管理員中啟用結束處理程序|
 |[TrackingPrevention](#trackingprevention)|封鎖使用者的網頁瀏覽活動追蹤|
 |[TranslateEnabled](#translateenabled)|啟用翻譯|
@@ -334,11 +337,11 @@ description: "Windows and Mac documentation for all policies supported by the Mi
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+  將此原則設定為 true 即可在工具列或溢位 (overflow) 功能表顯示投射工具列圖示。
 
-If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+如果未設定或停用此原則，使用者可使用圖示的特色選單釘選或移除圖示。
 
-If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+如果也將 [EnableMediaRouter](#enablemediarouter) 原則設定為 false，則會忽略此原則，且不會顯示工具列。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -700,15 +703,15 @@ Samba 和 Windows 伺服器的所有新版本都支援 NTLMv2。因為 NTLMv2 �
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+  定義 Microsoft Edge 略過所有 Proxy 的主機清單。
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+只有當您在 [ProxyMode](#proxymode) 原則中選取 'Use fixed proxy servers' 時套用此原則。如果您選取了任何其他設定 Proxy 原則的模式時，不要啟用或設定此原則。
 
-If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+如果您啟用此原則，則您可以建立未使用 Proxy 的 Microsoft Edge 主機清單。
 
-If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+如果您未設定此原則，則會為其建立所有略過 Proxy 的 Microsoft Edge 主機清單。如果您已指定其他設定 Proxy 原則的方法，請取消設定此原則。
 
-For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+如需詳細範例，請前往 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -751,33 +754,31 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+  指定 Microsoft Edge 使用的 Proxy 伺服器設定。如果啟用此原則，則使用者無法變更 Proxy 設定。
 
-If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+如果您選擇永不使用 Proxy 伺服器並一律直接連線，則會忽略所有其他選項。
 
-If you choose to use system proxy settings, all other options are ignored.
+如果選擇使用系統 Proxy 設定，則會忽略所有其他選項。
 
-If you choose to auto detect the proxy server, all other options are ignored.
+如果選擇自動偵測 Proxy 伺服器，則會忽略所有其他選項。
 
-If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+如果選擇固定伺服器 Proxy 模式，則可以在 [ProxyServer](#proxyserver) 和 'Comma-separated list of proxy bypass rules' 中指定更多選項。
 
-If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+如果選擇使用 .pac Proxy 指令碼，則必須在 'URL to a proxy .pac file' 中，指定指令碼的URL。
 
-For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+如需詳細的範例，請前往 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)。如果啟用此原則，則 Microsoft Edge 將忽略從命令列指定的所有與 Proxy 相關的選項。
 
-If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+如果不設定此原則，則使用者可以選擇自己的 Proxy 設定。
 
-If you don't configure this policy users can choose their own proxy settings.
+* "dir ect" =永不使用 Proxy
 
-* "direct" = Never use a proxy
+* "auto_detect" =自動偵測 Proxy 伺服器
 
-* "auto_detect" = Auto detect proxy settings
+* "pac_script" = 使用 .pac Proxy 指令碼
 
-* "pac_script" = Use a .pac proxy script
+* "fixed_servers" = 使用固定 Proxy 伺服器
 
-* "fixed_servers" = Use fixed proxy servers
-
-* "system" = Use system proxy settings
+* "system" = 使用系統 Proxy 設定
 
   #### 支援功能:
   - 可以是強制: 是
@@ -820,15 +821,15 @@ If you don't configure this policy users can choose their own proxy settings.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the URL for a proxy auto-config (PAC) file.
+  指定 Proxy 自動設定 (PAC) 檔案的 URL。
 
-This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+只有當您在 [ProxyMode](#proxymode) 原則中選取 [使用 .pac Proxy 指令碼] 時，此原則才會套用。如果您選取任何其他模式進行 Proxy 原則設定時，不要啟用或設定此原則。
 
-If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+  如果您啟用此原則，您可以指定 PAC 檔案，這會定義瀏覽器自動選擇適當的 Proxy 伺服器以取得特定網站的 URL 的方式。
 
-If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+  如果您停用或未設定此原則，則不會指定任何 PAC 檔案。如果已指定任何其他方法來設定 Proxy 原則，請不要設定此原則。
 
-For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+  如需詳細範例，請參閱 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -871,15 +872,15 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the URL of the proxy server.
+  指定 Proxy 伺服器的 URL。
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+只有當您在 [ProxyMode](#proxymode) 原則中選取 [使用固定的 proxy 伺服器] 時，才會套用這個原則。如果您選取了任何其他模式來設定 Proxy 原則，不要啟用或設定此原則。
 
-If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+如果您啟用這個原則，這個原則設定的 Proxy 伺服器將用於所有 URL。
 
-If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+如果您停用或未設定此原則，使用者可以在這個 Proxy 模式中選擇自己的 Proxy 設定。如果您已指定任何其他方法來設定 Proxy 原則，請不要設定此原則。
 
-For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+如需其他選項以及詳細的範例，請參閱 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -922,36 +923,36 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Configures the proxy settings for Microsoft Edge.
+  設定 Microsoft Edge 的 Proxy 設定。
 
-If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+ 如果您啟用此原則，Microsoft Edge 會略過從命令列指定的所有與 Proxy 相關的選項。
 
-If you don't configure this policy, users can choose their own proxy settings.
+ 如果您未設定此原則，使用者可以選擇自己的 Proxy 設定。
 
-This policy overrides the following individual policies:
+ 此原則會覆寫下列的個別原則:
 
-[ProxyMode](#proxymode)
-[ProxyPacUrl](#proxypacurl)
-[ProxyServer](#proxyserver)
-[ProxyBypassList](#proxybypasslist)
+   [ProxyMode](#proxymode)
+   [ProxyPacUrl](#proxypacurl)
+   [ProxyServer](#proxyserver)
+   [ProxyBypassList](#proxybypasslist)
 
-The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+   ProxyMode 欄位可讓您指定 Microsoft Edge 使用的 proxy 伺服器並防止使用者變更 Proxy 設定。
 
-The ProxyPacUrl field is a URL to a proxy .pac file.
+ProxyPacUrl 欄位是連至 proxy.pac 檔案的 URL。
 
-The ProxyServer field is a URL for the proxy server.
+ ProxyServer 欄位是 proxy 伺服器的 URL。
 
-The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+ ProxyBypassList 的欄位是 Microsoft Edge 略過的 Proxy 主機清單。
 
-If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+ 如果您選擇的 'direct' 值為 'ProxyMode' 時，永遠不會使用 Proxy，且會忽略所有其他欄位。
 
-If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+ 如果您選擇的 'system' 值為 'ProxyMode' 時，將會使用 Proxy，且會忽略所有其他欄位。
 
-If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+ 如果您選擇的 'auto_detect' 值為 'ProxyMode' 時，會忽略所有其他欄位。
 
-If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+ 如果您選擇的 'fixed_server' 值為 'ProxyMode' 時，則會使用 'ProxyServer' 和 'ProxyBypassList' 欄位。
 
-If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+ 如果您選擇的 'pac_script' 值為 'ProxyMode' 時，則會使用 'ProxyPacUrl' 和 'ProxyBypassList' 欄位。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1013,11 +1014,13 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  此原則設定可讓您決定使用者是否可以覆寫有關潛在惡意網站的 Microsoft Defender SmartScreen 警告。
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-如果您啟用此設定，則使用者無法略過 Microsoft Defender SmartScreen 警告，且系統會阻止使用者前往該網站。
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-如果您停用或未設定此設定，則使用者可以略過 Microsoft Defender SmartScreen 警告並繼續前往該網站。
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1060,11 +1063,13 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >支援的版本: Windows 上的 Microsoft Edge (77 版或更新版本)，以及 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  此原則可讓您決定使用者是否可以覆寫關於下載未經驗證下載項目的 Microsoft Defender SmartScreen 警告。
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-如果您啟用此原則，組織中的使用者將無法略過 Microsoft Defender SmartScreen 警告，且無法完成未經驗證的下載。
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-如果您停用或未設定此原則，則使用者可以略過 Microsoft Defender SmartScreen 警告，並完成未經驗證的下載項目。
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1107,14 +1112,15 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  設定 Microsoft Defender SmartScreen 受信任網域的清單。這表示:
-如果來源 Url 符合這些網域，Microsoft Defender SmartScreen 將不會檢查的潛在的惡意資源，例如網路釣魚軟體與其他惡意程式碼。
-Microsoft Defender SmartScreen 下載防護服務將不會檢查這些網域上裝載的下載內容。
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-  如果您啟用此原則，則 Microsoft Defender SmartScreen 信任這些網域。
-如果您停用或未設定此原則，預設 Microsoft Defender SmartScreen 保護會套用到所有資源。
-此原則是僅適用於已加入 Microsoft Active Directory 網域的 Windows 執行個體; 或在已註冊裝置管理的 Windows 10 專業版或企業版的執行個體上。
-請注意，如果您的組織已啟用 Microsoft Defender 進階威脅防護，則不適用此原則 。您必須先在 Microsoft Defender 資訊安全中心設定允許及封鎖清單 。
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1162,15 +1168,15 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+  此原則設定可讓您設定是否要開啟 Microsoft Defender SmartScreen。Microsoft Defender SmartScreen 可提供警告訊息，以協助保護您的使用者從潛在網路釣魚詐騙與惡意軟體。根據預設，Microsoft Defender SmartScreen 已開啟。
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on.
+如果您啟用這個設定，Microsoft Defender SmartScreen 已開啟，使用者無法關閉。
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off.
+如果您停用這個設定，Microsoft Defender SmartScreen 已關閉，且使用者無法開啟它。
 
-If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+如果您未設定這個設定，使用者可以選擇是否要使用 Microsoft Defender SmartScreen。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+這個原則僅適用於已加入的 Windows 執行個體 Microsoft Active Directory 網域; 或在 Windows 10 專業版或企業的執行個體上的已註冊裝置管理。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1252,19 +1258,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   [回到頂端](#microsoft-edge---原則)
 
   ### SmartScreenPuaEnabled
-  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  #### 設定 Microsoft Defender SmartScreen 以封鎖潛在不需要的應用程式
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+  此原則設定可讓您設定是否要在 Microsoft Defender SmartScreen 開啟封鎖潛在垃圾應用程式。Microsoft Defender SmartScreen 中的潛在垃圾應用程式封鎖功能會針對廣告軟體、挖礦程式、混入軟體和其他網站提供的低評價應用程式，提供警告訊息以幫助保護用戶。根據預設，Microsoft Defender SmartScreen 已關閉。
 
-If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+如果您啟用這個設定，Microsoft Defender SmartScreen 內的垃圾應用程式封鎖功能將會開啟。
 
-If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+如果您停用這個設定，Microsoft Defender SmartScreen 內的垃圾應用程式封鎖功能將會關閉。
 
-If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+如果您未設定這個設定，使用者可以選擇是否要使用 Microsoft Defender SmartScreen 內的垃圾應用程式封鎖功能。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+此原則僅適用於已加入的 Windows 執行個體 Microsoft Active Directory 網域; 或在 Windows 10 專業版或企業的執行個體上的已註冊裝置管理。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1277,7 +1283,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: SmartScreenPuaEnabled
-  - GP 名稱: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - GP 名稱: 設定 Microsoft Defender SmartScreen 以封鎖潛在不需要的應用程式
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/SmartScreen 設定
   - GP 路徑 (推薦項目): 系統管理範本/Microsoft Edge - 預設設定 (使用者可以覆寫)/SmartScreen 設定
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -1311,11 +1317,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+  根據 URL 模式指定網站清單，如果網站請求，Microsoft Edge 應為其自動選擇用戶端憑證。
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+該值必須是 JSON 字典字串化的陣列。每個字典的格式必須為 { "pattern": "$URL_PATTERN", "filter" : $FILTER }，其中 $URL_PATTERN 是內容設定模式。$FILTER 限制瀏覽器要自動選擇哪個用戶端憑證。與篩選器無關，僅選擇與伺服器憑證要求相符的憑證。例如，如果 $FILTER 的格式為 { "ISSUER": { "CN": "$ISSUER_CN" } }，則僅選擇由具有 CommonName $ISSUER_CN 的憑證所發布的用戶端憑證。如果 $FILTER 包含"ISSUER" 和 "SUBJECT" 部分，用戶端憑證必須同時滿足兩個要選擇的條件。如果 $FILTER 指定一個組織 ("O")，則憑證必須具有至少一個與要選擇的指定值相符的組織。如果 $FILTER 指定組織單位 ("OU")，則憑證必須具有至少一個與要選擇的指定值相符的組織單位。已選擇。如果 $FILTER 為空字典 {}，則用戶端憑證的選擇沒有任何其他限制。
 
-If you don't configure this policy, auto-selection isn't done for any site.
+如果未設定此原則，則所有網站皆不會進行自動選擇。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1361,13 +1367,13 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  根據 URL 的規則，定義不允許設定 Cookie 的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultCookiesSetting](#defaultcookiessetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
-See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+請查看 [CookiesBlockedForUrls](#cookiesblockedforurls) 和 [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) 原則，了解更多資訊。
 
-Note there cannot be conflicting URL patterns set between these three policies:
+請注意這三個原則之間不可有衝突的 URL 模式設定:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1421,19 +1427,19 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can't set cookies.
+  根據 URL 的規則，定義不允許設定 Cookie 的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultCookiesSetting](#defaultcookiessetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
-See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+ 請查看 [CookiesAllowedForUrls](#cookiesallowedforurls) 和[CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) 原則，了解更多資訊。請注意這三個原則之間不可有衝突的 URL 模式設定:
 
-Note there cannot be conflicting URL patterns set between these three policies:
+ - CookiesBlockedForUrls
 
-- CookiesBlockedForUrls
+ - [CookiesAllowedForUrls](#cookiesallowedforurls)
 
-- [CookiesAllowedForUrls](#cookiesallowedforurls)
+ - [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
 
-- [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
+
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1481,15 +1487,14 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+  工作階段結束 (關閉視窗) 時，會刪除由符合您所定義的 URL 模式的網站的 Cookie。
 
-Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+建立者不符合模式的網站的 Cookie 由 [DefaultCookiesSetting](#defaultcookiessetting) 原則 (如果設定) 或使用者的個人設定。如果您未設定這個原則，這是預設行為。
 
-If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+如果 Microsoft Edge 正以背景模式工作階段可能關閉時執行的上一個視窗會關閉，這表示視窗關閉時，將不會清除 Cookie。如需 Microsoft Edge 以背景模式執行時所會發生情形的詳細資訊，請查看 [BackgroundModeEnabled](#backgroundmodeenabled) 原則。n
+您也可以使用 [CookiesAllowedForUrls](#cookiesallowedforurls) 和 [CookiesBlockedForUrls](#cookiesblockedforurls) 原則來控制哪些網站可以建立 Cookie。
 
-You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
-
-Note there cannot be conflicting URL patterns set between these three policies:
+附註有不可以是介於這些三個原則設定衝突的 URL 模式:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1497,7 +1502,7 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesSessionOnlyForUrls
 
-If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+如果您設定 [RestoreOnStartup](#restoreonstartup) 原則為從先前的工作階段還原 URL，就會忽略此原則，並為這些網站永久儲存 Cookie。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1545,17 +1550,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+  控制網站是否可以能在使用者裝置上建立 Cookie。此原則為可以或完全不行 - 您可以讓所有網站建立 Cookie，或不讓任何網站建立 Cookie。您無法使用此原則啟用來自特定網站的 Cookie。
 
-Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+設定原則為 'SessionOnly' (4)，當工作階段結束時清除 Cookie。如果 Microsoft Edge 正以背景模式運行，當最後一個視窗關閉時，則工作階段可能會停止執行，這表示視窗關閉時將不會清除 Cookie。[BackgroundModeEnabled](#backgroundmodeenabled) 原則會設定當 Microsoft Edge 以背景模式執行時，會發生什麼情況的相關資訊。
 
-If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+如果您未設定此原則，將使用預設 'AllowCookies' (1)，且使用者可以變更此設定中的 Microsoft Edge 設定。(如果您不希望使用者變更此設定，請設定原則)。
 
-* 1 = Let all sites create cookies
+* 1 = 讓所有網站建立 Cookie        * 2 = 不要讓任何網站建立 Cookie
 
-* 2 = Don't let any site create cookies
-
-* 4 = Keep cookies for the duration of the session
+* 4 = 保留工作階段持續時間的 Cookie
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1798,17 +1801,17 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+  決定 [PluginsAllowedForUrls](#pluginsallowedforurls) 或 [PluginsBlockedForUrls](#pluginsblockedforurls) 未涵蓋的網站是否可以自動執行 Adobe Flash 外掛程式。您可以在所有網站上選取 [BlockPlugins] (2) 來封鎖 Adobe Flash，您也可以選擇 [ClickToPlay] (3) 讓 Adobe Flash 執行，但需要使用者點選預留位置才能啟動。在任何情況下，[PluginsAllowedForUrls](#pluginsallowedforurls) 和 [PluginsBlockedForUrls](#pluginsblockedforurls) 原則皆優先於 'DefaultPluginsSetting'。
 
-Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+僅允許在 [PluginsAllowedForUrls](#pluginsallowedforurls) 原則中明確列出的網域能自動播放。如果要在所有網站上啟用自動播放，請考慮將 http://* 和 https://* 新增到此清單中。
 
-If you don't configure this policy, the user can change this setting manually.
+如果未設定此原則，則使用者可以手動變更此設定。
 
-* 2 = Block the Adobe Flash plug-in
+* 2 = 封鎖 Adobe Flash 外掛程式
 
-* 3 = Click to play
+* 3 = 點擊播放
 
-The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+前者 [1] 選項設定為允許所有，但此功能現在僅由 [PluginsAllowedForUrls](#pluginsallowedforurls) 處理。使用 [1] 的現有原則將在 [點選播放] 模式下執行。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1949,15 +1952,15 @@ The former '1' option set allow-all, but this functionality is now only handled 
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+  設定網站是否可存取連線的 USB 裝置。每次網站想要存取連線的 USB 裝置時，您都可以完全封鎖存取或詢問使用者。
 
-You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+您可以使用 [WebUsbAskForUrls](#webusbaskforurls) 和 [WebUsbBlockedForUrls](#webusbblockedforurls) 原則覆寫此原則的特定 URL 模式。
 
-If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+如果不設定此原則，網站將根據預設詢問使用者，是否可以存取連線的 USB 裝置 (3)，且使用者可以變更此設定。
 
-* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+* 2 =不允許任何網站透過 WebUSB API 要求存取 USB 裝置
 
-* 3 = Allow sites to ask the user to grant access to a connected USB device
+* 3 =允許網站要求使用者授與權限存取連線的 USB 裝置
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2000,9 +2003,9 @@ If you don't configure this policy, sites can ask users whether they can access 
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can display images.
+  根據 URL 模式，定義可以顯示影像的網站清單。
 
-If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+如果您未設定這個原則，所有網站都將使用來自 [DefaultImagesSetting](#defaultimagessetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2050,9 +2053,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+  根據 URL 模式，定義不允許顯示影像的網站。
 
-If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultImagesSetting](#defaultimagessetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2100,9 +2103,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+  根據 URL 的規則，定義允許執行 JavaScript 的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultJavaScriptSetting](#defaultjavascriptsetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2150,9 +2153,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+  根據 URL 模式，定義不允許執行 JavaScript 的網站。
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultJavaScriptSetting](#defaultjavascriptsetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2195,14 +2198,121 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [回到頂端](#microsoft-edge---原則)
 
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### 啟用預設舊版 SameSite Cookie 行為設定
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  讓您可以將所有 Cookie 恢復為舊版 SameSite 行為。恢復至舊行為會導致未指定 SameSite 屬性的 Cookie 被視為 [SameSite=None]，並刪除對 [SameSite=None] Cookie 的要求，以具有 [Secure] 屬性。
+
+您可以為此原則設定下列值：
+
+* 1 = 所有網站上的 Cookie 均恢復為舊版 SameSite 行為
+
+* 2 = 所有網站上的 Cookie 使用 SameSite-by-default 行為
+
+如果未設定此原則，則未指定 SameSite 屬性的 Cookie，其預設行為將取決於 SameSite-by-default 功能的其他設定資源。此功能可能透過現場試驗來設定，也可以透過啟用 edge://flags 中的 same-site-by-default-cookies 旗標來設定。
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  整數
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: LegacySameSiteCookieBehaviorEnabled
+  - GP 名稱: 啟用預設舊版 SameSite Cookie 行為設定
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/內容設定
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
+  - 路徑 (推薦項目): N/A
+  - 值名稱: LegacySameSiteCookieBehaviorEnabled
+  - 數值類型: REG_DWORD
+  ##### 範例值:
+```
+0x00000001
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: LegacySameSiteCookieBehaviorEnabled
+  - 範例值:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### 將指定網站上的 Cookie 恢復至舊版 SameSite 行為
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  符合指定模式的網域所設定的 Cookie 將恢復為舊版 SameSite 行為。
+
+恢復至舊行為會導致未指定 SameSite 屬性的 Cookie 被視為 [SameSite=None]，並刪除對 [SameSite=None] Cookie 的要求，以具有 [Secure] 屬性。
+
+如果未設定此原則，則將使用全域預設值。全域預設值也將用於未涵蓋於您指定模式的網域的 Cookie。
+
+可使用 [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) 原則來設定全域預設值。如果未設定 [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)，則全域預設值將回到其他設定源。
+
+請注意，在此原則中列出的模式將視為網域，而不是 URL，因此不應指定配置或連接埠。
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  字串的清單
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - GP 名稱: 將指定網站上的 Cookie 恢復至舊版 SameSite 行為
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/內容設定
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 路徑 (推薦項目): N/A
+  - 值名稱: 1, 2, 3, ...
+  - 數值類型: REG_SZ 的清單
+  ##### 範例值:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 範例值:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
   ### NotificationsAllowedForUrls
   #### 允許特定網站上的通知
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can display notifications.
+  根據 URL 模式，定義可以顯示通知的網站。
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，所有網站都將使用來自 [DefaultNotificationsSetting](#defaultnotificationssetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2250,9 +2360,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+  根據 URL 模式，定義封鎖顯示通知的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定此原則，來自 [DefaultNotificationsSetting](#defaultnotificationssetting) 原則 (如有設定) 的全域預設值或使用者的個人設定將用於所有網站。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2300,9 +2410,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+  根據 URL 模式定義網站清單，這些網站可執行 Adobe Flash 外掛程式。
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果未設定此原則，則所有網站將使用 [DefaultPluginsSetting](#defaultpluginssetting) 原則 (如果有設定) 的全域預設值或使用者的個人設定。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2350,9 +2460,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+  根據 URL 模式定義網站清單，這些網站模式已封鎖執行 Adobe Flash。
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果未設定此原則，則所有網站將使用 [DefaultPluginsSetting](#defaultpluginssetting) 原則 (如果有設定) 的全域預設值或使用者的個人設定。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2400,9 +2510,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can open pop-up windows.
+  根據 URL 模式，定義可以開始快顯視窗的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定這個原則，所有網站都將使用來自 [DefaultPopupsSetting](#defaultpopupssetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2450,9 +2560,9 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+  根據 URL 模式，定義開啟快顯視窗功能受封鎖的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定這個原則，所有網站都將使用來自 [DefaultPopupsSetting](#defaultpopupssetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2563,13 +2673,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+  可讓您設定一組 URL，指定會自動獲得具指定廠商和產品識別碼之 USB 裝置存取權的站台。清單中的所有項目都必須包含裝置和 URL，原則才會有像。裝置中的所有項目都能包含廠商識別碼和產品識別碼欄位。受到忽略的所有識別碼都會視作萬用字元，但有一個例外: 如果未指定廠商識別碼，就無法指定產品識別碼。否則，原則將不會生效且會受到忽略。
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+USB 權限模型會使用要求站台的 URL (要求 URL) 和頂層框架站台的 URL (內嵌 URL) 來授與要求 URL 存取 USB 裝置的權限。在 iframe 中載入要求站台時，要求 URL 可能和內嵌 URL 不同。因此，[urls] 欄位最多可包含兩個以逗點分隔的 URL 來分別指定要求與內嵌 URL。如果只有指定一個 URL，則會在要求站台的 URL 符合此 URL 時授與對應 USB 裝置的存取權，而不考慮內嵌狀態。[urls] 中的 URL 必須為有效的 URL，否則原則會受到忽略。
 
-If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+如果未設定此原則，則會對所有站台使用 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 原則 (如有設定) 或使用者個人設定 (如未設定前者) 的全域預設值。
 
-URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+這個原則中的 URL 模式不應與透過 [WebUsbBlockedForUrls](#webusbblockedforurls) 設定的 URL 模式衝突。如果發生衝突，此原則將優先於 [WebUsbBlockedForUrls](#webusbblockedforurls) 和 [WebUsbAskForUrls](#webusbaskforurls)。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2643,11 +2753,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+  根據 URL 模式，定義可以要求使用者存取 USB 裝置的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定這個原則，所有網站都將使用來自 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
-The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+URL 模式在此原則中的定義不會與 [WebUsbBlockedForUrls](#webusbblockedforurls) 原則中的設定相衝突 - 您不能同時允許和封鎖一個 URL。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2695,11 +2805,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+  根據 URL 模式，定義無法要求使用者授予 USB 裝置存取權限的網站清單。
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+如果您未設定這個原則，所有網站都將使用來自 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 原則 (如有設定) 或使用者個人設定的全域預設值。
 
-URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+URL 模式在此原則中的定義不會與 [WebUsbAskForUrls](#webusbaskforurls) 原則中的設定相衝突。您不能同時允許和封鎖一個 URL。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2996,9 +3106,9 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  List specific native messaging hosts that users can use in Microsoft Edge.
+  列出使用者可在 Microsoft Edge 中使用的特定原生訊息主機。
 
-By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+根據預設，允許所有原生訊息的主機。如果您設定 [NativeMessagingBlocklist](#nativemessagingblocklist) 原則為 *，將會封鎖所有原生訊息的主機，而且會載入列在這裡的原生傳訊主機。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3200,17 +3310,17 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Configures the default home page URL in Microsoft Edge.
+  在 Microsoft Edge 中設定預設首頁 URL。
 
-The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+首頁可透過 [首頁] 按鈕開啟。在啟動時開啟的網頁受 [RestoreOnStartup](#restoreonstartup) 原則控制。
 
-You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+您可以在此處設定 URL 或設定首頁，以開啟新索引標籤頁面。如果您選擇開啟新索引標籤頁面，此原則將不會生效。
 
-If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+如果您啟用此原則，則使用者無法變更其首頁的 URL，但可以選擇使用新索引標籤頁作為首頁。
 
-If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+如果您停用或未設定此原則，只要 [HomepageIsNewTabPage](#homepageisnewtabpage) 原則未啟用，使用者可以自行選擇首頁頁面。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+這個原則僅適用於已加入 Microsoft Active Directory 網域或已註冊裝置管理的 Windows 10 專業版或企業版的 Windows 執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3253,19 +3363,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  指定要在 Microsoft Edge 中新索引標籤頁面上使用的公司標誌。
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
 
-原則應設定為能在 JSON 格式中表示標誌的字串。範例: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-您可以指定 Microsoft Edge 能下載標誌及其用於驗證下載完整性的加密編譯雜湊 (SHA-256)，來設定此原則。標誌必須為 PNG 或 SVG 格式，且大小不得超過 16 MB。系統會下載並快取標誌，並在 URL 或雜湊變更時重新下載。URL 必須能在不經任何驗證的情況下開放存取。
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
 
-'default_logo' 為必要項，且會在沒有背景影像時使用。如果提供 'light_logo'，則會在使用者的新索引標籤頁面有背景影像時使用。建議使用具有向左對齊且垂直置中之透明背景的水平標誌。標誌的最低高度為 32 像素，外觀比例應介於 1:1 至 4:1。'default_logo' 應對白/黑背景有適當的對比，而 'light_logo' 應對背景影像有適當的對比。
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
 
-如果啟用此原則，Microsoft Edge 就會在新的索引標籤頁面上下載並顯示指定的標誌。使用者無法覆寫或隱藏標誌。
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
 
-如果停用或未設定此原則，Microsoft Edge 將不會在新的索引標籤頁面上顯示任何公司標誌或 Microsoft 標誌。
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-如需協助了解如何決定 SHA-256 雜湊，請參閱 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6。
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3380,19 +3490,19 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Configures the default URL for the new tab page.
+  設定新索引標籤頁面的預設 URL。
 
-This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+這個原則會決定在新的索引標籤建立後 (包含開啟新視窗) 會開啟的頁面。如果設定為開起至新的索引標籤頁面，則這也會影響啟動頁面。
 
-This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+這個原則不會決定啟動時要開啟的頁面，這將由 [RestoreOnStartup](#restoreonstartup) 原則決定。此外，如果此原則設定為開啟至新的索引標籤頁面，則不會影響首頁。
 
-If you don't configure this policy, the default new tab page is used.
+如果未設定此原則，則會使用預設新索引標籤頁面。
 
-If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+如果同時設定此原則 *與* [NewTabPageSetFeedType](#newtabpagesetfeedtype) 原則，則此原則優先。
 
-If an invalid URL is provided, new tabs will open about://blank.
+如果提供的 URL 無效，新的索引標籤會開啟 about://blank。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+這個原則僅適用於加入 Microsoft Active Directory 網域的 Windows 執行個體，或已註冊裝置管理的 Windows 10 專業版/企業版執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3510,29 +3620,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [回到頂端](#microsoft-edge---原則)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### 設定 Microsoft Edge 的新索引標籤頁面體驗
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  可讓您為新索引標籤頁選擇 Microsoft News 或 Office 365 摘要體驗。
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+將此原則設定為 Microsoft News 摘要體驗 (0) 時，使用者將在新索引標籤頁上看到 Microsoft News 摘要體驗。
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+將此原則設定為 Office 365 摘要體驗 (1) 時，具有 Azure Active Directory 瀏覽器登入的使用者將在新索引標籤頁上看到 Office 365 摘要體驗。
 
-If you disable or don't configure this policy:
+如果停用或未設定此原則:
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+-具有 Azure Active Directory 瀏覽器登入的使用者能享有 Office 365 新索引標籤頁摘要體驗，以及標準的新索引標籤頁摘要體驗。
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+-沒有 Azure Active Directory 瀏覽器登入的使用者將看到標準新索引標籤頁摘要體驗。
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+如果設定此原則，*並且* [NewTabPageLocation](#newtabpagelocation) 原則，[NewTabPageLocation](#newtabpagelocation) 具有優先順序。
 
-Default setting:  Disabled or not configured.
+預設設定: 已停用或未設定。
 
-* 0 = Microsoft News feed experience
+* 0 = Microsoft News 摘要體驗
 
-* 1 = Office 365 feed experience
+* 1 = Office 365 摘要體驗
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3545,7 +3655,7 @@ Default setting:  Disabled or not configured.
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: NewTabPageSetFeedType
-  - GP 名稱: Configure the Microsoft Edge new tab page experience
+  - GP 名稱: 設定 Microsoft Edge 的新索引標籤頁面體驗
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/啟動、首頁和新索引標籤頁面
   - GP 路徑 (推薦項目): 系統管理範本/Microsoft Edge - 預設設定 (使用者可以覆寫)/啟動、首頁和新索引標籤頁面
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -3634,11 +3744,11 @@ Default setting:  Disabled or not configured.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+  指定瀏覽器啟動時自動開啟的網站清單。如果不設定此原則，則啟動時不會開啟任何網站。
 
-This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+此原則僅在同時設定 'Open a list of URLs' (4) [RestoreOnStartup](#restoreonstartup) 原則時才有效。
 
-This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+此原則僅適用於加入 Microsoft Active Directory 網域的 Windows 執行個體、Windows 10 專業版或註冊裝置管理的企業版執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3888,21 +3998,21 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+  可讓您控制何時觸發密碼保護警告。當使用者在潛在可疑的網站上，重複使用受保護的密碼時會警告使用者。
 
-You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+您可以使用 [PasswordProtectionLoginURLs](#passwordprotectionloginurls) 和 [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) 原則來設定要保護的密碼。
 
-Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+豁免: [PasswordProtectionLoginURLs](#passwordprotectionloginurls) 和 [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) 以及 [SmartScreenAllowListDomains](#smartscreenallowlistdomains) 中列出的網站不會觸發密碼保護警告。
 
-Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+設定為 'PasswordProtectionWarningOff' (0) 不顯示密碼保護警告。
 
-Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+設定為 'PasswordProtectionWarningOnPasswordReuse' (1) 當使用者於非列於允許清單的網站上，重複使用其受保護的密碼時，顯示密碼保護警告。
 
-If you disable or don't configure this policy, then the warning trigger is not shown.
+如果停用或未設定此原則，則不會顯示警告觸發程序。
 
-* 0 = Password protection warning is off.
+* 0 =密碼保護警告已關閉。
 
-* 1 = Password protection warning is triggered by password reuse.
+* 1 = 重複使用密碼觸發密碼保護警告。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3949,15 +4059,15 @@ If you disable or don't configure this policy, then the warning trigger is not s
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Controls which extension types can be installed and limits runtime access.
+  控制哪些延伸模組類型可以安裝，並會限制存取執行階段。
 
-This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+這個設定會定義的延伸模組和允許的類型可以互動的主機。值是字串的清單，其中每一個應該是下列其中一個清單: "extension"、"theme"、"user_script" 和 "hosted_app"。如需有關這些類型的延伸模組文件，請參閱 Microsoft Edge。
 
-Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+這個原則也會影響延伸模組為強制安裝使用的附註 [ExtensionInstallForcelist](#extensioninstallforcelist) 原則。
 
-If you enable this policy, only extensions that match a type in the list are installed.
+如果您啟用這個原則，就只會安裝清單中符合類型的延伸模組。
 
-If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+如果您未設定這個原則，會強制執行的可接受的延伸模組類型沒有限制。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4103,27 +4213,31 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+  指定不需使用者互動以無訊息模式且已安裝的延伸模組，而且使用者無法解除安裝，或停用 ("force-installed")。所有延伸模組請求的權限皆為隱含式授與，且無需使用者互動，包括其他任何延伸模組的未來版本所要求的權限。此外，將為 enterprise.deviceAttributes 和 enterprise.platformKeys 延伸模組 API 授予權限。(這兩個 Api 僅適用於強制安裝的延伸模組)。
 
-This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+此原則的優先順序高於潛在衝突的 [ExtensionInstallBlocklist](#extensioninstallblocklist) 原則。當您從強制安裝清單中移除延伸模組時，其會由 Microsoft Edge 自動解除安裝。
 
-For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+未加入 Windows 裝置的 Microsoft Active Directory 網域，強制安裝僅限 Microsoft Store 中可用的延伸模組。
 
-Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+請注意，使用者將能夠使用開發人員工具，修改任何延伸模組的原始碼，這可能導致延伸模組異常。若會產生此問題，請設定 [DeveloperToolsAvailability](#developertoolsavailability) 原則。
 
-Use the following format to add an extension to the list:
+透過下列格式將延伸模組新增到清單中:
 
 [extensionID];[updateURL]
 
-- extensionID - the 32-letter string found on edge://extensions when in developer mode.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+[extensionID];[updateURL]
 
-If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+- extensionID - 在 edge://extensions 上找到的 32 個字母字串。
 
-Note that this policy doesn't apply to InPrivate mode.
+-updateURL (可省略) 為在 [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) 所述的應用程式或延伸模組更新資訊清單 XML 文件位址。如果未設定 updateURL，則使用 Microsoft Store 更新 URL (目前為 https://edge.microsoft.com/extensionwebstorebase/v1/crx)。請注意，此原則中設定的更新 URL 僅用於初始安裝。延伸模組的後續更新將使用延伸模組資訊清單中指示的更新 URL。
+
+例如，gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx 從 Microsoft Store [更新] URL 安裝 Microsoft Online 應用程式。有關裝載延伸模組的詳細資訊，請參閱: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044)。
+
+如果未設定此原則，則不會自動安裝任何延伸模組，且使用者可以在 Microsoft Edge 中解除安裝任何延伸模組。
+
+請注意，這個原則不適用於 InPrivate 模式。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4171,13 +4285,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define URLs that can install extensions and themes.
+  定義可以安裝延伸模組和佈景主題的 Url。
 
-By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+根據預設，使用者必須為想要安裝的每個延伸模組或指令碼下載 *.crx 檔案，並將其拖曳至 Microsoft Edge 設定頁面。這個原則可讓特定的 Url 使用安裝的延伸模組或使用者的指令碼。
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+在這個清單中的每個項目是延伸樣式比對模式 (請參閱 [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039))。使用者可以輕鬆從符合此清單內項目的 URL 安裝項目。*.crx 檔案與下載開始頁面 (即轉介者) 的位置，都必須有這些模式的允許。
 
-The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+[ExtensionInstallBlocklist](#extensioninstallblocklist) 原則的優先順序高於這個原則。將不會安裝封鎖清單的任何延伸模組，即使它來自此清單上的網站也一樣。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4485,11 +4599,11 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+  指定的搜尋提供者所支援的字元編碼方式。編碼是字碼頁名稱，如 UTF-8、GB2312 和 ISO-8859-1。這些編碼會按提供的順序進行嘗試。
 
-This policy is optional. If not configured, the default, UTF-8, is used.
+此原則是選擇性的。如果未設定，則使用預設值 UTF-8。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4541,18 +4655,18 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+  指定用於影像搜尋的搜尋引擎 URL。將使用 GET 方法傳送搜尋要求。
 
-This policy is optional. If you don't configure it, image search isn't available.
+此則是選擇性的。如果不設定此原則，則無法使用影像搜尋。
 
-Specify Bing's Image Search URL as:
-'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+將 Bing 的影像搜尋 URL 指定為:
+'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'。
 
-Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+將 Google 的影像搜尋 URL 指定為: '{google:baseURL}searchbyimage/upload'。
 
-See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+請參閱 [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) 原則以完成設定影像搜尋。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4595,15 +4709,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+  如果啟用此原則，則會指定使用 POST 執行影像搜尋時使用的參數。該原則由逗號分隔的名稱/值組所組成。如果值是範本參數，如前面範例中的{imageThumbnail}，則會以實際影像縮圖資料替換。僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
 
-Specify Bing's Image Search URL Post Params as:
-'imageBin={google:imageThumbnailBase64}'.
+將 Bing 的影像搜尋 URL Post 參數指定為:
+'imageBin={google:imageThumbnailBase64}'。
 
-Specify Google's Image Search URL Post Params as:
-'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
+將 Google 的影像搜尋 URL Post 參數指定為:
+'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'。
 
-If you don’t set this policy, image search requests are sent using the GET method.
+如果未設定此原則，則會使用 GET 方法傳送影像搜尋要求。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4646,11 +4760,11 @@ If you don’t set this policy, image search requests are sent using the GET met
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+  指定關鍵字，也就是在網址列中用來觸發此提供者搜尋的捷徑。
 
-This policy is optional. If you don't configure it, no keyword activates the search provider.
+此原則是選擇性的。如果未設定此原則，則不會有關鍵字啟動搜尋提供者。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4693,13 +4807,14 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the name of the default search provider.
+  指定預設搜尋提供者的名稱。
 
-If you enable this policy, you set the name of the default search provider.
+如果啟用此原則，則可以設定預設搜尋提供者的名稱。
 
-If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+如果未啟用此原則或將其保留空白，則使用搜尋 URL 指定的主機名稱。
 
-'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+'DefaultSearchProviderName' 應設定為組織批准的加密搜尋提供者，該提供者需對應至 DTBC 0008 中設定的加密搜尋提供者。僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
+
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4742,15 +4857,15 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+  指定用於預設搜尋的搜索引擎 URL。該 URL 包含字串 '{searchTerms}'，在查詢時由使用者的搜尋字詞替換。
 
-Specify Bing's search URL as:
+指定 Bing 的搜尋 URL 為:
 
-'{bing:baseURL}search?q={searchTerms}'.
+[{bing:baseURL}search?q={searchTerms}]。
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+指定 Google 的搜尋網址為: [{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}]。
 
-This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+當您啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 原則時，需有此原則; 如果您未啟用原則，則此原則將忽略。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -4793,17 +4908,17 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+  指定用於提供搜尋建議的搜索引擎的 URL。該 URL 包含字串 '{searchTerms}'，在查詢時由使用者輸入的文字替換。
 
-This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+此原則是選擇性的。如果未設定此原則，則使用者將看不見搜尋建議;他們會看到自己瀏覽歷程記錄和 [我的最愛] 中的建議。
 
-Bing's suggest URL can be specified as:
+Bing 的建議 URL 可以指定為:
 
-'{bing:baseURL}qbox?query={searchTerms}'.
+'{bing:baseURL}qbox?query={searchTerms}'。
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+Google 的建議 URL 可以指定為: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+僅在啟用 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 和 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則時，才能套用此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -5233,13 +5348,13 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+  可讓您設定是否提示使用者授與網站存取其音訊擷取裝置的權限。除 [AudioCaptureAllowedUrls](#audiocaptureallowedurls) 清單中設定的 URL，此原則適用於所有 URL。
 
-If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+如果啟用或未設定此原則 (預設設定)，則除了 [AudioCaptureAllowedUrls](#audiocaptureallowedurls) 清單中的 URL，都會向使用者提示音訊擷取存取。清單中的 URL 會在沒有提示的情況下授與存取權限。
 
-If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+如果停用此原則，則不會提示使用者，且僅能對 [AudioCaptureAllowedUrls](#audiocaptureallowedurls) 中設定的 URL 音訊擷取進行存取。
 
-This policy affects all types of audio inputs, not only the built-in microphone.
+此原則會影響所有類型的音訊輸入，而不僅是內建麥克風。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -5813,21 +5928,21 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+  指定使用者是否可以透過他們的帳戶登入 Microsoft Edge，並使用帳戶相關的服務，如同步處理和單一登入。若要控制同步處理的可用性，請改用 [SyncDisabled](#syncdisabled) 原則。
 
-If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+如果您已設定此原則為 [停用瀏覽器登入]，請確保同時停用 [NonRemovableProfileEnabled](#nonremovableprofileenabled) 原則，因為 [NonRemovableProfileEnabled](#nonremovableprofileenabled) 會禁止建立自動登入瀏覽器設定檔。如果同時設定了這兩個原則，則 Microsoft Edge 將使用 [停用瀏覽器登入] 原則，並表現出 [NonRemovableProfileEnabled](#nonremovableprofileenabled) 設為停用的狀態。如果將此原則設為 [啟用瀏覽器登入] (1)，則使用者可以登入瀏覽器。登入瀏覽器並不表示同步處理會根據預設值開啟; 使用者必須分別選擇加入以使用此功能。
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+如果將此原則設為 [強制瀏覽器登入] (2)，則使用者必須登入設定檔以使用瀏覽器。根據預設，這將允許使用者選擇是否要同步至他們的帳戶，除非網域系統管理員或已透過 [SyncDisabled](#syncdisabled) 原則停用同步處理。[BrowserGuestModeEnabled](#browserguestmodeenabled) 原則的預設值設定為 False。
 
-If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+如果未設定此原則，使用者可以決定是否要啟用瀏覽器登入選項，並於適當時使用。
 
-If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+* 0 = 停用瀏覽器登入
 
-* 0 = Disable browser sign-in
 
-* 1 = Enable browser sign-in
 
-* 2 = Force users to sign-in to use the browser
+* 1 = 啟用瀏覽器登入
+
+* 2 = 強制使用者登入以使用瀏覽器
 
   #### 支援功能:
   - 可以是強制: 是
@@ -6088,13 +6203,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (78 版或更新版本)
 
   #### 描述
-  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+  依照預設，Microsoft Edge 關閉時不會清除瀏覽資料。瀏覽資料包含表格、密碼，甚至也包含曾瀏覽過的網站。
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+如果您啟用此原則，所有瀏覽資料會在每次 Microsoft Edge 關閉時刪除。
 
-If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+如果您停用或未設定此原則，使用者可以在 [設定] 中設定 [清除瀏覽資料] 選項。
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+如果您啟用此原則時，請不要啟用 [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) 原則，因為兩者均會刪除資料。如果您啟用兩者，此原則優先順序較高，而且不論您如何設定 [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)，當 Microsoft Edge 關閉時會刪除所有資料。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -6330,15 +6445,15 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  設定瀏覽器是否能利用 [Azure 認知服務] 中的 [線上文字轉語音] 的語音字型。這些語音字型的品質高於預先安裝的系統語音字型。
+  TX: 設定瀏覽器是否能利用 Azure 認知服務中的線上文字轉換語音的語音字型。這些語音字型的品質高於預先安裝的系統語音字型。
 
-如果您啟用或未設定此原則，使用 SpeechSynthesis API 的網頁應用程式可以使用 [線上文字轉語音] 的語音字型。
+如果您啟用或未設定此原則，使用 SpeechSynthesis API 的網頁應用程式可以使用線上文字轉換語音的語音字型。
 
 如果您停用此原則，語音字型便無法使用。
 
-深入了解此功能：
-SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-認知服務：https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+深入了解此功能:
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+認知服務: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### 支援功能:
   - 可以是強制: 是
@@ -6579,11 +6694,11 @@ Windows 系統管理員注意事項：此原則僅適用於執行 Windows 7 的�
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+  防止網頁存取圖形處理器單元 (GPU)。具體而言，網頁無法存取 WebGL API，且外掛程式無法使用 Pepper 3D API。
 
-If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+如果您未設定或停用此原則，便可能會允許網頁設定使用 WebGL API 與外掛程式來使用 Pepper 3D API。根據預設，Microsoft Edge 可能會要求使用這些 Api 傳遞的命令列引數。
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+如果 [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) 原則設定為 False，則會略過 'Disable3DAPIs' 原則設定 - 等同於 'Disable3DAPIs' 原則設定為 true。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -7229,15 +7344,15 @@ Microsoft 會基於相容性原因，保留特定網域中的動作清單。例�
   [回到頂端](#microsoft-edge---原則)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### 在外部通訊協定對話方塊中顯示「一律開啟」核取方塊。
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  此原則控制是否在外部通訊協定啟動確認提示上顯示「一律開啟」核取方塊。
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+如果將此原則設為 True，則在顯示外部通訊協定確認提示時，使用者可以選擇「一律開啟」。該使用者以後將不會再收到此通訊協定的確認提示。
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+如果將此原則設為 False，或者未設定原則，則不會顯示「一律開啟」核取方塊。每次叫用外部通訊協定時，都會提示用戶進行確認。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -7250,7 +7365,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 名稱: Show an "Always open" checkbox in external protocol dialog.
+  - GP 名稱: 在外部通訊協定對話方塊中顯示「一律開啟」核取方塊。
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -8373,23 +8488,23 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
   >支援的版本: Windows 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+  從連結、指令碼或目前的頁面開始「頁面內」導航。也可以從先前「頁面內」導航嘗試的伺服器端重新導向。相反的，使用者可以透過瀏覽器控制，以多種方式啟動非「頁面內」導航，該導航獨立於目前頁面。例如透過網址列、返回按鈕或我的最愛連結。
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+此設定可讓您指定是否要從 Internet Explorer 模式下載入的頁面導航至未設定網站 (未於 Enterprise Mode Site List 中設定) 切換回 Microsoft Edge 或停留在 Internet Explorer 模式。
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+此設定會與下列內容一併執行:
+將 [InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) 設定為「Internet Explorer 模式」(1)
+和
+設定 [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) 原則，其中該清單至少擁有一個項目。
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+如果停用或未設定此原則，則只有設定為在 Internet Explorer 模式中開啟的網站，才會在該模式中開啟。所有未設定在 Internet Explorer 模式中開啟的網站，將會重新導向回到 Microsoft Edge。
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+如果啟用此原則，可以從下列導航選項中選擇一種:
+0 – 預設。只有設定為在 Internet Explorer 模式中開啟的網站，才會在該模式中開啟。所有未設定在 Internet Explorer 模式中開啟的網站，將會重新導向回到 Microsoft Edge。
+1 – 僅在 Internet Explorer 模式中保持自動導航。如果您想要預設體驗，請使用此選項，除了所有自動導航 (例如 302 重新導向) 至未設定網站都將保留在 Internet Explorer 模式下。
+2 – 保留所有 Internet Explorer 模式中的頁面內導航 (最不建議)。來自 IE 模式載入頁面至未設定網站的所有導航都將保留於 Internet Explorer 模式中。
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+如需深入了解 Internet Explorer 模式，請參閱 [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8426,11 +8541,11 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Specify origins to run in isolation, in their own process.
-This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
-If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
-If you don't configure the policy, the user can change this setting.
+  指定來源在其處理程序中隔離執行。
+此原則也會隔離子網域命名的來源 - 例如，指定 https://contoso.com/ 將導致 https://foo.contoso.com/ 隔離為 https://contoso.com/ 的一部分。
+如果啟用此原則，則以逗點分隔清單中的每個命名來源，都將在其處理程序中執行。
+如果停用此原則，則 'IsolateOrigins' 和 'SitePerProcess' 功能都將停用。使用者仍可以透過命令列旗標手動啟用 'IsolateOrigins' 原則。
+如果不設定原則，使用者可以變更此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8584,14 +8699,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding for any search engine.
+  可讓您設定最多 10 個的搜尋引擎清單，其中一個必須標記為預設搜尋引擎。
+您無需指定任何搜尋引擎編碼。
 
-If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+如果啟用此原則，則使用者無法新增、移除或變更清單中的任何搜尋引擎。使用者可將清單中的任一搜尋引擎設為預設搜尋引擎。
 
-If you disable or don't configure this policy, users can modify the search engines list as desired.
+如果停用或未設定此原則，則使用者可視需要修改搜尋引擎清單。
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+如果設定了 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則，則會忽略此原則 (ManagedSearchEngines)。使用者必須重新啟動瀏覽器才能成功套用此原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8751,13 +8866,13 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+  啟用此原則以允許 Google Cast 連線至所有 IP 位址上的 Cast 裝置，不只是 RFC1918/RFC4193 私人位址。
 
-Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+停用此原則以限制 Google Cast 連線至 RFC1918/RFC4193 私人位址上的 Cast 裝置。
 
-If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+如果您未設定此原則，除非啟用 CastAllowAllIPs 功能，Google Cast 僅會連線至 RFC1918/RFC4193 私人位址上的 Cast 裝置。
 
-If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+如果 [EnableMediaRouter](#enablemediarouter) 已停用此原則，則此原則將無效。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8800,17 +8915,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  此原則專屬於 Windows 10 Beta 與穩定版的通道 Microsoft Edge，設定時將會覆寫 Windows 診斷資料集合設定或非集合 Microsoft Edge 使用量與損毀相關資料 ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569))。
+  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-此原則可將關於 Microsoft Edge 的使用量與損毀相關資料報告給 Microsoft，並防止使用者變更此設定。
+This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
-啟用此原則以傳送使用量與損毀相資料的報告給 Microsoft。停用此原則即不會將資料傳送給 Microsoft。在此兩種情況下，使用者無法變更或覆寫設定。
+Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-在 Windows 10、Beta 版與穩定版通道上，此原則能控制使用量與損毀相關資料。如果此原則未設定，Microsoft Edge 將預設為 Windows 診斷資料設定。
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
-在 Windows 10、Canary 與 Dev 通道上，此原則可以控制使用量與損毀相關資料。如果未設定此原則，Microsoft Edge 將預設為使用者的喜好設定。
+On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
-Windows 7、8 和 Mac 上，此原則可以控制使用量和損毀相關資料。如果未設定此原則，Microsoft Edge 將預設為使用者的喜好設定。
+On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8904,13 +9021,13 @@ Windows 7、8 和 Mac 上，此原則可以控制使用量和損毀相關資料�
   >支援的版本: Windows 上的 Microsoft Edge (78 版或更新版本)
 
   #### 描述
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  此原則可決定自動登入使用者公司或學校帳戶的 Microsoft Edge 設定檔能否為抽取式設定檔。
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+如果啟用或未設定此原則，則 Windows 上的使用者公司或學校帳戶就可以建立非抽取式設定檔。此設定檔不能登出或移除。
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+停用此原則後，從 Windows 自動登入使用者公司或學校帳戶的設定檔即可由使用者登出或移除。
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+如果要完全停用瀏覽器登入功能，請使用 [BrowserSignIn] 原則。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8992,6 +9109,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >支援的版本: Windows 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 否 - 需要重新啟動瀏覽器
+
+  #### 資料類型:
+  布林值
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: PinningWizardAllowed
+  - GP 名稱: Allow Pin to taskbar wizard
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
+  - 路徑 (推薦項目): N/A
+  - 值名稱: PinningWizardAllowed
+  - 數值類型: REG_DWORD
+  ##### 範例值:
+```
+0x00000000
+```
+
+
   
 
   [回到頂端](#microsoft-edge---原則)
@@ -9193,19 +9353,19 @@ QUIC 是一種傳輸層網路協議，能提高目前使用 TCP 的網路應用�
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Notify users that they need to restart Microsoft Edge to apply a pending update.
+  通知使用者他們需要重新啟動 Microsoft Edge 以套用暫止的更新。
 
-If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+如果您未設定這個原則，Microsoft Edge 會新增回收圖示最右邊的排名最前面的功能表列，以提示使用者重新啟動瀏覽器以套用更新。
 
-If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+如果您啟用此原則，並將其設定為 'Recommended' (1)，週期性警告會提示使用者建議重新啟動。使用者可以關閉此警告，並延後重新啟動的時間。
 
-If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+如果您設定這個原則為 'Required' (2) 時，警告會提示使用者的瀏覽器將會自動重新啟動盡通知期間週期性傳遞。預設的期間是七天。您可以設定這段期間的 [RelaunchNotificationPeriod](#relaunchnotificationperiod) 原則。
 
-The user's session is restored when the browser restarts.
+重新啟動瀏覽器時，會還原使用者的工作階段。
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+* Recommended (1) = 顯示使用者指出的週期性提示，建議您重新啟動
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+* Required (2) = 顯示週期性，向使用者提示必須重新啟動
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9248,15 +9408,11 @@ The user's session is restored when the browser restarts.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9379,16 +9535,16 @@ Restrictions:
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+  允許 Microsoft Edge 發出無資料連線至 Web 服務，以探查網路連線狀況，例如旅館與機場 Wi-Fi。
 
-If you enable this policy, a web service is used for network connectivity tests.
+如果您啟用此原則，Web 服務會用於網路連線能力測試。
 
-If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+  如果您停用此原則，Microsoft Edge 會使用原生 API 以嘗試解決網路連線狀態及瀏覽問題。
 
-**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+**注意**: 除了在 Windows 8 和更新版本 Windows，Microsoft Edge *一律* 使用原生 API 來解決連線問題。
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+如果您未設定此原則，Microsoft Edge 會遵循設定在 edge://settings/privacy 服務下的使用者喜好設定。
+特別是 **使用 Web 服務協助解決瀏覽錯誤** 切換，使用者可以切換開啟或關閉。請注意，如果您啟用此原則 (ResolveNavigationErrorsUseWebService)，**使用以協助解決瀏覽錯誤** 設定會開啟，但使用者無法變更此設定進行切換。如果您停用此原則，**使用 Web 服務以協助解決瀏覽錯誤** 設定會關閉，而且使用者無法變更此設定來切換。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9478,11 +9634,11 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+  如果啟用此原則，所有在內容設定中設為允許 Adobe Flash 的網站，無論是由使用者或企業原則設定，這些網站皆會執行內嵌的 Adobe Flash 內容的。這包括來自其他來源和/或小量內容的內容。
 
-To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+若要控制允許執行 Adobe Flash 的網站，請參閱 [DefaultPluginsSetting](#defaultpluginssetting)、[PluginsAllowedForUrls](#pluginsallowedforurls) 和 [PluginsBlockedForUrls](#pluginsblockedforurls) 原則中的詳細說明。
 
-If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+如果停用或未設定此原則，可能會封鎖來自其他來源 (上述的三個原則中未指定的網站) 或小量內容的 Adobe Flash。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9953,11 +10109,9 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
-If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
-If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
+  'SitePerProcess' 原則可防止使用者選擇超出隔離的所有網站的預設行為。請注意，您也可以使用 [IsolateOrigins](#isolateorigins) 原則隔離其他更細微的原始原則。
+如果您啟用此原則，則使用者無法選擇退出每個網站在工作程序中運行的預設行為。
+如果您停用或未設定此原則，使用者可以選擇退出網站隔離。(例如透過 edge://flags 中的 "Disable site isolation" 項目。) 停用或未設定此原則不會關閉網站隔離。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10000,9 +10154,9 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  If you enable or don't configure this policy, the user can use spellcheck.
+  如果您啟用或未設定此原則，使用者可以使用拼字檢查。
 
-If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+如果您停用此原則，使用者將無法使用拼字檢查，[SpellcheckLanguage](#spellchecklanguage) 和 [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) 原則也會停用。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10045,17 +10199,17 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   >支援的版本: Windows 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+  啟用拼字檢查語言。無法辨識的語言，該清單中將會被忽略。
 
-If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+如果您啟用這個原則，拼字檢查將會停用指定的語言。使用者仍然可以啟用或停用的語言不在清單中的拼字檢查。
 
-If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+如果您未設定這個原則，或停用它，將不會變更使用者的拼字檢查喜好設定。
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+如果 [SpellcheckEnabled](#spellcheckenabled) 原則設定為停用，則此原則將不會有任何效果。
 
-If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+如果 'SpellcheckLanguage' 和 [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) 原則中包含了一種語言，會啟用拼字檢查語言。
 
-The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+目前支援的語言為: af、bg、ca、cs、cy、da、de、el、en-AU、en-CA、en-GB、en-US、es、es-419、es-AR、es-ES、es-MX、es-US、et、fa、fo、fr、he、hi、hr、hu、id、it、ko、lt、lv、nb、nl、pl、pt-BR、pt-PT、ro、ru、sh、sk、sl、sq、sr、sv、ta、tg、tr、uk、vi。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10094,17 +10248,17 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   >支援的版本: Windows 上的 Microsoft Edge (78 版或更新版本)
 
   #### 描述
-  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+  強制-停用拼字檢查語言。無法辨識的語言，該清單中將會被忽略。
 
-If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+如果您啟用這個原則，拼字檢查將會停用指定的語言。使用者仍然可以啟用或停用的語言不在清單中的拼字檢查。
 
-If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+如果您未設定這個原則，或停用它，將不會變更使用者的拼字檢查喜好設定。
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+如果 [SpellcheckEnabled](#spellcheckenabled) 原則設定為 [停用]，則此原則將不會有任何效果。
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+如果 [SpellcheckLanguage](#spellchecklanguage) 和 'SpellcheckLanguageBlocklist' 原則中包含了一種語言，會啟用拼字檢查語言。
 
-The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+目前支援的語言為: af、bg、ca、cs、da、de、el、en-AU、en-CA、en-GB、en-US、es、es-419、es-AR、es-ES、es-MX、es-US、et、fa、fo、fr、he、hi、hr、hu、id、it、ko、lt、lv、nb、nl、pl、pt-BR、pt-PT、ro、ru、sh、sk、sl、sq、sr、sv、ta、tg、tr、uk、vi。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10186,11 +10340,11 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  在 Microsoft Edge 中停用資料同步處理，並防止使用者修改此設定。
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+如果未設定此原則，則使用者將無法開啟或關閉同步處理。
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+ 當原則 'RoamingProfileSupportEnabled' 已啟用時不要啟用此原則，因為 'RoamingProfileSupportEnabled' 會複製同步功能。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10229,22 +10383,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [回到頂端](#microsoft-edge---原則)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >支援的版本: Windows 上的 Microsoft Edge (79 版或更新版本)
+  #### 允許凍結背景索引標籤
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  控制 Microsoft Edge 是否可以將背景的索引標籤凍結至少 5 分鐘。
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+索引標籤凍結可降低 CPU、電池和記憶體使用量。Microsoft Edge 使用啟發學習法，來避免凍結在背景進行運作的索引標籤，例如顯示通知、播放音效和串流影片。
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+如果啟用或未設定此原則，則位於背景至少 5 分鐘的索引標籤將會凍結。
 
-If you disable this policy, no tabs will be frozen.
+如果停用此原則，則不會凍結任何索引標籤。
 
   #### 支援功能:
   - 可以是強制: 是
   - 可以建議: 否
-  - 動態原則重新整理: 否 - 需要重新啟動瀏覽器
+  - 動態原則重新整理: 是
 
   #### 資料類型:
   布林值
@@ -10252,7 +10406,7 @@ If you disable this policy, no tabs will be frozen.
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: TabFreezingEnabled
-  - GP 名稱: Allow freezing of background tabs
+  - GP 名稱: 允許凍結背景索引標籤
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -10267,6 +10421,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: TabFreezingEnabled
+  - 範例值:
+``` xml
+<false/>
+```
   
 
   [回到頂端](#microsoft-edge---原則)
@@ -10420,17 +10580,17 @@ If you disable this policy, no tabs will be frozen.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allow access to the listed URLs, as exceptions to the URL block list.
+  允許存取列出的 URL，以存取 URL 封鎖清單中的例外狀況。
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+根據 [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322) 格式化 URL 模式。
 
-You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+您可以使用此原則以開啟嚴格封鎖清單的例外狀況。例如，您可以包含 [*] 封鎖所有要求，然後使用此原則以允許存取限制 Url 的封鎖清單。您可以使用此原則開啟某些配置、其他子網域、連線埠或特定路徑的例外狀況。
 
-The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+最適合的篩選器會決定 URL 是否封鎖或允許。允許的清單優先於封鎖清單。
 
-This policy is limited to 1000 entries; subsequent entries are ignored.
+此原則僅限於 1000 個項目; 後續的項目均將忽略。
 
-If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+如果您未設定此原則，則 [URLBlocklist](#urlblocklist) 原則的封鎖清單中沒有任何例外。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10484,17 +10644,17 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+  根據 URL 模式定義遭封鎖的網站清單 (您的使用者無法載入這些網站)。
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+格式化 URL 模式將根據 [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322)。
 
-You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+您可以在 [URLAllowlist](#urlallowlist) 原則中定義例外狀況。這些原則僅限於 1000 個項目; 將忽略後續項目。
 
-Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+請注意，不建議封鎖內部 [edge://*] URL - 這可能會導致未預期的錯誤。
 
-This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+此原則不會阻止頁面 JavaScript 透過動態更新。假設您封鎖 'contoso.com/abc'，只要不重新整理此頁面，使用者可能仍能瀏覽 'contoso.com'，然後按一下連結前往 'contoso.com/abc'。
 
-If you don't configure this policy, no URLs are blocked.
+如果您未設定此原則，則不會封鎖任何 URL。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10652,13 +10812,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Control whether sites can capture video.
+  控制網站是否可以擷取視訊。
 
-If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+如果已啟用或未設定 (預設)，會向使用者要求所有網站的視訊擷取存取權限，除了那些 URL 設定在 [VideoCaptureAllowedUrls](#videocaptureallowedurls) 原則清單中的網站。這些網站無須提示便可獲得存取權限。
 
-If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+如果您停用此原則，使用者將不會收到提示，影片擷取功能僅可用於設定在 [VideoCaptureAllowedUrls](#videocaptureallowedurls) 原則中的 URL。
 
-This policy affects all types of video inputs, not only the built-in camera.
+此原則會影響所有類型的視訊輸入，不僅限於內建攝影機。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10798,19 +10958,18 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  
-This policy was removed in M80, because it is not necessary anymore as
-WebDriver is now compatible with all existing policies.
+  由於 WebDriver 現與所有現有的原則相容，此原則不再必要，
+因此已在 M80 中刪除此原則。
 
-This policy allows users of the WebDriver feature to override
-policies which can interfere with its operation.
+此原則允許 WebDriver 功能的使用者覆寫
+可能干擾其作業的原則。
 
-Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+目前此原則停用 [SitePerProcess](#siteperprocess) 和 [IsolateOrigins](#isolateorigins) 原則。
 
-If the policy is enabled, WebDriver will be able to override incomaptible
-policies.
-If the policy is disabled or not configured, WebDriver will not be allowed
-to override incompatible policies.
+如果啟用該原則，則 WebDriver 將能覆寫不相容的
+原則。
+如果停用或未設定該原則，則不允許 WebDriver
+覆寫不相容的原則。
 
   #### 支援功能:
   - 可以是強制: 是
