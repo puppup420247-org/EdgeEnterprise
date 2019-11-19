@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/07/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -55,7 +55,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Скрыть популярные сайты по умолчанию со страницы новой вкладки|
 |[NewTabPageLocation](#newtabpagelocation)|Настроить URL-адрес страницы новой вкладки|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Настройка быстрых ссылок для страницы новой вкладки|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Настройка интерфейса страницы новой вкладки Microsoft Edge|
 |[RestoreOnStartup](#restoreonstartup)|Действие, выполняемое при запуске|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Сайты, которые открываются при запуске браузера|
 |[ShowHomeButton](#showhomebutton)|Показать кнопку домашней страницы на панели инструментов|
@@ -67,7 +67,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Настроить список доменов, для которых фильтр SmartScreen в Microsoft Defender не будет отправлять предупреждения|
 |[SmartScreenEnabled](#smartscreenenabled)|Настроить фильтр SmartScreen в Microsoft Defender|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Принудительная проверка загрузок из надежных источников с помощью фильтра SmartScreen в Microsoft Defender|
-|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Настроить фильтр SmartScreen в Microsoft Defender на блокировку потенциально нежелательных приложений|
 ### [*Параметры содержимого*](#параметры-содержимого-policies)
 |Имя политики|Заголовок|
 |-|-|
@@ -88,6 +88,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Блокировать изображения на определенных сайтах|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Разрешить скрипты JavaScript на определенных сайтах|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Блокировать скрипты JavaScript на определенных сайтах|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Включить стандартный устаревший параметр поведения файлов cookie SameSite|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Вернуться к устаревшему поведению для файлов cookie SameSite на указанных сайтах|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Разрешить уведомления на определенных сайтах|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Блокировать уведомления на определенных сайтах|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Разрешить подключаемый модуль Adobe Flash на определенных сайтах|
@@ -201,7 +203,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Включить проверки OCSP/CRL в сети|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Разрешить управляемым расширениям использовать API платформы оборудования предприятия|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Управление связью со службой "Эксперименты и конфигурация"|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Включить панель "Избранное"|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Принудительно применить функцию "Безопасный поиск Bing"|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Разрешить использование временных профилей|
@@ -234,6 +236,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|Включить прогнозирование сети|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Настройка постоянного автоматического входа пользователя в стандартный профиль на основе рабочей или учебной учетной записи|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Управление применением ограничений доступа к небезопасным источникам|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Включить упреждающую проверку подлинности|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Включить отображение полноширинной вкладки с рекламным содержимым|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Спрашивать, куда сохранять загруженные файлы|
@@ -260,7 +263,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Принудительное отключение языков проверки орфографии|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Отключить предупреждение о неподдерживаемой ОС|
 |[SyncDisabled](#syncdisabled)|Отключить синхронизацию данных с помощью служб синхронизации Майкрософт|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|Разрешить блокировку работы фоновых вкладок|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Включить завершение процессов в диспетчере задач браузера|
 |[TrackingPrevention](#trackingprevention)|Блокировка отслеживания просмотренных веб-страниц|
 |[TranslateEnabled](#translateenabled)|Включить перевод|
@@ -334,11 +337,11 @@ description: "Windows and Mac documentation for all policies supported by the Mi
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+  Когда этот параметр политики включен, на панели инструментов или в меню переполнения отображается значок панели инструментов "Передача на другие устройства" и пользователи не могут его удалить.
 
-If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+Если этот параметр политики выключен или не настроен, пользователи могут закрепить или удалить значок с помощью контекстного меню.
 
-If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+Если при этом для параметра [EnableMediaRouter](#enablemediarouter) установлено значение false, данный параметр политики игнорируется и значок панели инструментов не отображается.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -539,21 +542,21 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+  Разрешает управлять вызовом предупреждения о защите пароля. Защита пароля предупреждает пользователей, когда они повторно используют свой защищенный пароль на потенциально подозрительных сайтах.
 
-You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+Можно использовать политики [PasswordProtectionLoginURLs](#passwordprotectionloginurls) и [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) для настройки паролей, которые необходимо защищать.
 
-Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+Исключения: пароли для сайтов, перечисленных в политиках [PasswordProtectionLoginURLs](#passwordprotectionloginurls) и [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), а также для сайтов, указанных в [SmartScreenAllowListDomains](#smartscreenallowlistdomains), не будут отображать предупреждения защиты паролей.
 
-Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+Задайте значение "PasswordProtectionWarningOff" (0), чтобы не отображать предупреждения защиты паролей.
 
-Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+Задайте значение "PasswordProtectionWarningOnPasswordReuse" (1), чтобы отображать предупреждения защиты паролей, когда пользователь повторно использует свой защищенный пароль на сайтах, не внесенных в список разрешенных.
 
-If you disable or don't configure this policy, then the warning trigger is not shown.
+Если отключить или не настроить эту политику, триггер предупреждения защиты паролей не отображается.
 
-* 0 = Password protection warning is off.
+* 0 = Предупреждение защиты паролей отключено.
 
-* 1 = Password protection warning is triggered by password reuse.
+* 1 = Предупреждение защиты паролей вызывается повторным использованием пароля.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -651,17 +654,17 @@ If you disable or don't configure this policy, then the warning trigger is not s
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Configures the default home page URL in Microsoft Edge.
+  Определение URL-адреса стандартной домашней страницы в Microsoft Edge.
 
-The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+Домашняя страница — это страница, которая открывается при нажатии кнопки "Домашняя страница". Страницы, открываемые при запуске, определяются политиками [RestoreOnStartup](#restoreonstartup).
 
-You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+Можно задать URL-адрес здесь или настроить открытие домашней страницы в виде страницы новой вкладки. Если настроено открытие страницы новой вкладки, этот параметр политики не будет действовать.
 
-If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+Если включить этот параметр политики, пользователи не смогут изменить URL-адрес своей домашней страницы, но смогут использовать страницу новой вкладки в качестве домашней.
 
-If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+Если отключить или не настроить этот параметр политики, пользователи смогут выбирать домашнюю страницу по своему усмотрению, пока не будет включена политика [HomepageIsNewTabPage](#homepageisnewtabpage).
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, либо в экземплярах Windows 10 Pro или Windows 10 Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -704,19 +707,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Определяет логотип компании, который будет использоваться на странице новой вкладки в Microsoft Edge.
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
 
-Этот параметр политики должен быть настроен в виде строки, которая выражает логотип в формате JSON. Пример: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-Этот параметр политики настраивается путем указания URL-адреса, с которого Microsoft Edge может загрузить требуемый логотип, и хэша шифрования (SHA-256), который используется для проверки целостности загрузки. Логотип должен быть сохранен в формате PNG или SVG, а размер файла логотипа не должен превышать 16 МБ. Логотип загружается и хэшируется, и будет повторно загружаться при каждом изменении URL-адреса или хэша. URL-адрес должен быть доступен без какой-либо проверки подлинности.
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
 
-Элемент "default_logo" является обязательным. Он будет использоваться в случае отсутствия фонового изображения. Если предоставлен элемент "light_logo", он будет использоваться в случаях, когда у страницы новой вкладки пользователя есть фоновое изображение. Рекомендуется использовать горизонтальный логотип с прозрачным фоном, выровненный по левому краю и по вертикали выровненный по центру. Высота логотипа должна составлять не меньше 32 пикселей, а соотношение сторон от 1:1 до 4:1. Элемент "default_logo" должен быть достаточно контрастным на черном/белом фоне, а элемент "light_logo" должен выглядеть достаточно контрастным на фоновом изображении.
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
 
-Если этот параметр политики включен, Microsoft Edge загружает и отображает указанный логотип на странице новой вкладки. Пользователи не могут скрыть или переопределить его.
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
 
-Если отключить или не настроить этот параметр политики, Microsoft Edge не будет отображать логотип на странице новой вкладки или будет отображать логотип Microsoft.
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-Справку по определению хэша SHA-256 см. на странице https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -831,19 +834,19 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Configures the default URL for the new tab page.
+  Настраивает URL-адрес по умолчанию для страницы новой вкладки.
 
-This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+Эта политика определяет страницу, открываемую при создании новой вкладки (в том числе, когда открываются новые окна). Она также влияет на страницу запуска, если настроено открытие страницы новой вкладки.
 
-This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+Эта политика не решает, какие страницы открывать при запуске; они управляются политикой [RestoreOnStartup](#restoreonstartup). Она также не влияет на домашнюю страницу, если она настроена открывать страницу новой вкладки.
 
-If you don't configure this policy, the default new tab page is used.
+Если не настроить этот параметр политики, будет использоваться страница новой вкладки по умолчанию.
 
-If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+Если настроить эту политику *и* политику [NewTabPageSetFeedType](#newtabpagesetfeedtype), эта политика будет иметь приоритет.
 
-If an invalid URL is provided, new tabs will open about://blank.
+Если предоставляется недействительный URL-адрес, на новых вкладках будет открываться страница about://blank.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, которые присоединены к домену Microsoft Active Directory, Windows 10 Pro или в корпоративных экземплярах, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -961,29 +964,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [В начало](#microsoft-edge:-политики)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Настройка интерфейса страницы новой вкладки Microsoft Edge
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  Позволяет выбрать интерфейс веб-канала Microsoft News или Office 365 на странице новой вкладки.
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+Если для этого параметра политики выбрано значение интерфейса веб-канала Microsoft News (0), для пользователей будет отображаться интерфейс веб-канала Microsoft News на странице новой вкладки.
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+Если для этого параметра политики выбрано значение интерфейса веб-канала Office 365 (1), пользователи со входом в Azure Active Directory с помощью браузера будут видеть интерфейс веб-канала Office 365 на странице новой вкладки.
 
-If you disable or don't configure this policy:
+Если отключить или не настроить этот параметр политики:
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- Пользователям со входом в Azure Active Directory с помощью браузера будет предлагаться интерфейс веб-канала Office 365 на странице новой вкладки, а также стандартный интерфейс веб-канала на странице новой вкладки.
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- Пользователям без входа в Azure Active Directory с помощью браузера будет отображаться стандартный интерфейс веб-канала на странице новой вкладки.
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+Если настроить эту политику *и* политику [NewTabPageLocation](#newtabpagelocation), [NewTabPageLocation](#newtabpagelocation) будет иметь преимущество.
 
-Default setting:  Disabled or not configured.
+По умолчанию: отключено или не настроено.
 
-* 0 = Microsoft News feed experience
+* 0 = интерфейс веб-канала Microsoft News
 
-* 1 = Office 365 feed experience
+* 1 = интерфейс веб-канала Office 365
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -996,7 +999,7 @@ Default setting:  Disabled or not configured.
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: NewTabPageSetFeedType
-  - Имя групповой политики: Configure the Microsoft Edge new tab page experience
+  - Имя групповой политики: Настройка интерфейса страницы новой вкладки Microsoft Edge
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Запуск, домашняя страница и страница новой вкладки
   - Путь групповой политики (Рекомендовано): Административные шаблоны/Microsoft Edge - Параметры по умолчанию (пользователи могут переопределять)/Запуск, домашняя страница и страница новой вкладки
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -1085,11 +1088,11 @@ Default setting:  Disabled or not configured.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+  Укажите список веб-сайтов, которые будут открываться автоматически при запуске браузера. Если не настроить этот параметр политики, ни один сайт не будет открываться при запуске.
 
-This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+Этот параметр работает, только если параметру политики [RestoreOnStartup](#restoreonstartup) также присвоено значение "Открыть список URL-адресов" (4).
 
-This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, которые присоединены к домену Microsoft Active Directory, Windows 10 Pro или в корпоративных экземплярах, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1188,11 +1191,13 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  С помощью этого параметра политики можно разрешить или запретить пользователям переопределять предупреждения фильтра SmartScreen в Microsoft Defender, касающиеся потенциально вредоносных веб-сайтов.
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-Если включить этот параметр, пользователи не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и переходить на соответствующие веб-сайты.
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-Если отключить или не настроить этот параметр, пользователи смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и переходить на соответствующие веб-сайты.
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1235,11 +1240,13 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows с 77 или более поздней версии, а также на Mac с 79 или более поздней версии
 
   #### Описание
-  С помощью этого параметра политики можно разрешить или запретить сотрудникам переопределять предупреждения о непроверенных загрузках, отправляемые фильтром SmartScreen в Microsoft Defender.
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-Если включить этот параметр, сотрудники не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и загружать непроверенные элементы.
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-Если отключить или не настроить этот параметр, сотрудники смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и загружать непроверенные элементы.
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1282,14 +1289,15 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Настройка списка доменов, которым доверяет фильтр SmartScreen в Microsoft Defender. Это означает следующее.
-Фильтр SmartScreen в Microsoft Defender не будет проверять потенциально вредоносные ресурсы (например, программы для фишинга и другое вредоносное ПО), если исходные URL-адреса совпадают с этими доменами.
-Служба защиты загрузок фильтра SmartScreen в Microsoft Defender не будет проверять загружаемые файлы, размещенные на этих доменах.
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-Если включить этот параметр политики, фильтр SmartScreen в Microsoft Defender будет доверять этим доменам.
-Если отключить или не настроить этот параметр политики, ко всем ресурсам применяется стандартная защита фильтра SmartScreen в Microsoft Defender.
-Этот параметр политики доступен только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, либо экземплярах Windows 10 Pro или Windows 10 Корпоративная, зарегистрированных для управления устройствами.
-Также обратите внимание: этот параметр политики не применяется, если ваша организация включила функцию Advanced Threat Protection в Microsoft Defender. В этом случае следует настроить списки разрешенных и запрещенных URL-адресов в Центре безопасности в Microsoft Defender.
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1337,15 +1345,15 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+  С помощью этого параметра политики вы можете настроить, нужно ли включать фильтр SmartScreen в Microsoft Defender. Этот фильтр выводит предупреждающие сообщения, которые помогают защищать пользователей от потенциального фишинг-мошенничества и вредоносных программ. Фильтр SmartScreen в Microsoft Defender по умолчанию включен.
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on.
+Если этот параметр включен, фильтр SmartScreen в Microsoft Defender включен.
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off.
+Если этот параметр отключен, фильтр SmartScreen в Microsoft Defender выключен.
 
-If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+Если этот параметр не настроен, пользователи могут выбирать, нужно ли использовать фильтр SmartScreen в Microsoft Defender.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, или экземплярах Windows 10 Pro либо Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1427,19 +1435,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   [В начало](#microsoft-edge:-политики)
 
   ### SmartScreenPuaEnabled
-  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  #### Настроить фильтр SmartScreen в Microsoft Defender на блокировку потенциально нежелательных приложений
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+  С помощью этого параметра политики вы можете настроить, нужно ли включать блокировку потенциально нежелательных приложений в фильтре SmartScreen в Microsoft Defender. Функция блокировки потенциально нежелательных приложений, доступная в фильтре SmartScreen в Microsoft Defender, выводит предупреждающие сообщения, которые помогают защищать пользователей от программ для показа рекламы, коин-майнеров, пакетных программ и других приложений с низкой репутацией, размещенных на веб-сайтах. Блокировка потенциально нежелательных приложений в фильтре SmartScreen в Microsoft Defender по умолчанию выключена.
 
-If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+Если этот параметр включен, блокировка потенциально нежелательных приложений в фильтре SmartScreen в Microsoft Defender включена.
 
-If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+Если этот параметр отключен, блокировка потенциально нежелательных приложений в фильтре SmartScreen в Microsoft Defender выключена.
 
-If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+Если этот параметр не настроен, пользователи могут выбирать, нужно ли использовать блокировку потенциально нежелательных приложений в фильтре SmartScreen в Microsoft Defender.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, или экземплярах Windows 10 Pro либо Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1452,7 +1460,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: SmartScreenPuaEnabled
-  - Имя групповой политики: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - Имя групповой политики: Настроить фильтр SmartScreen в Microsoft Defender на блокировку потенциально нежелательных приложений
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры SmartScreen
   - Путь групповой политики (Рекомендовано): Административные шаблоны/Microsoft Edge - Параметры по умолчанию (пользователи могут переопределять)/Параметры SmartScreen
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -1486,11 +1494,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+  Список сайтов (на основе шаблонов URL-адресов), для которых Microsoft Edge автоматически выбирает сертификат клиента при соответствующем запросе от сайта.
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+Это значение должно быть массивом в виде преобразованных в строку словарей JSON. Форма каждого словаря имеет следующий вид { "pattern": "$URL_PATTERN", "filter" : $FILTER }, где $URL_PATTERN является шаблоном параметра содержимого. $FILTER ограничивает сертификаты клиента, из которых браузер может автоматически выбирать. Независимо от фильтра, можно использовать только сертификаты, которые соответствуют запросу сертификата от сервера. Например, если $FILTER имеет форму { "ISSUER": { "CN": "$ISSUER_CN" } }, дополнительно могут использоваться только сертификаты клиента, изданные сертификатом с параметром CommonName $ISSUER_CN. Если $FILTER содержит раздел "ISSUER" и "SUBJECT", может быть выбран только сертификат клиента, отвечающий обоим условиям. Если $FILTER определяет организацию ("O"), сертификат должен содержать минимум одну организацию, соответствующую указанному значению. Если $FILTER определяет подразделение организации ("OU"), сертификат должен содержать минимум одно подразделение организации, соответствующее указанному значению. Если $FILTER является пустым словарем {}, выбор сертификатов клиента дополнительно не ограничивается.
 
-If you don't configure this policy, auto-selection isn't done for any site.
+Если не настроить этот параметр политики, автоматический выбор не выполняется ни для каких сайтов.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1536,13 +1544,13 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  На основании шаблонов URL-адресов определите список сайтов, которым разрешено устанавливать файлы cookie.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultCookiesSetting](#defaultcookiessetting) (если задано) или персональной конфигурации пользователя.
 
-See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+Дополнительные сведения см. в политиках [CookiesBlockedForUrls](#cookiesblockedforurls) и [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls).
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Обратите внимание, что не должно быть конфликтующих шаблонов URL-адресов в следующих трех политиках:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1596,13 +1604,13 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can't set cookies.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено устанавливать файлы cookie.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultCookiesSetting](#defaultcookiessetting) (если задано) или персональной конфигурации пользователя.
 
-See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+Дополнительные сведения см. в политиках [CookiesAllowedForUrls](#cookiesallowedforurls) и [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls).
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Обратите внимание, что не должно быть конфликтующих шаблонов URL-адресов в следующих трех политиках:
 
 - CookiesBlockedForUrls
 
@@ -1656,15 +1664,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+  По завершении сеанса (когда закрывается окно) удаляются файлы cookie, созданные веб-сайтами, которые соответствуют определенному вами шаблону URL-адреса.
 
-Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+Файлы cookie, созданные веб-сайтами, которые не соответствуют шаблону, подпадают под действие политики [DefaultCookiesSetting](#defaultcookiessetting) (если она настроена) или персональных настроек пользователя. Этот сценарий также выполняется по умолчанию, если данный параметр не настроен.
 
-If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Если Microsoft Edge работает в фоновом режиме, сеанс может не завершиться после закрытия последнего окна, и в этом случае файлы cookie не будут удалены, когда закроется окно. См. политику [BackgroundModeEnabled](#backgroundmodeenabled), чтобы узнать, какие настройки доступны для фонового режима работы Microsoft Edge.
 
-You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
+Вы также можете использовать политики [CookiesAllowedForUrls](#cookiesallowedforurls) и [CookiesBlockedForUrls](#cookiesblockedforurls) для управления веб-сайтами, которым разрешено создавать файлы cookie.
 
-Note there cannot be conflicting URL patterns set between these three policies:
+Обратите внимание: в следующих трех политиках не должно быть конфликтующих шаблонов URL-адресов:
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1672,7 +1680,7 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesSessionOnlyForUrls
 
-If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+Если настроить в политике [RestoreOnStartup](#restoreonstartup) восстановление URL-адресов из предыдущих сеансов, данный параметр будет игнорироваться и файлы cookie соответствующих сайтов будут храниться постоянно.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1720,17 +1728,17 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+  Создание файлов cookie веб-сайтами на устройстве пользователя. Этот параметр политики работает по принципу "все или ничего": можно разрешить всем сайтам создавать файлы cookie или запретить всем сайтам создавать файлы cookie. С помощью этого параметра невозможно разрешить создание файлов cookie только определенным сайтам.
 
-Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Когда задано значение SessionOnly (4), файлы cookie удаляются по завершении сеанса. Если Microsoft Edge работает в фоновом режиме, сеанс может не завершиться после закрытия последнего окна, и в этом случае файлы cookie не будут удалены, когда закроется окно. См. политику [BackgroundModeEnabled](#backgroundmodeenabled), чтобы узнать, какие настройки доступны для фонового режима работы Microsoft Edge.
 
-If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+Когда этот параметр политики не настроен, используется стандартное значение AllowCookies (1) и пользователи могут изменить эту настройку в разделе параметров Microsoft Edge. (Если вы не хотите разрешать пользователям изменять эту настройку, настройте данный параметр политики.)
 
-* 1 = Let all sites create cookies
+* 1 = Разрешить всем сайтам создавать файлы cookie
 
-* 2 = Don't let any site create cookies
+* 2 = Запретить всем сайтам создавать файлы cookie
 
-* 4 = Keep cookies for the duration of the session
+* 4 = Сохранять файлы cookie только во время сеанса
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1973,17 +1981,17 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+  Определяет, могут ли веб-сайты, не включенные в политику [PluginsAllowedForUrls](#pluginsallowedforurls) или [PluginsBlockedForUrls](#pluginsblockedforurls), автоматически запускать подключаемый модуль Adobe Flash. Можно выбрать параметр "BlockPlugins" (2), чтобы заблокировать подключаемый модуль Adobe Flash на всех сайтах, или параметр "ClickToPlay" (3), чтобы разрешить запускать Adobe Flash, но требовать, чтобы пользователь щелкнул заполнитель для его запуска. В любом случае политики [PluginsAllowedForUrls](#pluginsallowedforurls) и [PluginsBlockedForUrls](#pluginsblockedforurls) имеют приоритет на политикой DefaultPluginsSetting.
 
-Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+Автоматическое воспроизведение разрешается только для доменов, явно перечисленных в политике [PluginsAllowedForUrls](#pluginsallowedforurls). Если вы хотите включить автоматическое воспроизведение для всех сайтов, добавьте в этот список http://* и https://*.
 
-If you don't configure this policy, the user can change this setting manually.
+Если не настроить эту политику, пользователь сможет изменить этот параметр вручную.
 
-* 2 = Block the Adobe Flash plug-in
+* 2 = Блокировать подключаемый модуль Adobe Flash
 
-* 3 = Click to play
+* 3 = Воспроизведение по щелчку
 
-The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+Бывший параметр "1" позволял разрешить воспроизведение для всех, но эта функция сейчас обрабатывается только политикой [PluginsAllowedForUrls](#pluginsallowedforurls). Существующие политики, использующие параметр "1", будут работать в режиме "Воспроизведение по щелчку".
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2124,15 +2132,15 @@ The former '1' option set allow-all, but this functionality is now only handled 
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+  Этот параметр политики позволяет указать, могут ли веб-сайты получать доступ к подключенным USB-устройствам. Можно либо полностью заблокировать доступ, либо каждый раз запрашивать у пользователя соответствующее разрешение.
 
-You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+Эту политику можно переопределить для конкретных шаблонов URL-адресов с помощью политик [WebUsbAskForUrls](#webusbaskforurls) и [WebUsbBlockedForUrls](#webusbblockedforurls).
 
-If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+Если этот параметр политики не настроен, сайты могут запрашивать у пользователя доступ к подключенным USB-устройствам (3) по умолчанию, при этом пользователи могут изменить данную настройку.
 
-* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+* 2 = Не разрешать сайтам запрашивать доступ к USB-устройствам через API WebUSB
 
-* 3 = Allow sites to ask the user to grant access to a connected USB device
+* 3 = Разрешить сайтам запрашивать у пользователя доступ к подключенным USB-устройствам
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2175,9 +2183,9 @@ If you don't configure this policy, sites can ask users whether they can access 
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can display images.
+  На основании шаблонов URL-адресов определите список сайтов, которые могут отображать изображения.
 
-If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultImagesSetting](#defaultimagessetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2225,9 +2233,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено отображать изображения.
 
-If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultImagesSetting](#defaultimagessetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2275,9 +2283,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+  На основании шаблонов URL-адресов определите список сайтов, которым разрешено запускать скрипты JavaScript.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultJavaScriptSetting](#defaultjavascriptsetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2325,9 +2333,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено запускать скрипты JavaScript.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultJavaScriptSetting](#defaultjavascriptsetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2370,14 +2378,121 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [В начало](#microsoft-edge:-политики)
 
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Включить стандартный устаревший параметр поведения файлов cookie SameSite
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Позволяет вернуть устаревшее поведение SameSite для всех файлов cookie. Возврат к устаревшему поведению приведет к тому, что файлы cookie, которые не определяют атрибут SameSite, будут обрабатываться, как если бы они были "SameSite=None". Также будет удалено требование для файлов cookie "SameSite=None" нести атрибут "Secure".
+
+Для этой политики можно установить следующие значения:
+
+* 1 = Вернуться к устаревшему поведению SameSite для файлов cookie на все сайтах
+
+* 2 = Использовать поведение SameSite-by-default для файлов cookie на всех сайтах
+
+Если не настроить эту политику, стандартное поведение для файлов cookie, которые не определяют атрибут SameSite, будет зависеть от других источников конфигурации для функции SameSite-by-default. Эту функцию можно настроить с помощью испытания на практике или включения флага same-site-by-default-cookies в разделе edge://flags.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Целое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: LegacySameSiteCookieBehaviorEnabled
+  - Имя групповой политики: Включить стандартный устаревший параметр поведения файлов cookie SameSite
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: LegacySameSiteCookieBehaviorEnabled
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000001
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: LegacySameSiteCookieBehaviorEnabled
+  - Пример значения:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Вернуться к устаревшему поведению для файлов cookie SameSite на указанных сайтах
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Для файлов cookie, установленных для доменов, соответствующих указанным шаблонам, будет возвращено устаревшее поведение SameSite.
+
+Возврат к устаревшему поведению приведет к тому, что файлы cookie, которые не определяют атрибут SameSite, будут обрабатываться, как если бы они были "SameSite=None". Также будет удалено требование для файлов cookie "SameSite=None" нести атрибут "Secure".
+
+Если не настроить эту политику, будет использоваться глобальное значение по умолчанию. Глобальное значение по умолчанию также будет использоваться для файлов cookie в доменах, которые не соответствуют шаблонам, указанным вами.
+
+Глобальное значение по умолчанию можно настроить с помощью политики [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled). Если не настроить политику [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled), глобальное значение по умолчанию будет определяться другими источниками конфигурации.
+
+Обратите внимание, что указанные вами в этой политике шаблоны обрабатываются как домены, а не URL-адреса, поэтому вы не можете указать схему или порт.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Список строк
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Имя групповой политики: Вернуться к устаревшему поведению для файлов cookie SameSite на указанных сайтах
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: 1, 2, 3, ...
+  - Тип значения: Список REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Пример значения:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
   ### NotificationsAllowedForUrls
   #### Разрешить уведомления на определенных сайтах
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can display notifications.
+  На основании шаблонов URL-адресов определите список сайтов, которым разрешено отображать уведомления.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultNotificationsSetting](#defaultnotificationssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2425,9 +2540,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено отображать уведомления.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultNotificationsSetting](#defaultnotificationssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2475,9 +2590,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+  На основании шаблонов URL-адресов определите список сайтов, которым разрешено запускать подключаемый модуль Adobe Flash.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultPluginsSetting](#defaultpluginssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2525,9 +2640,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено запускать подключаемый модуль Adobe Flash.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultPluginsSetting](#defaultpluginssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2575,9 +2690,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can open pop-up windows.
+  На основании шаблонов URL-адресов определите список сайтов, которым разрешено открывать всплывающие окна.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultPopupsSetting](#defaultpopupssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2625,9 +2740,9 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+  На основании шаблонов URL-адресов определите список сайтов, которым запрещено открывать всплывающие окна.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultPopupsSetting](#defaultpopupssetting) (если задано) или персональной конфигурации пользователя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2738,13 +2853,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+  Позволяет задать список URL-адресов, определяющий сайты, которые могут автоматически получать разрешение на доступ к USB-устройству с заданными идентификатором поставщика и кодом продукта. Каждый элемент в списке должен содержать и устройства и URL-адреса, чтобы политика была действительной. Каждый элемент в устройствах может содержать поле идентификатора поставщика и кода продукта. Каждый пропущенный идентификатор обрабатывается как подстановочный знак с одним исключением: код продукта не может быть указан без указания идентификатора поставщика. В противном случае данная политика не будет действительной и будет игнорироваться.
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+В модели разрешения USB используется URL-адрес запрашивающего сайта ("запрашивающий URL-адрес") и URL-адрес сайта кадра верхнего уровня ("URL-адрес внедрения"), чтобы предоставить запрашивающему URL-адресу доступ к USB-устройству. Запрашивающий URL-адрес может отличаться от URL-адреса внедрения, когда запрашивающий сайт загружен в интернет-кадр. Из-за этого поле "urls" может содержать до двух строк URL-адресов, разделенных запятой, — для запрашивающего URL-адреса и URL-адреса внедрения соответственно. Если указан только один URL-адрес, доступ к соответствующим USB-устройствам предоставляется в тех случаях, когда URL-адрес запрашивающего сайта совпадает с этим URL-адресом независимо от наличия внедрения. URL-адреса в поле "urls" должны быть допустимыми URL-адресами, иначе эта политика будет игнорироваться.
 
-If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+Если не настроить эту политику, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) (если настроена) или персональной конфигурации пользователя.
 
-URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+Шаблоны URL-адресов в этой политике не должны конфликтовать с шаблонами, настроенными в политике [WebUsbBlockedForUrls](#webusbblockedforurls). В случае конфликта шаблонов эта политика имеет преимущественную силу по сравнению с политиками [WebUsbBlockedForUrls](#webusbblockedforurls) и [WebUsbAskForUrls](#webusbaskforurls).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2818,11 +2933,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+  На основании шаблонов URL-адресов определите список сайтов, которые могут отправлять пользователю запрос на доступ к USB-устройству.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) (если задано) или персональной конфигурации пользователя.
 
-The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+Определенные в этой политике шаблоны WEB-адресов не должны конфликтовать с шаблонами, настроенными в политике [WebUsbBlockedForUrls](#webusbblockedforurls). Нельзя одновременно разрешить и блокировать URL-адрес.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2870,11 +2985,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+  На основании шаблонов URL-адресов определите список сайтов, которые не могут отправлять пользователю запрос на доступ к USB-устройству.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+Если не настроить этот параметр политики, для всех сайтов будет использоваться глобальное значение по умолчанию из политики [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) (если задано) или персональной конфигурации пользователя.
 
-URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+Определенные в этой политике шаблоны WEB-адресов не должны конфликтовать с шаблонами, настроенными в политике [WebUsbAskForUrls](#webusbaskforurls). Нельзя одновременно разрешить и блокировать URL-адрес.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3486,15 +3601,15 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+  Определение списка узлов, для которых Microsoft Edge обходит все прокси-серверы.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Этот параметр политики применяется, только если вы выбрали значение "Использовать фиксированные прокси-серверы" для параметра [ProxyMode](#proxymode). Не включайте или не настраивайте этот параметр, если вы выбрали другой режим настройки прокси-сервера.
 
-If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+Когда этот параметр политики включен, вы можете создать список узлов, для которых Microsoft Edge не будет использовать прокси-сервер.
 
-If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Когда этот параметр политики не настроен, списки узлов, для которых Microsoft Edge обходит прокси-сервер, не создаются. Оставьте этот параметр политики ненастроенным, если вы указали какой-либо другой способ настройки прокси-сервера.
 
-For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Более подробные примеры см. на странице [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3537,33 +3652,33 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+  Выбор параметров прокси-сервера для Microsoft Edge. Если включить этот параметр политики, пользователи не смогут изменить параметры прокси-сервера.
 
-If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+Если вы решите никогда не использовать прокси-сервер и всегда подключаться напрямую, все другие варианты будут игнорироваться.
 
-If you choose to use system proxy settings, all other options are ignored.
+Если задать использование системных параметров прокси-сервера, все другие варианты будут игнорироваться.
 
-If you choose to auto detect the proxy server, all other options are ignored.
+Если задать автоматическое определение прокси-сервера, все другие варианты будут игнорироваться.
 
-If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+Если выбрать режим фиксированных прокси-серверов, можно выполнить дополнительные настройки в параметрах [ProxyServer](#proxyserver) и "Разделенный запятыми список правил обхода прокси-сервера".
 
-If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+Если задать использование сценария прокси-сервера (.pac), необходимо указать URL-адрес сценария в параметре "URL-адрес PAC-файла прокси-сервера".
 
-For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Более подробные примеры см. на странице [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
-If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+Если этот параметр политики включен, Microsoft Edge игнорирует все связанные с прокси-сервером параметры, указанные из командной строки.
 
-If you don't configure this policy users can choose their own proxy settings.
+Если не настроить этот параметр политики, пользователи смогут выбрать свои параметры прокси-сервера.
 
-* "direct" = Never use a proxy
+* "direct" = Никогда не использовать прокси-сервер
 
-* "auto_detect" = Auto detect proxy settings
+* "auto_detect" = Автоматическое определение параметров прокси-сервера
 
-* "pac_script" = Use a .pac proxy script
+* "pac_script" = Использовать сценарий прокси-сервера (.pac)
 
-* "fixed_servers" = Use fixed proxy servers
+* "fixed_servers" = Использовать фиксированные прокси-серверы
 
-* "system" = Use system proxy settings
+* "system" = Использовать системные параметры прокси-сервера
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3606,15 +3721,15 @@ If you don't configure this policy users can choose their own proxy settings.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the URL for a proxy auto-config (PAC) file.
+  Определение URL-адреса для PAC-файла автоматической настройки прокси-сервера.
 
-This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Этот параметр политики применяется только в том случае, если в политике [ProxyMode](#proxymode) выбран вариант "Использовать файл сценария (.pac) прокси-сервера". Если для настройки прокси-сервера выбран другой режим, не включайте и не настраивайте этот параметр политики.
 
-If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+Если данный параметр политики включен, можно указать URL-адрес для PAC-файла, который будет определять, как браузер автоматически выбирает подходящий прокси-сервер для доступа к определенному веб-сайту.
 
-If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Если отключить или не настроить этот параметр политики, PAC-файл не задается. Оставьте этот параметр ненастроенным, если вы выбрали другой режим настройки прокси-сервера.
 
-For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Более подробные примеры см. на странице [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3657,15 +3772,15 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the URL of the proxy server.
+  Определение URL-адреса прокси-сервера.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+Этот параметр политики применяется только в том случае, если в параметре [ProxyMode](#proxymode) выбран вариант "Использовать фиксированные прокси-серверы". Если выбран другой режим настройки прокси-сервера, не включайте и не настраивайте этот параметр политики.
 
-If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+Если данный параметр политики включен, заданный в нем прокси-сервер будет использоваться для всех URL-адресов.
 
-If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+Если отключить или не настроить этот параметр политики, пользователи смогут выбрать свои параметры прокси-сервера в данном режиме. Оставьте этот параметр ненастроенным, если вы выбрали другой режим настройки прокси-сервера.
 
-For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+Другие варианты и подробные примеры см. на странице [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3708,36 +3823,36 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Configures the proxy settings for Microsoft Edge.
+  Настройка параметров прокси-сервера для Microsoft Edge.
 
-If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+Если включить эту политику, Microsoft Edge будет игнорировать все связанные с прокси-сервером параметры, заданные из командной строки.
 
-If you don't configure this policy, users can choose their own proxy settings.
+Если не настроить этот параметр политики, пользователи смогут выбирать параметры прокси-сервера по своему усмотрению.
 
-This policy overrides the following individual policies:
+Эта политика переопределяет перечисленные ниже отдельные политики:
 
 [ProxyMode](#proxymode)
 [ProxyPacUrl](#proxypacurl)
 [ProxyServer](#proxyserver)
 [ProxyBypassList](#proxybypasslist)
 
-The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+В поле ProxyMode можно указать прокси-сервер, который будет использоваться браузером Microsoft Edge, и пользователи не смогут изменить эту настройку.
 
-The ProxyPacUrl field is a URL to a proxy .pac file.
+Поле ProxyPacUrl является URL-адресом PAC-файла прокси-сервера.
 
-The ProxyServer field is a URL for the proxy server.
+В поле ProxyServer указан URL-адрес прокси-сервера.
 
-The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+В поле ProxyBypassList указан список узлов прокси-сервера, которые Microsoft Edge будет обходить.
 
-If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+Если для параметра ProxyMode выбрать значение direct, прокси-сервер никогда не будет использоваться и все остальные поля будут игнорироваться.
 
-If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+Если для параметра ProxyMode выбрать значение system, будет использоваться системный прокси-сервер и все остальные поля будут игнорироваться.
 
-If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+Если для параметра ProxyMode выбрать значение auto_detect, все остальные поля будут игнорироваться.
 
-If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+Если для параметра ProxyMode выбрать значение fixed_server, будут использоваться поля ProxyServer и ProxyBypassList.
 
-If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+Если для параметра ProxyMode выбрать значение pac_script, будут использоваться поля ProxyPacUrl и ProxyBypassList.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3799,15 +3914,15 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Controls which extension types can be installed and limits runtime access.
+  Определение типов расширений, которые можно устанавливать, и ограничение доступа к среде выполнения.
 
-This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+Этот параметр определяет разрешенные типы расширений и узлы, с которыми они могут взаимодействовать. Для этого задается список строк, каждая из которых должна представлять собой одно из следующих значений: "extension", "theme", "user_script" и "hosted_app". Дополнительные сведения об этих типах см. в документации по расширениям Microsoft Edge.
 
-Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+Обратите внимание: этот параметр также влияет на расширения, которые устанавливаются автоматически с помощью политики [ExtensionInstallForcelist](#extensioninstallforcelist).
 
-If you enable this policy, only extensions that match a type in the list are installed.
+Если этот параметр политики включен, разрешено устанавливать только расширения, которые соответствуют какому-либо типу из списка.
 
-If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+Если не настроить этот параметр политики, ограничения относительно типов разрешений не будут применяться принудительно.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -3953,27 +4068,27 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+  Определение расширений, которые устанавливаются автоматически (без участия пользователя) и которые пользователи не могут удалить или отключить ("принудительно устанавливаемые"). Все разрешения, запрашиваемые расширениями, предоставляются неявным образом (без участия пользователя), включая любые дополнительные разрешения, запрашиваемые последующими версиями расширения. Кроме того, разрешения предоставляются для API расширения enterprise.deviceAttributes и enterprise.platformKeys. (Эти два API доступны только принудительно устанавливаемым расширениям.)
 
-This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+Этот параметр политики имеет приоритет над потенциально конфликтующим с ним параметром [ExtensionInstallBlocklist](#extensioninstallblocklist). После удаления расширения из списка принудительно устанавливаемых Microsoft Edge его автоматически удаляет.
 
-For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+Для устройств с Windows, которые не присоединены к домену Microsoft Active Directory, принудительно устанавливаются только расширения из Microsoft Store.
 
-Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+Обратите внимание: пользователи могут с помощью средств разработчика изменить исходный код любого расширения, потенциально превратив его в неработоспособное. Чтобы предотвратить это, настройте политику [DeveloperToolsAvailability](#developertoolsavailability).
 
-Use the following format to add an extension to the list:
+Чтобы добавить расширение в список, используйте следующий формат.
 
 [extensionID];[updateURL]
 
-- extensionID - the 32-letter string found on edge://extensions when in developer mode.
+- extensionID — строка из 32 букв, представленная в разделе edge://extensions в режиме разработчика.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (необязательно) — адрес XML-документа манифеста обновления для приложения или расширения (описано на странице [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043)). Если не настроить updateURL, используется URL-адрес обновления Microsoft Store (сейчас это https://edge.microsoft.com/extensionwebstorebase/v1/crx). Обратите внимание: URL-адрес обновления, настроенный в этой политике, используется только для первичной установки; при последующих обновлениях расширения используется URL-адрес обновления, указанный в манифесте расширения.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+Например, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx используется для установки приложения Microsoft Online с URL-адреса обновления, относящегося к Microsoft Store. Дополнительные сведения о размещении расширений см. на странице [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
 
-If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+Если этот параметр политики не настроен, никакие расширения не устанавливаются автоматически и пользователи могут удалить любое расширение в Microsoft Edge.
 
-Note that this policy doesn't apply to InPrivate mode.
+Обратите внимание: этот параметр политики не применяется в режиме InPrivate.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4021,13 +4136,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define URLs that can install extensions and themes.
+  Определение URL-адресов, с которых могут устанавливаться расширения и темы.
 
-By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+По умолчанию пользователи должны загрузить файл *.crx для каждого расширения или скрипта, который они хотят установить, а затем перетащить его на страницу параметров Microsoft Edge. Этот параметр политики разрешает конкретным URL-адресам выполнять установку расширения или скрипта для пользователя.
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+Каждый элемент в этом списке представляет собой шаблон сопоставления стиля расширения (см. страницу [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Пользователи могут легко устанавливать элементы с любого URL-адреса, внесенного в этот список. Расположение файла *.crx и страница, с которой начинается загрузка (другими словами, источник ссылки), должны быть разрешены этими шаблонами.
 
-The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+Параметр [ExtensionInstallBlocklist](#extensioninstallblocklist) имеет более высокий приоритет, чем данный параметр. Ни одно расширение, внесенное в список блокировки, не будет установлено, даже если оно расположено на сайте, заданном в этом параметре.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4335,11 +4450,11 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+  Укажите кодировки, поддерживаемые службой поиска. Кодировки — это имена кодовых страниц, например UTF-8, GB2312 и ISO-8859-1. Они будут применяться в указанном порядке.
 
-This policy is optional. If not configured, the default, UTF-8, is used.
+Этот параметр является необязательным. Если он не задан, по умолчанию используется UTF-8.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Эта политика применяется только в том случае, если включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4391,18 +4506,18 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+  URL-адрес, используемый поисковой системой для нахождения изображений. Запросы поиска отправляются с помощью метода GET.
 
-This policy is optional. If you don't configure it, image search isn't available.
+Это необязательный параметр политики. Если не настроить его, поиск изображений выполняться не будет.
 
-Specify Bing's Image Search URL as:
-'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+Для Bing укажите такой URL-адрес поиска изображений:
+{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights.
 
-Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+Для Google укажите такой URL-адрес поиска изображений: {google:baseURL}searchbyimage/upload.
 
-See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+Для завершения настройки поиска изображений используйте политику [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams).
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Эта политика применяется только в тех случаях, когда включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4445,15 +4560,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+  Если данный параметр политики включен, он определяет параметры для поиска изображений с использованием метода POST. Здесь указываются пары имен/значений через запятую. Если в качестве значения используется шаблонный параметр (как {imageThumbnail} в предыдущем примере), он заменяется реальными данными эскиза изображения. Этот параметр политики применяется только в тех случаях, когда включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
-Specify Bing's Image Search URL Post Params as:
-'imageBin={google:imageThumbnailBase64}'.
+Для Bing укажите такие параметры метода POST для NAME-адреса поиска изображений:
+imageBin={google:imageThumbnailBase64}.
 
-Specify Google's Image Search URL Post Params as:
-'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
+Для Google укажите такие параметры метода POST для URL-адреса поиска изображений:
+encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}.
 
-If you don’t set this policy, image search requests are sent using the GET method.
+Если этот параметр политики не настроен, для запросов поиска изображений используется метод GET.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4496,11 +4611,11 @@ If you don’t set this policy, image search requests are sent using the GET met
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+  Определяет ключевое слово, которое является ярлыком, используемым в адресной строке для запуска поиска этого поставщика.
 
-This policy is optional. If you don't configure it, no keyword activates the search provider.
+Этот параметр является необязательным. Если этот параметр политики не задан, ключевое слово не активирует службу поиска.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Эта политика учитывается только в том случае, если включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4543,13 +4658,13 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the name of the default search provider.
+  Задает имя службы поиска по умолчанию.
 
-If you enable this policy, you set the name of the default search provider.
+Если данный параметр политики включен, то задается имя службы поиска, используемой по умолчанию.
 
-If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+Если данный параметр политики не включен или не задан, используется имя узла, указанное в URL-адресе поиска.
 
-'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+В параметре DefaultSearchProviderName должна быть задана утвержденная организацией зашифрованная служба поиска, соответствующая зашифрованной службе поиска, заданной в DTBC-0008. Эта политика применяется только в том случае, если включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4592,15 +4707,15 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+  Задается URL-адрес поисковой системы, используемой для поиска по умолчанию. URL-адрес содержит строку "{searchTerms}", которая во время выполнения запроса заменяется условиями поиска пользователя.
 
-Specify Bing's search URL as:
+Укажите URL-адрес для поиска в Bing так:
 
 '{bing:baseURL}search?q={searchTerms}'.
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+Укажите URL-адрес для поиска в Google так: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
 
-This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+Данная политика является обязательной, если включена политика [DefaultSearchProviderEnabled](#defaultsearchproviderenabled). Если эта политика не включена, данная политика игнорируется.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4643,17 +4758,17 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+  Задается URL-адрес поисковой системы, который будет использоваться для предоставления вариантов поисковых запросов. Этот URL-адрес содержит строку "{searchTerms}", которая заменяется во время запроса текстом, уже введенным пользователем.
 
-This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+Данный параметр — необязательный. Если не настроить его, пользователи не будут видеть варианты поисковых запросов; они будут видеть варианты из своего журнала браузера и избранного.
 
-Bing's suggest URL can be specified as:
+URL-адрес вариантов поисковых запросов для Bing может быть определен так:
 
-'{bing:baseURL}qbox?query={searchTerms}'.
+"{bing:baseURL}qbox?query={searchTerms}".
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+URL-адрес вариантов поисковых запросов для Google может быть определен так: "{google:baseURL}complete/search?output=chrome&q={searchTerms}".
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+Этот параметр политики применяется только в том случае, если также включены политики [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) и [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -4700,9 +4815,9 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  List specific native messaging hosts that users can use in Microsoft Edge.
+  Определение списка конкретных узлов собственного обмена сообщениями, доступных для использования в Microsoft Edge.
 
-By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+По умолчанию разрешены все узлы собственного обмена сообщениями. Если для параметра политики [NativeMessagingBlocklist](#nativemessagingblocklist) задано значение "*", блокируются все узлы собственного обмена сообщениями и загружаются только перечисленные здесь узлы.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -5236,13 +5351,13 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+  Позволяет указать, будет ли пользователь получать от веб-сайта запрос на предоставление доступа к устройству записи звука. Эта политика применяется ко всем URL-адресам, кроме внесенных в список [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
 
-If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+Если этот параметр включен или не настроен (по умолчанию), пользователь получает запрос на доступ к аудиозаписи (кроме URL-адресов в списке [AudioCaptureAllowedUrls](#audiocaptureallowedurls)). Внесенным в список URL-адресам предоставляется доступ без запроса.
 
-If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+Если отключить эту политику, пользователь не будет получать запрос, а аудиозапись будет доступна только для URL-адресов, настроенных в списке [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
 
-This policy affects all types of audio inputs, not only the built-in microphone.
+Эта политика затрагивает все типы устройств ввода аудиоданных, а не только встроенный микрофон.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -5816,21 +5931,21 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+  Использование учетной записи пользователя и связанных служб (например, синхронизации и единого входа) в Microsoft Edge. Для определения доступности синхронизации используйте политику [SyncDisabled](#syncdisabled).
 
-If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+Если для данного параметра задано значение "Запретить вход в браузер", убедитесь, что политика [NonRemovableProfileEnabled](#nonremovableprofileenabled) также отключена, поскольку [NonRemovableProfileEnabled](#nonremovableprofileenabled) отключает создание профиля браузера, в который выполняется автоматический вход. Если обе политики настроены, Microsoft Edge будет использовать политику "Запретить вход в браузер" и работать так, как если бы политика [NonRemovableProfileEnabled](#nonremovableprofileenabled) была отключена.
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+Если для этого параметра задано значение "Разрешить вход в браузер" (1), пользователи могут входить в браузер. Вход в браузер не означает, что синхронизация включается по умолчанию; пользователь должен отдельно включить эту функцию.
 
-If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+Если для этого параметра задано значение "Принудительный вход в браузер" (2), пользователи должны войти в свой профиль, чтобы использовать браузер. По умолчанию пользователи в этом случае могут выбирать, хотят ли они выполнять синхронизацию для учетной записи, если синхронизация не отключена администратором домена или политикой [SyncDisabled](#syncdisabled). Стандартное значение параметра [BrowserGuestModeEnabled](#browserguestmodeenabled) — false.
 
-If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+Если этот параметр не настроен, пользователи могут включить параметр входа в браузер и использовать его по своему усмотрению.
 
-* 0 = Disable browser sign-in
+* 0 = Запретить вход в браузер
 
-* 1 = Enable browser sign-in
+* 1 = Разрешить вход в браузер
 
-* 2 = Force users to sign-in to use the browser
+* 2 = Принудительный вход для использования браузера
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -6091,13 +6206,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 78 или более поздней версии
 
   #### Описание
-  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+  Microsoft Edge не удаляет по умолчанию данные о просмотре веб-страниц после закрытия. К данным о просмотре веб-страниц относятся указанная в формах информация, пароли и даже посещенные веб-сайты.
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+Если этот параметр политики включен, все данные о просмотре веб-страниц удаляются при каждом закрытии Microsoft Edge.
 
-If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+Если отключить или не настроить этот параметр политики, пользователи смогут настроить параметр "Удалить данные о просмотре веб-страниц" в разделе "Параметры".
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+Если эта политика включена, не включайте политику [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory), так как они оба используются для удаления данных. Если одновременно включить эти два параметра, этот параметр будет иметь приоритет и все данные будут удаляться при закрытии Microsoft Edge независимо от настройки [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -6339,8 +6454,8 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
 Если этот параметр политики выключен, такие голоса недоступны.
 
 Ниже указано, где можно узнать больше об этой функции.
-API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Службы Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+API SpeechSynthesis: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Службы Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -6581,11 +6696,11 @@ API SpeechSynthesis: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynt
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+  Запрет доступа веб-страниц к графическому процессору (GPU), а именно: веб-страницы не могут получать доступ к API WebGL, а подключаемые модули не могут использовать API Pepper 3D.
 
-If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+Если не настроить или отключить этот параметр политики, веб-страницы потенциально могут использовать API WebGL, а подключаемые модули — API Pepper 3D. Возможно, в Microsoft Edge по умолчанию по-прежнему будет требоваться передача аргументов командной строки для использования этих API.
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+Если параметру [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) присвоено значение false, параметр Disable3DAPIs не учитывается — как и при присвоении параметру Disable3DAPIs значения true.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7231,15 +7346,15 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [В начало](#microsoft-edge:-политики)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  Этот параметр политики определяет, отображается ли флажок "Всегда открывать" во всех запросах на подтверждение запуска внешних протоколов.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+Если для этого параметра политики задано значение "True", при появлении запроса на подтверждение внешнего протокола пользователь может выбрать параметр "Всегда открывать". Пользователь больше не будет получать запросы на подтверждение для этого протокола.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+Если для этого параметра политики задано значение "False" или эта политика не задана, флажок "Всегда открывать" не отображается. Пользователь будет получать запрос на подтверждение при каждом вызове внешнего протокола.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7252,7 +7367,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Имя групповой политики: Show an "Always open" checkbox in external protocol dialog.
+  - Имя групповой политики: Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -8375,23 +8490,23 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
   >Поддерживаемые версии: Microsoft Edge на Windows с 79 или более поздней версии
 
   #### Описание
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+  Переход "на странице" запускается из ссылки, сценария или формы на текущей странице. Он также может быть выполнен в виде перенаправления на стороне сервера для предыдущей попытки перехода "на странице". И наоборот, пользователь может независимо от текущей страницы несколькими способами инициировать переход, отличный от перехода "на странице", с помощью элементов управления браузера. Например, он может воспользоваться адресной строкой, кнопкой "Назад" или ссылкой из избранного.
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+Этот параметр позволяет указать, будут ли переходы на ненастроенные сайты (сайты, которые не настроены в Списке сайтов в режиме предприятия) со страниц, загруженных в режиме Internet Explorer, переключаться в режим Microsoft Edge или оставаться в режиме Internet Explorer.
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+Этот параметр работает в связке с:
+политикой [InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel), для которой установлено значение "Режим Internet Explorer" (1),
+и
+политикой [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist), в которой список содержит хотя бы одну запись.
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+Если отключить или не настроить этот параметр, в режиме Internet Explorer будут открываться только сайты, настроенные для открытия в этом режиме. Любые сайты, не настроенные для открытия в режиме Internet Explorer, будут перенаправлены обратно в Microsoft Edge.
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+Включив этот параметр, можно выбрать один из следующих вариантов перехода.
+0 — значение по умолчанию. В режиме Internet Explorer будут открываться только сайты, настроенные для открытия в этом режиме. Любые сайты, не настроенные для открытия в режиме Internet Explorer, будут перенаправлены обратно в Microsoft Edge.
+1 — только автоматические переходы будут выполняться в режиме Internet Explorer. Используйте этот вариант, если нужно сохранить стандартное поведение для всех переходов, кроме автоматических переходов на ненастроенные сайты (например, перенаправления по состоянию 302), которые будут выполняться в режиме Internet Explorer.
+2 — выполнять все переходы "на странице" в режиме Internet Explorer (не рекомендуется). Все переходы на ненастроенные сайты со страниц, загруженных в режиме Internet Explorer, будут выполняться в режиме Internet Explorer.
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+Дополнительные сведения о режиме Internet Explorer см. на странице [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8428,11 +8543,11 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Specify origins to run in isolation, in their own process.
-This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
-If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
-If you don't configure the policy, the user can change this setting.
+  Укажите источники для выполнения в режиме изоляции, в собственном процессе.
+Этот параметр политики также изолирует источники, названные дочерними доменами (например, если указать https://contoso.com/, то https://foo.contoso.com/ будет изолирован как часть сайта https://contoso.com/).
+Если этот параметр политики включен, каждый из названных источников в списке, который разделяется запятыми, будет выполняться в отдельном процессе.
+Если этот параметр политики отключен, функции [IsolateOrigins](#isolateorigins) и [SitePerProcess](#siteperprocess) будут отключены. Пользователи по-прежнему смогут включить политику [IsolateOrigins](#isolateorigins) вручную с помощью флага командной строки.
+Если этот параметр политики не настроен, пользователь сможет изменить его значение.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8586,14 +8701,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding for any search engine.
+  Позволяет настроить список поисковых систем (до 10 систем), одна из которых должна быть отмечена как поисковая система по умолчанию.
+Нет необходимости указывать кодировку для поисковой системы.
 
-If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+Если включить этот параметр политики, пользователи не смогут добавлять, удалять или изменять поисковые системы в списке. Пользователи смогут выбрать поисковой системой по умолчанию любую поисковую систему в списке.
 
-If you disable or don't configure this policy, users can modify the search engines list as desired.
+Если отключить или не настроить этот параметр политики, пользователи смогут изменить список поисковых систем по своему усмотрению.
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+Если задана политика [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl), эта политика (ManagedSearchEngines) будет игнорироваться. Пользователь должен перезапустить браузер, чтобы завершить применение этой политики.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8753,13 +8868,13 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+  Включите этот параметр политики, чтобы разрешить Google Cast подключаться к устройствам передачи с любыми IP-адресами, а не только частными адресами RFC1918/RFC4193.
 
-Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+Отключите этот параметр политики, чтобы разрешить Google Cast подключаться только к устройствам передачи с частными адресами RFC1918/RFC4193.
 
-If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+Если этот параметр политики не настроен, Google Cast подключается только к устройствам передачи с частными адресами RFC1918/RFC4193 (если не включена функция CastAllowAllIPs).
 
-If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+Если политика [EnableMediaRouter](#enablemediarouter) отключена, эта политика не действует.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8802,17 +8917,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  В случае каналов Microsoft Edge Beta и Stable в Windows 10 этот параметр политики, если он настроен, переопределяет параметр диагностических данных Windows, а именно: разрешает или запрещает сбор информации об использовании и сбоях Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-С помощью этого параметра можно настроить отправку в корпорацию Майкрософт сведений об использовании и сбоях Microsoft Edge и запретить пользователи изменять данную настройку.
+This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
-Когда этот параметр включен, сведения об использовании и сбоях отправляются в корпорацию Майкрософт. Когда выключен — не отправляются. В обоих случаях пользователи не могут изменить или переопределить эту настройку.
+Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-Для каналов Beta и Stable в Windows 10 этот параметр определяет правила работы со сведениями об использовании и сбоях. Если он не настроен, к Microsoft Edge по умолчанию применяется параметр диагностических данных Windows.
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
-Для каналов Canary и Dev в Windows 10 этот параметр определяет правила работы со сведениями об использовании и сбоях. Если он не настроен, к Microsoft Edge по умолчанию применяются настройки пользователя.
+On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
-В Windows 7, 8 и в Mac этот параметр политики определяет правила работы со сведениями об использовании и сбоях. Если он не настроен, к Microsoft Edge по умолчанию применяются настройки пользователя.
+On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8906,13 +9023,13 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Поддерживаемые версии: Microsoft Edge на Windows с 78 или более поздней версии
 
   #### Описание
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  Эта политика определяет, можно ли удалить профиль Microsoft Edge, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Если эта политика включена или не настроена, в Windows будет создан неудаляемый профиль на основе рабочей или учебной учетной записи пользователя. Пользователь не сможет выйти из этого профиля или удалить его.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+Если эта политика отключена, пользователь может выйти из профиля, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя в Windows, или удалить его.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+Если необходимо полностью отключить вход в браузер, используйте политику "BrowserSignIn".
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8994,6 +9111,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >Поддерживаемые версии: Microsoft Edge на Windows с 80 или более поздней версии
+
+  #### Описание
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
+
+  #### Тип данных:
+  Логическое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: PinningWizardAllowed
+  - Имя групповой политики: Allow Pin to taskbar wizard
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: PinningWizardAllowed
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000000
+```
+
+
   
 
   [В начало](#microsoft-edge:-политики)
@@ -9195,19 +9355,19 @@ QUIC — это сетевой протокол транспортного ур�
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Notify users that they need to restart Microsoft Edge to apply a pending update.
+  Уведомление пользователей о необходимости перезапуска Microsoft Edge для применения отложенных обновлений.
 
-If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+Если этот параметр политики не настроен, Microsoft Edge добавляет значок перезапуска в дальнем правом углу верхней строки меню, чтобы уведомить пользователя о необходимости перезагрузить браузер для применения обновления.
 
-If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+Если этот параметр политики включен и ему присвоено значение "Рекомендуется" (1), повторяющееся предупреждение сообщает пользователям о том, что рекомендуется выполнить перезапуск. Пользователь сможет закрыть это предупреждение и отложить перезапуск.
 
-If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+Если параметру политики присвоено значение "Обязательно" (2), повторяющееся предупреждение сообщает пользователям о том, что браузер будет автоматически перезапущен по истечении периода предупреждения, который по умолчанию составляет 7 дней. Этот период можно изменить с помощью параметра политики [RelaunchNotificationPeriod](#relaunchnotificationperiod).
 
-The user's session is restored when the browser restarts.
+Сеанс пользователя будет восстановлен после перезапуска браузера.
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+* Рекомендуется (1) = периодически отображать уведомление о том, что рекомендуется выполнить перезапуск
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+* Обязательно (2) = периодически отображать уведомление о том, что требуется перезапуск
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9250,15 +9410,11 @@ The user's session is restored when the browser restarts.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9381,16 +9537,16 @@ Restrictions:
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+  Подключение Microsoft Edge к веб-службе без использования данных для проверки подключения к сетям Wi-Fi в аэропортах, гостиницах и т. п.
 
-If you enable this policy, a web service is used for network connectivity tests.
+Если этот параметр политики включен, для проверки подключения к сети используется веб-служба.
 
-If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+Если этот параметр политики отключен, Microsoft Edge использует собственные API, чтобы попытаться решить проблемы подключения к сети и навигации.
 
-**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+**Примечание**. За исключением Windows 8 и более поздних версий, Microsoft Edge *всегда* использует собственные API для решения проблем с подключением.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+Если этот параметр политики не настроен, Microsoft Edge применяет настройки пользователя, указанные в разделе "Службы" на странице edge://settings/privacy.
+В частности, там находится переключатель **Использовать веб-службу для решения проблем с навигацией**, который пользователь может включить или выключить. Обратите внимание: если данная политика (ResolveNavigationErrorsUseWebService) включена, параметр **Использовать веб-службу для решения проблем с навигацией** будет включен, но пользователь не сможет изменить его с помощью этого переключателя. Если отключить данный параметр политики, параметр **Использовать веб-службу для решения проблем с навигацией** будет отключен и пользователь не сможет изменить его с помощью этого переключателя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9480,11 +9636,11 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+  Если этот параметр политики включен, все содержимое Adobe Flash, внедренное в веб-сайты, на которых разрешен Adobe Flash в параметрах содержимого (политикой пользователя или предприятия), будет запускаться. Это относится ко всему содержимому из других источников и/или небольшому содержимому.
 
-To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+Сведения об управлении веб-сайтами, которым разрешено запускать Adobe Flash, см. в спецификациях для политик [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls) и [PluginsBlockedForUrls](#pluginsblockedforurls).
 
-If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+Если этот параметр отключен или не задан, содержимое Adobe Flash из других источников (с сайтов, которые не указаны в перечисленных выше политиках) или небольшое содержимое будет заблокировано.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9955,11 +10111,9 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
-If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
-If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
+  Политика SitePerProcess позволяет запретить пользователям блокировать стандартные настройки, касающиеся изоляции всех сайтов. Обратите внимание: вы также можете использовать политику [IsolateOrigins](#isolateorigins), чтобы изолировать дополнительные, более точно выбранные источники.
+Если данный параметр включен, пользователи не могут отключать стандартные настройки, при которых каждый сайт выполняет собственный процесс.
+Если данный параметр выключен или не настроен, пользователи могут отключать изоляцию сайтов. (Например, с помощью записи "Отключить изоляцию сайта" в edge://flags.) Если выключить или не настроить данный параметр, это не приведет к выключению функции "Изоляция сайта".
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10002,9 +10156,9 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  If you enable or don't configure this policy, the user can use spellcheck.
+  Если включить или не настроить эту политику, пользователи смогут использовать проверку орфографии.
 
-If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+Если отключить этот параметр политики, пользователи не смогут использовать проверку орфографии и политики [SpellcheckLanguage](#spellchecklanguage) и [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) также будут отключены.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10047,17 +10201,17 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   >Поддерживаемые версии: Microsoft Edge на Windows с 77 или более поздней версии
 
   #### Описание
-  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+  Проверка орфографии для разных языков. Любой выбранный язык, который не распознается, игнорируется.
 
-If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+Если данный параметр политики включен, проверка орфографии разрешена для указанных языков, а также всех языков, заданных пользователем.
 
-If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+Если не настроить или отключить этот параметр политики, пользовательские настройки проверки орфографии не меняются.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+Если политика [SpellcheckEnabled](#spellcheckenabled) отключена, эта политика не будет действовать.
 
-If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+Если один и тот же язык указан и в политике SpellcheckLanguage и в политике [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist), проверка орфографии для него будет разрешена.
 
-The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+Поддерживаемые языки: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10096,17 +10250,17 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   >Поддерживаемые версии: Microsoft Edge на Windows с 78 или более поздней версии
 
   #### Описание
-  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+  Принудительное отключение проверки орфографии для языков. Нераспознанные языки из этого списка пропускаются.
 
-If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+Если этот параметр политики включен, проверка орфографии отключается для указанных языков. Пользователь при этом может включить или выключить проверку орфографии для языков, не включенных в список.
 
-If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+Если этот параметр политики выключен или не настроен, пользовательские настройки проверки орфографии остаются без изменений.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+Если параметр [SpellcheckEnabled](#spellcheckenabled) выключен, данный параметр политики не действует.
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+Если один и тот же язык указан и в политике [SpellcheckLanguage](#spellchecklanguage), и в политике SpellcheckLanguageBlocklist, проверка орфографии для него будет разрешена.
 
-The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+В настоящее время поддерживаются следующие языки: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10188,11 +10342,11 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  Отключение синхронизации данных в Microsoft Edge без возможности для пользователей изменять этот параметр.
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+Если этот параметр политики не настроен, пользователи могут включить или отключить синхронизацию.
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+Не включайте этот параметр, если включен параметр RoamingProfileSupportEnabled, так как RoamingProfileSupportEnabled дублирует функцию синхронизации.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10231,22 +10385,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [В начало](#microsoft-edge:-политики)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >Поддерживаемые версии: Microsoft Edge на Windows с 79 или более поздней версии
+  #### Разрешить блокировку работы фоновых вкладок
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Определяет, может ли Microsoft Edge блокировать работу вкладок, которые находятся в фоновом режиме не менее 5 минут.
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+Блокировка работы вкладок позволяет уменьшить использование ЦП, аккумулятора и памяти. Microsoft Edge использует эвристику, чтобы не блокировать работу вкладок, которые выполняют полезные процессы в фоновом режиме (например, отображают уведомления, воспроизводят звук и передают в потоковом режиме видео).
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+Если эта политика включена или не настроена, работа вкладок, которые находятся в фоновом режиме не менее 5 минут, может быть заблокирована.
 
-If you disable this policy, no tabs will be frozen.
+Если эта политика отключена, работа вкладок не будет блокироваться.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
   - Может быть рекомендованной: Нет
-  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
+  - Динамическое обновление политики: Да
 
   #### Тип данных:
   Логическое
@@ -10254,7 +10408,7 @@ If you disable this policy, no tabs will be frozen.
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: TabFreezingEnabled
-  - Имя групповой политики: Allow freezing of background tabs
+  - Имя групповой политики: Разрешить блокировку работы фоновых вкладок
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -10269,6 +10423,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: TabFreezingEnabled
+  - Пример значения:
+``` xml
+<false/>
+```
   
 
   [В начало](#microsoft-edge:-политики)
@@ -10327,7 +10487,7 @@ If you disable this policy, no tabs will be frozen.
 
 0 = Выключено (отслеживание не блокируется)
 1 = Базовый уровень (блокируются вредоносные средства отслеживания, при этом содержимое и рекламные объявления персонализируются)
-2 = Сбалансированный уровень (блокируются вредоносные средства отслеживания, а также средства отслеживания на сайтах, которые пользователь не посещал, при этом содержимое и рекламные объявления персонализируются в меньшей мере)
+2 = Уравновешенный  уровень (блокируются вредоносные средства отслеживания, а также средства отслеживания на сайтах, которые пользователь не посещал, при этом содержимое и рекламные объявления персонализируются в меньшей мере)
 3 = Строгий уровень (блокируются вредоносные средства отслеживания, а также большинство остальных средств отслеживания на всех сайтах; при этом содержимое и рекламные объявления персонализируются в минимальной степени, а некоторые компоненты сайтов могут не работать)
 
 Когда этот параметр политики выключен или не настроен, пользователи могут самостоятельно выбирать уровень блокировки отслеживания.
@@ -10422,17 +10582,17 @@ If you disable this policy, no tabs will be frozen.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allow access to the listed URLs, as exceptions to the URL block list.
+  Настройка списка разрешенных URL-адресов как исключений из списка заблокированных.
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Используйте формат шаблона URL-адреса, описанный на странице [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
-You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+Этот параметр политики можно использовать для создания исключений из ограничительных списков блокировки. Например, вы можете включить "*" в список заблокированных адресов, чтобы блокировать все запросы, а затем использовать этот параметр политики, чтобы разрешить доступ к ограниченному списку URL-адресов. С помощью этого параметра можно создавать исключения для различных схем, поддоменов других доменов, портов или конкретных путей.
 
-The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+Самый точный фильтр определяет, заблокирован или разрешен URL-адрес. Список разрешенных URL-адресов имеет более высокий приоритет, чем список заблокированных.
 
-This policy is limited to 1000 entries; subsequent entries are ignored.
+Этот параметр политики допускает максимум 1000 записей; последующие записи игнорируются.
 
-If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+Если не настроить этот параметр, исключений из заблокированных адресов, заданных в политике [URLBlocklist](#urlblocklist), не будет.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10486,17 +10646,17 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+  На основании шаблонов URL-адресов определите список сайтов, которые блокируются (ваши пользователи не смогут загружать их).
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Используйте формат шаблона URL-адреса, описанный на странице [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
-You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+Вы можете определить исключения в политике [URLAllowlist](#urlallowlist). Этики политики ограничены 1 000 записей; последующие записи игнорируются.
 
-Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+Обратите внимание, что блокировать внутренние URL-адреса "edge://*" не рекомендуется. Это может привести к непредвиденным ошибкам.
 
-This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+Эта политика не запрещает динамическое обновление страницы с помощью скриптов JavaScript. Например, если вы заблокируете "contoso.com/abc", пользователи по-прежнему смогут переходить на "contoso.com" и нажимать ссылку, чтобы перейти на страницу "contoso.com/abc", пока страница не обновится.
 
-If you don't configure this policy, no URLs are blocked.
+Если не настроить этот параметр политики, URL-адреса не будут блокироваться.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10654,13 +10814,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Control whether sites can capture video.
+  Управление возможностью сайтов записывать видео.
 
-If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+Если этот параметр политики включен или не задан (по умолчанию), пользователь будет получать запрос на доступ к видеозаписи для всех сайтов за исключением сайтов с URL-адресами, настроенными в списке политики [VideoCaptureAllowedUrls](#videocaptureallowedurls), которым будет разрешен доступ без запроса.
 
-If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+Если этот параметр политики отключен, то пользователь не будет получать запрос и видеозапись будет доступна только для сайтов с URL-адресами, настроенными в политике [VideoCaptureAllowedUrls](#videocaptureallowedurls).
 
-This policy affects all types of video inputs, not only the built-in camera.
+Этот параметр политики влияет на все типы входящих видеоданных, а не только на встроенную камеру.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10800,19 +10960,18 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  
-This policy was removed in M80, because it is not necessary anymore as
-WebDriver is now compatible with all existing policies.
+  Эта политика была удалена в M80, так как она больше не нужна, поскольку
+теперь WebDriver совместим со всеми существующими политиками.
 
-This policy allows users of the WebDriver feature to override
-policies which can interfere with its operation.
+Эта политика позволяет пользователям функции WebDriver переопределять
+политики, которые могут мешать работе интерфейса.
 
-Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+В данный момент эта политика отключает политики [SitePerProcess](#siteperprocess) и [IsolateOrigins](#isolateorigins).
 
-If the policy is enabled, WebDriver will be able to override incomaptible
-policies.
-If the policy is disabled or not configured, WebDriver will not be allowed
-to override incompatible policies.
+Если этот параметр политики включен, то WebDriver сможет переопределять несовместимые
+политики.
+Если этот параметр политики отключен или не настроен, интерфейсу WebDriver не будет разрешено
+переопределять несовместимые политики.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
