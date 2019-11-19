@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/07/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -57,7 +57,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Microsoft Defender SmartScreen が警告をトリガーしないドメインのリストを構成する|
 |[SmartScreenEnabled](#smartscreenenabled)|Microsoft Defender SmartScreen を構成する|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|信頼された発行元からダウンロードするときに、Microsoft Defender SmartScreen のチェックを強制的に行う|
-|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|望ましくない可能性のあるアプリをブロックするように Microsoft Defender SmartScreen を構成する|
 ### [*コンテンツの設定*](#コンテンツの設定-policies)
 |ポリシー名|キャプション|
 |-|-|
@@ -78,6 +78,8 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[ImagesBlockedForUrls](#imagesblockedforurls)|特定のサイトで画像をブロックする|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|特定のサイトで JavaScript を許可する|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|特定のサイトで JavaScript をブロックする|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|特定のサイトで通知を許可する|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|特定のサイトで通知をブロックする|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|特定のサイトで Adobe Flash プラグインを許可する|
@@ -97,7 +99,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|新しいタブ ページで既定のトップ サイトを非表示にする|
 |[NewTabPageLocation](#newtabpagelocation)|新しいタブ ページの URL を構成する|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|新しいタブ ページのクイック リンクを設定する|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する|
 |[RestoreOnStartup](#restoreonstartup)|スタートアップ時に実行するアクション|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|ブラウザーの起動時に開くサイト|
 |[ShowHomeButton](#showhomebutton)|ツール バーに [ホーム] ボタンを表示する|
@@ -201,7 +203,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|オンライン OCSP/CRL チェックを有効にする|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|管理された拡張機能を有効にして、エンタープライズ ハードウェア プラットフォーム API を使用する|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|実験および構成サービスとの通信を制御する|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。|
 |[FavoritesBarEnabled](#favoritesbarenabled)|お気に入りバーを有効にする|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing セーフサーチを適用する|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|一時プロファイルの使用を有効にする|
@@ -234,6 +236,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[NetworkPredictionOptions](#networkpredictionoptions)|ネットワーク予測を有効にする|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|職場または学校アカウントで自動的にサインインする既定のプロファイルを、ユーザーが常に持つ必要があるかどうかを構成する|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|保護されていないオリジンに対するセキュリティ制限を適用する状況を制御する|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|事前認証を有効にする|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|タブ全体にプロモーション コンテンツを表示できるようにする|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|ダウンロードしたファイルの保存場所を確認する|
@@ -260,7 +263,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|スペルチェック言語を強制的に無効にする|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|サポートされていない OS の警告を表示しない|
 |[SyncDisabled](#syncdisabled)|Microsoft 同期サービスを使用しているデータの同期を無効にする|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|バックグラウンド タブの固定を許可する|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|ブラウザーのタスク マネージャーでプロセスの終了を有効にする|
 |[TrackingPrevention](#trackingprevention)|ユーザーの Web 閲覧アクティビティの追跡をブロックする|
 |[TranslateEnabled](#translateenabled)|翻訳を有効にする|
@@ -334,11 +337,11 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+  このポリシーを true に設定すると、ツール バーまたはオーバーフロー メニューに Cast ツール バー アイコンが表示されます。ユーザーはこのアイコンを削除できません。
 
-If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+このポリシーを構成しなかった場合または無効にした場合、ユーザーは、コンテキスト メニューを使ってこのアイコンをピン留めしたり、削除したりすることができます。
 
-If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+[EnableMediaRouter](#enablemediarouter) ポリシーも false に設定されている場合、このポリシーは無視され、ツール バー アイコンは表示されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -700,11 +703,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  このポリシー設定では、有害である可能性のある Web サイトに関する Microsoft Defender SmartScreen の警告をユーザーがオーバーライドできるかどうかを指定できます。
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-この設定を有効にした場合、ユーザーは Microsoft Defender SmartScreen の警告を無視できず、サイトへの移動がブロックされます。
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-この設定を無効にした場合または構成しなかった場合、ユーザーは Microsoft Defender SmartScreen の警告を無視して、サイトに移動することができます。
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -747,11 +752,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >サポートされているバージョン: Windows (バージョン 77 以降)、および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  このポリシー設定では、未確認のダウンロードに関する Microsoft Defender SmartScreen の警告をユーザーがオーバーライドできるかどうかを指定できます。
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-このポリシーを有効にした場合、組織内のユーザーは Microsoft Defender SmartScreen の警告を無視できず、未確認のダウンロードを完了することはできません。
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-このポリシーを無効にした場合または構成しなかった場合、ユーザーは Microsoft Defender SmartScreen の警告を無視して、未確認のダウンロードを完了することができます。
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -794,14 +801,15 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Microsoft Defender SmartScreen で信頼するドメインのリストを構成します。これは以下を意味します。
-Microsoft Defender SmartScreen では、ソース URL がこれらのドメインに一致すると、フィッシング ソフトウェアや他のマルウェアなど、悪意があると考えられるリソースを確認しません。
-Microsoft Defender SmartScreen のダウンロード保護サービスでは、これらのドメインでホストされているダウンロードを確認しません。
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-このポリシーを有効にした場合、Microsoft Defender SmartScreen はこれらのドメインを信頼します。
-このポリシーを無効にした場合または設定しなかった場合、既定の Microsoft Defender SmartScreen 保護がすべてのリソースに適用されます。
-このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
-また、組織で Microsoft Defender Advanced Threat Protection が有効になっていると、このポリシーが適用されません。代わりに、Microsoft Defender セキュリティ センターで許可リストと禁止リストを構成する必要があります。
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -849,15 +857,15 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+  このポリシー設定では、Microsoft Defender SmartScreen を有効にするかどうかを構成できます。Microsoft Defender SmartScreen は、フィッシング詐欺や悪意のあるソフトウェアの可能性からユーザーを保護するための警告メッセージを提示します。既定では、Microsoft Defender SmartScreen は有効になります。
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on.
+この設定を有効にした場合、Microsoft Defender SmartScreen が有効になります。
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off.
+この設定を無効にした場合、Microsoft Defender SmartScreen が無効になります。
 
-If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+この設定を構成しなかった場合、Microsoft Defender SmartScreen を使用するかどうかをユーザーが選択できます。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -939,19 +947,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### SmartScreenPuaEnabled
-  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  #### 望ましくない可能性のあるアプリをブロックするように Microsoft Defender SmartScreen を構成する
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+  このポリシー設定では、Microsoft Defender SmartScreen で望ましくない可能性のあるアプリのブロックを有効にするかどうかを構成できます。Microsoft Defender SmartScreen で望ましくない可能性のあるアプリをブロックすると、Web サイトでホストされているアドウェア、コイン マイナー、バンドルウェア、および他の低評価のアプリからユーザーを保護するための警告メッセージが提示されます。既定では、Microsoft Defender SmartScreen での望ましくない可能性のあるアプリのブロックは無効になります。
 
-If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+この設定を有効にした場合、Microsoft Defender SmartScreen での望ましくない可能性のあるアプリのブロックが有効になります。
 
-If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+この設定を無効にした場合、Microsoft Defender SmartScreen での望ましくない可能性のあるアプリのブロックが無効になります。
 
-If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+この設定を構成しなかった場合、Microsoft Defender SmartScreen で望ましくない可能性のあるアプリのブロックを使用するかどうかはユーザーが選択できます。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -964,7 +972,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: SmartScreenPuaEnabled
-  - GP の名前: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - GP の名前: 望ましくない可能性のあるアプリをブロックするように Microsoft Defender SmartScreen を構成する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/SmartScreen の設定
   - GP パス (おすすめ): 管理用テンプレート/Microsoft Edge - 既定の設定 (ユーザーはオーバーライドできます)/SmartScreen の設定
   - GP ADMX ファイル名: MSEdge.admx
@@ -998,11 +1006,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+  サイトがクライアント証明書を要求している場合に Microsoft Edge でクライアント証明書を自動的に選択するサイトのリストを、URL パターンに基づいて定義します。
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+値は、文字列化した JSON 辞書の配列で指定する必要があります。各辞書の形式は、{ "pattern": "$URL_PATTERN", "filter" : $FILTER } になっている必要があります。$URL_PATTERN はコンテンツ設定パターンを表します。$FILTER によって、ブラウザーで自動的に選択されるクライアント証明書の発行元を絞り込みます。ただしフィルターの設定に関わらず、選択されるのは、サーバーの証明書の要求に一致する証明書のみです。たとえば、$FILTER を { "ISSUER": { "CN": "$ISSUER_CN" } } という形式で指定すると、CommonName $ISSUER_CN を持つ証明書によって発行されたクライアント証明書のみが選択されます。$FILTER に "ISSUER" と "SUBJECT" のセクションが含まれている場合、クライアント証明書は、選択対象となる両方の条件を満たしている必要があります。$FILTER に組織 ("O") が指定されている場合、証明書は、選択対象となる指定の値に一致する組織を 1 つ以上含んでいる必要があります。$FILTER に組織単位 ("OU") が指定されている場合、証明書は、選択対象となる指定の値に一致する組織単位を 1 つ以上含んでいる必要があります。$FILTER が空の辞書 {} の場合、クライアント証明書の選択は、こうした制限を受けません。
 
-If you don't configure this policy, auto-selection isn't done for any site.
+このポリシーを構成しなかった場合、どのサイトについても証明書の自動選択は行われません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1048,13 +1056,13 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  Cookie の設定が許可されるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultCookiesSetting](#defaultcookiessetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
-See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+詳細については、[CookiesBlockedForUrls](#cookiesblockedforurls) ポリシーと [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) ポリシーを参照してください。
 
-Note there cannot be conflicting URL patterns set between these three policies:
+以下の 3 つのポリシーでは、URL パターンが競合しない必要があります。
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1108,13 +1116,13 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can't set cookies.
+  Cookie を設定できないサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultCookiesSetting](#defaultcookiessetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
-See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+詳細については、[CookiesAllowedForUrls](#cookiesallowedforurls) ポリシーと [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) ポリシーを参照してください。
 
-Note there cannot be conflicting URL patterns set between these three policies:
+以下の 3 つのポリシーでは、URL パターンが競合しない必要があります。
 
 - CookiesBlockedForUrls
 
@@ -1168,15 +1176,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+  定義した URL パターンに一致する Web サイトで作成された Cookie は、セッションの終了時 (ウィンドウを閉じたとき) に削除されます。
 
-Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+パターンに一致しない Web サイトで作成された Cookie は、[DefaultCookiesSetting](#defaultcookiessetting) ポリシー (設定されている場合)、またはユーザーの個人用の構成によって制御されます。これは、このポリシーを構成しなかった場合の既定の動作でもあります。
 
-If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Microsoft Edge がバックグラウンド モードで実行されていると、最後のウィンドウを閉じたときに、セッションが終了しない場合があります。この場合、ウィンドウを閉じても Cookie は消去されません。Microsoft Edge がバックグラウンド モードで実行されているときに、どのような処理を行うかを構成する方法の詳細については、[BackgroundModeEnabled](#backgroundmodeenabled) ポリシーを参照してください。
 
-You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
+Cookie を作成できる Web サイトを制御する場合は、[CookiesAllowedForUrls](#cookiesallowedforurls) ポリシーと [CookiesBlockedForUrls](#cookiesblockedforurls) ポリシーを使用することもできます。
 
-Note there cannot be conflicting URL patterns set between these three policies:
+以下の 3 つのポリシーでは、URL パターンが競合しない必要があります。
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -1184,7 +1192,7 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesSessionOnlyForUrls
 
-If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+前のセッションから URL を復元するように [RestoreOnStartup](#restoreonstartup) ポリシーを設定した場合、このポリシーは無視され、それらのサイトでは Cookie が 永続的に保存されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1232,17 +1240,17 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+  Web サイトがユーザーのデバイスに Cookie を作成できるかどうかを制御します。このポリシーは、すべての Web サイトを対象とするか、対象としないかのいずれかです。つまり、すべての Web サイトで Cookie の作成を許可するか、許可しないかを制御できます。このポリシーを使用して、特定の Web サイトからの Cookie を有効にすることはできません。
 
-Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+ポリシーを 'SessionOnly' (4) に設定すると、セッションの終了時に Cookie が消去されます。Microsoft Edge がバックグラウンド モードで実行されていると、最後のウィンドウを閉じたときに、セッションが終了しない場合があります。この場合、ウィンドウを閉じても Cookie は消去されません。Microsoft Edge がバックグラウンド モードで実行されているときに、どのような処理を行うかを構成する方法の詳細については、[BackgroundModeEnabled](#backgroundmodeenabled) ポリシーを参照してください。
 
-If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+このポリシーを構成しなかった場合、既定の 'AllowCookies' (1) が使用され、ユーザーはこの設定を Microsoft Edge の [設定] で変更できます (ユーザーがこの設定を変更できないようにする場合は、ポリシーを構成してください)。
 
-* 1 = Let all sites create cookies
+* 1 = すべてのサイトで Cookie の作成を許可する
 
-* 2 = Don't let any site create cookies
+* 2 = すべてのサイトで Cookie の作成を許可しない
 
-* 4 = Keep cookies for the duration of the session
+* 4 = セッションの継続中は Cookie を保存する
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1485,17 +1493,17 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+  [PluginsAllowedForUrls](#pluginsallowedforurls) や [PluginsBlockedForUrls](#pluginsblockedforurls) が適用されない Web サイトで、Adobe Flash プラグインを自動的に実行できるかどうかを設定します。すべてのサイトで Adobe Flash をブロックするには、'BlockPlugins' (2) を選択できます。Adobe Flash の実行を許可するには、'ClickToPlay' (3) を選択できますが、この場合、ユーザーはプレースホルダーをクリックしてプラグインを起動する必要があります。どちらの場合も、[PluginsAllowedForUrls](#pluginsallowedforurls) ポリシーと [PluginsBlockedForUrls](#pluginsblockedforurls) ポリシーは 'DefaultPluginsSetting' ポリシーよりも優先されます。
 
-Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+自動再生は、[PluginsAllowedForUrls](#pluginsallowedforurls) ポリシーでリストに明示的に指定されているドメインに対してのみ許可されます。すべてのサイトで自動再生を有効にする場合は、このリストに http://* や https://* を追加することを検討してください。
 
-If you don't configure this policy, the user can change this setting manually.
+このポリシーを構成しなかった場合、ユーザーはこの設定を手動で変更できます。
 
-* 2 = Block the Adobe Flash plug-in
+* 2 = Adobe Flash プラグインをブロックする
 
-* 3 = Click to play
+* 3 = クリックして再生する
 
-The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+以前の '1' オプションではすべてのサイトで実行を許可するように設定していましたが、現在この機能は、[PluginsAllowedForUrls](#pluginsallowedforurls) ポリシーでのみ処理されます。'1' を使用している既存のポリシーは、クリックして再生モードで機能します。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1636,15 +1644,15 @@ The former '1' option set allow-all, but this functionality is now only handled 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+  Web サイトが、接続されている USB デバイスにアクセスできるかどうかを設定します。アクセスを完全にブロックしたり、接続されている USB デバイスへのアクセスが Web サイトで必要になるたびにユーザーに確認したりすることができます。
 
-You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+特定の URL パターンに対してこのポリシーをオーバーライドすることができます。そのためには、[WebUsbAskForUrls](#webusbaskforurls) ポリシーと [WebUsbBlockedForUrls](#webusbblockedforurls) ポリシーを使用します。
 
-If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+このポリシーを構成しなかった場合、既定では、接続されている USB デバイスにサイトがアクセスできるかどうかをユーザーに確認しますが (3)、ユーザーはこの設定を変更できます。
 
-* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+* 2 = すべてのサイトに対して、WebUSB API を使用した USB デバイスへのアクセスの要求を許可しない
 
-* 3 = Allow sites to ask the user to grant access to a connected USB device
+* 3 = サイトに対して、接続されている USB デバイスへのアクセス権を付与するようユーザーに確認すること許可する
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1687,9 +1695,9 @@ If you don't configure this policy, sites can ask users whether they can access 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can display images.
+  画像の表示できるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultImagesSetting](#defaultimagessetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1737,9 +1745,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+  画像の表示が禁止されるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultImagesSetting](#defaultimagessetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1787,9 +1795,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+  JavaScript の実行が許可されるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultJavaScriptSetting](#defaultjavascriptsetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1837,9 +1845,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+  JavaScript の実行が許可されないサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultJavaScriptSetting](#defaultjavascriptsetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1882,14 +1890,121 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [トップに戻る](#microsoft-edge---ポリシー)
 
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Enable default legacy SameSite cookie behavior setting
+  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
+
+  #### 説明
+  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+You can set the following values for this policy:
+
+* 1 = Revert to legacy SameSite behavior for cookies on all sites
+
+* 2 = Use SameSite-by-default behavior for cookies on all sites
+
+If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: いいえ
+  - 動的ポリシーの更新: はい
+
+  #### データ型:
+  整数
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: LegacySameSiteCookieBehaviorEnabled
+  - GP の名前: Enable default legacy SameSite cookie behavior setting
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
+  - GP パス (おすすめ): N/A
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
+  - パス (おすすめ): N/A
+  - 値の名前: LegacySameSiteCookieBehaviorEnabled
+  - 値の種類: REG_DWORD
+  ##### サンプル値:
+```
+0x00000001
+```
+
+
+  #### Mac の情報と設定
+  - 優先されるキーの名前: LegacySameSiteCookieBehaviorEnabled
+  - サンプル値:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Revert to legacy SameSite behavior for cookies on specified sites
+  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
+
+  #### 説明
+  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
+
+Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
+
+The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
+
+Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: いいえ
+  - 動的ポリシーの更新: はい
+
+  #### データ型:
+  文字列の一覧
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - GP の名前: Revert to legacy SameSite behavior for cookies on specified sites
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
+  - GP パス (おすすめ): N/A
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - パス (おすすめ): N/A
+  - 値の名前: 1, 2, 3, ...
+  - 値の種類: REG_SZ の一覧
+  ##### サンプル値:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac の情報と設定
+  - 優先されるキーの名前: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - サンプル値:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
   ### NotificationsAllowedForUrls
   #### 特定のサイトで通知を許可する
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can display notifications.
+  通知を表示できるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultNotificationsSetting](#defaultnotificationssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1937,9 +2052,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+  通知の表示が禁止されるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultNotificationsSetting](#defaultnotificationssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1987,9 +2102,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+  Adobe Flash プラグインを実行できるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultPluginsSetting](#defaultpluginssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2037,9 +2152,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+  Adobe Flash の実行が禁止されるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultPluginsSetting](#defaultpluginssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2087,9 +2202,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can open pop-up windows.
+  ポップアップ ウィンドウを開くことができるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultPopupsSetting](#defaultpopupssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2137,9 +2252,9 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+  ポップアップ ウィンドウを開くことが禁止されているサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultPopupsSetting](#defaultpopupssetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2250,13 +2365,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+  URL のリストを設定して、特定のベンダー ID と製品 ID を持つ USB デバイスへのアクセス許可が自動的に付与されるサイトを指定することを許可します。ポリシーを有効にするには、リストの各項目にデバイスと URL の両方が含まれている必要があります。デバイスに関する各項目には、ベンダー ID と製品 ID のフィールドを含めることができます。省略された ID はすべて、ワイルドカードとして扱われます。ただし、製品 ID を指定するときはベンダー ID も指定する必要があるので、注意してください。ベンダー ID を指定しないで製品 ID を指定した場合、このポリシーは無効になり、無視されます。
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+USB アクセス許可モデルでは、要求元サイト ("要求元 URL") の URL とトップレベルのフレーム サイト ("埋め込み URL") の URL を使用して、要求元 URL に対して USB デバイスへのアクセス許可を付与します。要求元サイトが iframe に読み込まれる場合、要求元 URL は、埋め込み URL とは異なる可能性があります。このため、"urls" フィールドに最大 2 個までの URL 文字列を含めて (コンマで区切ります)、要求元 URL と埋め込み URL をそれぞれ指定することができます。URL を 1 つだけ指定した場合は、埋め込みの状態に関係なく、要求元サイトの URL がこの URL と一致すると、対応する USB デバイスへのアクセスが許可されます。"urls" 内の URL は有効な URL である必要があります。有効な URL でない場合は、ポリシーは無視されます。
 
-If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+このポリシーを設定しなかった場合、すべてのサイトで、[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
-URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+このポリシーでの URL パターンは、[WebUsbBlockedForUrls](#webusbblockedforurls) で構成されているパターンとは重複しないパターンを指定してください。パターンが重複する場合、このポリシーは [WebUsbBlockedForUrls](#webusbblockedforurls) および [WebUsbAskForUrls](#webusbaskforurls) よりも優先されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2330,11 +2445,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+  USB デバイスへのアクセスをユーザーに確認できるサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
-The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+このポリシーで定義する URL パターンは、[WebUsbBlockedForUrls](#webusbblockedforurls) ポリシーで構成されている URL パターンと競合しないようにする必要があります。URL の許可とブロックの両方を構成することはできません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2382,11 +2497,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+  USB デバイスへのアクセスの許可をユーザーに確認できないサイトのリストを、URL パターンに基づいて定義します。
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+このポリシーを構成しなかった場合、すべてのサイトで、[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) ポリシーのグローバル デフォルト値 (設定されている場合)、またはユーザーの個人用の構成が使用されます。
 
-URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+このポリシーで定義する URL パターンは、[WebUsbAskForUrls](#webusbaskforurls) ポリシーで構成されている URL パターンと競合しないようにする必要があります。URL の許可とブロックの両方を構成することはできません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2489,17 +2604,17 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Configures the default home page URL in Microsoft Edge.
+  Microsoft Edge での既定のホーム ページの URL を構成します。
 
-The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+ホーム ページは、[ホーム] ボタンで開くページです。スタートアップ時に開くページは、[RestoreOnStartup](#restoreonstartup) ポリシーで制御します。
 
-You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+ここで URL を設定することも、新しいタブ ページを開くようにホームページを設定することもできます。新しいタブ ページを開くように選択した場合、このポリシーは適用されません。
 
-If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+このポリシーを有効にすると、ユーザーはホームページの URL を変更できなくなりますが、新しいタブ ページをホームページとして選択することはできます。
 
-If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+このポリシーを無効にした場合または構成しなかった場合、[HomepageIsNewTabPage](#homepageisnewtabpage) ポリシーが有効になっていなければ、ユーザーは自分のホームページを選択できます。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2542,19 +2657,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  Microsoft Edge の新しいタブ ページで使用する会社のロゴを指定します。
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
 
-ポリシーは、ロゴを JSON 形式で表す文字列として構成する必要があります。たとえば、次のように指定します: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-このポリシーを構成するには、URL と暗号化ハッシュ (SHA-256) を指定します。URL は、Microsoft Edge でロゴをダウンロードできる URL です。暗号化ハッシュは、ダウンロードの整合性の検証に使用されます。ロゴは PNG 形式または SVG 形式で、そのファイル サイズは 16 MB 以下であることが必要です。ロゴはダウンロードされ、キャッシュされます。また、URL やハッシュが変更された場合は必ず再ダウンロードされます。URL には、認証なしでアクセスできる必要があります。
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
 
-'default_logo' は必須で、背景画像がないときに使用されます。'light_logo' が指定されている場合は、ユーザーの新しいタブ ページに背景画像があるときにそのロゴが使用されます。透明な背景を持つ横向きのロゴを使用し、そのロゴを左揃えで、縦方向に中央揃えさせることをお勧めします。ロゴの最小の高さは 32 ピクセル、縦横比は 1:1 から 4:1 までにする必要があります。'default_logo' には、白黒の背景に対して適切なコントラストを設定する必要があります。これに対して、'light_logo' には、背景画像に対して適切なコントラストを設定する必要があります
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
 
-このポリシーを有効にした場合、Microsoft Edge では指定したロゴがダウンロードされ、新しいタブ ページに表示されます。ユーザーは、ロゴをオーバーライドしたり、非表示にしたりすることはできません。
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
 
-このポリシーを無効にした場合または構成しなかった場合、Microsoft Edge では、会社のロゴや Microsoft ロゴが新しいタブ ページに表示されません。
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-SHA-256 ハッシュの指定に役立つ情報については、https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6 を参照してください。
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2669,19 +2784,19 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Configures the default URL for the new tab page.
+  新しいタブ ページの既定の URL を構成します。
 
-This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+このポリシーは、新しいタブの作成時 (新しいウィンドウを開いた時も含む) に開くページを特定します。また、スタートアップ ページで新しいタブ ページを開くように設定している場合は、スタートアップ ページに対しても適用されます。
 
-This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+このポリシーでは、スタートアップ時に開くページは特定されません。このようなページは、[RestoreOnStartup](#restoreonstartup) ポリシーによって制御されます。またこのポリシーは、ホーム ページで新しいタブ ページを開くように設定している場合でも、ホーム ページに対しては適用されません。
 
-If you don't configure this policy, the default new tab page is used.
+このポリシーを構成しなかった場合、既定の新しいタブ ページが使用されます。
 
-If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+このポリシー*および* [NewTabPageSetFeedType](#newtabpagesetfeedtype) ポリシーを構成した場合は、このポリシーが優先されます。
 
-If an invalid URL is provided, new tabs will open about://blank.
+無効な URL が指定された場合、新しいタブで about://blank が開きます。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2799,29 +2914,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  新しいタブページに対して、Microsoft News または Office 365 のいずれかのフィード エクスペリエンスを選択できます。
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+このポリシーを Microsoft News フィード エクスペリエンスに設定すると (0)、新しいタブ ページに Microsoft News フィード エクスペリエンスが表示されます。
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+このポリシーを Office 365 フィード エクスペリエンスに設定すると (1)、ユーザーが Azure Active Directory ブラウザー サインインを使用している場合は、新しいタブ ページに Office 365 フィード エクスペリエンスが表示されます。
 
-If you disable or don't configure this policy:
+このポリシーを無効にした場合または構成しなかった場合:
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- ユーザーが Azure Active Directory ブラウザー サインインを使用している場合は、Office 365 の新しいタブ ページ フィード エクスペリエンス、および標準の新しいタブ ページ フィード エクスペリエンスが提供されます。
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- ユーザーが Azure Active Directory ブラウザー サインインを使用していない場合は、標準の新しいタブ ページ エクスペリエンスが表示されます。
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+このポリシー*および* [NewTabPageLocation](#newtabpagelocation) ポリシーを構成した場合は、[NewTabPageLocation](#newtabpagelocation) が優先されます。
 
-Default setting:  Disabled or not configured.
+既定の設定: 無効または未構成。
 
-* 0 = Microsoft News feed experience
+* 0 = Microsoft News フィード エクスペリエンス
 
-* 1 = Office 365 feed experience
+* 1 = Office 365 フィード エクスペリエンス
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -2834,7 +2949,7 @@ Default setting:  Disabled or not configured.
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: NewTabPageSetFeedType
-  - GP の名前: Configure the Microsoft Edge new tab page experience
+  - GP の名前: Microsoft Edge の新しいタブ ページ エクスペリエンスを構成する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/スタートアップ、ホーム ページ、新しいタブ ページ
   - GP パス (おすすめ): 管理用テンプレート/Microsoft Edge - 既定の設定 (ユーザーはオーバーライドできます)/スタートアップ、ホーム ページ、新しいタブ ページ
   - GP ADMX ファイル名: MSEdge.admx
@@ -2923,11 +3038,11 @@ URL の特定のセットを開く場合は、'URL のリストを開く' (4) �
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+  ブラウザーの起動時に自動的に表示する Web サイトのリストを指定します。このポリシーを構成しなかった場合、起動時にサイトは表示されません。
 
-This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+このポリシーは、[RestoreOnStartup](#restoreonstartup) ポリシーを 'URL のリストを開く' (4) に設定している場合にのみ適用されます。
 
-This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+このポリシーは、Microsoft Active Directory ドメインに参加している Windows インスタンス、またはデバイス管理に登録されている Windows 10 Pro インスタンスや Windows 10 Enterprise インスタンスでのみ利用できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3026,9 +3141,9 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  List specific native messaging hosts that users can use in Microsoft Edge.
+  ユーザーが Microsoft Edge で使用できる特定のネイティブ メッセージング ホストのリストを指定します。
 
-By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+既定では、すべてのネイティブ メッセージング ホストが許可されます。[NativeMessagingBlocklist](#nativemessagingblocklist) ポリシーを * に設定すると、すべてのネイティブ メッセージング ホストがブロックされ、ここで指定されたネイティブ メッセージング ホストのみが読み込まれます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3333,21 +3448,21 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+  パスワード保護の警告をトリガーするタイミングを制御できます。パスワード保護は、ユーザーが保護されたパスワードを不審な可能性があるサイトで再利用するときに、ユーザーに警告します。
 
-You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+保護するパスワードを構成するには、[PasswordProtectionLoginURLs](#passwordprotectionloginurls) ポリシーと [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) ポリシーを使用できます。
 
-Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+例外: [PasswordProtectionLoginURLs](#passwordprotectionloginurls) ポリシーと [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) ポリシーで指定されているサイト、および [SmartScreenAllowListDomains](#smartscreenallowlistdomains) ポリシーで指定されているサイトのパスワードは、パスワード保護の警告をトリガーしません。
 
-Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+'PasswordProtectionWarningOff' (0) に設定すると、パスワード保護の警告は表示されません。
 
-Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+'PasswordProtectionWarningOnPasswordReuse' (1) に設定すると、ホワイトリストに登録されていないサイトでユーザーがパスワードを再利用するときに、パスワード保護の警告が表示されます。
 
-If you disable or don't configure this policy, then the warning trigger is not shown.
+このポリシーを無効にした場合または構成しなかった場合、警告トリガーは表示されません。
 
-* 0 = Password protection warning is off.
+* 0 = パスワード保護の警告は無効です。
 
-* 1 = Password protection warning is triggered by password reuse.
+* 1 = パスワードを再利用すると、パスワード保護の警告がトリガーされます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3394,15 +3509,15 @@ If you disable or don't configure this policy, then the warning trigger is not s
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+  Microsoft Edge がプロキシをバイパスするホストのリストを定義します。
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+このポリシーが適用されるのは、[ProxyMode](#proxymode) ポリシーで '固定プロキシ サーバーを使用する' を選択した場合のみです。プロキシ ポリシーの構成で他のモードを選択した場合は、このポリシーを有効にしたり、構成したりしないでください。
 
-If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+このポリシーを有効にした場合、Microsoft Edge がプロキシを使用しないホストのリストを作成できます。
 
-If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+このポリシーを構成しなかった場合、Microsoft Edge がプロキシをバイパスするホストのリストは作成されません。プロキシ ポリシーの設定で他の方法を指定した場合は、このポリシーを構成しないでください。
 
-For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+詳細な例については、[https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936) を参照してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3445,33 +3560,33 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+  Microsoft Edge で使用されるプロキシ サーバーの設定を指定します。このポリシーを有効にした場合、ユーザーはプロキシ設定を変更できなくなります。
 
-If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+プロキシ サーバーを使用せず、常に直接接続することを選択すると、他のすべてのオプションは無視されます。
 
-If you choose to use system proxy settings, all other options are ignored.
+システム プロキシ設定を使用すると、他のすべてのオプションは無視されます。
 
-If you choose to auto detect the proxy server, all other options are ignored.
+プロキシ サーバーの自動検出を選択すると、他のすべてのオプションは無視されます。
 
-If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+固定サーバー プロキシ モードを選択すると、[ProxyServer](#proxyserver) や 'プロキシ バイパス規則のカンマ区切りのリスト' で追加のオプションを指定できます。
 
-If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+.pac プロキシ スクリプトの使用を選択すると、'プロキシ .pac ファイルの URL' でスクリプトへの URL を指定する必要があります。
 
-For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+詳細な例については、[https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936) を参照してください。
 
-If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+このポリシーを有効にした場合、Microsoft Edge では、コマンド ラインから指定したプロキシ関連のすべてのオプションが無視されます。
 
-If you don't configure this policy users can choose their own proxy settings.
+このポリシーを構成しなかった場合、ユーザーは独自のプロキシ設定を選択できます。
 
-* "direct" = Never use a proxy
+* "direct" = プロキシを使用しない
 
-* "auto_detect" = Auto detect proxy settings
+* "auto_detect" = プロキシ設定を自動検出する
 
-* "pac_script" = Use a .pac proxy script
+* "pac_script" = .pac プロキシ スクリプトを使用する
 
-* "fixed_servers" = Use fixed proxy servers
+* "fixed_servers" = 固定プロキシ サーバーを使用する
 
-* "system" = Use system proxy settings
+* "system" = システム プロキシ設定を使用する
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3514,15 +3629,15 @@ If you don't configure this policy users can choose their own proxy settings.
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the URL for a proxy auto-config (PAC) file.
+  プロキシ自動構成 (PAC) ファイルの URL を指定します
 
-This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+このポリシーが適用されるのは、[ProxyMode](#proxymode) ポリシーで '.pac プロキシ スクリプトを使用する' を選択した場合のみです。プロキシ ポリシーの構成で他のモードを選択した場合は、このポリシーを有効にしたり、構成したりしないでください。
 
-If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+このポリシーを有効にした場合、PAC ファイルの URL を指定できます。このファイルでは、特定の Web サイトを取得するための適切なプロキシ サーバーをブラウザーで自動的に選択する方法が定義されています。
 
-If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+このポリシーを無効にした場合または構成しなかった場合、PAC ファイルは指定されません。プロキシ ポリシーの設定で他の方法を指定した場合は、このポリシーを構成しないでください。
 
-For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+詳細な例については、[https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936) を参照してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3565,15 +3680,15 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the URL of the proxy server.
+  プロキシ サーバーの URL を指定します。
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+このポリシーが適用されるのは、[ProxyMode](#proxymode) ポリシーで '固定プロキシ サーバーを使用する' を選択した場合のみです。プロキシ ポリシーの構成で他のモードを選択した場合は、このポリシーを有効にしたり、構成したりしないでください。
 
-If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+このポリシーを有効にした場合、このポリシーによって構成されるプロキシ サーバーが、すべての URL に対して使用されます。
 
-If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+このポリシーを無効にした場合または構成しなかった場合、このプロキシ モード (固定プロキシ サーバーを使用する) のときに、ユーザーは独自のプロキシ設定を選択できます。プロキシ ポリシーの設定で他の方法を指定した場合は、このポリシーを構成しないでください。
 
-For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+その他のオプションや詳細な例については、[https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936) を参照してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3616,36 +3731,36 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Configures the proxy settings for Microsoft Edge.
+  Microsoft Edge のプロキシ設定を構成します。
 
-If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+このポリシーを有効にした場合、Microsoft Edge では、コマンド ラインから指定したプロキシ関連のオプションがすべて無視されます。
 
-If you don't configure this policy, users can choose their own proxy settings.
+このポリシーを設定しなかった場合、ユーザーは独自のプロキシ設定を選択できます。
 
-This policy overrides the following individual policies:
+このポリシーは、以下の各ポリシーをオーバーライドします。
 
 [ProxyMode](#proxymode)
 [ProxyPacUrl](#proxypacurl)
 [ProxyServer](#proxyserver)
 [ProxyBypassList](#proxybypasslist)
 
-The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+ProxyMode フィールドでは、Microsoft Edge で使用されるプロキシ サーバーを指定でき、ユーザーがプロキシ設定を変更できないようにします。
 
-The ProxyPacUrl field is a URL to a proxy .pac file.
+ProxyPacUrl フィールドには、プロキシ .pac ファイルへの URL を指定します。
 
-The ProxyServer field is a URL for the proxy server.
+ProxyServer フィールドには、プロキシ サーバーの URL を指定します。
 
-The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+ProxyBypassList フィールドには、Microsoft Edge がバイパスするプロキシ ホストのリストを指定します。
 
-If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+'ProxyMode' の値として 'direct' を選択した場合、プロキシは使用されず、他のフィールドはすべて無視されます。
 
-If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+'ProxyMode' の値として 'system' を選択した場合、システムのプロキシが使用され、他のフィールドはすべて無視されます。
 
-If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+'ProxyMode' の値として 'auto_detect' を選択した場合、他のフィールドはすべて無視されます。
 
-If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+'ProxyMode' の値として 'fixed_server' を選択した場合、'ProxyServer' フィールドと 'ProxyBypassList' フィールドが使用されます。
 
-If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+'ProxyMode' の値として 'pac_script' を選択した場合、'ProxyPacUrl' フィールドと 'ProxyBypassList' フィールドが使用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -3952,15 +4067,15 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Controls which extension types can be installed and limits runtime access.
+  インストールできる拡張機能の種類を制御し、ランタイム アクセスを制限します。
 
-This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+この設定では、許可される拡張機能の種類と、拡張機能とのやり取りができるホストを定義します。値は文字列のリストとして指定します。これらの文字列は、"extension"、"theme"、"user_script"、"hosted_app" のいずれかになります。これらの種類について詳しくは、Microsoft Edge の拡張機能に関するドキュメントをご覧ください。
 
-Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+このポリシーは、[ExtensionInstallForcelist](#extensioninstallforcelist) ポリシーを使用して強制的にインストールされる拡張機能にも影響します。
 
-If you enable this policy, only extensions that match a type in the list are installed.
+このポリシーを有効にした場合、リスト内の種類に一致する拡張機能のみがインストールされます。
 
-If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+このポリシーを構成しなかった場合、許可される拡張機能の種類に関する制限は適用されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4106,27 +4221,27 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+  ユーザーによる操作なしでサイレント インストールされる拡張機能を指定します。ユーザーは、これらの拡張機能をアンインストールしたり、無効にしたりすることはできません ("強制インストール")。拡張機能によって要求されるすべてのアクセス許可は、ユーザーが操作することなく暗黙的に付与されます。拡張機能の将来のバージョンによって要求される追加のアクセス許可も対象となります。また、アクセス許可は、enterprise.deviceAttributes 拡張機能 API や enterprise.platformKeys 拡張機能 API に対しても付与されます (これら 2 つの API は強制的にインストールされる拡張機能でのみ利用できます)。
 
-This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+このポリシーは、競合する可能性のある [ExtensionInstallBlocklist](#extensioninstallblocklist) ポリシーよりも優先されます。強制的にインストールされるリストから拡張機能を削除すると、その拡張機能は、Microsoft Edge によって自動的にアンインストールされます。
 
-For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+Microsoft Active Directory ドメインに参加していない Windows デバイスの場合、強制インストールは、Microsoft Store で提供されている拡張機能に限定されます。
 
-Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+ただし、ユーザーは開発者ツールを使用することで、どの拡張機能に対してもソース コードを変更できます (その場合、拡張機能が機能しなくなることがあります)。このようなユーザーによる変更を禁止する場合は、[DeveloperToolsAvailability](#developertoolsavailability) ポリシーを設定してください。
 
-Use the following format to add an extension to the list:
+以下の形式で拡張機能をリストに追加してください:
 
 [extensionID];[updateURL]
 
-- extensionID - the 32-letter string found on edge://extensions when in developer mode.
+- extensionID は 32 文字の文字列です。デベロッパー モード で edge://extensions を開くと確認できます。
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL (省略可能) は、アプリや拡張機能の更新マニフェスト XML ドキュメントのアドレスです。[https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) の説明をご覧ください。updateURL を設定しなかった場合、Microsoft Store の更新 URL が使用されます (現在は、https://edge.microsoft.com/extensionwebstorebase/v1/crx)。このポリシーで設定された更新 URL は、初回のインストールでのみ使用され、その後の拡張機能の更新では、拡張機能のマニフェストで指定されている更新 URL が使用されます。
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+たとえば、gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx では、Microsoft Store の "更新" URL から Microsoft Online アプリがインストールされます。拡張機能のホスティングについて詳しくは、[https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044) を参照してください。
 
-If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+このポリシーを構成しなかった場合、拡張機能は自動的にはインストールされず、ユーザーは Microsoft Edge のどの拡張機能でもアンインストールできます。
 
-Note that this policy doesn't apply to InPrivate mode.
+このポリシーは InPrivate モードには適用されないことに注意してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4174,13 +4289,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define URLs that can install extensions and themes.
+  拡張機能やテーマをインストールできる URL を定義します。
 
-By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+既定では、ユーザーはインストールする拡張機能やスクリプトそれぞれに対応した *.crx ファイルをダウンロードし、そのファイルを Microsoft Edge の設定ページにドラッグする必要があります。このポリシーでは、特定の URL を使用して、ユーザーに必要な拡張機能やスクリプトをインストールできるようにします。
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+このリストの各項目は、拡張機能スタイルの一致パターンに従っています ([https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039) を参照してください)。ユーザーは、このリストの項目に一致するどの URL からでも、アイテムを簡単にインストールできます。*.crx ファイルの場所およびダウンロードが開始されるページ (つまり、参照元) はどちらも、これらもパターンに基づいて許可されます。
 
-The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+[ExtensionInstallBlocklist](#extensioninstallblocklist) ポリシーは、このポリシーよりも優先されます。禁止リストで指定されている拡張機能は、このリストにあるサイトからの拡張機能であってもインストールされません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4488,11 +4603,11 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+  検索プロバイダーでサポートされる文字エンコードを指定します。エンコードは、UTF-8、GB2312、ISO-8859-1 などのコード ページ名になります。これらは、指定された順序で適用が試行されます。
 
-This policy is optional. If not configured, the default, UTF-8, is used.
+このポリシーは省略可能です。このポリシーを構成しなかった場合、既定では UTF-8 が使用されます。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを有効にした場合にのみ適用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4544,18 +4659,18 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+  画像検索に使用する検索エンジンの URL を指定します。検索要求は GET メソッドを使用して送信されます。
 
-This policy is optional. If you don't configure it, image search isn't available.
+このポリシーは省略可能です。このポリシーを構成しなかった場合、画像検索を利用することはできません。
 
-Specify Bing's Image Search URL as:
-'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+Bing の画像検索 URL は次のように指定します:
+'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'。
 
-Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+Google の画像検索 URL は次のように指定します: '{google:baseURL}searchbyimage/upload'。
 
-See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+画像検索の構成を完了するには、[DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) ポリシーを参照してください。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを有効にした場合にのみ適用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4598,15 +4713,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+  このポリシーを有効にした場合、POST を使った画像検索の実行時に使用するパラメーターが指定されます。このポリシーには、コンマで区切られた名前と値のペアが含まれます。値がテンプレート パラメータ (上記の例の {imageThumbnail} など) の場合は、実際の画像サムネイルのデータに置き換えられます。このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを有効にした場合にのみ適用されます。
 
-Specify Bing's Image Search URL Post Params as:
+Bing の画像検索 URL の POST パラメーターは次のように指定します:
 'imageBin={google:imageThumbnailBase64}'.
 
-Specify Google's Image Search URL Post Params as:
+Google の画像検索 URL の POST パラメーターは次のように指定します:
 'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
 
-If you don’t set this policy, image search requests are sent using the GET method.
+このポリシーを設定しなかった場合、画像検索要求は GET メソッドを使用して送信されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4649,11 +4764,11 @@ If you don’t set this policy, image search requests are sent using the GET met
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+  アドレス バーで使用するショートカットとして、このプロバイダーで検索をトリガーするためのキーワードを指定します。
 
-This policy is optional. If you don't configure it, no keyword activates the search provider.
+このポリシーは省略可能です。このポリシーを構成しなかった場合、キーワードによって検索プロバイダーはアクティブになりません。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを有効にした場合にのみ適用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4696,13 +4811,13 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the name of the default search provider.
+  既定の検索プロバイダーの名前を指定します。
 
-If you enable this policy, you set the name of the default search provider.
+このポリシーを有効にした場合、既定の検索プロバイダーの名前を設定します。
 
-If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+このポリシーを有効にしなかった場合または空白のままにした場合、検索 URL で指定されたホスト名が使用されます。
 
-'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+'DefaultSearchProviderName' は、組織で承認されている暗号化された検索プロバイダーに設定する必要があります。これは、DTBC-0008 で設定されている暗号化された検索プロバイダーに対応します。このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーが有効になっている場合にのみ適用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4745,15 +4860,15 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+  既定の検索で使用する検索エンジンの URL を指定します。URL には、文字列 '{searchTerms}' を含めます。クエリの実行時、この文字列はユーザーが検索する用語に置き換えられます。
 
-Specify Bing's search URL as:
+Bing の検索 URL は次のように指定します。
 
 '{bing:baseURL}search?q={searchTerms}'.
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+Google の検索 URL は、'{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}' のように指定します。
 
-This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーを有効にした場合に必要となります。'DefaultSearchProviderEnabled' ポリシーを有効にしなかった場合、このポリシーは無視されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -4796,17 +4911,17 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+  検索候補の表示に使用する検索エンジンの URL を指定します。URL には文字列 '{searchTerms}' を含めます。クエリの実行時、この文字列はユーザーがこれまで入力したテキストに置き換えられます。
 
-This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+このポリシーは省略可能です。このポリシーを構成しなかった場合、ユーザーには検索候補は表示されません。閲覧の履歴とお気に入りに基づく候補が表示されます。
 
-Bing's suggest URL can be specified as:
+Bing での検索候補の URL は次のように指定できます。
 
-'{bing:baseURL}qbox?query={searchTerms}'.
+'{bing:baseURL}qbox?query={searchTerms}'
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+Google での検索候補の URL は、'{google:baseURL}complete/search?output=chrome&q={searchTerms}' のように指定できます。
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+このポリシーは、[DefaultSearchProviderEnabled](#defaultsearchproviderenabled) ポリシーと [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを有効にした場合にのみ適用されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -5236,13 +5351,13 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+  オーディオ キャプチャ デバイスへの Web サイト アクセスの許可をユーザーに確認するかどうかを設定できます。このポリシーは、[AudioCaptureAllowedUrls](#audiocaptureallowedurls) のリストで構成されている URL を除くすべての URL に適用されます。
 
-If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+このポリシーを有効にした場合または構成しなかった場合 (既定の設定)、ユーザーは、[AudioCaptureAllowedUrls](#audiocaptureallowedurls) のリストに含まれていない URL からのオーディオ キャプチャへのアクセスを許可するように求められます。このリストに含まれている URL については、ユーザーへの確認なしでアクセスが許可されます。
 
-If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+この設定を無効にした場合、ユーザーへの確認は行われず、オーディオ キャプチャにアクセスできるのは、[AudioCaptureAllowedUrls](#audiocaptureallowedurls) で構成されている URL からのみになります。
 
-This policy affects all types of audio inputs, not only the built-in microphone.
+このポリシーは、内蔵マイクだけでなく、すべての種類のオーディオ入力に影響します。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -5816,21 +5931,21 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+  ユーザーが自分のアカウントで Microsoft Edge にサインインして、アカウントに関連するサービス (同期やシングル サインオンなど) を使用できるかどうかを指定します。同期を利用できるかどうかを制御するには、代わりに [SyncDisabled](#syncdisabled) ポリシーを使用します。
 
-If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+このポリシーを 'ブラウザー サインインを無効にする' に設定した場合、[NonRemovableProfileEnabled](#nonremovableprofileenabled) ポリシーも無効に設定していることを確認してください。これは、[NonRemovableProfileEnabled](#nonremovableprofileenabled) によって、自動的にサインインされるブラウザー プロファイルの作成が無効になるためです。両方のポリシーが設定されていると、Microsoft Edge では 'ブラウザー サインインを無効にする' ポリシーが使用され、[NonRemovableProfileEnabled](#nonremovableprofileenabled) が無効に設定されているものとして動作します。
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+このポリシーを 'ブラウザー サインインを有効にする' (1) に設定した場合、ユーザーはブラウザーにサインインすることができます。ブラウザーにサインインしても、同期が既定で有効になるというわけではありません。同期の機能を使用するには、ユーザーは個別にオプトインする必要があります。
 
-If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+このポリシーを 'ブラウザー サインインを強制する' (2) に設定した場合、ユーザーはブラウザーを使用するためにプロファイルにサインインする必要があります。既定では、ドメイン管理者や [SyncDisabled](#syncdisabled) ポリシーによって同期が無効になっていない限り、この設定よって、ユーザーは自分のアカウントと同期するかどうかを選択することができます。[BrowserGuestModeEnabled](#browserguestmodeenabled) ポリシーの既定値は false に設定されます。
 
-If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+このポリシーを構成しなかった場合、ユーザーは、ブラウザー サインイン オプションを有効にして、ブラウザーをユーザーに合った状態で使用できるようにするかどうかを指定できます。
 
-* 0 = Disable browser sign-in
+* 0 = ブラウザー サインインを無効にする
 
-* 1 = Enable browser sign-in
+* 1 = ブラウザー サインインを有効にする
 
-* 2 = Force users to sign-in to use the browser
+* 2 = ユーザーにサインインしてブラウザーを使用するよう強制する
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -6091,13 +6206,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   >サポートされているバージョン: Windows および Mac (バージョン 78 以降) の Microsoft Edge
 
   #### 説明
-  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+  Microsoft Edge は、既定では終了時に閲覧データを消去しません。閲覧データには、フォームやパスワードに入力した情報が含まれています。またアクセスした Web サイトで入力した情報も含まれています。
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+このポリシーを有効にした場合、Microsoft Edge を終了するたびにすべての閲覧データが削除されます。
 
-If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+このポリシーを無効にした場合または構成しなかった場合、ユーザーは [設定] で [閲覧データの消去] オプションを構成できます。
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+このポリシーを有効にした場合は、[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) ポリシーを有効にしないでください。どちらのポリシーもデータの削除を扱うためです。両方のポリシーを有効にした場合、このポリシーが優先され、[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) の構成方法に関係なく、Microsoft Edge の終了時には、すべてのデータが削除されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -6339,8 +6454,8 @@ Windows では、このポリシーは、Microsoft Active Directory ドメイン
 このポリシーを無効にした場合、音声フォントは利用できなくなります。
 
 この機能の詳細については以下をご覧ください:
-SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -6581,11 +6696,11 @@ DirectInvoke の詳細については、[https://go.microsoft.com/fwlink/?linkid
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+  Web ページがグラフィック プロセッシング ユニット (GPU) にアクセスできないようにします。具体的には、Web ページは WebGL API にアクセスできず、プラグインでは Pepper 3D API を使用できなくなります。
 
-If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+このポリシーを構成しなかった場合または無効にした場合は、Web ページで WebGL API とプラグインを使用して、Pepper 3D API を使用することができます。Microsoft Edge では、既定でこれらの API を使用するためにコマンド ラインの引数を渡すことが必要になる場合があります。
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) ポリシーが false に設定されている場合、'Disable3DAPIs' ポリシーの設定は無視されます。これは、'Disable3DAPIs' ポリシーを true に設定することと同じです。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7231,15 +7346,15 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  このポリシーでは、外部プロトコルの起動確認プロンプトに [常に開く] チェック ボックスを表示するかどうかを制御します。
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+このポリシーを True に設定した場合、外部プロトコルの確認プロンプトが表示されたときに、ユーザーは [常に開く] を選択できます。今後、ユーザーに対してこのプロトコルの確認プロンプトは表示されなくなります。
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+このポリシーを False に設定した場合またはこのポリシーを設定しなかった場合、[常に開く] チェック ボックスは表示されません。外部プロトコルを呼び出すたびに、ユーザーは確認を求められます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7252,7 +7367,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP の名前: Show an "Always open" checkbox in external protocol dialog.
+  - GP の名前: 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -8375,23 +8490,23 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
   >サポートされているバージョン: Windows (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+  "ページ内" ナビゲーションは、現在のページ上にあるリンク、スクリプト、またはフォームから始まります。また "ページ内" ナビゲーションが、前回行った "ページ内" ナビゲーションのサーバー側リダイレクトになる場合もあります。これに対して、ユーザーは、ブラウザー コントロールを使用したいくつかの方法で、現在のページに依存しない "ページ内" 以外のナビゲーションを開始することができます。たとえば、アドレス バー、[戻る] ボタン、またはお気に入りのリンクを使用します。
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+この設定では、Internet Explorer モードで読み込まれたページから未構成のサイト (エンタープライズ モード サイト一覧に構成されていないサイト) へのナビゲーションを Microsoft Edge に戻すか、Internet Explorer モードのままにしておくかどうかを指定できます。
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+この設定は、以下の操作と連動して機能します:
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) を "Internet Explorer モード" (1) に設定する
+および
+エンタープライズ モード サイト一覧に少なくとも 1 つのエントリが含まれるように、[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) ポリシーを構成する
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+このポリシーを無効にした場合または構成しなかった場合、Internet Explorer モードで開くように構成されたサイトのみが、そのモードで開きます。Internet Explorer モードで開くように構成されていないサイトは、Microsoft Edge にリダイレクトされます。
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+このポリシーを有効にした場合、次のいずれかのナビゲーション オプションを選択できます。
+0 - 既定値。Internet Explorer モードで開くように構成されたサイトのみが、そのモードで開きます。Internet Explorer モードで開くように構成されていないサイトは、Microsoft Edge にリダイレクトされます。
+1 - 自動ナビゲーションのみが Internet Explorer モードで維持されます。既定のエクスペリエンスを Internet Explorer モードで維持する場合は、このオプションを使用します。ただし、未構成のサイトへの自動ナビゲーション (302 リダイレクトなど) はすべて、このオプションの対象外となります。
+2 - すべてのページ内ナビゲーション が Internet Explorer モードで維持されます (ほとんどの場合に推奨されません)。IE モードで読み込まれたページから未構成のサイトへのすべてのナビゲーションが Internet Explorer モードで維持されます。
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+Internet Explorer モードの詳細については、[https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106) をご覧ください
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8428,11 +8543,11 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Specify origins to run in isolation, in their own process.
-This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
-If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
-If you don't configure the policy, the user can change this setting.
+  独自のプロセスで分離して実行されるオリジンを指定します。
+またこのポリシーでは、サブドメインによって指定されたオリジンも分離されます。たとえば、https://contoso.com/ と指定すると、https://foo.contoso.com/ が https://contoso.com/ サイトの一部として 分離されます。
+このポリシーを有効にした場合、コンマ区切りのリスト内にある指定のオリジンは、それぞれ独自のプロセスで実行されます。
+このポリシーを無効にした場合、'IsolateOrigins' 機能と 'SitePerProcess' 機能はどちらも無効になります。ただしユーザーは、コマンド ライン フラグを使用して、手動で 'IsolateOrigins' ポリシーを有効にすることができます。
+このポリシーを構成しなかった場合、ユーザーはこの設定を変更できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8586,14 +8701,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding for any search engine.
+  最大 10 個の検索エンジンが含まれるリストを構成できます。検索エンジンのいずれか一つは、既定の検索エンジンとしてマークする必要があります。
+検索エンジンのエンコードを指定する必要はありません。
 
-If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+このポリシーを有効にした場合、ユーザーはリスト内の検索エンジンを追加、削除、または変更できません。ユーザーは、リスト内のどの検索エンジンでも既定の検索エンジンとして設定できます。
 
-If you disable or don't configure this policy, users can modify the search engines list as desired.
+このポリシーを無効にした場合または構成しなかった場合、ユーザーは検索エンジンのリストを必要に応じて変更できます。
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを設定した場合、このポリシー (ManagedSearchEngines) は無視されます。このポリシーの適用を完了するには、ユーザーはブラウザーを再起動する必要があります。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8753,13 +8868,13 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+  このポリシーを有効にした場合、Google Cast は、RFC1918/RFC4193 のプライベート アドレスだけでなく、すべての IP アドレスの Cast デバイスに接続できます。
 
-Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+このポリシーを無効にした場合、Google Cast は、RFC1918/RFC4193 のプライベート アドレスの Cast デバイスにのみ接続できます。
 
-If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+このポリシーを構成しなかった場合、CastAllowAllIPs 機能が有効になっていなければ、Google Cast は RFC1918/RFC4193 のプライベート アドレスの Cast デバイスにのみ接続できます。
 
-If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+[EnableMediaRouter](#enablemediarouter) ポリシーを無効にした場合、このポリシーは適用されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8802,17 +8917,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Microsoft Edge の Windows 10 Beta および Stable チャネルについては、このポリシーが構成されると、Microsoft Edge の使用状況とクラッシュに関するデータ ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)) のコレクションまたは非コレクションに設定された Windows 診断データが上書きされます。
+  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-このポリシーは、Microsoft Edge に関する使用状況とクラッシュに関連するデータのマイクロソフトへの報告を有効にし、ユーザーがこの設定を変更できないようにします。
+This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
-このポリシーを有効にした場合、使用状況とクラッシュに関連するデータのレポートを Microsoft に送信します。このポリシーを無効にした場合、データは Microsoft に送信されません。どちらの場合も、ユーザーは設定を変更または上書きすることはできません。
+Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
- Windows 10、Beta、および Stable チャネルでは、このポリシーが使用状況とクラッシュに関するデータを制御します。このポリシーが構成されていなかった場合、Microsoft Edge は Windows 診断データ設定を既定値に設定します。
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
-Windows 10、Canary および Dev チャネルでは、このポリシーが使用状況とクラッシュに関するデータを制御します。このポリシーが構成されていなかった場合、Microsoft Edge はユーザー設定を既定値に設定します。
+On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
-Windows 7、8、および Mac では、このポリシーがユーザーが使用状況とクラッシュに関するデータを制御します。このポリシーが構成されていなかった場合、Microsoft Edge はユーザー設定を既定値に設定します。
+On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8906,13 +9023,13 @@ Windows 7、8、および Mac では、このポリシーがユーザーが使�
   >サポートされているバージョン: Windows (バージョン 78 以降) の Microsoft Edge
 
   #### 説明
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  このポリシーでは、ユーザーの職場または学校アカウントを使用して自動的にサインインされる Microsoft Edge のプロファイルが削除可能であるかどうかを決定します。
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+このポリシーを有効にした場合または構成しなかった場合、Windows におけるユーザーの職場または学校アカウントを使用して、削除不可能なプロファイルが作成されます。このプロファイルからサインアウトしたり、このプロファイルを削除したりすることはできません。
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+このポリシーを無効にした場合、Windows におけるユーザーの職場または学校アカウントを使用して自動的にサインインされるプロファイルについては、ユーザーはサインアウトしたり、削除したりすることができます。
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+ブラウザー サインインを完全に無効する場合は、'BrowserSignIn' ポリシーを使用します。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8994,6 +9111,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >サポートされているバージョン: Windows (バージョン 80 以降) の Microsoft Edge
+
+  #### 説明
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: いいえ
+  - 動的ポリシーの更新: いいえ - ブラウザーの再起動が必要です
+
+  #### データ型:
+  ブール値
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: PinningWizardAllowed
+  - GP の名前: Allow Pin to taskbar wizard
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/
+  - GP パス (おすすめ): N/A
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
+  - パス (おすすめ): N/A
+  - 値の名前: PinningWizardAllowed
+  - 値の種類: REG_DWORD
+  ##### サンプル値:
+```
+0x00000000
+```
+
+
   
 
   [トップに戻る](#microsoft-edge---ポリシー)
@@ -9195,19 +9355,19 @@ QUIC とは、トランスポート層ネットワーク プロトコルで、�
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Notify users that they need to restart Microsoft Edge to apply a pending update.
+  保留中の更新プログラムを適用するには Microsoft Edge を再起動する必要があることをユーザーに通知します。
 
-If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+このポリシーを構成しなかった場合、Microsoft Edge では、上部のメニュー バーの右端に [リサイクル] アイコンが追加され、ブラウザーを再起動して更新プログラムを適用するようにユーザーに通知します。
 
-If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+このポリシーを有効にして、'推奨' (1) に設定した場合、再起動が推奨されることをユーザーに通知する警告が定期的に表示されます。ユーザーはこの警告を無視して、再起動を延期できます。
 
-If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+ポリシーを '必須' (2) に設定した場合は、通知期間が経過するとすぐにブラウザーが自動的に再起動されることをユーザーに通知する定期的な警告が表示されます。既定の期間は 7 日間です。この期間は [RelaunchNotificationPeriod](#relaunchnotificationperiod) ポリシーで構成できます。
 
-The user's session is restored when the browser restarts.
+ユーザーのセッションは、ブラウザーの再起動時に復元されます。
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+* 推奨 (1) = 再起動が推奨されることを示す定期的なプロンプトをユーザーに表示する
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+* 必須 (2) = 再起動が必須であることを示す定期的なプロンプトをユーザーに表示する
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -9250,15 +9410,11 @@ The user's session is restored when the browser restarts.
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -9381,16 +9537,16 @@ Restrictions:
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+  Microsoft Edge で、データレス接続を Web サービスに対して発行し、ホテルや空港の Wi-Fi などを利用する場合にネットワークの接続性を調べることができるようにします。
 
-If you enable this policy, a web service is used for network connectivity tests.
+このポリシーを有効にした場合、ネットワーク接続のテストで Web サービスが使用されます。
 
-If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+このポリシーを無効にした場合、Microsoft Edge ではネイティブ API を使用して、ネットワーク接続とナビゲーションに関する問題の解決を試行します。
 
-**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+** 注意 **: Windows 8 およびそれ以降のバージョンの Windows を除き、Microsoft Edge では、*常に*ネイティブ API を使用して、接続の問題を解決します。
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+このポリシーを構成しなかった場合、Microsoft Edge では、edge://settings/privacy の [サービス] で設定されているユーザーの基本設定に従います。
+具体的には **[ナビゲーションエラーを解決するために Web サービスを使用する]** というトグルが使用されます。ユーザーはこのトグルのオン/オフを切り替えることができます。ただし、このポリシー (ResolveNavigationErrorsUseWebService) を有効にした場合は、 **[ナビゲーションエラーを解決するために Web サービスを使用する]** の設定がオンになりますが、ユーザーはこのトグルを使用して設定を変更することができなくなります。このポリシーを無効にした場合は、**[ナビゲーションエラーを解決するために Web サービスを使用する]** の設定がオフになり、この場合もユーザーはこのトグルを使用して設定を変更することができなくなります。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -9480,11 +9636,11 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+  このポリシーを有効にした場合、コンテンツの設定で Adobe Flash が許可されている Web サイトでは (この許可はユーザーまたはエンタープライズ ポリシーによって指定されます)、埋め込まれているすべての Adobe Flash コンテンツが実行されます。こうしたコンテンツには、他のオリジンからのコンテンツや小さなコンテンツも含まれます。
 
-To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+Adobe Flash の実行を許可する Web サイトを制御するには、[DefaultPluginsSetting](#defaultpluginssetting)、[PluginsAllowedForUrls](#pluginsallowedforurls)、[PluginsBlockedForUrls](#pluginsblockedforurls) の各ポリシーの仕様を参照してください。
 
-If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+このポリシーを無効にした場合または構成しなかった場合、他のオリジン (上に示した 3 つのポリシーで指定されていないサイト) からの Adobe Flash コンテンツや小さなコンテンツはブロックされる可能性があります。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -9955,11 +10111,9 @@ Windows 7、8、および Mac では、このポリシーがユーザーがア�
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
-If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
-If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
+  'SitePerProcess' ポリシーを使用すると、すべてのサイトを分離する既定の動作をユーザーがオプトアウトするのを防ぐことができます。[IsolateOrigins](#isolateorigins) ポリシーを使用して、より細かいオリジンをさらに分離することもできます。
+このポリシーを有効にした場合、ユーザーは既定の動作をオプトアウトできず、各サイトは独自のプロセスで実行されます。
+このポリシーを無効にした場合またはこのポリシーを構成しなかった場合、ユーザーはサイトの分離をオプトアウトできます (たとえは、edge://flags で "Disable site isolation" (サイトの分離を無効にする) エントリを使用)。このポリシーを無効にした場合または構成しなかった場合でも、サイトの分離は無効になりません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10002,9 +10156,9 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  If you enable or don't configure this policy, the user can use spellcheck.
+  このポリシーを有効にした場合または構成しなかった場合、ユーザーはスペルチェックを使用できます。
 
-If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+このポリシーを無効にした場合、ユーザーはスペルチェックを使用できなくなり、[SpellcheckLanguage](#spellchecklanguage) ポリシーと [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) ポリシーも無効になります。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10047,17 +10201,17 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   >サポートされているバージョン: Windows (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+  スペルチェックでさまざまな言語が利用できるようにします。指定した言語が認識されない場合は無視されます。
 
-If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+このポリシーを有効にした場合、ポリシーで指定した言語およびユーザーが有効にしたすべての言語でスペルチェックを利用できるようになります。
 
-If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+このポリシーを構成しなかった場合または無効にした場合、ユーザーのスペルチェックの設定は変更されません。
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+[SpellcheckEnabled](#spellcheckenabled) ポリシーを無効にした場合、このポリシーは適用されません。
 
-If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+言語が 'SpellcheckLanguage' ポリシーと [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) ポリシーの両方に含まれている場合、そのスペルチェック言語は有効なものとして扱われます。
 
-The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+次の言語がサポートされています: af、bg、ca、cs、cy、da、de、el、en-AU、en-CA、en-GB、en-US、es、es-419、es-AR、es-ES、es-MX、es-US、et、fa、fo、fr、he、hi、hr、hu、id、it、ko、lt、lv、nb、nl、pl、pt-BR、pt-PT、ro、ru、sh、sk、sl、sq、sr、sv、ta、tg、tr、uk、vi。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10096,17 +10250,17 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   >サポートされているバージョン: Windows (バージョン 78 以降) の Microsoft Edge
 
   #### 説明
-  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+  スペルチェック言語を強制的に無効にします。このリストにある認識されない言語は、無視されます。
 
-If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+このポリシーを有効にした場合、指定した言語のスペルチェックが無効になります。ただしユーザーは、リストにない言語に対してスペルチェックを有効または無効にすることができます。
 
-If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+このポリシーを設定しなかった場合または無効にした場合、ユーザーのスペルチェックの設定は変更されません。
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+[SpellcheckEnabled](#spellcheckenabled) ポリシーを無効に設定した場合、このポリシーは適用されません。
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+[SpellcheckLanguage](#spellchecklanguage) ポリシーと 'SpellcheckLanguageBlocklist' ポリシーの両方に言語が含まれている場合、そのスペルチェック言語は有効なものとして扱われます。
 
-The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+現在、次の言語がサポートされています: af、bg、ca、cs、da、de、el、en-AU、en-CA、en-GB、en-US、es、es-419、es-AR、es-ES、es-MX、es-US、et、fa、fo、fr、he、hi、hr、hu、id、it、ko、lt、lv、nb、nl、pl、pt-BR、pt-PT、ro、ru、sh、sk、sl、sq、sr、sv、ta、tg、tr、uk、vi。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10188,11 +10342,11 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  Microsoft Edge でデータ同期を無効にして、ユーザーがこの設定を変更できないようにします。
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+このポリシーを設定しなかった場合、ユーザーは同期を有効にしたり無効にしたりすることができます。
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+'RoamingProfileSupportEnabled' ポリシーが有効になっているときは、このポリシーを有効にしないでください。'RoamingProfileSupportEnabled' と同期機能が重複するためです。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10231,22 +10385,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >サポートされているバージョン: Windows (バージョン 79 以降) の Microsoft Edge
+  #### バックグラウンド タブの固定を許可する
+  >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Microsoft Edge で、5 分以上バックグラウンドで開かれるタブを固定できるかどうかを制御します。
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+タブを固定すると、CPU、バッテリ、およびメモリの使用量を減らすことができます。Microsoft Edge では、ヒューリスティックを使用して、重要な処理 (通知の表示、サウンドの再生、動画のストリーム配信など) をバックグラウンドで実行するタブが固定されるのを回避します。
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+このポリシーを有効にした場合または構成しなかった場合、5 分以上バックグラウンドで表示されていたタブが固定される可能性があります。
 
-If you disable this policy, no tabs will be frozen.
+このポリシーを無効にした場合、タブは固定されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
   - 推奨される場合があります: いいえ
-  - 動的ポリシーの更新: いいえ - ブラウザーの再起動が必要です
+  - 動的ポリシーの更新: はい
 
   #### データ型:
   ブール値
@@ -10254,7 +10408,7 @@ If you disable this policy, no tabs will be frozen.
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: TabFreezingEnabled
-  - GP の名前: Allow freezing of background tabs
+  - GP の名前: バックグラウンド タブの固定を許可する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -10269,6 +10423,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Mac の情報と設定
+  - 優先されるキーの名前: TabFreezingEnabled
+  - サンプル値:
+``` xml
+<false/>
+```
   
 
   [トップに戻る](#microsoft-edge---ポリシー)
@@ -10422,17 +10582,17 @@ If you disable this policy, no tabs will be frozen.
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allow access to the listed URLs, as exceptions to the URL block list.
+  URL 禁止リストの例外として、リストに登録された URL へのアクセスを許可します。
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+URL パターンの形式は、[https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322) に従って指定してください。
 
-You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+このポリシーを使用すると、アクセスを制限する禁止リストに対して例外を適用できます。たとえば、禁止リストに '*' を含めて、すべての要求をブロックしてから、このポリシーを使用し、リストに登録されている限定された URL へのアクセスを許可することができます。このポリシーを使用して、特定のスキーム、他のドメインのサブドメイン、ポート、特定のパスに対して例外を適用することができます。
 
-The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+具体的に指定されたフィルターによって、URL がブロックされるか許可されるかが決定されます。許可リストは、禁止リストよりも優先されます。
 
-This policy is limited to 1000 entries; subsequent entries are ignored.
+このポリシーに登録できるエントリは 1000 件までです。それ以降のエントリは無視されます。
 
-If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+このポリシーを構成しなかった場合、[URLBlocklist](#urlblocklist) ポリシーの禁止リストに対して例外は設定されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10486,17 +10646,17 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+  ブロックされるサイトのリストを、URL パターンに基づいて定義します (ユーザーはこれらのサイトを読み込むことはできません)。
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+URL パターンの形式は、[https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322) に従って指定します。
 
-You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+例外は [URLAllowlist](#urlallowlist) ポリシーで定義できます。これらのポリシーに登録できるエントリは 1000 件までです。それ以降のエントリは無視されます。
 
-Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+内部 URL である 'edge://*' をブロックすることはお勧めしません。こうした URL をブロックすると、予期しないエラーが発生する可能性があります。
 
-This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+このポリシーは、JavaScript を使用した動的なページの更新を妨げるものではありません。たとえば、'contoso.com/abc' をブロックした場合、ユーザーは 'contoso.com' にアクセスし、'contoso.com/abc' のページが更新されていなければ、このページへアクセスするためのリンクをクリックすることはできます。
 
-If you don't configure this policy, no URLs are blocked.
+このポリシーを構成しなかった場合、どの URL もブロックされません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10654,13 +10814,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Control whether sites can capture video.
+  サイトがビデオをキャプチャできるかどうかを制御します。
 
-If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+このポリシーを有効にした場合または構成しなかった場合 (既定)、ユーザーは、すべてのサイトでビデオ キャプチャのアクセスを確認するよう要求されます。ただし、[VideoCaptureAllowedUrls](#videocaptureallowedurls) ポリシーのリストで構成されている URL を持つサイトは除外されます。こうしたサイトでは、ユーザーへの確認を要求せずにアクセスが許可されます。
 
-If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+このポリシーを無効にした場合、ユーザーに対する確認の要求は行われず、ビデオ キャプチャは、[VideoCaptureAllowedUrls](#videocaptureallowedurls) ポリシーで構成されている URL でのみ利用できます。
 
-This policy affects all types of video inputs, not only the built-in camera.
+このポリシーは、内蔵カメラだけでなく、すべての種類のビデオ入力に影響します。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10800,19 +10960,18 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  
-This policy was removed in M80, because it is not necessary anymore as
-WebDriver is now compatible with all existing policies.
+  このポリシーは必要ではなくなったため、M80 で削除されました。
+現在では、WebDriver が既存のすべてのポリシーと互換性を持っています。
 
-This policy allows users of the WebDriver feature to override
-policies which can interfere with its operation.
+このポリシーを使用すると、WebDriver 機能を使用するユーザーは、
+動作を妨げる可能性のあるポリシーをオーバーライドできます。
 
-Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+現在、このポリシーによって無効になるのは [SitePerProcess](#siteperprocess) ポリシーと [IsolateOrigins](#isolateorigins) ポリシーです
 
-If the policy is enabled, WebDriver will be able to override incomaptible
-policies.
-If the policy is disabled or not configured, WebDriver will not be allowed
-to override incompatible policies.
+このポリシーを有効にした場合、WebDriver では互換性のないポリシーを
+オーバーライドできます。
+このポリシーを無効にした場合または構成しなかった場合、WebDriver では互換性のないポリシーを
+オーバーライドできません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
