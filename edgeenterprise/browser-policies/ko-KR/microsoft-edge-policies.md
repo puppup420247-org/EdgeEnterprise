@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/07/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -57,7 +57,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Microsoft Defender SmartScreen이 경고를 트리거하지 않는 도메인 목록 구성|
 |[SmartScreenEnabled](#smartscreenenabled)|Microsoft Defender SmartScreen 구성|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|신뢰할 수 있는 원본의 다운로드에 대한 Microsoft Defender SmartScreen 검사 강제 적용|
-|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|사용자 동의 없이 설치된 앱을 차단하도록 Microsoft Defender SmartScreen 구성|
 ### [*기본 검색 공급자*](#기본-검색-공급자-policies)
 |정책 이름|설명|
 |-|-|
@@ -84,7 +84,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|새 탭 페이지에서 기본 상위 사이트 숨기기|
 |[NewTabPageLocation](#newtabpagelocation)|새 탭 페이지 URL 구성|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|새 탭 페이지 빠른 연결 설정|
-|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Microsoft Edge 새 탭 페이지 환경 구성|
 |[RestoreOnStartup](#restoreonstartup)|시작 시 수행할 작업|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|브라우저가 시작될 때 열 사이트|
 |[ShowHomeButton](#showhomebutton)|도구 모음에 홈 버튼 표시|
@@ -123,6 +123,8 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[ImagesBlockedForUrls](#imagesblockedforurls)|특정 사이트에서 이미지 차단|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|특정 사이트에서 JavaScript 허용|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|특정 사이트에서 JavaScript 차단|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|기본 레거시 SameSite 쿠키 동작 설정 사용|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|지정된 사이트의 쿠키에 대해 레거시 SameSite 동작으로 되돌리기|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|특정 사이트에서 알림 허용|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|특정 사이트에서 알림 차단|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|특정 사이트에서 Adobe Flash 플러그 인 허용|
@@ -201,7 +203,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|온라인 OCSP/CRL 검사 사용|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|관리되는 확장에서 엔터프라이즈 하드웨어 플랫폼 API를 사용하도록 허용|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|실험 및 구성 서비스와의 통신 제어|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|즐겨찾기 모음 사용|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing 유해 정보 차단 적용|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|임시 프로필 사용 설정|
@@ -234,6 +236,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[NetworkPredictionOptions](#networkpredictionoptions)|네트워크 예측 사용|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|사용자가 회사 또는 학교 계정으로 자동으로 로그인한 기본 프로필을 항상 가지고 있는지 여부를 구성합니다.|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|안전하지 않은 원본에 대한 보안 제한이 적용되는 위치 제어|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|사전 인증 사용|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|전체 탭 프로모션 콘텐츠 사용|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|다운로드한 파일을 저장할 위치 묻기|
@@ -260,7 +263,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|맞춤법 검사 언어 강제 사용 안 함|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|지원 되지 않는 OS 경고 표시 안 함|
 |[SyncDisabled](#syncdisabled)|Microsoft 동기화 서비스를 사용한 데이터의 동기화 사용 안 함|
-|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
+|[TabFreezingEnabled](#tabfreezingenabled)|배경 탭의 고정 허용|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|브라우저 작업 관리자에서 종료 프로세스 사용|
 |[TrackingPrevention](#trackingprevention)|사용자의 웹 검색 활동 추적 차단|
 |[TranslateEnabled](#translateenabled)|번역 사용|
@@ -334,11 +337,11 @@ Google 캐스트를 사용하지 않으려면 이 정책을 사용하지 않도�
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.
+  도구 모음이나 오버플로 메뉴에 캐스트 도구 모음 아이콘을 표시하려면 이 정책을 true로 설정합니다. 사용자는 이 정책을 제거할 수 없습니다.
 
-If you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.
+이 정책을 구성하지 않거나 사용하지 않도록 설정 하는 경우 사용자는 상황에 맞는 메뉴를 사용하여 아이콘을 고정하거나 제거할 수 있습니다.
 
-If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, then this policy is ignored, and the toolbar icon isn't shown.
+[EnableMediaRouter](#enablemediarouter) 정책을 false로 설정하면 이 정책은 무시되고 도구 모음 아이콘은 표시되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -700,11 +703,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  이 정책 설정을 통해 사용자가 잠재적으로 악성 웹 사이트에 대한 Microsoft Defender SmartScreen 경고를 재정의할 수 있는지 여부를 결정할 수 있습니다.
+  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
 
-이 설정을 사용하면 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 사이트로 이동하지 못합니다.
+If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
 
-이 설정을 사용하지 않도록 설정하거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 사이트로 이동할 수 있습니다.
+If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -747,11 +752,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows의 Microsoft Edge, 버전 77 이상부터 및 Mac, 버전 79 이상부터
 
   #### 설명
-  이 정책을 통해 확인되지 않은 다운로드에 대한 Microsoft Defender SmartScreen 경고를 무시할수 있는지 여부를 결정할 수 있습니다.
+  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
 
-이 정책을 사용하면 조직의 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 확인되지 않은 다운로드를 완료할 수 없습니다.
+If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
-이 정책을 사용하지 않거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 확인되지 않은 다운로드를 완료할 수 있습니다.
+If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -794,14 +801,15 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Microsoft Defender SmartScreen에서 트러스트된 도메인 목록을 구성합니다. 즉,
-원본 URL이 이 도메인과 일치하는 경우 Microsoft Defender SmartScreen은 피싱 소프트웨어 및 기타 맬웨어와 같은 잠재적 악성 리소스를 확인하지 않습니다.
-Microsoft Defender SmartScreen 다운로드 보호 서비스는 해당 도메인에서 호스팅되는 다운로드를 확인하지 않습니다.
+  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
+Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
+The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
 
-이 정책을 사용하면 Microsoft Defender SmartScreen에서 이러한 도메인을 신뢰합니다.
-이 정책을 사용하지 않거나 설정하지 않으면 기본 Microsoft Defender SmartScreen 보호가 모든 리소스에 적용됩니다.
-이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
-또한 조직에서 Microsoft Defender Advanced Threat Protection을 사용하도록 설정한 경우에는 이 정책이 적용되지 않습니다. Microsoft Defender 보안 센터에서 허용 및 차단 목록을 구성해야 합니다.
+If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
+If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -849,15 +857,15 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
+  이 정책 설정을 통해 Microsoft Defender SmartScreen을 활성화할지 여부를 구성할 수 있습니다. Microsoft Defender SmartScreen은 피싱 사기 및 악성 소프트웨어로부터 사용자를 보호하는데 도움이 되는 경고 메시지를 제공합니다 기본적으로 Microsoft Defender SmartScreen은 켜져 있습니다.
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on.
+이 설정을 사용하면 Microsoft Defender SmartScreen이 켜집니다.
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off.
+이 설정을 사용하지 않도록 설정하면 Microsoft Defender SmartScreen이 꺼집니다.
 
-If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
+이 설정을 구성하지 않으면 사용자가 Microsoft Defender SmartScreen을 사용할지 여부를 선택할 수 있습니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -939,19 +947,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### SmartScreenPuaEnabled
-  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  #### 사용자 동의 없이 설치된 앱을 차단하도록 Microsoft Defender SmartScreen 구성
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+  이 정책 설정을 통해 Microsoft Defender SmartScreen에서 사용자 동의 없이 설치된 앱의 차단을 활성화할지 여부를 구성할 수 있습니다. Microsoft Defender SmartScreen의 사용자 동의 없이 설치된 앱 차단은 웹 사이트에서 호스트하는 애드웨어, 코인 마이너, 번들웨어 및 기타 낮은 평판의 앱으로부터 사용자를 보호하는 데 도움이 되는 경고 메시지를 제공합니다. Microsoft Defender SmartScreen의 사용자 동의 없이 설치된 앱 차단은 기본적으로 해제되어 있습니다.
 
-If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+이 설정을 사용하면 Microsoft Defender SmartScreen의 사용자 동의 없이 설치된 앱 차단이 설정됩니다.
 
-If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+이 설정을 사용하지 않으면 Microsoft Defender SmartScreen의 사용자 동의 없이 설치된 앱 차단이 해제됩니다.
 
-If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+이 설정을 구성하지 않으면 사용자가 SmartScreen의 사용자 동의 없이 설치된 앱 차단을 사용할지 여부를 선택할 수 있습니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -964,7 +972,7 @@ This policy is available only on Windows instances that are joined to a Microsof
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: SmartScreenPuaEnabled
-  - GP 이름: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - GP 이름: 사용자 동의 없이 설치된 앱을 차단하도록 Microsoft Defender SmartScreen 구성
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/SmartScreen 설정
   - GP 경로 (맞춤): 관리 템플릿/Microsoft Edge - 기본 설정(사용자가 재정의할 수 없음)/SmartScreen 설정
   - GP ADMX 파일 이름: MSEdge.admx
@@ -1053,11 +1061,11 @@ This policy is available only on Windows instances that are joined to a Microsof
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.
+  검색 공급자가 지원하는 문자 인코딩을 지정합니다. 인코딩은 UTF-8, GB2312 및 ISO-8859-1과 같은 코드 페이지 이름입니다. 해당 순서대로 시도됩니다.
 
-This policy is optional. If not configured, the default, UTF-8, is used.
+이 정책은 선택 사항입니다. 구성되지 않은 경우 기본값인 UTF-8이 사용됩니다.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하는 경우에만 적용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1109,18 +1117,18 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "ISO-8859-1"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the URL to the search engine used for image search. Search requests are sent using the GET method.
+  이미지 검색에 사용되는 검색 엔진의 URL을 지정합니다. 검색 요청은 GET 메서드를 사용하여 전송됩니다.
 
-This policy is optional. If you don't configure it, image search isn't available.
+이 정책은 선택 사항입니다. 구성하지 않으면 이미지 검색을 사용할 수 없습니다.
 
-Specify Bing's Image Search URL as:
+Bing의 이미지 검색 URL을 다음과 같이 지정합니다.
 '{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
 
-Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
+Google의 이미지 검색 URL을 다음과 같이 지정합니다. '{google:baseURL}searchbyimage/upload'.
 
-See [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) policy to finish configuring image search.
+이미지 검색 구성을 완료하려면 [DefaultSearchProviderImageURLPostParams](#defaultsearchproviderimageurlpostparams) 정책을 참조하세요.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+이 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하도록 설정한 경우에만 적용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1163,15 +1171,15 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  If you enable this policy, it specifies the parameters used when an image search that uses POST is performed. The policy consists of comma-separated name/value pairs. If a value is a template parameter, like {imageThumbnail} in the preceding example, it’s replaced with real image thumbnail data. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+  이 정책을 사용하면 POST를 사용하는 이미지 검색을 수행할 때 사용되는 매개 변수가 지정됩니다. 이 정책은 쉼표로 구분된 이름/값 쌍으로 구성됩니다. 앞의 예제에서 {imageThumbnail}과 같은 템플릿 매개 변수 값은 실제 이미지 축소판 그림 데이터로 바뀝니다. 이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하는 경우에만 적용됩니다.
 
-Specify Bing's Image Search URL Post Params as:
+Bing의 이미지 검색 URL 게시 매개 변수를 다음과 같이 지정합니다.
 'imageBin={google:imageThumbnailBase64}'.
 
-Specify Google's Image Search URL Post Params as:
+Google의 이미지 검색 URL 게시 매개 변수를 다음과 같이 지정합니다.
 'encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}'.
 
-If you don’t set this policy, image search requests are sent using the GET method.
+이 정책을 설정하지 않으면 이미지 검색 요청이 GET 메서드를 사용하여 전송됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1214,11 +1222,11 @@ If you don’t set this policy, image search requests are sent using the GET met
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the keyword, which is the shortcut used in the Address Bar to trigger the search for this provider.
+  주소 표시줄에서 이 공급자에 대한 검색을 트리거하는데 사용되는 바로 가기인 키워드를 지정합니다.
 
-This policy is optional. If you don't configure it, no keyword activates the search provider.
+이 정책은 선택 사항입니다. 구성하지 않으면 키워드가 검색 공급자를 활성화하지 않습니다.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하는 경우에만 적용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1261,13 +1269,13 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the name of the default search provider.
+  기본 검색 공급자의 이름을 지정합니다.
 
-If you enable this policy, you set the name of the default search provider.
+이 정책을 사용하면 기본 검색 공급자의 이름을 설정할 수 있습니다.
 
-If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
+이 정책을 사용하지 않거나 비워두면 검색 URL로 지정된 호스트 이름이 사용됩니다.
 
-'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+'DefaultSearchProviderName'은 DTBC-0008에 설정된 암호화 된 검색 공급자에 해당하는, 조직에서 승인한 암호화된 검색 공급자로 설정되어야 합니다. 이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하는 경우에만 적용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1310,15 +1318,15 @@ If you don't enable this policy or if you leave it empty, the host name specifie
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the URL of the search engine used for a default search. The URL contains the string '{searchTerms}', which is replaced at query time by the terms the user is searching for.
+  기본 검색에 사용되는 검색 엔진의 URL을 지정합니다. URL에 '{searchTerms}'문자열이 포함되어 있으며 쿼리 시간에 사용자가 검색하는 용어로 바뀝니다.
 
-Specify Bing's search URL as:
+Bing의 제안 URL은 다음과 같이 지정할 수 있습니다:
 
 '{bing:baseURL}search?q={searchTerms}'.
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+Google의 제안 URL은 다음과 같이 지정할 수 있습니다: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
 
-This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
+이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 정책을 사용하도록 설정한 경우에 필요합니다. 후자의 정책을 사용하지 않으면 이 정책은 무시됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1361,17 +1369,17 @@ This policy is required when you enable the [DefaultSearchProviderEnabled](#defa
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the URL for the search engine used to provide search suggestions. The URL contains the string '{searchTerms}', which is replaced at query time by the text the user has entered so far.
+  검색 제안을 제공하는 데 사용되는 검색 엔진의 URL을 지정합니다. 이 URL에는 사용자가 지금까지 입력한 텍스트로 쿼리 시 대체되는 문자열 '{searchTerms}'이(가) 포함되어 있습니다.
 
-This policy is optional. If you don't configure it, users won't see search suggestions; they will see suggestions from their browsing history and favorites.
+이 정책은 선택 사항입니다. 구성하지 않으면 사용자에게 검색 제안이 표시되지 않습니다. 검색 기록 및 즐겨찾기의 제안 사항은 표시됩니다.
 
-Bing's suggest URL can be specified as:
+Bing의 제안 URL은 다음과 같이 지정할 수 있습니다.
 
 '{bing:baseURL}qbox?query={searchTerms}'.
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+Google의 제안 URL은 다음과 같이 지정할 수 있습니다: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
 
-This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+이 정책은 [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) 및 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책을 사용하는 경우에만 적용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1418,9 +1426,9 @@ This policy is applied only if you enable the [DefaultSearchProviderEnabled](#de
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  List specific native messaging hosts that users can use in Microsoft Edge.
+  사용자가 Microsoft Edge에서 사용할 수 있는 특정 기본 메시징 호스트를 나열합니다.
 
-By default, all native messaging hosts are allowed. If you set the [NativeMessagingBlocklist](#nativemessagingblocklist) policy to *, all native messaging hosts are blocked, and only native messaging hosts listed in here are loaded.
+기본적으로 모든 기본 메시징 호스트가 허용됩니다. [NativeMessagingBlocklist](#nativemessagingblocklist) 정책을 *로 설정하면 모든 기본 메시징 호스트가 차단되며 여기에 나열된 기본 메시징 호스트만 로드됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1622,17 +1630,17 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Configures the default home page URL in Microsoft Edge.
+  Microsoft Edge에서 기본 홈 페이지 URL을 구성합니다.
 
-The home page is the page opened by the Home button. The pages that open on startup are controlled by the [RestoreOnStartup](#restoreonstartup) policies.
+홈 페이지는 홈 단추에 의해 열리는 페이지입니다. 시작 시 열리는 페이지는 [RestoreOnStartup](#restoreonstartup) 정책에 의해 제어됩니다.
 
-You can either set a URL here or set the home page to open the new tab page. If you select to open the new tab page, then this policy doesn't take effect.
+여기에서 URL을 설정하거나 새 탭 페이지를 열도록 홈 페이지를 설정할 수 있습니다. 새 탭 페이지를 열도록 선택하면 이 정책이 적용되지 않습니다.
 
-If you enable this policy, users can't change their home page URL, but they can choose to use the new tab page as their home page.
+이 정책을 사용하면 사용자가 홈 페이지 URL을 변경할 수 없지만 새 탭 페이지를 홈 페이지로 사용하도록 선택할 수 있습니다.
 
-If you disable or don't configure this policy, users can choose their own home page, as long as the [HomepageIsNewTabPage](#homepageisnewtabpage) policy isn't enabled.
+이 정책을 사용하지 않도록 설정하거나 구성하지 않으면 [HomepageIsNewTabPage](#homepageisnewtabpage) 정책이 사용하지 않도록 설정한 경우에 한해 사용자가 자신의 홈 페이지를 선택할 수 있습니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 Windows 10 Pro or Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1675,19 +1683,19 @@ This policy is available only on Windows instances that are joined to a Microsof
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Microsoft Edge의 새 탭 페이지에서 사용할 회사 로고를 지정합니다.
+  Specifies the company logo to use on the new tab page in Microsoft Edge.
 
-정책은 로고를 JSON 형식으로 나타내는 문자열로 구성해야 합니다. 예: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-Microsoft Edge에서 로고 및 해당 암호화 해시 (SHA-256)를 다운로드 할 수 있는 URL을 지정하여 이 정책을 구성합니다. 로고는 PNG 또는 SVG 형식이어야 하며 파일 크기는 16mb를 초과하지 않아야 합니다. 로고가 다운로드 및 캐시되며 URL 또는 해시가 변경될 때마다 다시 다운로드됩니다. URL은 인증없이 액세스할 수 있어야 합니다.
+You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
 
-'default_logo'는 필수이며 배경 이미지가 없을 때 사용됩니다. 'light_logo'가 제공되면 사용자의 새 탭 페이지에 배경 이미지가 있을 때 사용됩니다. 투명 배경이 왼쪽 맞춤 및 세로 가운데에 배치되는 가로 로고를 사용하는 것이 좋습니다. 로고의 최소 높이는 32 픽셀이고 가로 세로 비율은 1:1에서 4:1 사이여야 합니다. 'default_logo'는 흰색/검은색 배경과의 대비가 있으며 'light_logo'는배경 이미지에 대해 적절하게 대비되어야 합니다.
+The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
 
-이 정책을 사용하도록 설정하는 경우 Microsoft Edge는 새 탭 페이지에 지정된 로고를 다운로드하여 표시합니다. 사용자는 로고를 무시하거나 숨길 수 없습니다.
+If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
 
-이 정책을 사용하지 않거나 구성하지 않으면 Microsoft Edge가 회사 로고나 Microsoft 로고를 새 탭 페이지에 표시하지 않습니다.
+If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-SHA-256 해시 결정에 대한 도움말은 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6를 참조하세요.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1802,19 +1810,19 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageCompanyLogo = {
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Configures the default URL for the new tab page.
+  새 탭 페이지에 대한 기본 URL을 구성합니다.
 
-This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.
+이 정책은 새 탭을 만들 때(새 창을 열 때도 포함) 열리는 페이지를 결정합니다. 새 탭 페이지로 열리도록 설정된 경우 시작 페이지에도 영향을 미칩니다.
 
-This policy doesn't determine which page opens on startup; that's controlled by the [RestoreOnStartup](#restoreonstartup) policy. It also doesn’t affect the home page if that’s set to open to the new tab page.
+이 정책은 시작할 때 열리는 페이지를 결정하지 않습니다. 이는 [RestoreOnStartup](#restoreonstartup) 정책에 의해 제어됩니다. 새 탭 페이지로 열리도록 설정되어 있는 경우에도 홈 페이지에 영향을 주지 않습니다.
 
-If you don't configure this policy, the default new tab page is used.
+이 정책을 구성 하지 않으면 기본 새 탭 페이지가 사용됩니다.
 
-If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+이 정책 *및* [NewTabPageSetFeedType](#newtabpagesetfeedtype) 정책을 구성하면 이 정책이 우선합니다.
 
-If an invalid URL is provided, new tabs will open about://blank.
+잘못된 URL을 제공하면 새 탭에서 about://blank로 열립니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스나 Windows 10 Pro 또는 장치 관리를 위해 등록된 Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1932,29 +1940,29 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### NewTabPageSetFeedType
-  #### Configure the Microsoft Edge new tab page experience
+  #### Microsoft Edge 새 탭 페이지 환경 구성
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+  새 탭 페이지에 대해 Microsoft 뉴스 또는 Office 365 피드 환경을 선택할 수 있습니다.
 
-When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+이 정책을 Microsoft 뉴스 피드 환경(0)으로 설정하면 새 탭 페이지에 Microsoft 뉴스 피드 환경이 표시됩니다.
 
-When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+이 정책을 Office 365 피드 환경(1)으로 설정하면 Azure Active Directory 로그인을 사용하는 사용자는 새 탭 페이지에서 Office 365 피드 환경을 볼 수 있습니다.
 
-If you disable or don't configure this policy:
+이 정책을 사용하지 않거나 구성하지 않으면
 
-- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+- Azure Active Directory 브라우저 로그인을 사용하는 사용자에게는 표준 새 탭 페이지 피드 환경뿐만 아니라 Office 365 새 탭 페이지 피드 환경도 제공됩니다.
 
-- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+- Azure Active Directory 브라우저 로그인을 사용하지 않는 사용자에게는 표준 새 탭 페이지 환경이 표시됩니다.
 
-If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+이 정책 *및* [NewTabPageLocation](#newtabpagelocation) 정책을 구성하면, [NewTabPageLocation](#newtabpagelocation) 정책이 우선합니다.
 
-Default setting:  Disabled or not configured.
+기본 설정: 사용 안 함 또는 구성되지 않음.
 
-* 0 = Microsoft News feed experience
+* 0 = Microsoft 뉴스 피드 환경
 
-* 1 = Office 365 feed experience
+* 1 = Office 365 피드 환경
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1967,7 +1975,7 @@ Default setting:  Disabled or not configured.
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: NewTabPageSetFeedType
-  - GP 이름: Configure the Microsoft Edge new tab page experience
+  - GP 이름: Microsoft Edge 새 탭 페이지 환경 구성
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/시작, 홈 페이지 및 새 탭 페이지
   - GP 경로 (맞춤): 관리 템플릿/Microsoft Edge - 기본 설정(사용자가 재정의할 수 없음)/시작, 홈 페이지 및 새 탭 페이지
   - GP ADMX 파일 이름: MSEdge.admx
@@ -2056,11 +2064,11 @@ Microsoft Edge 마지막으로 열린 URL을 다시 열려면 '마지막 세션 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.
+  브라우저가 시작될 때 자동으로 열 웹 사이트 목록을 지정합니다. 이 정책을 구성하지 않으면 시작할 때 어떤 사이트도 열리지 않습니다.
 
-This policy only works if you also set the [RestoreOnStartup](#restoreonstartup) policy to 'Open a list of URLs' (4).
+이 정책은 [RestoreOnStartup](#restoreonstartup) 정책을 'URL 목록 열기'(4)로 설정한 경우에만 작동합니다.
 
-This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 장치 관리를 위해 등록된 Microsoft Active Directory도메인 또는 Windows 10 Pro 또는 Enterprise 인스턴스에 가입된 Windows 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -2313,21 +2321,21 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allows you to control when to trigger password protection warning. Password protection alerts users when they reuse their protected password on potentially suspicious sites.
+  암호 보호 경고를 트리거할 시기를 제어할 수 있습니다. 암호 보호는 잠재적으로 의심스러운 사이트에서 보호된 암호를 재사용할 때 사용자에게 경고합니다.
 
-You can use the [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) policies to configure which passwords to protect.
+[PasswordProtectionLoginURLs](#passwordprotectionloginurls) 및[PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl) 정책을 사용하여 보호할 암호를 구성할 수 있습니다.
 
-Exemptions: Passwords for the sites listed in [PasswordProtectionLoginURLs](#passwordprotectionloginurls) and [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl), as well as for the sites listed in [SmartScreenAllowListDomains](#smartscreenallowlistdomains), will not trigger a password-protection warning.
+예외: [SmartScreenAllowListDomains](#smartscreenallowlistdomains)에 나열된 사이트 뿐만 아니라 [PasswordProtectionLoginURLs](#passwordprotectionloginurls) 및 [PasswordProtectionChangePasswordURL](#passwordprotectionchangepasswordurl)에 나열된 사이트의 암호는 암호 보호 경고를 트리거하지 않습니다.
 
-Set to 'PasswordProtectionWarningOff' (0) to not show password protection warningss.
+암호 보호 경고를 표시하지 않으려면 'PasswordProtectionWarningOff'(0)로 설정하세요.
 
-Set to 'PasswordProtectionWarningOnPasswordReuse' (1) to show password protection warnings when the user reuses their protected password on a non-whitelisted site.
+사용자가 허용 목록에 포함되지 않은 사이트에서 보호된 암호를 재사용할 때 암호 보호 경고를 표시하려면 'PasswordProtectionWarningOnPasswordReuse'(1)로 설정하세요.
 
-If you disable or don't configure this policy, then the warning trigger is not shown.
+이 정책을 사용하지 않거나 구성하지 않으면 경고 트리거가 표시되지 않습니다.
 
-* 0 = Password protection warning is off.
+* 0 = 암호 보호 경고가 꺼져 있습니다.
 
-* 1 = Password protection warning is triggered by password reuse.
+* 1 = 암호 다시 사용에 의해 암호 보호 경고가 트리거되었습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -2619,11 +2627,11 @@ If you disable or don't configure this policy, then the warning trigger is not s
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
+  사이트에서 요청할 경우 Microsoft Edge가 자동으로 클라이언트 인증서를 선택해야 하는 URL 패턴에 따라 사이트 목록을 지정합니다.
 
-The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
+값은 문자열로 묶은 JSON 사전의 배열이어야 합니다. 각 사전의 형식은 { "pattern": "$URL_PATTERN", "filter" : $FILTER } 이어야 합니다. 여기서 $URL_PATTERN은 콘텐츠 설정 패턴입니다. $FILTER는 브라우저가 자동으로 선택할 수 있는 클라이언트 인증서를 제한합니다. 필터와는 별도로 서버의 인증서 요청과 일치하는 인증서만 선택됩니다. 예를 들어 $FILTER형식이 { "ISSUER": { "CN": "$ISSUER_CN" } }이면 CommonName $ISSUER_CN이 있는 인증서에서 발급한 클라이언트 인증서만 선택됩니다. $FILTER에 "ISSUER" 및 "SUBJECT" 섹션이 포함되어 있으면 클라이언트 인증서가 두 조건을 모두 충족해야 선택됩니다. $FILTER가 조직("O")을 지정하면 인증서에 지정된 값과 일치하는 조직이 하나 이상 있어야 합니다. $FILTER가 조직 단위("OU")를 지정하면 인증서에 지정된 값과 일치하는 조직 단위가 하나 이상 있어야 합니다. $FILTER가 빈 사전 {}이면 클라이언트 인증서 선택이 추가로 제한되지 않습니다.
 
-If you don't configure this policy, auto-selection isn't done for any site.
+이 정책을 구성하지 않으면 모든 사이트에 대해 자동 선택이 수행되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -2669,13 +2677,13 @@ SOFTWARE\Policies\Microsoft\Edge\AutoSelectCertificateForUrls\0 = "{"pattern":"h
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  URL 패턴을 기반으로, 쿠키를 설정할 수 없는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultCookiesSetting](#defaultcookiessetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
-See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+자세한 내용은 [CookiesBlockedForUrls](#cookiesblockedforurls) 및 [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)정책을 참조하세요.
 
-Note there cannot be conflicting URL patterns set between these three policies:
+참고: 다음 세 가지 정책 사이에는 충돌하는 URL 패턴이 설정될 수 없습니다.
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -2729,13 +2737,13 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can't set cookies.
+  URL 패턴을 기반으로, 쿠키를 설정할 수 없는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultCookiesSetting](#defaultcookiessetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
-See the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) policies for more information.
+자세한 내용은 [CookiesAllowedForUrls](#cookiesallowedforurls) 및 '[CookiesSessionOnlyForUrls](#cookiessessiononlyforurls) 정책을 참조하세요.
 
-Note there cannot be conflicting URL patterns set between these three policies:
+참고: 다음 세 가지 정책 사이에는 충돌하는 URL 패턴이 설정될 수 없습니다.
 
 - CookiesBlockedForUrls
 
@@ -2789,15 +2797,15 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesBlockedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).
+  세션이 종료될 때(창이 닫힐 때) 정의한 URL 패턴과 일치하는 웹 사이트에서 만든 쿠키는 삭제됩니다.
 
-Cookies created by websites that don't match the pattern are controlled by the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.
+패턴과 일치하지 않는 웹 사이트에서 만든 [DefaultCookiesSetting](#defaultcookiessetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 의해 제어됩니다. 이 정책을 구성하지 경우의 기본 동작이기도 합니다.
 
-If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See the [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+Microsoft Edge가 백그라운드 모드에서 실행되고 있는 경우 마지막 창이 닫힐 때 세션이 닫히지 않을 수 있습니다. 즉, 창이 닫힐 때 쿠키가 지워지지 않습니다. Microsoft Edge가 백그라운드 모드에서 실행될 때 수행되는 작업을 구성하는 방법에 대한 자세한 내용은 [BackgroundModeEnabled](#backgroundmodeenabled) 정책을 참조하세요.
 
-You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [CookiesBlockedForUrls](#cookiesblockedforurls) policies to control which websites can create cookies.
+[CookiesAllowedForUrls](#cookiesallowedforurls) 및 [CookiesBlockedForUrls](#cookiesblockedforurls) 정책을 사용하여 쿠키를 만들 수 있는 웹 사이트를 제어할 수도 있습니다.
 
-Note there cannot be conflicting URL patterns set between these three policies:
+참고: 다음 세 가지 정책 사이에 충돌하는 URL 패턴이 설정되어 있으면 안 됩니다.
 
 - [CookiesBlockedForUrls](#cookiesblockedforurls)
 
@@ -2805,7 +2813,7 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesSessionOnlyForUrls
 
-If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
+If you set the [RestoreOnStartup](#restoreonstartup) 정책을 설정하여 이전 세션의 URL을 복원하면 이 정책은 무시되며 해당 사이트에 대한 쿠키가 영구적으로 저장됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -2853,17 +2861,17 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.
+  웹 사이트에서 사용자의 장치에 쿠키를 만들 수 있는지 여부를 제어합니다. 이 정책은 모든 웹 사이트에서 쿠키를 만들도록 하거나 어떤 웹 사이트에서도 쿠키를 만들지 않도록 할 수 있습니다. 이 정책을 사용하여 특정 웹 사이트의 쿠키를 사용하도록 설정할 수 없습니다.
 
-Set the policy to 'SessionOnly' (4) to clear cookies when the session closes. If Microsoft Edge is running in background mode, the session might not close when the last window is closed, meaning the cookies won't be cleared when the window closes. See [BackgroundModeEnabled](#backgroundmodeenabled) policy for information about configuring what happens when Microsoft Edge runs in background mode.
+세션을 닫을 때 쿠키를 지우려면 정책을 'SessionOnly'(4)로 설정하세요. Microsoft Edge가 백그라운드 모드에서 실행 중이면 마지막 창을 닫을 때 세션이 닫히지 않을 수 있습니다. 즉, 창을 닫을 때 쿠키가 지워지지 않습니다. Microsoft Edge가 백그라운드 모드에서 실행될 때 수행되는 작업을 구성하는 방법에 대한 자세한 내용은 [BackgroundModeEnabled](#backgroundmodeenabled) 정책을 참조하세요.
 
-If you don't configure this policy, the default 'AllowCookies' (1) is used, and users can change this setting in Microsoft Edge Settings. (If you don't want users to be able to change this setting, set the policy.)
+이 정책을 구성하지 않으면 기본값 'AllowCookies'(1)가 사용되며 사용자는 Microsoft Edge 설정에서 이 설정을 변경할 수 있습니다. (사용자가 이 설정을 변경할 수 없게 하려면 정책을 설정하세요.)
 
-* 1 = Let all sites create cookies
+* 1 = 모든 사이트에서 쿠키를 만들도록 허용
 
-* 2 = Don't let any site create cookies
+* 2 = 모든 사이트에서 쿠키를 만들도록 허용하지 않음
 
-* 4 = Keep cookies for the duration of the session
+* 4 = 세션 기간 동안 쿠키 유지
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3106,17 +3114,17 @@ If you don't configure this policy, the default 'AllowCookies' (1) is used, and 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
+  [PluginsAllowedForUrls](#pluginsallowedforurls) 또는 [PluginsBlockedForUrls](#pluginsblockedforurls) 가 적용되지 않는 웹 사이트에서 자동으로 Adobe Flash 플러그 인을 실행할 수 있는지 여부를 결정합니다. 'BlockPlugins'(2)를 선택하여 모든 사이트에서 Adobe Flash를 차단하거나 'ClickToPlay'(3)를 선택하여 Adobe Flash 실행을 허용할 수 있지만 사용자가 시작하려면 자리 표시자를 클릭해야 합니다. 어떤 경우든지 [PluginsAllowedForUrls](#pluginsallowedforurls) 및 [PluginsBlockedForUrls](#pluginsblockedforurls) 정책은 'DefaultPluginsSetting'보다 우선합니다.
 
-Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
+자동 재생은 [PluginsAllowedForUrls](#pluginsallowedforurls) 정책에 명시적으로 나열된 도메인에 대해서만 허용됩니다. 모든 사이트에 대해 자동 재생을 사용하려면 이 목록에 http://* 및 https://*를 추가하는 것이 좋습니다.
 
-If you don't configure this policy, the user can change this setting manually.
+이 정책을 구성하지 않으면 사용자가 이 설정을 수동으로 변경할 수 있습니다.
 
-* 2 = Block the Adobe Flash plug-in
+* 2 = Adobe Flash 플러그 인 차단
 
-* 3 = Click to play
+* 3 = 클릭하여 재생
 
-The former '1' option set allow-all, but this functionality is now only handled by the [PluginsAllowedForUrls](#pluginsallowedforurls) policy.  Existing policies using '1' will operate in Click-to-play mode.
+이전 '1' 옵션은 allow-all을 설정했지만 이제 이 기능은 [PluginsAllowedForUrls](#pluginsallowedforurls) 정책에 의해서만 처리됩니다. '1'을 사용하는 기존 정책은 클릭하여 재생 모드에서 작동합니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3257,15 +3265,15 @@ The former '1' option set allow-all, but this functionality is now only handled 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Set whether websites can access connected USB devices. You can completely block access or ask the user each time a website wants to get access to connected USB devices.
+  웹 사이트가 연결된 USB 장치에 액세스할 수 있는지 여부를 설정합니다. 웹 사이트가 연결된 USB 장치에 액세스하려고 할 때마다 액세스를 완전히 차단하거나 사용자에게 요청할 수 있습니다.
 
-You can override this policy for specific URL patterns by using the [WebUsbAskForUrls](#webusbaskforurls) and [WebUsbBlockedForUrls](#webusbblockedforurls) policies.
+[WebUsbAskForUrls](#webusbaskforurls) 및 [WebUsbBlockedForUrls](#webusbblockedforurls) 정책을 사용하여 특정 URL 패턴에 대해 해당 정책을 재정의할 수 있습니다.
 
-If you don't configure this policy, sites can ask users whether they can access the connected USB devices (3) by default, and users can change this setting.
+이 정책을 구성하지 않으면 사이트에서 기본적으로 연결된 USB 장치 (3)에 액세스 할 수 있는지의 여부를 사용자에게 묻고 사용자는 해당 설정을 변경할 수 있습니다.
 
-* 2 = Don't allow any site to request access to USB devices via the WebUSB API
+* 2 = 모든 사이트가 WebUSB API를 통해 USB 장치에 대한 액세스 요청을 허용 안 함
 
-* 3 = Allow sites to ask the user to grant access to a connected USB device
+* 3 = 사이트가 사용자에게 연결된 USB 장치에 대한 액세스 권한을 부여하도록 허용
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3308,9 +3316,9 @@ If you don't configure this policy, sites can ask users whether they can access 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can display images.
+  URL 패턴을 기반으로, 이미지를 표시할 수 있는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value is used for all sites either from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration.
+이 정책을 구성하지 않으면 [DefaultImagesSetting](#defaultimagessetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3358,9 +3366,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesAllowedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that aren't allowed to display images.
+  URL 패턴을 기반으로, 이미지 표시가 허용되지 않는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultImagesSetting](#defaultimagessetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultImagesSetting](#defaultimagessetting) 정책(경우 설정) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3408,9 +3416,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are allowed to run JavaScript.
+  URL 패턴을 기반으로, JavaScript 실행이 허용되는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 [DefaultJavaScriptSetting](#defaultjavascriptsetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3458,9 +3466,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.
+  URL 패턴을 기반으로, JavaScript 실행이 허용되지 않는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultJavaScriptSetting](#defaultjavascriptsetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultJavaScriptSetting](#defaultjavascriptsetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3503,14 +3511,121 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### 기본 레거시 SameSite 쿠키 동작 설정 사용
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  모든 쿠키를 레거시 SameSite 동작으로 되돌릴 수 있습니다. 레거시 동작으로 되돌리면 SameSite 특성을 지정하지 않는 쿠키가 "SameSite=None" 처럼 처리되고 "Secure" 특성을 실행하는 "SameSite=None" 쿠키에 대한 요구 사항이 제거됩니다.
+
+이 정책에 대해 다음 값을 설정할 수 있습니다.
+
+* 1 = 모든 사이트의 쿠키에 대해 레거시 SameSite 동작으로 되돌리기
+
+* 2 = 모든 사이트의 쿠키에 대해 SameSite-by-default 사용
+
+이 정책을 설정하지 않으면 SameSite 특성을 지정 하지 않는 쿠키의 기본 동작은 SameSite-by-default 기능에 대한 다른 구성 원본에 따라 다릅니다. 이 기능은 현장 평가판을 사용하거나 edge://flags에서 same-site-by-default-cookies 플래그를 사용하도록 설정하여 설정할 수 있습니다.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  정수
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: LegacySameSiteCookieBehaviorEnabled
+  - GP 이름: 기본 레거시 SameSite 쿠키 동작 설정 사용
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: LegacySameSiteCookieBehaviorEnabled
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000001
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: LegacySameSiteCookieBehaviorEnabled
+  - 예제 값:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### 지정된 사이트의 쿠키에 대해 레거시 SameSite 동작으로 되돌리기
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  지정된 패턴과 일치하는 도메인에 대해 설정된 쿠키는 레거시 SameSite 동작으로 되돌아갑니다.
+
+레거시 동작으로 되돌리면 SameSite 특성을 지정하지 않는 쿠키가 "SameSite=None"처럼 처리되고 "Secure" 특성을 실행하는 "SameSite=None" 쿠키에 대한 요구 사항이 제거됩니다.
+
+이 정책을 설정하지 않으면 전역 기본값이 사용됩니다. 전역 기본값은 지정한 패턴이 적용되지 않는 도메인의 쿠키에도 사용됩니다.
+
+전역 기본값은 [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) 정책을 사용하여 구성할 수 있습니다. [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)이(가) 설정되지 않은 경우 전역 기본값은 다른 구성 원본으로 돌아갑니다.
+
+이 정책에 나열되는 패턴은 URL이 아닌 도메인으로 간주되므로 스키마나 포트를 지정하지 않아야 합니다.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  문자열 목록
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - GP 이름: 지정된 사이트의 쿠키에 대해 레거시 SameSite 동작으로 되돌리기
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: 1, 2, 3, ...
+  - 값 형식: REG_SZ 목록
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - 예제 값:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### NotificationsAllowedForUrls
   #### 특정 사이트에서 알림 허용
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can display notifications.
+  URL 패턴을 기반으로, 알림을 표시할 수 있는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultNotificationsSetting](#defaultnotificationssetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3558,9 +3673,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls\1 = "[*.]contoso.ed
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are blocked from displaying notifications.
+  URL 패턴을 기반으로, 알림 표시가 차단되는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultNotificationsSetting](#defaultnotificationssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultNotificationsSetting](#defaultnotificationssetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3608,9 +3723,9 @@ SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls\1 = "[*.]contoso.ed
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.
+  URL 패턴을 기반으로, Adobe Flash 플러그 인을 실행할 수 있는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultPluginsSetting](#defaultpluginssetting) 정책(설정된 경우)의 전역 기본값 또는 사용자의 개인 구성이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3658,9 +3773,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are blocked from running Adobe Flash.
+  URL 패턴을 기반으로, Adobe Flash를 실행할 수 없도록 차단되는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultPluginsSetting](#defaultpluginssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultPluginsSetting](#defaultpluginssetting) 정책(설정된 경우)의 전역 기본값 또는 사용자의 개인 구성이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3708,9 +3823,9 @@ SOFTWARE\Policies\Microsoft\Edge\PluginsBlockedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can open pop-up windows.
+  URL 패턴을 기반으로, 팝업 창을 열 수 있는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 '[DefaultPopupsSetting](#defaultpopupssetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3758,9 +3873,9 @@ SOFTWARE\Policies\Microsoft\Edge\PopupsAllowedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows.
+  URL 패턴을 기반으로, 팝업 창 열기가 차단되는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultPopupsSetting](#defaultpopupssetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultPopupsSetting](#defaultpopupssetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3871,13 +3986,13 @@ SOFTWARE\Policies\Microsoft\Edge\RegisteredProtocolHandlers = [
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.
+  지정된 공급 업체 및 제품 Id를 사용하여 USB 장치에 대한 액세스 권한이 자동으로 부여되는 사이트를 지정하는 url 목록을 설정할 수 있습니다. 이 정책이 유효하려면 목록의 각 항목에 장치와 url이 모두 포함되어야 합니다. 장치의 각 항목에는 공급 업체 ID와 제품 ID 필드가 포함될 수 있습니다. 생략된 ID는 예외를 포함하여 와일드 카드로 처리되며,이 예외는 공급 업체 ID도 지정하지 않으면 제품 ID를 지정할 수 없다는 것을 의미합니다. 그렇지 않으면 정책이 유효하지 않으며 무시됩니다.
 
-The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.
+USB 권한 모델은 요청하는 사이트의 URL ("URL 요청")과 최상위 프레임 사이트의 URL ("포함 URL")을 사용하여 USB 장치에 액세스하는 데 필요한 URL을 요청합니다. 요청하는 사이트가 iframe에 로드될 때 요청하는 url이 포함 URL과 다를 수 있습니다. 따라서 "url" 필드에는 쉼표로 구분된 최대 2 개의 URL 문자열을 포함하여 각각 요청 및 포함 URL을 지정할 수 있습니다. URL을 하나만 지정하면 요청 사이트의 URL이 포함 상태에 관계 없이 이 URL과 일치하는 경우 해당 USB 장치에 대 한 액세스가 허용됩니다. "Url"의 Url은 유효한 Url 이어야 하며, 그렇지 않으면 정책이 무시됩니다.
 
-If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
+이 정책을 설정하지 않으면 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 정책 (설정된 경우) 또는 사용자의 개인 구성에 모든 사이트에 대한 전역 기본값이 사용됩니다.
 
-URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
+이 정책의 URL 패턴은 [WebUsbBlockedForUrls](#webusbblockedforurls)를 통해 구성된 것과 충돌하지 않아야 합니다. 충돌하는 경우 이 정책은 [WebUsbBlockedForUrls](#webusbblockedforurls) 및 [WebUsbAskForUrls](#webusbaskforurls)보다 우선시 됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3951,11 +4066,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can ask the user for access to a USB device.
+  URL 패턴을 기반으로, 사용자에게 USB 장치에 대한 액세스를 요청할 수 있는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
-The URL patterns defined in this policy can't conflict with those configured in the [WebUsbBlockedForUrls](#webusbblockedforurls) policy - you can't both allow and block a URL.
+이 정책에 정의된 URL 패턴은 [WebUsbBlockedForUrls](#webusbblockedforurls) 정책에 구성된 URL 패턴과 충돌하지 않습니다. - URL을 허용하거나 차단할 수 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4003,11 +4118,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbAskForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a USB device.
+  URL 패턴을 기반으로, USB 장치에 대한 액세스 권한 부여를 사용자에게 요청할 수 없는 사이트 목록을 정의합니다.
 
-If you don't configure this policy, the global default value from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+이 정책을 구성하지 않으면 [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) 정책(설정된 경우) 또는 사용자의 개인 구성에 있는 전역 기본값이 모든 사이트에 사용됩니다.
 
-URL patterns in this policy can't conflict with those configured in the [WebUsbAskForUrls](#webusbaskforurls) policy. You can't both allow and block a URL.
+이 정책의 URL 패턴 [WebUsbAskForUrls](#webusbaskforurls) 정책에 구성된 URL 패턴과 충돌하지 않습니다. URL을 허용하거나 차단할 수 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4059,15 +4174,15 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Defines a list of hosts for which Microsoft Edge bypasses any proxy.
+  Microsoft Edge에서 프록시를 무시하는 호스트 목록을 정의합니다.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+이 정책은 [ProxyMode](#proxymode) 정책에서 '고정 프록시 서버 사용'을 선택한 경우에만 적용됩니다. 프록시 정책을 구성하기 위해 다른 모드를 선택한 경우에는 이 정책을 사용하거나 구성하지 마세요.
 
-If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.
+이 정책을 사용하면 Microsoft Edge에서 프록시를 사용하지 않는 호스트 목록을 만들 수 있습니다.
 
-If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+이 정책을 구성하지 않으면 Microsoft Edge에서 프록시를 무시하는 호스트 목록이 만들어지지 않습니다. 프록시 정책을 설정하기 위한 다른 방법을 지정한 경우에는 이 정책을 구성하지 마세요.
 
-For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+자세한 예제는 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)를 참조하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4110,33 +4225,33 @@ For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=209493
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify the proxy server settings used by Microsoft Edge. If you enable this policy, users can't change the proxy settings.
+  Microsoft Edge에서 사용하는 프록시 서버 설정을 지정합니다. 이 정책을 사용하면 사용자가 프록시 설정을 변경할 수 없습니다.
 
-If you choose to never use a proxy server and to always connect directly, all other options are ignored.
+프록시 서버를 사용하지 않고 항상 직접 연결하도록 선택하면 다른 모든 옵션은 무시됩니다.
 
-If you choose to use system proxy settings, all other options are ignored.
+시스템 프록시 설정을 사용하도록 선택하면 다른 모든 옵션이 무시됩니다.
 
-If you choose to auto detect the proxy server, all other options are ignored.
+프록시 서버 자동 검색을 선택하면 다른 모든 옵션은 무시됩니다.
 
-If you choose fixed server proxy mode, you can specify further options in [ProxyServer](#proxyserver) and 'Comma-separated list of proxy bypass rules'.
+고정 서버 프록시 모드를 선택하면 [ProxyServer](#proxyserver) 및 '쉼표로 구분된 프록시 바이패스 규칙 목록'에서 추가 옵션을 지정할 수 있습니다.
 
-If you choose to use a .pac proxy script, you must specify the URL to the script in 'URL to a proxy .pac file'.
+.pac 프록시 스크립트를 사용하려면 '프록시 .pac 파일의 URL'에 스크립트의 URL을 지정해야 합니다.
 
-For detailed examples, go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+자세한 예제는 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)을 참조하세요.
 
-If you enable this policy, Microsoft Edge will ignore all proxy-related options specified from the command line.
+이 정책을 사용하면 Microsoft Edge가 명령줄에서 지정한 모든 프록시 관련 옵션을 무시합니다.
 
-If you don't configure this policy users can choose their own proxy settings.
+이 정책을 구성하지 않으면 사용자가 자신의 프록시 설정을 선택할 수 있습니다.
 
-* "direct" = Never use a proxy
+* "direct" = 프록시 사용 안 함
 
-* "auto_detect" = Auto detect proxy settings
+* "auto_detect" = 자동 프록시 검색 설정
 
-* "pac_script" = Use a .pac proxy script
+* "pac_script" = .pac 프록시 스크립트 사용
 
-* "fixed_servers" = Use fixed proxy servers
+* "fixed_servers" = 고정 프록시 서버 사용
 
-* "system" = Use system proxy settings
+* "system" = 시스템 프록시 설정 사용
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4179,15 +4294,15 @@ If you don't configure this policy users can choose their own proxy settings.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the URL for a proxy auto-config (PAC) file.
+  프록시 자동 구성(PAC) 파일의 URL을 지정합니다.
 
-This policy is applied only if you selected 'Use a .pac proxy script' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+이 정책은 [ProxyMode](#proxymode) 정책에서 '.pac 프록시 스크립트 사용'을 선택한 경우에만 적용됩니다. 프록시 정책을 구성하기 위해 다른 모드를 선택한 경우에는 이 정책을 사용하거나 구성하지 마세요.
 
-If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.
+이 정책을 사용하면 특정 웹 사이트를 가져오는 데 적합한 프록시 서버를 브라우저에서 자동으로 선택하는 방법을 정의하는 PAC 파일의 URL을 지정할 수 있습니다.
 
-If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+이 정책을 사용하지 않거나 구성하지 않으면 PAC 파일이 지정되지 않습니다. 프록시 정책을 설정하기 위한 다른 방법을 지정한 경우에는 이 정책을 구성하지 마세요.
 
-For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+자세한 예제는 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)을 참조하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4230,15 +4345,15 @@ For detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](htt
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies the URL of the proxy server.
+  프록시 서버의 URL을 지정합니다.
 
-This policy is applied only if you have selected 'Use fixed proxy servers' in the [ProxyMode](#proxymode) policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.
+이 정책은 [ProxyMode](#proxymode) 정책에서 '고정 프록시 서버 사용'을 선택한 경우에만 적용됩니다. 프록시 정책을 구성하기 위해 다른 모드를 선택한 경우에는 이 정책을 사용하거나 구성하지 마세요.
 
-If you enable this policy, the proxy server configured by this policy will be used for all URLs.
+이 정책을 사용하면 이 정책으로 구성된 프록시 서버가 모든 URL에 사용됩니다.
 
-If you disable or don't configure this policy, users can choose their own proxy settings while in this proxy mode. Leave this policy unconfigured if you've specified any other method for setting proxy policies.
+이 정책을 사용하지 않거나 구성하지 않으면 이 프록시 모드에 있는 동안 사용자가 자신의 프록시 설정을 선택할 수 있습니다. 프록시 정책을 설정하기 위한 다른 방법을 지정한 경우에는 이 정책을 구성하지 마세요.
 
-For more options and detailed examples, see [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
+추가 옵션 및 자세한 예제는 [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936)을 참조하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4281,36 +4396,36 @@ For more options and detailed examples, see [https://go.microsoft.com/fwlink/?li
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Configures the proxy settings for Microsoft Edge.
+  Microsoft Edge에 대한 프록시 설정을 구성합니다.
 
-If you enable this policy, Microsoft Edge ignores all proxy-related options specified from the command line.
+이 정책을 구성하면 Microsoft Edge는 명령줄에서 지정한 모든 프록시 관련 옵션을 무시합니다
 
-If you don't configure this policy, users can choose their own proxy settings.
+이 정책을 구성하지 않으면 사용자가 자신의 프록시 설정을 변경할 수 있습니다.
 
-This policy overrides the following individual policies:
+이 정책은 다음 개별 정책을 재정의합니다.
 
 [ProxyMode](#proxymode)
 [ProxyPacUrl](#proxypacurl)
 [ProxyServer](#proxyserver)
 [ProxyBypassList](#proxybypasslist)
 
-The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
+ProxyMode필드를 통해 Microsoft Edge에서 사용하는 프록시 서버를 지정할 수 있으며 사용자가 프록시 설정을 변경하지 못하게 할 수 있습니다.
 
-The ProxyPacUrl field is a URL to a proxy .pac file.
+ProxyPacUrl 필드는 프록시 .pac 파일의 URL입니다.
 
-The ProxyServer field is a URL for the proxy server.
+ProxyServer 필드는 프록시 서버의 URL입니다.
 
-The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
+ProxyBypassList필드는 Microsoft Edge에서 무시할 프록시 호스트의 목록입니다.
 
-If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
+'direct' 값을 'ProxyMode'로 선택하면 프록시가 사용되지 않으며 다른 모든 필드는 무시됩니다.
 
-If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
+'system' 값을 'ProxyMode'로 선택하면 시스템의 프록시가 사용되고 다른 모든 필드는 무시됩니다.
 
-If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
+'auto_detect' 값을 'ProxyMode'로 선택하면 다른 모든 필드는 무시됩니다.
 
-If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
+'fixed_server' 값을 'ProxyMode'로 선택하면 'ProxyServer' 및 'ProxyBypassList' 필드가 사용됩니다.
 
-If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
+'pac_script' 값을 'ProxyMode'로 선택하면 'ProxyPacUrl' 및 'ProxyBypassList' 필드가 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4372,15 +4487,15 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Controls which extension types can be installed and limits runtime access.
+  설치할 수 있는 확장 유형을 제어하고 런타임 액세스를 제한합니다.
 
-This setting defines the allowed types of extensions and which hosts they can interact with. The value is a list of strings, each of which should be one of the following: "extension", "theme", "user_script", and "hosted_app". See the Microsoft Edge extensions documentation for more information on these types.
+이 설정은 허용되는 확장 유형과 상호 작용할 수 있는 호스트를 정의합니다. 값은 문자열 목록이며 각 문자열은 "extension", "theme", "user_script" 및 "hosted_app" 중 하나여야 합니다. 이러한 유형에 대한 자세한 내용은 Microsoft Edge 확장 문서를 참조하세요.
 
-Note that this policy also affects extensions to be force-installed by using [ExtensionInstallForcelist](#extensioninstallforcelist) policy.
+이 정책은 [ExtensionInstallForcelist](#extensioninstallforcelist) 정책을 사용하여 강제 설치할 확장에 영향을 줍니다.
 
-If you enable this policy, only extensions that match a type in the list are installed.
+이 정책을 사용하면 목록의 유형과 일치하는 확장만 설치됩니다.
 
-If you don't configure this policy, no restrictions on the acceptable extension types are enforced.
+이 정책을 구성하지 않으면 허용되는 extension 유형에 대한 제한이 적용되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4526,27 +4641,27 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist\1 = "extension_id2"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specifies extensions that are installed silently, without user interaction, and that the users can't uninstall or disable ("force-installed"). All permissions requested by the extensions are granted implicitly, without user interaction, including any additional permissions requested by future versions of the extension. Furthermore, permissions are granted for the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. (These two APIs are only available to extensions that are force-installed.)
+  사용자 개입 없이 자동으로 설치되고 사용자가 제거하거나 사용하지 않도록 설정할 수 없는("강제 설치") 확장을 지정합니다. 향후 버전의 확장에서 요청할 추가 사용 권한을 포함하여 확장에서 요청한 모든 사용 권한은 사용자 개입 없이 암시적으로 부여됩니다. 그에 더해 enterprise.deviceAttributes 및 enterprise.platformKeys 확장 API에 대한 사용 권한이 부여됩니다. (이 두 API는 강제 설치되는 확장에서만 사용할 수 있습니다.)
 
-This policy takes precedence over a potentially conflicting [ExtensionInstallBlocklist](#extensioninstallblocklist) policy. When you take an extension off of the force-installed list it's automatically uninstalled by Microsoft Edge.
+이 정책은 잠재적으로 충돌하는 [ExtensionInstallBlocklist](#extensioninstallblocklist) 정책보다 우선합니다. 강제 설치 목록에서 확장을 제거하면 Microsoft Edge에 의해 자동으로 제거됩니다.
 
-For Windows devices that aren't joined to a Microsoft Active Directory domain, forced installation is limited to extensions available in the Microsoft Store.
+Microsoft Active Directory 도메인에 가입되어 있지 않은 Windows 장치의 경우 강제 설치는 Microsoft Store에서 사용할 수 있는 확장으로만 제한됩니다.
 
-Note that users can modify the source code of any extension by using Developer Tools, potentially rendering the extension dysfunctional. If this is a concern, set the [DeveloperToolsAvailability](#developertoolsavailability) policy.
+사용자는 개발자 도구를 사용하여 확장의 소스 코드를 수정할 수 있으므로 확장 기능이 제대로 렌더링되지 않을 수 있습니다. 이것이 우려되는 경우 [DeveloperToolsAvailability](#developertoolsavailability) 정책을 설정하세요.
 
-Use the following format to add an extension to the list:
+확장을 목록에 추가하려면 다음 형식을 사용하세요.
 
-[extensionID];[updateURL]
+[extensionID]; [updateURL]
 
-- extensionID - the 32-letter string found on edge://extensions when in developer mode.
+- extensionID - 개발자 모드인 경우 edge://extensions에 있는 32자 문자열입니다.
 
-- updateURL (optional) is the address of the Update Manifest XML document for the app or extension, as described at [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). If you don't set the updateURL, the Microsoft Store update URL is used (currently https://edge.microsoft.com/extensionwebstorebase/v1/crx).  Note that the update URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL indicated in the extension's manifest.
+- updateURL(선택 사항)은 [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043)에 설명된 대로 앱 또는 확장에 대한 업데이트 매니페스트 XML 문서의 주소입니다. updateURL을 설정하지 않으면 Microsoft Store 업데이트 URL(현재는, https://edge.microsoft.com/extensionwebstorebase/v1/crx)이 사용됩니다. 이 정책에 설정된 업데이트 URL은 초기 설치에만 사용됩니다. 이후 확장의 업데이트는 확장의 매니페스트에 표시된 업데이트 URL을 사용합니다.
 
-For example, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx installs the Microsoft Online app from the Microsoft Store "update" URL. For more information about hosting extensions, see: [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
+예를 들어, gggmmkjegpiggikcnhidnjjhmicpibll;https://edge.microsoft.com/extensionwebstorebase/v1/crx는 Microsoft Store "업데이트" URL에서 Microsoft Online 앱을 설치합니다. 확장 호스팅에 대한 자세한 내용은 다음을 참조하세요. [https://go.microsoft.com/fwlink/?linkid=2095044](https://go.microsoft.com/fwlink/?linkid=2095044).
 
-If you don't configure this policy, no extensions are installed automatically, and users can uninstall any extension in Microsoft Edge.
+이 정책을 구성하지 않으면 확장이 자동으로 설치되지 않으며 사용자는 Microsoft Edge에서 확장을 제거할 수 있습니다.
 
-Note that this policy doesn't apply to InPrivate mode.
+이 정책은 InPrivate 모드에는 적용되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -4594,13 +4709,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "abcdefghijklmnop
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define URLs that can install extensions and themes.
+  확장 및 테마를 설치할 수 있는 URL을 정의합니다.
 
-By default, users have to download a *.crx file for each extension or script they want to install, and then drag it onto the Microsoft Edge settings page. This policy lets specific URLs use install the extension or script for the user.
+기본적으로 사용자는 설치하려는 각 확장 또는 스크립트에 대한 *.crx 파일을 다운로드한 다음 Microsoft Edge 설정 페이지로 파일을 끌어와야 합니다. 이 정책을 통해 특정 URL에서 사용자를 위해 확장 또는 스크립트를 설치할 수 있습니다.
 
-Each item in this list is an extension-style match pattern (see [https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039)). Users can easily install items from any URL that matches an item in this list. Both the location of the *.crx file and the page where the download is started from (in other words, the referrer) must be allowed by these patterns.
+이 목록의 각 항목은 확장 스타일 일치 패턴입니다([https://go.microsoft.com/fwlink/?linkid=2095039](https://go.microsoft.com/fwlink/?linkid=2095039) 참조). 사용자는 이 목록의 항목과 일치하는 모든 URL에서 항목을 쉽게 설치할 수 있습니다. *.crx 파일의 위치 및 다운로드가 시작되는 페이지(즉, 참조 페이지)는 이 패턴에 의해 허용되어야 합니다.
 
-The [ExtensionInstallBlocklist](#extensioninstallblocklist) policy takes precedence over this policy. Any extensions that's on the block list won't be installed, even if it comes from a site on this list.
+[ExtensionInstallBlocklist](#extensioninstallblocklist) 정책이 이 정책보다 우선합니다. 차단 목록에 있는 모든 확장은 이 목록의 사이트가 출처인 경우에도 설치되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -5236,13 +5351,13 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allows you to set whether a user is prompted to grant a website access to their audio capture device. This policy applies to all URLs except for those configured in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list.
+  사용자에게 해당 오디오 캡처 장치에 대한 액세스 권한을 부여하라는 메시지를 표시할지 여부를 설정하도록 허용합니다. 이 정책은 [AudioCaptureAllowedUrls](#audiocaptureallowedurls) 목록에 구성된 URL을 제외한 모든 URL에 적용됩니다.
 
-If you enable this policy or don't configure it (the default setting), the user is prompted for audio capture access except from the URLs in the [AudioCaptureAllowedUrls](#audiocaptureallowedurls) list. These listed URLs are granted access without prompting.
+이 정책을 사용하거나 구성하지 않으면(기본 설정) [AudioCaptureAllowedUrls](#audiocaptureallowedurls) 목록의 URL을 제외하고 오디오 캡처 액세스를 묻는 프롬프트가 표시됩니다. 나열된 URL은 메시지를 표시하지 않고 액세스 권한이 부여됩니다.
 
-If you disable this policy, the user is not prompted, and audio capture is accessible only to the URLs configured in [AudioCaptureAllowedUrls](#audiocaptureallowedurls).
+이 정책을 사용하지 않으면 사용자에게 메시지가 표시되지 않고 [AudioCaptureAllowedUrls](#audiocaptureallowedurls)에 구성된 URL에서만 오디오 캡처에 액세스할 수 있습니다.
 
-This policy affects all types of audio inputs, not only the built-in microphone.
+이 정책은 내장 마이크뿐만 아니라 모든 유형의 오디오 입력에 영향을 줍니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -5816,21 +5931,21 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
+  사용자가 자신의 계정으로 Microsoft Edge에 로그인하고 동기화 및 Single Sign-On과 같은 계정 관련 서비스를 사용할 수 있는지 여부를 지정합니다. 동기화 사용을 제어하려면 대신 [SyncDisabled](#syncdisabled) 정책을 사용하세요.
 
-If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
+이 정책을 '브라우저 로그인 사용 안 함'으로 설정하면 [NonRemovableProfileEnabled](#nonremovableprofileenabled)가 자동으로 로그인되어 있는 브라우저 프로필 작성을 사용하지 않도록 설정하기 때문에 [NonRemovableProfileEnabled](#nonremovableprofileenabled) 정책도 사용 안함으로 설정해야 합니다. 두 정책을 모두 설정하면 Microsoft Edge는 '브라우저 로그인 사용 안 함' 정책을 사용하고 [NonRemovableProfileEnabled](#nonremovableprofileenabled)가 사용하지 않도록 설정된 것처럼 작동합니다.
 
-If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
+이 정책을 '브라우저 로그인 사용'(1)으로 설정하면 사용자가 브라우저에 로그인할 수 있습니다. 브라우저에 로그인한다고 해서 기본적으로 동기화가 설정되어 있는 것은 아닙니다. 사용자는 별도로 이 기능을 사용하도록 선택해야 합니다.
 
-If you set this policy to 'Force browser sign-in' (2) users must sign into a profile to use the browser. By default, this will allow the user to choose whether they want to sync to their account, unless sync is disabled by the domain admin or with the [SyncDisabled](#syncdisabled) policy. The default value of [BrowserGuestModeEnabled](#browserguestmodeenabled) policy is set to false.
+이 정책을 '브라우저 로그인 강제'(2)으로 설정하면 브라우저를 사용하기 위해 사용자가 프로필에 로그인해야 합니다. 기본적으로 도메인 관리자 또는 [SyncDisabled](#syncdisabled) 정책에 의해 동기화가 사용 중지되지 않는 한 사용자가 자신의 계정에 동기화할지 여부를 선택할 수 있습니다. [BrowserGuestModeEnabled](#browserguestmodeenabled) 정책의 기본값은 false로 설정됩니다.
 
-If you don't configure this policy users can decide if they want to enable the browser sign-in option and use it as they see fit.
+이 정책을 구성하지 않으면 사용자가 브라우저 로그인 옵션을 사용할지 여부를 결정할 수 있으며 적합하다고 판단되는 경우 사용할 수 있습니다.
 
-* 0 = Disable browser sign-in
+* 0 = 브라우저 로그인 사용 안 함
 
-* 1 = Enable browser sign-in
+* 1 = 브라우저 로그인 사용
 
-* 2 = Force users to sign-in to use the browser
+* 2 = 브라우저 사용을 위해 사용자가 로그인하도록 강제
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -6091,13 +6206,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
+  Microsoft Edge는 닫힐 때 기본적으로 데이터를 지우지 않습니다. 검색 데이터에는 양식에 입력한 정보, 암호와 방문한 웹 사이트도 포함됩니다.
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+이 정책을 사용하면 Microsoft Edge가 닫힐 때마다 모든 검색 데이터가 삭제됩니다.
 
-If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
+이 정책을 사용하지 않거나 구성하지 않으면 사용자가 설정에서 검색 데이터 지우기 옵션을 구성할 수 있습니다.
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) 정책도 데이터 삭제를 처리하므로 이 정책을 사용하는 경우 두 가지 정책 모두를 사용하도록 설정하지 마세요. 둘 다 사용하도록 설정하면 [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)를 구성한 방식에 관계 없이 이 정책이 우선하며 Microsoft Edge가 닫힐 때 모든 데이터가 삭제됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -6339,8 +6454,8 @@ Windows에서 이 정책은 Microsoft Active Directory 도메인에 가입된 �
 사이 정책을 사용하지 않으면 음성 글꼴을 사용할 수 없습니다.
 
 이 기능에 대한 자세한 내용은 다음을 참조하세요:
-SpeechSynthesis API: https://developer.mozilla.org/ko-KR/docs/Web/API/SpeechSynthesis
-인식 서비스: https://azure.microsoft.com/ko-kr/services/cognitive-services/text-to-speech/
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+인식 서비스: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -6581,11 +6696,11 @@ DirectInvoke에 대한 자세한 내용은 [https://go.microsoft.com/fwlink/?lin
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Prevent web pages from accessing the graphics processing unit (GPU). Specifically, web pages can't access the WebGL API and plug-ins can't use the Pepper 3D API.
+  웹 페이지가 GPU(그래픽 처리 장치)에 액세스하지 못하도록 합니다. 특히 웹 페이지가 WebGL API에 액세스할 수 없으며 플러그 인은 Pepper 3D API를 사용할 수 없습니다.
 
-If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
+이 정책을 구성하지 않거나 사용하지 않도록 설정하면 잠재적으로 웹 페이지가 WebGL API를 사용하고 플러그 인은 Pepper 3D API를 사용할 수 있습니다. Microsoft Edge는 기본적으로 이러한 API를 사용하기 위해 전달할 명령줄 인수가 여전히 필요합니다.
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
+[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) 정책이 false로 설정되면 'Disable3DAPIs' 정책에 대한 설정은 무시됩니다. 'Disable3DAPIs'정책을 true로 설정하는 것과 같습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7231,15 +7346,15 @@ Microsoft는 호환성을 위해 특정 도메인에서 수행할 작업 목록�
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+  이 정책은 "항상 열기" 확인란이 외부 프로토콜 시작 확인 프롬프트에 표시되는지 여부를 제어합니다.
 
-If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+이 정책을 True로 설정하면 외부 프로토콜 확인 프롬프트가 표시될 때 사용자가 "항상 열기"를 선택할 수 있습니다. 이 프로토콜에 대한 확인 메시지가 더 이상 사용자에게 표시되지 않습니다.
 
-If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+이 정책을 False로 설정하거나 정책을 설정하지 않으면 "항상 열기" 확인란이 표시되지 않습니다. 외부 프로토콜이 호출될 때마다 확인하라는 메시지가 사용자에게 표시됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7252,7 +7367,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 이름: Show an "Always open" checkbox in external protocol dialog.
+  - GP 이름: 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -8375,23 +8490,23 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
   >지원되는 버전: Windows의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+  "페이지 내" 탐색은 현재 페이지의 링크, 스크립트 또는 양식에서 시작됩니다. 또한 이전 "페이지 내" 탐색 시도를 서버 측으로 리디렉션할 수도 있습니다. 반대로, 사용자는 브라우저 컨트롤을 사용하여 여러 가지 방법으로 현재 페이지와는 관계없이 "페이지 내" 탐색이 아닌 탐색을 시작할 수 있습니다. 예를 들어, 주소 표시줄, 뒤로 단추 또는 즐겨찾기 링크를 사용할 수도 있습니다.
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+이 설정을 사용하면 Internet Explorer 모드로 로드된 페이지에서 구성되지 않은 사이트(엔터프라이즈 모드 사이트 목록에서 구성되지 않은 사이트)로의 탐색을 Microsoft Edge로 다시 전환하거나 Internet Explorer 모드에서 계속 사용할 것인지를 지정할 수 있습니다.
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+이 설정은 다음과 함께 작동합니다.
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)이 "Internet Explorer 모드"(1)로 설정되었습니다.
+그리고
+목록에 하나 이상의 항목이 있는 [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) 정책을 구성합니다.
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+이 정책을 사용하지 않도록 설정하거나 구성하지 않으면 Internet Explorer 모드에서 열리도록 구성된 사이트만 해당 모드에서 열립니다. Internet Explorer 모드에서 열도록 구성되지 않은 사이트는 Microsoft Edge로 다시 리디렉션됩니다.
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+이 정책을 사용하도록 설정하면 다음 탐색 옵션 중 하나를 선택할 수 있습니다.
+0 - 기본값. Internet Explorer 모드에서 열도록 구성된 사이트만 해당 모드에서 열립니다. Internet Explorer 모드에서 열도록 구성되지 않은 사이트는 Microsoft Edge로 다시 리디렉션됩니다.
+1 - Internet Explorer 모드에서 자동 탐색만 유지. 구성되지 않은 사이트에 대한 모든 자동 탐색(예: 302 리디렉션)을 Internet Explorer 모드에서 유지하는 경우를 제외하고 기본 환경을 사용하려면 이 옵션을 사용합니다.
+2 - Internet Explorer 모드에서 모든 페이지 내 탐색 유지(권장하지 않음). IE 모드에서 구성되지 않은 사이트로 로드된 페이지의 모든 탐색은 Internet Explorer 모드에 유지됩니다.
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+Internet Explorer 모드에 대한 자세한 정보는 [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)를 참조하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8428,11 +8543,11 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Specify origins to run in isolation, in their own process.
-This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
-If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
-If you don't configure the policy, the user can change this setting.
+  자신의 프로세스에서 단독으로 실행되도록 원본을 지정합니다.
+ 또한 이 정책은 하위 도메인에서 명명 한 원본을 분리합니다. 예를 들어 https://contoso.com/를 지정하면 https://foo.contoso.com/이 https://contoso.com/ 사이트의 일부로 격리됩니다.
+ 정책이 활성화된 경우 쉼표로 구분된 목록의 각 명명된 출처는 자체 프로세스에서 실행됩니다.
+ 이 정책을 사용하지 않으면 'IsolateOrigins' 및 'SitePerProcess' 기능이 모두 비활성화됩니다. 사용자는 명령줄 플래그를 통해 'IsolateOrigins' 정책을 수동으로 활성화할 수 있습니다.
+정책을 구성하지 않은 경우 사용자가 이 설정을 변경할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8586,14 +8701,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding for any search engine.
+  최대 10개의 검색 엔진 목록을 구성할 수 있으며, 목록 중 하나는 기본 검색 엔진으로 표시해야 합니다.
+검색 엔진에 대한 인코딩을 지정할 필요는 없습니다.
 
-If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
+이 정책을 사용하면 사용자가 목록의 검색 엔진을 추가, 제거 또는 변경할 수 없습니다. 사용자는 기본 검색 엔진을 목록에 있는 검색 엔진으로 설정할 수 있습니다.
 
-If you disable or don't configure this policy, users can modify the search engines list as desired.
+이 정책을 사용하지 않거나 구성하지 않으면 사용자가 원하는 대로 검색 엔진 목록을 수정할 수 있습니다.
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
+[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책이 설정된 경우 이 정책(ManagedSearchEngines)은 무시됩니다. 이 정책 적용을 마무리하려면 사용자가 브라우저를 다시 시작해야 합니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8753,13 +8868,13 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Enable this policy to let Google Cast connect to Cast devices on all IP addresses, not just RFC1918/RFC4193 private addresses.
+  이 정책을 사용하면 Google Cast가 RFC1918/RFC4193 개인 주소 뿐만 아니라 모든 IP 주소의 캐스트 장치에 연결할 수 있습니다.
 
-Disable this policy to restrict Google Cast to Cast devices on RFC1918/RFC4193 private addresses.
+RFC1918/RFC4193 개인 주소의 캐스트 장치에 대한 Google Cast를 제한하려면 이 정책을 사용하지 않도록 설정하세요.
 
-If you don't configure this policy, Google Cast connects to Cast devices on RFC1918/RFC4193 private addresses only, unless you enable the CastAllowAllIPs feature.
+이 정책을 구성하지 않으면 CastAllowAllIPs 기능을 사용하지 않는 한, RFC1918/RFC4193 개인 주소의 캐스트 장치에만 Google Cast를 연결합니다.
 
-If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this policy has no effect.
+[EnableMediaRouter](#enablemediarouter) 정책을 사용하지 않도록 설정하면 이 정책은 적용되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8802,17 +8917,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Microsoft Edge의 Windows 10 Beta 및 Stable 채널의 경우 이 정책을 구성하면 컬렉션 또는 컬렉션이 아닌 Microsoft Edge 사용량 및 크래시 관련 데이터에 대한 Windows 진단 데이터 설정을 재정의합니다([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-이 정책은 Microsoft Edge에 대한 사용량 및 크래시 관련 데이터를 Microsoft에 보고하는 것을 사용하도록 설정하며 사용자가 이 설정을 변경할 수 없도록 합니다.
+This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
 
-사용량 및 크래시 관련 데이터 보고를 Microsoft에 보내려면 이 정책을 사용하도록 설정하세요. 데이터를 Microsoft로 보내지 않으려면 이 정책을 사용하지 않도록 설정하세요. 두 경우 모두 사용자가 설정을 변경하거나 재정의할 수 없습니다.
+Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-Windows 10, Beta 및 Stable 채널에서 이 정책은 사용량 및 크래시 관련 데이터를 제어합니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 Windows 진단 데이터 설정을 기본값으로 합니다.
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
-Windows 10, Canary 및 Dev 채널에서 이 정책은 사용량 및 크래시 관련 데이터를 제어합니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 사용자의 기본 설정을 기본값으로 합니다.
+On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
-Windows 7, 8 및 Mac에서는 이 정책이 사용량 및 크래시 관련 데이터를 제어합니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 사용자의 기본 설정을 기본값으로 합니다.
+On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8906,13 +9023,13 @@ Windows 7, 8 및 Mac에서는 이 정책이 사용량 및 크래시 관련 데�
   >지원되는 버전: Windows의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  이 정책은 사용자의 회사 또는 학교 계정으로 자동으로 로그인되어 있는 Microsoft Edge 프로필이 제거 가능한지 여부를 결정합니다.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+이 정책을 사용하도록 설정하거나 구성하지 않으면 제거할 수 없는 프로필이 Windows에서 사용자의 회사 또는 학교 계정으로 만들어집니다.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+이 정책을 사용하지 않으면 사용자가 Windows에서 사용자의 회사 또는 학교 계정으로 자동으로 로그인한 프로필을 로그아웃하거나 제거할 수 있습니다.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+브라우저 로그인을 완전히 사용하지 않도록 설정하려면 'BrowserSignIn' 정책을 사용하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8994,6 +9111,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >지원되는 버전: Windows의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 아니요 - 브라우저 다시 시작 필요
+
+  #### 데이터 형식:
+  부울
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: PinningWizardAllowed
+  - GP 이름: Allow Pin to taskbar wizard
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: PinningWizardAllowed
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000000
+```
+
+
   
 
   [맨 위로 이동](#microsoft-edge---정책)
@@ -9195,19 +9355,19 @@ QUIC는 현재 TCP를 사용하는 웹 응용 프로그램의 성능을 향상�
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Notify users that they need to restart Microsoft Edge to apply a pending update.
+  보류 중인 업데이트를 적용하려면 Microsoft Edge를 다시 시작해야 함을 사용자에게 알립니다.
 
-If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.
+ 이 정책을 구성하지 않으면 Microsoft Edge에서 상단 메뉴 표시줄의 맨 오른쪽에 휴지통 아이콘을 추가하여 업데이트를 적용하기 위해 브라우저를 다시 시작하라는 메시지를 사용자에게 표시합니다.
 
-If you enable this policy and set it to 'Recommended' (1), a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.
+ 이 정책을 사용하고 '권장'(1)으로 설정하면 다시 시작이 권장된다는 반복적인 경고 메시지가 사용자에게 표시됩니다. 사용자는 이 경고를 해제하고 다시 시작을 연기할 수 있습니다.
 
-If you set the policy to 'Required' (2), a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the [RelaunchNotificationPeriod](#relaunchnotificationperiod) policy.
+정책을 '필요'(2)로 설정하면 알림 기간이 경과하는 즉시 브라우저가 자동으로 다시 시작된다는 반복 경고가 사용자에게 표시됩니다. 기본 기간은 7일입니다. [RelaunchNotificationPeriod](#relaunchnotificationperiod) 정책을 사용하여 이 기간을 구성할 수 있습니다.
 
-The user's session is restored when the browser restarts.
+ 브라우저를 다시 시작할 때 사용자의 세션이 복원됩니다.
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+ * 권장(1) = 사용자에게 다시 시작이 권장됨을 나타내는 메시지를 반복적으로 표시
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+ * 필요(2) = 사용자에게 다시 시작이 필요함을 나타내는 메시지를 반복적으로 표시
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9250,15 +9410,11 @@ The user's session is restored when the browser restarts.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9381,16 +9537,16 @@ Restrictions:
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allow Microsoft Edge to issue a dataless connection to a web service to probe networks for connectivity in cases like hotel and airport Wi-Fi.
+  호텔 및 공항 Wi-Fi와 같은 경우에 Microsoft Edge가 웹 서비스에 대한 데이터 없는 연결을 발급하여 연결을 위해 네트워크를 검색하도록 허용합니다.
 
-If you enable this policy, a web service is used for network connectivity tests.
+이 정책을 사용하면 네트워크 연결 테스트에 웹 서비스가 사용됩니다.
 
-If you disable this policy, Microsoft Edge uses native APIs to try to resolve network connectivity and navigation issues.
+이 정책을 사용하지 않으면 Microsoft Edge는 기본 API를 사용하여 네트워크 연결 및 탐색 문제를 해결하려고 시도합니다.
 
-**Note**: Except on Windows 8 and later versions of Windows, Microsoft Edge *always* uses native APIs to resolve connectivity issues.
+**참고**: Windows 8 및 이후 버전의 Windows를 제외하고 Microsoft Edge는 *항상* 연결 문제를 해결하기 위해 기본 API를 사용합니다.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Use a web service to help resolve navigation errors** toggle, which the user can switch on or off. Be aware that if you have enabled this policy (ResolveNavigationErrorsUseWebService), the **Use a web service to help resolve navigation errors** setting is turned on, but the user can't change the setting by using the toggle. If you have disabled this policy, the **Use a web service to help resolve navigation errors** setting is turned off, and the user can't change the setting by using the toggle.
+이 정책을 구성하지 않으면 Microsoft Edge는 edge://settings/privacy의 서비스에 설정된 사용자 기본 설정을 사용합니다.
+특히, 사용자가 켜거나 끌 수 있는 **웹 서비스를 사용하여 탐색 오류 해결** 토글이 있습니다. 이 정책(ResolveNavigationErrorsUseWebService)을 사용하도록 설정한 경우 **웹 서비스를 사용하여 탐색 오류 해결** 설정이 켜지고 사용자는 토글을 사용하여 설정을 변경할 수 없습니다. 이 정책을 사용하지 않으면 **웹 서비스를 사용하여 탐색 오류 해결** 설정이 꺼지고 사용자는 토글을 사용하여 설정을 변경할 수 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9480,11 +9636,11 @@ Specifically, there's a **Use a web service to help resolve navigation errors** 
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  If you enable this policy, all Adobe Flash content embedded in websites that are set to allow Adobe Flash in the content settings -- either by the user or by enterprise policy -- will run. This includes content from other origins and/or small content.
+  이 정책을 사용하면 사용자 또는 엔터프라이즈 정책에 의해 콘텐츠 설정에서 Adobe Flash 콘텐츠 허용하도록 설정된 웹 사이트에 포함된 모든 Adobe Flash 콘텐츠가 실행됩니다. 여기에는 다른 원본의 콘텐츠 및/또는 작은 콘텐츠가 포함됩니다.
 
-To control which websites are allowed to run Adobe Flash, see the specifications in the [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls), and [PluginsBlockedForUrls](#pluginsblockedforurls) policies.
+Adobe Flash를 실행하도록 허용할 웹 사이트를 제어하려면 [DefaultPluginsSetting](#defaultpluginssetting), [PluginsAllowedForUrls](#pluginsallowedforurls) 및 [PluginsBlockedForUrls](#pluginsblockedforurls) 정책에서 사양을 참조하세요.
 
-If you disable this policy or don't configure it, Adobe Flash content from other origins (from sites that aren't specified in the three policies mentioned immediately above) or small content might be blocked.
+이 정책을 사용하지 않거나 구성하지 않으면 다른 원본(바로 위에서 언급한 세 가지 정책에서 지정되지 않은 사이트)의 Adobe Flash 콘텐츠 또는 작 콘텐츠가 차단될 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9955,11 +10111,9 @@ Windows 7, 8 및 Mac에서는 이 정책이 사용자가 방문하는 웹 사이
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  
-The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
-If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
-If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
-
+  'SitePerProcess' 정책을 사용하면 사용자가 모든 사이트를 격리하는 기본 동작을 해제하지 못하도록 할 수 있습니다. [IsolateOrigins](#isolateorigins) 정책을 사용하여 보다 세분화된 추가 출처를 격리할 수도 있습니다.
+이 정책을 사용하면 각 사이트가 자체 프로세스에서 실행되는 기본 동작을 사용자가 해제할 수 없습니다.
+이 정책을 구성하지 않으면 사용자가 사이트 격리를 해제할 수 있습니다. 예를 들어, edge://flags에서 "사이트 격리 사용 안 함" 항목을 사용하여 해제합니다. 정책을 사용하지 않거나 구성하지 않아도 사이트 격리가 해제되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10002,9 +10156,9 @@ If you disable or don’t configure this policy, a user can opt out of site isol
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  If you enable or don't configure this policy, the user can use spellcheck.
+  정책을 사용하거나 사용하지 않으면 사용자가 맞춤법 검사를 사용할 수 있습니다.
 
-If you disable this policy, the user can't use spellcheck and the [SpellcheckLanguage](#spellchecklanguage) and [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policies are also disabled.
+이 정책을 사용하지 않으면 사용자가 맞춤법 검사를 사용할 수 없으며 [SpellcheckLanguage](#spellchecklanguage) 및 [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) 정책도 사용하지 않도록 설정됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10047,17 +10201,17 @@ If you disable this policy, the user can't use spellcheck and the [SpellcheckLan
   >지원되는 버전: Windows의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Enables different languages for spellcheck. Any language that you specify that isn't recognized is ignored.
+  맞춤법 검사에 대해 다른 언어를 사용하도록 설정합니다. 인식되지 않는 사용자가 지정한 언어는 무시됩니다.
 
-If you enable this policy, spellcheck is enabled for the languages specified, as well as any languages the user has enabled.
+이 정책을 사용하면 지정된 언어뿐만 아니라 사용자가 사용하도록 설정한 모든 언어에 대해 맞춤법 검사가 사용됩니다.
 
-If you don't configure or disable this policy, there's no change to the user's spellcheck preferences.
+이 정책을 구성하지 않거나 사용하지 않으면 사용자의 맞춤법 기본 설정이 변경되지 않습니다.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
+[SpellcheckEnabled](#spellcheckenabled) 정책을 사용하지 않으면 이 정책이 적용되지 않습니다.
 
-If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+언어가 'SpellcheckLanguage'와 [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) 정책에 모두 포함되어 있으면 맞춤법 검사 언어가 사용됩니다.
 
-The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+지원되는 언어는 다음과 같습니다: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10096,17 +10250,17 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguage\1 = "es"
   >지원되는 버전: Windows의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.
+  맞춤법 검사 언어를 강제로 사용하지 않도록 설정합니다. 해당 목록에서 인식할 수 없는 언어는 무시됩니다.
 
-If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.
+이 정책을 사용하면 지정된 언어에 대한 맞춤법 검사를 사용할 수 없습니다. 사용자는 계속 목록에 없는 언어에 대해 맞춤법 검사를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.
+이 정책을 설정하지 않거나 사용하지 않도록 설정하면 사용자의 맞춤법 검사 기본 설정이 변경되지 않습니다.
 
-If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
+[SpellcheckEnabled](#spellcheckenabled) 정책을 사용 안 함으로 설정되어 있으면 이 정책은 적용되지 않습니다.
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
+언어가 [SpellcheckLanguage](#spellchecklanguage) 및 'SpellcheckLanguageBlocklist' 정책에 모두 포함되어 있으면 맞춤법 검사 언어가 사용됩니다.
 
-The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
+현재 지원되는 언어는 다음과 같습니다: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10188,11 +10342,11 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  Microsoft Edge에서 데이터 동기화를 사용하지 않도록 설정하고 사용자가 이 설정을 수정할 수 없게 합니다.
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+이 정책을 설정하지 않으면 사용자가 동기화를 켜거나 끌 수 있습니다.
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+'RoamingProfileSupportEnabled'는 동기화 기능을 복제하므로, 'RoamingProfileSupportEnabled' 정책을 사용하는 경우 이 정책을 사용하도록 설정하지 마세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10231,22 +10385,22 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### TabFreezingEnabled
-  #### Allow freezing of background tabs
-  >지원되는 버전: Windows의 Microsoft Edge, 버전 79 이상부터
+  #### 배경 탭의 고정 허용
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+  Microsoft Edge가 5분 이상 백그라운드에 있는 탭을 고정할 수 있는지 여부를 제어합니다.
 
-Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+탭 고정은 CPU, 배터리, 및 메모리 사용량을 줄입니다. Microsoft Edge는 경험적 접근을 사용하여 알림 표시, 소리 재생 및 비디오 스트리밍과 같이 백그라운드에서 유용한 작업을 수행하는 탭이 고정되는 것을 방지합니다.
 
-If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+이 정책을 사용하도록 설정하거나 구성하지 않으면 5분 이상 백그라운드에 있었던 탭이 고정될 수 있습니다.
 
-If you disable this policy, no tabs will be frozen.
+이 정책을 사용하지 않도록 설정하면 탭이 고정되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
   - 권장될 수 있음: 아니요
-  - 동적 정책 새로 고침: 아니요 - 브라우저 다시 시작 필요
+  - 동적 정책 새로 고침: 예
 
   #### 데이터 형식:
   부울
@@ -10254,7 +10408,7 @@ If you disable this policy, no tabs will be frozen.
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: TabFreezingEnabled
-  - GP 이름: Allow freezing of background tabs
+  - GP 이름: 배경 탭의 고정 허용
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -10269,6 +10423,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: TabFreezingEnabled
+  - 예제 값:
+``` xml
+<false/>
+```
   
 
   [맨 위로 이동](#microsoft-edge---정책)
@@ -10422,17 +10582,17 @@ If you disable this policy, no tabs will be frozen.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allow access to the listed URLs, as exceptions to the URL block list.
+  나열된 URL에 대한 액세스를 URL 차단 목록에 대한 예외로 허용합니다.
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+[https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322)에 따라 URL 패턴의 형식을 지정합니다.
 
-You can use this policy to open exceptions to restrictive block lists. For example, you can include '*' in the block list to block all requests, and then use this policy to allow access to a limited list of URLs. You can use this policy to open exceptions to certain schemes, subdomains of other domains, ports, or specific paths.
+이 정책을 사용하여 제한적인 차단 목록에 대한 예외를 열 수 있습니다. 예를 들어 차단 목록에 '*'를 포함하여 모든 요청을 차단한 다음 이 정책을 사용하여 제한된 URL 목록에 대한 액세스를 허용할 수 있습니다. 이 정책을 사용하여 특정 구성표, 다른 도메인의 하위 도메인, 포트 또는 특정 경로에 대한 예외를 열 수 있습니다.
 
-The most specific filter determines if a URL is blocked or allowed. The allowed list takes precedence over the block list.
+가장 구체적인 필터는 URL이 차단되었는지 또는 허용되는지를 결정합니다. 허용 목록은 차단 목록보다 우선합니다.
 
-This policy is limited to 1000 entries; subsequent entries are ignored.
+이 정책은 1000개 항목으로 제한되며, 이후 항목은 무시됩니다.
 
-If you don't configure this policy, there are no exceptions to the block list in the [URLBlocklist](#urlblocklist) policy.
+이 정책을 구성하지 않으면 [URLBlocklist](#urlblocklist) 정책의 차단 목록에 예외가 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10486,17 +10646,17 @@ SOFTWARE\Policies\Microsoft\Edge\URLAllowlist\4 = ".exact.hostname.com"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Define a list of sites, based on URL patterns, that are blocked (your users can't load them).
+  URL 패턴을 기반으로, 차단되는 사이트 목록을 정의합니다(사용자가 로드할 수 없음).
 
-Format the URL pattern according to [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+[https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322)에 따라 URL 패턴의 서식을 지정합니다.
 
-You can define exceptions in the [URLAllowlist](#urlallowlist) policy. These policies are limited to 1000 entries; subsequent entries are ignored.
+[URLAllowlist](#urlallowlist) 정책에서 예외를 정의할 수 있습니다. 이 정책은 1000개의 항목으로 제한되며, 이후 항목은 무시됩니다.
 
-Note that blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.
+참고: 내부 'edge://*' URL을 차단하는 것은 권장되지 않습니다. - 이렇게 하면 예기치 않은 오류가 발생할 수 있습니다.
 
-This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users might still be able to visit 'contoso.com' and click on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.
+이 정책은 페이지가 JavaScript를 통해 동적으로 업데이트되는 것을 막지 않습니다. 예를 들어 'contoso.com/abc'를 차단하면 페이지가 새로 고침되지 않는 한 'contoso.com'을 방문하고 링크를 클릭하여 'contoso.com/abc'를 방문할 수 있습니다.
 
-If you don't configure this policy, no URLs are blocked.
+이 정책을 구성하지 않으면 URL이 차단되지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10654,13 +10814,13 @@ SOFTWARE\Policies\Microsoft\Edge\URLBlocklist\7 = "*"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Control whether sites can capture video.
+  사이트에서 비디오를 캡처할 수 있는지 여부를 제어합니다.
 
-If enabled or not configured (default), the user will be asked about video capture access for all sites except those with URLs configured in the [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy list, which will be granted access without prompting.
+이 정책을 사용하거나 구성하지 않으면(기본값) 메시지를 표시하지 않고 액세스 권한이 부여되는 [VideoCaptureAllowedUrls](#videocaptureallowedurls) 정책 목록에 구성된 URL을 제외한 모든 사이트의 비디오 캡처 액세스에 대해 사용자에게 묻는 메시지가 표시됩니다.
 
-If you disable this policy, the user isn't prompted, and video capture is only available to URLs configured in [VideoCaptureAllowedUrls](#videocaptureallowedurls) policy.
+이 정책을 사용하지 않으면 사용자에게 메시지가 표시되지 않고, 비디오 캡처는 [VideoCaptureAllowedUrls](#videocaptureallowedurls) 정책에 구성된 URL에서만 사용할 수 있습니다.
 
-This policy affects all types of video inputs, not only the built-in camera.
+이 정책은 기본 제공 카메라 뿐만 아니라 모든 유형의 비디오 입력에 영향을 줍니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10800,19 +10960,18 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  
-This policy was removed in M80, because it is not necessary anymore as
-WebDriver is now compatible with all existing policies.
+  WebDriver가 이제 기존의 모든 정책과 호환되므로 더 이상 필요하지 않기 때문에
+ 이 정책은 M80에서 제거되었습니다.
 
-This policy allows users of the WebDriver feature to override
-policies which can interfere with its operation.
+ 이 정책을 사용하면 WebDriver 기능의 사용자는 작업을 방해할 수 있는 정책을
+ 무시할 수 있습니다.
 
-Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+ 현재 이 정책은 [SitePerProcess](#siteperprocess) 및 [IsolateOrigins](#isolateorigins) 정책을 사용하지 않도록 설정합니다.
 
-If the policy is enabled, WebDriver will be able to override incomaptible
-policies.
-If the policy is disabled or not configured, WebDriver will not be allowed
-to override incompatible policies.
+ 이 정책을 사용하면 WebDriver에서 호환되지 않는 정책을 무시할 수
+ 있습니다.
+정책을 사용하지 않거나 구성하지 않으면 WebDriver는 호환되지 않는 정책을
+ 무시할 수 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
