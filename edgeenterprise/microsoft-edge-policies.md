@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 10/23/2019
+ms.date: 11/06/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -136,6 +136,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SmartScreenAllowListDomains](#smartscreenallowlistdomains)|Configure the list of domains for which Microsoft Defender SmartScreen won't trigger warnings|
 |[SmartScreenEnabled](#smartscreenenabled)|Configure Microsoft Defender SmartScreen|
 |[SmartScreenForTrustedDownloadsEnabled](#smartscreenfortrusteddownloadsenabled)|Force Microsoft Defender SmartScreen checks on downloads from trusted sources|
+|[SmartScreenPuaEnabled](#smartscreenpuaenabled)|Configure Microsoft Defender SmartScreen to block potentially unwanted apps|
 ### [*Startup&comma; home page and new tab page*](#startup-home-page-and-new-tab-page-policies)
 |Policy Name|Caption|
 |-|-|
@@ -145,6 +146,7 @@ These tables lists all of the browser-related group policies available in this r
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
 |[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Set new tab page quick links|
+|[NewTabPageSetFeedType](#newtabpagesetfeedtype)|Configure the Microsoft Edge new tab page experience|
 |[RestoreOnStartup](#restoreonstartup)|Action to take on startup|
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
@@ -155,7 +157,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
-|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allows a page to perform synchronous XHR requests during page dismissal.|
+|[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
@@ -199,6 +201,7 @@ These tables lists all of the browser-related group policies available in this r
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Control communication with the Experimentation and Configuration Service|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Enable favorites bar|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
@@ -257,6 +260,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Force disable spellcheck languages|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
+|[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
 |[TrackingPrevention](#trackingprevention)|Block tracking of users' web-browsing activity|
 |[TranslateEnabled](#translateenabled)|Enable Translate|
@@ -383,7 +387,7 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
   #### Description
   Specify a list of sites, based on URL patterns, for which Microsoft Edge should automatically select a client certificate, if the site requests one.
 
-The value must be an array of stringified JSON dictionaries. The form for each dictionary is { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser can automatically select. Independent of the filter, only certificates that match the server's certificate request can be used. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates that are issued by a certificate with the CommonName $ISSUER_CN can be used. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must meet both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization that matches the specified value. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value. If $FILTER is the empty dictionary {}, the selection of client certificates isn't additionally restricted.
+The value must be an array of stringified JSON dictionaries. Each dictionary must have the form { "pattern": "$URL_PATTERN", "filter" : $FILTER }, where $URL_PATTERN is a content setting pattern. $FILTER restricts from which client certificates the browser will automatically select. Independent of the filter, only certificates will be selected that match the server's certificate request. For example, if $FILTER has the form { "ISSUER": { "CN": "$ISSUER_CN" } }, additionally only client certificates are selected that are issued by a certificate with the CommonName $ISSUER_CN. If $FILTER contains an "ISSUER" and a "SUBJECT" section, a client certificate must satisfy both conditions to be selected. If $FILTER specifies an organization ("O"), a certificate must have at least one organization which matches the specified value to be selected. If $FILTER specifies an organization unit ("OU"), a certificate must have at least one organization unit which matches the specified value to be selected. If $FILTER is the empty dictionary {}, the selection of client certificates is not additionally restricted.
 
 If you don't configure this policy, auto-selection isn't done for any site.
 
@@ -439,11 +443,11 @@ See the [CookiesBlockedForUrls](#cookiesblockedforurls) and [CookiesSessionOnlyF
 
 Note there cannot be conflicting URL patterns set between these three policies:
 
-- CookiesBlockedForUrls
+- [CookiesBlockedForUrls](#cookiesblockedforurls)
 
 - CookiesAllowedForUrls
 
-- CookiesSesssionOnlyForUrls
+- [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -501,9 +505,9 @@ Note there cannot be conflicting URL patterns set between these three policies:
 
 - CookiesBlockedForUrls
 
-- CookiesAllowedForUrls
+- [CookiesAllowedForUrls](#cookiesallowedforurls)
 
-- CookiesSesssionOnlyForUrls
+- [CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -561,11 +565,11 @@ You can also use the [CookiesAllowedForUrls](#cookiesallowedforurls) and [Cookie
 
 Note there cannot be conflicting URL patterns set between these three policies:
 
-- CookiesBlockedForUrls
+- [CookiesBlockedForUrls](#cookiesblockedforurls)
 
-- CookiesAllowedForUrls
+- [CookiesAllowedForUrls](#cookiesallowedforurls)
 
-- CookiesSesssionOnlyForUrls
+- CookiesSessionOnlyForUrls
 
 If you set the [RestoreOnStartup](#restoreonstartup) policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.
 
@@ -868,7 +872,7 @@ If you don't configure this policy, notifications are allowed by default, and th
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over [DefaultPluginsSetting](#defaultpluginssetting).
+  Determines whether websites that aren't covered by [PluginsAllowedForUrls](#pluginsallowedforurls) or [PluginsBlockedForUrls](#pluginsblockedforurls) can automatically run the Adobe Flash plug-in. You can select 'BlockPlugins' (2) to block Adobe Flash on all sites, or you can select 'ClickToPlay' (3) to let Adobe Flash run but require the user to click the placeholder to start it. In any case, the [PluginsAllowedForUrls](#pluginsallowedforurls) and [PluginsBlockedForUrls](#pluginsblockedforurls) policies take precedence over 'DefaultPluginsSetting'.
 
 Automatic playback is only allowed for domains explicitly listed in the [PluginsAllowedForUrls](#pluginsallowedforurls) policy. If you want to enable automatic playback for all sites, consider adding http://* and https://* to this list.
 
@@ -1639,7 +1643,7 @@ The USB permission model uses the URL of the requesting site ("requesting URL") 
 
 If this policy is left not set, the global default value will be used for all sites either from the [DefaultWebUsbGuardSetting](#defaultwebusbguardsetting) policy if it is set, or the user's personal configuration otherwise.
 
-URL patterns in this policy should not clash with the ones configured via WebUsbBlockedForUrls. If there is a clash, this policy will take precedence over WebUsbBlockedForUrls and WebUsbAskForUrls.
+URL patterns in this policy should not clash with the ones configured via [WebUsbBlockedForUrls](#webusbblockedforurls). If there is a clash, this policy will take precedence over [WebUsbBlockedForUrls](#webusbblockedforurls) and [WebUsbAskForUrls](#webusbaskforurls).
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -2090,7 +2094,7 @@ If you enable this policy, you set the name of the default search provider.
 
 If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.
 
-[DefaultSearchProviderName](#defaultsearchprovidername) should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
+'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -3880,10 +3884,10 @@ If you don't configure this policy, users can choose their own proxy settings.
 
 This policy overrides the following individual policies:
 
-ProxyMode
-ProxyPacUrl
-ProxyServer
-ProxyBypassList
+[ProxyMode](#proxymode)
+[ProxyPacUrl](#proxypacurl)
+[ProxyServer](#proxyserver)
+[ProxyBypassList](#proxybypasslist)
 
 The ProxyMode field lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings.
 
@@ -3893,15 +3897,15 @@ The ProxyServer field is a URL for the proxy server.
 
 The ProxyBypassList field is a list of proxy hosts that Microsoft Edge bypasses.
 
-If you choose the 'direct' value as [ProxyMode](#proxymode), a proxy is never used and all other fields are ignored.
+If you choose the 'direct' value as 'ProxyMode', a proxy is never used and all other fields are ignored.
 
-If you choose the 'system' value as [ProxyMode](#proxymode), the systems's proxy is used and all other fields are ignored.
+If you choose the 'system' value as 'ProxyMode', the systems's proxy is used and all other fields are ignored.
 
-If you choose the 'auto_detect' value as [ProxyMode](#proxymode), all other fields are ignored.
+If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.
 
-If you choose the 'fixed_server' value as [ProxyMode](#proxymode), the [ProxyServer](#proxyserver) and [ProxyBypassList](#proxybypasslist) fields are used.
+If you choose the 'fixed_server' value as 'ProxyMode', the 'ProxyServer' and 'ProxyBypassList' fields are used.
 
-If you choose the 'pac_script' value as [ProxyMode](#proxymode), the [ProxyPacUrl](#proxypacurl) and [ProxyBypassList](#proxybypasslist) fields are used.
+If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' and 'ProxyBypassList' fields are used.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4007,7 +4011,7 @@ If you disable or don't configure this setting, users can ignore Microsoft Defen
 
   ### PreventSmartScreenPromptOverrideForFiles
   #### Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads
-  >Supported Versions: Microsoft Edge on Windows since version 77 or later
+  >Supported Versions: Microsoft Edge on Windows since version 77 or later and on Mac since version 79 or later
 
   #### Description
   This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
@@ -4042,6 +4046,12 @@ If you disable or don't configure this policy, users can ignore Microsoft Defend
 ```
 
 
+  #### Mac information and settings
+  - Preference Key Name: PreventSmartScreenPromptOverrideForFiles
+  - Example value:
+``` xml
+<true/>
+```
   
 
   [Back to top](#microsoft-edge---policies)
@@ -4108,9 +4118,9 @@ SOFTWARE\Policies\Microsoft\Edge\SmartScreenAllowListDomains\1 = "myuniversity.e
   #### Description
   This policy setting lets you configure whether to turn on Microsoft Defender SmartScreen. Microsoft Defender SmartScreen provides warning messages to help protect your users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
 
-If you enable this setting, Microsoft Defender SmartScreen is turned on and users can't turn it off.
+If you enable this setting, Microsoft Defender SmartScreen is turned on.
 
-If you disable this setting, Microsoft Defender SmartScreen is turned off and users can't turn it on.
+If you disable this setting, Microsoft Defender SmartScreen is turned off.
 
 If you don't configure this setting, users can choose whether to use Microsoft Defender SmartScreen.
 
@@ -4191,6 +4201,57 @@ This policy is available only on Windows instances that are joined to a Microsof
 ```
 
 
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### SmartScreenPuaEnabled
+  #### Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  This policy setting lets you configure whether to turn on blocking for potentially unwanted apps in Microsoft Defender SmartScreen. Potentially unwanted app blocking in Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off by default.
+
+If you enable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned on.
+
+If you disable this setting, potentially unwanted app blocking in Microsoft Defender SmartScreen is turned off.
+
+If you don't configure this setting, users can choose whether to use potentially unwanted app blocking in Microsoft Defender SmartScreen.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: SmartScreenPuaEnabled
+  - GP name: Configure Microsoft Defender SmartScreen to block potentially unwanted apps
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/SmartScreen settings
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/SmartScreen settings
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: SmartScreenPuaEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: SmartScreenPuaEnabled
+  - Example value:
+``` xml
+<true/>
+```
   
 
   [Back to top](#microsoft-edge---policies)
@@ -4320,7 +4381,7 @@ If you enable this policy, Microsoft Edge downloads and shows the specified logo
 
 If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4443,6 +4504,8 @@ This policy doesn't determine which page opens on startup; that's controlled by 
 
 If you don't configure this policy, the default new tab page is used.
 
+If you configure this policy *and* the [NewTabPageSetFeedType](#newtabpagesetfeedtype) policy, this policy has precedence.
+
 If an invalid URL is provided, new tabs will open about://blank.
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances that are enrolled for device management.
@@ -4557,6 +4620,67 @@ SOFTWARE\Policies\Microsoft\Edge\NewTabPageManagedQuickLinks = [
     <string>https://fabrikam.com</string>
   </dict>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### NewTabPageSetFeedType
+  #### Configure the Microsoft Edge new tab page experience
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.
+
+When you set this policy to Microsoft News feed experience (0), users will see the Microsoft News feed experience on the new tab page.
+
+When you set this policy to Office 365 feed experience (1), users with an Azure Active Directory browser sign-in will see the Office 365 feed experience on the new tab page.
+
+If you disable or don't configure this policy:
+
+- Users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, as well as the standard new tab page feed experience.
+
+- Users without an Azure Active Directory browser sign-in will see the standard new tab page experience.
+
+If you configure this policy *and* the [NewTabPageLocation](#newtabpagelocation) policy, [NewTabPageLocation](#newtabpagelocation) has precedence.
+
+Default setting:  Disabled or not configured.
+
+* 0 = Microsoft News feed experience
+
+* 1 = Office 365 feed experience
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: NewTabPageSetFeedType
+  - GP name: Configure the Microsoft Edge new tab page experience
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: NewTabPageSetFeedType
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: NewTabPageSetFeedType
+  - Example value:
+``` xml
+<integer>0</integer>
 ```
   
 
@@ -4919,15 +5043,17 @@ This policy will be removed in the future.
   [Back to top](#microsoft-edge---policies)
 
   ### AllowSyncXHRInPageDismissal
-  #### Allows a page to perform synchronous XHR requests during page dismissal.
+  #### Allow pages to send synchronous XHR requests during page dismissal
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
-  This policy allows an admin to specify that a page may send synchronous XHR requests during page dismissal.
+  This policy lets you specify that a page can send synchronous XHR requests during page dismissal.
 
-When the policy is set to enabled, pages are allowed to send synchronous XHR requests during page dismissal.
+If you enable this policy, pages can send synchronous XHR requests during page dismissal.
 
-When the policy is set to disabled or not set, pages are not allowed to send synchronous XHR requests during page dismissal.
+If you disable this policy or don't configure this policy, pages aren't allowed to send synchronous XHR requests during page dismissal.
+
+This policy is temporary and will be removed in a future release.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4940,7 +5066,7 @@ When the policy is set to disabled or not set, pages are not allowed to send syn
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: AllowSyncXHRInPageDismissal
-  - GP name: Allows a page to perform synchronous XHR requests during page dismissal.
+  - GP name: Allow pages to send synchronous XHR requests during page dismissal
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -5693,7 +5819,7 @@ If you enable this policy or don't configure it, Microsoft Edge will occasionall
   #### Description
   Specify whether a user can sign into Microsoft Edge with their account and use account-related services like sync and single sign on. To control the availability of sync, use the [SyncDisabled](#syncdisabled) policy instead.
 
-If you set this policy to 'Disable browser sign-in' (0), users can't sign into the browser and use account-based services. In this case users can't use browser-level features like sync - they're unavailable. If a user was signed in when you set the policy to "Disabled," they'll be signed out the next time they run Microsoft Edge, but their local profile data (like favorites and passwords) are preserved. The user can still sign into and use Microsoft web properties like bing.com and Office.com.
+If you set this policy to 'Disable browser sign-in', make sure that you also set the [NonRemovableProfileEnabled](#nonremovableprofileenabled) policy to disabled because [NonRemovableProfileEnabled](#nonremovableprofileenabled) disables the creation of an automatically signed in browser profile. If both policies are set, Microsoft Edge will use the 'Disable browser sign-in' policy and behave as if [NonRemovableProfileEnabled](#nonremovableprofileenabled) is set to disabled.
 
 If you set this policy to 'Enable browser sign-in' (1), users can sign into the browser. Signing into the browser doesn't mean that sync is turned on by default; the user must separately opt-in to use this feature.
 
@@ -6053,62 +6179,19 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 ```
 
 
-		  
-   
-  [Back to top](#microsoft-edge---policies)
-
-  
-
-										   
-
-			   
-						
+ 
 			 
 
-	  
-							   
-
-										  
-
-																								   
-
-																						 
-
-		
-	   
-		
-		  
-
-	 
-	 
-
-			
-		
-					
-						   
-				 
-		 
-		  
-		 
-							
-		 
-	   
-		 
-	   
+ 
    
-						   
-
-   
-
-
-		   
-				   
-	  
 	
-	
-		 
+
   
    
+ 
+
+  [Back to top](#microsoft-edge---policies)
+
   ### CommandLineFlagSecurityWarningsEnabled
   #### Enable security warnings for command-line flags
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
@@ -6266,8 +6349,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, the voice fonts aren't available.
 
 Read more about this feature here:
-SpeechSynthesis API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+SpeechSynthesis API: https://developer.mozilla.org/docs/Web/API/SpeechSynthesis
+Cognitive Services: https://azure.microsoft.com/services/cognitive-services/text-to-speech/
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6512,7 +6595,7 @@ For more information about DirectInvoke, see [https://go.microsoft.com/fwlink/?l
 
 If you don't configure or disable this policy, it potentially allows web pages to use the WebGL API and plug-ins to use the Pepper 3D API. Microsoft Edge might, by default, still require command line arguments to be passed in order to use these APIs.
 
-If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for [Disable3DAPIs](#disable3dapis) policy is ignored - it's the equivalent of setting [Disable3DAPIs](#disable3dapis) policy to true.
+If [HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled) policy is set to false, the setting for 'Disable3DAPIs' policy is ignored - it's the equivalent of setting 'Disable3DAPIs' policy to true.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6771,8 +6854,8 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 
 * 3 = Block all downloads
 
-										   
 
+  
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -7113,13 +7196,15 @@ Experimentation payload consists of a list of early in development features that
 
 Configuration payload consists of a list of settings that Microsoft wants to deploy to Microsoft Edge to optimize user experience. For example, configuration payload may specify how often Microsoft Edge sends requests to the Experimentation and Configuration Service to retrieve the newest payload.
 
-If you set this policy to "Retrieve configurations and experiments" mode (value is set to 2), the full payload is downloaded from the Experimentation and Configuration Service. This includes both experimentation and configuration payload.
+If you set this policy to "Retrieve configurations and experiments" mode, the full payload is downloaded from the Experimentation and Configuration Service. This includes both the experimentation and configuration payloads.
 
-If you set this policy to "Retrieve configurations only" mode (value is set to 1), only the configuration payload is delivered.
+If you set this policy to "Retrieve configurations only" mode, only the configuration payload is delivered.
 
-If you set this policy to "Disable communication with the Experimentation and Configuration Service" mode (value is set to 0), the communication with the Experimentation and Configuration Service is stopped completely.
+If you set this policy to "Disable communication with the Experimentation and Configuration Service" mode, the communication with the Experimentation and Configuration Service is stopped completely.
 
-If you don't configure this policy, the behavior is the same as the "Retrieve configurations and experiments" mode (value is set to 2).
+If you don't configure this policy, on a managed device on Stable and Beta channels the behavior is the same as the "Retrieve configurations only" mode.
+
+If you don't configure this policy, on an unmanaged device the behavior is the same as the "Retrieve configurations and experiments" mode.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -7152,6 +7237,53 @@ If you don't configure this policy, the behavior is the same as the "Retrieve co
   - Example value:
 ``` xml
 <integer>2</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ExternalProtocolDialogShowAlwaysOpenCheckbox
+  #### Show an "Always open" checkbox in external protocol dialog.
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+
+  #### Description
+  This policy controls whether the "Always open" checkbox is shown on external protocol launch confirmation prompts.
+
+If you set this policy to True, when an external protocol confirmation prompt is shown, the user can select "Always open". The user won’t get any future confirmation prompts for this protocol.
+
+If you set this policy to False, or the policy is unset, the "Always open" checkbox isn’t displayed. The user will be prompted for confirmation every time an external protocol is invoked.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - GP name: Show an "Always open" checkbox in external protocol dialog.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Example value:
+``` xml
+<true/>
 ```
   
 
@@ -8260,9 +8392,9 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
 
 This setting works in conjunction with:
-Configure Internet Explorer integration (InternetExplorerIntegrationLevel) is set to "Internet Explorer mode" (1)
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
 and
-Configure the Enterprise Mode Site List (InternetExplorerIntegrationSiteList) policy where the list has at least one entry.
+[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
 
 If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
 
@@ -8311,7 +8443,7 @@ To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink
   Specify origins to run in isolation, in their own process.
 This policy also isolates origins named by subdomains - for example, specifying https://contoso.com/ will cause https://foo.contoso.com/ to be isolated as part of the https://contoso.com/ site.
 If the policy is enabled, each of the named origins in a comma-separated list will run in its own process.
-If you disable this policy, then both the [IsolateOrigins](#isolateorigins) and [SitePerProcess](#siteperprocess) features are disabled. Users can still enable [IsolateOrigins](#isolateorigins) policy manually, via command line flags.
+If you disable this policy, then both the 'IsolateOrigins' and 'SitePerProcess' features are disabled. Users can still enable 'IsolateOrigins' policy manually, via command line flags.
 If you don't configure the policy, the user can change this setting.
 
   #### Supported features:
@@ -8473,7 +8605,7 @@ If you enable this policy, users can't add, remove, or change any search engine 
 
 If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy ([ManagedSearchEngines](#managedsearchengines)) is ignored. The user must restart their browser to finish applying this policy.
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -8791,6 +8923,8 @@ If you don't configure this policy, network prediction is enabled but the user c
 If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
 When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+
+If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -9834,7 +9968,7 @@ If this policy is set to disabled, Signed HTTP Exchanges can't be loaded.
 
   #### Description
   
-The [SitePerProcess](#siteperprocess) policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the IsolateOrigins policy to isolate additional, finer-grained origins.
+The 'SitePerProcess' policy can be used to prevent users from opting out of the default behavior of isolating all sites. Note that you can also use the [IsolateOrigins](#isolateorigins) policy to isolate additional, finer-grained origins.
 If you enable this policy, users can't opt out of the default behavior where each site runs in its own process.
 If you disable or don’t configure this policy, a user can opt out of site isolation.  (For example, by using "Disable site isolation" entry in edge://flags.)  Disabling the policy or not configuring the policy doesn't turn off Site Isolation.
 
@@ -9933,7 +10067,7 @@ If you don't configure or disable this policy, there's no change to the user's s
 
 If the [SpellcheckEnabled](#spellcheckenabled) policy is disabled, this policy will have no effect.
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+If a language is included in both the 'SpellcheckLanguage' and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
 
 The supported languages are: af, bg, ca, cs, cy, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
@@ -9982,7 +10116,7 @@ If you do not set this policy, or disable it, there will be no change to the use
 
 If the [SpellcheckEnabled](#spellcheckenabled) policy is set to disabled, this policy will have no effect.
 
-If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the [SpellcheckLanguageBlocklist](#spellchecklanguageblocklist) policy, the spellcheck language is enabled.
+If a language is included in both the [SpellcheckLanguage](#spellchecklanguage) and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.
 
 The currently supported languages are: af, bg, ca, cs, da, de, el, en-AU, en-CA, en-GB, en-US, es, es-419, es-AR, es-ES, es-MX, es-US, et, fa, fo, fr, he, hi, hr, hu, id, it, ko, lt, lv, nb, nl, pl, pt-BR, pt-PT, ro, ru, sh, sk, sl, sq, sr, sv, ta, tg, tr, uk, vi.
 
@@ -10108,46 +10242,69 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   [Back to top](#microsoft-edge---policies)
 
-  
-
-										   
-
-		
-		  
-			 
-
-	  
-											   
-
-							 
-
-					 
-
-		
-	   
-		
-			   
-
-	 
+  ### TabFreezingEnabled
+  #### Allow freezing of background tabs
+  >Supported Versions: Microsoft Edge on Windows since version 79 or later
    
-
-			
-		
-		  
-		  
-				 
-		 
-		  
-		 
-			   
-		 
-		 
-	   
-	   
+	 
    
 	
    
+	  
+   
+	 
+	
+	
+   
+ 
+   
 
+  #### Description
+  Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
+
+Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
+	 
+   
+ 
+ 
+   
+  
+
+If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
+
+If you disable this policy, no tabs will be frozen.
+	 
+	   
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: TabFreezingEnabled
+  - GP name: Allow freezing of background tabs
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: TabFreezingEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
 
   ### TaskManagerEndProcessEnabled
   #### Enable ending processes in the Browser task manager
@@ -10676,13 +10833,11 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  This policy lets users of the WebDriver interface override policies that could interfere with its operation.
-
-If you enable this policy, WebDriver can be configured to override incompatible policies.
+This policy allows users of the WebDriver feature to override policies which can interfere with its operation. Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+												
+If you enable this policy, WebDriver can be configured to override incompatible policies.												
 
 If you disable this policy or don't configure it, WebDriver can't be configured to override incompatible policies.
-
-Note: Currently, the [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies have been verified to interfere with WebDriver operations. In the future, additional policies may be determined to interfere with WebDriver.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10822,6 +10977,7 @@ If you don't configure this policy, or if you set it to an empty string or inval
   [Back to top](#microsoft-edge---policies)
 
 
-## See also									   
+## See also
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+  
