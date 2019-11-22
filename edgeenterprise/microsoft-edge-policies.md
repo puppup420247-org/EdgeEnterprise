@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/06/2019
+ms.date: 11/21/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -59,6 +59,8 @@ These tables lists all of the browser-related group policies available in this r
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Block images on specific sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Allow JavaScript on specific sites|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Block JavaScript on specific sites|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Allow notifications on specific sites|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Block notifications on specific sites|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites|
@@ -234,6 +236,7 @@ These tables lists all of the browser-related group policies available in this r
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
+|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Enable Proactive Authentication|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Enable full-tab promotional content|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Ask where to save downloaded files|
@@ -1263,6 +1266,113 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### LegacySameSiteCookieBehaviorEnabled
+  #### Enable default legacy SameSite cookie behavior setting
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+You can set the following values for this policy:
+
+* 1 = Revert to legacy SameSite behavior for cookies on all sites
+
+* 2 = Use SameSite-by-default behavior for cookies on all sites
+
+If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: LegacySameSiteCookieBehaviorEnabled
+  - GP name: Enable default legacy SameSite cookie behavior setting
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: LegacySameSiteCookieBehaviorEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: LegacySameSiteCookieBehaviorEnabled
+  - Example value:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### LegacySameSiteCookieBehaviorEnabledForDomainList
+  #### Revert to legacy SameSite behavior for cookies on specified sites
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
+
+Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+
+If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
+
+The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
+
+Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - GP name: Revert to legacy SameSite behavior for cookies on specified sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\0 = "www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: LegacySameSiteCookieBehaviorEnabledForDomainList
+  - Example value:
+``` xml
+<array>
+  <string>www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -3973,6 +4083,8 @@ If you enable this setting, users can't ignore Microsoft Defender SmartScreen wa
 
 If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
 
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -4019,6 +4131,8 @@ If you disable or don't configure this setting, users can ignore Microsoft Defen
 If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
 
 If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4067,6 +4181,7 @@ The Microsoft Defender SmartScreen download protection service won't check downl
 
 If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
 If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
 Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
 
@@ -4381,7 +4496,7 @@ If you enable this policy, Microsoft Edge downloads and shows the specified logo
 
 If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6.
+For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6179,16 +6294,7 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 ```
 
 
- 
-			 
-
- 
-   
-	
-
   
-   
- 
 
   [Back to top](#microsoft-edge---policies)
 
@@ -6349,8 +6455,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, the voice fonts aren't available.
 
 Read more about this feature here:
-SpeechSynthesis API: https://developer.mozilla.org/docs/Web/API/SpeechSynthesis
-Cognitive Services: https://azure.microsoft.com/services/cognitive-services/text-to-speech/
+SpeechSynthesis API: [https://go.microsoft.com/fwlink/?linkid=2110038](https://go.microsoft.com/fwlink/?linkid=2110038)
+Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2110141](https://go.microsoft.com/fwlink/?linkid=2110141)
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6854,8 +6960,6 @@ See [https://go.microsoft.com/fwlink/?linkid=2094934](https://go.microsoft.com/f
 
 * 3 = Block all downloads
 
-
-  
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -8820,11 +8924,13 @@ This policy enables reporting of usage and crash-related data about Microsoft Ed
 
 Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-On Windows 10, Beta and Stable channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
 
 On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
 
 On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+
+This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -9006,6 +9112,49 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>*.contoso.com</string>
 </array>
 ```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### PinningWizardAllowed
+  #### Allow Pin to taskbar wizard
+  >Supported Versions: Microsoft Edge on Windows since version 80 or later
+
+  #### Description
+  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+
+If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+
+If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+
+User settings to enable or disable the Pin to taskbar wizard aren't available.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: PinningWizardAllowed
+  - GP name: Allow Pin to taskbar wizard
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PinningWizardAllowed
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
   
 
   [Back to top](#microsoft-edge---policies)
@@ -9262,15 +9411,11 @@ The user's session is restored when the browser restarts.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Sets the time period, in milliseconds, over which users are notified that Microsoft Edge must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-During this time period, the user is repeatedly informed that they need to restart. The app menu changes to indicate that a restart is needed when one third of the notification period passes. When two thirds of the notification period passes, the notification changes color, and again when the full notification period has passed. Additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
 
-If you don't configure this policy, the default period is 604800000 milliseconds (one week).
-
-Restrictions:
-
-* Minimum:3600000
+If not set, the default period of 604800000 milliseconds (one week) is used.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10244,42 +10389,21 @@ Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enab
 
   ### TabFreezingEnabled
   #### Allow freezing of background tabs
-  >Supported Versions: Microsoft Edge on Windows since version 79 or later
-   
-	 
-   
-	
-   
-	  
-   
-	 
-	
-	
-   
- 
-   
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
   Controls whether Microsoft Edge can freeze tabs that are in the background for at least 5 minutes.
 
 Tab freezing reduces CPU, battery, and memory usage. Microsoft Edge uses heuristics to avoid freezing tabs that do useful work in the background, such as display notifications, play sound, and stream video.
-	 
-   
- 
- 
-   
-  
 
 If you enable or don't configure this policy, tabs that have been in the background for at least 5 minutes might be frozen.
 
 If you disable this policy, no tabs will be frozen.
-	 
-	   
 
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
-  - Dynamic Policy Refresh: No - Requires browser restart
+  - Dynamic Policy Refresh: Yes
 
   #### Data Type:
   Boolean
@@ -10302,6 +10426,12 @@ If you disable this policy, no tabs will be frozen.
 ```
 
 
+  #### Mac information and settings
+  - Preference Key Name: TabFreezingEnabled
+  - Example value:
+``` xml
+<false/>
+```
   
 
   [Back to top](#microsoft-edge---policies)
@@ -10833,11 +10963,19 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-This policy allows users of the WebDriver feature to override policies which can interfere with its operation. Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
-												
-If you enable this policy, WebDriver can be configured to override incompatible policies.												
+  
+This policy was removed in M80, because it is not necessary anymore as
+WebDriver is now compatible with all existing policies.
 
-If you disable this policy or don't configure it, WebDriver can't be configured to override incompatible policies.
+This policy allows users of the WebDriver feature to override
+policies which can interfere with its operation.
+
+Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
+
+If the policy is enabled, WebDriver will be able to override incomaptible
+policies.
+If the policy is disabled or not configured, WebDriver will not be allowed
+to override incompatible policies.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10980,4 +11118,3 @@ If you don't configure this policy, or if you set it to an empty string or inval
 ## See also
 - [Configuring Microsoft Edge](configure-microsoft-edge.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
-  
