@@ -1,9 +1,9 @@
 ---
 title: "Microsoft Edge content updates"
-ms.author: brianalt
+ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -15,5 +15,8 @@ description: "Microsoft Edge content updates"
 # Microsoft Edge content updates
 
 This article lists Microsoft Edge articles that have been changed over the last several weeks.
+
+> [!NOTE]
+> This applies to Microsoft Edge version 77 or later.
 
 [!INCLUDE [edgeenterprise-content-updates](./includes/edgeenterprise-content-updates.md)]
