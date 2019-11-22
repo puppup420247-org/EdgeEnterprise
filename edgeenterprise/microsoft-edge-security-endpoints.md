@@ -3,7 +3,7 @@ title: "Allow list for Microsoft Edge endpoints"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/14/2019
+ms.date: 11/22/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -23,7 +23,9 @@ Microsoft Edge requires connectivity to the Internet to support its features. Th
 
 Allow the following domain URLs for Microsoft Edge.
 
-### Frontend services
+### Update service
+
+The service that Microsoft Edge uses to check for new updates.  
 
 - `https://msedge.api.cdp.microsoft.com`
 - `https://msedgeextensions.api.cdp.microsoft.com`
@@ -32,41 +34,55 @@ Allow the following domain URLs for Microsoft Edge.
 
 - `https://ecs.skype.com`
 
-### HTTP traffic shaping, downloads, extensions and delivery optimization
+### Download locations for Microsoft Edge
 
-- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
-- `http://msedge.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
-- `http://msedge.b.dl.delivery.mp.microsoft.com` `(Backend download)`
-- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
-- `http://msedgeextensions.f.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
-- `http://msedgeextensions.b.dl.delivery.mp.microsoft.com` `(Backend download)`
-- `http://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
+Locations Microsoft Edge can be downloaded from during an initial install or when an update is available. The download location is determined by the Update Service.
 
-### HTTPS traffic shaping, downloads, extensions and delivery optimization
+#### HTTP
 
-- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
-- `https://msedge.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
-- `https://msedge.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
-- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com` `(Foreground traffic shaping)`
-- `https://msedgeextensions.sf.dl.delivery.mp.microsoft.com` `(Frontend download)`
-- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com` `(Background traffic shaping)`
-- `https://msedgeextensions.sb.dl.delivery.mp.microsoft.com` `(Backend download)`
-- `https://dl.delivery.mp.microsoft.com` `(Delivery optimization)`
+- `http://msedge.f.tlu.dl.delivery.mp.microsoft.com`
+- `http://msedge.f.dl.delivery.mp.microsoft.com`
+- `http://msedge.b.tlu.dl.delivery.mp.microsoft.com`
+- `http://msedge.b.dl.delivery.mp.microsoft.com`
+
+#### HTTPS
+
+- `https://msedge.sf.tlu.dl.delivery.mp.microsoft.com`
+- `https://msedge.sf.dl.delivery.mp.microsoft.com`
+- `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com`
+- `https://msedge.sb.dl.delivery.mp.microsoft.com`
+
+### Download locations for Microsoft Edge Extensions
+
+Locations Microsoft Edge Extensions can be downloaded from during an initial install or when an update is available. The download location is determined by the Update Service.
+
+#### HTTP
+
+- `http://msedgeextensions.f.tlu.dl.delivery.mp.microsoft.com`
+- `http://msedgeextensions.f.dl.delivery.mp.microsoft.com`
+- `http://msedgeextensions.b.tlu.dl.delivery.mp.microsoft.com`
+- `http://msedgeextensions.b.dl.delivery.mp.microsoft.com`
+
+#### HTTPS
+
+- `https://msedgeextensions.sf.tlu.dl.delivery.mp.microsoft.com`
+- `https://msedgeextensions.sf.dl.delivery.mp.microsoft.com`
+- `https://msedgeextensions.sb.tlu.dl.delivery.mp.microsoft.com`
+- `https://msedgeextensions.sb.dl.delivery.mp.microsoft.com`
 
   > [!TIP]
-  > To simplify the allow list for HTTP and HTTPS downloads you can use a wild card in this endpoint:  `*.dl.delivery.mp.microsoft.com`.
+  > To simplify the allow list for download locations a wild card can be used: `*.dl.delivery.mp.microsoft.com`
 
-### Optionally for delivery optimization
+### Optionally for Download Delivery Optimization
+
+For information about delivery optimization, see [Delivery Optimization for Windows 10 updates](https://aka.ms/waas-do).
 
 - Client to Service communication: `*.do.dsp.mp.microsoft.com` (HTTP Port 80, HTTPS Port 443)
-- Client to Client communication: Port 7680 should be open for inbound traffic
+- Client to Client communication: TCP port 7680 should be open for inbound traffic
 
-For more information about delivery optimization, see [Delivery Optimization for Windows 10 updates](https://aka.ms/waas-do).
+## Other browser support services
 
-## Mesh Services
+Provide metadata for browser features such as tracking protection, certificate revocation lists, and other browser component updates. Provide downloadable spellcheck dictionaries and ad-blocking block lists. Provide services to support browser features such as collections, autofill, and extension store.
 
 - `http://edge.microsoft.com/`
 - `https://edge.microsoft.com/`  
