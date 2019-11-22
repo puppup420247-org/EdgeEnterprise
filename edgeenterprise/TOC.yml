@@ -1,4 +1,4 @@
-# last revised 11/04/2019
+# last revised 11/20/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -43,6 +43,10 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
+- name: Authenticated features
+  items:
+   - name: Identity support and configuration
+     href: microsoft-edge-security-identity.md
 - name: Enterprise features 
   items:
    - name: Configurations and experimentation
