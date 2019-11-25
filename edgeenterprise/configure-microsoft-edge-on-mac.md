@@ -20,7 +20,7 @@ This article describes how to configure Microsoft Edge on macOS using a property
 
 ## Configure Microsoft Edge policies on macOS
 
-The first step is to create your plist. You can create the plist file with any text editor and you can use [Terminal to create the configuration profile](Create_a_configuration_profile_using_Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
+The first step is to create your plist. You can create the plist file with any text editor or you can use [Terminal to create the configuration profile](Create_a_configuration_profile_using_Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
 
 - the [Apple developer website](https://developer.apple.com/xcode/)
 - the [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
