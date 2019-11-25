@@ -3,7 +3,7 @@ title: "Allow list for Microsoft Edge endpoints"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/22/2019
+ms.date: 11/25/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -28,7 +28,6 @@ Allow the following domain URLs for Microsoft Edge.
 The service that Microsoft Edge uses to check for new updates.  
 
 - `https://msedge.api.cdp.microsoft.com`
-- `https://msedgeextensions.api.cdp.microsoft.com`
 
 ### Experimentation and Configuration service
 
