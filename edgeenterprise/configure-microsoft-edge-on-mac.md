@@ -13,28 +13,26 @@ description: "Configure Microsoft Edge policy settings on Mac devices"
 ---
 
 # Configure Microsoft Edge policy settings on macOS
-This article describes how to configure Microsoft Edge on macOS using property list (.plist) files. For more information, see [About Information Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) (Apple's website) and [Custom payload settings](https://support.apple.com/guide/mdm/custom-mdm9abbdbe7/1/web/1).
+This article describes how to configure Microsoft Edge on macOS using a property list (.plist) file. For more information, see [About Information Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) (Apple's website) and [Custom payload settings](https://support.apple.com/guide/mdm/custom-mdm9abbdbe7/1/web/1).
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Configure policy settings on macOS
+## Configure Microsoft Edge policies on macOS
 
-The first step is to create and name your plist.
-
-You can create the plist file with any text editor and you can use [Terminal to create the configuration profile](Create_a_configuration_profile_using_Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
+The first step is to create your plist. You can create the plist file with any text editor and you can use [Terminal to create the configuration profile](Create_a_configuration_profile_using_Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
 
 - the [Apple developer website](https://developer.apple.com/xcode/)
 - the [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
 
 For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md). In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings. 
 
-After you create the contents of your plist file, you need to name the file using the Microsoft Edge preference domain: *com.microsoft.Edge*. The name is case sensitive. The name should not include the channel you are targeting because it applies to all Microsoft Edge channels. The plist file name must be **_com.microsoft.Edge.plist_**. 
+The next step after you create the contents of your plist file, is to name the file using the Microsoft Edge preference domain: *com.microsoft.Edge*. The name is case sensitive. The name should not include the channel you are targeting because it applies to all Microsoft Edge channels. The plist file name must be **_com.microsoft.Edge.plist_**. 
 
 > [!IMPORTANT]
 > Starting with build 78.0.249.2, all Microsoft Edge channels on macOS read from the **com.microsoft.Edge** preference domain. All prior releases read from a channel specific domain, such as **com.microsoft.Edge.Dev** for Dev channel.
 
-The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploying your plist](Deploying-your-plist).
+The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploy your plist](Deploy-your-plist).
 
 ### Create a configuration profile using Terminal
 1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
@@ -50,10 +48,10 @@ The last step is to deploy your plist to your users' Mac devices using your pref
    ```
 After converting the file verify that your policy data is correct and contains the settings you want for your configuration profile.
 
-### Deploying your plist
+## Deploy your plist
 For Microsoft Intune create a new device configuration profile on the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the prefereence domain name and upload your plist.
 
-For Jamf upload the plist file as a Custom Settings payload.
+For Jamf upload the plist file as a *Custom Settings* payload.
 
 ## Frequently Asked Questions
 
