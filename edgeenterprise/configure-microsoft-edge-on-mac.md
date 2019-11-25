@@ -49,7 +49,7 @@ The last step is to deploy your plist to your users' Mac devices using your pref
 After converting the file verify that your policy data is correct and contains the settings you want for your configuration profile.
 
 ## Deploy your plist
-For Microsoft Intune create a new device configuration profile on the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the prefereence domain name and upload your plist. For more information see [Add a property list file to macOS devices using Microsoft Intune](https://docs.microsoft.com/intune/configuration/preference-file-settings-macos).
+For Microsoft Intune create a new device configuration profile targeting the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the prefereence domain name and upload your plist. For more information see [Add a property list file to macOS devices using Microsoft Intune](https://docs.microsoft.com/intune/configuration/preference-file-settings-macos).
 
 For Jamf upload the plist file as a *Custom Settings* payload.
 
