@@ -22,8 +22,8 @@ This article describes how to configure Microsoft Edge on macOS using a property
 
 The first step is to create your plist. You can create the plist file with any text editor or you can use [Terminal to create the configuration profile](Create_a_configuration_profile_using_Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
 
-- the [Apple developer website](https://developer.apple.com/xcode/)
-- the [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
+- [Apple developer website](https://developer.apple.com/xcode/)
+- [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
 
 For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md). In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings. 
 
@@ -59,7 +59,7 @@ For Jamf upload the plist file as a *Custom Settings* payload.
 
 Yes, you can configure Microsoft Edge to use a master preferences file.
 
- A master preferences file lets you configure default settings when Microsoft Edge is deployed. You can also use a master preferences file to apply settings on computers that aren't managed by a device management system. These settings are applied to the user’s profile the first time the user runs the browser. After the user runs the browser, changes to the master preferences file aren’t applied. A user can change settings from the master preferences in the browser. If you want to make a setting mandatory or change a setting after the first run of the browser, you must use a policy.
+A master preferences file lets you configure default settings for a browser user profile when Microsoft Edge is deployed. You can also use a master preferences file to apply settings on computers that aren't managed by a device management system. These settings are applied to the user’s profile the first time the user runs the browser. After the user runs the browser, changes to the master preferences file aren’t applied. A user can change settings from the master preferences in the browser. If you want to make a setting mandatory or change a setting after the first run of the browser, you must use a policy.
 
 A master preferences file lets you to customize many different settings and preferences for the browser, including those shared with other Chromium based browsers and specific to Microsoft Edge.  Policy related preferences can be configured using the master preferences file. In cases where a policy is set and there’s a corresponding master preference set, the policy setting takes precedence.
 
