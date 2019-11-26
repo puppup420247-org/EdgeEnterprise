@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 11/25/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "How to access the legacy version of Microsoft Edge."
 
 # Access Microsoft Edge Legacy after installing the new version of Microsoft Edge
 
-This article describes how to access Microsoft Edge Legacy after installing the new version of Microsoft Edge.
+This article describes how to access Microsoft Edge Legacy (version 45 and earlier) after installing the new version of Microsoft Edge.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge [Stable channel](microsoft-edge-channels.md).
