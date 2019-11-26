@@ -20,7 +20,7 @@ This article describes how to configure Microsoft Edge on macOS using a property
 
 ## Configure Microsoft Edge policies on macOS
 
-The first step is to create your plist. You can create the plist file with any text editor or you can use [Terminal to create the configuration profile](#Create-a-configuration-profile-using-Terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
+The first step is to create your plist. You can create the plist file with any text editor or you can use [Terminal to create the configuration profile](#create-a-configuration-profile-using-terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
 
 - [Apple developer website](https://developer.apple.com/xcode/)
 - [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
@@ -32,7 +32,7 @@ The next step after you create the contents of your plist, is to name it using t
 > [!IMPORTANT]
 > Starting with build 78.0.249.2, all Microsoft Edge channels on macOS read from the **com.microsoft.Edge** preference domain. All prior releases read from a channel specific domain, such as **com.microsoft.Edge.Dev** for Dev channel.
 
-The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploy your plist](#Deploy-your-plist).
+The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploy your plist](#deploy-your-plist).
 
 ### Create a configuration profile using Terminal
 1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
