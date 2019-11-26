@@ -70,3 +70,4 @@ If the group policy is enabled after Microsoft Edge is deployed, there are the f
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Windows updates to support Microsoft Edge](microsoft-edge-sysupdate-windows-updates.md)
