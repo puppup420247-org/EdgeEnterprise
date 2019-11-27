@@ -244,6 +244,16 @@ You can get Internet Explorer mode diagnostic information on the Microsoft Edge 
 
    ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic.png)
 
+Using the previous screenshot as a guide, note that Microsoft Edge configuration information for the following categories:
+
+- Registry key check. On startup, the automatic registry check shows that Internet Explorer mode isn't set up.
+- Internet Explorer mode. The current mode is for IE 7 for Microsoft Edge (Canary channel).
+- Internet Explorer mode setting. This setting is turned on, using default integration and Internet Explorer mode  integration policy.
+- Command line. Shows the command line string and switches used to start Microsoft Edge. In this example, the default user profile is used and some Tab feature Experiments are enabled.
+- Group policy settings. Turned on and using the Enterprise Mode IE website list (set as IE policy). Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
+
+
+
 ## Frequently Asked Questions
 
 ### How do I know if a site is loading in IE mode?
