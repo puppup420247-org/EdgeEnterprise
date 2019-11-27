@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge policy settings for Windows using Microsoft Int
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 11/26/2019
+ms.date: 11/27/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
