@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/14/2019
+ms.date: 11/18/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -232,6 +232,14 @@ To prevent users from using IE11, follow these steps:
 2. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
 3. Double-click **Send all sites not included in the Enterprise Mode Site List to Microsoft Edge**.
 4. Select **Enabled**.
+
+## Troubleshoot IE mode
+
+Use the information in this section to diagnose and fix IE mode problems.
+
+### Internet Explorer mode diagnostic information
+
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. 
 
 ## Frequently Asked Questions
 
