@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 11/18/2019
+ms.date: 11/27/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -25,6 +25,7 @@ The following prerequisites apply to using Microsoft Edge with IE mode. For the 
 
 1. The minimum operating system update versions.
 
+   - Windows 10, version 1909 or later
    - Windows 10, version 1903 and Windows Server, version 1903: [KB4501375](https://support.microsoft.com/help/4501375) or later
    - Windows 10, version 1809, Windows Server, version 1809, and Windows Server 2019: [KB4501371](https://support.microsoft.com/help/4501371) or later
    - Windows 10, version 1803: [KB4512509](https://support.microsoft.com/help/4512509) or later
@@ -239,7 +240,7 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. 
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*.  
 
 ## Frequently Asked Questions
 
@@ -253,11 +254,11 @@ When a site loads in IE mode, the IE logo indicator displays on the left side of
 
 We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
 
-### Why am I receiving the following message “To open this page in IE mode, try updating your PC.”?
+### Why am I receiving the following message “To open this page in Internet Explorer mode, run Windows Update.”?
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
-### Why am I receiving the following message “To open this page in IE mode, try reinstalling Microsoft Edge with administrator privileges.”?
+### Why am I receiving the following message “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”?
 
 Microsoft Edge version 77 or later needs to be installed at the system level.
 
