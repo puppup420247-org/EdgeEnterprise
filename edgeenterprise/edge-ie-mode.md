@@ -240,7 +240,9 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*.  
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. The next screen shot shows the diagnostic page for computer that doesn't have Internet Explorer mode set up.
+
+   ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic.png)
 
 ## Frequently Asked Questions
 
