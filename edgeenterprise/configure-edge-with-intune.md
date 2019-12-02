@@ -1,9 +1,9 @@
 ---
-title: "Configure Microsoft Edge for Windows using Microsoft Intune"
+title: "Configure Microsoft Edge policy settings for Windows using Microsoft Intune"
 ms.author: kvice
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 10/09/2019
+ms.date: 11/27/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -16,15 +16,15 @@ description: "Configure Microsoft Edge policy settings for Windows using Microso
 
 This article explains how to configure Microsoft Edge policy settings for Windows 10 using Microsoft Intune.
 
->[!NOTE]
->This article applies to Microsoft Edge version 77 or later.
+> [!NOTE]
+> This article applies to Microsoft Edge version 77 or later.
 
 You can configure Microsoft Edge policies and settings by adding a device configuration profile to Microsoft Intune. Using Intune to manage and enforce policies is essentially equivalent to using Active Directory Group Policy or configuring local Group Policy Object (GPO) settings on user devices.
 
 For more information about managing Microsoft Edge policies with Microsoft Intune, you can read [Manage web access by using Microsoft Edge with Microsoft Intune](https://docs.microsoft.com/intune/manage-microsoft-edge), but keep in mind that the linked article is specific to Microsoft Edge version 45 and earlier and therefore may contain information and references that don't apply to Microsoft Edge Enterprise version 77 and later.
 
->[!TIP]
-> For information on how to configure Microsoft Edge on Mac using Microsoft Intune, see [Configure Microsoft Edge on Mac](configure-microsoft-edge-on-mac.md).
+> [!TIP]
+> For information on how to configure Microsoft Edge on macOS using Microsoft Intune, see [Configure for macOS](configure-microsoft-edge-on-mac.md).
 
 ## Create a profile to manage settings in Microsoft Edge for Windows 10
 
@@ -61,7 +61,7 @@ This procedure creates an Administrative Templates profile using Microsoft Edge 
 
     ![Create profile](./media/edge-ent-intune/edge-intune-policy-settings.png)
 
-7. On the right upper corner of the window, select the **All products** drop-down and then select **Edge version 77 or later** to filter the list to show only Edge settings.
+7. On the right upper corner of the window, select the **All products** drop-down and then select **Edge version 77 or later** to filter the list to show only Microsoft Edge settings.
 
     ![Create profile](./media/edge-ent-intune/edge-intune-allproducts.png)
 
