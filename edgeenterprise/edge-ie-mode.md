@@ -172,7 +172,7 @@ For more information about Enterprise Mode Site lists, see:
 >
 >- This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
 > - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
-> - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
+> - If you also deploy a custom site list, the configuration in the site list takes precedence over this policy.
 >
 
 1. Open Local Group Policy Editor.
@@ -300,7 +300,6 @@ The solution is to configure the authentication server in your Enterprise site l
 ```
 
 ## Frequently Asked Questions
-
 
 ### How do I know if a site is loading in IE mode?
 
