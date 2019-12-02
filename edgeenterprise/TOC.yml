@@ -20,12 +20,14 @@
   items:
    - name: Deploy to Windows with Configuration Manager 
      href: deploy-edge-with-configuration-manager.md
-   - name: Deploy to Windows with Intune 
-     href: deploy-edge-with-intune.md
+   - name: Deploy to Windows with Intune
+#    href: deploy-edge-with-intune.md
+     href: https://docs.microsoft.com/intune/apps/apps-windows-edge/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
    - name: Deploy to macOS with Jamf
      href: deploy-edge-mac-jamf.md
-   - name: Deploy to macOS with Intune  
-     href: deploy-edge-mac-intune.md
+   - name: Deploy to macOS with Intune
+#    href: deploy-edge-mac-intune.md
+     href: https://docs.microsoft.com/intune/apps/apps-edge-macos/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
 # Configure
 - name: Configure Microsoft Edge 
   items:
