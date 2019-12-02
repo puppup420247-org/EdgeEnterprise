@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 11/27/2019
+ms.date: 12/02/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -251,23 +251,11 @@ Using the previous screenshot as a guide, note that Microsoft Edge configuration
 - Command line. Shows the command line string and switches used to start Microsoft Edge. In this example, a Tab feature (Experiment) is enabled.
 - Group policy settings. Turned on and using the Enterprise Mode IE website list (set as IE policy). Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
-## Frequently Asked Questions
-
-### How do I know if a site is loading in IE mode?
-
-When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
-
-  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
-
-### Will IE mode replace Internet Explorer 11?
-
-We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
-
-### Why am I receiving the following message “To open this page in Internet Explorer mode, run Windows Update.”?
+### Error message: “To open this page in Internet Explorer mode, run Windows Update.”
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
-### Why am I receiving the following message “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”?
+### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
 
 Microsoft Edge version 77 or later needs to be installed at the system level.
 
@@ -282,11 +270,11 @@ Possible solutions:
 
 To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
-### Why am I receiving the following message “To open this page in IE mode, try restarting Microsoft Edge.”?
+### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
 
 You're receiving this message because there was an unexpected error encountered in the Internet Explorer process. This should be resolved by restarting Microsoft Edge.
 
-### Why am I receiving the following message “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
+### Error message: “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
 
 You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
 
@@ -310,6 +298,19 @@ The solution is to configure the authentication server in your Enterprise site l
   <open-in>None</open-in>
 </site>
 ```
+
+## Frequently Asked Questions
+
+
+### How do I know if a site is loading in IE mode?
+
+When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
+
+  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
+
+### Will IE mode replace Internet Explorer 11?
+
+We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
 
 ## See also
 
