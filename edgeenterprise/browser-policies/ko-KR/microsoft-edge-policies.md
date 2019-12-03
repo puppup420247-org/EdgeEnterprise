@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/22/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -113,6 +113,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[DefaultCookiesSetting](#defaultcookiessetting)|쿠키 구성|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|기본 지리적 위치 설정|
 |[DefaultImagesSetting](#defaultimagessetting)|기본 이미지 설정|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|기본 JavaScript 설정|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|기본 알림 설정|
 |[DefaultPluginsSetting](#defaultpluginssetting)|기본 Adobe Flash 설정|
@@ -121,6 +122,8 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|WebUSB API의 사용 제어|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|이 사이트의 이미지 허용|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|특정 사이트에서 이미지 차단|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|특정 사이트에서 JavaScript 허용|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|특정 사이트에서 JavaScript 차단|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|기본 레거시 SameSite 쿠키 동작 설정 사용|
@@ -226,7 +229,6 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[InPrivateModeAvailability](#inprivatemodeavailability)|InPrivate 모드 가용성 구성|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Internet Explorer 통합 구성|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|엔터프라이즈 모드 사이트 목록 구성|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Internet Explorer 모드 페이지에서 시작할 때 구성되지 않은 사이트에 대한 "페이지 내" 탐색 작동 방식 지정|
 |[IsolateOrigins](#isolateorigins)|특정 원본에 대해 사이트 격리 사용|
 |[ManagedFavorites](#managedfavorites)|즐겨찾기 구성|
 |[ManagedSearchEngines](#managedsearchengines)|검색 엔진 관리|
@@ -236,7 +238,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[NetworkPredictionOptions](#networkpredictionoptions)|네트워크 예측 사용|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|사용자가 회사 또는 학교 계정으로 자동으로 로그인한 기본 프로필을 항상 가지고 있는지 여부를 구성합니다.|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|안전하지 않은 원본에 대한 보안 제한이 적용되는 위치 제어|
-|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
+|[PinningWizardAllowed](#pinningwizardallowed)|작업 표시줄에 고정 마법사 허용|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|사전 인증 사용|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|전체 탭 프로모션 콘텐츠 사용|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|다운로드한 파일을 저장할 위치 묻기|
@@ -274,8 +276,10 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[VideoCaptureAllowed](#videocaptureallowed)|비디오 캡처 허용 또는 차단|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|권한을 요청하지 않고 비디오 캡처 장치에 액세스할 수 있는 사이트|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|WPAD 최적화 설정|
+|[WebAppInstallForceList](#webappinstallforcelist)|강제 설치된 Web Apps 목록 구성|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|WebDriver가 호환되지 않는 정책을 재정의하도록 허용|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|WebRTC에 의한 로컬호스트 IP 주소 노출 제한|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|WebRTC에서 사용하는 로컬 UDP 포트 범위 제한|
 
 
@@ -703,13 +707,13 @@ Google 캐스트를 사용하지 않으려면 이 정책을 사용하지 않도�
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  이 정책 설정을 통해 사용자가 잠재적 악성 웹 사이트에 대한 Microsoft Defender SmartScreen 경고를 무시할 수 있는지 여부를 결정할 수 있습니다.
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+이 설정을 사용하면 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 사이트를 계속 사용할 수 없습니다.
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+이 설정을 사용하지 않거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 사이트를 계속 사용할 수 있습니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스. 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -752,13 +756,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >지원되는 버전: Windows의 Microsoft Edge, 버전 77 이상부터 및 Mac, 버전 79 이상부터
 
   #### 설명
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  이 정책을 통해 사용자가 확인되지 않은 다운로드에 대한 Microsoft Defender SmartScreen 경고를 무시할 수 있는지 여부를 결정할 수 있습니다.
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+이 정책을 사용하면 조직의 사용자가 Microsoft Defender SmartScreen 경고를 무시할 수 없으며 확인되지 않은 다운로드를 완료할 수 없습니다.
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+이 정책을 사용하지 않도록 설정하거나 구성하지 않으면 사용자가 Microsoft Defender SmartScreen 경고를 무시하고 확인되지 않은 다운로드를 완료할 수 있습니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -801,15 +805,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Microsoft Defender SmartScreen에서 트러스트된 도메인 목록을 구성합니다. 즉,
+원본 URL이 이 도메인과 일치하는 경우 Microsoft Defender SmartScreen은 피싱 소프트웨어 및 기타 맬웨어와 같은 잠재적 악성 리소스를 확인하지 않습니다.
+Microsoft Defender SmartScreen 다운로드 보호 서비스는 해당 도메인에서 호스팅되는 다운로드를 확인하지 않습니다.
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+이 정책을 사용하면 Microsoft Defender SmartScreen에서 이러한 도메인을 신뢰합니다.
+이 정책을 사용하지 않거나 설정하지 않으면 기본 Microsoft Defender SmartScreen 보호가 모든 리소스에 적용됩니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 등록된 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
+또한 조직에서 Microsoft Defender Advanced Threat Protection을 사용하도록 설정한 경우에는 이 정책이 적용되지 않습니다. Microsoft Defender 보안 센터에서 허용 및 차단 목록을 구성해야 합니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -1683,19 +1687,19 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  Microsoft Edge의 새 탭 페이지에서 사용할 회사 로고를 지정합니다.
 
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+정책은 로고를 JSON 형식으로 나타내는 문자열로 구성해야 합니다. 예: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+Microsoft Edge에서 로고 및 해당 암호화 해시 (SHA-256)를 다운로드 할 수 있는 URL을 지정하여 이 정책을 구성합니다. 로고는 PNG 또는 SVG 형식이어야 하며 파일 크기는 16MB를 초과하지 않아야 합니다. 로고가 다운로드 및 캐시되며 URL 또는 해시가 변경될 때마다 다시 다운로드됩니다. URL은 인증 없이 액세스할 수 있어야 합니다.
 
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+'default_logo'는 필수이며 배경 이미지가 없을 때 사용됩니다. 'light_logo'가 제공되면 사용자의 새 탭 페이지에 배경 이미지가 있을 때 사용됩니다. 투명 배경이 왼쪽 맞춤 및 세로 가운데에 배치되는 가로 로고를 사용하는 것이 좋습니다. 로고의 최소 높이는 32 픽셀이고 가로 세로 비율은 1:1에서 4:1 사이여야 합니다. 'default_logo'는 흰색/검은색 배경과의 대비가 있으며 'light_logo'는배경 이미지에 대해 적절하게 대비되어야 합니다.
 
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+이 정책을 사용하도록 설정하는 경우 Microsoft Edge는 새 탭 페이지에 지정된 로고를 다운로드하여 표시합니다. 사용자는 로고를 무시하거나 숨길 수 없습니다.
 
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+이 정책을 사용하지 않거나 구성하지 않으면 Microsoft Edge가 회사 로고나 Microsoft 로고를 새 탭 페이지에 표시하지 않습니다.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
+SHA-256 해시 결정에 대한 도움말은 https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash를 참조하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3009,6 +3013,53 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  정수
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: DefaultInsecureContentSetting
+  - GP 이름: Control use of insecure content exceptions
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: DefaultInsecureContentSetting
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000002
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: DefaultInsecureContentSetting
+  - 예제 값:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### DefaultJavaScriptSetting
   #### 기본 JavaScript 설정
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
@@ -3411,6 +3462,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  문자열 목록
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: InsecureContentAllowedForUrls
+  - GP 이름: Allow insecure content on specified sites
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: 1, 2, 3, ...
+  - 값 형식: REG_SZ 목록
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: InsecureContentAllowedForUrls
+  - 예제 값:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  문자열 목록
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: InsecureContentBlockedForUrls
+  - GP 이름: Block insecure content on specified sites
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: 1, 2, 3, ...
+  - 값 형식: REG_SZ 목록
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: InsecureContentBlockedForUrls
+  - 예제 값:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### JavaScriptAllowedForUrls
   #### 특정 사이트에서 JavaScript 허용
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
@@ -3524,7 +3675,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
 * 2 = 모든 사이트의 쿠키에 대해 SameSite-by-default 사용
 
-이 정책을 설정하지 않으면 SameSite 특성을 지정 하지 않는 쿠키의 기본 동작은 SameSite-by-default 기능에 대한 다른 구성 원본에 따라 다릅니다. 이 기능은 현장 평가판을 사용하거나 edge://flags에서 same-site-by-default-cookies 플래그를 사용하도록 설정하여 설정할 수 있습니다.
+이 정책을 설정하지 않으면 SameSite 특성을 지정하지 않는 쿠키의 기본 동작은 SameSite-by-default 기능에 대한 다른 구성 원본에 따라 다릅니다. 이 기능은 현장 평가판을 사용하거나 edge://flags에서 same-site-by-default-cookies 플래그를 사용하도록 설정하여 설정할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -5988,13 +6139,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  기본 제공 DNS 클라이언트를 사용할지 여부를 제어합니다.
+  Controls whether to use the built-in DNS client.
 
-이 정책을 사용하면 기본 DNS 클라이언트가 사용됩니다(사용 가능한 경우).
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
-이 정책을 사용하지 않으면 클라이언트가 사용되지 않습니다.
+If you enable this policy, the built-in DNS client is used, if it's available.
 
-이 정책을 구성하지 않으면 기본 제공 DNS 클라이언트가 MacOS에서 기본적으로 사용되며 사용자는 edge://flags를 편집하거나 명령줄 플래그를 지정하여 기본 제공 DNS 클라이언트를 사용할지 여부를 변경할 수 있습니다.
+If you disable this policy, the client is never used.
+
+If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8485,59 +8638,6 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
 
   [맨 위로 이동](#microsoft-edge---정책)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### Internet Explorer 모드 페이지에서 시작할 때 구성되지 않은 사이트에 대한 "페이지 내" 탐색 작동 방식 지정
-  >지원되는 버전: Windows의 Microsoft Edge, 버전 79 이상부터
-
-  #### 설명
-  "페이지 내" 탐색은 현재 페이지의 링크, 스크립트 또는 양식에서 시작됩니다. 또한 이전 "페이지 내" 탐색 시도를 서버 측으로 리디렉션할 수도 있습니다. 반대로, 사용자는 브라우저 컨트롤을 사용하여 여러 가지 방법으로 현재 페이지와는 관계없이 "페이지 내" 탐색이 아닌 탐색을 시작할 수 있습니다. 예를 들어, 주소 표시줄, 뒤로 단추 또는 즐겨찾기 링크를 사용할 수도 있습니다.
-
-이 설정을 사용하면 Internet Explorer 모드로 로드된 페이지에서 구성되지 않은 사이트(엔터프라이즈 모드 사이트 목록에서 구성되지 않은 사이트)로의 탐색을 Microsoft Edge로 다시 전환하거나 Internet Explorer 모드에서 계속 사용할 것인지를 지정할 수 있습니다.
-
-이 설정은 다음과 함께 작동합니다.
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)이 "Internet Explorer 모드"(1)로 설정되었습니다.
-그리고
-목록에 하나 이상의 항목이 있는 [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) 정책을 구성합니다.
-
-이 정책을 사용하지 않도록 설정하거나 구성하지 않으면 Internet Explorer 모드에서 열리도록 구성된 사이트만 해당 모드에서 열립니다. Internet Explorer 모드에서 열도록 구성되지 않은 사이트는 Microsoft Edge로 다시 리디렉션됩니다.
-
-이 정책을 사용하도록 설정하면 다음 탐색 옵션 중 하나를 선택할 수 있습니다.
-0 - 기본값. Internet Explorer 모드에서 열도록 구성된 사이트만 해당 모드에서 열립니다. Internet Explorer 모드에서 열도록 구성되지 않은 사이트는 Microsoft Edge로 다시 리디렉션됩니다.
-1 - Internet Explorer 모드에서 자동 탐색만 유지. 구성되지 않은 사이트에 대한 모든 자동 탐색(예: 302 리디렉션)을 Internet Explorer 모드에서 유지하는 경우를 제외하고 기본 환경을 사용하려면 이 옵션을 사용합니다.
-2 - Internet Explorer 모드에서 모든 페이지 내 탐색 유지(권장하지 않음). IE 모드에서 구성되지 않은 사이트로 로드된 페이지의 모든 탐색은 Internet Explorer 모드에 유지됩니다.
-
-Internet Explorer 모드에 대한 자세한 정보는 [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)를 참조하세요.
-
-  #### 지원되는 기능:
-  - 필수일 수 있음: 예
-  - 권장될 수 있음: 아니요
-  - 동적 정책 새로 고침: 아니요 - 브라우저 다시 시작 필요
-
-  #### 데이터 형식:
-  정수
-
-  #### Windows 정보 및 설정
-  ##### 그룹 정책(ADMX) 정보
-  - GP 고유 이름: InternetExplorerIntegrationSiteRedirect
-  - GP 이름: Internet Explorer 모드 페이지에서 시작할 때 구성되지 않은 사이트에 대한 "페이지 내" 탐색 작동 방식 지정
-  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
-  - GP 경로 (맞춤): 해당 없음
-  - GP ADMX 파일 이름: MSEdge.admx
-  ##### Windows 레지스트리 설정
-  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
-  - 경로 (맞춤): 해당 없음
-  - 값 이름: InternetExplorerIntegrationSiteRedirect
-  - 값 형식: REG_DWORD
-  ##### 예제 값:
-```
-0x00000000
-```
-
-
-  
-
-  [맨 위로 이동](#microsoft-edge---정책)
-
   ### IsolateOrigins
   #### 특정 원본에 대해 사이트 격리 사용
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
@@ -8917,19 +9017,20 @@ RFC1918/RFC4193 개인 주소의 캐스트 장치에 대한 Google Cast를 제�
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  Microsoft Edge의 Windows 10 Beta 및 Stable 채널의 경우 이 정책을 구성하면 컬렉션 또는 컬렉션이 아닌 Microsoft Edge 사용량 및 크래시 관련 데이터에 대한 Windows 진단 데이터 설정을 재정의합니다([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+이 정책은 Microsoft Edge에 대한 사용량 및 크래시 관련 데이터를 Microsoft에 보고하는 것을 사용하도록 설정하며 사용자가 이 설정을 변경할 수 없도록 합니다.
 
-Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
+사용량 및 크래시 관련 데이터 보고를 Microsoft에 보내려면 이 정책을 사용하도록 설정하세요. 데이터를 Microsoft로 보내지 않으려면 이 정책을 사용하지 않도록 설정하세요. 두 경우 모두 사용자가 설정을 변경하거나 재정의할 수 없습니다.
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+Windows 10, Beta 및 Stable 채널에서 이 정책은 사용량 현황 데이터를 제어합니다. 크래시 관련 데이터는 Windows 진단 데이터 설정에 의해 결정됩니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 Windows 진단 데이터 설정을 기본값으로 합니다.
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Windows 10, Canary 및 Dev 채널에서 이 정책은 사용량 및 크래시 관련 데이터를 제어합니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 사용자의 기본 설정을 기본값으로 합니다.
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Windows 7, 8 및 Mac에서는 이 정책이 사용량 및 크래시 관련 데이터를 제어합니다. 이 정책을 구성하지 않으면 Microsoft Edge에서 사용자의 기본 설정을 기본값으로 합니다.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+이 정책은 Microsoft Active Directory 도메인에 가입된 Windows 인스턴스 또는 장치 관리를 위해 Windows 10 Pro나 Enterprise 인스턴스에서만 사용할 수 있습니다.
+
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9023,13 +9124,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >지원되는 버전: Windows의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  이 정책은 사용자의 회사 또는 학교 계정으로 자동으로 로그인되어 있는 Microsoft Edge 프로필이 제거 가능한지 여부를 결정합니다.
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-이 정책을 사용하도록 설정하거나 구성하지 않으면 제거할 수 없는 프로필이 Windows에서 사용자의 회사 또는 학교 계정으로 만들어집니다.
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-이 정책을 사용하지 않으면 사용자가 Windows에서 사용자의 회사 또는 학교 계정으로 자동으로 로그인한 프로필을 로그아웃하거나 제거할 수 있습니다.
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-브라우저 로그인을 완전히 사용하지 않도록 설정하려면 'BrowserSignIn' 정책을 사용하세요.
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9116,17 +9217,17 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### PinningWizardAllowed
-  #### Allow Pin to taskbar wizard
+  #### 작업 표시줄에 고정 마법사 허용
   >지원되는 버전: Windows의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+  Microsoft Edge는 작업 표시줄에 고정 마법사를 사용하여 사용자가 제안된 사이트를 작업 표시줄에 고정할 수 있도록 합니다. 작업 표시줄에 고정 마법사 기능은 기본적으로 활성화되어 있으며, 설정 및 기타 메뉴를 통해 사용자가 액세스할 수 있습니다.
 
-If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+이 정책을 구성하지 않거나 활성화하면 사용자가 설정 및 기타 메뉴에서 작업 표시줄에 고정 마법사를 호출 할 수 있습니다. 프로토콜 실행을 통해 마법사를 호출할 수도 있습니다.
 
-If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+이 정책을 비활성화하면 작업 표시줄에 고정 마법사가 메뉴에서 비활성화되고 프로토콜 실행을 통해 호출할 수 없습니다.
 
-User settings to enable or disable the Pin to taskbar wizard aren't available.
+작업 표시줄에 고정 마법사를 활성화 또는 비활성화하기 위한 사용자 설정을 사용할 수 없습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -9139,7 +9240,7 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: PinningWizardAllowed
-  - GP 이름: Allow Pin to taskbar wizard
+  - GP 이름: 작업 표시줄에 고정 마법사 허용
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -9410,11 +9511,11 @@ QUIC는 현재 TCP를 사용하는 웹 응용 프로그램의 성능을 향상�
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  보류 중인 업데이트를 적용하기 위해 Microsoft Edge을(를) 다시 실행해야 하거나 Microsoft Edge OS 장치를 다시 시작해야 한다는 알림을 받는 시간 간격을 밀리 초 단위로 설정할 수 있습니다.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+이 기간 동안에는 업데이트가 필요하다는 것을 사용자에게 반복적으로 알려줍니다. Microsoft Edge OS 장치의 경우 RelaunchHeadsUpPeriod 정책에 따라 시스템 트레이에 다시 시작 알림이 표시됩니다. Microsoft Edge 브라우저의 경우, 알림 기간의 3분의 1이 지나면 앱 메뉴가 변경되어 다시 실행해야 함을 나타냅니다. 이 알림은 알림 기간의 3분의 2가 지나면 색을 변경하고 전체 알림 기간이 지나면 다시 색을 변경합니다. [RelaunchNotification](#relaunchnotification) 정책에 의해 사용하도록 설정된 추가 알림은 동일한 일정을 따릅니다.
 
-If not set, the default period of 604800000 milliseconds (one week) is used.
+설정하지 않으면 기본 기간인 604800000밀리초(1주)가 사용됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10299,7 +10400,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  더 이상 지원되지 않는 컴퓨터 또는 운영 체제에서 Microsoft Edge가 실행될 때 나타나는 경고를 표시하지 않습니다.
+  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+
+If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10955,6 +11058,84 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### WebAppInstallForceList
+  #### 강제 설치된 Web Apps 목록 구성
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  사용자 상호 작용 없이 자동으로 설치되고 사용자가 제거하거나 사용할 수 없도록 설정한 웹 사이트 목록을 지정합니다.
+
+정책의 각 목록 항목은 다음 멤버가 있는 개체입니다
+  - "url"은 필수입니다. "url"은 설치할 웹앱의 URL이어야 합니다.
+
+선택적 멤버의 값은 다음과 같습니다.
+  - "launch_container"는 설치 후 웹앱을 어떻게 열 것인지를 나타내는 "윈도우"또는 "탭"이어야 합니다.
+  - "create_desktop_shortcut"는 Windows에서 데스크탑 바로 가기를 만들어야 하는 경우 참이어야 합니다.
+
+"default_launch_container"가 생략되면 앱이 기본적으로 탭에서 열립니다. "default_launch_container"의 값에 관계없이 사용자는 앱이 열리는 컨테이너를 변경할 수 있습니다. "create_desktop_shortcuts"가 생략되면 바탕 화면 바로 가기가 만들어지지 않습니다.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  사전
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: WebAppInstallForceList
+  - GP 이름: 강제 설치된 Web Apps 목록 구성
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: WebAppInstallForceList
+  - 값 형식: REG_SZ
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: WebAppInstallForceList
+  - 예제 값:
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### WebDriver가 호환되지 않는 정책을 재정의하도록 허용
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
@@ -11009,23 +11190,79 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 아니요 - 브라우저 다시 시작 필요
+
+  #### 데이터 형식:
+  문자열 목록
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: WebRtcLocalIpsAllowedUrls
+  - GP 이름: Manage exposure of local IP addressess by WebRTC
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: 1, 2, 3, ...
+  - 값 형식: REG_SZ 목록
+  ##### 예제 값:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: WebRtcLocalIpsAllowedUrls
+  - 예제 값:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### WebRtcLocalhostIpHandling
-  #### WebRTC에 의한 로컬호스트 IP 주소 노출 제한
+  #### Restrict exposure of local IP address by WebRTC
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  WebRTC가 사용자의 localhost IP 주소를 노출하는지 여부를 설정할 수 있습니다.
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-이 정책을 "AllowAllInterfaces"('기본값') 또는 "AllowPublicAndPrivateInterfaces"('default_public_and_private_interfaces')로 설정하면 WebRTC가 로컬 호스트 IP 주소를 노출합니다.
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-이 정책을 "AllowPublicInterfaceOnly"('default_public_interface_only') 또는 "DisableNonProxiedUdp"('disable_non_proxied_udp')로 설정하면 WebRTC는 localhost IP 주소를 노출하지 않습니다.
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-이 정책을 설정하지 않거나 정책을 사용하지 않으면 WebRTC가 localhost IP 주소를 노출합니다.
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-  * '기본값' = 모든 인터페이스를 허용합니다. localhost IP 주소를 노출합니다.
-  * default_public_and_private_interfaces' = http 기본 경로를 통한 공개 및 비공개 인터페이스를 허용합니다. localhost IP 주소를 노출합니다.
-  * 'default_public_interface_only' = http 기본 경로를 통한 공개 인터페이스를 허용합니다. localhost IP 주소를 노출하지 않습니다.
-  * 'disable_non_proxied_udp' = 프록시 서버에서 UDP를 지원하지 않으면 TCP를 사용합니다. localhost IP 주소를 노출하지 않습니다.
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -11038,7 +11275,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: WebRtcLocalhostIpHandling
-  - GP 이름: WebRTC에 의한 로컬호스트 IP 주소 노출 제한
+  - GP 이름: Restrict exposure of local IP address by WebRTC
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
