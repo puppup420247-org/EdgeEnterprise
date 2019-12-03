@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/22/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -122,6 +122,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[DefaultCookiesSetting](#defaultcookiessetting)|Configurer les cookies|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Paramètre de géolocalisation par défaut|
 |[DefaultImagesSetting](#defaultimagessetting)|Paramètres des images par défaut|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Paramètre par défaut de JavaScript|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Paramètres de notification par défaut|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Paramètre Adobe Flash par défaut|
@@ -130,10 +131,12 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Contrôler l’utilisation de l’API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Autoriser les images sur ces sites|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Bloquer les images sur des sites spécifiques|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Autoriser JavaScript sur des sites spécifiques|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Bloquer JavaScript sur des sites spécifiques|
-|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
+|[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Activer les paramètres de comportement de cookie SameSite hérité par défaut|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Rétablir le comportement SameSite hérité des cookies sur les sites spécifiés|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Autoriser les notifications sur des sites spécifiques|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Bloquer les notifications sur des sites spécifiques|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Autoriser le plug-in Adobe Flash sur des sites spécifiques|
@@ -226,7 +229,6 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configurer la disponibilité du mode InPrivate|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configurer l’intégration d’Internet Explorer|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configurer la liste des sites en Mode entreprise|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Spécifier le type de comportement des navigations « entre les pages » vers des sites non configurés lorsqu’elles commencent sur des pages en mode Internet Explorer|
 |[IsolateOrigins](#isolateorigins)|Activer l’isolation de site pour des origines spécifiques|
 |[ManagedFavorites](#managedfavorites)|Configurer les favoris|
 |[ManagedSearchEngines](#managedsearchengines)|Gérer les moteurs de recherche|
@@ -236,7 +238,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[NetworkPredictionOptions](#networkpredictionoptions)|Activer la prédiction réseau|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configurer si un utilisateur dispose toujours d’un profil par défaut connecté automatiquement avec son compte professionnel ou scolaire|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Contrôler l’application des restrictions de sécurité aux origines non sécurisées|
-|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
+|[PinningWizardAllowed](#pinningwizardallowed)|Autoriser l’Assistant Épingler à la barre des tâches|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Activer l’authentification proactive|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Autoriser le contenu promotionnel dans des onglets|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Demander où enregistrer les fichiers téléchargés|
@@ -274,8 +276,10 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[VideoCaptureAllowed](#videocaptureallowed)|Autoriser ou bloquer la capture vidéo|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sites pouvant accéder aux appareils de capture vidéo sans demander l’autorisation|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Définir l'optimisation WPAD|
+|[WebAppInstallForceList](#webappinstallforcelist)|Configurer la liste des applications web installées de force|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Autoriser WebDriver à remplacer les stratégies incompatibles|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Limiter l’exposition de l’adresse IP localhost par WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Limiter la plage de ports UDP locaux utilisés par WebRTC|
 
 
@@ -807,19 +811,19 @@ Cette stratégie n'est disponible que sur les instances de Windows jointes à un
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 79 ou ultérieure
 
   #### Description
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  Spécifie le logo de la société à utiliser sur le nouvel onglet dans Microsoft Edge.
 
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+La stratégie doit être configurée en tant que chaîne qui exprime le(s) logo(s) au format JSON. Par exemple : { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+Pour configurer cette stratégie, spécifiez l’URL à partir de laquelle Microsoft Edge peut télécharger le logo et son hachage de chiffrement (SHA-256), qui permet de vérifier l’intégrité du téléchargement. Le logo doit être au format PNG ou SVG et sa taille de fichier ne doit pas dépasser 16 Mo. Le logo est téléchargé et mis en cache. Il est retéléchargé à chaque modification de l’URL ou du hachage. L’URL doit être accessible sans authentification.
 
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+Le « default_logo » est obligatoire et est utilisé lorsqu’il n’y a pas d’image d’arrière-plan. Si « light_logo » est spécifié, il est utilisé lorsque le nouvel onglet de l’utilisateur a une image d’arrière-plan. Nous vous conseillons d’utiliser un logo horizontal avec un arrière-plan transparent aligné à gauche et centré verticalement. Le logo doit avoir une hauteur minimale de 32 pixels et des proportions de 1:1 à 4:1. Le « default_logo » doit avoir un contraste approprié avec un arrière-plan blanc/noir, tandis que le « light_logo » doit avoir un contraste correct par rapport à une image d’arrière-plan.
 
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+Si vous activez cette stratégie, Microsoft Edge télécharge et affiche le(s) logo(s) spécifié(s) sur le nouvel onglet. Les utilisateurs ne peuvent pas remplacer ni masquer le(s) logo(s).
 
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+Si vous désactivez cette stratégie ou si vous ne la configurez pas, Microsoft Edge n’affiche pas de logo de la société ni de logo Microsoft sur le nouvel onglet.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
+Pour obtenir de l’aide sur la détermination du hachage SHA-256, voir https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -2805,13 +2809,13 @@ Cette stratégie est appliquée uniquement si vous activez les stratégies [Defa
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  Ce paramètre de stratégie vous permet de déterminer si les utilisateurs peuvent ignorer les avertissements de Microsoft Defender SmartScreen sur les sites web potentiellement malveillants.
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+Si vous activez ce paramètre, les utilisateurs ne peuvent pas ignorer les avertissements de Microsoft Defender SmartScreen et ils ne peuvent pas continuer sur le site.
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+Si vous désactivez ou ne configurez pas ce paramètre, les utilisateurs peuvent ignorer les avertissements de Microsoft Defender SmartScreen et accéder au site.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Cette stratégie est disponible uniquement sur les instances de Windows qui sont jointes à un domaine Microsoft Active Directory ou sur les instances de Windows 10 Professionnel ou Entreprise qui sont inscrites pour la gestion des appareils.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -2854,13 +2858,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versions prises en charge : Microsoft Edge sur Windows depuis la version 77 ou ultérieure et sur Mac depuis la version 79 ou ultérieure
 
   #### Description
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  Cette stratégie vous permet de déterminer si les utilisateurs peuvent ignorer les avertissements de Microsoft Defender SmartScreen à propos des téléchargements non vérifiés.
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+Si vous activez cette stratégie, les utilisateurs de votre organisation ne peuvent pas ignorer les avertissements de Microsoft Defender SmartScreen et ne peuvent pas terminer les téléchargements non vérifiés.
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+Si vous désactivez cette stratégie ou si vous ne la configurez pas, les utilisateurs peuvent ignorer les avertissements de Microsoft Defender SmartScreen et effectuer des téléchargements non vérifiés.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Cette stratégie est disponible uniquement sur les instances de Windows qui sont jointes à un domaine Microsoft Active Directory ou sur les instances de Windows 10 Professionnel ou Entreprise qui sont inscrites pour la gestion des appareils.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -2903,15 +2907,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Configurez la liste des domaines approuvés par Microsoft Defender SmartScreen. Cela signifie :
+Microsoft Defender SmartScreen ne recherche pas les ressources potentiellement malveillantes, telles que les logiciels d’hameçonnage et autres programmes malveillants, si les URL sources correspondent à ces domaines.
+Le service de protection contre le téléchargement Microsoft Defender SmartScreen ne vérifie pas les téléchargements hébergés sur ces domaines.
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+Si vous activez cette stratégie, Microsoft Defender SmartScreen approuve ces domaines.
+Si vous désactivez cette stratégie ou si vous ne la définissez pas, la protection Microsoft Defender SmartScreen par défaut est appliquée à toutes les ressources.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+Cette stratégie est disponible uniquement sur les instances de Windows qui sont jointes à un domaine Microsoft Active Directory, dans les instances de Windows 10 Professionnel ou Entreprise qui sont inscrites pour la gestion des appareils.
+Notez également que cette stratégie ne s’applique pas si votre organisation a activé Microsoft Defender - Protection avancée contre les menaces. Vous devez plutôt configurer vos listes verte et rouge dans le Centre de sécurité Microsoft Defender.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -3490,6 +3494,53 @@ Si vous ne configurez pas cette stratégie, les images sont autorisées par déf
 
   [Revenir au début](#microsoft-edge---stratégies)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Entier
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: DefaultInsecureContentSetting
+  - Nom de la stratégie de groupe: Control use of insecure content exceptions
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: DefaultInsecureContentSetting
+  - Type de la valeur: REG_DWORD
+  ##### Exemple de valeur :
+```
+0x00000002
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: DefaultInsecureContentSetting
+  - Exemple de valeur :
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
   ### DefaultJavaScriptSetting
   #### Paramètre par défaut de JavaScript
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
@@ -3892,6 +3943,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 
   [Revenir au début](#microsoft-edge---stratégies)
 
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Liste de chaînes
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: InsecureContentAllowedForUrls
+  - Nom de la stratégie de groupe: Allow insecure content on specified sites
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: 1, 2, 3, ...
+  - Type de la valeur: liste de REG_SZ
+  ##### Exemple de valeur :
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: InsecureContentAllowedForUrls
+  - Exemple de valeur :
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Liste de chaînes
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: InsecureContentBlockedForUrls
+  - Nom de la stratégie de groupe: Block insecure content on specified sites
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: 1, 2, 3, ...
+  - Type de la valeur: liste de REG_SZ
+  ##### Exemple de valeur :
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: InsecureContentBlockedForUrls
+  - Exemple de valeur :
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
   ### JavaScriptAllowedForUrls
   #### Autoriser JavaScript sur des sites spécifiques
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
@@ -3993,19 +4144,19 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### LegacySameSiteCookieBehaviorEnabled
-  #### Enable default legacy SameSite cookie behavior setting
+  #### Activer les paramètres de comportement de cookie SameSite hérité par défaut
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Lets you revert all cookies to legacy SameSite behavior. Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+  Vous permet de rétablir tous les cookies au comportement SameSite hérité. Le rétablissement du comportement hérité entraîne le traitement des cookies qui ne spécifient pas d'attribut SameSite comme s’ils étaient « SameSite=None » et supprime la condition requise pour que les cookies « SameSite=None » transportent l’attribut « Secure ».
 
-You can set the following values for this policy:
+Vous pouvez définir les valeurs suivantes pour cette stratégie :
 
-* 1 = Revert to legacy SameSite behavior for cookies on all sites
+* 1 = Rétablir le comportement SameSite hérité pour les cookies sur tous les sites
 
-* 2 = Use SameSite-by-default behavior for cookies on all sites
+* 2 = Utiliser le comportement SameSite-by-default pour les cookies sur tous les sites
 
-If you don't set this policy, the default behavior for cookies that don't specify a SameSite attribute will depend on other configuration sources for the SameSite-by-default feature. This feature might be set by a field trial or by enabling the same-site-by-default-cookies flag in edge://flags.
+Si vous ne définissez pas cette stratégie, le comportement par défaut des cookies qui ne spécifient pas d'attribut SameSite dépendra d’autres sources de configuration pour la fonctionnalité SameSite-by-default. Cette fonctionnalité peut être définie par une période d’évaluation de champ ou par l’activation de l’indicateur same-site-by-default-cookies dans edge://flags.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -4018,7 +4169,7 @@ If you don't set this policy, the default behavior for cookies that don't specif
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: LegacySameSiteCookieBehaviorEnabled
-  - Nom de la stratégie de groupe: Enable default legacy SameSite cookie behavior setting
+  - Nom de la stratégie de groupe: Activer les paramètres de comportement de cookie SameSite hérité par défaut
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -4044,19 +4195,19 @@ If you don't set this policy, the default behavior for cookies that don't specif
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### LegacySameSiteCookieBehaviorEnabledForDomainList
-  #### Revert to legacy SameSite behavior for cookies on specified sites
+  #### Rétablir le comportement SameSite hérité des cookies sur les sites spécifiés
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Cookies set for domains match specified patterns will revert to legacy SameSite behavior.
+  Les cookies définis pour les modèles spécifiés correspondant au domaine sont rétablis vers l’ancien comportement SameSite.
 
-Reverting to legacy behavior causes cookies that don't specify a SameSite attribute to be treated as if they were "SameSite=None", and removes the requirement for "SameSite=None" cookies to carry the "Secure" attribute.
+Le rétablissement du comportement hérité entraîne le traitement des cookies qui ne spécifient pas d'attribut SameSite comme s’ils étaient « SameSite=None » et supprime la condition requise pour que les cookies « SameSite=None » transportent l’attribut « Secure ».
 
-If you don't set this policy, the global default value will be used. The global default will also be used for cookies on domains not covered by the patterns you specify.
+Si vous ne définissez pas cette stratégie, la valeur par défaut globale est utilisée. La valeur par défaut globale est également utilisée pour les cookies sur les domaines non couverts par les modèles que vous spécifiez.
 
-The global default value can be configured using the [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) policy. If [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) is unset, the global default value falls back to other configuration sources.
+La valeur par défaut globale peut être configurée à l’aide de la stratégie [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled). Si [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) n’est pas défini, la valeur par défaut globale est rétablie à d'autres sources de configuration.
 
-Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+Notez que les modèles que vous répertoriez dans cette stratégie sont traités comme des domaines et non des URL. Vous ne devez donc pas spécifier de modèle ni de port.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -4069,7 +4220,7 @@ Note that patterns you list in this policy are treated as domains, not URLs, so 
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - Nom de la stratégie de groupe: Revert to legacy SameSite behavior for cookies on specified sites
+  - Nom de la stratégie de groupe: Rétablir le comportement SameSite hérité des cookies sur les sites spécifiés
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -5989,13 +6140,15 @@ Si vous ne configurez pas cette stratégie, les utilisateurs peuvent décider s�
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Contrôle s’il convient d'utiliser le client DNS intégré.
+  Controls whether to use the built-in DNS client.
 
-Si vous activez cette stratégie, le client DNS intégré est utilisé s'il est disponible.
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
-Si vous désactivez cette stratégie, le client n’est jamais utilisé.
+If you enable this policy, the built-in DNS client is used, if it's available.
 
-Si vous ne configurez pas cette stratégie, le client DNS intégré est activé par défaut sur MacOS et les utilisateurs peuvent modifier s’il convient d'utiliser le client DNS intégré en modifiant edge://flags ou en spécifiant un indicateur de ligne de commande.
+If you disable this policy, the client is never used.
+
+If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -8486,59 +8639,6 @@ Vous pouvez également définir cette stratégie comme une recommandation. Cela 
 
   [Revenir au début](#microsoft-edge---stratégies)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### Spécifier le type de comportement des navigations « entre les pages » vers des sites non configurés lorsqu’elles commencent sur des pages en mode Internet Explorer
-  >Versions prises en charge : Microsoft Edge sur Windows depuis la version 79 ou ultérieure
-
-  #### Description
-  Une navigation « entre les pages » est lancée à partir d’un lien, d’un script ou d’un formulaire de la page active. Il peut également s’agir d’une redirection côté serveur d’une tentative de navigation « entre les pages » précédente. Inversement, un utilisateur peut démarrer une navigation qui n’est pas « entre les pages » et qui est indépendante de la page active de plusieurs façons en utilisant les contrôles du navigateur. Par exemple, à l’aide de la barre d’adresses, du bouton précédent ou d’un lien favori.
-
-  Ce paramètre vous permet de spécifier si les navigations à partir de pages chargées en mode Internet Explorer sur des sites non configurés (qui ne sont pas configurés dans la liste de sites en mode Entreprise) basculent vers Microsoft Edge ou restent en mode Internet Explorer.
-
-  Ce paramètre fonctionne conjointement avec :
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) est défini sur « mode Internet Explorer » (1)
-  et
-  La stratégie [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) dans laquelle la liste comporte au moins une entrée.
-
-  Si vous désactivez cette stratégie ou si vous ne la configurez pas, seuls les sites configurés pour s’ouvrir en mode Internet Explorer s’ouvrent dans ce mode. Les sites non configurés pour être ouverts en mode Internet Explorer sont redirigés vers Microsoft Edge.
-
-  Si vous activez cette stratégie, vous pouvez choisir l’une des options de navigation suivantes :
-  0 - Valeur par défaut. Seuls les sites configurés pour être ouverts en mode Internet Explorer s’ouvrent dans ce mode. Les sites non configurés pour être ouverts en mode Internet Explorer sont redirigés vers Microsoft Edge
-  1 - Conserver uniquement les navigations automatiques dans le mode Internet Explorer. Utilisez cette option si vous souhaitez bénéficier de l’expérience par défaut, sauf que toutes les navigations automatiques (par exemple, les redirections 302) vers des sites non configurés restent en mode Internet Explorer.
-  2 - Conserver toutes les navigations entre les pages en mode Internet Explorer (le moins recommandé). Toutes les navigations depuis les pages chargées en mode IE vers des sites non configurés restent en mode Internet Explorer.
-
-  Pour en savoir plus sur le mode Internet Explorer, voir [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
-
-  #### Fonctionnalités prises en charge :
-  - Peut être obligatoire: Oui
-  - Peut être recommandé(e): Non
-  - Actualisation de la stratégie dynamique: Non - Nécessite le redémarrage du navigateur
-
-  #### Type de données:
-  Entier
-
-  #### Informations et paramètres Windows
-  ##### Informations sur la stratégie de groupe (ADMX)
-  - Nom unique de stratégie de groupe: InternetExplorerIntegrationSiteRedirect
-  - Nom de la stratégie de groupe: Spécifier le type de comportement des navigations « entre les pages » vers des sites non configurés lorsqu’elles commencent sur des pages en mode Internet Explorer
-  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
-  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
-  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
-  ##### Paramètres du Registre Windows
-  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge
-  - Chemin (Recommandé): N/A
-  - Nom de la valeur: InternetExplorerIntegrationSiteRedirect
-  - Type de la valeur: REG_DWORD
-  ##### Exemple de valeur :
-```
-0x00000000
-```
-
-
-  
-
-  [Revenir au début](#microsoft-edge---stratégies)
-
   ### IsolateOrigins
   #### Activer l’isolation de site pour des origines spécifiques
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
@@ -8918,19 +9018,19 @@ Si la stratégie [EnableMediaRouter](#enablemediarouter) est désactivée, cette
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  Pour les canaux Windows 10 Beta et Stable de Microsoft Edge, cette stratégie, lorsqu’elle est configurée, remplace le paramètre de données de diagnostic Windows pour la collecte ou la non-collecte des données liées aux incidents et à l'utilisation de Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+Cette stratégie active la création de rapports sur les données liées aux incidents et à l'utilisation de Microsoft Edge pour Microsoft et empêche les utilisateurs de modifier ce paramètre.
 
-Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
+Activez cette stratégie pour envoyer à Microsoft des rapports sur les données liées aux incidents et à l'utilisation. Désactivez cette stratégie pour ne pas envoyer les données à Microsoft. Dans les deux cas, les utilisateurs ne peuvent pas modifier ni remplacer le paramètre.
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+Sur les canaux Windows 10 Beta et Stable, cette stratégie contrôle les données d’utilisation. Les données liées aux incidents sont déterminées par le paramètre Données de diagnostic Windows. Si cette stratégie n’est pas configurée, Microsoft Edge est défini par défaut sur le paramètre des données de diagnostic Windows.
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Sur Windows 10, canaux Canary et Dev, cette stratégie contrôle les données liées aux incidents et à l’utilisation. Si cette stratégie n’est pas configurée, Microsoft Edge est par défaut la préférence de l’utilisateur.
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Sur Windows 7, 8 et Mac, cette stratégie contrôle les données liées aux incidents et à l’utilisation. Si cette stratégie n’est pas configurée, Microsoft Edge est par défaut la préférence de l’utilisateur.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+Cette stratégie est disponible uniquement sur les instances de Windows qui sont jointes à un domaine Microsoft Active Directory ou sur les instances de Windows 10 Professionnel ou Entreprise inscrites pour la gestion des appareils.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -9024,13 +9124,13 @@ Si vous ne configurez pas cette stratégie, les prédictions réseau sont activ�
   >Versions prises en charge : Microsoft Edge sur Windows depuis la version 78 ou ultérieure
 
   #### Description
-  Cette stratégie détermine si le profil Microsoft Edge connecté automatiquement avec le compte professionnel ou scolaire d’un utilisateur peut être supprimé.
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-Si vous activez cette stratégie ou si vous ne la configurez pas, un profil impossible à supprimer est créé avec le compte professionnel ou scolaire de l’utilisateur sous Windows. Ce profil ne peut pas être déconnecté ni supprimé.
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-Si vous désactivez cette stratégie, le profil connecté automatiquement avec le compte professionnel ou scolaire d’un utilisateur à partir de Windows peut être déconnecté ou supprimé par l’utilisateur.
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-Si vous souhaitez désactiver complètement la connexion du navigateur, utilisez la stratégie « BrowserSignIn ».
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -9119,17 +9219,17 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### PinningWizardAllowed
-  #### Allow Pin to taskbar wizard
+  #### Autoriser l’Assistant Épingler à la barre des tâches
   >Versions prises en charge : Microsoft Edge sur Windows depuis la version 80 ou ultérieure
 
   #### Description
-  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+  Microsoft Edge utilise l’Assistant Épingler à la barre des tâches pour aider les utilisateurs à épingler les sites suggérés dans la barre des tâches. La fonctionnalité d'Assistant Épingler à la barre des tâches est activée par défaut et accessible par l’utilisateur via le menu Paramètres et plus.
 
-If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+Si vous activez cette stratégie ou si vous ne la configurez pas, les utilisateurs peuvent appeler l’Assistant Épingler à la barre des tâches à partir du menu Paramètres et plus. L’Assistant peut également être appelé via le lancement d'un protocole.
 
-If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+Si vous désactivez cette stratégie, l’Assistant Épingler à la barre des tâches est désactivé dans le menu et ne peut pas être appelé via le lancement d'un protocole.
 
-User settings to enable or disable the Pin to taskbar wizard aren't available.
+Les paramètres utilisateur permettant d'activer ou de désactiver l’Assistant Épingler à la barre des tâches ne sont pas disponibles.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -9142,7 +9242,7 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: PinningWizardAllowed
-  - Nom de la stratégie de groupe: Allow Pin to taskbar wizard
+  - Nom de la stratégie de groupe: Autoriser l’Assistant Épingler à la barre des tâches
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -9413,11 +9513,11 @@ La session de l'utilisateur est restaurée au redémarrage du navigateur.
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  Vous permet de définir la période, en millisecondes, au cours de laquelle les utilisateurs sont avertis que Microsoft Edge doit être relancé ou qu’un appareil Microsoft Edge OS doit être redémarré pour appliquer une mise à jour en attente.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+Au cours de cette période, l’utilisateur est informé à plusieurs reprises qu’une mise à jour est nécessaire. Pour les appareils Microsoft Edge OS, une notification de redémarrage apparaît dans la barre d’état système conformément à la stratégie RelaunchHeadsUpPeriod. Pour les navigateurs Microsoft Edge, le menu de l’application change pour indiquer qu’un redémarrage est nécessaire une fois qu’un tiers de la période de notification est écoulé. Cette notification change de couleur une fois que les deux tiers de la période de notification sont écoulés, puis de nouveau lorsque toute la période de notification est écoulée. Les notifications supplémentaires activées par la stratégie [RelaunchNotification](#relaunchnotification) suivent ce même schéma.
 
-If not set, the default period of 604800000 milliseconds (one week) is used.
+Si cette valeur n’est pas définie, la période par défaut de 604 800 000 millisecondes (une semaine) est utilisée.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -10302,7 +10402,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Supprime l’avertissement qui s'affiche lorsque Microsoft Edge s’exécute sur un ordinateur ou un système d’exploitation qui n’est plus pris en charge.
+  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+
+If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -10958,6 +11060,84 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [Revenir au début](#microsoft-edge---stratégies)
 
+  ### WebAppInstallForceList
+  #### Configurer la liste des applications web installées de force
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Spécifie la liste des sites web qui sont installés en mode silencieux, sans interaction de l’utilisateur, et qui ne peuvent pas être désinstallés ou désactivés par l’utilisateur.
+
+Chaque élément de la liste de la stratégie est un objet avec les membres suivants :
+  -« URL », qui est obligatoire. « URL » doit être l’URL de l’application web à installer.
+
+Les valeurs des membres facultatifs sont les suivantes :
+  -« launch_container » doit avoir la valeur « window » ou « tab » pour indiquer comment l’application web sera ouverte après son installation.
+  -« create_desktop_shortcut » doit avoir la valeur true si un raccourci de Bureau doit être créé sur Windows.
+
+Si « default_launch_container » est omis, l’application s’ouvre par défaut dans un onglet. Quelle que soit la valeur de « default_launch_container », les utilisateurs peuvent modifier le conteneur dans lequel l’application s'ouvre. Si « create_desktop_shortcuts » est omis, aucun raccourci de Bureau n'est créé.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Dictionnaire
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: WebAppInstallForceList
+  - Nom de la stratégie de groupe: Configurer la liste des applications web installées de force
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: WebAppInstallForceList
+  - Type de la valeur: REG_SZ
+  ##### Exemple de valeur :
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: WebAppInstallForceList
+  - Exemple de valeur :
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### Autoriser WebDriver à remplacer les stratégies incompatibles
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
@@ -11012,23 +11192,79 @@ Si la stratégie est désactivée ou n’est pas configurée, WebDriver n'est pa
 
   [Revenir au début](#microsoft-edge---stratégies)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Non - Nécessite le redémarrage du navigateur
+
+  #### Type de données:
+  Liste de chaînes
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: WebRtcLocalIpsAllowedUrls
+  - Nom de la stratégie de groupe: Manage exposure of local IP addressess by WebRTC
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: 1, 2, 3, ...
+  - Type de la valeur: liste de REG_SZ
+  ##### Exemple de valeur :
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: WebRtcLocalIpsAllowedUrls
+  - Exemple de valeur :
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
   ### WebRtcLocalhostIpHandling
-  #### Limiter l’exposition de l’adresse IP localhost par WebRTC
+  #### Restrict exposure of local IP address by WebRTC
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Vous permet de définir si WebRTC expose son adresse IP localhost.
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-Si vous définissez cette stratégie « AllowAllInterfaces » (« default ») ou « AllowPublicAndPrivateInterfaces » (« default_public_and_private_interfaces »), WebRTC expose l’adresse IP localhost.
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-Si vous définissez cette stratégie sur « AllowPublicInterfaceOnly » (« default_public_interface_only ») ou « DisableNonProxiedUdp » (« disable_non_proxied_udp »), WebRTC n’expose pas l’adresse IP localhost.
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-Si vous ne définissez pas cette stratégie ou si vous la désactivez, WebRTC expose l’adresse IP localhost.
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-* « default » = Autoriser toutes les interfaces. Ceci expose l’adresse IP localhost.
-* « default_public_and_private_interfaces » = autoriser les interfaces publiques et privées à l’itinéraire par défaut de http. Affichez l’adresse IP de localhost.
-* « default_public_interface_only » = Autoriser l’interface publique sur l’itinéraire http par défaut. Ceci n’expose pas l’adresse IP localhost.
-* « disable_non_proxied_udp » = Utiliser TCP, sauf si le serveur proxy prend en charge UDP. Ceci n’expose pas l’adresse IP localhost.
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -11041,7 +11277,7 @@ Si vous ne définissez pas cette stratégie ou si vous la désactivez, WebRTC ex
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: WebRtcLocalhostIpHandling
-  - Nom de la stratégie de groupe: Limiter l’exposition de l’adresse IP localhost par WebRTC
+  - Nom de la stratégie de groupe: Restrict exposure of local IP address by WebRTC
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
