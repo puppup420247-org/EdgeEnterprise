@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/22/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -59,6 +59,7 @@ Estas tabelas listam todas as políticas de grupo relacionadas ao navegador disp
 |[DefaultCookiesSetting](#defaultcookiessetting)|Configurar cookies|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Configuração de geolocalização padrão|
 |[DefaultImagesSetting](#defaultimagessetting)|Configuração de imagens padrão|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Configuração de JavaScript padrão|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Configuração de notificação padrão|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Configuração padrão do Adobe Flash|
@@ -67,6 +68,8 @@ Estas tabelas listam todas as políticas de grupo relacionadas ao navegador disp
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Controlar o uso da API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Permitir imagens nestes sites|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Bloquear imagens em sites específicos|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Permitir JavaScript em sites específicos|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Bloquear o JavaScript em sites específicos|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Habilitar a configuração do comportamento de cookies SameSite herdado padrão|
@@ -226,7 +229,6 @@ Estas tabelas listam todas as políticas de grupo relacionadas ao navegador disp
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configurar a disponibilidade do modo InPrivate|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configurar a integração com o Internet Explorer|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configurar a Lista de Sites do Modo Empresarial|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Especificar como as navegações "em página" para sites não configurados se comportam ao iniciar em páginas do modo do Internet Explorer|
 |[IsolateOrigins](#isolateorigins)|Habilitar isolamento de site para origens específicas|
 |[ManagedFavorites](#managedfavorites)|Configurar favoritos|
 |[ManagedSearchEngines](#managedsearchengines)|Gerenciar Mecanismos de Pesquisa|
@@ -236,7 +238,7 @@ Estas tabelas listam todas as políticas de grupo relacionadas ao navegador disp
 |[NetworkPredictionOptions](#networkpredictionoptions)|Habilitar previsão de rede|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configurar se um usuário sempre tem um perfil padrão conectado automaticamente à sua conta corporativa ou de estudante|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Controlar onde se aplicam a restrições de segurança em origens não seguras|
-|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
+|[PinningWizardAllowed](#pinningwizardallowed)|Permitir o Assistente para fixar na barra de tarefas|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Habilitar a Autenticação Proativa|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Habilitar conteúdo promocional em toda a guia|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Perguntar onde salvar os arquivos baixados|
@@ -274,8 +276,10 @@ Estas tabelas listam todas as políticas de grupo relacionadas ao navegador disp
 |[VideoCaptureAllowed](#videocaptureallowed)|Permitir ou bloquear captura de vídeo|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sites que podem acessar dispositivos de captura de vídeo sem solicitar permissão|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Definir otimização de WPAD|
+|[WebAppInstallForceList](#webappinstallforcelist)|Configurar lista de Aplicativos Web instalados à força|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Permitir que o WebDriver substitua políticas incompatíveis|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restringir a exposição do endereço IP do localhost pelo WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restringir o intervalo de portas UDP locais usadas pelo WebRTC|
 
 
@@ -1085,6 +1089,53 @@ Se você não configurar essa política, as imagens serão permitidas por padrã
 
   [Voltar ao início](#microsoft-edge---políticas)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 80 ou posterior
+
+  #### Descrição
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+
+  #### Recursos com suporte:
+  - Pode ser obrigatório: Sim
+  - Pode ser recomendado: Não
+  - Atualização de política dinâmica: Sim
+
+  #### Tipo de Dados:
+  Número inteiro
+
+  #### Informações e configurações do Windows
+  ##### Informações da Política de Grupo (ADMX)
+  - Nome exclusivo da GP: DefaultInsecureContentSetting
+  - Nome da GP: Control use of insecure content exceptions
+  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/Configurações de conteúdo
+  - Caminho da GP (Recomendações): N/A
+  - Nome do arquivo da GP ADMX: MSEdge.admx
+  ##### Configurações do Registro do Windows
+  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge
+  - Caminho (Recomendações): N/A
+  - Nome do Valor: DefaultInsecureContentSetting
+  - Tipo de Valor: REG_DWORD
+  ##### Exemplo de valor:
+```
+0x00000002
+```
+
+
+  #### Informações e configurações do Mac
+  - Nome da chave de preferência: DefaultInsecureContentSetting
+  - Exemplo de valor:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Voltar ao início](#microsoft-edge---políticas)
+
   ### DefaultJavaScriptSetting
   #### Configuração de JavaScript padrão
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
@@ -1481,6 +1532,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Voltar ao início](#microsoft-edge---políticas)
+
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 80 ou posterior
+
+  #### Descrição
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Recursos com suporte:
+  - Pode ser obrigatório: Sim
+  - Pode ser recomendado: Não
+  - Atualização de política dinâmica: Sim
+
+  #### Tipo de Dados:
+  Lista de cadeias de caracteres
+
+  #### Informações e configurações do Windows
+  ##### Informações da Política de Grupo (ADMX)
+  - Nome exclusivo da GP: InsecureContentAllowedForUrls
+  - Nome da GP: Allow insecure content on specified sites
+  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/Configurações de conteúdo
+  - Caminho da GP (Recomendações): N/A
+  - Nome do arquivo da GP ADMX: MSEdge.admx
+  ##### Configurações do Registro do Windows
+  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - Caminho (Recomendações): N/A
+  - Nome do Valor: 1, 2, 3, ...
+  - Tipo de Valor: lista de REG_SZ
+  ##### Exemplo de valor:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Informações e configurações do Mac
+  - Nome da chave de preferência: InsecureContentAllowedForUrls
+  - Exemplo de valor:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Voltar ao início](#microsoft-edge---políticas)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 80 ou posterior
+
+  #### Descrição
+  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Recursos com suporte:
+  - Pode ser obrigatório: Sim
+  - Pode ser recomendado: Não
+  - Atualização de política dinâmica: Sim
+
+  #### Tipo de Dados:
+  Lista de cadeias de caracteres
+
+  #### Informações e configurações do Windows
+  ##### Informações da Política de Grupo (ADMX)
+  - Nome exclusivo da GP: InsecureContentBlockedForUrls
+  - Nome da GP: Block insecure content on specified sites
+  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/Configurações de conteúdo
+  - Caminho da GP (Recomendações): N/A
+  - Nome do arquivo da GP ADMX: MSEdge.admx
+  ##### Configurações do Registro do Windows
+  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - Caminho (Recomendações): N/A
+  - Nome do Valor: 1, 2, 3, ...
+  - Tipo de Valor: lista de REG_SZ
+  ##### Exemplo de valor:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Informações e configurações do Mac
+  - Nome da chave de preferência: InsecureContentBlockedForUrls
+  - Exemplo de valor:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -2250,13 +2401,14 @@ SOFTWARE\Policies\Microsoft\Edge\WebUsbBlockedForUrls\1 = "[*.]contoso.edu"
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  Essa configuração de política permite que você decida se os usuários podem substituir os avisos do Microsoft Defender SmartScreen sobre sites potencialmente mal-intencionados.
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+Se você habilitar essa configuração, os usuários não poderão ignorar os avisos do Microsoft Defender SmartScreen e serão impedidos de continuar no site.
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+Se você desabilitar ou não definir essa configuração, os usuários poderão ignorar os avisos do Microsoft Defender SmartScreen e continuar no site.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Essa política está disponível somente em instâncias do Windows que fazem parte de um domínio do Microsoft Active Directory ou em instâncias do Windows 10 Pro ou Enterprise registradas para o gerenciamento de dispositivos.
+
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -2299,13 +2451,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versões com Suporte: O Microsoft Edge no Windows desde a versão 77 ou posterior e no Mac desde a versão 79 ou posterior
 
   #### Descrição
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  Essa política permite determinar se os usuários podem substituir os avisos do Microsoft Defender SmartScreen sobre downloads não verificados.
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+Se você habilitar essa política, os usuários de sua organização não poderão ignorar os avisos do Microsoft Defender SmartScreen, e eles serão impedidos de concluir os downloads não verificados.
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+Se você desabilitar ou não configurar essa política, os usuários poderão ignorar os avisos do Microsoft Defender SmartScreen e concluir downloads não verificados.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Essa política está disponível somente em instâncias do Windows que fazem parte de um domínio do Microsoft Active Directory ou em instâncias do Windows 10 Pro ou Enterprise registradas para o gerenciamento de dispositivos.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -2348,15 +2500,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Configure a lista de domínios confiáveis do Microsoft Defender SmartScreen. Isso significa que:
+o Microsoft Defender SmartScreen não verificará recursos potencialmente mal-intencionados, como software de phishing e outro malware se as URLs de origem coincidirem com esses domínios.
+O serviço de proteção contra download do Microsoft Defender SmartScreen não verificará os downloads hospedados nesses domínios.
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+Se você habilitar essa política, o Microsoft Defender SmartScreen confiará nesses domínios.
+Se você desabilitar ou não configurar essa política, a proteção padrão do Microsoft Defender SmartScreen será aplicada a todos os recursos.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+Essa política está disponível somente em instâncias do Windows que façam parte de um domínio do Microsoft Active Directory ou em instâncias do Windows 10 Pro ou Enterprise registradas para o gerenciamento de dispositivos.
+Observe também que essa política não se aplica quando a organização habilita a Proteção Avançada contra Ameaças do Microsoft Defender. É necessário configurar suas listas de contatos bloqueados e permitidos na Central de Segurança do Microsoft Defender.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -3598,19 +3750,19 @@ Esta política está disponível somente em instâncias do Windows que fazem par
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 79 ou posterior
 
   #### Descrição
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  Especifica o logotipo da empresa a ser usado na página de nova guia no Microsoft Edge.
 
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+A política deve ser configurada como uma cadeia de caracteres que expressa o logotipo em formato JSON. Por exemplo: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+Configure essa política especificando a URL da qual o Microsoft Edge pode baixar o logotipo e seu hash criptográfico (SHA-256), que é usado para verificar a integridade do download. O logotipo deve estar em formato PNG ou SVG, e seu tamanho de arquivo não deve exceder 16 MB. O logotipo é baixado e armazenado em cache, e o download será repetido sempre que a URL ou o hash mudar. A URL deve ser acessível sem qualquer autenticação.
 
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+O 'default_logo' é obrigatório e será usado quando não houver imagem de fundo. Se o "light_logo" for fornecido, ele será usado quando a página de nova guia do usuário tiver uma imagem de fundo. Recomendamos um logotipo horizontal com um fundo transparente que seja alinhado à esquerda e centralizado verticalmente. O logotipo deve ter uma altura mínima de 32 pixels e uma taxa de proporção de 1:1 a 4:1. O "default_logo" deve ter um contraste adequado contra um fundo branco/preto, enquanto o "light_logo" deve ter um contraste adequado contra uma imagem de fundo.
 
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+Se você habilitar essa política, o Microsoft Edge baixará e mostrará os logotipos especificados na página de nova guia. Os usuários não podem substituir ou ocultar os logotipos.
 
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+Se você desabilitar ou não configurar essa política, o Microsoft Edge não mostrará o logotipo da empresa ou um logotipo da Microsoft na página de nova guia.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
+Para obter ajuda na determinação do hash SHA-256, consulte https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -5988,13 +6140,15 @@ Se você não configurar essa política, os usuários poderão decidir se deseja
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  Controla se o cliente DNS interno deve ser usado.
+  Controls whether to use the built-in DNS client.
 
-Se você habilitar esta política, o cliente DNS interno será usado, caso esteja disponível.
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
-Se você desabilitar esta política, o cliente nunca será usado.
+If you enable this policy, the built-in DNS client is used, if it's available.
 
-Se você não configurar esta política, o cliente DNS interno será habilitado por padrão no MacOS, e os usuários poderão alterar se desejam usar o cliente DNS interno editando edge://flags ou especificando um sinalizador de linha de comando.
+If you disable this policy, the client is never used.
+
+If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -8485,59 +8639,6 @@ Defina esta política como "Forçada" (2) para usar sempre o modo InPrivate.
 
   [Voltar ao início](#microsoft-edge---políticas)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### Especificar como as navegações "em página" para sites não configurados se comportam ao iniciar em páginas do modo do Internet Explorer
-  >Versões com Suporte: O Microsoft Edge no Windows desde a versão 79 ou posterior
-
-  #### Descrição
-  Uma navegação "na página" é iniciada a partir de um link, um script ou um formulário na página atual. Também pode ser um redirecionamento do lado do servidor de uma tentativa de navegação "na página" anterior. Por outro lado, um usuário pode iniciar uma navegação que não seja "na página" e que seja independente da página atual de várias maneiras, usando os controles do navegador. Por exemplo, usando a barra de endereços, o botão Voltar ou um link favorito.
-
-Essa configuração permite que você especifique se as navegações de páginas carregadas no modo do Internet Explorer para sites não configurados (que não estão configurados na Lista de Sites do Modo Empresarial) serão revertidas para o Microsoft Edge ou permanecerão no modo do Internet Explorer.
-
-Essa configuração funciona em conjunto com:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) está definida como "modo do Internet Explorer" (1)
-e
-a política [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) em que a lista possui pelo menos uma entrada.
-
-Se você desabilitar ou não configurar essa política, somente os sites configurados para serem abertos no modo do Internet Explorer serão abertos nesse modo. Os sites não configurados para abrir no modo do Internet Explorer serão redirecionados de volta ao Microsoft Edge.
-
-Se você habilitar essa política, poderá escolher uma das seguintes opções de navegação:
-0 - Padrão. Somente os sites configurados para abrirem no modo do Internet Explorer serão abertos nesse modo. Os sites não configurados para abrir no modo do Internet Explorer serão redirecionados de volta ao Microsoft Edge.
-1 - Manter somente as navegações automáticas no modo do Internet Explorer. Use essa opção se você quiser a experiência padrão. Contudo, todas as navegações automáticas (como redirecionamentos 302) para sites não configurados serão mantidas no modo do Internet Explorer.
-2 - Manter todas as navegações na página no modo do Internet Explorer (menos recomendado). Todas as navegações de páginas carregadas no modo do IE para sites não configurados são mantidas no modo do Internet Explorer.
-
-Para saber mais sobre o modo do Internet Explorer, consulte [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
-
-  #### Recursos com suporte:
-  - Pode ser obrigatório: Sim
-  - Pode ser recomendado: Não
-  - Atualização de política dinâmica: Não - Requer a reinicialização do navegador
-
-  #### Tipo de Dados:
-  Número inteiro
-
-  #### Informações e configurações do Windows
-  ##### Informações da Política de Grupo (ADMX)
-  - Nome exclusivo da GP: InternetExplorerIntegrationSiteRedirect
-  - Nome da GP: Especificar como as navegações "em página" para sites não configurados se comportam ao iniciar em páginas do modo do Internet Explorer
-  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/
-  - Caminho da GP (Recomendações): N/A
-  - Nome do arquivo da GP ADMX: MSEdge.admx
-  ##### Configurações do Registro do Windows
-  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge
-  - Caminho (Recomendações): N/A
-  - Nome do Valor: InternetExplorerIntegrationSiteRedirect
-  - Tipo de Valor: REG_DWORD
-  ##### Exemplo de valor:
-```
-0x00000000
-```
-
-
-  
-
-  [Voltar ao início](#microsoft-edge---políticas)
-
   ### IsolateOrigins
   #### Habilitar isolamento de site para origens específicas
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
@@ -8917,19 +9018,19 @@ Se a política [EnableMediaRouter](#enablemediarouter) estiver desabilitada, ess
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  Para os canais Windows 10 Beta e Stable do Microsoft Edge, essa política, quando configurada, substituirá a configuração de dados de diagnóstico do Windows para coleção ou não coleção de dados relacionados a erros e falhas do Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+Essa política habilita o relatório de uso e dados relacionados a falhas sobre o Microsoft Edge para a Microsoft e impede que os usuários alterem essa configuração.
 
-Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
+Habilite essa política para enviar relatórios de uso e dados relacionados a falhas para a Microsoft. Desabilite essa política para não enviar os dados para a Microsoft. Em ambos os casos, os usuários não podem alterar ou substituir a configuração.
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+Em canais do Windows 10 Beta e Stable, essa política controla dados relacionados a uso e falhas. Se essa política não estiver configurada, o Microsoft Edge usará como padrão a configuração de dados de diagnóstico do Windows.
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Em canais do Windows 10, Canary e Dev, essa política controla dados relacionados a uso e falhas. Se essa política não estiver configurada, o Microsoft Edge usará como padrão a preferência do usuário.
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+No Windows 7, 8 e Mac, essa política controla dados relacionados a uso e falhas. Se essa política não estiver configurada, o Microsoft Edge usará como padrão a preferência do usuário.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+Essa política está disponível somente em instâncias do Windows que fazem parte de um domínio do Microsoft Active Directory ou em instâncias do Windows 10 Pro ou Enterprise registradas para gerenciamento de dispositivos.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -9023,13 +9124,13 @@ Se você não configurar essa política, a previsão de rede será habilitada, m
   >Versões com Suporte: O Microsoft Edge no Windows desde a versão 78 ou posterior
 
   #### Descrição
-  Essa política determina se o perfil do Microsoft Edge conectado automaticamente com a conta corporativa ou de estudante de um usuário é removível.
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-Se você habilitar ou não configurar essa política, um perfil não removível será criado com a conta corporativa ou de estudante do usuário no Windows. Esse perfil não pode ser desconectado nem removido.
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-Quando você desabilita essa política, o perfil conectado automaticamente com a conta corporativa ou de estudante de um usuário do Windows pode ser desconectado ou removido pelo usuário.
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-Se você deseja desabilitar completamente a entrada do navegador, use a política "BrowserSignIn".
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -9116,17 +9217,17 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   [Voltar ao início](#microsoft-edge---políticas)
 
   ### PinningWizardAllowed
-  #### Allow Pin to taskbar wizard
+  #### Permitir o Assistente para fixar na barra de tarefas
   >Versões com Suporte: O Microsoft Edge no Windows desde a versão 80 ou posterior
 
   #### Descrição
-  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+  O Microsoft Edge usa o Assistente para fixar na barra de tarefas para ajudar os usuários a fixar sites sugeridos na barra de tarefas. O recurso Fixar na barra de tarefas é habilitado por padrão e pode ser acessado pelo usuário por meio do menu Configurações e mais.
 
-If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+Se você habilitar essa política ou não configurá-la, os usuários poderão chamar o Assistente para fixar na barra de tarefas no menu Configurações e mais. O Assistente também pode ser chamado por meio de uma inicialização de protocolo.
 
-If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+Se você desabilitar essa política, o Assistente para fixar na barra de tarefas será desabilitado no menu e não poderá ser chamado por meio de uma inicialização de protocolo.
 
-User settings to enable or disable the Pin to taskbar wizard aren't available.
+As configurações do usuário para habilitar ou desabilitar o Assistente para fixar na barra de tarefas não estão disponíveis.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -9139,7 +9240,7 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
   #### Informações e configurações do Windows
   ##### Informações da Política de Grupo (ADMX)
   - Nome exclusivo da GP: PinningWizardAllowed
-  - Nome da GP: Allow Pin to taskbar wizard
+  - Nome da GP: Permitir o Assistente para fixar na barra de tarefas
   - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/
   - Caminho da GP (Recomendações): N/A
   - Nome do arquivo da GP ADMX: MSEdge.admx
@@ -9410,11 +9511,11 @@ A sessão do usuário é restaurada quando o navegador é reiniciado.
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  Permite definir o período, em milissegundos, no qual os usuários são avisados de que o Microsoft Edge deve ser reiniciado ou que um dispositivo Microsoft Edge OS deve ser reiniciado para aplicar uma atualização pendente.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+Durante esse período, o usuário será informado repetidamente sobre a necessidade de uma atualização. Para dispositivos Microsoft Edge OS, uma notificação de reinicialização aparece na bandeja do sistema de acordo com a política RelaunchHeadsUpPeriod. Para navegadores Microsoft Edge, o menu do app é alterado para indicar que uma reinicialização é necessária depois de decorrido um terço do período de notificação. Essa notificação muda de cor depois de decorridos dois terços do período de notificação e novamente depois de decorrido todo o período de notificação. As notificações adicionais habilitadas pela política [RelaunchNotification](#relaunchnotification) seguem a mesma agenda.
 
-If not set, the default period of 604800000 milliseconds (one week) is used.
+Se não definido, será usado o período padrão de 604800000 milissegundos (uma semana).
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -10299,7 +10400,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  Suprime o aviso que é exibido quando o Microsoft Edge está em execução em um computador ou sistema operacional que não é mais compatível.
+  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+
+If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -10955,6 +11058,84 @@ Independentemente de a política estar habilitada ou de como está habilitada, a
 
   [Voltar ao início](#microsoft-edge---políticas)
 
+  ### WebAppInstallForceList
+  #### Configurar lista de Aplicativos Web instalados à força
+  >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 80 ou posterior
+
+  #### Descrição
+  Especifica uma lista de sites que estão instalados no modo silencioso, sem interação do usuário, e que não podem ser desinstalados nem desabilitados pelo usuário.
+
+Cada item da lista da política é um objeto com os seguintes membros:
+  - "url", que é obrigatório. "url" deve ser a URL do aplicativo web a ser instalado.
+
+Os valores para os membros opcionais são:
+  - "launch_container" deve ser "window" ou "tab" para indicar como o aplicativo Web será aberto depois de instalado.
+  - "create_desktop_shortcut" deve ser true se um atalho da área de trabalho precisar ser criado no Windows.
+
+Se "default_launch_container" for omitido, o aplicativo será aberto em uma guia por padrão. Independentemente do valor de "default_launch_container", os usuários poderão alterar o contêiner no qual o aplicativo será aberto. Se "create_desktop_shortcuts" for omitido, não serão criados atalhos da área de trabalho.
+
+  #### Recursos com suporte:
+  - Pode ser obrigatório: Sim
+  - Pode ser recomendado: Não
+  - Atualização de política dinâmica: Sim
+
+  #### Tipo de Dados:
+  Dicionário
+
+  #### Informações e configurações do Windows
+  ##### Informações da Política de Grupo (ADMX)
+  - Nome exclusivo da GP: WebAppInstallForceList
+  - Nome da GP: Configurar lista de Aplicativos Web instalados à força
+  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/
+  - Caminho da GP (Recomendações): N/A
+  - Nome do arquivo da GP ADMX: MSEdge.admx
+  ##### Configurações do Registro do Windows
+  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge
+  - Caminho (Recomendações): N/A
+  - Nome do Valor: WebAppInstallForceList
+  - Tipo de Valor: REG_SZ
+  ##### Exemplo de valor:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Informações e configurações do Mac
+  - Nome da chave de preferência: WebAppInstallForceList
+  - Exemplo de valor:
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [Voltar ao início](#microsoft-edge---políticas)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### Permitir que o WebDriver substitua políticas incompatíveis
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
@@ -11009,23 +11190,79 @@ substituir políticas incompatíveis.
 
   [Voltar ao início](#microsoft-edge---políticas)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 80 ou posterior
+
+  #### Descrição
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### Recursos com suporte:
+  - Pode ser obrigatório: Sim
+  - Pode ser recomendado: Não
+  - Atualização de política dinâmica: Não - Requer a reinicialização do navegador
+
+  #### Tipo de Dados:
+  Lista de cadeias de caracteres
+
+  #### Informações e configurações do Windows
+  ##### Informações da Política de Grupo (ADMX)
+  - Nome exclusivo da GP: WebRtcLocalIpsAllowedUrls
+  - Nome da GP: Manage exposure of local IP addressess by WebRTC
+  - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/
+  - Caminho da GP (Recomendações): N/A
+  - Nome do arquivo da GP ADMX: MSEdge.admx
+  ##### Configurações do Registro do Windows
+  - Caminho (Obrigatório): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - Caminho (Recomendações): N/A
+  - Nome do Valor: 1, 2, 3, ...
+  - Tipo de Valor: lista de REG_SZ
+  ##### Exemplo de valor:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Informações e configurações do Mac
+  - Nome da chave de preferência: WebRtcLocalIpsAllowedUrls
+  - Exemplo de valor:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [Voltar ao início](#microsoft-edge---políticas)
+
   ### WebRtcLocalhostIpHandling
-  #### Restringir a exposição do endereço IP do localhost pelo WebRTC
+  #### Restrict exposure of local IP address by WebRTC
   >Versões com Suporte: O Microsoft Edge no Windows e Mac desde a versão 77 ou posterior
 
   #### Descrição
-  Permite definir se o WebRTC mostra ou não o endereço IP do host local do usuário.
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-Se você configurar esta política para "AllowAllInterfaces" ('default') ou "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), o WebRTC mostrará o endereço IP do host local.
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-Se você configurar esta política para "AllowPublicInterfaceOnly" ('default_public_interface_only') ou "DisableNonProxiedUdp" ('disable_non_proxied_udp'), o WebRTC não mostrará o endereço IP do host local.
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-Se você não configurar esta política ou desabilitá-la, o WebRTC mostrará o endereço IP do host local.
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-  * 'default' = Permitir todas as interfaces. Isso expõe o endereço IP do host local.
-  * 'default_public_and_private_interfaces' = Permitir interfaces públicas e privadas pela rota http padrão. Isso mostra o endereço IP do host local.
-  * 'default_public_interface_only' = Permitir a interface pública pela rota http padrão. Isso não mostra o endereço IP do host local.
-  * 'disable_non_proxied_udp’ = Usar TCP, a menos que o servidor proxy dê suporte para UDP. Isso não mostra o endereço IP do host local.
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### Recursos com suporte:
   - Pode ser obrigatório: Sim
@@ -11038,7 +11275,7 @@ Se você não configurar esta política ou desabilitá-la, o WebRTC mostrará o 
   #### Informações e configurações do Windows
   ##### Informações da Política de Grupo (ADMX)
   - Nome exclusivo da GP: WebRtcLocalhostIpHandling
-  - Nome da GP: Restringir a exposição do endereço IP do localhost pelo WebRTC
+  - Nome da GP: Restrict exposure of local IP address by WebRTC
   - Caminho da GP (Obrigatório): Modelos Administrativos/Microsoft Edge/
   - Caminho da GP (Recomendações): N/A
   - Nome do arquivo da GP ADMX: MSEdge.admx
