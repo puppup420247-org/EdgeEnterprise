@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/22/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -78,6 +78,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultCookiesSetting](#defaultcookiessetting)|Настройка файлов cookie|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Настройка географического положения по умолчанию|
 |[DefaultImagesSetting](#defaultimagessetting)|Настройка изображений по умолчанию|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Настройка скриптов JavaScript по умолчанию|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Настройка уведомлений по умолчанию|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Параметр Adobe Flash по умолчанию|
@@ -86,6 +87,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Управление использованием API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Разрешить изображения на этих сайтах|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Блокировать изображения на определенных сайтах|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Разрешить скрипты JavaScript на определенных сайтах|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Блокировать скрипты JavaScript на определенных сайтах|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Включить стандартный устаревший параметр поведения файлов cookie SameSite|
@@ -226,7 +229,6 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Настроить доступность режима InPrivate|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Настройка интеграции с Internet Explorer|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Настроить список сайтов для режима предприятия|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Укажите способ обработки переходов "на странице" для ненастроенных сайтов, выполненных со страниц в режиме Internet Explorer|
 |[IsolateOrigins](#isolateorigins)|Включить изоляцию сайта для определенных источников|
 |[ManagedFavorites](#managedfavorites)|Настроить "Избранное"|
 |[ManagedSearchEngines](#managedsearchengines)|Управление поисковыми системами|
@@ -236,7 +238,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|Включить прогнозирование сети|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Настройка постоянного автоматического входа пользователя в стандартный профиль на основе рабочей или учебной учетной записи|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Управление применением ограничений доступа к небезопасным источникам|
-|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
+|[PinningWizardAllowed](#pinningwizardallowed)|Разрешить использование мастера закрепления на панели задач|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Включить упреждающую проверку подлинности|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Включить отображение полноширинной вкладки с рекламным содержимым|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Спрашивать, куда сохранять загруженные файлы|
@@ -274,8 +276,10 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[VideoCaptureAllowed](#videocaptureallowed)|Разрешить или запретить запись видео|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Сайты, которые могут получать доступ к устройствам записи видео без запроса разрешения|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Настроить оптимизацию WPAD|
+|[WebAppInstallForceList](#webappinstallforcelist)|Настройка списка принудительно установленных веб-приложений|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Разрешить WebDriver переопределять несовместимые политики|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Ограничить раскрытие IP-адреса localhost с помощью WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Ограничить диапазон локальных UDP-портов, используемых WebRTC|
 
 
@@ -707,19 +711,19 @@ SOFTWARE\Policies\Microsoft\Edge\PasswordProtectionLoginURLs\1 = "https://login.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  Определение логотипа компании, который будет использоваться на странице новой вкладки в Microsoft Edge.
 
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+Эта политика должна быть настроена в виде строки, которая выражает логотип(ы) в формате JSON. Пример: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+Эта политика настраивается путем указания URL-адреса, с которого Microsoft Edge может загрузить требуемый логотип, и хэша шифрования (SHA-256), который используется для проверки целостности загрузки. Логотип должен быть сохранен в формате PNG или SVG, а размер файла логотипа не должен превышать 16 МБ. Логотип загружается и хэшируется, и будет повторно загружаться при каждом изменении URL-адреса или хэша. URL-адрес должен быть доступен без какой-либо проверки подлинности.
 
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+Элемент "default_logo" является обязательным. Он будет использоваться в случае отсутствия фонового изображения. Если предоставлен элемент "light_logo", он будет использоваться в случаях, когда у страницы новой вкладки пользователя есть фоновое изображение. Рекомендуется использовать горизонтальный логотип с прозрачным фоном, выровненный по левому краю и вертикально по центру. Высота логотипа должна составлять не меньше 32 пикселей, а соотношение сторон — от 1:1 до 4:1. Элемент "default_logo" должен быть достаточно контрастным на черном/белом фоне, а элемент "light_logo" должен выглядеть достаточно контрастным на фоновом изображении.
 
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+Если эта политика включена, Microsoft Edge загружает и отображает указанный логотип(ы) на странице новой вкладки. Пользователи не могут скрыть или переопределить этот логотип(ы).
 
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+Если отключить или не настроить эту политику, Microsoft Edge не будет отображать логотип на странице новой вкладки или будет отображать логотип Майкрософт.
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
+Справку по определению хэша SHA-256 см. на странице https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1191,13 +1195,13 @@ SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://www.fabrikam.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  Этот параметр политики позволяет определить, могут ли пользователи переопределять предупреждения фильтра SmartScreen в Microsoft Defender о потенциально вредоносных веб-сайтах.
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+Если этот параметр включен, пользователи в вашей организации не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и не смогут продолжать работу с сайтом.
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+Если отключить или не настроить этот параметр, пользователи смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и продолжать работу с сайтом.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, или экземплярах Windows 10 Pro либо Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1240,13 +1244,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Поддерживаемые версии: Microsoft Edge на Windows с 77 или более поздней версии, а также на Mac с 79 или более поздней версии
 
   #### Описание
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  Эта политика позволяет определить, могут ли пользователи переопределять предупреждения фильтра SmartScreen в Microsoft Defender о непроверенных загрузках.
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+Если эта политика включена, пользователи в вашей организации не смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и не смогут выполнять непроверенные загрузки.
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+Если отключить или не настроить эту политику, пользователи смогут игнорировать предупреждения фильтра SmartScreen в Microsoft Defender и выполнять непроверенные загрузки.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, или экземплярах Windows 10 Pro либо Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1289,15 +1293,14 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  Настройка списка доменов, которым доверяет фильтр SmartScreen в Microsoft Defender. Это означает следующее.
+Фильтр SmartScreen в Microsoft Defender не будет проверять потенциально вредоносные ресурсы (например, программы для фишинга и другое вредоносное ПО), если URL-адреса источников совпадают с этими доменами.
+Служба защиты загрузок фильтра SmartScreen в Microsoft Defender не будет проверять загружаемые файлы, размещенные на этих доменах.
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
-
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+Если включить эту политику, фильтр SmartScreen в Microsoft Defender будет доверять этим доменам.
+Если отключить или не настроить эту политику, ко всем ресурсам будет применяться стандартная защита фильтра SmartScreen в Microsoft Defender.
+Эта политика доступна только в экземплярах Windows, присоединенных к домену Microsoft Active Directory, либо экземплярах Windows 10 Pro или Windows 10 Корпоративная, зарегистрированных для управления устройствами.
+Также обратите внимание: эта политика не применяется, если ваша организация включила функцию Advanced Threat Protection в Microsoft Defender. В этом случае следует настроить списки разрешенных и запрещенных URL-адресов в Центре безопасности в Microsoft Defender.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1876,6 +1879,53 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
   [В начало](#microsoft-edge:-политики)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Целое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: DefaultInsecureContentSetting
+  - Имя групповой политики: Control use of insecure content exceptions
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: DefaultInsecureContentSetting
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000002
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: DefaultInsecureContentSetting
+  - Пример значения:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
   ### DefaultJavaScriptSetting
   #### Настройка скриптов JavaScript по умолчанию
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
@@ -2272,6 +2322,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Список строк
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: InsecureContentAllowedForUrls
+  - Имя групповой политики: Allow insecure content on specified sites
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: 1, 2, 3, ...
+  - Тип значения: Список REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: InsecureContentAllowedForUrls
+  - Пример значения:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Список строк
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: InsecureContentBlockedForUrls
+  - Имя групповой политики: Block insecure content on specified sites
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: 1, 2, 3, ...
+  - Тип значения: Список REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: InsecureContentBlockedForUrls
+  - Пример значения:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -5988,13 +6138,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Определяет, следует ли использовать встроенный DNS-клиент.
+  Controls whether to use the built-in DNS client.
 
-Если данный параметр политики включен, используется встроенный DNS-клиент, если он доступен.
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
-Если этот параметр политики отключен, этот клиент никогда не используется.
+If you enable this policy, the built-in DNS client is used, if it's available.
 
-Если не настроить этот параметр политики, встроенный DNS-клиент будет включен по умолчанию для MacOS, и пользователи смогут изменять возможности использования встроенного DNS-клиента, изменив edge://flags или указав флаг командной строки.
+If you disable this policy, the client is never used.
+
+If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8485,59 +8637,6 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
 
   [В начало](#microsoft-edge:-политики)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### Укажите способ обработки переходов "на странице" для ненастроенных сайтов, выполненных со страниц в режиме Internet Explorer
-  >Поддерживаемые версии: Microsoft Edge на Windows с 79 или более поздней версии
-
-  #### Описание
-  Переход "на странице" запускается из ссылки, сценария или формы на текущей странице. Он также может быть выполнен в виде перенаправления на стороне сервера для предыдущей попытки перехода "на странице". И наоборот, пользователь может независимо от текущей страницы несколькими способами инициировать переход, отличный от перехода "на странице", с помощью элементов управления браузера. Например, он может воспользоваться адресной строкой, кнопкой "Назад" или ссылкой из избранного.
-
-Этот параметр позволяет указать, будут ли переходы на ненастроенные сайты (сайты, которые не настроены в Списке сайтов в режиме предприятия) со страниц, загруженных в режиме Internet Explorer, переключаться в режим Microsoft Edge или оставаться в режиме Internet Explorer.
-
-Этот параметр работает в связке с:
-политикой [InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel), для которой установлено значение "Режим Internet Explorer" (1),
-и
-политикой [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist), в которой список содержит хотя бы одну запись.
-
-Если отключить или не настроить этот параметр, в режиме Internet Explorer будут открываться только сайты, настроенные для открытия в этом режиме. Любые сайты, не настроенные для открытия в режиме Internet Explorer, будут перенаправлены обратно в Microsoft Edge.
-
-Включив этот параметр, можно выбрать один из следующих вариантов перехода.
-0 — значение по умолчанию. В режиме Internet Explorer будут открываться только сайты, настроенные для открытия в этом режиме. Любые сайты, не настроенные для открытия в режиме Internet Explorer, будут перенаправлены обратно в Microsoft Edge.
-1 — только автоматические переходы будут выполняться в режиме Internet Explorer. Используйте этот вариант, если нужно сохранить стандартное поведение для всех переходов, кроме автоматических переходов на ненастроенные сайты (например, перенаправления по состоянию 302), которые будут выполняться в режиме Internet Explorer.
-2 — выполнять все переходы "на странице" в режиме Internet Explorer (не рекомендуется). Все переходы на ненастроенные сайты со страниц, загруженных в режиме Internet Explorer, будут выполняться в режиме Internet Explorer.
-
-Дополнительные сведения о режиме Internet Explorer см. на странице [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
-
-  #### Поддерживаемые функции:
-  - Может быть обязательной: Да
-  - Может быть рекомендованной: Нет
-  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
-
-  #### Тип данных:
-  Целое
-
-  #### Параметры и сведения Windows
-  ##### Сведения о групповой политике (ADMX)
-  - Уникальное имя групповой политики: InternetExplorerIntegrationSiteRedirect
-  - Имя групповой политики: Укажите способ обработки переходов "на странице" для ненастроенных сайтов, выполненных со страниц в режиме Internet Explorer
-  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
-  - Путь групповой политики (Рекомендовано): Н/Д
-  - Имя файла групповой политики ADMX: MSEdge.admx
-  ##### Параметры реестра Windows
-  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
-  - Путь (Рекомендовано): Н/Д
-  - Имя значения: InternetExplorerIntegrationSiteRedirect
-  - Тип значения: REG_DWORD
-  ##### Пример значения:
-```
-0x00000000
-```
-
-
-  
-
-  [В начало](#microsoft-edge:-политики)
-
   ### IsolateOrigins
   #### Включить изоляцию сайта для определенных источников
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
@@ -8917,19 +9016,19 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  В случае каналов Microsoft Edge Beta и Stable в Windows 10 этот параметр политики, если он настроен, переопределяет параметр диагностических данных Windows, а именно: разрешает или запрещает сбор информации об использовании и сбоях Microsoft Edge ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+С помощью этого параметра можно настроить отправку в корпорацию Майкрософт сведений об использовании и сбоях Microsoft Edge и запретить пользователям изменять данную настройку.
 
-Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
+Когда этот параметр включен, сведения об использовании и сбоях отправляются в корпорацию Майкрософт. Когда выключен — не отправляются. В обоих случаях пользователи не могут изменить или переопределить эту настройку.
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+Для каналов Beta и Stable в Windows 10 этот параметр определяет правила работы со сведениями об использовании. Сведения о сбоях подпадают под действие параметра диагностических данных Windows. Если данный параметр политики не настроен, к Microsoft Edge по умолчанию применяется параметр диагностических данных Windows.
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+Для каналов Canary и Dev в Windows 10 этот параметр определяет правила работы со сведениями об использовании и сбоях. Если он не настроен, к Microsoft Edge по умолчанию применяются настройки пользователя.
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+В Windows 7, 8 и в Mac этот параметр политики определяет правила работы со сведениями об использовании и сбоях. Если он не настроен, к Microsoft Edge по умолчанию применяются настройки пользователя.
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+Эта политика доступна только в экземплярах Windows, которые присоединены к домену Microsoft Active Directory, либо в экземплярах Windows 10 Pro или Windows 10 Корпоративная, зарегистрированных для управления устройствами.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9023,13 +9122,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >Поддерживаемые версии: Microsoft Edge на Windows с 78 или более поздней версии
 
   #### Описание
-  Эта политика определяет, можно ли удалить профиль Microsoft Edge, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя.
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-Если эта политика включена или не настроена, в Windows будет создан неудаляемый профиль на основе рабочей или учебной учетной записи пользователя. Пользователь не сможет выйти из этого профиля или удалить его.
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-Если эта политика отключена, пользователь может выйти из профиля, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя в Windows, или удалить его.
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-Если необходимо полностью отключить вход в браузер, используйте политику "BrowserSignIn".
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9116,17 +9215,17 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   [В начало](#microsoft-edge:-политики)
 
   ### PinningWizardAllowed
-  #### Allow Pin to taskbar wizard
+  #### Разрешить использование мастера закрепления на панели задач
   >Поддерживаемые версии: Microsoft Edge на Windows с 80 или более поздней версии
 
   #### Описание
-  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+  Мастер закрепления на панели задач в Microsoft Edge позволяет закреплять предлагаемые сайты на панели задач. Этот мастер включен по умолчанию и доступен для пользователей в разделе настроек и меню дополнительных параметров.
 
-If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+Если эта политика включена или не настроена, пользователи могут вызывать мастер закрепления с помощью раздела настроек или меню дополнительных параметров. Его также можно вызвать путем запуска протокола.
 
-If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+Если эта политика отключена, мастер закрепления недоступен в меню и его нельзя вызвать путем запуска протокола.
 
-User settings to enable or disable the Pin to taskbar wizard aren't available.
+Параметры пользователя для включения и отключения мастера закрепления недоступны.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -9139,7 +9238,7 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: PinningWizardAllowed
-  - Имя групповой политики: Allow Pin to taskbar wizard
+  - Имя групповой политики: Разрешить использование мастера закрепления на панели задач
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -9410,11 +9509,11 @@ QUIC — это сетевой протокол транспортного ур�
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  Этот параметр позволяет задать период времени (в миллисекундах), в течение которого пользователи получают уведомления о необходимости перезапустить браузер Microsoft Edge или устройство с Microsoft Edge OS для применения ожидающего обновления.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+В течение этого периода пользователь периодически получает уведомления о необходимости применить обновление. Для устройств с Microsoft Edge OS: уведомление о перезапуске появляется на системной панели в соответствии с политикой RelaunchHeadsUpPeriod. Для браузеров Microsoft Edge: по истечении одной трети периода в меню приложения появляется значок, указывающий на необходимость перезапуска. Цвет значка меняется, когда проходят две трети периода, и еще раз — в конце периода. Дополнительные уведомления, предусмотренные политикой [RelaunchNotification](#relaunchnotification), отправляются по той же схеме.
 
-If not set, the default period of 604800000 milliseconds (one week) is used.
+Если этот параметр не задан, используется стандартный период: 604 800 000 мс (одна неделя).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10299,7 +10398,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Подавление предупреждения, которое появляется при использовании Microsoft Edge на компьютере или в операционной системе, которые больше не поддерживаются.
+  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+
+If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10955,6 +11056,84 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [В начало](#microsoft-edge:-политики)
 
+  ### WebAppInstallForceList
+  #### Настройка списка принудительно установленных веб-приложений
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Здесь задается список веб-сайтов, которые устанавливаются автоматически (без участи пользователя) и которые пользователь не может удалить или отключить.
+
+Каждый элемент списка является объектом с указанными далее членами:
+  - "url", используется как обязательный член. "url" должен представлять собой URL-адрес веб-приложения, которое необходимо установить.
+
+Дополнительные члены:
+  - "launch_container" должен представлять собой параметр "window" или "tab", чтобы указать, как веб-приложение будет открыто после установки.
+  - "create_desktop_shortcut" должен иметь значение "true", если требуется создать ярлык рабочего стола в Windows.
+
+Если опустить параметр "default_launch_container", приложение по умолчанию будет открываться во вкладке. Независимо от значения параметра "default_launch_container", пользователи могут изменить контейнер, в котором будет открываться приложение. Если опустить параметр "create_desktop_shortcuts", ярлыки на рабочем столе не будут создаваться.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Словарь
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: WebAppInstallForceList
+  - Имя групповой политики: Настройка списка принудительно установленных веб-приложений
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: WebAppInstallForceList
+  - Тип значения: REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: WebAppInstallForceList
+  - Пример значения:
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### Разрешить WebDriver переопределять несовместимые политики
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
@@ -11009,23 +11188,79 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [В начало](#microsoft-edge:-политики)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
+
+  #### Тип данных:
+  Список строк
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: WebRtcLocalIpsAllowedUrls
+  - Имя групповой политики: Manage exposure of local IP addressess by WebRTC
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: 1, 2, 3, ...
+  - Тип значения: Список REG_SZ
+  ##### Пример значения:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: WebRtcLocalIpsAllowedUrls
+  - Пример значения:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
   ### WebRtcLocalhostIpHandling
-  #### Ограничить раскрытие IP-адреса localhost с помощью WebRTC
+  #### Restrict exposure of local IP address by WebRTC
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Позволяет определить, предоставляет ли WebRTC IP-адрес localhost пользователя.
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-Если для этого параметра политики задано значение "AllowAllInterfaces" ('default') или "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC предоставляет IP-адрес localhost.
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-Если для этого параметра политики задано значение "AllowPublicInterfaceOnly" ('default_public_interface_only') или "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC не предоставляет IP-адрес localhost.
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-Если не настроить этот параметр политики или отключить его, WebRTC предоставляет IP-адрес localhost.
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-  * 'default' = Разрешить все интерфейсы. Это значение предоставляет IP-адрес localhost.
-  * 'default_public_and_private_interfaces' = Разрешить общие и частные интерфейсы по маршруту HTTP по умолчанию. Это значение предоставляет IP-адрес localhost.
-  * 'default_public_interface_only' = Разрешить общий интерфейс по маршруту HTTP по умолчанию. Это значение не предоставляет IP-адрес localhost.
-  * 'disable_non_proxied_udp' = Использовать TCP, если прокси-сервер не поддерживает UDP. Это значение не предоставляет IP-адрес localhost.
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -11038,7 +11273,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: WebRtcLocalhostIpHandling
-  - Имя групповой политики: Ограничить раскрытие IP-адреса localhost с помощью WebRTC
+  - Имя групповой политики: Restrict exposure of local IP address by WebRTC
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
