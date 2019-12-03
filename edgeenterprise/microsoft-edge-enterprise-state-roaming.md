@@ -54,7 +54,7 @@ We will provide control and visibility over who syncs settings in your organizat
 
 ### Management
 
-Admins will be able to control who can sync settings in your organization [Configuration options for Microsoft Edge sync](microsoft-edge-enterprise-sync#configuration-options-for-microsoft-edge-sync.md). Users can to turn sync on/off as well as for each data attribute.
+Admins will be able to control who can sync settings in your organization [Configuration options for Microsoft Edge sync](microsoft-edge-enterprise-sync.md#configuration-options-for-microsoft-edge-sync). Users can to turn sync on/off as well as for each data attribute.
 
 ### Key management
 
