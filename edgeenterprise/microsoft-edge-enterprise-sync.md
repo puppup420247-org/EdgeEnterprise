@@ -17,7 +17,7 @@ description: "Microsoft Edge Sync"
 This article explains how to use Microsoft Edge to sync your history, favorites, passwords, and other browser data across all your signed-in devices.
 
 > [!NOTE]
-> This article applies to Microsoft Edge version 77 or later.
+> This article applies to Microsoft Edge version 78 or later.
 
 ## Overview
 
@@ -106,3 +106,4 @@ Yes, sync will be enabled for all paid AAD SKUs in future releases.
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Microsoft Edge and Enterprise State Roaming](microsoft-edge-enterprise-state-roaming.md)
