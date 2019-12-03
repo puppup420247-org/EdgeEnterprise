@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/22/2019
+ms.date: 11/26/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -76,6 +76,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultCookiesSetting](#defaultcookiessetting)|設定 Cookie|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|預設地理位置設定值|
 |[DefaultImagesSetting](#defaultimagessetting)|設定影像設定|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|預設 JavaScript 設定|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|預設通知設定|
 |[DefaultPluginsSetting](#defaultpluginssetting)|預設 Adobe Flash 設定|
@@ -84,6 +85,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|控制 WebUSB API 的使用|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|允許這些網站上的影像|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|特定網站上的封鎖影像|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|允許特定網站上的 JavaScript|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|封鎖特定網站上的 JavaScript|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|啟用預設舊版 SameSite Cookie 行為設定|
@@ -226,7 +229,6 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[InPrivateModeAvailability](#inprivatemodeavailability)|設定 InPrivate 模式可用性|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|設定 Internet Explorer 整合|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|設定 [企業模式網站清單]|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|指定從 Internet Explorer 模式頁面啟動時，「頁面內」導航至未設定網站的方式|
 |[IsolateOrigins](#isolateorigins)|為特定來源啟用網站隔離|
 |[ManagedFavorites](#managedfavorites)|設定我的最愛|
 |[ManagedSearchEngines](#managedsearchengines)|管理搜索引擎|
@@ -236,7 +238,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|啟用網路預測|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|設定使用者是否一律擁有其公司或學校帳戶自動登入的預設設定檔|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|控制不安全來源中安全性限制套用的地方|
-|[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
+|[PinningWizardAllowed](#pinningwizardallowed)|允許 [釘選到工作列精靈]|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|啟用主動式驗證|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|啟用全分頁促銷內容|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|詢問下載檔案的儲存位置|
@@ -274,8 +276,10 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[VideoCaptureAllowed](#videocaptureallowed)|允許或封鎖視訊擷取|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|無需請求權限即可存取視訊擷取裝置的網站|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|設定 WPAD 最佳化|
+|[WebAppInstallForceList](#webappinstallforcelist)|設定強制安裝 Web 應用程式的清單|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|允許 WebDriver 覆寫不相容原則|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|限制 WebRTC 暴露 localhost IP 位址|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|限制 WebRTC 所使用的本機 UDP 連接埠範圍|
 
 
@@ -1014,13 +1018,13 @@ SOFTWARE\Policies\Microsoft\Edge\ProxySettings = {
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  This policy setting lets you decide whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
+  此原則可讓您確認使用者是否可以覆寫有關潛在惡意網站的 Microsoft Defender SmartScreen 警告。
 
-If you enable this setting, users can't ignore Microsoft Defender SmartScreen warnings and they are blocked from continuing to the site.
+如果啟用此設定，則使用者將無法忽略 Microsoft Defender SmartScreen 警告，且會讓使用者無法繼續瀏覽網站。
 
-If you disable or don't configure this setting, users can ignore Microsoft Defender SmartScreen warnings and continue to the site.
+如果停用或未設定此設定，則使用者可以忽略 Microsoft Defender SmartScreen 警告，並繼續瀏覽網站。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+此原則僅適用於已加入 Microsoft Active Directory 網域的 Windows 執行個體; 或已註冊裝置管理的 Windows 10 專業版或企業版執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1063,13 +1067,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支援的版本: Windows 上的 Microsoft Edge (77 版或更新版本)，以及 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  This policy lets you determine whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
+  此原則可讓您確認使用者是否可以覆寫有關未驗證下載的 Microsoft Defender SmartScreen 警告。
 
-If you enable this policy, users in your organization can't ignore Microsoft Defender SmartScreen warnings, and they're prevented from completing the unverified downloads.
+如果啟用此原則，則您組織中的使用者將無法忽略 Microsoft Defender SmartScreen 警告，且會讓使用者無法完成未驗證的下載。
 
-If you disable or don't configure this policy, users can ignore Microsoft Defender SmartScreen warnings and complete unverified downloads.
+如果停用或未設定此原則，則使用者可以忽略 Microsoft Defender SmartScreen 警告，並完成未驗證的下載。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
+此原則僅適用於已加入 Microsoft Active Directory 網域的 Windows 執行個體; 或已註冊裝置管理的 Windows 10 專業版或企業版執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1112,15 +1116,15 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Configure the list of Microsoft Defender SmartScreen trusted domains. This means:
-Microsoft Defender SmartScreen won't check for potentially malicious resources like phishing software and other malware if the source URLs match these domains.
-The Microsoft Defender SmartScreen download protection service won't check downloads hosted on these domains.
+  設定 Microsoft Defender SmartScreen 受信任網域的清單。這表示:
+如果來源 URL 符合這些網域，Microsoft Defender SmartScreen 將不會檢查潛在的惡意資源，例如網路釣魚軟體與其他惡意程式碼。
+Microsoft Defender SmartScreen 下載防護服務將不會檢查這些網域上裝載的下載內容。
 
-If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
-If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
+  如果啟用此原則，則 Microsoft Defender SmartScreen 會信任這些網域。
+如果停用或未設定此原則，預設 Microsoft Defender SmartScreen 保護會套用到所有資源。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain; or on Windows 10 Pro or Enterprise instances that are enrolled for device management.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender Advanced Threat Protection. You must configure your allow and block lists in Microsoft Defender Security Center instead.
+此原則僅適用於已加入 Microsoft Active Directory 網域的 Windows 執行個體; 或已註冊裝置管理的 Windows 10 專業版或企業版執行個體。
+請注意，如果您的組織已啟用 Microsoft Defender 進階威脅防護，則不適用此原則。您必須先在 Microsoft Defender 資訊安全中心設定允許及封鎖清單。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -1696,6 +1700,53 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
   [回到頂端](#microsoft-edge---原則)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  整數
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: DefaultInsecureContentSetting
+  - GP 名稱: Control use of insecure content exceptions
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/內容設定
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
+  - 路徑 (推薦項目): N/A
+  - 值名稱: DefaultInsecureContentSetting
+  - 數值類型: REG_DWORD
+  ##### 範例值:
+```
+0x00000002
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: DefaultInsecureContentSetting
+  - 範例值:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
   ### DefaultJavaScriptSetting
   #### 預設 JavaScript 設定
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
@@ -2098,6 +2149,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 
   [回到頂端](#microsoft-edge---原則)
 
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  字串的清單
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: InsecureContentAllowedForUrls
+  - GP 名稱: Allow insecure content on specified sites
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/內容設定
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - 路徑 (推薦項目): N/A
+  - 值名稱: 1, 2, 3, ...
+  - 數值類型: REG_SZ 的清單
+  ##### 範例值:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: InsecureContentAllowedForUrls
+  - 範例值:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+
+If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  字串的清單
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: InsecureContentBlockedForUrls
+  - GP 名稱: Block insecure content on specified sites
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/內容設定
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - 路徑 (推薦項目): N/A
+  - 值名稱: 1, 2, 3, ...
+  - 數值類型: REG_SZ 的清單
+  ##### 範例值:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: InsecureContentBlockedForUrls
+  - 範例值:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
   ### JavaScriptAllowedForUrls
   #### 允許特定網站上的 JavaScript
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
@@ -2262,7 +2413,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "[*.]contoso.edu"
 
 可使用 [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled) 原則來設定全域預設值。如果未設定 [LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)，則全域預設值將回到其他設定源。
 
-請注意，在此原則中列出的模式將視為網域，而不是 URL，因此不應指定配置或連接埠。
+請注意，在此原則中列出的模式將視為網域而不是 URL，因此不應指定配置或連接埠。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -3363,19 +3514,19 @@ SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist\1 = "com.native.messag
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  指定要在 Microsoft Edge 中新索引標籤頁面上使用的公司標誌。
 
-The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
+原則應設定為能在 JSON 格式中表示標誌的字串。範例: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
-You configure this policy by specifying the URL from which Microsoft Edge can download the logo and its cryptographic hash (SHA-256), which is used to verify the integrity of the download. The logo must be in PNG or SVG format, and its file size must not exceed 16 MB. The logo is downloaded and cached, and it will be redownloaded whenever the URL or the hash changes. The URL must be accessible without any authentication.
+您可以指定 Microsoft Edge 能下載標誌及其用於驗證下載完整性的加密編譯雜湊 (SHA-256)，來設定此原則。標誌必須為 PNG 或 SVG 格式，且大小不得超過 16 MB。系統會下載並快取標誌，並在 URL 或雜湊變更時重新下載。URL 必須能在不經任何驗證的情況下開放存取。
 
-The 'default_logo' is required and will be used when there's no background image. If 'light_logo' is provided, it will be used when the user's new tab page has a background image. We recommend a horizontal logo with a transparent background that is left-aligned and vertically centered. The logo should have a minimum height of 32 pixels and an aspect ratio from 1:1 to 4:1. The 'default_logo' should have proper contrast against a white/black background while the 'light_logo' should have proper contrast against a background image.
+'default_logo' 為必要項，且會在沒有背景影像時使用。如果提供 'light_logo'，則會在使用者的新索引標籤頁面有背景影像時使用。建議使用具有向左對齊且垂直置中之透明背景的水平標誌。標誌的最低高度為 32 像素，外觀比例應介於 1:1 至 4:1。'default_logo' 應對白/黑背景有適當的對比，而 'light_logo' 應對背景影像有適當的對比。
 
-If you enable this policy, Microsoft Edge downloads and shows the specified logo(s) on the new tab page. Users can't override or hide the logo(s).
+如果啟用此原則，Microsoft Edge 就會在新的索引標籤頁面上下載並顯示指定的標誌。使用者無法覆寫或隱藏標誌。
 
-If you disable or don't configure this policy, Microsoft Edge will show no company logo or a Microsoft logo on the new tab page.
+如果停用或未設定此原則，Microsoft Edge 將不會在新的索引標籤頁面上顯示任何公司標誌或 Microsoft 標誌。
 
-For help with determining the SHA-256 hash, see https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash.
+如需協助了解如何決定 SHA-256 雜湊，請參閱 https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -5985,13 +6136,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  控制是否要使用內建 DNS 用戶端。
+  Controls whether to use the built-in DNS client.
 
-如果您啟用此原則，則會使用內建 DNS 用戶端 (如果有的話)。
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
-如果您停用此原則，則永遠不會使用用戶端。
+If you enable this policy, the built-in DNS client is used, if it's available.
 
-如果您未設定此原則，MacOS 上會依預設啟用內建 DNS 用戶端，而且使用者可以變更是否要透過編輯 edge://flags 或透過指定的命令列旗標使用內建 DNS 用戶端。
+If you disable this policy, the client is never used.
+
+If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8483,59 +8636,6 @@ SOFTWARE\Policies\Microsoft\Edge\HSTSPolicyBypassList\0 = "meet"
 
   [回到頂端](#microsoft-edge---原則)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### 指定從 Internet Explorer 模式頁面啟動時，「頁面內」導航至未設定網站的方式
-  >支援的版本: Windows 上的 Microsoft Edge (79 版或更新版本)
-
-  #### 描述
-  從連結、指令碼或目前的頁面開始「頁面內」導航。也可以從先前「頁面內」導航嘗試的伺服器端重新導向。相反的，使用者可以透過瀏覽器控制，以多種方式啟動非「頁面內」導航，該導航獨立於目前頁面。例如透過網址列、返回按鈕或我的最愛連結。
-
-此設定可讓您指定是否要從 Internet Explorer 模式下載入的頁面導航至未設定網站 (未於 Enterprise Mode Site List 中設定) 切換回 Microsoft Edge 或停留在 Internet Explorer 模式。
-
-此設定會與下列內容一併執行:
-將 [InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) 設定為「Internet Explorer 模式」(1)
-和
-設定 [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) 原則，其中該清單至少擁有一個項目。
-
-如果停用或未設定此原則，則只有設定為在 Internet Explorer 模式中開啟的網站，才會在該模式中開啟。所有未設定在 Internet Explorer 模式中開啟的網站，將會重新導向回到 Microsoft Edge。
-
-如果啟用此原則，可以從下列導航選項中選擇一種:
-0 – 預設。只有設定為在 Internet Explorer 模式中開啟的網站，才會在該模式中開啟。所有未設定在 Internet Explorer 模式中開啟的網站，將會重新導向回到 Microsoft Edge。
-1 – 僅在 Internet Explorer 模式中保持自動導航。如果您想要預設體驗，請使用此選項，除了所有自動導航 (例如 302 重新導向) 至未設定網站都將保留在 Internet Explorer 模式下。
-2 – 保留所有 Internet Explorer 模式中的頁面內導航 (最不建議)。來自 IE 模式載入頁面至未設定網站的所有導航都將保留於 Internet Explorer 模式中。
-
-如需深入了解 Internet Explorer 模式，請參閱 [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
-
-  #### 支援功能:
-  - 可以是強制: 是
-  - 可以建議: 否
-  - 動態原則重新整理: 否 - 需要重新啟動瀏覽器
-
-  #### 資料類型:
-  整數
-
-  #### Windows 資訊和設定
-  ##### 群組原則 (ADMX) 資訊
-  - GP 唯一名稱: InternetExplorerIntegrationSiteRedirect
-  - GP 名稱: 指定從 Internet Explorer 模式頁面啟動時，「頁面內」導航至未設定網站的方式
-  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
-  - GP 路徑 (推薦項目): N/A
-  - GP ADMX 檔案名稱: MSEdge.admx
-  ##### Windows 登錄設定
-  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
-  - 路徑 (推薦項目): N/A
-  - 值名稱: InternetExplorerIntegrationSiteRedirect
-  - 數值類型: REG_DWORD
-  ##### 範例值:
-```
-0x00000000
-```
-
-
-  
-
-  [回到頂端](#microsoft-edge---原則)
-
   ### IsolateOrigins
   #### 為特定來源啟用網站隔離
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
@@ -8915,19 +9015,19 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+  對於 Microsoft Edge 的 Windows 10 Beta 版與穩定版通道，此原則設定時將會覆寫 Windows 診斷資料集合設定或非集合 Microsoft Edge 使用量與損毀相關資料 ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569))。
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+此原則可將關於 Microsoft Edge 的使用量與損毀相關資料報告給 Microsoft，並防止使用者變更此設定。
 
-Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
+啟用此原則以傳送使用量與損毀相資料的報告給 Microsoft。停用此原則即不會將資料傳送給 Microsoft。在此兩種情況下，使用者無法變更或覆寫設定。
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+在 Windows 10、Beta 版與穩定版通道上，此原則能控制使用量資料。與毀損相關的資料由 Windows 診斷資料設定決定。如果未設定此原則，Microsoft Edge 將預設為 Windows 診斷資料設定。
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+在 Windows 10、Canary 與 Dev 通道上，此原則可以控制使用量與損毀相關資料。如果未設定此原則，Microsoft Edge 將預設為使用者的喜好設定。
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+在 Windows 7、8 和 Mac 上，此原則可以控制使用量和損毀相關資料。如果未設定此原則，Microsoft Edge 將預設為使用者的喜好設定。
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+此原則僅適用於已加入 Microsoft Active Directory 網域的 Windows 執行個體，或已註冊裝置管理的 Windows 10 專業版或企業版執行個體。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9021,13 +9121,13 @@ This policy is available only on Windows instances that are joined to a Microsof
   >支援的版本: Windows 上的 Microsoft Edge (78 版或更新版本)
 
   #### 描述
-  此原則可決定自動登入使用者公司或學校帳戶的 Microsoft Edge 設定檔能否為抽取式設定檔。
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-如果啟用或未設定此原則，則 Windows 上的使用者公司或學校帳戶就可以建立非抽取式設定檔。此設定檔不能登出或移除。
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-停用此原則後，從 Windows 自動登入使用者公司或學校帳戶的設定檔即可由使用者登出或移除。
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-如果要完全停用瀏覽器登入功能，請使用 [BrowserSignIn] 原則。
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9114,17 +9214,17 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   [回到頂端](#microsoft-edge---原則)
 
   ### PinningWizardAllowed
-  #### Allow Pin to taskbar wizard
+  #### 允許 [釘選到工作列精靈]
   >支援的版本: Windows 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  Microsoft Edge uses the Pin to taskbar wizard to help users pin suggested sites to the taskbar. The Pin to taskbar wizard feature is enabled by default and accessible to the user through the Settings and more menu.
+  Microsoft Edge 使用 [釘選到工作列精靈] 來幫助使用者將建議的網站釘選到工作列。在預設情況下，[釘選到工作列精靈] 的功能為啟用狀態，使用者可以透過 [設定和其他功能表] 進行設定。
 
-If you enable this policy or don't configure it, users can call the Pin to taskbar wizard from the Settings and More menu. The wizard can also be called via a protocol launch.
+如果啟用或未設定此原則，則使用者可以在 [設定和其他功能表] 中呼叫 [釘選到工作列精靈]。也可以透過啟動通訊協定來呼叫該精靈。
 
-If you disable this policy, the Pin to taskbar wizard is disabled in the menu and cannot be called via a protocol launch.
+如果停用此原則，則功能表中的 [釘選到工作列精靈] 將會停用，並且無法透過啟動通訊協定來呼叫。
 
-User settings to enable or disable the Pin to taskbar wizard aren't available.
+使用者無法設定啟用或停用 [釘選到工作列精靈]。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -9137,7 +9237,7 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: PinningWizardAllowed
-  - GP 名稱: Allow Pin to taskbar wizard
+  - GP 名稱: 允許 [釘選到工作列精靈]
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -9408,11 +9508,11 @@ QUIC 是一種傳輸層網路協議，能提高目前使用 TCP 的網路應用�
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  可讓您設定時間期限 (以毫秒為單位)，在該時間期限內，將通知使用者必須重新啟動 Microsoft Edge 或 Microsoft Edge OS 裝置才能套用擱置的更新。
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+在此時間段內，系統將反覆通知使用者需要更新。對於 Microsoft Edge OS 裝置，根據 RelaunchHeadsUpPeriod 原則，系統匣中會出現重新啟動通知。對於 Microsoft Edge 瀏覽器，應用程式功能表將改為一旦通知期限經過三分之一，則需要重新啟動。通知期限經過三分之二後，此通知將改變顏色，而整個通知期限結束後，此通知將再次變更顏色。[RelaunchNotification](#relaunchnotification) 原則啟用的其他通知也遵循此相同的設定。
 
-If not set, the default period of 604800000 milliseconds (one week) is used.
+如果未設定，則預設時間期限為 604800000 毫秒 (一周)。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10297,7 +10397,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  抑制時出現警告 Microsoft Edge 的電腦或已不再支援的作業系統上執行。
+  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+
+If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -10953,6 +11055,83 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [回到頂端](#microsoft-edge---原則)
 
+  ### WebAppInstallForceList
+  #### 設定強制安裝 Web 應用程式的清單
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  指定無需使用者互動、以無訊息模式安裝，且不可由使用者解除安裝或停用的網站清單。
+
+原則的每個清單項目都具有包含下列成員的物件:
+具有強制性的「url」。「url」應為網頁應用程式要安裝的 URL。
+
+「launch_container」應為「視窗」或「分頁」，以表明網頁應用程式安裝後的開啟方式。
+  -如果應在 Windows 上建立桌面捷徑，則「create_desktop_shortcut」應為 True。
+
+如果「default_launch_container」已省略，則此應用程式預設會在分頁中開啟。不論「default_launch_container」的值為何，使用者都能變更應用程式的開啟容器。如果「create_desktop_shortcuts」已省略，則不會建立任何桌面捷徑。
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  字典
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: WebAppInstallForceList
+  - GP 名稱: 設定強制安裝 Web 應用程式的清單
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
+  - 路徑 (推薦項目): N/A
+  - 值名稱: WebAppInstallForceList
+  - 數值類型: REG_SZ
+  ##### 範例值:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: WebAppInstallForceList
+  - 範例值:
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### 允許 WebDriver 覆寫不相容原則
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
@@ -11007,23 +11186,79 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
 
   [回到頂端](#microsoft-edge---原則)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 否 - 需要重新啟動瀏覽器
+
+  #### 資料類型:
+  字串的清單
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: WebRtcLocalIpsAllowedUrls
+  - GP 名稱: Manage exposure of local IP addressess by WebRTC
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - 路徑 (推薦項目): N/A
+  - 值名稱: 1, 2, 3, ...
+  - 數值類型: REG_SZ 的清單
+  ##### 範例值:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: WebRtcLocalIpsAllowedUrls
+  - 範例值:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
   ### WebRtcLocalhostIpHandling
-  #### 限制 WebRTC 暴露 localhost IP 位址
+  #### Restrict exposure of local IP address by WebRTC
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  允許您設定是否讓 WebRTC 公開使用者的 localhost IP 位址。
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-如果您設定此原則為「AllowAllInterfaces」([預設]) 或「AllowPublicAndPrivateInterfaces」([default_public_and_private_interfaces])，則 WebRTC 會公開 localhost IP 位址。
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-如果您設定此原則為「AllowPublicInterfaceOnly」([default_public_interface_only]) 或「DisableNonProxiedUdp」([disable_non_proxied_udp])，則 WebRTC 不會公開 localhost IP 位址。
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-如果您未設定此原則或停用，WebRTC 會公開 localhost IP 位址。
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-  * [default] = 允許所有介面。公開 localhost IP 位址。
-  * [default_public_and_private_interfaces]  = 透過 http 預設路由允許公用和私人介面。公開 localhost IP 位址。
-  * [default_public_interface_only] = 透過 http 的預設路由允許公用介面。這不會公開 localhost IP 位址。
-  * [disable_non_proxied_udp] = 除非 proxy 伺服器支援 UDP，否則使用 TCP。這不會公開 localhost IP 位址。
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -11036,7 +11271,7 @@ SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls\1 = "https://[*.]contos
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: WebRtcLocalhostIpHandling
-  - GP 名稱: 限制 WebRTC 暴露 localhost IP 位址
+  - GP 名稱: Restrict exposure of local IP address by WebRTC
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
