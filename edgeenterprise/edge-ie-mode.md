@@ -107,7 +107,7 @@ There are 2 options for identifying which sites should open in IE mode:
 You can use the following group policies to configure specific sites to open in IE mode:
 
 - **Use the Enterprise Mode IE website list** (Internet Explorer)
-- **Configure the Enterprise Mode Site List** (Microsoft Edge Dev Channel, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+- **Configure the Enterprise Mode Site List** (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
 For more information about Enterprise Mode Site lists, see:
 
@@ -240,16 +240,20 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. The next screen shot shows the diagnostic page for computer that doesn't have Internet Explorer mode set up.
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information, this page also gives actionable diagnostics. The next screen shot shows the diagnostic page for computer that doesn't have Internet Explorer mode set up.
 
-   ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic-beta.png)
+   ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic.png)
 
-Using the previous screenshot as a guide, note that Microsoft Edge configuration information for the following categories:
+Using the previous screenshot as a guide, note the Internet Explorer configuration information for the following categories:
 
-- Internet Explorer mode. The current mode is for IE 7 for Microsoft Edge (Beta channel).
-- Internet Explorer mode setting. This setting is turned on, using default integration and Internet Explorer mode  integration policy.
-- Command line. Shows the command line string and switches used to start Microsoft Edge. In this example, a Tab feature (Experiment) is enabled.
-- Group policy settings. Turned on and using the Enterprise Mode IE website list (set as IE policy). Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
+- **Registry key check**. Checks to see if Internet Explorer is set up in the registry. In this screenshot example, an actionable diagnostic is shown. The user can click **Fix it** to resolve the problem.
+- **Internet Explorer mode**. The current mode is for IE 7 for Microsoft Edge (Canary channel). This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
+
+   ![Internet Explorer mode actionable diagnostic for Windows update](./media/ie-mode/ie-mode-actionable-diagnostic.png)
+
+- **Internet Explorer mode setting**. This setting is turned on, using default integration and Internet Explorer mode integration policy.
+- **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, a Tab feature (Experiment) is enabled.
+- **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
 ### Error message: “To open this page in Internet Explorer mode, run Windows Update.”
 
