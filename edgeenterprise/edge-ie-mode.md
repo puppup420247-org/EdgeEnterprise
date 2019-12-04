@@ -247,7 +247,7 @@ You can get Internet Explorer mode diagnostic information on the Microsoft Edge 
 Using the previous screenshot as a guide, note the Internet Explorer configuration information for the following categories:
 
 - **Registry key check**. Checks to see if Internet Explorer is set up in the registry. In this screenshot example, an actionable diagnostic is shown. The user can click **Fix it** to resolve the problem.
-- **Internet Explorer mode**. The current mode is for IE 7 for Microsoft Edge (Canary channel). This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
+- **Internet Explorer mode**. The current mode is for IE 7 for Microsoft Edge. This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
 
    ![Internet Explorer mode actionable diagnostic for Windows update](./media/ie-mode/ie-mode-actionable-diagnostic.png)
 
