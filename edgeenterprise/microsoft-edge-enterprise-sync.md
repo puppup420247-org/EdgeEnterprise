@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -75,11 +75,10 @@ The new Microsoft Edge is a cross-platform application with an expanded scope fo
 
 ## Sync group policies
 
-The following group policies apply to Microsoft Edge sync:
+The following group policies impact Microsoft Edge sync:
 
 - [SyncDisabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#syncdisabled): Disables sync completely.
 - [SavingBrowserHistoryDisabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#savingbrowserhistorydisabled): Disables saving browsing history and sync. This also disables open-tabs sync.
-- [PasswordManagerEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#passwordmanagerenabled): Disables saving passwords.
 
 ## Frequently Asked Questions
 

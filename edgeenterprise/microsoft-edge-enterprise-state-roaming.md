@@ -3,7 +3,7 @@ title: "Microsoft Edge and Enterprise State Roaming"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,11 +21,15 @@ This article explains how Microsoft Edge participation in the Enterprise State R
 
 ## Introduction
 
-With Windows 10, [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) users gained the ability to securely synchronize their user settings and application settings data to the cloud. [Enterprise State Roaming](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-overview) provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device.
+With Windows 10, [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) users gained the ability to securely synchronize their user settings and application settings data to the cloud. [Enterprise State Roaming (ESR)](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-overview) provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device.
 
 As part of Microsoft Edge adopting the Chromium platform, its sync solution is now disconnected from Windows sync framework. This affects the relationship of Microsoft Edge to the ESR offering.
 
-What’s changing with Microsoft Edge?
+> [!IMPORTANT]
+> The new Microsoft Edge does not participate in the ESR offering.
+
+## What’s changing with Microsoft Edge?
+
 With the new Microsoft Edge, the sync solution isn’t tied to Windows sync ecosystem. This enables us to offer Microsoft Edge across all the platforms, such as Windows 7, Windows 8.1, iOS, Android and macOS. This also enables us to offer sync for non-primary accounts on Windows. In addition, we can ship Microsoft Edge at a more frequent and flexible release cadence than Windows. (For more information, see [Windows updates to support the next version of Microsoft Edge](microsoft-edge-sysupdate-windows-updates.md). All these factors highlighted the need to re-assess Microsoft Edge participation in the ESR offering.
 
 ESR is framed as a Windows product offering with promises about how data from Windows devices is handled, but Microsoft Edge sync will extend beyond Windows devices. And, as the data roams across these devices, it makes it difficult to define the Microsoft Edge sync offering in the context of ESR. To simplify how sync works and is managed, and to accommodate the changes that are highlighted, a decision was made to pull Microsoft Edge out of the ESR offering.
@@ -54,7 +58,7 @@ We will provide control and visibility over who syncs settings in your organizat
 
 ### Management
 
-Admins will be able to control who can sync settings in your organization [Configuration options for Microsoft Edge sync](microsoft-edge-enterprise-sync.md#configuration-options-for-microsoft-edge-sync). Users can to turn sync on/off as well as for each data attribute.
+Admins will be able to control which members in your organization can enable sync. See [Configuration options for Microsoft Edge sync](microsoft-edge-enterprise-sync.md#configuration-options-for-microsoft-edge-sync) and [Sync group policies](microsoft-edge-enterprise-sync.md#sync-group-policies). Additionally, users can turn sync on/off for each of their devices as well as toggle each data attribute individually for sync.
 
 ### Key management
 
