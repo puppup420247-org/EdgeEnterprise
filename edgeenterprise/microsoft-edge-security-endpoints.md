@@ -3,7 +3,7 @@ title: "Allow list for Microsoft Edge endpoints"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -23,7 +23,7 @@ Microsoft Edge requires connectivity to the Internet to support its features. Th
 
 Allow the following domain URLs for Microsoft Edge.
 
-### Update service
+### Update Service
 
 The service that Microsoft Edge uses to check for new updates.  
 
@@ -50,6 +50,9 @@ Locations Microsoft Edge can be downloaded from during an initial install or whe
 - `https://msedge.sf.dl.delivery.mp.microsoft.com`
 - `https://msedge.sb.tlu.dl.delivery.mp.microsoft.com`
 - `https://msedge.sb.dl.delivery.mp.microsoft.com`
+
+  > [!TIP]
+  > To simplify the allow list for download locations a wild card can be used: `*.dl.delivery.mp.microsoft.com`
 
 ### Download locations for Microsoft Edge Extensions
 
@@ -84,7 +87,7 @@ For information about delivery optimization, see [Delivery Optimization for Wind
 Provide metadata for browser features such as tracking protection, certificate revocation lists, and other browser component updates. Provide downloadable spellcheck dictionaries and ad-blocking block lists. Provide services to support browser features such as collections, autofill, and extension store.
 
 - `http://edge.microsoft.com/`
-- `https://edge.microsoft.com/`  
+- `https://edge.microsoft.com/`
 
 ## See also
 
