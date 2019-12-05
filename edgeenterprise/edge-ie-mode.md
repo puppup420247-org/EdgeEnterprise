@@ -243,25 +243,28 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information, this page also gives actionable diagnostics. The next screen shot shows the diagnostic page for computer that doesn't have Internet Explorer mode set up.
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information, this page also gives actionable diagnostics. 
+
+The next screen shot shows the diagnostic page for computer where a Canary channel build is installed at the user level and Internet Explorer mode isn't set up.
 
    ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic.png)
 
 Using the previous screenshot as a guide, note the Internet Explorer configuration information for the following categories:
 
 - **Registry key check**. Checks to see if Internet Explorer is set up in the registry. In this screenshot example, an actionable diagnostic is shown. The user can click **Fix it** to resolve the problem.
-- **Internet Explorer mode**. The current mode is for IE 7 for Microsoft Edge. This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
+- **Internet Explorer mode**. The number **7** relates to the API version that's used, based on the configuration and OS. This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
 
    ![Internet Explorer mode actionable diagnostic for Windows update](./media/ie-mode/ie-mode-actionable-diagnostic.png)
 
 - **Internet Explorer mode setting**. This setting is turned on, using default integration and Internet Explorer mode integration policy.
-- **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, a Tab feature (Experiment) is enabled.
-- **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
+- **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, the path statement shows that Microsoft Edge is installed at the user level, and a Tab feature (Experiment) is enabled.
+- **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
+Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
 ### Error message: “To open this page in Internet Explorer mode, run Windows Update.”
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
-
+<!--
 ### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
 
 Microsoft Edge version 77 or later needs to be installed at the system level.
@@ -275,7 +278,7 @@ Possible solutions:
 
 - Run the installer for any channel at the system level: `installer.exe --system-level`.
 
-To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
+To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.-->
 
 ### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
 
