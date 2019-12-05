@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -141,6 +141,9 @@ For more information about Enterprise Mode Site lists, see:
     ![Click OK or Apply to save settings](./media/ie-mode/ie-mode-11-b.png)
 
 ### To configure the "Configure the Enterprise Mode Site List" policy:
+
+> [!NOTE]
+> This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
