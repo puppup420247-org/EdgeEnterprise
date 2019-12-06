@@ -1,4 +1,4 @@
-# last revised 11/20/2019
+# last revised 12/06/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -59,6 +59,8 @@
   items:     
    - name: Security
      href: security-overview.md
+   - name: Allow list for Microsoft Edge endpoints
+     href: microsoft-edge-security-endpoints.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
 - name: Troubleshoot Microsoft Edge
