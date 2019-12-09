@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/04/2019
+ms.date: 12/09/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
