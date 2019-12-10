@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -68,7 +68,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[DefaultCookiesSetting](#defaultcookiessetting)|Cookie を構成する|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|位置情報の既定の設定|
 |[DefaultImagesSetting](#defaultimagessetting)|画像の既定の設定|
-|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|セキュリティで保護されていないコンテンツの例外の使用を制御する|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|JavaScript の既定の設定|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|通知の既定の設定|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Adobe Flash の既定の設定|
@@ -77,8 +77,8 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|WebUSB API の使用を制御する|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|これらのサイトでの画像表示を許可する|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|特定のサイトで画像をブロックする|
-|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
-|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|指定されたサイトのセキュリティで保護されていないコンテンツを許可する|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|指定したサイトで安全でないコンテンツをブロックする|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|特定のサイトで JavaScript を許可する|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|特定のサイトで JavaScript をブロックする|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|従来の SameSite Cookie の動作に関する設定を有効にする|
@@ -164,6 +164,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|ページのアンロード中にポップアップの表示を許可する|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|ページを閉じるときにページで同期 XHR 要求を送信することを許可する|
 |[AllowTrackingForUrls](#allowtrackingforurls)|特定のサイトの追跡防止の例外を構成する|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|PDF ファイルを常に外部で開く|
 |[ApplicationLocaleValue](#applicationlocalevalue)|アプリケーションのロケールを設定する|
 |[AudioCaptureAllowed](#audiocaptureallowed)|オーディオ キャプチャを許可または禁止する|
@@ -173,7 +174,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|クレジット カード情報についてオートフィルを有効にする|
 |[AutoplayAllowed](#autoplayallowed)|Web サイトでのメディアの自動再生を許可する|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Microsoft Edge が終了してもバックグラウンド アプリの実行を続行する|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|利用可能なテンプレートの一覧に対するバックグラウンドでの更新を有効にします。このテンプレートとは、コレクションや、テンプレートを使用する他の機能で利用できるテンプレートです。|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|サードパーティの Cookie をブロックする|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|ID ポップアップ メニューまたは [設定] ページでのプロファイル作成を有効にする|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|ゲスト モードを有効にする|
@@ -206,7 +207,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|オンライン OCSP/CRL チェックを有効にする|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|管理された拡張機能を有効にして、エンタープライズ ハードウェア プラットフォーム API を使用する|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|実験および構成サービスとの通信を制御する|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|お気に入りバーを有効にする|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing セーフサーチを適用する|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|一時プロファイルの使用を有効にする|
@@ -278,8 +279,8 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|WPAD 最適化を設定する|
 |[WebAppInstallForceList](#webappinstallforcelist)|強制的にインストールされる Web アプリのリストを構成する|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|互換性のないポリシーのオーバーライドを WebDriver に許可する|
-|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|WebRTC によるローカル IP アドレスの公開を管理する|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|WebRTC によるローカル IP アドレスの公開を制限する|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|WebRTC で使用されるローカル UDP ポートの範囲を制限する|
 
 
@@ -1393,7 +1394,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### DefaultInsecureContentSetting
-  #### Control use of insecure content exceptions
+  #### セキュリティで保護されていないコンテンツの例外の使用を制御する
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
@@ -1401,7 +1402,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1414,7 +1415,7 @@ If this policy is left unset, users will be allowed to add exceptions to allow b
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: DefaultInsecureContentSetting
-  - GP の名前: Control use of insecure content exceptions
+  - GP の名前: セキュリティで保護されていないコンテンツの例外の使用を制御する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -1842,13 +1843,13 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### InsecureContentAllowedForUrls
-  #### Allow insecure content on specified sites
+  #### 指定されたサイトのセキュリティで保護されていないコンテンツを許可する
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1861,7 +1862,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: InsecureContentAllowedForUrls
-  - GP の名前: Allow insecure content on specified sites
+  - GP の名前: 指定されたサイトのセキュリティで保護されていないコンテンツを許可する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -1892,13 +1893,13 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### InsecureContentBlockedForUrls
-  #### Block insecure content on specified sites
+  #### 指定したサイトで安全でないコンテンツをブロックする
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1911,7 +1912,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: InsecureContentBlockedForUrls
-  - GP の名前: Block insecure content on specified sites
+  - GP の名前: 指定したサイトで安全でないコンテンツをブロックする
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/コンテンツの設定
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -5409,6 +5410,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [トップに戻る](#microsoft-edge---ポリシー)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
+
+  #### 説明
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: はい
+  - 動的ポリシーの更新: はい
+
+  #### データ型:
+  ブール値
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: AlternateErrorPagesEnabled
+  - GP の名前: Suggest similar pages when a webpage can’t be found
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/
+  - GP パス (おすすめ): 管理用テンプレート/Microsoft Edge - 既定の設定 (ユーザーはオーバーライドできます)/
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
+  - パス (おすすめ): SOFTWARE\Policies\Microsoft\Edge\おすすめ
+  - 値の名前: AlternateErrorPagesEnabled
+  - 値の種類: REG_DWORD
+  ##### サンプル値:
+```
+0x00000001
+```
+
+
+  #### Mac の情報と設定
+  - 優先されるキーの名前: AlternateErrorPagesEnabled
+  - サンプル値:
+``` xml
+<true/>
+```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
   ### AlwaysOpenPdfExternally
   #### PDF ファイルを常に外部で開く
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
@@ -5842,7 +5893,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### 利用可能なテンプレートの一覧に対するバックグラウンドでの更新を有効にします。このテンプレートとは、コレクションや、テンプレートを使用する他の機能で利用できるテンプレートです。
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
@@ -5863,7 +5914,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: BackgroundTemplateListUpdatesEnabled
-  - GP の名前: 利用可能なテンプレートの一覧に対するバックグラウンドでの更新を有効にします。このテンプレートとは、コレクションや、テンプレートを使用する他の機能で利用できるテンプレートです。
+  - GP の名前: Enables background updates to the list of available templates for Collections and other features that use templates
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -6139,15 +6190,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Controls whether to use the built-in DNS client.
+  組み込みの DNS クライアントを使用するかどうかを制御します。
 
-This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
+これはどの DNS サーバーが使用されるかについては影響しません。DNS サーバーと通信するためにどれが使用されるのかという単なるソフトウェア スタックです。たとえば、オペレーティング システムがエンタープライズ DNS サーバーを使用するように構成されている場合、そのサーバーが組み込みの DNS クライアントによって使用されます。ただし、組み込みの DNS クライアントが、DNS-over-TLS などのより新しい DNS 関連プロトコルを使用して、さまざまな方法でサーバーに対応する可能性があります。
 
-If you enable this policy, the built-in DNS client is used, if it's available.
+このポリシーを有効にした場合、組み込みの DNS クライアントが使用されます (使用可能な場合)。
 
-If you disable this policy, the client is never used.
+このポリシーを無効にした場合、クライアントは使用されません。
 
-If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
+このポリシーを構成しなかった場合、MacOS では組み込みの DNS クライアントが既定で有効になり、ユーザーは、edge://flags を編集するか、コマンド ライン フラグを指定することで、組み込みの DNS クライアントを使用するかどうかを変更できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7043,11 +7094,15 @@ DirectInvoke の詳細については、[https://go.microsoft.com/fwlink/?linkid
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  ファイルをダウンロードするときに使用するディレクトリを構成します。
+  Configures the directory to use when downloading files.
 
-このポリシーを有効にした場合、Microsoft Edge では、ユーザーが既にディレクトリを設定しているかどうか、またはユーザーに対して毎回ダウンロードの場所を要求するように選択したかどうかに関係なく、ポリシーで指定されたディレクトリを使用します。使用できる変数のリストについては、[https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) を参照してください。
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) for a list of variables that can be used.
 
-このポリシーを無効にした場合または構成しなかった場合、既定のダウンロード ディレクトリが使用されます。ユーザーはこの既定のディレクトリを変更できます。
+If you disable or don't configure this policy, the default download directory is used, and the user can change it.
+
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -7071,7 +7126,9 @@ DirectInvoke の詳細については、[https://go.microsoft.com/fwlink/?linkid
   - 値の種類: REG_SZ
   ##### サンプル値:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7079,7 +7136,9 @@ DirectInvoke の詳細については、[https://go.microsoft.com/fwlink/?linkid
   - 優先されるキーの名前: DownloadDirectory
   - サンプル値:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7499,7 +7558,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
+  #### Show an "Always open" checkbox in external protocol dialog
   >サポートされているバージョン: Windows および Mac (バージョン 79 以降) の Microsoft Edge
 
   #### 説明
@@ -7520,7 +7579,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP の名前: 外部プロトコルのダイアログで [常に開く] チェック ボックスを表示します。
+  - GP の名前: Show an "Always open" checkbox in external protocol dialog
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -9123,13 +9182,13 @@ Windows 7、Windows 8、および Mac では、このポリシーによって使
   >サポートされているバージョン: Windows (バージョン 78 以降) の Microsoft Edge
 
   #### 説明
-  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
+  このポリシーでは、ユーザーの職場または学校アカウントを使用して自動的にサインインされる Microsoft Edge のプロファイルを、ユーザーが削除できるかどうかを決定します。
 
-If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+このポリシーを有効にした場合、Windows におけるユーザーの職場または学校アカウントを使用して、削除不可能なプロファイルが作成されます。このプロファイルからサインアウトしたり、このプロファイルを削除したりすることはできません。
 
-If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
+このポリシーを無効にした場合または構成しなかった場合、Windows におけるユーザーの職場または学校アカウントを使用して自動的にサインインされるプロファイルについては、ユーザーはサインアウトしたり、削除したりすることができます。
 
-If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
+ブラウザー サインインを構成する場合は、[BrowserSignin](#browsersignin) ポリシーを使用してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -10399,9 +10458,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+  現在サポートされていないコンピューターやオペレーティング システムで Microsoft Edge が実行されている場合に表示される警告が表示されなくなります。
 
-If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
+このポリシーが False であるか、設定しなかった場合、サポートされないコンピューターまたはオペレーティング システムなどに警告が表示されます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -11190,19 +11249,19 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### WebRtcLocalIpsAllowedUrls
-  #### Manage exposure of local IP addressess by WebRTC
+  #### WebRTC によるローカル IP アドレスの公開を管理する
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+  WebRTC によってローカル IP アドレスを公開する場合に、その公開の対象となるオリジン (URL) やホスト名パターン ("*contoso.com*"など) のリストを指定します。
 
-If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+このポリシーを有効にして、オリジン (URL) やホスト名パターンのリストを設定した場合、edge://flags/#enable-webrtc-hide-local-ips-with-mdns が有効になっていると、リスト内のパターンに一致したときに、WebRTC によってローカル IP アドレスが公開されます。
 
-If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+このポリシーを無効にした場合または構成しなかった場合に、edge://flags/#enable-webrtc-hide-local-ips-with-mdns が有効になっていても、WebRTC によってローカル IP アドレスは公開されません。ローカル IP アドレスは mDNS ホスト名によって隠されています。
 
-If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+このポリシーを有効/無効にした場合、または構成しなかった場合に edge://flags/#enable-webrtc-hide-local-ips-with-mdns が無効になっていると、WebRTC によってローカル IP アドレスが公開されます。
 
-Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+このポリシーによって、管理者が必要とする可能性があるローカル IP アドレスの保護が弱くなることに注意してください。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -11215,7 +11274,7 @@ Please note that this policy weakens the protection of local IP addresses that m
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: WebRtcLocalIpsAllowedUrls
-  - GP の名前: Manage exposure of local IP addressess by WebRTC
+  - GP の名前: WebRTC によるローカル IP アドレスの公開を管理する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
@@ -11246,22 +11305,22 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
   [トップに戻る](#microsoft-edge---ポリシー)
 
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of local IP address by WebRTC
+  #### WebRTC によるローカル IP アドレスの公開を制限する
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
+  WebRTC でユーザーのローカル IP アドレスを公開するかどうかを設定できます。
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
+このポリシーを "AllowAllInterfaces" ('default') または "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces') に設定した場合、WebRTC はローカル IP アドレスを公開します。
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
+このポリシーを "AllowPublicInterfaceOnly" ('default_public_interface_only') または "DisableNonProxiedUdp" ('disable_non_proxied_udp') に設定した場合、WebRTC はローカル IP アドレスを公開しません。
 
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+このポリシーを設定しなかった場合または無効にした場合、WebRTC はローカル IP アドレスを公開します。
 
-  * 'default' = Allow all interfaces. This exposes the local IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
+  * 'default' = すべてのインターフェイスを許可します。この設定ではローカル IP アドレスが公開されます。
+  * 'default_public_and_private_interfaces' = http の既定ルートでパブリック インターフェイスやプライベート インターフェイスを許可します。この設定ではローカル IP アドレスが公開されます。
+  * 'default_public_interface_only' = http の既定ルートでパブリック インターフェイス許可します。この設定ではローカル IP アドレスは公開されません。
+  * 'disable_non_proxied_udp' = プロキシ サーバーが UDP をサポートしていない場合は TCP を使用します。この設定ではローカル IP アドレスは公開されません。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -11274,7 +11333,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the local IP 
   #### Windows の情報と設定
   ##### グループ ポリシー (ADMX) 情報
   - GP 固有の名前: WebRtcLocalhostIpHandling
-  - GP の名前: Restrict exposure of local IP address by WebRTC
+  - GP の名前: WebRTC によるローカル IP アドレスの公開を制限する
   - GP パス (必須): 管理用テンプレート/Microsoft Edge/
   - GP パス (おすすめ): N/A
   - GP ADMX ファイル名: MSEdge.admx
