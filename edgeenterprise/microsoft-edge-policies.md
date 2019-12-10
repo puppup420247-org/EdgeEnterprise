@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -164,6 +164,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Allow or block audio capture|
@@ -173,7 +174,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
 |[AutoplayAllowed](#autoplayallowed)|Allow media autoplay for websites|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Enable guest mode|
@@ -206,7 +207,7 @@ These tables lists all of the browser-related group policies available in this r
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Control communication with the Experimentation and Configuration Service|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Enable favorites bar|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
@@ -783,7 +784,7 @@ If you don't configure this policy, images are allowed by default, and the user 
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -1228,9 +1229,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
 
   #### Description
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -1278,9 +1279,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
 
   #### Description
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -5409,6 +5410,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AlternateErrorPagesEnabled
+  - GP name: Suggest similar pages when a webpage can’t be found
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: AlternateErrorPagesEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AlternateErrorPagesEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### AlwaysOpenPdfExternally
   #### Always open PDF files externally
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5843,7 +5894,7 @@ If you don't configure this policy, background mode is initially turned off, and
   [Back to top](#microsoft-edge---policies)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
@@ -5864,7 +5915,7 @@ If you disable this setting the list of available templates will be downloaded o
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: BackgroundTemplateListUpdatesEnabled
-  - GP name: Enables background updates to the list of available templates for Collections and other features that use templates.
+  - GP name: Enables background updates to the list of available templates for Collections and other features that use templates
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -7050,6 +7101,10 @@ If you enable this policy, Microsoft Edge uses the provided directory regardless
 
 If you disable or don't configure this policy, the default download directory is used, and the user can change it.
 
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -7072,7 +7127,9 @@ If you disable or don't configure this policy, the default download directory is
   - Value Type: REG_SZ
   ##### Example value:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7080,7 +7137,9 @@ If you disable or don't configure this policy, the default download directory is
   - Preference Key Name: DownloadDirectory
   - Example value:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7500,7 +7559,7 @@ If you don't configure this policy, on an unmanaged device the behavior is the s
   [Back to top](#microsoft-edge---policies)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### Show an "Always open" checkbox in external protocol dialog
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
@@ -7521,7 +7580,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP name: Show an "Always open" checkbox in external protocol dialog.
+  - GP name: Show an "Always open" checkbox in external protocol dialog
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
