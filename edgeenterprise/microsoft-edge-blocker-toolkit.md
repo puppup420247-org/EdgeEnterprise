@@ -27,6 +27,8 @@ To help our customers become more secure and up-to-date, Microsoft will distribu
 - The Blocker Toolkit will not prevent users from manually installing Microsoft Edge (Chromium-based) from internet download, or from external media.
 - Organizations do not need to deploy the Blocker Toolkit in environments managed with an update management solution such as Windows Server Update Services or System Center Configuration Manager. Organizations can use those products to fully manage deployment of updates released through Windows Update and Microsoft Update, including Microsoft Edge (Chromium-based), within their environment.
 
+You can download the Blocker Toolkit executable file from [https://msedgeblockertoolkit.blob.core.windows.net/blockertoolkit/MicrosoftEdgeChromiumBlockerToolkit.exe](https://msedgeblockertoolkit.blob.core.windows.net/blockertoolkit/MicrosoftEdgeChromiumBlockerToolkit.exe).
+
 ### Toolkit components
 
 This toolkit contains the following components:
@@ -42,28 +44,47 @@ Windows 10 RS4 and newer.
 
 The script creates a registry key and sets the associated value to block or unblock (depending on the command-line option used) automatic delivery of Microsoft Edge (Chromium-based) on either the local machine or a remote target machine.
 
+**Registry key:** `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\EdgeUpdate`<br>
+**Key value name:** `DoNotUpdateToEdgeWithChromium`
+
+| Value                | Result                       |
+|----------------------|------------------------------|
+| *Key is not defined* | Distribution is *not* blocked. |
+| 0                    | Distribution is *not* blocked. |
+| 1                    | Distribution is blocked.     |
+
+The script has the following command-line syntax:<br> 
+`EdgeChromium_Blocker.cmd [<machine name>] [/B] [/U] [/H]`
+
 ### Machine name
 
 The `<machine name>` parameter is optional. If not specified, the action is performed on the local machine. Otherwise, the remote machine is accessed through the remote registry capabilities of the `REG` command. If the remote registry can't be accessed due to security permissions or the remote machine can't be found, an error message is returned from the `REG` command.
 
 ### Switches
 
-Switches used by the script are mutually exclusive and only the first valid switch from a given command is acted on. The script can be run multiple times on the same machine. 
+Switches used by the script are mutually exclusive and only the first valid switch from a given command is acted on. The script can be run multiple times on the same machine.
 
+| Switch       | Description                              |
+|--------------|------------------------------------------|
+| `/B`         | Blocks distribution                      |
+| `/U`         | Unblocks distribution                    |
+| `/H` or `/?` | Displays the following summary help:<br>`This tool can be used to remotely block or unblock the delivery of Microsoft Edge (Chromium-based) through automatic Updates.`<br> `Usage:`<br>`EdgeChromium_Blocker.cmd [<machine name>] [/B][/U][/H]`<br>`B = Block Microsoft Edge (Chromium-based) deployment`<br>`U = Allow Microsoft Edge (Chromium-based) deployment`<br>`H = Help`<br>`Examples:`<br>`EdgeChromium_Blocker.cmd mymachine /B (blocks delivery on machine "mymachine")`<br>`EdgeChromium_Blocker.cmd /U (unblocks delivery on the local machine)`<br> |
 
 ## Group Policy Administrative Template (.ADMX + .ADML files)
 
 The Group Policy Administrative Template (.ADMX + .ADML files) allows administrators to import the new Group Policy settings to block or unblock automatic delivery of Microsoft Edge (Chromium-based) into their Group Policy environment, and use Group Policy to centrally execute the action across systems in their environment.
 
 Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the policy under:
+
 ```
 /Computer Configuration  
   /Administrative Templates
-         /Classic Administrative Templates  
-           /Windows Components  
-                  /Windows Update  
-                    /Microsoft Edge (Chromium-based) Blockers
-``` 
+    /Classic Administrative Templates  
+      /Windows Components  
+        /Windows Update  
+          /Microsoft Edge (Chromium-based) Blockers
+```
+
 This setting is available only as a Computer setting; there is no Per-User setting.
 
 > [!NOTE]
@@ -72,3 +93,5 @@ This setting is available only as a Computer setting; there is no Per-User setti
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
+- [Windows updates to support Microsoft Edge](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-windows-updates)
+- [How to access the old version of Microsoft Edge](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge)
