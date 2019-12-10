@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/09/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -17,7 +17,7 @@ description: "Microsoft Edge Sync"
 This article explains how to use Microsoft Edge to sync your history, favorites, passwords, and other browser data across all your signed-in devices.
 
 > [!NOTE]
-> This article applies to Microsoft Edge version 78 or later.
+> This article applies to Microsoft Edge version 77 or later.
 
 ## Overview
 
@@ -40,12 +40,13 @@ Sync functionality is enabled via user consent and users can turn sync on or off
 
 Currently Microsoft Edge sync for Azure Active Directory (AAD) accounts is only available for the following subscriptions:
 
-- [AAD Premium (P1 and P2)](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Office 365 E3 and above](https://www.microsoft.com/microsoft-365/business/compare-more-office-365-for-business-plans)
-- [Azure Information Protection (P1& P2)](https://azure.microsoft.com/pricing/details/information-protection/)  
+- AAD Premium (P1 and P2)
+- Office 365 E3 and above
+- Azure Information Protection (P1& P2)
+- All EDU subscriptions (O365 A1 or above, M365 A1 or above, or AIP P1 or P2 for Students or Faculty)
 
 > [!NOTE]
-> Sync has a dependency on Azure Information Protection (AIP) to protect sync data and AIP is only available to the preceding  subscriptions.
+> Sync has a dependency on the protection service offered by Azure Information Protection (AIP) to protect sync data. This service is currently available to the preceding subscriptions. To see the full list of SKUs with AIP, see [Information Protection Pricing](https://azure.microsoft.com/en-us/pricing/details/information-protection/).
 
 ## Configuration options for Microsoft Edge sync
 
