@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -113,7 +113,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[DefaultCookiesSetting](#defaultcookiessetting)|쿠키 구성|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|기본 지리적 위치 설정|
 |[DefaultImagesSetting](#defaultimagessetting)|기본 이미지 설정|
-|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|안전하지 않은 콘텐츠 예외 사용 제어|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|기본 JavaScript 설정|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|기본 알림 설정|
 |[DefaultPluginsSetting](#defaultpluginssetting)|기본 Adobe Flash 설정|
@@ -122,8 +122,8 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|WebUSB API의 사용 제어|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|이 사이트의 이미지 허용|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|특정 사이트에서 이미지 차단|
-|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
-|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|지정된 사이트에서 안전하지 않은 콘텐츠 허용|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|지정된 사이트에서 안전하지 않은 콘텐츠 차단|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|특정 사이트에서 JavaScript 허용|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|특정 사이트에서 JavaScript 차단|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|기본 레거시 SameSite 쿠키 동작 설정 사용|
@@ -164,6 +164,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|언로드하는 동안 페이지에서 팝업을 표시하도록 허용|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|페이지 해제 중에 페이지에서 동기 XHR 요청을 보내도록 허용|
 |[AllowTrackingForUrls](#allowtrackingforurls)|특정 사이트에 대한 추적 방지 예외 구성|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|항상 외부에서 PDF 파일 열기|
 |[ApplicationLocaleValue](#applicationlocalevalue)|응용 프로그램 로캘 설정|
 |[AudioCaptureAllowed](#audiocaptureallowed)|오디오 캡처 허용 또는 차단|
@@ -173,7 +174,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|신용 카드 정보 자동 채우기 사용|
 |[AutoplayAllowed](#autoplayallowed)|웹 사이트에 미디어 자동 재생 허용|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Microsoft Edge가 닫힌 후 백그라운드 앱 계속 실행|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|컬렉션 및 템플릿을 사용하는 기타 기능의 사용 가능한 템플릿 목록에 대한 백그라운드 업데이트를 사용하도록 설정합니다.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|타사 쿠키 차단|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|ID 플라이아웃 메뉴 또는 설정 페이지에서 프로필 만들기 사용|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|게스트 모드 사용|
@@ -206,7 +207,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|온라인 OCSP/CRL 검사 사용|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|관리되는 확장에서 엔터프라이즈 하드웨어 플랫폼 API를 사용하도록 허용|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|실험 및 구성 서비스와의 통신 제어|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|즐겨찾기 모음 사용|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing 유해 정보 차단 적용|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|임시 프로필 사용 설정|
@@ -278,8 +279,8 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|WPAD 최적화 설정|
 |[WebAppInstallForceList](#webappinstallforcelist)|강제 설치된 Web Apps 목록 구성|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|WebDriver가 호환되지 않는 정책을 재정의하도록 허용|
-|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|WebRTC에 의한 로컬 IP 주소 노출 관리|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|WebRTC에 의한 로컬 IP 주소 노출 제한|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|WebRTC에서 사용하는 로컬 UDP 포트 범위 제한|
 
 
@@ -3014,7 +3015,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### DefaultInsecureContentSetting
-  #### Control use of insecure content exceptions
+  #### 안전하지 않은 콘텐츠 예외 사용 제어
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
@@ -3022,7 +3023,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3035,7 +3036,7 @@ If this policy is left unset, users will be allowed to add exceptions to allow b
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: DefaultInsecureContentSetting
-  - GP 이름: Control use of insecure content exceptions
+  - GP 이름: 안전하지 않은 콘텐츠 예외 사용 제어
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -3463,13 +3464,13 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### InsecureContentAllowedForUrls
-  #### Allow insecure content on specified sites
+  #### 지정된 사이트에서 안전하지 않은 콘텐츠 허용
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3482,7 +3483,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: InsecureContentAllowedForUrls
-  - GP 이름: Allow insecure content on specified sites
+  - GP 이름: 지정된 사이트에서 안전하지 않은 콘텐츠 허용
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -3513,13 +3514,13 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### InsecureContentBlockedForUrls
-  #### Block insecure content on specified sites
+  #### 지정된 사이트에서 안전하지 않은 콘텐츠 차단
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3532,7 +3533,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: InsecureContentBlockedForUrls
-  - GP 이름: Block insecure content on specified sites
+  - GP 이름: 지정된 사이트에서 안전하지 않은 콘텐츠 차단
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/콘텐츠 설정
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -5409,6 +5410,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [맨 위로 이동](#microsoft-edge---정책)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 예
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  부울
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: AlternateErrorPagesEnabled
+  - GP 이름: Suggest similar pages when a webpage can’t be found
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
+  - GP 경로 (맞춤): 관리 템플릿/Microsoft Edge - 기본 설정(사용자가 재정의할 수 없음)/
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): SOFTWARE\Policies\Microsoft\Edge\맞춤
+  - 값 이름: AlternateErrorPagesEnabled
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000001
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: AlternateErrorPagesEnabled
+  - 예제 값:
+``` xml
+<true/>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
   ### AlwaysOpenPdfExternally
   #### 항상 외부에서 PDF 파일 열기
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
@@ -5842,7 +5893,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### 컬렉션 및 템플릿을 사용하는 기타 기능의 사용 가능한 템플릿 목록에 대한 백그라운드 업데이트를 사용하도록 설정합니다.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
@@ -5863,7 +5914,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: BackgroundTemplateListUpdatesEnabled
-  - GP 이름: 컬렉션 및 템플릿을 사용하는 기타 기능의 사용 가능한 템플릿 목록에 대한 백그라운드 업데이트를 사용하도록 설정합니다.
+  - GP 이름: Enables background updates to the list of available templates for Collections and other features that use templates
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -6139,15 +6190,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Controls whether to use the built-in DNS client.
+  기본 제공 DNS 클라이언트를 사용할지 여부를 제어합니다.
 
-This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
+사용되는 DNS 서버에는 영향을 주지 않으며, 해당 서버와 통신하는 데 사용되는 소프트웨어 스택에만 영향을 줍니다. 예를 들어 운영 체제가 엔터프라이즈 DNS 서버를 사용하도록 구성된 경우 기본 제공 DNS 클라이언트가 동일한 서버를 사용합니다. 그러나 기본 제공 DNS 클라이언트는 DNS-over-TLS와 같은 최신 DNS 관련 프로토콜을 사용하여 서버를 다양한 방식으로 처리할 수 있습니다.
 
-If you enable this policy, the built-in DNS client is used, if it's available.
+이 정책을 사용하면 기본 제공 DNS 클라이언트가 사용됩니다(사용 가능한 경우).
 
-If you disable this policy, the client is never used.
+이 정책을 사용하지 않으면 클라이언트가 사용되지 않습니다.
 
-If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
+이 정책을 구성하지 않으면 기본 제공 DNS 클라이언트가 MacOS에서 기본적으로 사용되며 사용자는 edge://flags를 편집하거나 명령줄 플래그를 지정하여 기본 제공 DNS 클라이언트를 사용할지 여부를 변경할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7043,11 +7094,15 @@ DirectInvoke에 대한 자세한 내용은 [https://go.microsoft.com/fwlink/?lin
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  파일을 다운로드할 때 사용할 디렉터리를 구성합니다.
+  Configures the directory to use when downloading files.
 
-이 정책을 사용하면 Microsoft Edge는 사용자가 디렉터리를 지정했거나 매번 다운로드 위치를 묻는 메시지가 표시되도록 선택했는지 여부에 관계 없이 제공된 디렉터리를 사용합니다. 사용할 수 있는 변수 목록은 [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041)을 참조하세요.
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) for a list of variables that can be used.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 기본 다운로드 디렉터리가 사용되며 사용자가 변경할 수 있습니다.
+If you disable or don't configure this policy, the default download directory is used, and the user can change it.
+
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -7071,7 +7126,9 @@ DirectInvoke에 대한 자세한 내용은 [https://go.microsoft.com/fwlink/?lin
   - 값 형식: REG_SZ
   ##### 예제 값:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7079,7 +7136,9 @@ DirectInvoke에 대한 자세한 내용은 [https://go.microsoft.com/fwlink/?lin
   - 기본 설정 키 이름: DownloadDirectory
   - 예제 값:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7499,7 +7558,7 @@ Microsoft는 호환성을 위해 특정 도메인에서 수행할 작업 목록�
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
+  #### Show an "Always open" checkbox in external protocol dialog
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 79 이상부터
 
   #### 설명
@@ -7520,7 +7579,7 @@ Microsoft는 호환성을 위해 특정 도메인에서 수행할 작업 목록�
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 이름: 외부 프로토콜 대화 상자에 "항상 열기" 확인란을 표시합니다.
+  - GP 이름: Show an "Always open" checkbox in external protocol dialog
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -9124,13 +9183,13 @@ Windows 7, 8 및 Mac에서는 이 정책이 사용량 및 크래시 관련 데�
   >지원되는 버전: Windows의 Microsoft Edge, 버전 78 이상부터
 
   #### 설명
-  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
+  이 정책은 사용자가 사용자의 회사 또는 학교 계정으로 자동으로 로그인되어 있는 Microsoft Edge 프로필을 제거 할 수 있는지 여부를 결정합니다.
 
-If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+이 정책을 사용하도록 설정하면 제거할 수 없는 프로필이 Windows에서 사용자의 회사 또는 학교 계정으로 만들어집니다.
 
-If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
+이 정책을 사용하지 않으면 사용자가 Windows에서 사용자의 회사 또는 학교 계정으로 자동으로 로그인한 프로필을 로그아웃하거나 제거할 수 있습니다.
 
-If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
+브라우저 로그인을 구성하려면 [BrowserSignin](#browsersignin) 정책을 사용하세요.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -10400,9 +10459,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+  Microsoft Edge이(가) 더 이상 지원되지 않는 컴퓨터 나 운영 체제에서 실행되고 있을 때 표시되는 경고를 표시하지 않습니다.
 
-If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
+이 정책이 false이거나 설정되어 있지 않으면 지원되지 않는 컴퓨터 또는 운영 체제에 경고가 표시됩니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -11191,19 +11250,19 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### WebRtcLocalIpsAllowedUrls
-  #### Manage exposure of local IP addressess by WebRTC
+  #### WebRTC에 의한 로컬 IP 주소 노출 관리
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+  로컬 IP 주소가 WebRTC에 의해 노출되어야 하는 원본(URL) 또는 호스트 이름 패턴(예: "*contoso.com*") 목록을 지정합니다.
 
-If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+이 정책을 사용하고 원본(URL) 또는 호스트 이름 패턴 목록을 설정하면 edge://flags/#enable-webrtc-hide-local-ips-with-mdns를 사용할 때 WebRTC는 목록에 있는 패턴과 일치하는 경우 로컬 IP 주소를 노출합니다.
 
-If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+이 정책을 사용하지 않도록 설정하거나 구성하지 않고 edge://flags/#enable-webrtc-hide-local-ips-with-mdns를 사용하면 WebRTC가 로컬 IP 주소를 노출하지 않습니다. 로컬 IP 주소는 mDNS 호스트 이름으로 숨겨집니다.
 
-If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+이 정책을 사용하거나 사용하지 않거나 구성하지 않고 edge://flags/#enable-webrtc-hide-local-ips-with-mdns를 사용하지 않도록 설정하면 WebRTC는 로컬 IP 주소를 노출합니다.
 
-Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+이 정책은 관리자가 필요로 하는 로컬 IP 주소의 보호를 약화시킵니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -11216,7 +11275,7 @@ Please note that this policy weakens the protection of local IP addresses that m
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: WebRtcLocalIpsAllowedUrls
-  - GP 이름: Manage exposure of local IP addressess by WebRTC
+  - GP 이름: WebRTC에 의한 로컬 IP 주소 노출 관리
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
@@ -11247,22 +11306,22 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
   [맨 위로 이동](#microsoft-edge---정책)
 
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of local IP address by WebRTC
+  #### WebRTC에 의한 로컬 IP 주소 노출 제한
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
+  WebRTC가 사용자의 로컬 IP 주소를 노출하는지 여부를 설정할 수 있습니다.
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
+이 정책을 "AllowAllInterfaces"('기본값') 또는 "AllowPublicAndPrivateInterfaces"('default_public_and_private_interfaces')로 설정하면 WebRTC가 로컬 IP 주소를 노출합니다.
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
+이 정책을 "AllowPublicInterfaceOnly"('default_public_interface_only') 또는 "DisableNonProxiedUdp"('disable_non_proxied_udp')로 설정하면 WebRTC는 로컬 IP 주소를 노출하지 않습니다.
 
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+이 정책을 설정하지 않거나 정책을 사용하지 않으면 WebRTC가 로컬 IP 주소를 노출합니다.
 
-  * 'default' = Allow all interfaces. This exposes the local IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
+  * '기본값' = 모든 인터페이스를 허용합니다. 로컬 IP 주소를 노출합니다.
+  * default_public_and_private_interfaces' = http 기본 경로를 통한 공개 및 비공개 인터페이스를 허용합니다. 로컬 IP 주소를 노출합니다.
+  * 'default_public_interface_only' = http 기본 경로를 통한 공개 인터페이스를 허용합니다. 로컬 IP 주소를 노출하지 않습니다.
+  * 'disable_non_proxied_udp' = 프록시 서버에서 UDP를 지원하지 않으면 TCP를 사용합니다. 로컬 IP 주소를 노출하지 않습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -11275,7 +11334,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the local IP 
   #### Windows 정보 및 설정
   ##### 그룹 정책(ADMX) 정보
   - GP 고유 이름: WebRtcLocalhostIpHandling
-  - GP 이름: Restrict exposure of local IP address by WebRTC
+  - GP 이름: WebRTC에 의한 로컬 IP 주소 노출 제한
   - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
   - GP 경로 (맞춤): 해당 없음
   - GP ADMX 파일 이름: MSEdge.admx
