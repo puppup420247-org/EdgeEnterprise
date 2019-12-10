@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -78,7 +78,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultCookiesSetting](#defaultcookiessetting)|Настройка файлов cookie|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Настройка географического положения по умолчанию|
 |[DefaultImagesSetting](#defaultimagessetting)|Настройка изображений по умолчанию|
-|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Контролировать использование исключений для небезопасного содержимого|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Настройка скриптов JavaScript по умолчанию|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Настройка уведомлений по умолчанию|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Параметр Adobe Flash по умолчанию|
@@ -87,8 +87,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Управление использованием API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Разрешить изображения на этих сайтах|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Блокировать изображения на определенных сайтах|
-|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
-|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Разрешить небезопасное содержимое на указанных сайтах|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Блокировать небезопасное содержимое на указанных сайтах|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Разрешить скрипты JavaScript на определенных сайтах|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Блокировать скрипты JavaScript на определенных сайтах|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Включить стандартный устаревший параметр поведения файлов cookie SameSite|
@@ -164,6 +164,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Позволяет странице отображать всплывающие окна во время ее выгрузки|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Разрешить отправку синхронных запросов XHR при закрытии страницы|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Настроить исключения из блокировки отслеживания для определенных сайтов|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Всегда открывать PDF-файлы извне|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Настроить язык приложения|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Разрешить или запретить запись звука|
@@ -173,7 +174,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Включить автозаполнение для кредитных карт|
 |[AutoplayAllowed](#autoplayallowed)|Разрешить автозапуск мультимедиа для веб-сайтов|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Разрешить фоновым приложениям продолжать работу после закрытия Microsoft Edge|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Блокировать сторонние файлы cookie|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Разрешить создание профиля во всплывающем меню "Удостоверение" или на странице "Параметры"|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Включить режим гостя|
@@ -206,7 +207,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Включить проверки OCSP/CRL в сети|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Разрешить управляемым расширениям использовать API платформы оборудования предприятия|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Управление связью со службой "Эксперименты и конфигурация"|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Включить панель "Избранное"|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Принудительно применить функцию "Безопасный поиск Bing"|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Разрешить использование временных профилей|
@@ -278,8 +279,8 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Настроить оптимизацию WPAD|
 |[WebAppInstallForceList](#webappinstallforcelist)|Настройка списка принудительно установленных веб-приложений|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Разрешить WebDriver переопределять несовместимые политики|
-|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Управление раскрытием локальных IP-адресов с помощью WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Ограничить раскрытие локального IP-адреса с помощью WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Ограничить диапазон локальных UDP-портов, используемых WebRTC|
 
 
@@ -1880,7 +1881,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   [В начало](#microsoft-edge:-политики)
 
   ### DefaultInsecureContentSetting
-  #### Control use of insecure content exceptions
+  #### Контролировать использование исключений для небезопасного содержимого
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
@@ -1888,7 +1889,7 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -1901,7 +1902,7 @@ If this policy is left unset, users will be allowed to add exceptions to allow b
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: DefaultInsecureContentSetting
-  - Имя групповой политики: Control use of insecure content exceptions
+  - Имя групповой политики: Контролировать использование исключений для небезопасного содержимого
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -2329,13 +2330,13 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   [В начало](#microsoft-edge:-политики)
 
   ### InsecureContentAllowedForUrls
-  #### Allow insecure content on specified sites
+  #### Разрешить небезопасное содержимое на указанных сайтах
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2348,7 +2349,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: InsecureContentAllowedForUrls
-  - Имя групповой политики: Allow insecure content on specified sites
+  - Имя групповой политики: Разрешить небезопасное содержимое на указанных сайтах
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -2379,13 +2380,13 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   [В начало](#microsoft-edge:-политики)
 
   ### InsecureContentBlockedForUrls
-  #### Block insecure content on specified sites
+  #### Блокировать небезопасное содержимое на указанных сайтах
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2398,7 +2399,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: InsecureContentBlockedForUrls
-  - Имя групповой политики: Block insecure content on specified sites
+  - Имя групповой политики: Блокировать небезопасное содержимое на указанных сайтах
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/Параметры содержимого
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -5408,6 +5409,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [В начало](#microsoft-edge:-политики)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Да
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Логическое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: AlternateErrorPagesEnabled
+  - Имя групповой политики: Suggest similar pages when a webpage can’t be found
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Административные шаблоны/Microsoft Edge - Параметры по умолчанию (пользователи могут переопределять)/
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): SOFTWARE\Policies\Microsoft\Edge\Рекомендовано
+  - Имя значения: AlternateErrorPagesEnabled
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000001
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: AlternateErrorPagesEnabled
+  - Пример значения:
+``` xml
+<true/>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
   ### AlwaysOpenPdfExternally
   #### Всегда открывать PDF-файлы извне
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
@@ -5841,7 +5892,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   [В начало](#microsoft-edge:-политики)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
@@ -5862,7 +5913,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: BackgroundTemplateListUpdatesEnabled
-  - Имя групповой политики: Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны.
+  - Имя групповой политики: Enables background updates to the list of available templates for Collections and other features that use templates
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -6138,15 +6189,15 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Controls whether to use the built-in DNS client.
+  Определяет, нужно ли использовать встроенный DNS-клиент.
 
-This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
+Это влияет не на то, какие DNS-серверы используются, а на комплекс программного обеспечения, используемый для обмена данными с ними. Например, если операционная система настроена на использование корпоративного DNS-сервера, во встроенном DNS-клиенте будет применяться тот же сервер. Тем не менее есть вероятность, что DNS-клиент будет обращаться к серверам по-разному, используя более современные протоколы для DNS, такие как DNS-over-TLS.
 
-If you enable this policy, the built-in DNS client is used, if it's available.
+Если включить эту политику, встроенный DNS-клиент используется (при наличии).
 
-If you disable this policy, the client is never used.
+Если отключить эту политику, такой клиент никогда не используется.
 
-If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
+Если не настроить эту политику, встроенный DNS-клиент включен по умолчанию в MacOS и пользователи могут изменять то, нужно ли его применять, — для этого они должны отредактировать параметр в расположении edge://flags или указать флаг командной строки.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7042,11 +7093,15 @@ API SpeechSynthesis: [https://go.microsoft.com/fwlink/?linkid=2110038](https://g
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Определение каталога для загрузки файлов.
+  Configures the directory to use when downloading files.
 
-Если включить этот параметр политики, Microsoft Edge будет использовать указанный каталог независимо от того, указал пользователь такой каталог или настроил вывод запроса о расположении при каждой загрузке. Список переменных, которые можно использовать, см. на странице [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041).
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) for a list of variables that can be used.
 
-Если отключить или не настроить этот параметр политики, будет использоваться стандартный каталог и пользователь сможет изменить его.
+If you disable or don't configure this policy, the default download directory is used, and the user can change it.
+
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -7070,7 +7125,9 @@ API SpeechSynthesis: [https://go.microsoft.com/fwlink/?linkid=2110038](https://g
   - Тип значения: REG_SZ
   ##### Пример значения:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7078,7 +7135,9 @@ API SpeechSynthesis: [https://go.microsoft.com/fwlink/?linkid=2110038](https://g
   - Имя предпочтительного ключа: DownloadDirectory
   - Пример значения:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7498,7 +7557,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [В начало](#microsoft-edge:-политики)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
+  #### Show an "Always open" checkbox in external protocol dialog
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
@@ -7519,7 +7578,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Имя групповой политики: Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола.
+  - Имя групповой политики: Show an "Always open" checkbox in external protocol dialog
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -9122,13 +9181,13 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   >Поддерживаемые версии: Microsoft Edge на Windows с 78 или более поздней версии
 
   #### Описание
-  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
+  Эта политика определяет, может ли пользователь удалить профиль Microsoft Edge, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя.
 
-If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Если эта политика включена, в Windows будет создан неудаляемый профиль на основе рабочей или учебной учетной записи пользователя. Пользователь не сможет выйти из этого профиля или удалить его.
 
-If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
+Если эта политика отключена или не настроена, пользователь может выйти из профиля, в который выполняется автоматический вход на основе рабочей или учебной учетной записи пользователя в Windows, или удалить его.
 
-If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
+Если необходимо настроить вход в браузер, используйте политику [BrowserSignin](#browsersignin).
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -10398,9 +10457,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+  Предупреждение, которое появляется при работе Microsoft Edge на компьютере или в операционной системе с прекратившейся поддержкой, подавляется.
 
-If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
+Если политике присвоено значение false или она не задана, предупреждения появляются на таких неподдерживаемых компьютерах или в таких неподдерживаемых операционных системах.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -11189,19 +11248,19 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
   [В начало](#microsoft-edge:-политики)
 
   ### WebRtcLocalIpsAllowedUrls
-  #### Manage exposure of local IP addressess by WebRTC
+  #### Управление раскрытием локальных IP-адресов с помощью WebRTC
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+  Этот параметр политики позволяет указать список источников (URL-адреса) или шаблонов имен узлов (например, "*.contoso.com*"), для которых локальный IP-адрес должен предоставляться WebRTC.
 
-If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+Если этот параметр политики включен и задан список источников (URL-адресов) или шаблонов имен узлов, то при включенном параметре edge://flags/#enable-webrtc-hide-local-ips-with-mdns, WebRTC предоставляет локальный IP-адрес для случаев, соответствующих шаблонам в списке.
 
-If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+Если этот параметр политики отключен или не настроен, а параметр edge://flags/#enable-webrtc-hide-local-ips-with-mdns включен, WebRTC не будет представлять локальные IP-адреса. Локальный IP-адрес будет скрыт с помощью имени узла mDNS.
 
-If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+Если включить, отключить или не настроить этот параметр политики и отключить параметр edge://flags/#enable-webrtc-hide-local-ips-with-mdns, WebRTC будет предоставлять локальные IP-адреса.
 
-Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+Обратите внимание, что эта политика ослабляет защиту локальных IP-адресов, которые могут потребоваться администраторам.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -11214,7 +11273,7 @@ Please note that this policy weakens the protection of local IP addresses that m
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: WebRtcLocalIpsAllowedUrls
-  - Имя групповой политики: Manage exposure of local IP addressess by WebRTC
+  - Имя групповой политики: Управление раскрытием локальных IP-адресов с помощью WebRTC
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -11245,22 +11304,22 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
   [В начало](#microsoft-edge:-политики)
 
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of local IP address by WebRTC
+  #### Ограничить раскрытие локального IP-адреса с помощью WebRTC
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
+  Позволяет определить, предоставляет ли WebRTC локальный IP-адрес пользователя.
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
+Если для этого параметра политики задано значение "AllowAllInterfaces" ('default') или "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC предоставляет локальный IP-адрес.
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
+Если для этого параметра политики задано значение "AllowPublicInterfaceOnly" ('default_public_interface_only') или "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC не предоставляет локальный IP-адрес.
 
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+Если не настроить этот параметр политики или отключить его, WebRTC предоставляет локальный IP-адрес.
 
-  * 'default' = Allow all interfaces. This exposes the local IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
+  * 'default' = Разрешить все интерфейсы. Это значение предоставляет локальный IP-адрес.
+  * 'default_public_and_private_interfaces' = Разрешить общие и частные интерфейсы по маршруту HTTP по умолчанию. Это значение предоставляет локальный IP-адрес.
+  * 'default_public_interface_only' = Разрешить общий интерфейс по маршруту HTTP по умолчанию. Это значение не предоставляет локальный IP-адрес.
+  * 'disable_non_proxied_udp' = Использовать TCP, если прокси-сервер не поддерживает UDP. Это значение не предоставляет локальный IP-адрес.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -11273,7 +11332,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the local IP 
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: WebRtcLocalhostIpHandling
-  - Имя групповой политики: Restrict exposure of local IP address by WebRTC
+  - Имя групповой политики: Ограничить раскрытие локального IP-адреса с помощью WebRTC
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
