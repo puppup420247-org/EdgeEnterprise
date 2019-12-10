@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -75,7 +75,7 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[DefaultCookiesSetting](#defaultcookiessetting)|Configurar cookies|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Configuración de geolocalización predeterminada|
 |[DefaultImagesSetting](#defaultimagessetting)|Configuración predeterminada de imágenes|
-|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Controlar el uso de excepciones de contenido no seguro|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Configuración predeterminada de JavaScript|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Configuración de notificaciones predeterminada|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Configuración de Adobe Flash predeterminada|
@@ -84,8 +84,8 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Controlar el uso de la API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Permitir imágenes en estos sitios|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Bloquear imágenes en sitios específicos|
-|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
-|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Permitir contenido no seguro en sitios especificados|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Bloquear contenido no seguro en sitios especificados|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Permitir JavaScript en sitios específicos|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Bloquear JavaScript en sitios específicos|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Habilitar la configuración del comportamiento de cookies de SameSite heredadas predefinido|
@@ -164,6 +164,7 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Permite que una página muestre elementos emergentes durante su descarga|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Permitir que las páginas envíen solicitudes sincrónicas de XHR durante el descarte de páginas|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configurar excepciones de prevención de seguimiento para sitios específicos|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Abrir siempre archivos PDF externamente|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Establecer la configuración regional de aplicación|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Permitir o bloquear la captura de audio|
@@ -173,7 +174,7 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Habilitar Autorrellenar para tarjetas de crédito|
 |[AutoplayAllowed](#autoplayallowed)|Permitir la reproducción automática de multimedia para sitios web|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continúa con la ejecución de aplicaciones en segundo plano después de cerrar Microsoft Edge|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Habilita actualizaciones en segundo plano para la lista de plantillas disponibles para Colecciones y otras características que usan plantillas.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Bloquear cookies de terceros|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Habilitar la creación de perfiles desde el menú desplegable Identidad o la página de configuración|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Habilitar el modo Invitado|
@@ -206,7 +207,7 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Habilitar comprobaciones de CRL/OCSP en línea|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Permitir que las extensiones administradas usen la API de la plataforma de hardware empresarial|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Controlar la comunicación con el servicio de configuración y experimentación|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Mostrar una casilla "Abrir siempre" en el diálogo de protocolo externo.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Habilitar barra de favoritos|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Aplicar Búsqueda segura de Bing|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Habilitar el uso de perfiles efímeros|
@@ -278,8 +279,8 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Establecer la optimización de WPAD|
 |[WebAppInstallForceList](#webappinstallforcelist)|Configurar la lista de aplicaciones web instaladas por la fuerza|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Permitir que WebDriver invalide las directivas incompatibles|
-|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Administrar la exposición de direcciones IP locales por WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restringir la exposición de la dirección IP local por WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restringir el intervalo de puertos UDP locales usados por WebRTC|
 
 
@@ -1608,7 +1609,7 @@ Si no se configura esta directiva, se permiten imágenes de manera predeterminad
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### DefaultInsecureContentSetting
-  #### Control use of insecure content exceptions
+  #### Controlar el uso de excepciones de contenido no seguro
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80 o posterior
 
   #### Descripción
@@ -1616,7 +1617,7 @@ Si no se configura esta directiva, se permiten imágenes de manera predeterminad
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -1629,7 +1630,7 @@ If this policy is left unset, users will be allowed to add exceptions to allow b
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: DefaultInsecureContentSetting
-  - Nombre de la directiva de grupos: Control use of insecure content exceptions
+  - Nombre de la directiva de grupos: Controlar el uso de excepciones de contenido no seguro
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/Configuración de contenido
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -2057,13 +2058,13 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### InsecureContentAllowedForUrls
-  #### Allow insecure content on specified sites
+  #### Permitir contenido no seguro en sitios especificados
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80 o posterior
 
   #### Descripción
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -2076,7 +2077,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: InsecureContentAllowedForUrls
-  - Nombre de la directiva de grupos: Allow insecure content on specified sites
+  - Nombre de la directiva de grupos: Permitir contenido no seguro en sitios especificados
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/Configuración de contenido
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -2107,13 +2108,13 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### InsecureContentBlockedForUrls
-  #### Block insecure content on specified sites
+  #### Bloquear contenido no seguro en sitios especificados
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80 o posterior
 
   #### Descripción
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -2126,7 +2127,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: InsecureContentBlockedForUrls
-  - Nombre de la directiva de grupos: Block insecure content on specified sites
+  - Nombre de la directiva de grupos: Bloquear contenido no seguro en sitios especificados
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/Configuración de contenido
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -5408,6 +5409,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [Volver al principio](#microsoft-edge:-directivas)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80 o posterior
+
+  #### Descripción
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Características admitidas:
+  - Puede ser obligatorio: Sí
+  - Se puede recomendar: Sí
+  - Actualización de directiva dinámica: Sí
+
+  #### Tipo de datos:
+  Booleano
+
+  #### Información y configuración de Windows
+  ##### Información de la directiva de grupos (ADMX)
+  - Nombre único de la directiva de grupos: AlternateErrorPagesEnabled
+  - Nombre de la directiva de grupos: Suggest similar pages when a webpage can’t be found
+  - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
+  - Ruta de acceso de GP (Recomendada): Plantillas administrativas/Microsoft Edge - Configuración predeterminada (los usuarios pueden cambiarla)/
+  - Nombre del archivo ADMX de GP: MSEdge.admx
+  ##### Configuración del registro de Windows
+  - Ruta de acceso (Obligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Ruta de acceso (Recomendada): SOFTWARE\Policies\Microsoft\Edge\Recomendada
+  - Nombre del valor: AlternateErrorPagesEnabled
+  - Tipo de valor: REG_DWORD
+  ##### Valor de ejemplo:
+```
+0x00000001
+```
+
+
+  #### Información y configuración de Mac
+  - Nombre de clave de preferencia: AlternateErrorPagesEnabled
+  - Valor de ejemplo:
+``` xml
+<true/>
+```
+  
+
+  [Volver al principio](#microsoft-edge:-directivas)
+
   ### AlwaysOpenPdfExternally
   #### Abrir siempre archivos PDF externamente
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 77 o posterior
@@ -5841,7 +5892,7 @@ Si no se configura esta directiva, el modo de segundo plano estará desactivado 
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Habilita actualizaciones en segundo plano para la lista de plantillas disponibles para Colecciones y otras características que usan plantillas.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 79 o posterior
 
   #### Descripción
@@ -5862,7 +5913,7 @@ Si deshabilita esta configuración, la lista de plantillas disponibles se descar
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: BackgroundTemplateListUpdatesEnabled
-  - Nombre de la directiva de grupos: Habilita actualizaciones en segundo plano para la lista de plantillas disponibles para Colecciones y otras características que usan plantillas.
+  - Nombre de la directiva de grupos: Enables background updates to the list of available templates for Collections and other features that use templates
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -6138,15 +6189,15 @@ Si no se configura esta directiva, los usuarios podrán decidir si desean habili
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 77 o posterior
 
   #### Descripción
-  Controls whether to use the built-in DNS client.
+  Controla si se debe usar el cliente DNS integrado.
 
-This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
+Esto no afecta a los servidores DNS que se usan; solo a la pila de software que se usa para comunicarse con ellos. Por ejemplo, si el sistema operativo está configurado para usar un servidor DNS de la empresa, el cliente DNS integrado usará ese mismo servidor. Sin embargo, es posible que el cliente DNS integrado vaya a los servidores de distintas formas usando protocolos más modernos relacionados con DNS, como por ejemplo DNS sobre TLS.
 
-If you enable this policy, the built-in DNS client is used, if it's available.
+Si se habilita esta directiva, se usará el cliente DNS integrado si está disponible.
 
-If you disable this policy, the client is never used.
+Si se deshabilita esta directiva, el cliente no se usará nunca.
 
-If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
+Si no se configura esta directiva, el cliente DNS integrado se habilitará de manera predeterminada en MacOS y los usuarios podrán cambiar si usan el cliente DNS integrado editando edge://flags o especificando una marca de línea de comandos.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -7042,11 +7093,15 @@ Si no se configura esta directiva, se usará el tamaño predeterminado, pero los
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 77 o posterior
 
   #### Descripción
-  Configura el directorio que se usará al descargar archivos.
+  Configures the directory to use when downloading files.
 
-Si se habilita esta directiva, Microsoft Edge usará el directorio proporcionado independientemente de si el usuario ha especificado uno o ha elegido que se le solicite la ubicación de descarga cada vez. Consulte [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) para obtener una lista de las variables que se pueden usar.
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) for a list of variables that can be used.
 
-Si se deshabilita o no se configura esta directiva, se usará el directorio de descarga predeterminado y el usuario podrá cambiarlo.
+If you disable or don't configure this policy, the default download directory is used, and the user can change it.
+
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -7070,7 +7125,9 @@ Si se deshabilita o no se configura esta directiva, se usará el directorio de d
   - Tipo de valor: REG_SZ
   ##### Valor de ejemplo:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7078,7 +7135,9 @@ Si se deshabilita o no se configura esta directiva, se usará el directorio de d
   - Nombre de clave de preferencia: DownloadDirectory
   - Valor de ejemplo:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7499,7 +7558,7 @@ Si no se configura esta directiva, en un dispositivo no administrado, el comport
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Mostrar una casilla "Abrir siempre" en el diálogo de protocolo externo.
+  #### Show an "Always open" checkbox in external protocol dialog
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 79 o posterior
 
   #### Descripción
@@ -7520,7 +7579,7 @@ Si se establece esta directiva en False o la directiva está desactivada, no se 
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Nombre de la directiva de grupos: Mostrar una casilla "Abrir siempre" en el diálogo de protocolo externo.
+  - Nombre de la directiva de grupos: Show an "Always open" checkbox in external protocol dialog
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -9123,13 +9182,13 @@ Si no se configura esta directiva, la predicción de red estará habilitada pero
   >Versiones admitidas: Microsoft Edge en Windows desde la versión 78 o posterior
 
   #### Descripción
-  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
+  Esta directiva determina si un usuario puede quitar el perfil de Microsoft Edge que inició sesión automáticamente con una cuenta profesional o educativa de un usuario.
 
-If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Si se habilita esta directiva, se creará un perfil no extraíble con la cuenta profesional o educativa del usuario en Windows. No se puede cerrar la sesión de este perfil ni quitarlo.
 
-If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
+Si se deshabilita o no se configura esta directiva, el usuario puede cerrar la sesión o quitar el perfil que ha iniciado sesión automáticamente con la cuenta profesional o educativa en Windows.
 
-If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
+Si quiere configurar el inicio de sesión del explorador, use la directiva [BrowserSignin](#browsersignin).
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -10400,9 +10459,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 77 o posterior
 
   #### Descripción
-  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+  Suprime la advertencia que aparece cuando Microsoft Edge se está ejecutando en un equipo o un sistema operativo que ya no se admite.
 
-If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
+Si esta directiva es falsa o no se establece, las advertencias aparecerán en estos equipos o sistemas operativos no compatibles.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -11191,19 +11250,19 @@ invalidar las directivas incompatibles.
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### WebRtcLocalIpsAllowedUrls
-  #### Manage exposure of local IP addressess by WebRTC
+  #### Administrar la exposición de direcciones IP locales por WebRTC
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80 o posterior
 
   #### Descripción
-  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+  Especifica una lista de orígenes (URL) o patrones de nombre de host (como "*contoso.com*") para los que WebRTC debe exponer la dirección IP local.
 
-If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+Si se habilita esta directiva y se establece una lista de orígenes (URL) o patrones de nombre de host, cuando se habilite edge://flags/#enable-webrtc-hide-local-ips-with-mdns, WebRTC expondrá la dirección IP local para los casos que coincidan con los patrones de la lista.
 
-If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+Si se deshabilita o no se configura esta directiva y edge://flags/#enable-webrtc-hide-local-ips-with-mdns está habilitado, WebRTC no expondrá direcciones IP locales. La dirección IP local se oculta con un nombre de host mDNS.
 
-If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+Si se habilita, se deshabilita o no se configura esta directiva, y edge://flags/#enable-webrtc-hide-local-ips-with-mdns está deshabilitado, WebRTC expondrá las direcciones IP locales.
 
-Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+Tenga en cuenta que esta directiva debilita la protección de las direcciones IP locales que pueden necesitar los administradores.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -11216,7 +11275,7 @@ Please note that this policy weakens the protection of local IP addresses that m
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: WebRtcLocalIpsAllowedUrls
-  - Nombre de la directiva de grupos: Manage exposure of local IP addressess by WebRTC
+  - Nombre de la directiva de grupos: Administrar la exposición de direcciones IP locales por WebRTC
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
@@ -11247,22 +11306,22 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
   [Volver al principio](#microsoft-edge:-directivas)
 
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of local IP address by WebRTC
+  #### Restringir la exposición de la dirección IP local por WebRTC
   >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 77 o posterior
 
   #### Descripción
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
+  Permite establecer si WebRTC expone la dirección IP local del usuario.
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
+Si se establece esta directiva en "AllowAllInterfaces" ('predeterminado') o "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC expone la dirección IP local.
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
+Si se establece esta directiva en "AllowPublicInterfaceOnly" ('default_public_interface_only') o "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC no expone la dirección IP local.
 
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+Si no se establece esta directiva o si se deshabilita, WebRTC expone la dirección IP local.
 
-  * 'default' = Allow all interfaces. This exposes the local IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
+  * 'default' = Permitir todas las interfaces. Esto expone la dirección IP local.
+  * 'default_public_and_private_interfaces' = Permitir las interfaces públicas y privadas a través de la ruta predeterminada http. Esto expone la dirección IP local.
+  * 'default_public_interface_only' = Permitir la interface pública a través de la ruta predeterminada http. Esto no expone la dirección IP local.
+  * 'disable_non_proxied_udp' = Usar TCP a menos que el servidor proxy sea compatible con UDP. Esto no expone la dirección IP local.
 
   #### Características admitidas:
   - Puede ser obligatorio: Sí
@@ -11275,7 +11334,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the local IP 
   #### Información y configuración de Windows
   ##### Información de la directiva de grupos (ADMX)
   - Nombre único de la directiva de grupos: WebRtcLocalhostIpHandling
-  - Nombre de la directiva de grupos: Restrict exposure of local IP address by WebRTC
+  - Nombre de la directiva de grupos: Restringir la exposición de la dirección IP local por WebRTC
   - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
   - Ruta de acceso de GP (Recomendada): N/D
   - Nombre del archivo ADMX de GP: MSEdge.admx
