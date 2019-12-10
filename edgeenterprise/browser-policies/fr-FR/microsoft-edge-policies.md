@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -122,7 +122,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[DefaultCookiesSetting](#defaultcookiessetting)|Configurer les cookies|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Paramètre de géolocalisation par défaut|
 |[DefaultImagesSetting](#defaultimagessetting)|Paramètres des images par défaut|
-|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Contrôler l’utilisation des exceptions de contenu non sécurisé|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Paramètre par défaut de JavaScript|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Paramètres de notification par défaut|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Paramètre Adobe Flash par défaut|
@@ -131,8 +131,8 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Contrôler l’utilisation de l’API WebUSB|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Autoriser les images sur ces sites|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Bloquer les images sur des sites spécifiques|
-|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
-|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Autoriser le contenu non sécurisé sur les sites spécifiés|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Bloquer le contenu non sécurisé sur les sites spécifiés|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Autoriser JavaScript sur des sites spécifiques|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Bloquer JavaScript sur des sites spécifiques|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Activer les paramètres de comportement de cookie SameSite hérité par défaut|
@@ -164,6 +164,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Autorise une page à afficher les fenêtres contextuelles pendant son déchargement|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Autoriser les pages à envoyer des demandes XHR synchrones lors de l’opération de rejet de page|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configurer les exceptions de prévention du suivi pour des sites spécifiques|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Toujours ouvrir les fichiers PDF en externe|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Définir les paramètres régionaux de l'application|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Autoriser ou bloquer la capture audio|
@@ -173,7 +174,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Activer le Remplissage auto pour les cartes de crédit|
 |[AutoplayAllowed](#autoplayallowed)|Autoriser la lecture automatique de média pour les sites web|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Poursuivre l’exécution des applications en arrière-plan après la fermeture de Microsoft Edge|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour les collections et d’autres fonctionnalités qui utilisent des modèles.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Bloquer les cookies tiers|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Activer la création de profil à partir du menu déroulant Identité ou de la page Paramètres|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Activer le mode invité|
@@ -206,7 +207,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Activer les contrôles de protocole OCSP/liste de révocation de certificats en ligne|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Autoriser les extensions managées de manière à utiliser l’API de plateforme de matériel d’entreprise|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Contrôler la communication avec le service d’expérimentation et de configuration|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Activer la barre des favoris|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Appliquer la recherche sécurisée Bing|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Activer l’utilisation des profils éphémères|
@@ -278,8 +279,8 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Définir l'optimisation WPAD|
 |[WebAppInstallForceList](#webappinstallforcelist)|Configurer la liste des applications web installées de force|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Autoriser WebDriver à remplacer les stratégies incompatibles|
-|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Gérer l’exposition des adresses IP locales par WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Limiter l’exposition de l’adresse IP locale par WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Limiter la plage de ports UDP locaux utilisés par WebRTC|
 
 
@@ -3495,7 +3496,7 @@ Si vous ne configurez pas cette stratégie, les images sont autorisées par déf
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### DefaultInsecureContentSetting
-  #### Control use of insecure content exceptions
+  #### Contrôler l’utilisation des exceptions de contenu non sécurisé
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
@@ -3503,7 +3504,7 @@ Si vous ne configurez pas cette stratégie, les images sont autorisées par déf
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left unset, users will be allowed to add exceptions to allow blockable mixed content.
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -3516,7 +3517,7 @@ If this policy is left unset, users will be allowed to add exceptions to allow b
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: DefaultInsecureContentSetting
-  - Nom de la stratégie de groupe: Control use of insecure content exceptions
+  - Nom de la stratégie de groupe: Contrôler l’utilisation des exceptions de contenu non sécurisé
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -3944,13 +3945,13 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### InsecureContentAllowedForUrls
-  #### Allow insecure content on specified sites
+  #### Autoriser le contenu non sécurisé sur les sites spécifiés
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -3963,7 +3964,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: InsecureContentAllowedForUrls
-  - Nom de la stratégie de groupe: Allow insecure content on specified sites
+  - Nom de la stratégie de groupe: Autoriser le contenu non sécurisé sur les sites spécifiés
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -3994,13 +3995,13 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### InsecureContentBlockedForUrls
-  #### Block insecure content on specified sites
+  #### Bloquer le contenu non sécurisé sur les sites spécifiés
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Create a list of URL patterns to specify sites that aren’t allowed to display insecure mixed content (that is, HTTP content on HTTPS sites.)
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
 
-If this policy isn’t set, insecure mixed content will be blocked. However, users can set exceptions to allow insecure mixed content for specific sites.
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -4013,7 +4014,7 @@ If this policy isn’t set, insecure mixed content will be blocked. However, use
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: InsecureContentBlockedForUrls
-  - Nom de la stratégie de groupe: Block insecure content on specified sites
+  - Nom de la stratégie de groupe: Bloquer le contenu non sécurisé sur les sites spécifiés
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/Paramètres de contenu
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -5410,6 +5411,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [Revenir au début](#microsoft-edge---stratégies)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Oui
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Booléen
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: AlternateErrorPagesEnabled
+  - Nom de la stratégie de groupe: Suggest similar pages when a webpage can’t be found
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
+  - Chemin d'accès à la stratégie de groupe (Recommandé): Modèles d’administration/Microsoft Edge - Paramètres par défaut (les utilisateurs peuvent les modifier)/
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge
+  - Chemin (Recommandé): SOFTWARE\Policies\Microsoft\Edge\Recommandé
+  - Nom de la valeur: AlternateErrorPagesEnabled
+  - Type de la valeur: REG_DWORD
+  ##### Exemple de valeur :
+```
+0x00000001
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: AlternateErrorPagesEnabled
+  - Exemple de valeur :
+``` xml
+<true/>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
   ### AlwaysOpenPdfExternally
   #### Toujours ouvrir les fichiers PDF en externe
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
@@ -5843,7 +5894,7 @@ Un onglet doit être fermé et rouvert pour que cette stratégie prenne effet.
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour les collections et d’autres fonctionnalités qui utilisent des modèles.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 79 ou ultérieure
 
   #### Description
@@ -5864,7 +5915,7 @@ Si vous désactivez ce paramètre, la liste des modèles disponibles est téléc
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: BackgroundTemplateListUpdatesEnabled
-  - Nom de la stratégie de groupe: Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour les collections et d’autres fonctionnalités qui utilisent des modèles.
+  - Nom de la stratégie de groupe: Enables background updates to the list of available templates for Collections and other features that use templates
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -6140,15 +6191,15 @@ Si vous ne configurez pas cette stratégie, les utilisateurs peuvent décider s�
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Controls whether to use the built-in DNS client.
+  Contrôle si le client DNS intégré doit être utilisé.
 
-This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
+Cela n’affecte pas les serveurs DNS utilisés ; uniquement la pile logicielle permettant de communiquer avec eux. Par exemple, si le système d’exploitation est configuré de manière à utiliser un serveur DNS d’entreprise, ce même serveur est utilisé par le client DNS intégré. Il est toutefois possible que le client DNS intégré adresse les serveurs de différentes manières en utilisant des protocoles plus modernes liés à DNS, tels que DNS-over-TLS.
 
-If you enable this policy, the built-in DNS client is used, if it's available.
+Si vous activez cette stratégie, le client DNS intégré est utilisé, s’il est disponible.
 
-If you disable this policy, the client is never used.
+Si vous désactivez cette stratégie, le client n’est jamais utilisé.
 
-If you don't configure this policy, the built-in DNS client is enabled by default on MacOS, and users can change whether to use the built-in DNS client by editing edge://flags or by specifying a command-line flag.
+Si vous ne configurez pas cette stratégie, le client DNS intégré est activé par défaut sur MacOS et les utilisateurs peuvent choisir d’utiliser le client DNS intégré en modifiant edge://flags ou en spécifiant un indicateur de ligne de commande.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -7044,11 +7095,15 @@ Veuillez noter que cette stratégie contrôle les captures d’écran prises dan
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Configure le répertoire à utiliser lors du téléchargement de fichiers.
+  Configures the directory to use when downloading files.
 
-	Si vous activez cette stratégie, Microsoft Edge utilise le répertoire spécifié, peu importe si l’utilisateur a en spécifié un ou a choisi d'être invité à entrer l’emplacement de téléchargement à chaque fois. Voir [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) pour obtenir la liste des variables qui peuvent être utilisées.
+If you enable this policy, Microsoft Edge uses the provided directory regardless of whether the user has specified one or chosen to be prompted for download location every time. See [https://go.microsoft.com/fwlink/?linkid=2095041](https://go.microsoft.com/fwlink/?linkid=2095041) for a list of variables that can be used.
 
-	Si vous désactivez ou si vous ne configurez pas cette stratégie, le répertoire de téléchargement par défaut est utilisé et l’utilisateur peut modifier ce comportement.
+If you disable or don't configure this policy, the default download directory is used, and the user can change it.
+
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -7072,7 +7127,9 @@ Veuillez noter que cette stratégie contrôle les captures d’écran prises dan
   - Type de la valeur: REG_SZ
   ##### Exemple de valeur :
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -7080,7 +7137,9 @@ Veuillez noter que cette stratégie contrôle les captures d’écran prises dan
   - Nom de la clé de préférence: DownloadDirectory
   - Exemple de valeur :
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7500,7 +7559,7 @@ Si vous ne configurez pas cette stratégie, sur un appareil non géré, le compo
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe.
+  #### Show an "Always open" checkbox in external protocol dialog
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 79 ou ultérieure
 
   #### Description
@@ -7521,7 +7580,7 @@ Si vous définissez cette stratégie sur False ou si la stratégie n’est pas d
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Nom de la stratégie de groupe: Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe.
+  - Nom de la stratégie de groupe: Show an "Always open" checkbox in external protocol dialog
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -9124,13 +9183,13 @@ Si vous ne configurez pas cette stratégie, les prédictions réseau sont activ�
   >Versions prises en charge : Microsoft Edge sur Windows depuis la version 78 ou ultérieure
 
   #### Description
-  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
+  Cette stratégie détermine si un utilisateur peut supprimer le profil Microsoft Edge connecté automatiquement dans le compte professionnel ou scolaire d’un utilisateur.
 
-If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+Si vous activez cette stratégie, un profil impossible à supprimer est créé avec le compte professionnel ou scolaire de l’utilisateur sous Windows. Ce profil ne peut pas être déconnecté ni supprimé.
 
-If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
+Si vous désactivez cette stratégie ou ne la configurez pas, le profil connecté automatiquement avec le compte professionnel ou scolaire d’un utilisateur sous Windows peut être déconnecté ou supprimé par l’utilisateur.
 
-If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
+Si vous souhaitez configurer la connexion du navigateur, utilisez la stratégie [BrowserSignin](#browsersignin).
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -10402,9 +10461,9 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
+  Supprime l’avertissement qui s’affiche lorsque Microsoft Edge est exécuté sur un ordinateur ou un système d’exploitation qui n’est plus pris en charge.
 
-If this policy is false or unset, the warnings will appear on such unsupported computers or operating systems.
+Si cette stratégie est false ou non définie, les avertissements s’affichent sur des ordinateurs ou des systèmes d’exploitation non pris en charge.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -11193,19 +11252,19 @@ Si la stratégie est désactivée ou n’est pas configurée, WebDriver n'est pa
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### WebRtcLocalIpsAllowedUrls
-  #### Manage exposure of local IP addressess by WebRTC
+  #### Gérer l’exposition des adresses IP locales par WebRTC
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+  Spécifie une liste d’origines (URL) ou de modèles de noms d’hôte (par exemple, « *contoso.com * ») pour laquelle l’adresse IP locale doit être exposée par WebRTC.
 
-If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+Si vous activez cette stratégie et définissez une liste d’origines (URL) ou des modèles de noms d’hôte, lorsque edge://flags/#enable-webrtc-hide-local-ips-with-mdns est activé, WebRTC expose l’adresse IP locale pour les cas qui correspondent aux modèles dans la liste.
 
-If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+Si vous désactivez cette stratégie ou si vous ne la configurez pas, et si edge://flags/#enable-webrtc-hide-local-ips-with-mdns est activé, WebRTC n’expose pas les adresses IP locales. L’adresse IP locale est cachée avec un nom d’hôte mDNS.
 
-If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+Si vous activez, désactivez ou ne configurez pas cette stratégie, et si edge://flags/#enable-webrtc-hide-local-ips-with-mdns est désactivé, WebRTC expose les adresses IP locales.
 
-Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+Veuillez noter que cette stratégie affaiblit la protection des adresses IP locales qui peuvent être nécessaires aux administrateurs.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -11218,7 +11277,7 @@ Please note that this policy weakens the protection of local IP addresses that m
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: WebRtcLocalIpsAllowedUrls
-  - Nom de la stratégie de groupe: Manage exposure of local IP addressess by WebRTC
+  - Nom de la stratégie de groupe: Gérer l’exposition des adresses IP locales par WebRTC
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -11249,22 +11308,22 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of local IP address by WebRTC
+  #### Limiter l’exposition de l’adresse IP locale par WebRTC
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
+  Vous permet de définir si WebRTC expose son l'adresse IP locale de l'utilisateur.
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
+Si vous définissez cette stratégie « AllowAllInterfaces » (« default ») ou « AllowPublicAndPrivateInterfaces » (« default_public_and_private_interfaces »), WebRTC expose l’adresse IP locale.
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
+Si vous définissez cette stratégie sur « AllowPublicInterfaceOnly » (« default_public_interface_only ») ou « DisableNonProxiedUdp » (« disable_non_proxied_udp »), WebRTC n’expose pas l’adresse IP locale.
 
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+Si vous ne définissez pas cette stratégie ou si vous la désactivez, WebRTC expose l’adresse IP locale.
 
-  * 'default' = Allow all interfaces. This exposes the local IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
+* « default » = Autoriser toutes les interfaces. Ceci expose l’adresse IP locale.
+* « default_public_and_private_interfaces » = Autoriser les interfaces publiques et privées sur l’itinéraire http par défaut. Ceci expose l’adresse IP locale.
+* « default_public_interface_only » = Autoriser l’interface publique sur l’itinéraire http par défaut. Ceci n’expose pas l’adresse IP locale.
+* « disable_non_proxied_udp » = Utiliser TCP, sauf si le serveur proxy prend en charge UDP. Ceci n’expose pas l’adresse IP locale.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -11277,7 +11336,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the local IP 
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: WebRtcLocalhostIpHandling
-  - Nom de la stratégie de groupe: Restrict exposure of local IP address by WebRTC
+  - Nom de la stratégie de groupe: Limiter l’exposition de l’adresse IP locale par WebRTC
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
