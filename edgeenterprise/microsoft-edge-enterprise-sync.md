@@ -46,7 +46,7 @@ Currently Microsoft Edge sync for Azure Active Directory (AAD) accounts is only 
 - All EDU subscriptions (O365 A1 or above, M365 A1 or above, or AIP P1 or P2 for Students or Faculty)
 
 > [!NOTE]
-> Sync has a dependency on the protection service offered by Azure Information Protection (AIP) to protect sync data. This service is currently available to the preceding subscriptions. To see the full list of SKUs with AIP, see [Information Protection Pricing](https://azure.microsoft.com/en-us/pricing/details/information-protection/).
+> Sync has a dependency on the protection service offered by Azure Information Protection (AIP) to protect sync data. This service is currently available to the preceding subscriptions. To see the full list of SKUs with AIP, see [Information Protection Pricing](https://azure.microsoft.com/pricing/details/information-protection/).
 
 ## Configuration options for Microsoft Edge sync
 
