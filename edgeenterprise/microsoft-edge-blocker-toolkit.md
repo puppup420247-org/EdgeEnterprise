@@ -14,7 +14,7 @@ description: "Blocker Toolkit to disable automatic delivery of Microsoft Edge"
 
 # Toolkit to disable automatic delivery of Microsoft Edge
 
-This article describes the Blocker Toolkit for disabling automatic delivery of Microsoft Edge.
+This article describes the Blocker Toolkit for disabling automatic delivery and installation of Microsoft Edge.
 
 > [!NOTE]
 > This applies  to Microsoft Edge version 77 or later.
@@ -74,7 +74,7 @@ Switches used by the script are mutually exclusive and only the first valid swit
 
 The Group Policy Administrative Template (.ADMX + .ADML files) allows administrators to import the new Group Policy settings to block or unblock automatic delivery of Microsoft Edge (Chromium-based) into their Group Policy environment, and use Group Policy to centrally execute the action across systems in their environment.
 
-Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the policy under:
+Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the policy under the following path:
 
 ```
 /Computer Configuration  
@@ -85,13 +85,14 @@ Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the poli
           /Microsoft Edge (Chromium-based) Blockers
 ```
 
-This setting is available only as a Computer setting; there is no Per-User setting.
-
 > [!NOTE]
-> This registry setting is not stored in a policies key and is thus considered a preference. Therefore, if the Group Policy Object that implements the setting is ever removed or the policy is set to **Not Configured**, the setting will remain. To unblock distribution of Microsoft Edge (Chromium-based) by using Group Policy, set the policy to **Disabled**.
+> This setting is available only as a Computer setting; there is no Per-User setting.
+
+> [!IMPORTANT]
+> This registry setting isn't stored in a policies key and is considered a *preference*. Therefore, if the Group Policy Object that implements the setting is ever removed or the policy is set to **Not Configured**, the setting will remain. To unblock distribution of Microsoft Edge (Chromium-based) by using Group Policy, set the policy to **Disabled**.
 
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
-- [Windows updates to support Microsoft Edge](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-windows-updates)
-- [How to access the old version of Microsoft Edge](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge)
+- [Windows updates to support Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-sysupdate-windows-updates)
+- [How to access the old version of Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-sysupdate-access-old-edge)
