@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Blocker Toolkit to disable automatic delivery of Microsoft Edge"
 ---
 
-# Toolkit to disable automatic delivery of Microsoft Edge
+# Blocker Toolkit to disable automatic delivery of Microsoft Edge
 
 This article describes the Blocker Toolkit for disabling automatic delivery and installation of Microsoft Edge.
 
