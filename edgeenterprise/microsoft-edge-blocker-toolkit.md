@@ -3,7 +3,7 @@ title: "Blocker Toolkit to disable automatic delivery of Microsoft Edge"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 12/10/2019
+ms.date: 12/11/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,7 +21,7 @@ This article describes the Blocker Toolkit for disabling automatic delivery and 
 
 ## Overview
 
-To help our customers become more secure and up-to-date, Microsoft will distribute Microsoft Edge (Chromium-based) through Automatic Updates for Windows 10 RS4 and newer. This Blocker Toolkit is intended for organizations that would like to block automatic delivery of Microsoft Edge (Chromium-based) to machines in environments where Automatic Updates is enabled. The Blocker Toolkit will not expire.
+To help our customers become more secure and up-to-date, Microsoft will distribute Microsoft Edge (Chromium-based) through Automatic Updates for Windows 10 RS4 and newer. The Blocker Toolkit is intended for organizations that would like to block automatic delivery of Microsoft Edge (Chromium-based) to machines in environments where Automatic Updates is enabled. The Blocker Toolkit will not expire.
 
 - For computers running Windows 10 RS4 and newer, the Blocker Toolkit prevents the machine from receiving Microsoft Edge (Chromium-based) via Automatic Updates.
 - The Blocker Toolkit will not prevent users from manually installing Microsoft Edge (Chromium-based) from internet download, or from external media.
@@ -47,11 +47,11 @@ The script creates a registry key and sets the associated value to block or unbl
 **Registry key:** `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\EdgeUpdate`<br>
 **Key value name:** `DoNotUpdateToEdgeWithChromium`
 
-| Value                | Result                       |
-|----------------------|------------------------------|
+| Value                | Result                         |
+|----------------------|--------------------------------|
 | *Key is not defined* | Distribution is *not* blocked. |
 | 0                    | Distribution is *not* blocked. |
-| 1                    | Distribution is blocked.     |
+| 1                    | Distribution is blocked.       |
 
 The script has the following command-line syntax:<br> 
 `EdgeChromium_Blocker.cmd [<machine name>] [/B] [/U] [/H]`
@@ -86,7 +86,7 @@ Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the poli
 ```
 
 > [!NOTE]
-> This setting is available only as a Computer setting; there is no Per-User setting.
+> This setting is available only as a computer setting; there is no per-user setting.
 
 > [!IMPORTANT]
 > This registry setting isn't stored in a policies key and is considered a *preference*. Therefore, if the Group Policy Object that implements the setting is ever removed or the policy is set to **Not Configured**, the setting will remain. To unblock distribution of Microsoft Edge (Chromium-based) by using Group Policy, set the policy to **Disabled**.
