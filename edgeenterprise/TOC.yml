@@ -1,4 +1,4 @@
-# last revised 12/09/2019
+# last revised 12/11/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -11,10 +11,12 @@
      href: microsoft-edge-supported-languages.md
    - name: System updates for Microsoft Edge
      items:
-      - name: Windows updates to support Microsoft Edge
-        href: microsoft-edge-sysupdate-windows-updates.md
+      - name: Blocker Toolkit for Microsoft Edge updates
+        href: microsoft-edge-blocker-toolkit.md
       - name: How to access the old version of Microsoft Edge
         href: microsoft-edge-sysupdate-access-old-edge.md
+      - name: Windows updates to support Microsoft Edge
+        href: microsoft-edge-sysupdate-windows-updates.md
 # Deploy
 - name: Deploy Microsoft Edge
   items:
