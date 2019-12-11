@@ -74,7 +74,7 @@ Switches used by the script are mutually exclusive and only the first valid swit
 
 The Group Policy Administrative Template (.ADMX + .ADML files) allows administrators to import the new Group Policy settings to block or unblock automatic delivery of Microsoft Edge (Chromium-based) into their Group Policy environment, and use Group Policy to centrally execute the action across systems in their environment.
 
-Users running Windows 10 RS3 Enterprise/EDU and RS4 and newer, will see the policy under the following path:
+Users running Windows 10 RS4 and newer, will see the policy under the following path:
 
 ```
 /Computer Configuration  
