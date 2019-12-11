@@ -79,10 +79,9 @@ Users running Windows 10 RS4 and newer, will see the policy under the following 
 ```
 /Computer Configuration  
   /Administrative Templates
-    /Classic Administrative Templates  
-      /Windows Components  
-        /Windows Update  
-          /Microsoft Edge (Chromium-based) Blockers
+    /Windows Components
+      /Windows Update  
+        /Microsoft Edge (Chromium-based) Blockers  
 ```
 
 > [!NOTE]
