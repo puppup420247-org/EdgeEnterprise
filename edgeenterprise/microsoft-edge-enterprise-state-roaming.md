@@ -17,7 +17,7 @@ description: "Microsoft Edge and Enterprise State Roaming"
 This article explains how Microsoft Edge participation in the Enterprise State Roaming (ESR) offering is changing to better support sync across platforms and devices.
 
 > [!NOTE]
-> This article applies to Microsoft Edge version 78 or later.
+> This article applies to Microsoft Edge version 77 or later.
 
 ## Introduction
 
