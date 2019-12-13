@@ -91,6 +91,6 @@ Provide metadata for browser features such as tracking protection, certificate r
 
 ## See also
 
-- [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
 - [Manage connection endpoints for Windows 10 Enterprise, version 1903](https://docs.microsoft.com/windows/privacy/manage-windows-1903-endpoints)

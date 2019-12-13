@@ -66,7 +66,7 @@ For information about configuring WIA in AD FS, see [View WIASupportedUserAgent 
 
 ## See also
 
-- [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
 - [Identity and access management](https://www.microsoft.com/security/technology/identity-access-management)
 - [Identity platform](https://developer.microsoft.com/identity)
