@@ -16,6 +16,8 @@
 # Deploy
 - name: Deploy Microsoft Edge
   items:
+   - name: Play your Deployment of Microsoft Edge
+     href: deploy-edge-plan-deployment.md
    - name: Deploy to Windows with Configuration Manager 
      href: deploy-edge-with-configuration-manager.md
    - name: Deploy to Windows with Intune 
