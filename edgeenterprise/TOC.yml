@@ -1,4 +1,4 @@
-# last revised 12/11/2019
+# last revised 12/12/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -47,14 +47,20 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
-- name: Authenticated features
-  items:
-   - name: Identity support and configuration
-     href: microsoft-edge-security-identity.md
+# - name: Authenticated features
+#  items:
+#   - name: Identity support and configuration
+#     href: microsoft-edge-security-identity.md
 - name: Enterprise features 
   items:
    - name: Configurations and experimentation
      href: edge-configuration-and-experiments.md
+   - name: Identity support and configuration
+     href: microsoft-edge-security-identity.md
+   - name: Microsoft Edge and Sync
+     href: microsoft-edge-enterprise-sync.md
+   - name: Microsoft Edge and Enterprise State Roaming
+     href: microsoft-edge-enterprise-state-roaming.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
 - name: Security and privacy
