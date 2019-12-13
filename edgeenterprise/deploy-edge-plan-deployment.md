@@ -1,9 +1,9 @@
 ---
-title: "Plan your Deployment of Microsoft Edge"
+title: "Plan your deployment of Microsoft Edge"
 ms.author: cjacks
 author: appcompatguy
 manager: saudm
-ms.date: 11/12/2019
+ms.date: 12/13/2019
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -12,18 +12,18 @@ ms.collection: M365-modern-desktop
 description: "Plan your deployment of Microsoft Edge"
 ---
 
-# Plan your Deployment of Microsoft Edge
+# Plan your deployment of Microsoft Edge
 
-This article reviews recommended practices for deploying Microsoft Edge in an enterprise environment.
+This article describes the recommended practices for deploying Microsoft Edge in an enterprise environment.
 
 >[!NOTE]
 >This article applies to Microsoft Edge version 77 or later.
 
 ## Evaluate your existing browser environment and browser needs
 
-Taking time to understand your current state and project vision will help ensure that all project stakeholders are aligned and working towards the same end result.
+Take time to understand your current browser state and project vision to ensure that all project stakeholders are aligned and working towards the same result.
 
-Start with defining your current state:
+Start by defining your current state:
 
 - Which browsers are currently deployed in your environment?
 - Which browser is set as the default browser?
@@ -34,22 +34,22 @@ Start with defining your current state:
 - Who is responsible for browser configuration and management?
 - What is your process for validating browser compatibility?
 
-Once you understand the current state, you can determine the desired state of your deployment:
+After you understand the current state, you can determine the desired goals for your browser deployment, taking into account the following:
 
-- Do you want to [set Microsoft Edge as your default browser](https://docs.microsoft.com/en-us/DeployEdge/edge-default-browser)?
-- Do you want to hide the legacy version of Microsoft Edge, or do you want to [leave it available for users](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-sysupdate-access-old-edge)?
-- How will you [configure Microsoft Edge](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge)?
+- Do you want to [set Microsoft Edge as your default browser](https://docs.microsoft.com/DeployEdge/edge-default-browser)?
+- Do you want to hide the legacy version of Microsoft Edge, or do you want to [leave it available for users](https://docs.microsoft.com/DeployEdge/microsoft-edge-sysupdate-access-old-edge)?
+- How will you [configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge)?
 - What features are critical to configure as part of your initial deployment?
 - What is the process for addressing any identified compatibility or configuration issues?
 
-You should also understand the **pre-requisites** for features you are interested in, such as:
+You should also understand the **pre-requisites** for features you're interested in, such as:
 
-- [Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
-- [Internet Explorer mode](https://docs.microsoft.com/en-us/DeployEdge/edge-ie-mode)
-- [Authentication and sync](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-security-identity)
+- [Windows Defender Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
+- [Internet Explorer mode](https://docs.microsoft.com/DeployEdge/edge-ie-mode)
+- [Authentication and sync](https://docs.microsoft.com/DeployEdge/microsoft-edge-security-identity)
 
-With these answers in mind, you are ready to plan your deployment.
-
+With these answers in mind, you're ready to plan your Microsoft Edge deployment.
+<!--bookmark -->
 ## Determine your deployment methodology
 
 Once you know your desired end state, you are ready to start planning how to get there. There are two primary ways to deploy Microsoft Edge:
@@ -60,7 +60,7 @@ If app compat is your primary concern, and you don't have a firm grasp on apps t
 
 ### Deploy to end users by site
 
-If bandwidth is your primary concern, you may want to consider performing application compatibility validation up front, and then deploying to end users by site, in order to leverage caching other software delivery optimizations.
+If bandwidth is your primary concern, you may want to consider performing application compatibility validation up front, and then deploying to end users by site, to leverage caching other software delivery optimizations.
 
 ## Perform site discovery
 
@@ -72,18 +72,18 @@ If you have already configured your Enterprise Site List to work  for the legacy
 
 Neutral Sites are typically sites that provide Single Sign-On (SSO). If navigated to from Microsoft Edge, then you want to stay in Microsoft Edge to authenticate. If navigated to from Internet Explorer mode, then you want to stay in Internet Explorer mode to authenticate.
 
-Identify any SSO (or other neutral) sites that you use, and add these to your Enterprise Site List.
+Identify any SSO (or other neutral) sites that you use and add these to your Enterprise Site List.
 
 ### If you have configured Internet Explorer as your default browser
 
-If you are currently only using Internet Explorer, you may not know which sites have upgraded to modern web standards and which still require Internet Explorer. You will want to discover these sites and add them to the Enterprise Site List in order to leverage Internet Explorer mode only on the sites that require it.
+If you are currently only using Internet Explorer, you may not know which sites have upgraded to modern web standards and which still require Internet Explorer. You will want to discover these sites and add them to the Enterprise Site List to leverage Internet Explorer mode only on the sites that require it.
 
 You can use the [Enterprise Site Discovery](https://docs.microsoft.com/en-us/internet-explorer/ie11-deploy-guide/collect-data-using-enterprise-site-discovery?redirectedfrom=MSDN) tools to discover the sites that may require Internet Explorer mode.
 
 Once you have collected this data, we recommend a 4-step process to analyze the data you find:
 
 1. Sort the data by domain, then by URL
-2. Define the boundaries of an "app" to configure for Internet Explorer mode - you want to include all of the sites and web controls which define the app, without including any extra sites and controls by defining too broadly. Some sites may be as simple as "http://contoso.com/app1" while others you will need to define multiple pages and sites.
+2. Define the boundaries of an "app" to configure for Internet Explorer mode - you want to include all the sites and web controls which define the app, without including any extra sites and controls by defining too broadly. Some sites may be as simple as "http://contoso.com/app1" while others you will need to define multiple pages and sites.
 3. Test the app to verify that it does not work natively - many sites will offer modern content when they detect a modern browser, and only offer legacy content when they detect Internet Explorer
 4. Add the app to your Enterprise Site list if it fails
 
@@ -98,7 +98,7 @@ Microsoft Edge is released in [multiple channels](https://docs.microsoft.com/en-
 
 The Stable Channel is what you will want to deploy to most devices.
 
-We also recommend having a representative subset of devices configured to use the Beta Channel, in order to get a preview of changes to the browser and any resulting user or compatibility impact from changes in the browser.
+We also recommend having a representative subset of devices configured to use the Beta Channel, to get a preview of changes to the browser and any resulting user or compatibility impact from changes in the browser.
 
 You may also want to make the Dev Channel (or even the Canary Channel) available to some roles, such as web developers. Consider whether you would like to target some devices with more rapid channels, or simply make it available for users to opt to install.
 
@@ -121,7 +121,7 @@ You will also want to determine how you will update Microsoft Edge:
 - **Allow Microsoft Edge to update itself** (default). If you choose to allow automatic updates of Microsoft Edge, then Microsoft Edge will automatically update itself at the pace determined by the channel(s) you have deployed.
 - **Update Microsoft Edge at your own pace**. If you prefer to have explicit control over when updates are deployed, you can disable automatic updates and deploy it yourself (see the [Update Policy reference](https://docs.microsoft.com/en-us/DeployEdge/microsoft-edge-update-policies)). You will then need to deploy each new version of Edge using [Intune](https://docs.microsoft.com/en-us/intune/apps/apps-windows-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json), [Configuration Manager](https://docs.microsoft.com/en-us/DeployEdge/deploy-edge-with-configuration-manager), or the deployment tool of your choice.
 
-Regardless of your update strategy, we recommend leveraging a ringed deployment strategy. With automatic updates, that means having a representative sample of users running the Beta Channel, in order to identify issues with what will become the Stable Channel. With manual updates, that may also include additional validation of a pilot group once a new Stable Channel build is released, followed by broad deployment.
+Regardless of your update strategy, we recommend leveraging a ringed deployment strategy. With automatic updates, that means having a representative sample of users running the Beta Channel, to identify issues with what will become the Stable Channel. With manual updates, that may also include additional validation of a pilot group once a new Stable Channel build is released, followed by broad deployment.
 
 >[!NOTE]
 >Microsoft Edge support will only apply to the most recent version of Microsoft Edge in each channel
@@ -136,7 +136,7 @@ Application compatibility for Microsoft Edge is extremely high - so high that Mi
 
 If you have an application where we do not meet this promise, then we stand behind the promise to fix it with [Microsoft App Assure](https://www.microsoft.com/en-us/fasttrack/microsoft-365/desktop-app-assure).
 
-Despite this promise, we know that many organizations have to validate at least some applications for compliance or risk management reasons. So, even though we expect this to be very straightforward, it's nonetheless important to be organized in testing.
+Despite this promise, we know that many organizations must validate some applications for compliance or risk management reasons. So, even though we expect this to be very straightforward, it's nonetheless important to be organized in testing.
 
 There are 2 primary ways to perform app compat testing:
 
@@ -157,12 +157,16 @@ If you are using another management tool, you can download and deploy the [MSI f
 
 ## Validate your deployment
 
-Once you have deployed the pilot, you want to capture all of the feedback you get from your users.
+Once you have deployed the pilot, you want to capture all the feedback you get from your users.
 
 - Capture feedback on compatibility, in case there are sites that belong on the Enterprise Site List which were not identified while you were preparing the initial list
-- Capture feedback on the policy configuration, to ensure that users are able to use key features while still following security guidelines
+- Capture feedback on the policy configuration, to ensure that users can use key features while still following security guidelines
 - Identify any areas where training should be developed and delivered based on user questions
 
 ## Broad deployment of Microsoft Edge
 
-Having configured and validated the pilot, you are now ready to execute the broad deployment of Microsoft Edge to all of your users, using the methodology identified during planning. Congratulations!
+Having configured and validated the pilot, you are now ready to execute the broad deployment of Microsoft Edge to all your users, using the methodology identified during planning. Congratulations!
+
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
