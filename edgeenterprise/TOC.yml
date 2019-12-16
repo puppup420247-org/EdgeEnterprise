@@ -1,4 +1,4 @@
-# last revised 12/12/2019
+# last revised 12/16/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -21,7 +21,8 @@
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager 
-     href: deploy-edge-with-configuration-manager.md
+#     href: deploy-edge-with-configuration-manager.md
+     href: https://docs.microsoft.com/configmgr/apps/deploy-use/deploy-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
    - name: Deploy to Windows with Intune
 #    href: deploy-edge-with-intune.md
      href: https://docs.microsoft.com/intune/apps/apps-windows-edge/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
