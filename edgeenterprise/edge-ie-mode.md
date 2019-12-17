@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 10/14/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -25,6 +25,7 @@ The following prerequisites apply to using Microsoft Edge with IE mode. For the 
 
 1. The minimum operating system update versions.
 
+   - Windows 10, version 1909 or later
    - Windows 10, version 1903 and Windows Server, version 1903: [KB4501375](https://support.microsoft.com/help/4501375) or later
    - Windows 10, version 1809, Windows Server, version 1809, and Windows Server 2019: [KB4501371](https://support.microsoft.com/help/4501371) or later
    - Windows 10, version 1803: [KB4512509](https://support.microsoft.com/help/4512509) or later
