@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -239,6 +239,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[NetworkPredictionOptions](#networkpredictionoptions)|ネットワーク予測を有効にする|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|職場または学校アカウントで自動的にサインインする既定のプロファイルを、ユーザーが常に持つ必要があるかどうかを構成する|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|保護されていないオリジンに対するセキュリティ制限を適用する状況を制御する|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|[タスク バー ウィザードにピン留めする] を許可する|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|事前認証を有効にする|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|タブ全体にプロモーション コンテンツを表示できるようにする|
@@ -1398,11 +1399,11 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  特定のサイトについて混在コンテンツを許可するための例外をユーザーが追加できるかどうかを設定できます。
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+このポリシーは、[InsecureContentAllowedForUrls](#insecurecontentallowedforurls) ポリシーと [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) ポリシーを使用することで、特定の URL パターンに対してオーバーライドすることができます。
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+このポリシーを設定しなかった場合、ユーザーは、ブロック可能な混在コンテンツを許可する例外や、オプションでブロック可能な混在コンテンツの自動アップグレードを無効にする例外を追加できます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1847,9 +1848,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  ブロック可能な (アクティブな) 混在コンテンツ (例: HTTPS サイトの HTTP コンテンツ) の表示が許可されるサイトや、オプションでブロック可能な混在コンテンツのアップグレードが無効にされるサイトを指定する URL パターンのリストを設定することができます。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+このポリシーを設定しなかった場合、ブロック可能な混在コンテンツはブロックされ、オプションでブロック可能な混在コンテンツはアップグレードされます。また、ユーザーは特定のサイトについて混在コンテンツを許可するための例外を設定することができます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -1897,9 +1898,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
 
   #### 説明
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  ブロック可能な (アクティブな) 混在コンテンツ (例: HTTPS サイトの HTTP コンテンツ) の表示が許可されないサイトや、オプションでブロック可能な (パッシブな) 混在コンテンツがアップグレードされるサイトを指定する URL パターンのリストを設定することができます。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+このポリシーを設定しなかった場合、ブロック可能な混在コンテンツはブロックされ、オプションでブロック可能な混在コンテンツはアップグレードされますが、ユーザーは特定のサイトについて混在コンテンツを許可するための例外を設定することができます。
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8860,14 +8861,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >サポートされているバージョン: Windows および Mac (バージョン 77 以降) の Microsoft Edge
 
   #### 説明
-  最大 10 個の検索エンジンが含まれるリストを構成できます。検索エンジンのいずれか一つは、既定の検索エンジンとしてマークする必要があります。
-検索エンジンのエンコードを指定する必要はありません。
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-このポリシーを有効にした場合、ユーザーはリスト内の検索エンジンを追加、削除、または変更できません。ユーザーは、リスト内のどの検索エンジンでも既定の検索エンジンとして設定できます。
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-このポリシーを無効にした場合または構成しなかった場合、ユーザーは検索エンジンのリストを必要に応じて変更できます。
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) ポリシーを設定した場合、このポリシー (ManagedSearchEngines) は無視されます。このポリシーの適用を完了するには、ユーザーはブラウザーを再起動する必要があります。
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### サポートされている機能:
   - 必須になる場合があります: はい
@@ -8893,7 +8894,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8901,6 +8901,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8914,6 +8915,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8926,8 +8932,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8940,6 +8944,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8964,6 +8970,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9269,6 +9283,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >サポートされているバージョン: Windows および Mac (バージョン 80 以降) の Microsoft Edge
+
+  #### 説明
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: いいえ
+  - 動的ポリシーの更新: はい
+
+  #### データ型:
+  ブール値
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: PersonalizationReportingEnabled
+  - GP の名前: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/
+  - GP パス (おすすめ): N/A
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
+  - パス (おすすめ): N/A
+  - 値の名前: PersonalizationReportingEnabled
+  - 値の種類: REG_DWORD
+  ##### サンプル値:
+```
+0x00000001
+```
+
+
+  #### Mac の情報と設定
+  - 優先されるキーの名前: PersonalizationReportingEnabled
+  - サンプル値:
+``` xml
+<true/>
 ```
   
 
