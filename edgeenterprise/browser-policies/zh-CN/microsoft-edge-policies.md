@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -239,6 +239,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|启用网络预测|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|配置用户是否始终具有使用其工作或学校帐户自动登录的默认配置文件|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|控制针对不安全源的安全限制的适用范围|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|允许使用“固定到任务栏”向导|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|启用主动身份验证|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|启用完整标签页促销内容|
@@ -1711,11 +1712,11 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
 
   #### 描述
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  允许你设置用户是否可以添加例外以允许特定站点显示混合内容。
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+针对特定 URL 模式，可使用 [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) 和 [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) 策略替代此策略。
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+如果未设置此策略，则将允许用户添加例外以允许可阻止混合内容并禁止自动升级可选择阻止的混合内容。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -2160,9 +2161,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
 
   #### 描述
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  允许你设置 URL 模式列表，指定哪些站点允许显示可阻止(即活动)混合内容(即 HTTPS 站点上的 HTTP 内容)，以及哪些站点将禁用可选择阻止的混合内容升级。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+如果未设置此策略，将阻止可阻止混合内容并将升级可选择阻止的混合内容，并且将允许用户设置例外以允许特定站点显示它。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -2210,9 +2211,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
 
   #### 描述
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  允许你设置 URL 模式列表，指定哪些站点不允许显示可阻止(即活动)混合内容(即 HTTPS 站点上的 HTTP 内容)，以及哪些站点将升级可选择阻止(即被动)混合内容。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+如果未设置此策略，将阻止可阻止混合内容并将升级可选择阻止的混合内容，但将允许用户设置例外以允许特定站点显示它。
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -8860,14 +8861,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >支持的版本: Windows 和 Mac 上版本 77 或更高版本的 Microsoft Edge
 
   #### 描述
-  允许你配置可列出多达 10 个搜索引擎的列表，其中一个搜索引擎必须标记为默认的搜索引擎。
-无需为任何搜索引擎指定编码。
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-如果启用此策略，则用户无法在列表中添加、删除或更改任何搜索引擎。用户可以将其默认的搜索引擎设置为列表中的任何搜索引擎。
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-如果禁用或未配置此策略，则用户可以根据需要修改搜索引擎列表。
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-如果设置 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 策略，将忽略此策略(ManagedSearchEngines)。用户必须重启浏览器才能完成应用此策略。
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### 支持的功能:
   - 可以为必填字段: 是
@@ -8893,7 +8894,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8901,6 +8901,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8914,6 +8915,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8926,8 +8932,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8940,6 +8944,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8964,6 +8970,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9269,6 +9283,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [返回顶部](#microsoft-edge---策略)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >支持的版本: Windows 和 Mac 上版本 80 或更高版本的 Microsoft Edge
+
+  #### 描述
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### 支持的功能:
+  - 可以为必填字段: 是
+  - 可以推荐: 否
+  - 动态策略刷新: 是
+
+  #### 数据类型:
+  布尔
+
+  #### Windows 信息和设置
+  ##### 组策略(ADMX)信息
+  - GP 唯一名称: PersonalizationReportingEnabled
+  - GP 名称: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - GP 路径 (强制): 管理模板/Microsoft Edge/
+  - GP 路径 (推荐): 不适用
+  - GP ADMX 文件名: MSEdge.admx
+  ##### Windows 注册表设置
+  - 路径 (强制): SOFTWARE\Policies\Microsoft\Edge
+  - 路径 (推荐): 不适用
+  - 值名称: PersonalizationReportingEnabled
+  - 值类型: REG_DWORD
+  ##### 示例值:
+```
+0x00000001
+```
+
+
+  #### Mac 信息和设置
+  - 首选项密钥名称: PersonalizationReportingEnabled
+  - 示例值:
+``` xml
+<true/>
 ```
   
 
