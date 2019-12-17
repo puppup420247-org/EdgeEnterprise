@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -164,7 +164,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Autorise une page à afficher les fenêtres contextuelles pendant son déchargement|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Autoriser les pages à envoyer des demandes XHR synchrones lors de l’opération de rejet de page|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configurer les exceptions de prévention du suivi pour des sites spécifiques|
-|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggérer des pages similaires lorsqu’une page web est introuvable|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Toujours ouvrir les fichiers PDF en externe|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Définir les paramètres régionaux de l'application|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Autoriser ou bloquer la capture audio|
@@ -174,7 +174,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Activer le Remplissage auto pour les cartes de crédit|
 |[AutoplayAllowed](#autoplayallowed)|Autoriser la lecture automatique de média pour les sites web|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Poursuivre l’exécution des applications en arrière-plan après la fermeture de Microsoft Edge|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour Collections et d’autres fonctionnalités qui utilisent des modèles|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Bloquer les cookies tiers|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Activer la création de profil à partir du menu déroulant Identité ou de la page Paramètres|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Activer le mode invité|
@@ -207,7 +207,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Activer les contrôles de protocole OCSP/liste de révocation de certificats en ligne|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Autoriser les extensions managées de manière à utiliser l’API de plateforme de matériel d’entreprise|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Contrôler la communication avec le service d’expérimentation et de configuration|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Activer la barre des favoris|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Appliquer la recherche sécurisée Bing|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Activer l’utilisation des profils éphémères|
@@ -239,6 +239,7 @@ Ces tableaux répertorient toutes les stratégies de groupe liées au navigateur
 |[NetworkPredictionOptions](#networkpredictionoptions)|Activer la prédiction réseau|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configurer si un utilisateur dispose toujours d’un profil par défaut connecté automatiquement avec son compte professionnel ou scolaire|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Contrôler l’application des restrictions de sécurité aux origines non sécurisées|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|Autoriser l’Assistant Épingler à la barre des tâches|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Activer l’authentification proactive|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Autoriser le contenu promotionnel dans des onglets|
@@ -3500,11 +3501,11 @@ Si vous ne configurez pas cette stratégie, les images sont autorisées par déf
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  Vous permet de définir si les utilisateurs peuvent ajouter des exceptions pour autoriser le contenu mixte pour des sites spécifiques.
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+Cette stratégie peut être remplacée pour des modèles d’URL spécifiques à l’aide des stratégies [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) et [InsecureContentBlockedForUrls](#insecurecontentblockedforurls).
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+Si cette stratégie n’est pas définie, les utilisateurs sont autorisés à ajouter des exceptions pour permettre le contenu mixte pouvant être bloqué et désactiver les mises à jour automatiques pour le contenu mixte pouvant facultativement être bloqué.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -3949,9 +3950,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  Vous permet de définir une liste de modèles d’URL spécifiant les sites qui sont autorisés à afficher du contenu mixte pouvant être bloqué (c'est-à-dire actif) (contenu HTTP sur des sites HTTPS) et pour lesquels les mises à jour du contenu mixte pouvant facultativement être bloqué vont être désactivées.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+Si cette stratégie n’est pas définie, le contenu mixte pouvant être bloqué le sera et le contenu mixte pouvant facultativement être bloqué sera mis à jour, et les utilisateurs seront autorisés à définir des exceptions pour l’autoriser pour des sites spécifiques.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -3999,9 +4000,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  Vous permet de définir une liste de modèles d’URL spécifiant les sites qui ne sont pas autorisés à afficher du contenu mixte pouvant être bloqué (c'est-à-dire actif) (contenu HTTP sur des sites HTTPS) et pour lesquels du contenu mixte pouvant facultativement être bloqué (c'est-à-dire passif) va être mis à jour.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+Si cette stratégie n’est pas définie, le contenu mixte pouvant être bloqué le sera et le contenu mixte pouvant facultativement être bloqué sera mis à jour, mais les utilisateurs seront autorisés à définir des exceptions pour l’autoriser pour des sites spécifiques.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -5412,18 +5413,18 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### AlternateErrorPagesEnabled
-  #### Suggest similar pages when a webpage can’t be found
+  #### Suggérer des pages similaires lorsqu’une page web est introuvable
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
 
   #### Description
-  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+  Autorisez Microsoft Edge à émettre une connexion à un service web pour générer des suggestions d’URL et de recherche pour des problèmes de connectivité, tels que des erreurs DNS.
 
-If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+Si vous activez cette stratégie, un service web permet de générer des suggestions d’URL et de recherche pour les erreurs réseau.
 
-If you disable this policy, no calls to the web service are made and a standard error page is shown.
+Si vous désactivez cette stratégie, aucun appel au service web n’est effectué et une page d’erreur standard est affichée.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+Si vous ne configurez pas cette stratégie, Microsoft Edge respecte la préférence de l’utilisateur définie sous Services sur edge://settings/privacy.
+Plus précisément, la présence du bouton bascule **Suggérer des pages similaires lorsqu’une page web est introuvable** permet à l’utilisateur d’activer ou de désactiver cette fonction. Notez que si vous avez activé cette stratégie (AlternateErrorPagesEnabled), le paramètre Suggérer des pages similaires lorsqu’une page web est introuvable est activé, mais l’utilisateur ne peut pas modifier le paramètre à l’aide du bouton bascule. Si vous désactivez cette stratégie, le paramètre Suggérer des pages similaires lorsqu’une page web est introuvable est désactivé et l’utilisateur ne peut pas modifier le paramètre à l’aide du bouton bascule.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -5436,7 +5437,7 @@ Specifically, there's a **Suggest similar pages when a webpage can’t be found*
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: AlternateErrorPagesEnabled
-  - Nom de la stratégie de groupe: Suggest similar pages when a webpage can’t be found
+  - Nom de la stratégie de groupe: Suggérer des pages similaires lorsqu’une page web est introuvable
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): Modèles d’administration/Microsoft Edge - Paramètres par défaut (les utilisateurs peuvent les modifier)/
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -5894,7 +5895,7 @@ Un onglet doit être fermé et rouvert pour que cette stratégie prenne effet.
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates
+  #### Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour Collections et d’autres fonctionnalités qui utilisent des modèles
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 79 ou ultérieure
 
   #### Description
@@ -5915,7 +5916,7 @@ Si vous désactivez ce paramètre, la liste des modèles disponibles est téléc
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: BackgroundTemplateListUpdatesEnabled
-  - Nom de la stratégie de groupe: Enables background updates to the list of available templates for Collections and other features that use templates
+  - Nom de la stratégie de groupe: Active les mises à jour en arrière-plan dans la liste des modèles disponibles pour Collections et d’autres fonctionnalités qui utilisent des modèles
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -7559,7 +7560,7 @@ Si vous ne configurez pas cette stratégie, sur un appareil non géré, le compo
   [Revenir au début](#microsoft-edge---stratégies)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog
+  #### Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 79 ou ultérieure
 
   #### Description
@@ -7580,7 +7581,7 @@ Si vous définissez cette stratégie sur False ou si la stratégie n’est pas d
   #### Informations et paramètres Windows
   ##### Informations sur la stratégie de groupe (ADMX)
   - Nom unique de stratégie de groupe: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Nom de la stratégie de groupe: Show an "Always open" checkbox in external protocol dialog
+  - Nom de la stratégie de groupe: Afficher une case à cocher « Toujours ouvrir » dans la boîte de dialogue de protocole externe
   - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
   - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
   - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
@@ -8861,14 +8862,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 77 ou ultérieure
 
   #### Description
-  Permet de configurer une liste de 10 moteurs de recherche maximum, dont un doit être défini comme moteur de recherche par défaut.
-Vous ne devez pas spécifier l’encodage pour un moteur de recherche.
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-Si cette stratégie est activée, les utilisateurs ne peuvent pas ajouter, supprimer ou modifier un moteur de recherche dans la liste. Les utilisateurs peuvent définir leur moteur de recherche par défaut sur n’importe quel moteur de recherche de la liste.
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-Si vous désactivez ou ne configurez pas cette stratégie, les utilisateurs peuvent modifier la liste des moteurs de recherche en cas de besoin.
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-Si la stratégie [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) est définie, cette stratégie (ManagedSearchEngines) est ignorée. L’utilisateur doit redémarrer son navigateur pour terminer l’application de cette stratégie.
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### Fonctionnalités prises en charge :
   - Peut être obligatoire: Oui
@@ -8894,7 +8895,6 @@ Si la stratégie [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchur
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8902,6 +8902,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8915,6 +8916,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8927,8 +8933,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8941,6 +8945,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8965,6 +8971,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9272,6 +9286,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [Revenir au début](#microsoft-edge---stratégies)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >Versions prises en charge : Microsoft Edge sur Windows et Mac depuis la version 80 ou ultérieure
+
+  #### Description
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### Fonctionnalités prises en charge :
+  - Peut être obligatoire: Oui
+  - Peut être recommandé(e): Non
+  - Actualisation de la stratégie dynamique: Oui
+
+  #### Type de données:
+  Booléen
+
+  #### Informations et paramètres Windows
+  ##### Informations sur la stratégie de groupe (ADMX)
+  - Nom unique de stratégie de groupe: PersonalizationReportingEnabled
+  - Nom de la stratégie de groupe: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - Chemin d'accès à la stratégie de groupe (Obligatoire): Modèles d’administration/Microsoft Edge/
+  - Chemin d'accès à la stratégie de groupe (Recommandé): N/A
+  - Nom du fichier ADMX de stratégie de groupe: MSEdge.admx
+  ##### Paramètres du Registre Windows
+  - Chemin (Obligatoire): SOFTWARE\Policies\Microsoft\Edge
+  - Chemin (Recommandé): N/A
+  - Nom de la valeur: PersonalizationReportingEnabled
+  - Type de la valeur: REG_DWORD
+  ##### Exemple de valeur :
+```
+0x00000001
+```
+
+
+  #### Paramètres et informations Mac
+  - Nom de la clé de préférence: PersonalizationReportingEnabled
+  - Exemple de valeur :
+``` xml
+<true/>
 ```
   
 
