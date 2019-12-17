@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 11/18/2019
+ms.date: 12/10/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -49,6 +49,7 @@ These tables lists all of the browser-related group policies available in this r
 |[DefaultCookiesSetting](#defaultcookiessetting)|Configure cookies|
 |[DefaultGeolocationSetting](#defaultgeolocationsetting)|Default geolocation setting|
 |[DefaultImagesSetting](#defaultimagessetting)|Default images setting|
+|[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Default JavaScript setting|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Default notification setting|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Default Adobe Flash setting|
@@ -57,6 +58,8 @@ These tables lists all of the browser-related group policies available in this r
 |[DefaultWebUsbGuardSetting](#defaultwebusbguardsetting)|Control use of the WebUSB API|
 |[ImagesAllowedForUrls](#imagesallowedforurls)|Allow images on these sites|
 |[ImagesBlockedForUrls](#imagesblockedforurls)|Block images on specific sites|
+|[InsecureContentAllowedForUrls](#insecurecontentallowedforurls)|Allow insecure content on specified sites|
+|[InsecureContentBlockedForUrls](#insecurecontentblockedforurls)|Block insecure content on specified sites|
 |[JavaScriptAllowedForUrls](#javascriptallowedforurls)|Allow JavaScript on specific sites|
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Block JavaScript on specific sites|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting|
@@ -161,6 +164,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Allow or block audio capture|
@@ -170,7 +174,7 @@ These tables lists all of the browser-related group policies available in this r
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
 |[AutoplayAllowed](#autoplayallowed)|Allow media autoplay for websites|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates.|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Enable guest mode|
@@ -203,7 +207,7 @@ These tables lists all of the browser-related group policies available in this r
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Control communication with the Experimentation and Configuration Service|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog.|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Enable favorites bar|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
@@ -225,8 +229,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ImportSearchEngine](#importsearchengine)|Allow importing of search engine settings|
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configure Internet Explorer integration|
-|[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configure the Enterprise Mode Site List|
-|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages|
+|[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configure the Enterprise Mode Site List|											   
 |[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
 |[ManagedFavorites](#managedfavorites)|Configure favorites|
 |[ManagedSearchEngines](#managedsearchengines)|Manage Search Engines|
@@ -274,8 +277,10 @@ These tables lists all of the browser-related group policies available in this r
 |[VideoCaptureAllowed](#videocaptureallowed)|Allow or block video capture|
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sites that can access video capture devices without requesting permission|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Set WPAD optimization|
+|[WebAppInstallForceList](#webappinstallforcelist)|Configure list of force-installed Web Apps|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of localhost IP address by WebRTC|
+|[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
 
 
@@ -770,6 +775,53 @@ If you don't configure this policy, images are allowed by default, and the user 
 
   [Back to top](#microsoft-edge---policies)
 
+  ### DefaultInsecureContentSetting
+  #### Control use of insecure content exceptions
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+
+This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+
+If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: DefaultInsecureContentSetting
+  - GP name: Control use of insecure content exceptions
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DefaultInsecureContentSetting
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000002
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: DefaultInsecureContentSetting
+  - Example value:
+``` xml
+<integer>2</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### DefaultJavaScriptSetting
   #### Default JavaScript setting
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -1166,6 +1218,106 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### InsecureContentAllowedForUrls
+  #### Allow insecure content on specified sites
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: InsecureContentAllowedForUrls
+  - GP name: Allow insecure content on specified sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: InsecureContentAllowedForUrls
+  - Example value:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### InsecureContentBlockedForUrls
+  #### Block insecure content on specified sites
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+
+If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: InsecureContentBlockedForUrls
+  - GP name: Block insecure content on specified sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\0 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\InsecureContentBlockedForUrls\1 = "[*.]example.edu"
+
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: InsecureContentBlockedForUrls
+  - Example value:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
 </array>
 ```
   
@@ -5258,6 +5410,56 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AlternateErrorPagesEnabled
+  #### Suggest similar pages when a webpage can’t be found
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+
+If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+
+If you disable this policy, no calls to the web service are made and a standard error page is shown.
+
+If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
+Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AlternateErrorPagesEnabled
+  - GP name: Suggest similar pages when a webpage can’t be found
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: AlternateErrorPagesEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AlternateErrorPagesEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### AlwaysOpenPdfExternally
   #### Always open PDF files externally
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -5692,7 +5894,7 @@ If you don't configure this policy, background mode is initially turned off, and
   [Back to top](#microsoft-edge---policies)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates.
+  #### Enables background updates to the list of available templates for Collections and other features that use templates
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
@@ -5713,7 +5915,7 @@ If you disable this setting the list of available templates will be downloaded o
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: BackgroundTemplateListUpdatesEnabled
-  - GP name: Enables background updates to the list of available templates for Collections and other features that use templates.
+  - GP name: Enables background updates to the list of available templates for Collections and other features that use templates
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -5990,6 +6192,8 @@ If you don't configure this policy users can decide if they want to enable the b
 
   #### Description
   Controls whether to use the built-in DNS client.
+
+This does not affect which DNS servers are used; just the software stack which is used to communicate with them. For example if the operating system is configured to use an enterprise DNS server, that same server would be used by the built-in DNS client. It is however possible that the built-in DNS client will address servers in different ways by using more modern DNS-related protocols such as DNS-over-TLS.
 
 If you enable this policy, the built-in DNS client is used, if it's available.
 
@@ -6295,7 +6499,7 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 
 
  
-	
+ 
 
  
    
@@ -6906,6 +7110,10 @@ If you enable this policy, Microsoft Edge uses the provided directory regardless
 
 If you disable or don't configure this policy, the default download directory is used, and the user can change it.
 
+If you set an invalid path, Microsoft Edge will default to the user's default download directory.
+
+If the folder specified by the path doesn't exist, the download will trigger a prompt that asks the user where they want to save their download.
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: Yes
@@ -6928,7 +7136,9 @@ If you disable or don't configure this policy, the default download directory is
   - Value Type: REG_SZ
   ##### Example value:
 ```
-"/home/${user_name}/Downloads"
+"
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads"
 ```
 
 
@@ -6936,7 +7146,9 @@ If you disable or don't configure this policy, the default download directory is
   - Preference Key Name: DownloadDirectory
   - Example value:
 ``` xml
-<string>/home/${user_name}/Downloads</string>
+<string>
+      Linux-based OSes (including Mac): /home/${user_name}/Downloads
+      Windows: C:\Users\${user_name}\Downloads</string>
 ```
   
 
@@ -7358,7 +7570,7 @@ If you don't configure this policy, on an unmanaged device the behavior is the s
   [Back to top](#microsoft-edge---policies)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog.
+  #### Show an "Always open" checkbox in external protocol dialog
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
@@ -7379,7 +7591,7 @@ If you set this policy to False, or the policy is unset, the "Always open" check
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP name: Show an "Always open" checkbox in external protocol dialog.
+  - GP name: Show an "Always open" checkbox in external protocol dialog
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -8497,58 +8709,58 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 
   [Back to top](#microsoft-edge---policies)
 
-  ### InternetExplorerIntegrationSiteRedirect
-  #### Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
-  >Supported Versions: Microsoft Edge on Windows since version 79 or later
+			
+							 
+					
 
-  #### Description
-  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+	  
+																									
 
-This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+															 
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+			
+						   
+   
+							   
 
-If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+														  
 
-If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+					  
+												 
+															
+											   
 
-To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+									  
 
-  #### Supported features:
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: No - Requires browser restart
+		
+	   
+		
+			   
 
-  #### Data Type:
-  Integer
+	 
+   
 
-  #### Windows information and settings
-  ##### Group Policy (ADMX) info
-  - GP unique name: InternetExplorerIntegrationSiteRedirect
-  - GP name: Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-  ##### Windows Registry Settings
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: InternetExplorerIntegrationSiteRedirect
-  - Value Type: REG_DWORD
-  ##### Example value:
-```
-0x00000000
-```
+			
+		
+				 
+								
+				 
+		 
+		  
+		 
+			   
+		 
+				
+	   
+	   
+   
+	
+   
 
 
   
 
-  [Back to top](#microsoft-edge---policies)
+			 
 
   ### IsolateOrigins
   #### Enable site isolation for specific origins
@@ -9035,13 +9247,13 @@ If you don't configure this policy, network prediction is enabled but the user c
   >Supported Versions: Microsoft Edge on Windows since version 78 or later
 
   #### Description
-  This policy determines if the Microsoft Edge profile automatically signed in with a user's work or school account is removable.
+  This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.
 
-If you enable or don't configure this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
+If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed.
 
-When you disable this policy, the profile automatically signed in with a user's work or school account from Windows can be signed out or removed by the user.
+If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.
 
-If you want to completely disable browser sign in, use the 'BrowserSignIn' policy.
+If you want to configure browser sign in, use the [BrowserSignin](#browsersignin) policy.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -9424,11 +9636,11 @@ The user's session is restored when the browser restarts.
   #### Description
   Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-																																																																																																																  
+		  
 
-																							
+		
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the RelaunchNotification policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
 
 If not set, the default period of 604800000 milliseconds (one week) is used.
 
@@ -10319,6 +10531,8 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
   #### Description
   Suppresses the warning that appears when Microsoft Edge is running on a computer or operating system that is no longer supported.
 
+If this policy is disabled or not configured, the warnings will appear on such unsupported computers or operating systems.
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -10434,7 +10648,7 @@ If you enable or don't configure this policy, tabs that have been in the backgro
 
 If you disable this policy, no tabs will be frozen.
   
-	
+ 
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10994,16 +11208,96 @@ Independent of whether or how this policy is enabled, the WPAD optimization sett
 
   [Back to top](#microsoft-edge---policies)
 
+  ### WebAppInstallForceList
+  #### Configure list of force-installed Web Apps
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Specifies a list of websites that are installed silently, without user interaction, and which can't be uninstalled or disabled by the user.
+
+Each list item of the policy is an object with the following members:
+  - "url", which is mandatory. "url" should be the URL of the web app to install.
+
+Values for the optional members are:
+  - "launch_container" should be either "window" or "tab" to indicate how the Web App will be opened after it's installed.
+  - "create_desktop_shortcut" should be true if a desktop shortcut should be created on Windows.
+
+If "default_launch_container" is omitted, the app will open in a tab by default. Regardless of the value of "default_launch_container", users can change which container the app will open in. If "create_desktop_shortcuts" is omitted, no desktop shortcuts will be created.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Dictionary
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: WebAppInstallForceList
+  - GP name: Configure list of force-installed Web Apps
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: WebAppInstallForceList
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
+  {
+    "create_desktop_shortcut": true, 
+    "default_launch_container": "window", 
+    "url": "https://www.contoso.com/maps"
+  }, 
+  {
+    "default_launch_container": "tab", 
+    "url": "https://app.contoso.edu"
+  }
+]
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: WebAppInstallForceList
+  - Example value:
+``` xml
+<key>WebAppInstallForceList</key>
+<array>
+  <dict>
+    <key>create_desktop_shortcut</key>
+    <true/>
+    <key>default_launch_container</key>
+    <string>window</string>
+    <key>url</key>
+    <string>https://www.contoso.com/maps</string>
+  </dict>
+  <dict>
+    <key>default_launch_container</key>
+    <string>tab</string>
+    <key>url</key>
+    <string>https://app.contoso.edu</string>
+  </dict>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### WebDriverOverridesIncompatiblePolicies
   #### Allow WebDriver to Override Incompatible Policies
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
+  
 This policy allows users of the WebDriver feature to override policies which can interfere with its operation. Currently this policy disables [SitePerProcess](#siteperprocess) and [IsolateOrigins](#isolateorigins) policies.
 												
 If you enable this policy, WebDriver can be configured to override incompatible policies.												
-
+															 
 If you disable this policy or don't configure it, WebDriver can't be configured to override incompatible policies.
+											
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -11041,23 +11335,79 @@ If you disable this policy or don't configure it, WebDriver can't be configured 
 
   [Back to top](#microsoft-edge---policies)
 
+  ### WebRtcLocalIpsAllowedUrls
+  #### Manage exposure of local IP addressess by WebRTC
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Specifies a list of origins (URLs) or hostname patterns (like "*contoso.com*") for which local IP address should be exposed by WebRTC.
+
+If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.
+
+If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.
+
+If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.
+
+Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: WebRtcLocalIpsAllowedUrls
+  - GP name: Manage exposure of local IP addressess by WebRTC
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\0 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "*contoso.com*"
+
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: WebRtcLocalIpsAllowedUrls
+  - Example value:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>*contoso.com*</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### WebRtcLocalhostIpHandling
-  #### Restrict exposure of localhost IP address by WebRTC
+  #### Restrict exposure of local IP address by WebRTC
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Allows you to set whether or not WebRTC exposes the user's localhost IP address.
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
 
-If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the localhost IP address.
+If you set this policy to "AllowAllInterfaces" ('default') or "AllowPublicAndPrivateInterfaces" ('default_public_and_private_interfaces'), WebRTC exposes the local IP address.
 
-If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the localhost IP address.
+If you set this policy to "AllowPublicInterfaceOnly" ('default_public_interface_only') or "DisableNonProxiedUdp" ('disable_non_proxied_udp'), WebRTC doesn't expose the local IP address.
 
-If you don't set this policy, or if you disable it, WebRTC exposes the localhost IP address.
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
 
-  * 'default' = Allow all interfaces. This exposes the localhost IP address.
-  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the localhost IP address.
-  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the localhost IP address.
-  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the localhost IP address.
+  * 'default' = Allow all interfaces. This exposes the local IP address.
+  * 'default_public_and_private_interfaces' = Allow public and private interfaces over http default route. This exposes the local IP address.
+  * 'default_public_interface_only' = Allow public interface over http default route. This doesn't expose the local IP address.
+  * 'disable_non_proxied_udp' = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -11070,7 +11420,7 @@ If you don't set this policy, or if you disable it, WebRTC exposes the localhost
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: WebRtcLocalhostIpHandling
-  - GP name: Restrict exposure of localhost IP address by WebRTC
+  - GP name: Restrict exposure of local IP address by WebRTC
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
