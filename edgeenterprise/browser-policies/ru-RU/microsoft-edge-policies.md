@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -164,7 +164,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Позволяет странице отображать всплывающие окна во время ее выгрузки|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Разрешить отправку синхронных запросов XHR при закрытии страницы|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Настроить исключения из блокировки отслеживания для определенных сайтов|
-|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Предлагать похожие страницы, если не удается найти страницу|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Всегда открывать PDF-файлы извне|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Настроить язык приложения|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Разрешить или запретить запись звука|
@@ -174,7 +174,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Включить автозаполнение для кредитных карт|
 |[AutoplayAllowed](#autoplayallowed)|Разрешить автозапуск мультимедиа для веб-сайтов|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Разрешить фоновым приложениям продолжать работу после закрытия Microsoft Edge|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Блокировать сторонние файлы cookie|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Разрешить создание профиля во всплывающем меню "Удостоверение" или на странице "Параметры"|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Включить режим гостя|
@@ -207,7 +207,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Включить проверки OCSP/CRL в сети|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Разрешить управляемым расширениям использовать API платформы оборудования предприятия|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Управление связью со службой "Эксперименты и конфигурация"|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Включить панель "Избранное"|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Принудительно применить функцию "Безопасный поиск Bing"|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Разрешить использование временных профилей|
@@ -239,6 +239,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|Включить прогнозирование сети|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Настройка постоянного автоматического входа пользователя в стандартный профиль на основе рабочей или учебной учетной записи|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Управление применением ограничений доступа к небезопасным источникам|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|Разрешить использование мастера закрепления на панели задач|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Включить упреждающую проверку подлинности|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Включить отображение полноширинной вкладки с рекламным содержимым|
@@ -1885,11 +1886,11 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  Эта политика позволяет разрешить или запретить пользователям добавлять исключения, разрешающие использование смешанного содержимого на определенных сайтах.
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+Эта политика может быть переопределена конкретными шаблонами URL-адресов при использовании политик [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) и [InsecureContentBlockedForUrls](#insecurecontentblockedforurls).
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+Если оставить эту политику ненастроенной, пользователи смогут добавлять исключения, чтобы разрешить использование блокируемого смешанного содержимого и запретить автоматическое обновление смешанного содержимого, блокируемого по необходимости.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2334,9 +2335,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  Эта политика позволяет задать список шаблонов URL-адресов, чтобы указать сайты, которым разрешено отображать блокируемое (т. е. активное) смешанное содержимое (т. е. содержимое HTTP на сайтах HTTPS) и для которых запрещено обновление смешанного содержимого, блокируемого по необходимости.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+Если оставить эту политику ненастроенной, блокируемое смешанное содержимое будет блокироваться, смешанное содержимое, блокируемое по необходимости, будет обновляться и пользователи смогут устанавливать исключения, чтобы разрешить эти действия для определенных сайтов.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -2384,9 +2385,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  Эта политика позволяет задать список шаблонов URL-адресов, чтобы указать сайты, которым запрещено отображать блокируемое (т. е. активное) смешанное содержимое (т. е. содержимое HTTP на сайтах HTTPS) и для которых разрешено обновление смешанного содержимого, блокируемого по необходимости (т. е. пассивного).
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+Если оставить эту политику ненастроенной, блокируемое смешанное содержимое будет блокироваться, смешанное содержимое, блокируемое по необходимости, будет обновляться и пользователи смогут устанавливать исключения, чтобы разрешить эти действия для определенных сайтов.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -5410,18 +5411,18 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   [В начало](#microsoft-edge:-политики)
 
   ### AlternateErrorPagesEnabled
-  #### Suggest similar pages when a webpage can’t be found
+  #### Предлагать похожие страницы, если не удается найти страницу
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
 
   #### Описание
-  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+  Подключение Microsoft Edge к веб-службе для создания URL-адреса и поиска вариантов решения проблем совместимости, например ошибок DNS.
 
-If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+Если этот параметр политики включен, веб-служба используется для создания URL-адреса и поиска вариантов решения ошибок сети.
 
-If you disable this policy, no calls to the web service are made and a standard error page is shown.
+Если этот параметр политики отключен, вызовы к веб-службе не выполняются и отображается стандартная страница ошибки.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+Если не настроить этот параметр политики, Microsoft Edge использует настройки пользователя, установленные в разделе "Службы" по адресу edge://settings/privacy.
+А именно: в этом разделе есть переключатель **Предлагать похожие страницы, если не удается найти страницу**, который пользователь может включить или отключить. Обратите внимание, что если этот параметр политики включен (AlternateErrorPagesEnabled), параметр "Предлагать похожие страницы, если не удается найти страницу" будет включен, но пользователь не сможет изменить этот параметр с помощью данного переключателя. Если отключить этот параметр политики, параметр "Предлагать похожие страницы, если не удается найти страницу" будет отключен, и пользователь не сможет изменить этот параметр с помощью данного переключателя.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -5434,7 +5435,7 @@ Specifically, there's a **Suggest similar pages when a webpage can’t be found*
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: AlternateErrorPagesEnabled
-  - Имя групповой политики: Suggest similar pages when a webpage can’t be found
+  - Имя групповой политики: Предлагать похожие страницы, если не удается найти страницу
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Административные шаблоны/Microsoft Edge - Параметры по умолчанию (пользователи могут переопределять)/
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -5892,7 +5893,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   [В начало](#microsoft-edge:-политики)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates
+  #### Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
@@ -5913,7 +5914,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: BackgroundTemplateListUpdatesEnabled
-  - Имя групповой политики: Enables background updates to the list of available templates for Collections and other features that use templates
+  - Имя групповой политики: Включение фонового обновления списка доступных шаблонов для коллекций и других функций, использующих шаблоны
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -7557,7 +7558,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   [В начало](#microsoft-edge:-политики)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog
+  #### Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 79 или более поздней версии
 
   #### Описание
@@ -7578,7 +7579,7 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\0 = "Exampl
   #### Параметры и сведения Windows
   ##### Сведения о групповой политике (ADMX)
   - Уникальное имя групповой политики: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Имя групповой политики: Show an "Always open" checkbox in external protocol dialog
+  - Имя групповой политики: Отображать флажок "Всегда открывать" в диалоговом окне внешнего протокола
   - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
   - Путь групповой политики (Рекомендовано): Н/Д
   - Имя файла групповой политики ADMX: MSEdge.admx
@@ -8859,14 +8860,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 77 или более поздней версии
 
   #### Описание
-  Позволяет настроить список поисковых систем (до 10 систем), одна из которых должна быть отмечена как поисковая система по умолчанию.
-Нет необходимости указывать кодировку для поисковой системы.
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-Если включить этот параметр политики, пользователи не смогут добавлять, удалять или изменять поисковые системы в списке. Пользователи смогут выбрать поисковой системой по умолчанию любую поисковую систему в списке.
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-Если отключить или не настроить этот параметр политики, пользователи смогут изменить список поисковых систем по своему усмотрению.
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-Если задана политика [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl), эта политика (ManagedSearchEngines) будет игнорироваться. Пользователь должен перезапустить браузер, чтобы завершить применение этой политики.
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### Поддерживаемые функции:
   - Может быть обязательной: Да
@@ -8892,7 +8893,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8900,6 +8900,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8913,6 +8914,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8925,8 +8931,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8939,6 +8943,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8963,6 +8969,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9268,6 +9282,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с 80 или более поздней версии
+
+  #### Описание
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Да
+
+  #### Тип данных:
+  Логическое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: PersonalizationReportingEnabled
+  - Имя групповой политики: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: PersonalizationReportingEnabled
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000001
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: PersonalizationReportingEnabled
+  - Пример значения:
+``` xml
+<true/>
 ```
   
 
