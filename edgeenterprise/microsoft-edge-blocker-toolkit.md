@@ -3,7 +3,7 @@ title: "Blocker Toolkit to disable automatic delivery of Microsoft Edge"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 12/11/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,9 +21,9 @@ This article describes the Blocker Toolkit for disabling automatic delivery and 
 
 ## Overview
 
-To help our customers become more secure and up-to-date, Microsoft will distribute Microsoft Edge (Chromium-based) through Automatic Updates for Windows 10 RS4 and newer. The Blocker Toolkit is intended for organizations that would like to block automatic delivery of Microsoft Edge (Chromium-based) to machines in environments where Automatic Updates is enabled. The Blocker Toolkit will not expire.
+To help our customers become more secure and up-to-date, Microsoft will distribute Microsoft Edge (Chromium-based) through Automatic Updates for Windows 10 version 1803 and newer. The Blocker Toolkit is intended for organizations that would like to block automatic delivery of Microsoft Edge (Chromium-based) to machines in environments where Automatic Updates is enabled. The Blocker Toolkit will not expire.
 
-- For computers running Windows 10 RS4 and newer, the Blocker Toolkit prevents the machine from receiving Microsoft Edge (Chromium-based) via Automatic Updates.
+- For computers running Windows 10 version 1803 and newer, the Blocker Toolkit prevents the machine from receiving Microsoft Edge (Chromium-based) via Automatic Updates.
 - The Blocker Toolkit will not prevent users from manually installing Microsoft Edge (Chromium-based) from internet download, or from external media.
 - Organizations do not need to deploy the Blocker Toolkit in environments managed with an update management solution such as Windows Server Update Services or System Center Configuration Manager. Organizations can use those products to fully manage deployment of updates released through Windows Update and Microsoft Update, including Microsoft Edge (Chromium-based), within their environment.
 
@@ -38,7 +38,7 @@ This toolkit contains the following components:
 
 ### Supported Operating Systems
 
-Windows 10 RS4 and newer.
+Windows 10 version 1803 and newer.
 
 ## Blocker script
 
@@ -74,7 +74,7 @@ Switches used by the script are mutually exclusive and only the first valid swit
 
 The Group Policy Administrative Template (.ADMX + .ADML files) allows administrators to import the new Group Policy settings to block or unblock automatic delivery of Microsoft Edge (Chromium-based) into their Group Policy environment, and use Group Policy to centrally execute the action across systems in their environment.
 
-Users running Windows 10 RS4 and newer, will see the policy under the following path:
+Users running Windows 10 version 1803 and newer, will see the policy under the following path:
 
 ```
 /Computer Configuration  
