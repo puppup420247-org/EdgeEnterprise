@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -164,7 +164,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|允許在網頁卸載時顯示快顯視窗|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|允許頁面在頁面關閉期間發送同步 XHR 請求|
 |[AllowTrackingForUrls](#allowtrackingforurls)|設定特定網站的追蹤防止例外狀況|
-|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|找不到網頁時，建議類似的網頁|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|一律開啟外部 PDF 檔案|
 |[ApplicationLocaleValue](#applicationlocalevalue)|設定應用程式地區設定|
 |[AudioCaptureAllowed](#audiocaptureallowed)|允許或封鎖音訊擷取|
@@ -174,7 +174,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|啟用信用卡「自動填滿」功能|
 |[AutoplayAllowed](#autoplayallowed)|允許網站自動播放媒體|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|在 Microsoft Edge 關閉後繼續執行背景應用程式|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|對 [集合] 可用的範本清單和其他使用範本的功能啟用背景更新|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|封鎖第三方 Cookie|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|啟用從 [身分識別] 飛出視窗功能表或 [設定] 頁面建立設定檔|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|啟用來賓模式|
@@ -207,7 +207,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|啟用線上 OCSP/CRL 檢查|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|允許受管理的擴充程式使用企業硬體平台 API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|透過 [實驗] 和 [設定服務] 控制通訊|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|在外部通訊協定對話方塊中顯示「一律開啟」核取方塊|
 |[FavoritesBarEnabled](#favoritesbarenabled)|啟用 [我的最愛] 列|
 |[ForceBingSafeSearch](#forcebingsafesearch)|強制執行 Bing 安全搜尋|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|啟用使用暫時設定檔|
@@ -239,6 +239,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[NetworkPredictionOptions](#networkpredictionoptions)|啟用網路預測|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|設定使用者是否一律擁有其公司或學校帳戶自動登入的預設設定檔|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|控制不安全來源中安全性限制套用的地方|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|允許 [釘選到工作列精靈]|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|啟用主動式驗證|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|啟用全分頁促銷內容|
@@ -1706,11 +1707,11 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  允許您設定使用者是否可以新增例外狀況，允許特定網站的混合內容。
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+	使用 [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) 和 [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) 原則的特定 URL 模式可能會覆寫此原則。
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+如果此原則未設定，使用者將不允許新增例外以允許可封鎖的混合內容。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2155,9 +2156,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  允許您設定 url 模式的清單，指定哪些網站可以顯示可封鎖 (例如主動) 混合式內容 (例如 HTTPS 網站上的 HTTP 內容)，並且選擇性可封鎖混合式內容的網站將會停用。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+如果未設定此原則，可封鎖混合式內容將會遭到封鎖，而且選擇性可封鎖混合式內容將會升級，但使用者可以在特定的網站上設定例外狀況，允許特定網站使用。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -2205,9 +2206,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  允許您設定 url 模式的清單，指定哪些網站不能顯示可封鎖 (例如主動) 混合式內容 (例如 HTTPS 網站上的 HTTP 內容)，並且選擇性可封鎖 (例如被動) 混合式內容的網站將會升級。
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+如果未設定此原則，可封鎖混合式內容將會遭到封鎖，而且選擇性可封鎖混合式內容將會升級，但使用者可以在特定的網站上設定例外狀況，允許特定網站使用。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -5408,18 +5409,18 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   [回到頂端](#microsoft-edge---原則)
 
   ### AlternateErrorPagesEnabled
-  #### Suggest similar pages when a webpage can’t be found
+  #### 找不到網頁時，建議類似的網頁
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
 
   #### 描述
-  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+  允許 Microsoft Edge 發出與 Web 服務的連線，以產生 URL 和連線問題 (如 DNS 錯誤) 的搜尋建議。
 
-If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+如果啟用此原則，則將使用 Web 服務來產生 URL 和網路錯誤的搜尋建議。
 
-If you disable this policy, no calls to the web service are made and a standard error page is shown.
+如果停用此原則，則不會呼叫該 Web 服務，且會顯示標準錯誤頁面。
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+如果未設定此原則，則 Microsoft Edge 會遵循在 edge://settings/privacy 的 [服務] 項目下，所設定的使用者偏好設定。
+具體而言，設定中會出現 **找不到網站時，建議類似的網站** 切換按鈕，使用者可以將其開啟或關閉。請注意，如果啟用此原則 (AlternateErrorPagesEnabled)，則會開啟 [找不到網站時，建議類似的網站] 設定，但使用者無法使用切換按鈕變更設定。如果停用此原則，則 [找不到網站時，建議類似的網站] 設定將會關閉，且使用者無法使用切換按鈕變更設定。
 
   #### 支援功能:
   - 可以是強制: 是
@@ -5432,7 +5433,7 @@ Specifically, there's a **Suggest similar pages when a webpage can’t be found*
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: AlternateErrorPagesEnabled
-  - GP 名稱: Suggest similar pages when a webpage can’t be found
+  - GP 名稱: 找不到網頁時，建議類似的網頁
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): 系統管理範本/Microsoft Edge - 預設設定 (使用者可以覆寫)/
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -5890,7 +5891,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   [回到頂端](#microsoft-edge---原則)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates
+  #### 對 [集合] 可用的範本清單和其他使用範本的功能啟用背景更新
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
@@ -5911,7 +5912,7 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: BackgroundTemplateListUpdatesEnabled
-  - GP 名稱: Enables background updates to the list of available templates for Collections and other features that use templates
+  - GP 名稱: 對 [集合] 可用的範本清單和其他使用範本的功能啟用背景更新
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -7556,7 +7557,7 @@ Microsoft 會基於相容性原因，保留特定網域中的動作清單。例�
   [回到頂端](#microsoft-edge---原則)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog
+  #### 在外部通訊協定對話方塊中顯示「一律開啟」核取方塊
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (79 版或更新版本)
 
   #### 描述
@@ -7577,7 +7578,7 @@ Microsoft 會基於相容性原因，保留特定網域中的動作清單。例�
   #### Windows 資訊和設定
   ##### 群組原則 (ADMX) 資訊
   - GP 唯一名稱: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - GP 名稱: Show an "Always open" checkbox in external protocol dialog
+  - GP 名稱: 在外部通訊協定對話方塊中顯示「一律開啟」核取方塊
   - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
   - GP 路徑 (推薦項目): N/A
   - GP ADMX 檔案名稱: MSEdge.admx
@@ -8858,14 +8859,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >支援的版本: Windows 與 Mac 上的 Microsoft Edge (77 版或更新版本)
 
   #### 描述
-  可讓您設定最多 10 個的搜尋引擎清單，其中一個必須標記為預設搜尋引擎。
-您無需指定任何搜尋引擎編碼。
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-如果啟用此原則，則使用者無法新增、移除或變更清單中的任何搜尋引擎。使用者可將清單中的任一搜尋引擎設為預設搜尋引擎。
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-如果停用或未設定此原則，則使用者可視需要修改搜尋引擎清單。
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-如果設定了 [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 原則，則會忽略此原則 (ManagedSearchEngines)。使用者必須重新啟動瀏覽器才能成功套用此原則。
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### 支援功能:
   - 可以是強制: 是
@@ -8891,7 +8892,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8899,6 +8899,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8912,6 +8913,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8924,8 +8930,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8938,6 +8942,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8962,6 +8968,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9267,6 +9281,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [回到頂端](#microsoft-edge---原則)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >支援的版本: Windows 與 Mac 上的 Microsoft Edge (80 版或更新版本)
+
+  #### 描述
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### 支援功能:
+  - 可以是強制: 是
+  - 可以建議: 否
+  - 動態原則重新整理: 是
+
+  #### 資料類型:
+  布林值
+
+  #### Windows 資訊和設定
+  ##### 群組原則 (ADMX) 資訊
+  - GP 唯一名稱: PersonalizationReportingEnabled
+  - GP 名稱: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - GP 路徑 (強制): 系統管理範本/Microsoft Edge/
+  - GP 路徑 (推薦項目): N/A
+  - GP ADMX 檔案名稱: MSEdge.admx
+  ##### Windows 登錄設定
+  - 路徑 (強制): SOFTWARE\Policies\Microsoft\Edge
+  - 路徑 (推薦項目): N/A
+  - 值名稱: PersonalizationReportingEnabled
+  - 數值類型: REG_DWORD
+  ##### 範例值:
+```
+0x00000001
+```
+
+
+  #### Mac 資訊和設定
+  - 喜好設定金鑰名稱: PersonalizationReportingEnabled
+  - 範例值:
+``` xml
+<true/>
 ```
   
 
