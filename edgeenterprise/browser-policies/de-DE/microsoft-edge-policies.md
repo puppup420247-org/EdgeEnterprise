@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -164,7 +164,7 @@ In diesen Tabellen werden alle browserbezogenen Gruppenrichtlinien aufgelistet, 
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Erlaubt einer Seite, Popups während des Entladens zu zeigen|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Zulassen, dass Seiten beim Schließen synchrone XHR-Anforderungen senden|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Konfigurieren von Ausnahmen für die Tracking-Verhinderung für bestimmte Sites|
-|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
+|[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|PDF-Dateien immer extern öffnen|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Anwendungsgebietsschema festlegen|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Audioaufnahme zulassen oder blockieren|
@@ -174,7 +174,7 @@ In diesen Tabellen werden alle browserbezogenen Gruppenrichtlinien aufgelistet, 
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|AutoAusfüllen für Kreditkarten aktivieren|
 |[AutoplayAllowed](#autoplayallowed)|Automatische Medienwiedergabe für Websites zulassen|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Ausführen von Hintergrund-Apps fortsetzen, nachdem Microsoft Edge geschlossen wurde|
-|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates|
+|[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Ermöglicht für Sammlungen und andere Features, die Vorlagen verwenden, die Aktualisierung der Liste verfügbarer Vorlagen im Hintergrund.|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Cookies von Drittanbietern blockieren|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Profilerstellung über das Flyout-Menü „Identität” oder die Seite „Einstellungen” aktivieren|
 |[BrowserGuestModeEnabled](#browserguestmodeenabled)|Gastmodus aktivieren|
@@ -207,7 +207,7 @@ In diesen Tabellen werden alle browserbezogenen Gruppenrichtlinien aufgelistet, 
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Onlineprüfungen für OCSP/Sperrlisten aktivieren|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Ermöglichen der Verwendung der Enterprise Hardware Platform-API durch verwaltete Erweiterungen|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Steuern der Kommunikation mit dem Experimentier- und Konfigurationsdienst|
-|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
+|[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Kontrollkästchen „Immer geöffnet“ im Dialogfeld für externe Protokolle anzeigen|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Favoritenleiste aktivieren|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Bing SafeSearch erzwingen|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Verwendung von kurzlebigen Profilen aktivieren|
@@ -239,6 +239,7 @@ In diesen Tabellen werden alle browserbezogenen Gruppenrichtlinien aufgelistet, 
 |[NetworkPredictionOptions](#networkpredictionoptions)|Netzwerkvorhersage aktivieren|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Konfigurieren, ob für einen Benutzer beim Anmelden mit dem Geschäfts-, Schul-oder Unikonto immer automatisch ein Standardprofil vorhanden ist.|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Steuert, wo Sicherheitseinschränkungen für unsichere Ursprünge gelten|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|Assistent für das Anheften an die Taskleiste zulassen|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Proaktive Authentifizierung aktivieren|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|Tabfüllende Werbeinhalte ermöglichen|
@@ -1821,11 +1822,11 @@ Falls Sie diese Richtlinie nicht konfigurieren, sind Bilder standardmäßig erla
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 80 oder höher
 
   #### Beschreibung
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  Ermöglicht Ihnen das Festlegen, ob Benutzer Ausnahmen hinzufügen können, um gemischte Inhalte für bestimmte Websites zuzulassen.
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+Diese Richtlinie kann für bestimmte URL-Muster mit den Richtlinien [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) und [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) außer Kraft gesetzt werden.
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+Wenn diese Richtlinie nicht festgelegt ist, können Benutzer Ausnahmen hinzufügen, um blockierbare gemischte Inhalte zuzulassen, und automatische Upgrades für optional blockierbare gemischte Inhalte deaktivieren.
 
   #### Unterstützte Features:
   - Kann zwingend sein: Ja
@@ -2270,9 +2271,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 80 oder höher
 
   #### Beschreibung
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  Ermöglicht Ihnen das Festlegen einer Liste mit URL-Mustern zum Angeben von Websites, für die die Anzeige von blockierbaren (d. h. aktiven) gemischten Inhalten (d. h. HTTP-Inhalte auf HTTPS-Websites) zulässig ist und für die Upgrades für optional blockierbare gemischte Inhalte deaktiviert sind.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+Wenn diese Richtlinie nicht festgelegt ist, werden blockierbare gemischte Inhalte blockiert, und für optional blockierbare gemischte Inhalte wird ein Upgrade durchgeführt. Benutzer haben die Möglichkeit, Ausnahmen zur Zulassung für bestimmte Websites festzulegen.
 
   #### Unterstützte Features:
   - Kann zwingend sein: Ja
@@ -2320,9 +2321,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 80 oder höher
 
   #### Beschreibung
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  Ermöglicht Ihnen das Festlegen einer Liste mit URL-Mustern zum Angeben von Websites, für die die Anzeige von blockierbaren (d. h. aktiven) gemischten Inhalten (d. h. HTTP-Inhalte auf HTTPS-Websites) nicht zulässig ist und für die für optional blockierbare (d. h. passive) gemischte Inhalte ein Upgrade durchgeführt wird.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+Wenn diese Richtlinie nicht festgelegt ist, werden blockierbare gemischte Inhalte blockiert, und für optional blockierbare gemischte Inhalte wird ein Upgrade durchgeführt. Benutzer haben aber die Möglichkeit, Ausnahmen zur Zulassung für bestimmte Websites festzulegen.
 
   #### Unterstützte Features:
   - Kann zwingend sein: Ja
@@ -5409,18 +5410,18 @@ SOFTWARE\Policies\Microsoft\Edge\AllowTrackingForUrls\1 = "[*.]contoso.edu"
   [Zurück nach oben](#microsoft-edge-–-richtlinien)
 
   ### AlternateErrorPagesEnabled
-  #### Suggest similar pages when a webpage can’t be found
+  #### Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 80 oder höher
 
   #### Beschreibung
-  Allow Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
+  Lassen Sie zu, dass Microsoft Edge eine Verbindung mit einem Webdienst herstellt, um bei Konnektivitätsproblemen (beispielsweise DNS-Fehler) URL- und Suchvorschläge zu generieren.
 
-If you enable this policy, a web service is used to generate url and search suggestions for network errors.
+Wenn Sie diese Richtlinie aktivieren, wird ein Webdienst verwendet, um bei Netzwerkfehlern URL- und Suchvorschläge zu generieren.
 
-If you disable this policy, no calls to the web service are made and a standard error page is shown.
+Wenn Sie diese Richtlinie deaktivieren, wird der Webdienst nicht aufgerufen, und es wird eine Standardfehlerseite angezeigt.
 
-If you don't configure this policy, Microsoft Edge respects the user preference that's set under Services at edge://settings/privacy.
-Specifically, there's a **Suggest similar pages when a webpage can’t be found** toggle, which the user can switch on or off. Note that if you have enable this policy (AlternateErrorPagesEnabled), the Suggest similar pages when a webpage can’t be found setting is turned on, but the user can't change the setting by using the toggle. If you disable this policy, the Suggest similar pages when a webpage can’t be found setting is turned off, and the user can't change the setting by using the toggle.
+Wenn Sie diese Richtlinie nicht konfigurieren, verwendet Microsoft Edge die Benutzereinstellung, die für Dienste unter „edge://settings/privacy“ festgelegt ist.
+Der Umschalter **Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird** kann vom Benutzer aktiviert oder deaktiviert werden. Hinweis: Wenn Sie diese Richtlinie (AlternateErrorPagesEnabled) aktiviert haben, ist die Einstellung „Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird“ aktiviert und kann vom Benutzer nicht mithilfe des Umschalters geändert werden. Wenn Sie diese Richtlinie deaktivieren, ist die Einstellung „Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird“ aktiviert und kann vom Benutzer nicht mithilfe des Umschalters geändert werden.
 
   #### Unterstützte Features:
   - Kann zwingend sein: Ja
@@ -5433,7 +5434,7 @@ Specifically, there's a **Suggest similar pages when a webpage can’t be found*
   #### Windows-Informationen und-Einstellungen
   ##### Informationen zur Gruppenrichtlinie (ADMX)
   - Eindeutiger Name der Gruppenrichtlinie: AlternateErrorPagesEnabled
-  - Gruppenrichtlinienname: Suggest similar pages when a webpage can’t be found
+  - Gruppenrichtlinienname: Ähnliche Seiten vorschlagen, wenn eine Webseite nicht gefunden wird
   - Gruppenrichtlinienpfad (Erforderlich): Administrative Vorlagen/Microsoft Edge/
   - Gruppenrichtlinienpfad (Empfohlen): Administrative Vorlagen/Microsoft Edge - Standardeinstellungen (können durch Benutzer überschrieben werden)/
   - Name der ADMX-Datei der Gruppenrichtlinie: MSEdge.admx
@@ -5891,7 +5892,7 @@ Wenn Sie diese Richtlinie nicht konfigurieren, wird der Hintergrundmodus zunäch
   [Zurück nach oben](#microsoft-edge-–-richtlinien)
 
   ### BackgroundTemplateListUpdatesEnabled
-  #### Enables background updates to the list of available templates for Collections and other features that use templates
+  #### Ermöglicht für Sammlungen und andere Features, die Vorlagen verwenden, die Aktualisierung der Liste verfügbarer Vorlagen im Hintergrund.
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 79 oder höher
 
   #### Beschreibung
@@ -5912,7 +5913,7 @@ Wenn Sie diese Einstellung deaktivieren, wird die Liste mit den verfügbaren Vor
   #### Windows-Informationen und-Einstellungen
   ##### Informationen zur Gruppenrichtlinie (ADMX)
   - Eindeutiger Name der Gruppenrichtlinie: BackgroundTemplateListUpdatesEnabled
-  - Gruppenrichtlinienname: Enables background updates to the list of available templates for Collections and other features that use templates
+  - Gruppenrichtlinienname: Ermöglicht für Sammlungen und andere Features, die Vorlagen verwenden, die Aktualisierung der Liste verfügbarer Vorlagen im Hintergrund.
   - Gruppenrichtlinienpfad (Erforderlich): Administrative Vorlagen/Microsoft Edge/
   - Gruppenrichtlinienpfad (Empfohlen): Nicht zutreffend
   - Name der ADMX-Datei der Gruppenrichtlinie: MSEdge.admx
@@ -7556,7 +7557,7 @@ Wenn Sie diese Richtlinie nicht konfigurieren ist das Verhalten auf einem nicht 
   [Zurück nach oben](#microsoft-edge-–-richtlinien)
 
   ### ExternalProtocolDialogShowAlwaysOpenCheckbox
-  #### Show an "Always open" checkbox in external protocol dialog
+  #### Kontrollkästchen „Immer geöffnet“ im Dialogfeld für externe Protokolle anzeigen
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 79 oder höher
 
   #### Beschreibung
@@ -7577,7 +7578,7 @@ Wenn Sie diese Richtlinie auf „false“ festlegen oder die Richtlinie nicht fe
   #### Windows-Informationen und-Einstellungen
   ##### Informationen zur Gruppenrichtlinie (ADMX)
   - Eindeutiger Name der Gruppenrichtlinie: ExternalProtocolDialogShowAlwaysOpenCheckbox
-  - Gruppenrichtlinienname: Show an "Always open" checkbox in external protocol dialog
+  - Gruppenrichtlinienname: Kontrollkästchen „Immer geöffnet“ im Dialogfeld für externe Protokolle anzeigen
   - Gruppenrichtlinienpfad (Erforderlich): Administrative Vorlagen/Microsoft Edge/
   - Gruppenrichtlinienpfad (Empfohlen): Nicht zutreffend
   - Name der ADMX-Datei der Gruppenrichtlinie: MSEdge.admx
@@ -8858,14 +8859,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 77 oder höher
 
   #### Beschreibung
-  Hiermit können Sie eine Liste mit bis zu 10 Suchmaschinen konfigurieren, von denen eine als Standardsuchmaschine gekennzeichnet sein muss.
-Sie müssen für keine Suchmaschine die Kodierung angeben.
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-Wenn Sie diese Richtlinie aktivieren, können Benutzer in der Liste keine Suchmaschine hinzufügen, entfernen oder ändern. Benutzer können jede Suchmaschine in der Liste als ihre Standardsuchmaschine festlegen.
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, können Benutzer die Suchmaschinenliste nach Belieben ändern.
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-Wenn die Richtlinie [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) festgelegt ist, wird die Richtlinie (ManagedSearchEngines) ignoriert. Der Benutzer muss seinen Browser neu starten, um die Anwendung dieser Richtlinie abzuschließen.
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### Unterstützte Features:
   - Kann zwingend sein: Ja
@@ -8891,7 +8892,6 @@ Wenn die Richtlinie [DefaultSearchProviderSearchURL](#defaultsearchprovidersearc
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8899,6 +8899,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8912,6 +8913,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8924,8 +8930,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8938,6 +8942,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8962,6 +8968,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9267,6 +9281,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [Zurück nach oben](#microsoft-edge-–-richtlinien)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >Unterstützte Versionen: Microsoft Edge unter Windows und Mac seit Version 80 oder höher
+
+  #### Beschreibung
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### Unterstützte Features:
+  - Kann zwingend sein: Ja
+  - Kann empfohlen werden: Nein
+  - Dynamische Richtlinienaktualisierung: Ja
+
+  #### Datentyp:
+  Boolesch
+
+  #### Windows-Informationen und-Einstellungen
+  ##### Informationen zur Gruppenrichtlinie (ADMX)
+  - Eindeutiger Name der Gruppenrichtlinie: PersonalizationReportingEnabled
+  - Gruppenrichtlinienname: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - Gruppenrichtlinienpfad (Erforderlich): Administrative Vorlagen/Microsoft Edge/
+  - Gruppenrichtlinienpfad (Empfohlen): Nicht zutreffend
+  - Name der ADMX-Datei der Gruppenrichtlinie: MSEdge.admx
+  ##### Windows-Registrierungseinstellungen
+  - Pfad (Erforderlich): SOFTWARE\Policies\Microsoft\Edge
+  - Pfad (Empfohlen): Nicht zutreffend
+  - Wertname: PersonalizationReportingEnabled
+  - Werttyp: REG_DWORD
+  ##### Beispielwert:
+```
+0x00000001
+```
+
+
+  #### Mac-Informationen und -Einstellungen
+  - Gewünschter Schlüsselname: PersonalizationReportingEnabled
+  - Beispielwert:
+``` xml
+<true/>
 ```
   
 
