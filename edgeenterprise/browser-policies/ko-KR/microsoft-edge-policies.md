@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/10/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -239,6 +239,7 @@ Microsoft Edge 업데이트 방법 및 시기를 제어하는 데 사용되는 �
 |[NetworkPredictionOptions](#networkpredictionoptions)|네트워크 예측 사용|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|사용자가 회사 또는 학교 계정으로 자동으로 로그인한 기본 프로필을 항상 가지고 있는지 여부를 구성합니다.|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|안전하지 않은 원본에 대한 보안 제한이 적용되는 위치 제어|
+|[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|작업 표시줄에 고정 마법사 허용|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|사전 인증 사용|
 |[PromotionalTabsEnabled](#promotionaltabsenabled)|전체 탭 프로모션 콘텐츠 사용|
@@ -3019,11 +3020,11 @@ SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Allows you to set whether users can add exceptions to allow mixed content for specific sites.
+  사용자가 예외를 추가하여 특정 사이트에 대한 혼합 콘텐츠를 허용할 수 있는지 여부를 설정할 수 있습니다.
 
-This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
+이 정책은 [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) 및 [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) 정책을 사용하여 특정 URL 패턴에 대해 이 정책을 재정의할 수 있습니다.
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+정책을 설정하지 않으면 사용자는 차단 가능한 혼합 콘텐츠를 허용하고 선택적으로 차단 가능한 혼합 콘텐츠에 대한 자동 업그레이드를 사용하지 않도록 설정하는 예외를 추가할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3468,9 +3469,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  차단 가능한(활성) 혼합 콘텐츠(예: HTTPS 사이트의 HTTP 콘텐츠)를 표시할 수 있고 선택적으로 차단 가능한 혼합 콘텐츠 업그레이드가 사용하지 않도록 설정할 사이트를 지정하는 URL 패턴 목록을 설정할 수 있습니다.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+이 정책을 설정하지 않으면 차단 가능한 혼합 콘텐츠가 차단되고 선택적으로 차단 가능한 혼합 콘텐츠가 업그레이드되며 사용자는 특정 사이트에 대해 예외를 설정할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -3518,9 +3519,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
 
   #### 설명
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  차단 가능한(활성) 혼합 콘텐츠(예: HTTPS 사이트의 HTTP 콘텐츠)를 표시할 수 없고 선택적으로 차단 가능한(수동) 혼합 콘텐츠를 업그레이드할 사이트를 지정하는 URL 패턴 목록을 설정할 수 있습니다.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+이 정책을 설정하지 않으면 차단 가능한 혼합 콘텐츠가 차단되고 선택적으로 차단 가능한 혼합 콘텐츠가 업그레이드되지만 사용자는 특정 사이트에 대해 예외를 허용할 수 있습니다.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8860,14 +8861,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
   >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 77 이상부터
 
   #### 설명
-  최대 10개의 검색 엔진 목록을 구성할 수 있으며, 목록 중 하나는 기본 검색 엔진으로 표시해야 합니다.
-검색 엔진에 대한 인코딩을 지정할 필요는 없습니다.
+  Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
+You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
 
-이 정책을 사용하면 사용자가 목록의 검색 엔진을 추가, 제거 또는 변경할 수 없습니다. 사용자는 기본 검색 엔진을 목록에 있는 검색 엔진으로 설정할 수 있습니다.
+If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
-이 정책을 사용하지 않거나 구성하지 않으면 사용자가 원하는 대로 검색 엔진 목록을 수정할 수 있습니다.
+If you disable or don't configure this policy, users can modify the search engines list as desired.
 
-[DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) 정책이 설정된 경우 이 정책(ManagedSearchEngines)은 무시됩니다. 이 정책 적용을 마무리하려면 사용자가 브라우저를 다시 시작해야 합니다.
+If the [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.
 
   #### 지원되는 기능:
   - 필수일 수 있음: 예
@@ -8893,7 +8894,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 ```
 SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
   {
-    "image_search_url": "https://www.example1.com/images/detail/search?iss=sbiupload", 
     "is_default": true, 
     "keyword": "example1.com", 
     "name": "Example1", 
@@ -8901,6 +8901,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
   }, 
   {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", 
     "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", 
     "keyword": "example2.com", 
     "name": "Example2", 
@@ -8914,6 +8915,11 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     "name": "Example3", 
     "search_url": "https://www.example3.com/search?q={searchTerms}", 
     "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  }, 
+  {
+    "keyword": "example4.com", 
+    "name": "Example4", 
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
   }
 ]
 ```
@@ -8926,8 +8932,6 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
 <key>ManagedSearchEngines</key>
 <array>
   <dict>
-    <key>image_search_url</key>
-    <string>https://www.example1.com/images/detail/search?iss=sbiupload</string>
     <key>is_default</key>
     <true/>
     <key>keyword</key>
@@ -8940,6 +8944,8 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example1.com/qbox?query={searchTerms}</string>
   </dict>
   <dict>
+    <key>image_search_post_params</key>
+    <string>content={imageThumbnail},url={imageURL},sbisrc={SearchSource}</string>
     <key>image_search_url</key>
     <string>https://www.example2.com/images/detail/search?iss=sbiupload</string>
     <key>keyword</key>
@@ -8964,6 +8970,14 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
     <string>https://www.example3.com/search?q={searchTerms}</string>
     <key>suggest_url</key>
     <string>https://www.example3.com/qbox?query={searchTerms}</string>
+  </dict>
+  <dict>
+    <key>keyword</key>
+    <string>example4.com</string>
+    <key>name</key>
+    <string>Example4</string>
+    <key>search_url</key>
+    <string>https://www.example4.com/search?q={searchTerms}</string>
   </dict>
 </array>
 ```
@@ -9270,6 +9284,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [맨 위로 이동](#microsoft-edge---정책)
+
+  ### PersonalizationReportingEnabled
+  #### Allow personalization of ads, search and news by sending browsing history to Microsoft
+  >지원되는 버전: Windows 및 Mac의 Microsoft Edge, 버전 80 이상부터
+
+  #### 설명
+  This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
+
+This setting is only available for users with a Microsoft account. This setting is not available for child accounts or enterprise accounts.
+
+If you disable this policy, users can't change or override the setting. If this policy is enabled or not configured, Microsoft Edge will default to the user’s preference.
+
+  #### 지원되는 기능:
+  - 필수일 수 있음: 예
+  - 권장될 수 있음: 아니요
+  - 동적 정책 새로 고침: 예
+
+  #### 데이터 형식:
+  부울
+
+  #### Windows 정보 및 설정
+  ##### 그룹 정책(ADMX) 정보
+  - GP 고유 이름: PersonalizationReportingEnabled
+  - GP 이름: Allow personalization of ads, search and news by sending browsing history to Microsoft
+  - GP 경로 (필수): 관리 템플릿/Microsoft Edge/
+  - GP 경로 (맞춤): 해당 없음
+  - GP ADMX 파일 이름: MSEdge.admx
+  ##### Windows 레지스트리 설정
+  - 경로 (필수): SOFTWARE\Policies\Microsoft\Edge
+  - 경로 (맞춤): 해당 없음
+  - 값 이름: PersonalizationReportingEnabled
+  - 값 형식: REG_DWORD
+  ##### 예제 값:
+```
+0x00000001
+```
+
+
+  #### Mac 정보 및 설정
+  - 기본 설정 키 이름: PersonalizationReportingEnabled
+  - 예제 값:
+``` xml
+<true/>
 ```
   
 
