@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge for macOS"
 ms.author: brianalt
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -13,30 +13,28 @@ description: "Configure Microsoft Edge policy settings on Mac devices"
 ---
 
 # Configure Microsoft Edge policy settings on macOS
-
-Use the following information to configure Microsoft Edge policy settings on your Mac devices.
+This article describes how to configure Microsoft Edge on macOS using a property list (.plist) file. For more information, see [About Information Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) (Apple's website) and [Custom payload settings](https://support.apple.com/guide/mdm/custom-mdm9abbdbe7/1/web/1).
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
-## Configure policy settings on macOS
+## Configure Microsoft Edge policies on macOS
 
-Use a property list (.plist) file to set Microsoft Edge policies on Mac devices. You then convert this file to a configuration profile that can be deployed to your users' Mac devices using your preferred management tool, such as Microsoft Intune [using custom settings](https://docs.microsoft.com/intune/custom-settings-macos) or Jamf.
+The first step is to create your plist. You can create the plist file with any text editor or you can use [Terminal to create the configuration profile](#create-a-configuration-profile-using-terminal). However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
 
-You can create the plist file with any text editor. However, it's easier to create and edit a plist file using a tool that formats the XML code for you. *Xcode* is a free integrated development environment that you can get from one of the following locations:
+- [Apple developer website](https://developer.apple.com/xcode/)
+- [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
 
-- the [Apple developer website](https://developer.apple.com/xcode/)
-- the [Mac App Store](https://apps.apple.com/app/xcode/id497799835?mt=12)
+For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md). In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings. 
 
-After you create the contents of your plist file, you need to use a specific format for the file name. The plist file contains the name of the application (preference) domain for Edge in reverse-domain format, which is part of the file name. For example, the preference domain for the Dev channel is **com.microsoft.Edge**. Because this name is case sensitive, the plist file name has to match the domain name. The required name for your plist for the Dev channel would be *com.microsoft.Edge.plist*.
+The next step after you create the contents of your plist, is to name it using the Microsoft Edge preference domain, *com.microsoft.Edge*. The name is case sensitive and should not include the channel you are targeting because it applies to all Microsoft Edge channels. The plist file name must be **_com.microsoft.Edge.plist_**. 
 
 > [!IMPORTANT]
-> Starting with build 78.0.249.2, all channels of Microsoft Edge on Mac will read from the **com.microsoft.Edge** preference domain. All prior releases will read from a channel specific domain, such as **com.microsoft.Edge.Dev**.
+> Starting with build 78.0.249.2, all Microsoft Edge channels on macOS read from the **com.microsoft.Edge** preference domain. All prior releases read from a channel specific domain, such as **com.microsoft.Edge.Dev** for Dev channel.
 
-For a list of supported policies and their preference key names, see [Microsoft Edge browser policies reference](microsoft-edge-policies.md).
+The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploy your plist](#deploy-your-plist).
 
-### Create a configuration profile
-
+### Create a configuration profile using Terminal
 1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
 
    ```cmd
@@ -48,10 +46,12 @@ For a list of supported policies and their preference key names, see [Microsoft 
    ```cmd
    /usr/bin/plutil -convert xml1 ~/Desktop/com.microsoft.Edge.plist
    ```
+After converting the file verify that your policy data is correct and contains the settings you want for your configuration profile.
 
-3. Upload the converted plist to a Custom Settings payload in a new Configuration Profile in your MDM server or use your preferred conversion tool to create a configuration profile to upload.
+## Deploy your plist
+For Microsoft Intune create a new device configuration profile targeting the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the prefereence domain name and upload your plist. For more information see [Add a property list file to macOS devices using Microsoft Intune](https://docs.microsoft.com/intune/configuration/preference-file-settings-macos).
 
-In the policy templates file, which can be downloaded from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise), there's an example plist (*itadminexample.plist*) in the **examples** folder. The example file contains all supported data types that you can customize to define your policy settings.
+For Jamf upload the plist file as a *Custom Settings* payload.
 
 ## Frequently Asked Questions
 
@@ -59,7 +59,7 @@ In the policy templates file, which can be downloaded from the [Microsoft Edge E
 
 Yes, you can configure Microsoft Edge to use a master preferences file.
 
- A master preferences file lets you configure default settings when Microsoft Edge is deployed. You can also use a master preferences file to apply settings on computers that aren't managed by a device management system. These settings are applied to the user’s profile the first time the user runs the browser. After the user runs the browser, changes to the master preferences file aren’t applied. A user can change settings from the master preferences in the browser. If you want to make a setting mandatory or change a setting after the first run of the browser, you must use a policy.
+A master preferences file lets you configure default settings for a browser user profile when Microsoft Edge is deployed. You can also use a master preferences file to apply settings on computers that aren't managed by a device management system. These settings are applied to the user’s profile the first time the user runs the browser. After the user runs the browser, changes to the master preferences file aren’t applied. A user can change settings from the master preferences in the browser. If you want to make a setting mandatory or change a setting after the first run of the browser, you must use a policy.
 
 A master preferences file lets you to customize many different settings and preferences for the browser, including those shared with other Chromium based browsers and specific to Microsoft Edge.  Policy related preferences can be configured using the master preferences file. In cases where a policy is set and there’s a corresponding master preference set, the policy setting takes precedence.
 

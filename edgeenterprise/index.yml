@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: dan-wesley #Required; your GitHub user alias, with correct capitalization.
   ms.author: kvice #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/11/2019 #Required; mm/dd/yyyy format.
+  ms.date: 12/16/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -39,11 +39,9 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Deploy to Windows
-            url: deploy-edge-with-configuration-manager.md
+            url: https://docs.microsoft.com/configmgr/apps/deploy-use/deploy-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
           - text: Deploy to macOS
-            url: deploy-edge-to-the-mac.md
-#          - text: Set Microsoft Edge policies
-#            url: microsoft-edge-policies.md
+            url: https://docs.microsoft.com/intune/apps/apps-edge-macos/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
  # Card 3 (col 3, 1st row)
   - title: Configure Microsoft Edge
     linkLists:

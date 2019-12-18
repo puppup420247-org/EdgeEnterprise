@@ -1,4 +1,4 @@
-# last revised 11/04/2019
+# last revised 12/16/2019
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -11,21 +11,26 @@
      href: microsoft-edge-supported-languages.md
    - name: System updates for Microsoft Edge
      items:
-      - name: Windows updates to support Microsoft Edge
-        href: microsoft-edge-sysupdate-windows-updates.md
+      - name: Blocker Toolkit for Microsoft Edge updates
+        href: microsoft-edge-blocker-toolkit.md
       - name: How to access the old version of Microsoft Edge
         href: microsoft-edge-sysupdate-access-old-edge.md
+      - name: Windows updates to support Microsoft Edge
+        href: microsoft-edge-sysupdate-windows-updates.md
 # Deploy
 - name: Deploy Microsoft Edge
   items:
    - name: Deploy to Windows with Configuration Manager 
-     href: deploy-edge-with-configuration-manager.md
-   - name: Deploy to Windows with Intune 
-     href: deploy-edge-with-intune.md
+#     href: deploy-edge-with-configuration-manager.md
+     href: https://docs.microsoft.com/configmgr/apps/deploy-use/deploy-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
+   - name: Deploy to Windows with Intune
+#    href: deploy-edge-with-intune.md
+     href: https://docs.microsoft.com/intune/apps/apps-windows-edge/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
    - name: Deploy to macOS with Jamf
      href: deploy-edge-mac-jamf.md
-   - name: Deploy to macOS with Intune  
-     href: deploy-edge-mac-intune.md
+   - name: Deploy to macOS with Intune
+#    href: deploy-edge-mac-intune.md
+     href: https://docs.microsoft.com/intune/apps/apps-edge-macos/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
 # Configure
 - name: Configure Microsoft Edge 
   items:
@@ -43,16 +48,28 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
+# - name: Authenticated features
+#  items:
+#   - name: Identity support and configuration
+#     href: microsoft-edge-security-identity.md
 - name: Enterprise features 
   items:
    - name: Configurations and experimentation
      href: edge-configuration-and-experiments.md
+   - name: Identity support and configuration
+     href: microsoft-edge-security-identity.md
+   - name: Microsoft Edge and Sync
+     href: microsoft-edge-enterprise-sync.md
+   - name: Microsoft Edge and Enterprise State Roaming
+     href: microsoft-edge-enterprise-state-roaming.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
 - name: Security and privacy
   items:     
    - name: Security
      href: security-overview.md
+   - name: Allow list for Microsoft Edge endpoints
+     href: microsoft-edge-security-endpoints.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
 - name: Troubleshoot Microsoft Edge

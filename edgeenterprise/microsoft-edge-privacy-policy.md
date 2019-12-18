@@ -70,7 +70,7 @@ You may want to consider the following group policies related to data privacy:
 
 ## See also
 
-- [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge policies](microsoft-edge-policies.md)
 - [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)
 - [Privacy at Microsoft](https://www.microsoft.com/trust-center/privacy)
