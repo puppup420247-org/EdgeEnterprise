@@ -74,8 +74,14 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 
 > [!NOTE]
 > To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
+
 ## Set Microsoft Edge as the default browser on macOS
 
+Programmatically attempting to set the default browser on macOS causes a prompt to appear for the end user. This prompt is a security feature within macOS, and can only be automated away through use of an AppleScript.
+
+Because of this limitation, there are two main methods for setting Microsoft Edge as the default browser on a macOS. One, the device can be flashed with an image of macOS where Microsoft Edge has already been set as the default browser. The other option is to use the **Set Microsoft Edge as default browser** policy, which prompts the user to set Microsoft Edge as the default browser.
+
+When using either of these methods, it is still possible for a user to change the default browser. This is because for security reasons, the default browser preference cannot be programmatically blocked. For this reason, we recommend that you deploy the  Set Microsoft Edge as default browser policy even if you create an image with Microsoft Edge as the default browser. If the policy is set and a user changes the default browser from Microsoft Edge the next time they open Microsoft Edge, they will be prompted to set it as the default.
 
 ## See also
 
