@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/18/2019
+ms.date: 12/17/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -6499,7 +6499,6 @@ For more information about ClickOnce, see [https://go.microsoft.com/fwlink/?link
 ```
 
 
-
   
 
   [Back to top](#microsoft-edge---policies)
@@ -8700,7 +8699,6 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 
   [Back to top](#microsoft-edge---policies)
 
-
   ### IsolateOrigins
   #### Enable site isolation for specific origins
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9291,7 +9289,6 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
 
   [Back to top](#microsoft-edge---policies)
 
-
   ### PersonalizationReportingEnabled
   #### Allow personalization of ads, search and news by sending browsing history to Microsoft
   >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
@@ -9338,7 +9335,6 @@ If you disable this policy, users can't change or override the setting. If this 
   
 
   [Back to top](#microsoft-edge---policies)
-
 
   ### PinningWizardAllowed
   #### Allow Pin to taskbar wizard
