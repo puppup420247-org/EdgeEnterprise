@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/17/2019
+ms.date: 12/20/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -279,6 +279,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Сайты, которые могут получать доступ к устройствам записи видео без запроса разрешения|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Настроить оптимизацию WPAD|
 |[WebAppInstallForceList](#webappinstallforcelist)|Настройка списка принудительно установленных веб-приложений|
+|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Разрешить WebDriver переопределять несовместимые политики|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Управление раскрытием локальных IP-адресов с помощью WebRTC|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Ограничить раскрытие локального IP-адреса с помощью WebRTC|
@@ -11249,6 +11250,55 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
     <string>https://app.contoso.edu</string>
   </dict>
 </array>
+```
+  
+
+  [В начало](#microsoft-edge:-политики)
+
+  ### WebComponentsV0Enabled
+  #### Re-enable Web Components v0 API until M84.
+  >Поддерживаемые версии: Microsoft Edge на Windows и Mac с версии 80 до версии 84
+
+  #### Описание
+  The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
+
+     If you set this policy is set to True, the Web Components v0 features will be enabled for all sites.
+
+     If you set this policy to False or don't set this policy, the Web Components v0 features will be disabled by default, starting in M80.
+
+     This policy will be removed after Microsoft Edge 84.
+
+  #### Поддерживаемые функции:
+  - Может быть обязательной: Да
+  - Может быть рекомендованной: Нет
+  - Динамическое обновление политики: Нет - Требуется перезапуск браузера
+
+  #### Тип данных:
+  Логическое
+
+  #### Параметры и сведения Windows
+  ##### Сведения о групповой политике (ADMX)
+  - Уникальное имя групповой политики: WebComponentsV0Enabled
+  - Имя групповой политики: Re-enable Web Components v0 API until M84.
+  - Путь групповой политики (Обязательно): Административные шаблоны/Microsoft Edge/
+  - Путь групповой политики (Рекомендовано): Н/Д
+  - Имя файла групповой политики ADMX: MSEdge.admx
+  ##### Параметры реестра Windows
+  - Путь (Обязательно): SOFTWARE\Policies\Microsoft\Edge
+  - Путь (Рекомендовано): Н/Д
+  - Имя значения: WebComponentsV0Enabled
+  - Тип значения: REG_DWORD
+  ##### Пример значения:
+```
+0x00000001
+```
+
+
+  #### Сведения и параметры Mac
+  - Имя предпочтительного ключа: WebComponentsV0Enabled
+  - Пример значения:
+``` xml
+<true/>
 ```
   
 
