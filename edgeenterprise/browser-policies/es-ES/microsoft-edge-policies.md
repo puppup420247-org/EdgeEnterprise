@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/17/2019
+ms.date: 12/20/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -279,6 +279,7 @@ En estas tablas se muestra una lista de todas las directivas de grupo relacionad
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sitios que pueden acceder a dispositivos de captura de vídeo sin solicitar permiso|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Establecer la optimización de WPAD|
 |[WebAppInstallForceList](#webappinstallforcelist)|Configurar la lista de aplicaciones web instaladas por la fuerza|
+|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Permitir que WebDriver invalide las directivas incompatibles|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Administrar la exposición de direcciones IP locales por WebRTC|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restringir la exposición de la dirección IP local por WebRTC|
@@ -11251,6 +11252,55 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
     <string>https://app.contoso.edu</string>
   </dict>
 </array>
+```
+  
+
+  [Volver al principio](#microsoft-edge:-directivas)
+
+  ### WebComponentsV0Enabled
+  #### Re-enable Web Components v0 API until M84.
+  >Versiones admitidas: Microsoft Edge en Windows y Mac desde la versión 80, hasta la versión 84
+
+  #### Descripción
+  The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
+
+     If you set this policy is set to True, the Web Components v0 features will be enabled for all sites.
+
+     If you set this policy to False or don't set this policy, the Web Components v0 features will be disabled by default, starting in M80.
+
+     This policy will be removed after Microsoft Edge 84.
+
+  #### Características admitidas:
+  - Puede ser obligatorio: Sí
+  - Se puede recomendar: No
+  - Actualización de directiva dinámica: No - Requiere reiniciar el explorador
+
+  #### Tipo de datos:
+  Booleano
+
+  #### Información y configuración de Windows
+  ##### Información de la directiva de grupos (ADMX)
+  - Nombre único de la directiva de grupos: WebComponentsV0Enabled
+  - Nombre de la directiva de grupos: Re-enable Web Components v0 API until M84.
+  - Ruta de acceso de GP (Obligatorio): Plantillas administrativas/Microsoft Edge/
+  - Ruta de acceso de GP (Recomendada): N/D
+  - Nombre del archivo ADMX de GP: MSEdge.admx
+  ##### Configuración del registro de Windows
+  - Ruta de acceso (Obligatorio): SOFTWARE\Policies\Microsoft\Edge
+  - Ruta de acceso (Recomendada): N/D
+  - Nombre del valor: WebComponentsV0Enabled
+  - Tipo de valor: REG_DWORD
+  ##### Valor de ejemplo:
+```
+0x00000001
+```
+
+
+  #### Información y configuración de Mac
+  - Nombre de clave de preferencia: WebComponentsV0Enabled
+  - Valor de ejemplo:
+``` xml
+<true/>
 ```
   
 
