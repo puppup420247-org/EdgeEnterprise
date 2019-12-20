@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/17/2019
+ms.date: 12/20/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -279,6 +279,7 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|无需请求许可即可访问视频捕获设备的站点|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|设置 WPAD 优化|
 |[WebAppInstallForceList](#webappinstallforcelist)|配置强制安装的 Web 应用列表|
+|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|允许 WebDriver 覆盖不兼容的策略|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|管理 WebRTC 的本地 IP 地址公开|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|限制 WebRTC 的本地 IP 地址公开|
@@ -11250,6 +11251,55 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
     <string>https://app.contoso.edu</string>
   </dict>
 </array>
+```
+  
+
+  [返回顶部](#microsoft-edge---策略)
+
+  ### WebComponentsV0Enabled
+  #### Re-enable Web Components v0 API until M84.
+  >支持的版本: Windows 和 Mac 上版本 80 到版本 84 的 Microsoft Edge
+
+  #### 描述
+  The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
+
+     If you set this policy is set to True, the Web Components v0 features will be enabled for all sites.
+
+     If you set this policy to False or don't set this policy, the Web Components v0 features will be disabled by default, starting in M80.
+
+     This policy will be removed after Microsoft Edge 84.
+
+  #### 支持的功能:
+  - 可以为必填字段: 是
+  - 可以推荐: 否
+  - 动态策略刷新: 否 - 需要重启浏览器
+
+  #### 数据类型:
+  布尔
+
+  #### Windows 信息和设置
+  ##### 组策略(ADMX)信息
+  - GP 唯一名称: WebComponentsV0Enabled
+  - GP 名称: Re-enable Web Components v0 API until M84.
+  - GP 路径 (强制): 管理模板/Microsoft Edge/
+  - GP 路径 (推荐): 不适用
+  - GP ADMX 文件名: MSEdge.admx
+  ##### Windows 注册表设置
+  - 路径 (强制): SOFTWARE\Policies\Microsoft\Edge
+  - 路径 (推荐): 不适用
+  - 值名称: WebComponentsV0Enabled
+  - 值类型: REG_DWORD
+  ##### 示例值:
+```
+0x00000001
+```
+
+
+  #### Mac 信息和设置
+  - 首选项密钥名称: WebComponentsV0Enabled
+  - 示例值:
+``` xml
+<true/>
 ```
   
 
