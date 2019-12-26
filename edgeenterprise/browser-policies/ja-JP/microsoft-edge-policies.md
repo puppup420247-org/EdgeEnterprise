@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/17/2019
+ms.date: 12/20/2019
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -279,6 +279,7 @@ Microsoft Edge の更新方法と更新タイミングの制御に使用され�
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|アクセス許可を要求しなくてもビデオ キャプチャ デバイスにアクセスできるサイト|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|WPAD 最適化を設定する|
 |[WebAppInstallForceList](#webappinstallforcelist)|強制的にインストールされる Web アプリのリストを構成する|
+|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|互換性のないポリシーのオーバーライドを WebDriver に許可する|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|WebRTC によるローカル IP アドレスの公開を管理する|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|WebRTC によるローカル IP アドレスの公開を制限する|
@@ -11250,6 +11251,55 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
     <string>https://app.contoso.edu</string>
   </dict>
 </array>
+```
+  
+
+  [トップに戻る](#microsoft-edge---ポリシー)
+
+  ### WebComponentsV0Enabled
+  #### Re-enable Web Components v0 API until M84.
+  >サポートされているバージョン: Windows および Mac (バージョン 80 からバージョン 84 まで) の Microsoft Edge
+
+  #### 説明
+  The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
+
+     If you set this policy is set to True, the Web Components v0 features will be enabled for all sites.
+
+     If you set this policy to False or don't set this policy, the Web Components v0 features will be disabled by default, starting in M80.
+
+     This policy will be removed after Microsoft Edge 84.
+
+  #### サポートされている機能:
+  - 必須になる場合があります: はい
+  - 推奨される場合があります: いいえ
+  - 動的ポリシーの更新: いいえ - ブラウザーの再起動が必要です
+
+  #### データ型:
+  ブール値
+
+  #### Windows の情報と設定
+  ##### グループ ポリシー (ADMX) 情報
+  - GP 固有の名前: WebComponentsV0Enabled
+  - GP の名前: Re-enable Web Components v0 API until M84.
+  - GP パス (必須): 管理用テンプレート/Microsoft Edge/
+  - GP パス (おすすめ): N/A
+  - GP ADMX ファイル名: MSEdge.admx
+  ##### Windows レジストリの設定
+  - パス (必須): SOFTWARE\Policies\Microsoft\Edge
+  - パス (おすすめ): N/A
+  - 値の名前: WebComponentsV0Enabled
+  - 値の種類: REG_DWORD
+  ##### サンプル値:
+```
+0x00000001
+```
+
+
+  #### Mac の情報と設定
+  - 優先されるキーの名前: WebComponentsV0Enabled
+  - サンプル値:
+``` xml
+<true/>
 ```
   
 
