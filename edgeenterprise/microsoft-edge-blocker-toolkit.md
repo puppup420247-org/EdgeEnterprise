@@ -25,7 +25,7 @@ To help our customers become more secure and up-to-date, Microsoft will distribu
 
 - For computers running Windows 10 version 1803 and newer, the Blocker Toolkit prevents the machine from receiving Microsoft Edge (Chromium-based) via Automatic Updates.
 - The Blocker Toolkit will not prevent users from manually installing Microsoft Edge (Chromium-based) from internet download, or from external media.
-- Organizations do not need to deploy the Blocker Toolkit in environments managed with an update management solution such as Windows Server Update Services or System Center Configuration Manager. Organizations can use those products to fully manage deployment of updates released through Windows Update and Microsoft Update, including Microsoft Edge (Chromium-based), within their environment.
+- Organizations do not need to deploy the Blocker Toolkit in environments managed with an update management solution such as Windows Server Update Services, Windows Update for Business or System Center Configuration Manager. Organizations can use those products to fully manage deployment of updates released through Windows Update and Microsoft Update, including Microsoft Edge (Chromium-based), within their environment.
 
 You can download the Blocker Toolkit executable file from [https://msedgeblockertoolkit.blob.core.windows.net/blockertoolkit/MicrosoftEdgeChromiumBlockerToolkit.exe](https://msedgeblockertoolkit.blob.core.windows.net/blockertoolkit/MicrosoftEdgeChromiumBlockerToolkit.exe).
 
