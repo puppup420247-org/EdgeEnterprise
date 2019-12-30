@@ -70,7 +70,7 @@ If you have a dependency on legacy web applications, and plan to use Internet Ex
 
 If you've already configured your Enterprise Site List to work for the legacy version of Microsoft Edge, then your work is almost done! The one thing you may need to add are neutral sites.
 
-Neutral sites are typically sites that provide Single Sign-On (SSO). If navigate to a neutral site from Microsoft Edge, then you want to stay in Microsoft Edge to authenticate. If navigate to a neutral site in Internet Explorer mode, then you want to stay in Internet Explorer mode to authenticate.
+Neutral sites are typically sites that provide Single Sign-On (SSO). If you navigate to a neutral site from Microsoft Edge, then you want to stay in Microsoft Edge to authenticate. If navigate to a neutral site in Internet Explorer mode, then you want to stay in Internet Explorer mode to authenticate.
 
 Identify any SSO (or other neutral) sites that you use and add these to your Enterprise Site List.
 
@@ -91,7 +91,7 @@ After you've collected site data, we recommend the following 4-step process to a
 4. Add the app to your Enterprise Site list if it fails testing.
 
    > [!NOTE]
-   > As a best practice, group sites so when you upgrade an app, it's easier to remove the entire site from Internet Explorer mode and start using a modern browser for that app.
+   > As a best practice, group all of the sites that comprise an app. If the sites all need to be used to accomplish one task, and if they tend to be updated together, that is a good indication that they should be grouped. This way, when you upgrade an app, it's easier to remove the entire site from Internet Explorer mode and start using a modern browser for that app.
 
 ## Determine your channel strategy
 
