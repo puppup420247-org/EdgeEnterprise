@@ -1,10 +1,12 @@
-# last revised 12/16/2019
+# last revised 01/07/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
   href: microsoft-edge-content-updates.md
 - name: Microsoft Edge in the enterprise
   items:
+   - name: Plan your deployment of Microsoft Edge
+     href: deploy-edge-plan-deployment.md
    - name: Microsoft Edge Channels
      href: microsoft-edge-channels.md
    - name: Supported languages
