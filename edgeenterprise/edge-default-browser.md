@@ -1,9 +1,9 @@
 ---
-title: "Set Microsoft Edge as the default browser on Windows"
+title: "Set Microsoft Edge as the default browser on Windows and macOS"
 ms.author: brianalt
 author: dan-wesley
 manager: srugh
-ms.date: 09/30/2019
+ms.date: 12/19/2019
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "Learn how to set Microsoft Edge as the default browser"
 
 # Set Microsoft Edge as the default browser
 
-This article explains how you can set Microsoft Edge as the default browser on Windows.
+This article explains how you can set Microsoft Edge as the default browser on Windows and macOS.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later on Windows 8 or later. For Windows 7 and macOS, see the [Set Microsoft Edge as default browser](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled) policy.
@@ -37,12 +37,13 @@ To set Microsoft Edge Beta as the default browser for html files and http/https 
 > [!NOTE]
 > To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
 
+
 > [!NOTE]
 > The default file associations aren't applied if Microsoft Edge isn't installed on the target device. In this scenario, users are prompted to select their default application when they open a link or a htm/html file.
 
 ## Set Microsoft Edge as the default browser on domain-joined devices
 
-You can set Microsoft Edge as the default browser on domain-joined devices by configuring the **Set a default associations configuration file** group policy. Turning this group policy on requires you to create and store a default associations configuration file. This file is stored locally or on a network share. For more information about creating this file, see [Export or Import Default Application Associations](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/export-or-import-default-application-associations).
+You can set Microsoft Edge as the default browser on domain-joined devices by configuring the **Set a default associations configuration file** group policy. Turning this group policy on requires you to create and store a default associations configuration file. This file is stored locally or on a network share. For more information about creating this file, see [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations).
 
 ### To configure the group policy for a default file type and protocol associations configuration file:
 
@@ -75,6 +76,14 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 > [!NOTE]
 > To set Microsoft Edge Dev as the default browser, set **ApplicationName** to "Microsoft Edge Dev" and **ProgId** to "MSEdgeDHTML".
 
+## Set Microsoft Edge as the default browser on macOS
+
+Attempting to programmatically set the default browser on macOS causes a prompt to appear for the end user. This prompt is a macOS security feature that can only be automated away by using an AppleScript.
+
+Because of this limitation, there are two main methods for setting Microsoft Edge as the default browser on a macOS. The first option is to flash the device with an image of macOS where Microsoft Edge has already been set as the default browser. The other option is to use the [Set Microsoft Edge as default browser](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled) policy, which prompts the user to set Microsoft Edge as the default browser.
+
+When using either of these methods, it is still possible for a user to change the default browser. This is because for security reasons, the default browser preference can’t be blocked programmatically. For this reason, we recommend that you deploy the **Set Microsoft Edge as default browser** policy even if you create an image with Microsoft Edge as the default browser. If the policy is set and a user changes the default browser from Microsoft Edge the next time they open Microsoft Edge, they will be prompted to set it as the default.
+
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
@@ -82,6 +91,3 @@ To set Microsoft Edge Beta as the default browser on Azure Active Directory join
 - [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)
   - [DISM Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/what-is-dism)
   - [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
-
-<!-- - [DISM Default Application Association Servicing Command-Line Options](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-default-application-association-servicing-command-line-options) -->
-<!-- - [Export or Import Default Application Associations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825038(v=win.10)) -->
