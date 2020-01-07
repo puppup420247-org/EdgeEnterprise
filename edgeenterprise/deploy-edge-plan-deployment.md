@@ -3,7 +3,7 @@ title: "Plan your deployment of Microsoft Edge"
 ms.author: cjacks
 author: appcompatguy
 manager: saudm
-ms.date: 01/07/2020
+ms.date: 01/08/2020
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
