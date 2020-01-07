@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/05/2019
+ms.date: 01/07/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -90,7 +90,7 @@ Use the following steps to enable IE mode.
 7. Click **OK** or **Apply** to save this policy setting.
 
    >[!NOTE]
-   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2 or v.2.1. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
 <!--
     ![Click apply](./media/ie-mode/ie-mode-4.png)-->
@@ -243,19 +243,10 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information, this page also gives actionable diagnostics. 
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information for the following categories, this page also gives actionable diagnostic messages.
 
-The next screen shot shows the diagnostic page for computer where a Canary channel build is installed at the user level and Internet Explorer mode isn't set up.
-
-   ![Internet Explorer mode diagnostic information](./media/ie-mode/ie-mode-diagnostic.png)
-
-Using the previous screenshot as a guide, note the Internet Explorer configuration information for the following categories:
-
-- **Registry key check**. Checks to see if Internet Explorer is set up in the registry. In this screenshot example, an actionable diagnostic is shown. The user can click **Fix it** to resolve the problem.
-- **Internet Explorer mode**. The number **7** relates to the API version that's used, based on the configuration and OS. This is another setting that can generate an actionable diagnostic, like the example in the next screenshot.
-
-   ![Internet Explorer mode actionable diagnostic for Windows update](./media/ie-mode/ie-mode-actionable-diagnostic.png)
-
+- **Registry key check**. Checks to see if Internet Explorer is set up in the registry. If it isn't, the user will see a prompt to fix the issue. They can click **Fix it** to resolve the problem.
+- **Internet Explorer mode**. The number **7** relates to the API version that's used, based on the configuration and OS. This is another setting that can generate an actionable diagnostic, and the user is prompted to install a **Windows Update**.
 - **Internet Explorer mode setting**. This setting is turned on, using default integration and Internet Explorer mode integration policy.
 - **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, the path statement shows that Microsoft Edge is installed at the user level, and a Tab feature (Experiment) is enabled.
 - **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
@@ -265,20 +256,22 @@ Other settings, such as the Site list debug registry key, and the Enterprise mod
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 <!--
-### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
+### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”-->
 
-Microsoft Edge version 77 or later needs to be installed at the system level.
+Microsoft Edge version 77 or later needs to be installed at the system level, and Internet Explorer 11 needs to be enabled in Windows Features.
 
 Possible reasons for this error:
 
 - Microsoft Edge Canary is installed at the user level and doesn’t prompt for elevation.
 - Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation, the installation will be continue at the user level.
+- Internet Explorer 11 has been disabled in Windows Features.
 
 Possible solutions:
 
 - Run the installer for any channel at the system level: `installer.exe --system-level`.
+- Enable Internet Explorer 11 in Windows Features.
 
-To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.-->
+To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
 ### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
 
