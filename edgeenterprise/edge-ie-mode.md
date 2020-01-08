@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 12/17/2019
+ms.date: 01/07/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -90,7 +90,7 @@ Use the following steps to enable IE mode.
 7. Click **OK** or **Apply** to save this policy setting.
 
    >[!NOTE]
-   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2 or v.2.1. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
 <!--
     ![Click apply](./media/ie-mode/ie-mode-4.png)-->
@@ -107,7 +107,7 @@ There are 2 options for identifying which sites should open in IE mode:
 You can use the following group policies to configure specific sites to open in IE mode:
 
 - **Use the Enterprise Mode IE website list** (Internet Explorer)
-- **Configure the Enterprise Mode Site List** (Microsoft Edge Dev Channel, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+- **Configure the Enterprise Mode Site List** (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
 
 For more information about Enterprise Mode Site lists, see:
 
@@ -142,6 +142,9 @@ For more information about Enterprise Mode Site lists, see:
 
 ### To configure the "Configure the Enterprise Mode Site List" policy:
 
+> [!NOTE]
+> This policy lets you create a separate Enterprise Mode Site list. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+
 1. Create or re-use a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
 2. Open Group Policy Editor.
@@ -172,7 +175,7 @@ For more information about Enterprise Mode Site lists, see:
 >
 >- This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
 > - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
-> - If you also deploy a custom site list, the configuration in the site list take precedence over this policy.
+> - If you also deploy a custom site list, the configuration in the site list takes precedence over this policy.
 >
 
 1. Open Local Group Policy Editor.
@@ -234,42 +237,45 @@ To prevent users from using IE11, follow these steps:
 3. Double-click **Send all sites not included in the Enterprise Mode Site List to Microsoft Edge**.
 4. Select **Enabled**.
 
-## Frequently Asked Questions
+## Troubleshoot IE mode
 
-### How do I know if a site is loading in IE mode?
+Use the information in this section to diagnose and fix IE mode problems.
 
-When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
+### Internet Explorer mode diagnostic information
 
-  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information for the following categories, this page also gives actionable diagnostic messages.
 
-### Will IE mode replace Internet Explorer 11?
+- **Registry key check**. Checks to see if Internet Explorer is set up in the registry. If it isn't, the user will see a prompt to fix the issue. They can click **Fix it** to resolve the problem.
+- **Internet Explorer mode**. The number **7** relates to the API version that's used, based on the configuration and OS. This is another setting that can generate an actionable diagnostic, and the user is prompted to install a **Windows Update**.
+- **Internet Explorer mode setting**. This setting is turned on, using default integration and Internet Explorer mode integration policy.
+- **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, the path statement shows that Microsoft Edge is installed at the user level, and a Tab feature (Experiment) is enabled.
+- **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
+Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
-We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
-
-### Why am I receiving the following message “To open this page in IE mode, try updating your PC.”?
+### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
-### Why am I receiving the following message “To open this page in IE mode, try reinstalling Microsoft Edge with administrator privileges.”?
-
-Microsoft Edge version 77 or later needs to be installed at the system level.
+Microsoft Edge version 77 or later needs to be installed at the system level, and Internet Explorer 11 needs to be enabled in Windows Features.
 
 Possible reasons for this error:
 
 - Microsoft Edge Canary is installed at the user level and doesn’t prompt for elevation.
 - Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation, the installation will be continue at the user level.
+- Internet Explorer 11 has been disabled in Windows Features.
 
 Possible solutions:
 
 - Run the installer for any channel at the system level: `installer.exe --system-level`.
+- Enable Internet Explorer 11 in Windows Features.
 
 To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
-### Why am I receiving the following message “To open this page in IE mode, try restarting Microsoft Edge.”?
+### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
 
 You're receiving this message because there was an unexpected error encountered in the Internet Explorer process. This should be resolved by restarting Microsoft Edge.
 
-### Why am I receiving the following message “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
+### Error message: “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
 
 You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
 
@@ -293,6 +299,18 @@ The solution is to configure the authentication server in your Enterprise site l
   <open-in>None</open-in>
 </site>
 ```
+
+## Frequently Asked Questions
+
+### How do I know if a site is loading in IE mode?
+
+When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
+
+  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
+
+### Will IE mode replace Internet Explorer 11?
+
+We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
 
 ## See also
 
