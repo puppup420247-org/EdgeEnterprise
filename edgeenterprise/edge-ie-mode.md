@@ -252,11 +252,9 @@ You can get Internet Explorer mode diagnostic information on the Microsoft Edge 
 - **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
 Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
-### Error message: “To open this page in Internet Explorer mode, run Windows Update.”
+### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
-<!--
-### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”-->
 
 Microsoft Edge version 77 or later needs to be installed at the system level, and Internet Explorer 11 needs to be enabled in Windows Features.
 
