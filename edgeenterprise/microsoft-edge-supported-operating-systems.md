@@ -23,7 +23,7 @@ This article describes the supported operating systems that apply to Microsoft E
 
 The next version of Microsoft Edge is supported on the following operating systems:
 
-# Windows Client
+### Windows Client
 - Windows 7*
 - Windows 8.1
 - Windows 10 RS3 and later
@@ -31,14 +31,14 @@ The next version of Microsoft Edge is supported on the following operating syste
 - Windows 10 Enterprise 2016 LTSC
 - Windows 10 Enterprise 2019 LTSC
 
-# Windows Server
+### Windows Server
 - Windows Server 2008 R2*
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016
 - Windows Server 2019
 
-# macOS
+### macOS
 - Yosemite(10.12) and later
 
 > [!TIP]
