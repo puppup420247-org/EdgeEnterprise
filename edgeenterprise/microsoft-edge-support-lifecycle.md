@@ -1,5 +1,5 @@
 ---
-title: "Windows updates for Microsoft Edge"
+title: "Microsoft Edge Support Lifecycle"
 ms.author: srugh
 author: srugh
 manager: seanlynd
