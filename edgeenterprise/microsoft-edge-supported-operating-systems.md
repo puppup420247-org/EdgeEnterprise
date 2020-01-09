@@ -41,7 +41,7 @@ The next version of Microsoft Edge is supported on the following operating syste
 ### macOS
 - Yosemite(10.12) and later
 
-> [!TIP]
+> [!IMPORTANT]
 > Windows 7 and Windows Server 2008 R2 will be support by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/en-us/help/4527878/faq-about-extended-security-updates-for-windows-7).
 
 ## See also
