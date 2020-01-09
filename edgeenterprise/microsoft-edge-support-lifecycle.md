@@ -2,7 +2,7 @@
 title: "Windows updates for Microsoft Edge"
 ms.author: srugh
 author: srugh
-manager: srugh
+manager: seanlynd
 ms.date: 11/12/2019
 audience: ITPro
 ms.topic: conceptual
