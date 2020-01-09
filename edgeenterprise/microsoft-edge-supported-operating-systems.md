@@ -42,11 +42,12 @@ The next version of Microsoft Edge is supported on the following operating syste
 - Yosemite(10.12) and later
 
 > [!TIP]
-> Windows 7 and Windows Server 2008 R2 will be support by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the ESU offered for extended security updates.
+> Windows 7 and Windows Server 2008 R2 will be support by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/en-us/help/4527878/faq-about-extended-security-updates-for-windows-7).
 
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge documentation](https://docs.microsoft.com/DeployEdge/)
 - [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/en-us/help/30881/modern-lifecycle-policy)
+- [Extended Security Updates for Windows 7](https://support.microsoft.com/en-us/help/4527878/faq-about-extended-security-updates-for-windows-7)
 
