@@ -27,7 +27,7 @@ You can configure how Microsoft Edge handles data collection for your organizati
 
 ## Policy settings
 
-Download and use the latest Microsoft Edge Policy Template (For more information, see [Configure Microsoft Edge](configure-microsoft-edge.md).
+Download and use the latest Microsoft Edge Policy Template (For more information, see [Configure Microsoft Edge](configure-microsoft-edge.md).)
 
 ### Enable usage and crash-related data reporting
 
@@ -39,7 +39,7 @@ On Windows 10, Beta and Stable channels:
 
 - If this policy isn't configured, Microsoft Edge will default to the Windows diagnostic data setting. 
 - If this policy is enabled, Microsoft Edge will only send usage data if the Windows Diagnostic data setting is set to **Enhanced** or **Full**.
-- If this policy is disabled, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. To [learn more about Windows Diagnostic data settings](https://go.microsoft.com/fwlink/?linkid=2099569). 
+- If this policy is disabled, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. To [learn more about Windows Diagnostic data settings](https://go.microsoft.com/fwlink/?linkid=2099569).
 
 On Windows 10, Canary and Dev channels this policy controls sending usage data. If this policy isn't configured, Microsoft Edge will default to the user’s preference. Crash-related data is sent based on the Windows Diagnostic data setting. To [learn more about Windows Diagnostic data settings](https://go.microsoft.com/fwlink/?linkid=2099569).
 
@@ -56,7 +56,7 @@ Enable this policy to send information about websites visited in Microsoft Edge 
 On Windows 10, Beta and Stable channels:
 
 - If this policy isn't configured, Microsoft Edge will default to the Windows diagnostic data setting.
-- If this policy is enabled Microsoft Edge will only send information about the websites that are visited if the Windows Diagnostic data setting is set to **Full**. 
+- If this policy is enabled Microsoft Edge will only send information about the websites that are visited if the Windows Diagnostic data setting is set to **Full**.
 - If this policy is disabled Microsoft Edge will not send info about websites visited. To [learn more about Windows Diagnostic data settings](https://go.microsoft.com/fwlink/?linkid=2099569).
 
 On Windows 10, Canary and Dev channels, this policy controls sending information about the websites that are visited. If this policy isn't configured, Microsoft Edge will default to the user’s preference.
