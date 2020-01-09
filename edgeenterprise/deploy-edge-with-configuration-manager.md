@@ -21,7 +21,7 @@ This article shows you how to automate a Microsoft Edge deployment by using Syst
 
 ## Before you begin
 
-Review the information in [Introduction to application management in Configuration Manager](https://docs.microsoft.com/en-us/sccm/apps/understand/introduction-to-application-management). This application management article will help you understand the terminology used in this article and is a guide to preparing your site to install applications.
+Review the information in [Introduction to application management in Configuration Manager](https://docs.microsoft.com/sccm/apps/understand/introduction-to-application-management). This application management article will help you understand the terminology used in this article and is a guide to preparing your site to install applications.
 
 Download the Microsoft Edge Enterprise installation files (**MicrosoftEdgeDevEnterpriseX64.msi** and/or **MicrosoftEdgeDevEnterpriseX86.msi**) from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 

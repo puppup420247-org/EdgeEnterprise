@@ -28,7 +28,7 @@ Additionally, you can configure Microsoft Edge policies and settings by adding a
 
 ## Before you begin
 
-- Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows).
+- Review the information in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/intune/lob-apps-windows).
 - To create apps for **Windows 10**, download the Microsoft Edge Enterprise installation **.msi files** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). The installation files use the build channel and processor architecture in their names, and will have names like **MicrosoftEdgeDevEnterpriseX86.msi** or **MicrosoftEdgeBetaEnterpriseX64.msi**.
 - To create apps for **macOS**, download the Microsoft Edge Enterprise **PKG for macOS** from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise).
 - Make sure you store the Microsoft Edge installation files in an accessible local or network location.
@@ -71,7 +71,7 @@ This procedure creates an app for deploying Microsoft Edge for Windows 10 in Int
     |Category    |Optionally select a category    |
     |Display this as a featured app in the Company Portal    |Optionally set this to Yes    |
     |Information URL    |Optionally add a URL to a page containing information about the app, such as <https://aka.ms/EdgeEnterprise>    |
-    |Privacy URL    |Optionally add a URL to a page containing app privacy information, such as <https://privacy.microsoft.com/en-US/privacystatement>    |
+    |Privacy URL    |Optionally add a URL to a page containing app privacy information, such as <https://privacy.microsoft.com/privacystatement>    |
     |Command-line arguments    |Optional. See [Microsoft Edge proxy settings](edge-learnmore-cmdline-options-proxy-settings.md) for information about command-line arguments    |
     |Developer    |Optional    |
     |Owner    |Optional    |
@@ -83,17 +83,17 @@ This procedure creates an app for deploying Microsoft Edge for Windows 10 in Int
 9. Optionally, select **Scope (Tags)** to apply existing tags for limiting deployment of the app to a specific scope.
 10. Click **Add** to add the app.
 
-When you're finished, see [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-deploy) to learn how to deploy the app to users.
+When you're finished, see [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/intune/apps-deploy) to learn how to deploy the app to users.
 
 **Other resources:**
 
-- You can refer to the procedures in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows) for general guidance and additional details.
-- See [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add) for information about general Intune app considerations, organization and troubleshooting.
+- You can refer to the procedures in [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/intune/lob-apps-windows) for general guidance and additional details.
+- See [Add apps to Microsoft Intune](https://docs.microsoft.com/intune/apps-add) for information about general Intune app considerations, organization and troubleshooting.
 
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
-- [Use Windows 10 templates to configure group policy settings in Microsoft Intune](https://docs.microsoft.com/en-us/intune/administrative-templates-windows)
-- [Add apps to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-add)
-- [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/en-us/intune/lob-apps-windows)
-- [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-deploy)
+- [Use Windows 10 templates to configure group policy settings in Microsoft Intune](https://docs.microsoft.com/intune/administrative-templates-windows)
+- [Add apps to Microsoft Intune](https://docs.microsoft.com/intune/apps-add)
+- [Add a Windows line-of-business app to Microsoft Intune](https://docs.microsoft.com/intune/lob-apps-windows)
+- [Assign apps to groups with Microsoft Intune](https://docs.microsoft.com/intune/apps-deploy)
