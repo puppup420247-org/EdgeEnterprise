@@ -26,7 +26,7 @@ The next version of Microsoft Edge is supported on the following operating syste
 ### Windows Client
 - Windows 7**
 - Windows 8.1
-- Windows 10 RS3 and later ***
+- Windows 10 SAC RS3 and later ***
 - Windows 10 Enterprise 2015 LTSC
 - Windows 10 Enterprise 2016 LTSC
 - Windows 10 Enterprise 2019 LTSC
@@ -42,7 +42,7 @@ The next version of Microsoft Edge is supported on the following operating syste
 - Yosemite(10.12) and later
 
 > [!IMPORTANT]
-> ** Windows 7 and Windows Server 2008 R2 will be support by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/en-us/help/4527878/faq-about-extended-security-updates-for-windows-7). It is recommemnded to upgrade to a supported operating system as soon as possible in order to remain secure. Microsft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
+> ** Windows 7 and Windows Server 2008 R2 will be support by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/en-us/help/4527878/faq-about-extended-security-updates-for-windows-7). It is recommended to upgrade to a supported operating system as soon as possible in order to remain secure. Microsft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
 > 
 > *** Similar to the above, for Windows 10 SAC releases that are out of support but Microsoft Edge is supported it is recommended to upgrade to a supported Win10 SAC release as soon as possible to remain secure. Microsoft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
 
