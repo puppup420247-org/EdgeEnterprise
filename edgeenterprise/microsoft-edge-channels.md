@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Edge channel overview"
-ms.author: kwjot
-author: jwhit-MSFT
-manager: laurawi
+ms.author: srugh
+author: srugh
+manager: seanlynd
 ms.date: 09/30/2019
 audience: ITPro
 ms.topic: conceptual
@@ -14,12 +14,22 @@ description: "Microsoft Edge channel overview"
 
 # Overview of the Microsoft Edge channels
 
-Learn about the different channels, download, and start using a preview of the next version of Microsoft Edge.
+One of the benefits of the next version of Microsoft Edge is that Microsoft can provide new features on a regular basis. However, as the admin who deploys Microsoft Edge to the users in your organization, you might want to have more control over how often your users get these new features. Microsoft provides you four options, called channels, to control how often Microsoft Edge is updated with new features. Here's an overview of the four options.
   
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
 
 ## Channel overview
+
+||||
+|Channel|Primary purpose|How often updated with new features|Supported?|
+|Stable Channel|Broad Deployment|~6 weeks|Yes|
+|Beta Channel|Representative validation in the organization|~6 weeks|Yes|
+|Dev Channel|Planning and developing|Weekly|No|
+|Canary Channel||Daily|No|
+
+
+
 
 The [Microsoft Edge Insider](https://www.microsoftedgeinsider.com) site provides access to the following Microsoft Edge Channels:
 
