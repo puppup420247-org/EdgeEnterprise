@@ -23,21 +23,21 @@ One of the benefits of the next version of Microsoft Edge is that Microsoft can 
 
 |Channel|Primary purpose|How often updated with new features|Supported?|
 |:---:|---|:---:|:---:|
-|Stable|Broad Deployment|~6 weeks|Yes|
-|Beta|Representative validation in the organization|~6 weeks|Yes|
-|Dev|Planning and developing|Weekly|No|
-|Canary||Daily|No|
+|[Stable](#stable-channel)|Broad Deployment|~6 weeks|Yes|
+|[Beta](#beta-channel)|Representative validation in the organization|~6 weeks|Yes|
+|[Dev](#dev-channel)|Planning and developing|Weekly|No|
+|[Canary](#canary-channel)||Daily|No|
 
-### [Stable Channel](#stable-channel)
-
-
-### [Beta Channel](#beta-channel)
+### Stable Channel
 
 
-### [Dev Channel](#dev-channel)
+### Beta Channel
 
 
-### [Canary Channel](#canary-channel)
+### Dev Channel
+
+
+### Canary Channel
 
 
 
