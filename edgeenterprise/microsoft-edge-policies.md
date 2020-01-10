@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 12/26/2019
+ms.date: 01/09/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -9632,9 +9632,9 @@ The user's session is restored when the browser restarts.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge device must be restarted to apply a pending update.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
 
 If not set, the default period of 604800000 milliseconds (one week) is used.
 
