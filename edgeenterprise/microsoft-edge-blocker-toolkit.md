@@ -3,7 +3,7 @@ title: "Blocker Toolkit to disable automatic delivery of Microsoft Edge"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 01/09/2020
+ms.date: 01/10/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
