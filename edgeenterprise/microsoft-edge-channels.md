@@ -26,7 +26,7 @@ One of the benefits of the next version of Microsoft Edge is that Microsoft can 
 |[Stable](#stable-channel)|Broad Deployment|~6 weeks|Yes|
 |[Beta](#beta-channel)|Representative validation in the organization|~6 weeks|Yes|
 |[Dev](#dev-channel)|Planning and developing|Weekly|No|
-|[Canary](#canary-channel)||Daily|No|
+|[Canary](#canary-channel)|Bleeding edge content|Daily|No|
 
 Which update channel you decide to deploy to your users depends on several factors, such as how many line of business applications the user leverages and that you need to test any time they have an updated version of Microsoft Edge. To help you make this decision, review the following information about the four update channels that are available for Microsoft Edge.
 
