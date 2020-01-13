@@ -40,7 +40,7 @@ The Beta Channel is intended for production deployment in your organization to a
 The Dev Channel is intended to help you plan and develop with the latest capabilities of Microsoft Edge, but with higher quality than the Canary Channel. This is your opportunity to get an early look at what is coming next and prepare for the next Beta release.
 
 ### Canary Channel
-The Canary Channel ships daily and is the most bleeding edge of all the channels. If you want accesss to the newest investments then they will appear here first. Because of the nature of this cadence problems will arise overtime, so you may want another channel installed side by side if you are leveraging the Canary releases.
+The Canary Channel ships daily and is the most bleeding edge of all the channels. If you want access to the newest investments then they will appear here first. Because of the nature of this cadence problems will arise overtime, so you may want another channel installed side by side if you are leveraging the Canary releases.
 
 ## See also
 
