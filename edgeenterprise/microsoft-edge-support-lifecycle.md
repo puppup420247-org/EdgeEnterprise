@@ -3,7 +3,7 @@ title: "Microsoft Edge Support Lifecycle"
 ms.author: srugh
 author: srugh
 manager: seanlynd
-ms.date: 11/12/2019
+ms.date: 01/13/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -19,9 +19,9 @@ This article describes the support lifecycle policy that applies to Microsoft Ed
 > [!NOTE]
 > This article applies to the Microsoft Edge versions 77 and higher.
 
-## Overview of the lifecycle policy for Microsoft Edge.
+## Overview of the lifecycle policy for Microsoft Edge
 
-The next version of Microsoft Edge features more frequent and more flexible updating capabilities. Because browser releases aren't bound to the Windows major releases, it is necessary to have the governing lifecycle policy updated to reflect this. Going forward Microsoft Edge will be part of the [Modern Lifecyle Policy](https://support.microsoft.com/en-us/help/30881/modern-lifecycle-policy).
+The next version of Microsoft Edge features more frequent and more flexible updating capabilities. Because browser releases aren't bound to the Windows major releases, it is necessary to have the governing lifecycle policy updated to reflect this. Going forward Microsoft Edge will be part of the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy).
 
 As part of this policy, the supported releases of Microsoft Edge will include the latest available release from the Beta and Stable channels.
 
@@ -29,5 +29,4 @@ As part of this policy, the supported releases of Microsoft Edge will include th
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge documentation](https://docs.microsoft.com/DeployEdge/)
-- [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/en-us/help/30881/modern-lifecycle-policy)
-
+- [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy)
