@@ -1,4 +1,4 @@
-# last revised 01/07/2020
+# last revised 01/14/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -11,6 +11,10 @@
      href: microsoft-edge-channels.md
    - name: Supported languages
      href: microsoft-edge-supported-languages.md
+   - name: Release Notes
+     href: microsoft-edge-release-notes.md
+   - name: Roadmap
+     href: microsoft-edge-roadmap.md
    - name: System updates for Microsoft Edge
      items:
       - name: Blocker Toolkit for Microsoft Edge updates
