@@ -43,7 +43,7 @@ This toolkit contains the following components:
 
 ### Supported Operating Systems
 
-Windows 10 version RS4 and newer.
+Windows 10 version 1803 and newer.
 
 ## Blocker script
 
