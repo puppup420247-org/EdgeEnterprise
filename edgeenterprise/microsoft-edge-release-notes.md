@@ -36,7 +36,7 @@ The available channels are:
 - Conditional Access
 - Application Guard
 - Microsoft Search in Bing
-- F12 Developer tools with WebView
+- Microsoft Edge DevTools
 - Immersive reader
 - Favorites button
 - Extensions
