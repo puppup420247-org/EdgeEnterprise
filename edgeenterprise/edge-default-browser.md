@@ -27,10 +27,12 @@ To set Microsoft Edge Stable as the default browser for html files and http/http
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<DefaultAssociations>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier=".html"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="http"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="https"/>  
+<DefaultAssociations> 
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".html"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".htm"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="http"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".pdf"/>
 </DefaultAssociations>
 ```
 
@@ -67,9 +69,11 @@ To set Microsoft Edge as the default browser on Azure Active Directory joined de
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <DefaultAssociations>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier=".html"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="http"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".html"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".htm"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="http"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".pdf"/>  
 </DefaultAssociations>
 ```
 
@@ -89,6 +93,7 @@ When using either of these methods, it is still possible for a user to change th
 - [Plan your deployment of Microsoft Edge](https://docs.microsoft.com/DeployEdge/deploy-edge-plan-deployment)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Set Microsoft Edge as default browser (Windows 7 and macOS)](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultbrowsersettingenabled)
+- [Windows 10 – How to configure file associations for IT Pros?](https://docs.microsoft.com/archive/blogs/windowsinternals/windows-10-how-to-configure-file-associations-for-it-pros)
 - [Export or Import Default Application Associations](https://docs.microsoft.com/windows-hardware/manufacture/desktop/export-or-import-default-application-associations)
   - [DISM Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/what-is-dism)
   - [DISM - Deployment Image Servicing and Management](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism---deployment-image-servicing-and-management-technical-reference-for-windows)
