@@ -20,7 +20,7 @@ This article describes the roadmap for Microsoft Edge.
 
 | Description | Status | Tags | Release |
 |--|--|--|--|
-| Disallow synchronous XmlHttpRequest in page dismissal<br> Description details:<br> Sending of synchronous XmlHttpRequests during unload of a webpage will be removed. This change will improve browser performance and reliability, but may impact web applications that have not yet been updated to use more modern web APIs including sendBeacon and fetch.<br>Group Policy to disable this change and permit synchronous XHR during page dismissal will be available until Edge 88.<br> The current settings is behind a flag. Until enabled-by-default in Edge 82, this change can be previewed by setting edge://flags/#allow-sync-xhr-in-page-dismissal to Disabled.<br>For [more information](https://docs.microsoft.com/microsoft-edge/web-platform/site-impacting-changes) | In development      |  Microsoft Edge, SAP    | Edge 82       |
+| Disallow synchronous XmlHttpRequest in page dismissal<br> <br> Sending of synchronous XmlHttpRequests during unload of a webpage will be removed. This change will improve browser performance and reliability, but may impact web applications that have not yet been updated to use more modern web APIs including sendBeacon and fetch.<br>Group Policy to disable this change and permit synchronous XHR during page dismissal will be available until Edge 88.<br> The current settings is behind a flag. Until enabled-by-default in Edge 82, this change can be previewed by setting edge://flags/#allow-sync-xhr-in-page-dismissal to Disabled.<br>For [more information](https://docs.microsoft.com/microsoft-edge/web-platform/site-impacting-changes) | In development      |  Microsoft Edge, SAP    | Edge 82       |
 
 ## See also
 
