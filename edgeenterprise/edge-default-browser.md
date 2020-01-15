@@ -27,10 +27,12 @@ To set Microsoft Edge Stable as the default browser for html files and http/http
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<DefaultAssociations>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier=".html"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="http"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="https"/>  
+<DefaultAssociations> 
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".html"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".htm"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="http"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".pdf"/>
 </DefaultAssociations>
 ```
 
@@ -67,9 +69,11 @@ To set Microsoft Edge as the default browser on Azure Active Directory joined de
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <DefaultAssociations>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier=".html"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="http"/>
-  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTML" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".html"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".htm"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="http"/>
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier="https"/>  
+  <Association ApplicationName="Microsoft Edge" ProgId="MSEdgeHTM" Identifier=".pdf"/>  
 </DefaultAssociations>
 ```
 
