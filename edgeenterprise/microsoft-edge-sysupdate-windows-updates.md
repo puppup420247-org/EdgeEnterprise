@@ -3,7 +3,7 @@ title: "Windows updates for Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -48,7 +48,7 @@ Along with the previous changes, there are changes that will happen regardless o
 
 The changes needed to support the described experience will be delivered with three updates for different versions of Windows.
 
-### Windows version 1903
+### Windows versions 1903 and 1909
 
 - First set of changes in optional July 2019 update, delivered with the August 2019 security update.
 - Second set of changes in the optional August 2019 update, delivered with the September 2019 security update.
@@ -76,12 +76,12 @@ The changes needed to support the described experience will be delivered with th
 
 The following table gives the details for specific updates in each set of changes.
 
-|Windows 10 |Changes, set 1  |Changes, set 2  |Changes, set 3  |
-|---------|---------|---------|---------|
-|Version 1709     |Optional: [KB4512494](https://support.microsoft.com/help/4512494)<br/>Recommended: [KB4516066](https://support.microsoft.com/help/4516066)         |Optional: [KB4516071](https://support.microsoft.com/help/4516071)<br/>Recommended: [KB4520004](https://support.microsoft.com/help/4520004/)         |Optional: [KB4520006](https://support.microsoft.com/help/4520006/)<br/>Recommended: [KB4525241](https://support.microsoft.com/help/4525241/)         |
-|Version 1803     |Optional: [KB4512509](https://support.microsoft.com/help/4512509)<br/>Recommended: [KB4516058](https://support.microsoft.com/help/4516058)         |Optional: [KB4516045](https://support.microsoft.com/help/4516045)<br/>Recommended: [KB4520008](https://support.microsoft.com/help/4520008/)         |Optional: [KB4519978](https://support.microsoft.com/help/4519978/)<br/>Recommended: [KB4525237](https://support.microsoft.com/help/4525237/)         |
-|Version 1809     |Optional: [KB4512534](https://support.microsoft.com/help/4512534)<br/>Recommended: [KB4512578](https://support.microsoft.com/help/4512578)         |Optional: [KB4516077](https://support.microsoft.com/help/4516077)<br/>Recommended: [KB4519338](https://support.microsoft.com/help/4519338/)         |Optional: [KB4520062](https://support.microsoft.com/help/4520062/)<br/>Recommended: [KB4523205](https://support.microsoft.com/help/4523205/)         |
-|Version 1903     |Optional: [KB4505903](https://support.microsoft.com/help/4505903/)<br/>Recommended: [KB4512508](https://support.microsoft.com/help/4512508/)         |Optional: [KB4512941](https://support.microsoft.com/help/4512941) <br/>Recommended: [KB4515384](https://support.microsoft.com/help/4515384)         |Optional: [KB4517211](https://support.microsoft.com/help/4517211)<br/>Recommended: [KB4517389](https://support.microsoft.com/help/4517389/)         |
+| Windows 10 | More Information | Required Download |
+|--|--|--|
+| Version 1709 | [KB4525241](https://support.microsoft.com/help/4525241/windows-10-update-kb4525241) | [Cumulative Update for Windows 10 Version 1709](http://www.catalog.update.microsoft.com/Search.aspx?q=4525241) |
+| Version 1803  | [KB4525237](https://support.microsoft.com/help/4525237/windows-10-update-kb4525237) | [Cumulative Update for Windows 10 Version 1803](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4525237) |
+| Version 1809  | [KB4523205](https://support.microsoft.com/help/4523205/windows-10-update-kb4523205) | [Cumulative Update for Windows 10 Version 1809](http://www.catalog.update.microsoft.com/Search.aspx?q=4523205) |
+| Version 1903 and 1909 |[KB4517389](https://support.microsoft.com/help/4517389/windows-10-update-kb4517389)  | [Cumulative Update for Windows 10 Version 1903 and 1909](http://www.catalog.update.microsoft.com/Search.aspx?q=4517389) |
 
 ## See also
 
