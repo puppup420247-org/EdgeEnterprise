@@ -48,7 +48,7 @@ Along with the previous changes, there are changes that will happen regardless o
 
 The changes needed to support the described experience will be delivered with three updates for different versions of Windows.
 
-### Windows version 1903
+### Windows versions 1903 and 1909
 
 - First set of changes in optional July 2019 update, delivered with the August 2019 security update.
 - Second set of changes in the optional August 2019 update, delivered with the September 2019 security update.
