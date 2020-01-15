@@ -17,7 +17,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 This article explains how to use Microsoft Edge with IE mode.
 
 > [!NOTE]
-> This article applies to Microsoft Edge **Beta** and **Dev** Channels, version 77 or later.
+> This article applies to Microsoft Edge **Stable**, **Beta** and **Dev** Channels, version 77 or later.
 
 ## Prerequisites
 
@@ -39,6 +39,8 @@ The following prerequisites apply to using Microsoft Edge with IE mode. For the 
    - Windows 7 SP1 and Windows Server 2008R2: [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
 
 2. The Microsoft Edge administrative template. For more information, see [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge).
+
+3. Internet Explorer 11 enabled in Windows Features.
 
 ## What is IE mode?
 
@@ -210,10 +212,10 @@ The following table shows the possible values of the \<open-in\> element:
 
 | **Value** | **Description** |
 | --- | --- |
-| **\<open-in\>IE11\</open-in\>** | Opens the site in IE mode, regardless of which browser is opened by the employee. |
-| **\<open-in app="**true**"\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the employee. |
-| **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the employee. |
-| **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
+| **\<open-in\>IE11\</open-in\>** | Opens the site in IE mode, when the user is in Microsoft Edge and "Configure Internet Explorer integration" is set to Enabled with the option "Internet Explorer mode". <br> Opens the site in Internet Explorer 11, when the user is in Microsoft Edge and "Configure Internet Explorer integration" is set to Enabled with the option "Internet Explorer 11". |
+| **\<open-in app="**true**"\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the user. |
+| **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the user. |
+| **\<open-in\>None or not specified\</open-in\>** | Opens the site in the default browser or in the browser where navigation was initiated. |
 
 >[!NOTE]
 > The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.
