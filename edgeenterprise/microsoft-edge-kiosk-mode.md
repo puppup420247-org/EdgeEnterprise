@@ -3,7 +3,7 @@ title: "Microsoft Edge kiosk options"
 ms.author: brianalt
 author: brianalt
 manager: seanlynd
-ms.date: 01/15/2020
+ms.date: 01/16/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge

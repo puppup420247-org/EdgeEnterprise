@@ -1,4 +1,4 @@
-# last revised 01/13/2020
+# last revised 01/16/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -70,6 +70,8 @@
      href: microsoft-edge-enterprise-state-roaming.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
+   - name: Microsoft Edge kiosk options
+     href: microsoft-edge-kiosk-mode.md
 - name: Security and privacy
   items:     
    - name: Security
