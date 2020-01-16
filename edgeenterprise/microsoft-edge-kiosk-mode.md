@@ -24,9 +24,6 @@ Microsoft Edge can be run with [multi-app assigned access](https://docs.microsof
 
 When using Microsoft Edge with multi-app assigned access you can use the [Microsoft Edge browser policies](microsoft-edge-policies.md) to configure the browsing experience to meet your unique requirements.
 
-> [!NOTE]
-> Passing command line parameters, for example "`--kiosk`" to always open Microsoft Edge in full screen, is not supported when using Microsoft Edge with multi-app assigned access.
-
 Today Microsoft Edge does not support the same Microsoft Edge Legacy kiosk mode types for single-app assigned access and the "Public browsing" kiosk mode type in multi-app assigned access. If you need a browser for your single-app assigned access kiosk device, we recommend using [Microsoft Edge Legacy kiosk mode](https://aka.ms/edgekioskmode) or the [Microsoft Kiosk Browser app](https://www.microsoft.com/p/kiosk-browser/9ngb5s5xg2kp?activetab=pivot:overviewtab). 
 
 ## Microsoft Edge “--kiosk” command line parameter
