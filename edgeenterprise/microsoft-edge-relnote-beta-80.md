@@ -16,9 +16,7 @@ description: "Microsoft Edge Release Notes Beta Channel Version 80"
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Beta Channel Version 80.
 
-## Microsoft Edge Beta Channel Version 80
-
-### Feature updates
+## Feature updates
 
 - Added an option to Reading View to increase text spacing. 
 - Added a prompt to verify work or school accounts that are automatically added to Microsoft Edge but aren’t enabled for sync so that users are aware sync isn’t enabled. 
@@ -34,7 +32,7 @@ These release notes provide information about new features and non-security upda
 - Updated Adobe Flash to version 32.0.0.303. 
 - Improved the reliability of screenshots so they stop appearing all black when submitting feedback. 
 
-### Resolved issues
+## Resolved issues
 
 **Application Guard:** 
 

@@ -16,9 +16,7 @@ description: "Microsoft Edge Release Notes Stable Channel Version 79"
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel Version 79.
 
-## Microsoft Edge Stable Channel Version 79
-
-### Features (first release)
+## Features (first release)
 
 - Internet Explorer mode
 - Enterprise NTP
@@ -41,7 +39,7 @@ These release notes provide information about new features and non-security upda
 - Dolby audio & HDR (Win10 only)
 - Video streaming battery claim (Win10 only)
 
-### Resolved issues
+## Resolved issues
 
 **Internet Explorer mode:**
 
