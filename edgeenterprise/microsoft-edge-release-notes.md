@@ -20,8 +20,8 @@ These release notes provide information about new features and non-security upda
 
 These release notes are for the following channels:
 
-- [Microsoft Edge Stable Channel Version 79](microsoft-edge-stable-channel-version-79.md)
-- [Microsoft Edge Beta Channel Version 80](microsoft-edge-beta-channel-version-80.md)
+- [Microsoft Edge Stable Channel Version 79](microsoft-edge-relnote-stable-79.md)
+- [Microsoft Edge Beta Channel Version 80](microsoft-edge-relnote-beta-80.md)
 
 ## See also
 
