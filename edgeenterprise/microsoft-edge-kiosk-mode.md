@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Edge kiosk options"
+title: "Microsoft Edge kiosk mode"
 ms.author: brianalt
 author: brianalt
 manager: seanlynd
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Microsoft Edge kiosk options"
+description: "Microsoft Edge kiosk mode"
 ---
 
-# Microsoft Edge kiosk options
+# Microsoft Edge kiosk mode
 
-This article provides an overview of the Microsoft Edge (version 77 or later) kiosk options. It also covers what's required to continue using Microsoft Edge Legacy kiosk mode (version 45 and earlier.)
+This article provides an overview of the Microsoft Edge (version 77 or later) kiosk mode options. It also covers what's required to continue using Microsoft Edge Legacy kiosk mode (version 45 and earlier.)
 
 For information about Microsoft Edge Legacy kiosk mode (version 45 and earlier) see [Deploy Microsoft Edge kiosk mode](https://aka.ms/edgekioskmode).
 
 ## Microsoft Edge with assigned access
 
-Microsoft Edge can be run with [multi-app assigned access](https://docs.microsoft.com/windows/configuration/lock-down-windows-10-to-specific-apps) on Windows 10, which is the equivalent of Microsoft Edge Legacy "Normal browsing” kiosk mode type. To configure Microsoft Edge with multi-app assigned access follow the instructions on how to [Set up a multi-app kiosk](https://docs.microsoft.com/windows/configuration/lock-down-windows-10-to-specific-apps). The AUMID for the Microsoft Edge Stable channel is **MSEdge**. 
+Microsoft Edge can be run with [multi-app assigned access](https://docs.microsoft.com/windows/configuration/lock-down-windows-10-to-specific-apps) on Windows 10, which is the equivalent of Microsoft Edge Legacy "Normal browsing” kiosk mode type. To configure Microsoft Edge with multi-app assigned access follow the instructions on how to [Set up a multi-app kiosk](https://docs.microsoft.com/windows/configuration/lock-down-windows-10-to-specific-apps). The AUMID for the Microsoft Edge Stable channel is **MSEdge**.
 
 When using Microsoft Edge with multi-app assigned access you can use the [Microsoft Edge browser policies](microsoft-edge-policies.md) to configure the browsing experience to meet your unique requirements.
 
