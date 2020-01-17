@@ -28,7 +28,7 @@ landingContent:
           - text: Microsoft Edge channel overview
             url: microsoft-edge-channels.md
           - text: Download a Microsoft Edge channel
-            url: "https://www.microsoftedgeinsider.com/download"
+            url: "https://aka.ms/EdgeEnterprise"
           - text: Use enterprise features
             url: edge-ie-mode.md
 #          - text: FastTrack for Microsoft Edge
