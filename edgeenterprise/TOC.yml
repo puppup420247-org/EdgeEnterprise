@@ -7,9 +7,10 @@
   items:
    - name: Plan your deployment of Microsoft Edge
      href: deploy-edge-plan-deployment.md
-   - name: Policy mapping overview
-     href: microsoft-edge-policy-map-overview.md
+   - name: Microsoft Edge policy mapping
      items:
+      - name: Policy mapping overview
+        href: microsoft-edge-policy-map-overview.md
       - name: Microsoft Edge Legacy to Microsoft Edge policy mapping
         href: microsoft-edge-policy-map-legacy-to-newedge.md
       - name: Google Chrome to Microsoft Edge policy mapping
