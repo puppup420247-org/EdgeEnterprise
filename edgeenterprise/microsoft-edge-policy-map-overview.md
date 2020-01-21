@@ -24,5 +24,6 @@ To help with your policy migration from Microsoft Edge Legacy (version 45 and ea
 > - [Update policy reference]()
 
 ## See also
-- [Configuring Microsoft Edge](configure-microsoft-edge.md)
+- [Configuring Microsoft Edge on Windows](configure-microsoft-edge.md)
+- [Configuring Microsoft Edge on macOS](configure-microsoft-edge-on-mac.md)
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
