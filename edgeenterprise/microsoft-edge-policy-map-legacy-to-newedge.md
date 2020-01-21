@@ -14,12 +14,12 @@ description: "Microsoft Edge Legacy to Microsoft Edge policy mapping"
 
 # Microsoft Edge Legacy to Microsoft Edge policy mapping
 
-The following table maps the Microsoft Edge Legacy (version 45 and earlier) Group Policies and Mobile Device Management settings to the relevant Microsoft Edge (version 77 or later) policy. 
+This article shows how the Microsoft Edge Legacy (version 45 and earlier) Group Policies and Mobile Device Management settings map to the relevant Microsoft Edge (version 77 or later) policies.
 
-> [!NOTE]
-> The Microsoft Edge policy is the name of the policy with a link to the policy details. The last column contains the Group Policy name.
+## Microsoft Edge Legacy to Microsoft Edge policy map
 
-## Microsoft Edge Legacy to Microsoft Edge policy mapping table
+In the following table, the **Microsoft Edge policy** is the name of the policy with a link to the policy details. 
+
 |Microsoft Edge Legacy Group Policy|Microsoft Edge legacy Mobile Device Management|Microsoft Edge policy|Microsoft Edge Group Policy name|
 |-|-|-|-|
 |[Allow a shared books folder](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#allow-a-shared-books-folder)|[UseSharedFolderForBooks](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-usesharedfolderforbooks)|Not applicable| |
