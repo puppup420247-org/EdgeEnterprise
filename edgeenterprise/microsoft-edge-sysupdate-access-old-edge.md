@@ -23,7 +23,11 @@ The procedures in this article apply to systems that have been updated with the 
 
 Before using the detailed instructions in this article, consider the following 2 steps to enable a side-by-side browser experience by preventing the installation of the Stable Channel of Microsoft Edge. These steps will let your users run Microsoft Edge Legacy and the next version of Microsoft Edge ([Beta channel](microsoft-edge-channels.md)) side-by-side.
 
-1. Prevent the automatic install of the Stable Channel of Microsoft Edge by Windows Update. For more information, see [Windows Update: FAQ](https://support.microsoft.com/help/12373/windows-update-faq)
+1. Prevent the automatic install of the Stable Channel of Microsoft Edge by [Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
+
+   > [!TIP]
+   > Use the [Blocker Toolkit](microsoft-edge-blocker-toolkit.md) to disable automatic delivery of Microsoft Edge.
+
 2. Install the [Beta channel](https://www.microsoftedgeinsider.com) of the new version of Microsoft Edge instead.
 
    > [!NOTE]
