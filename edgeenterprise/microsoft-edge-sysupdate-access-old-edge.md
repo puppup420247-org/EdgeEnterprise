@@ -9,10 +9,12 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "How to access the legacy version of Microsoft Edge."
+description: "Learn how to access the legacy version of Microsoft Edge."
 ---
 
 # Access Microsoft Edge Legacy after installing the new version of Microsoft Edge
+
+Learn how to access Microsoft Edge Legacy after installing the new version of Microsoft Edge.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge [Stable channel](microsoft-edge-channels.md).
