@@ -71,13 +71,13 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Policy mapping overview
-            url: microsoft-edge-policy-map-overview.md
           - text: Browser policy reference
             url: microsoft-edge-policies.md
           - text: Update policy reference
             url: microsoft-edge-update-policies.md
-  # Card 6 (col 3, 2nd row)
+          - text: Policy mapping overview
+            url: microsoft-edge-policy-map-overview.md
+ # Card 6 (col 3, 2nd row)
   - title: Engage with enterprise community or get help
     linkLists:
        - linkListType: get-started
