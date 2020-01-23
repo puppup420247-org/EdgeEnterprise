@@ -20,6 +20,7 @@ This article shows how the Microsoft Edge Legacy (version 45 and earlier) Group 
 
 In the following table, the **Microsoft Edge policy** is the name of the policy with a link to the policy details.
 
+
 |Microsoft Edge Legacy Group Policy|Microsoft Edge legacy Mobile Device Management|Microsoft Edge policy <br> Microsoft Edge Group Policy name|
 |-|-|-|
 |[Allow a shared books folder](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#allow-a-shared-books-folder)|[UseSharedFolderForBooks](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-usesharedfolderforbooks)|Not applicable|
@@ -78,6 +79,7 @@ In the following table, the **Microsoft Edge policy** is the name of the policy 
 |[Set New Tab page URL](https://docs.microsoft.com/microsoft-edge/deploy/group-policies/new-tab-page-settings-gp#set-new-tab-page-url)|[SetNewTabPageURL](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-setnewtabpageurl)|[NewTabPageLocation](https://docs.microsoft.com/deployedge/microsoft-edge-policies#newtabpagelocation) <br> Configure the new tab page URL|
 |[Show message when opening sites in Internet Explorer](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#show-message-when-opening-sites-in-internet-explorer)|[ShowMessageWhenOpeningSitesInInternetExplorer](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-showmessagewhenopeningsitesininternetexplorer)|Not applicable|
 |[Unlock home button](https://docs.microsoft.com/microsoft-edge/deploy/group-policies/home-button-gp#unlock-home-button)|[UnlockHomeButton](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-unlockhomebutton)|[ShowHomeButton (Recommended version)](https://docs.microsoft.com/deployedge/microsoft-edge-policies#showhomebutton) <br> Show Home button on toolbar (Recommended version)|
+
 
 ## See also
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
