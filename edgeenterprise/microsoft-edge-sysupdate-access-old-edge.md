@@ -26,7 +26,7 @@ The procedures in this article apply to systems that have been updated with the 
 
 ## Before you begin
 
-Before using the detailed instructions in this article, consider the following 2 steps to enable a side-by-side browser experience by preventing the installation of the Stable Channel of Microsoft Edge. These steps will let your users run Microsoft Edge Legacy and the next version of Microsoft Edge ([Beta channel](microsoft-edge-channels.md)) side-by-side.
+Before using the detailed instructions in this article, consider the following 2 steps to let your users run Microsoft Edge Legacy and the next version of Microsoft Edge ([Beta channel](microsoft-edge-channels.md)) side-by-side.
 
 1. Prevent the automatic install of the Stable Channel of Microsoft Edge by [Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -54,7 +54,6 @@ Installing the Stable Channel of the next version of Microsoft Edge at system-le
 
 This group policy is documented [here](https://docs.microsoft.com/deployedge/microsoft-edge-update-policies#allowsxs)
 
-
 ### To enable the side-by-side browser experience policy:
 
 1. Install the Policy Definitions from [Microsoft](https://www.microsoft.com/edge/business/download).
@@ -70,7 +69,7 @@ This group policy is documented [here](https://docs.microsoft.com/deployedge/mic
     > [!NOTE]
     > If you don't see 'Microsoft Edge Update' available, verify that step 1 was completed correctly.
 
-4. Under **Applications**, double-click "Allow Microsoft Edge Side by Side browser experience".
+4. Under **Applications**, double-click "Allow Microsoft Edge Side by Side browser experience". See our [best practice guidance](#best-practice-guidance) before continuing to the next step.
 5. Select **Enabled** and then click **OK**.  
 
 > [!NOTE]
@@ -84,6 +83,8 @@ Setting this policy will set the following Registry Key (as documented in the li
 
 > [!NOTE]
 > By default, this group policy is set to "Not configured", which results in Microsoft Edge Legacy being hidden when the new version of Microsoft Edge is installed.
+
+#### Best practice guidance
 
 For the best experience, the **Allow Microsoft Edge Side by Side browser experience** should be enabled before the new version of Microsoft Edge is deployed to your users' devices.
 
