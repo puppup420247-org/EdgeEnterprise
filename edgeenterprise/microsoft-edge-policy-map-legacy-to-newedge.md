@@ -18,8 +18,6 @@ This article shows how the Microsoft Edge Legacy (version 45 and earlier) Group 
 
 ## Microsoft Edge Legacy to Microsoft Edge policy map
 
-In the following table, the **Microsoft Edge policy** is the name of the policy with a link to the policy details.
-
 |Microsoft Edge Legacy Group Policy|Microsoft Edge legacy Mobile Device Management|Microsoft Edge policy <br> Microsoft Edge Group Policy name|
 |-|-|-|
 |[Allow a shared books folder](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#allow-a-shared-books-folder)|[UseSharedFolderForBooks](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-usesharedfolderforbooks)|Not applicable|
