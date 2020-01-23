@@ -14,11 +14,9 @@ description: "Google Chrome to Microsoft Edge policy mapping"
 
 # Google Chrome to Microsoft Edge policy mapping
 
-This article shows how the Google Chrome policies map to the relevant Microsoft Edge (version 77 or later) policies.
+This article shows how the Google Chrome policies map to the relevant Microsoft Edge policies.
 
 ## Google Chrome to Microsoft Edge policy map
-
-In the following table, the **Microsoft Edge policy** is the name of the policy with a link to the policy details.
 
 |Google Chrome Policy|Microsoft Edge Policy|
 |-|-|
