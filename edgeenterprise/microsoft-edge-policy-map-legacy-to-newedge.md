@@ -3,7 +3,7 @@ title: "Microsoft Edge Legacy to Microsoft Edge policy mapping"
 ms.author: brianalt
 author: brianalt
 manager: srugh
-ms.date: 01/21/2020
+ms.date: 01/22/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
