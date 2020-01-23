@@ -21,6 +21,9 @@ Learn how to access Microsoft Edge Legacy after installing the new version of Mi
 
 The procedures in this article apply to systems that have been updated with the latest security updates. When the new version of Microsoft Edge is installed, the old version (Microsoft Edge Legacy) will be hidden. By default, all attempts to launch the old version will redirect the user to the newly installed version of Microsoft Edge. This article describes three different methods to enable Microsoft Edge Legacy to continue to be available.
 
+> [!WARNING]
+> When using Windows Update deployment there is a known issue with the Allow Side by Side policy that produces a broken shortcut to Microsoft Edge Legacy in the all apps list. We recommend that you do not deploy with these methods or enable the **AllowSxS** policy until this issue can be resolved.
+
 ## Before you begin
 
 Before using the detailed instructions in this article, consider the following 2 steps to enable a side-by-side browser experience by preventing the installation of the Stable Channel of Microsoft Edge. These steps will let your users run Microsoft Edge Legacy and the next version of Microsoft Edge ([Beta channel](microsoft-edge-channels.md)) side-by-side.
