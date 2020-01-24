@@ -66,7 +66,7 @@ This group policy is documented [here](https://docs.microsoft.com/deployedge/mic
 
 1. Install the Policy Definitions from [Microsoft Edge for Business](https://www.microsoft.com/edge/business/download).
 
-   - Pick the CHANNEL/BUILD and PLATFORM you want to use, and then click to "GET POLICY FILES".
+   - Pick the CHANNEL/BUILD and PLATFORM you want to use, and then click GET POLICY FILES.
    - Extract the zipped files.
    - Copy msedge.admx and msedgeupdate.admx to the `C:\Windows\PolicyDefinitions` directory.
    - Copy msedge.adml and msedgeupdate.adml (from the appropriate language/locale directory) to the `C:\Windows\PolicyDefinitions\[APPROPRIATE LANGUAGE/LOCALE]` directory.
