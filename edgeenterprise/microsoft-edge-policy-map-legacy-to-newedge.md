@@ -3,7 +3,7 @@ title: "Microsoft Edge Legacy to Microsoft Edge policy mapping"
 ms.author: brianalt
 author: brianalt
 manager: srugh
-ms.date: 01/22/2020
+ms.date: 01/29/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,11 +14,11 @@ description: "Microsoft Edge Legacy to Microsoft Edge policy mapping"
 
 # Microsoft Edge Legacy to Microsoft Edge policy mapping
 
-This article shows how the Microsoft Edge Legacy (version 45 and earlier) Group Policies and Mobile Device Management settings map to the relevant Microsoft Edge (version 77 or later) policies.
+This article maps the Microsoft Edge Legacy (version 45 and earlier) Group Policies (GP) and Mobile Device Management (MDM) settings to the relevant Microsoft Edge (version 80) policies.
 
 ## Microsoft Edge Legacy to Microsoft Edge policy map
 
-|Microsoft Edge Legacy Group Policy|Microsoft Edge Legacy MDM|Microsoft Edge policy <br> and Group Policy name|
+|Microsoft Edge Legacy GP|Microsoft Edge Legacy MDM|Microsoft Edge policy <br> and GP name|
 |-|-|-|
 |[Allow a shared books folder](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#allow-a-shared-books-folder)|[UseSharedFolderForBooks](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-usesharedfolderforbooks)|Not applicable|
 |[Allow Address bar drop-down list suggestions](https://docs.microsoft.com/microsoft-edge/deploy/available-policies#allow-address-bar-drop-down-list-suggestions)|[AllowAddressBarDropdown](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-browser#browser-allowaddressbardropdown)|[SearchSuggestEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#searchsuggestenabled) <br> Enable search suggestions|
