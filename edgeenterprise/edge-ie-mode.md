@@ -64,7 +64,7 @@ IE mode is policy enabled and applies to:
 - Browser Helper Objects
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
 - [IEChooser](https://docs.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10)
-- (Limited functionality) Microsoft Edge extensions
+- Microsoft Edge extensions (Limited functionality - Extensions that manipulate the tabs will work as expected. Interactions with the IE page content are not supported)
 
 ### IE mode doesn't support the following Internet Explorer functionality
 
@@ -75,6 +75,9 @@ IE mode is policy enabled and applies to:
 ## Enable IE mode
 
 Use the following steps to enable IE mode.
+
+> [!NOTE]
+> Policies to enable IE mode can be configured through Intune. For more information, see [Add Microsoft Edge to Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps/apps-windows-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json) and [Configure Microsoft Edge policies with Microsoft Intune](https://docs.microsoft.com/en-us/DeployEdge/configure-edge-with-intune).
 
 ### Enable IE mode using Group Policy
 
