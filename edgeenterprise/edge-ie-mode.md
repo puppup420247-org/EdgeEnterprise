@@ -17,7 +17,7 @@ description: "Learn how to use Microsoft Edge with IE mode."
 This article explains how to use Microsoft Edge with IE mode.
 
 > [!NOTE]
-> This article applies to Microsoft Edge **Beta** and **Dev** Channels, version 77 or later.
+> This article applies to Microsoft Edge **Stable**, **Beta** and **Dev** Channels, version 77 or later.
 
 ## Prerequisites
 
@@ -36,9 +36,15 @@ The following prerequisites apply to using Microsoft Edge with IE mode. For the 
    - Windows 8 Embedded and Windows Server 2012:
           - Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11
           - [KB4507447](https://support.microsoft.com/help/4507447/windows-server-2012-update-kb4507447) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
-   - Windows 7 SP1 and Windows Server 2008R2: [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
+   - Windows 7 SP1 and Windows Server 2008R2**: [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
+   
+   
+   > [!IMPORTANT]
+   > ** Windows 7 and Windows Server 2008 R2 will be supported by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7). It is recommended to upgrade to a supported operating system as soon as possible in order to remain secure. Microsoft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
 
 2. The Microsoft Edge administrative template. For more information, see [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge).
+
+3. Internet Explorer 11 enabled in Windows Features.
 
 ## What is IE mode?
 
@@ -58,7 +64,7 @@ IE mode is policy enabled and applies to:
 - Browser Helper Objects
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
 - [IEChooser](https://docs.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10)
-- (Limited functionality) Microsoft Edge extensions
+- Microsoft Edge extensions (Extensions that interact with the IE page content directly are not supported.)
 
 ### IE mode doesn't support the following Internet Explorer functionality
 
@@ -69,6 +75,9 @@ IE mode is policy enabled and applies to:
 ## Enable IE mode
 
 Use the following steps to enable IE mode.
+
+> [!NOTE]
+> Policies to enable IE mode can be configured through Intune. For more information, see [Add Microsoft Edge to Microsoft Intune](https://docs.microsoft.com/intune/apps/apps-windows-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json) and [Configure Microsoft Edge policies with Microsoft Intune](https://docs.microsoft.com/DeployEdge/configure-edge-with-intune).
 
 ### Enable IE mode using Group Policy
 
@@ -83,14 +92,20 @@ Use the following steps to enable IE mode.
 
     ![Select enabled](./media/ie-mode/ie-mode-2.png)
 
-6. Under **Options**, select **Internet Explorer mode** from the dropdown list.
+6. Under **Options**, set the dropdown value to 
+   -  **Internet Explorer mode** if you want sites to open in IE mode on Edge
+   -  **Internet Explorer 11** if you want sites to open in a standalone Internet Explorer 11 window
+   -  **None** if you want to disable Internet Explorer mode when it is set via edge://flags or through command line options.
+   
+   > [!NOTE]
+   > Setting the policy to **Disabled** implies IE mode is disabled by policy, but can be set through edge://flags or command line options.
 
     ![Choose Internet Explorer mode](./media/ie-mode/ie-mode-3.png)
 
 7. Click **OK** or **Apply** to save this policy setting.
 
-   >[!NOTE]
-   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+      >[!NOTE]
+      >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
 <!--
     ![Click apply](./media/ie-mode/ie-mode-4.png)-->
@@ -210,10 +225,10 @@ The following table shows the possible values of the \<open-in\> element:
 
 | **Value** | **Description** |
 | --- | --- |
-| **\<open-in\>IE11\</open-in\>** | Opens the site in IE mode, regardless of which browser is opened by the employee. |
-| **\<open-in app="**true**"\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the employee. |
-| **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the employee. |
-| **\<open-in\>None or not specified\</open-in\>** | Opens in whatever browser the employee chooses. |
+| **\<open-in\>IE11\</open-in\>** | Opens the site in IE mode, when the user is in Microsoft Edge and "Configure Internet Explorer integration" is set to Enabled with the option "Internet Explorer mode". <br> Opens the site in Internet Explorer 11, when the user is in Microsoft Edge and "Configure Internet Explorer integration" is set to Enabled with the option "Internet Explorer 11". |
+| **\<open-in app="**true**"\>IE11\</open-in\>** | Opens the site in IE11, regardless of which browser is opened by the user. |
+| **\<open-in\>MSEdge\</open-in\>** | Opens the site in Microsoft Edge, regardless of which browser is opened by the user. |
+| **\<open-in\>None or not specified\</open-in\>** | Opens the site in the default browser or in the browser where navigation was initiated. |
 
 >[!NOTE]
 > The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.
