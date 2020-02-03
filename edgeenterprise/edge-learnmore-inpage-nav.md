@@ -36,11 +36,11 @@ If you enable this policy, we recommend that you disable it once you have identi
 
 ## Keep in-page navigations in IE mode
 
-To keep automatic or all in-page navigations in Internet Explorer mode follow this steps:
+To keep automatic or all in-page navigations in Internet Explorer mode follow these steps:
 
 1. Open Local Group Policy Editor.
 2. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
-3. Double-click **Specify how in-page navigations to unconfigured sites behave when started from Internet Explorer mode pages**.
+3. Under **Setting**, double-click **Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages**.
 <!-- screen shot -->
 4. Select **Enabled**, choose an option from the dropdown and then click **OK** or **Apply** to save the policy settings.
 <!-- screen shot -->
