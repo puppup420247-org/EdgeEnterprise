@@ -1,14 +1,22 @@
-# last revised 12/16/2019
+# last revised 01/28/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
   href: microsoft-edge-content-updates.md
 - name: Microsoft Edge in the enterprise
   items:
+   - name: Plan your deployment of Microsoft Edge
+     href: deploy-edge-plan-deployment.md
    - name: Microsoft Edge Channels
      href: microsoft-edge-channels.md
+   - name: Supported Operating Systems
+     href: microsoft-edge-supported-operating-systems.md
+   - name: Support Lifecycle Policy
+     href: microsoft-edge-support-lifecycle.md
    - name: Supported languages
      href: microsoft-edge-supported-languages.md
+   - name: Security updates
+     href: microsoft-edge-relnotes-security.md
    - name: System updates for Microsoft Edge
      items:
       - name: Blocker Toolkit for Microsoft Edge updates
@@ -64,6 +72,8 @@
      href: microsoft-edge-enterprise-state-roaming.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
+   - name: Microsoft Edge kiosk mode
+     href: microsoft-edge-kiosk-mode.md
 - name: Security and privacy
   items:     
    - name: Security
