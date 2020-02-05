@@ -42,11 +42,12 @@ To keep automatic or all in-page navigations in Internet Explorer mode follow th
 2. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
 3. Under **Setting**, double-click **Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages**.
 
-<!-- screen shot -->
+   ![In-page policy setting](media/edge-learnmore-inpage-nav/learnmore-in-page-nav-settings.png)
 
 4. Select **Enabled**, choose an option from the dropdown and then click **OK** or **Apply** to save the policy settings.
 
-<!-- screen shot -->
+   ![Enable in-page policy](media/edge-learnmore-inpage-nav/learnmore-in-page-nav-enable.png)
+
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://www.microsoftedgeinsider.com/enterprise)
