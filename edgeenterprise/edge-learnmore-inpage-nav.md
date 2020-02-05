@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Edge in-page navigations for IE mode"
+title: "Force in-page navigations to stay in IE mode"
 ms.author: shisub
 author: dan-wesley
 manager: srugh
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,9 +14,9 @@ description: "Force in-page navigations to stay in IE mode"
 
 # Force in-page navigations to stay in IE mode
 
-You can use this policy as a temporary solution to force all "in-page" navigations from IE mode sites to stay in IE mode.
+You can use this policy as a temporary solution to force all in-page navigations from IE mode sites to stay in IE mode.
 
-An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn’t "in-page" that’s independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+An in-page navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous in-page navigation attempt. Conversely, a user can start a navigation that isn’t in-page that’s independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
 
 >[!NOTE]
 >This article applies to Microsoft Edge version 81 or later.
@@ -30,7 +30,7 @@ The following Windows updates are required for this policy:
 
 ## About this policy
 
-This policy gives you time to identify and configure all of the authentication servers used by your IE mode sites. However, this policy will result in an inconsistent browsing experience, where some sites are rendered sometimes in Internet Explorer mode and at other times in Microsoft Edge mode, depending on whether or not the navigation to the site began from an Internet Explorer mode page. Any site that is not explicitly configured to open in a particular engine will be subject to this possible inconsistency.
+This policy gives you time to identify and configure all of the authentication servers used by your IE mode sites. However, this policy can result in an inconsistent browsing experience, where some sites are rendered in Internet Explorer mode and at other times rendered in Microsoft Edge mode. This depends on whether the navigation to the site began from an Internet Explorer mode page. Any site that isn't explicitly configured to open in a specific rendering engine will be subject to this inconsistency.
 
 If you enable this policy, we recommend that you disable it after you've identified all the authentication servers and added them to the site list as neutral. This will ensure that your modern sites never inadvertently render in Internet Explorer mode.
 
