@@ -19,6 +19,8 @@
      href: microsoft-edge-relnote-beta-channel.md
    - name: Stable Channel Release Notes
      href: microsoft-edge-relnote-stable-channel.md
+   - name: Security updates
+     href: microsoft-edge-relnotes-security.md
    - name: System updates for Microsoft Edge
      items:
       - name: Blocker Toolkit for Microsoft Edge updates
@@ -74,6 +76,8 @@
      href: microsoft-edge-enterprise-state-roaming.md
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
+   - name: Microsoft Edge kiosk mode
+     href: microsoft-edge-kiosk-mode.md
 - name: Security and privacy
   items:     
    - name: Security

@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 01/09/2020
+ms.date: 01/17/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -22,7 +22,7 @@ For information about an additional set of policies used to control how and when
 > This article applies to Microsoft Edge version 77 or later.
 
 ## Available policies
-These tables lists all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
+These tables list all of the browser-related group policies available in this release of Microsoft Edge. Use the links in the table to get more details about specific policies.
 
 |||
 |-|-|
@@ -191,6 +191,7 @@ These tables lists all of the browser-related group policies available in this r
 |[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
 |[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
 |[CustomHelpLink](#customhelplink)|Specify custom help link|
+|[DNSInterceptionChecksEnabled](#dnsinterceptionchecksenabled)|DNS interception checks enabled|
 |[DefaultBrowserSettingEnabled](#defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
 |[DeveloperToolsAvailability](#developertoolsavailability)|Control where developer tools can be used|
 |[DirectInvokeEnabled](#directinvokeenabled)|Allow users to open files using the DirectInvoke protocol|
@@ -218,6 +219,7 @@ These tables lists all of the browser-related group policies available in this r
 |[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Force direct intranet site navigation instead of searching on single word entries in the Address Bar|
 |[HSTSPolicyBypassList](#hstspolicybypasslist)|Configure the list of names that will bypass the HSTS policy check|
 |[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
+|[HideFirstRunExperience](#hidefirstrunexperience)|Hide the First-run experience and splash screen|
 |[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
 |[ImportBrowserSettings](#importbrowsersettings)|Allow importing of browser settings|
 |[ImportFavorites](#importfavorites)|Allow importing of favorites|
@@ -238,7 +240,9 @@ These tables lists all of the browser-related group policies available in this r
 |[MetricsReportingEnabled](#metricsreportingenabled)|Enable usage and crash-related data reporting|
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
+|[OmniboxMSBProviderEnabled](#omniboxmsbproviderenabled)|Enable Microsoft Search for Business provider in omnibox|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
+|[PaymentMethodQueryEnabled](#paymentmethodqueryenabled)|Allow websites to query for available payment methods|
 |[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
 |[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Enable Proactive Authentication|
@@ -269,6 +273,7 @@ These tables lists all of the browser-related group policies available in this r
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
 |[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
+|[TotalMemoryLimitMb](#totalmemorylimitmb)|Set limit on megabytes of memory a single Microsoft Edge instance can use.|
 |[TrackingPrevention](#trackingprevention)|Block tracking of users' web-browsing activity|
 |[TranslateEnabled](#translateenabled)|Enable Translate|
 |[URLAllowlist](#urlallowlist)|Define a list of allowed URLs|
@@ -786,7 +791,7 @@ If you don't configure this policy, images are allowed by default, and the user 
 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
-If this policy is left not set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+If this policy isn't set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -1231,9 +1236,9 @@ SOFTWARE\Policies\Microsoft\Edge\ImagesBlockedForUrls\1 = "[*.]contoso.edu"
   >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
 
   #### Description
-  Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
+  Create a list of URL patterns to specify sites that can display insecure mixed content (that is, HTTP content on HTTPS sites).
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, and users will be allowed to set exceptions to allow it for specific sites.
+If you don't configure this policy, blockable mixed content will be blocked and optionally blockable mixed content will be upgraded. However, users will be allowed to set exceptions to allow insecure mixed content for specific sites.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -1281,9 +1286,9 @@ SOFTWARE\Policies\Microsoft\Edge\InsecureContentAllowedForUrls\1 = "[*.]example.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
 
   #### Description
-  Allows you to set a list of url patterns that specify sites which are not allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites), and for which optionally blockable (i.e. passive) mixed content will be upgraded.
+  Create a list of URL patterns to specify sites that aren't allowed to display blockable (i.e. active) mixed content (that is, HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled.
 
-If this policy is left not set blockable mixed content will be blocked and optionally blockable mixed content will be upgraded, but users will be allowed to set exceptions to allow it for specific sites.
+If you don't configure this policy, blockable mixed content will be blocked and optionally blockable mixed content will be upgraded. However, users will be allowed to set exceptions to allow insecure mixed content for specific sites.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -4635,10 +4640,12 @@ This policy is available only on Windows instances that are joined to a Microsof
 
   ### NewTabPageCompanyLogo
   #### Set new tab page company logo
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release. Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
 
   #### Description
-  Specifies the company logo to use on the new tab page in Microsoft Edge.
+  We are deprecating this policy because it doesn't work as expected and recommend that it not be used.
+
+Specifies the company logo to use on the new tab page in Microsoft Edge.
 
 The policy should be configured as a string that expresses the logo(s) in JSON format. For example: { "default_logo": { "url": "https://www.contoso.com/logo.png", "hash": "cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29" }, "light_logo": { "url": "https://www.contoso.com/light_logo.png", "hash": "517d286edb416bb2625ccfcba9de78296e90da8e32330d4c9c8275c4c1c33737" } }
 
@@ -6747,6 +6754,55 @@ If you disable or don't configure this policy, the default link for the Help men
 
   [Back to top](#microsoft-edge---policies)
 
+  ### DNSInterceptionChecksEnabled
+  #### DNS interception checks enabled
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  This policy configures a local switch that can be used to disable DNS interception checks. These checks attempt to discover whether the browser is behind a proxy that redirects unknown host names.
+
+This detection might not be necessary in an enterprise environment where the network configuration is known. It can be disabled to avoid additional DNS and HTTP traffic on start-up and each DNS configuration change.
+
+If you enable or don’t set this policy, the DNS interception checks are performed.
+
+If you disable this policy, DNS interception checks aren’t performed.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: DNSInterceptionChecksEnabled
+  - GP name: DNS interception checks enabled
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DNSInterceptionChecksEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: DNSInterceptionChecksEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### DefaultBrowserSettingEnabled
   #### Set Microsoft Edge as default browser
   >Supported Versions: Microsoft Edge on Windows 7 and Mac since version 77 or later
@@ -8094,6 +8150,73 @@ If you disable this policy, hardware acceleration is disabled.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### HideFirstRunExperience
+  #### Hide the First-run experience and splash screen
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  If you enable this policy, the First-run experience and the splash screen will not be shown to users when they run Microsoft Edge for the first time.
+
+For the configuration options shown in the First Run Experience, the browser will default to the following:
+
+-On the New Tab Page, the feed type will be set to MSN News and the layout to Inspirational.
+
+-The user will still be automatically signed into Microsoft Edge if the Windows account is of AAD or MSA type.
+
+-Sync will not be enabled by default and users will be able to turn on sync from the sync settings.
+
+If you disable or don't configure this policy, the First-run experience and the Splash screen will be shown.
+
+Note: The specific configuration options shown to the user in the First Run Experience, can also be managed by using other specific policies. You can use the HideFirstRunExperiemce policy in combination with these policies to configure a specific browser experience on your managed devices. Some of these other policies are:
+
+-[AutoImportAtFirstRun](#autoimportatfirstrun)
+
+-[NewTabPageLocation](#newtabpagelocation)
+
+-[NewTabPageSetFeedType](#newtabpagesetfeedtype)
+
+-[SyncDisabled](#syncdisabled)
+
+-[BrowserSignin](#browsersignin)
+
+-[NonRemovableProfileEnabled](#nonremovableprofileenabled)
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: HideFirstRunExperience
+  - GP name: Hide the First-run experience and splash screen
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: HideFirstRunExperience
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: HideFirstRunExperience
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ImportAutofillFormData
   #### Allow importing of autofill form data
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9092,19 +9215,19 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge usage and crash related data ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+																				
 
-This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft and prevents users from changing this setting.
+  This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft.
 
 Enable this policy to send reporting of usage and crash-related data to Microsoft. Disable this policy to not send the data to Microsoft. In both cases, users can't change or override the setting.
 
-On Windows 10, Beta and Stable channels, this policy controls usage data. Crash-related data is determined by the Windows diagnostic data setting. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+On Windows 10, Beta and Stable channels, if you don’t configure this policy, Microsoft Edge will default to the Windows diagnostic data setting. If you enable this policy, Microsoft Edge will only send usage data if the Windows Diagnostic data setting is set to Enhanced or Full. If you disable this policy, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings at [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-On Windows 10, Canary and Dev channels, this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+											  
 
-On Windows 7, 8, and Mac this policy controls usage and crash related data. If this policy is not configured, Microsoft Edge will default to the user's preference.
+On Windows 10, Canary and Dev channels, this policy controls sending usage data. If this policy is not configured, Microsoft Edge will default to the user's preference. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings: [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
+On Windows 7, 8, and macOS, this policy controls sending usage and crash-related data. If you don’t configure this policy, Microsoft Edge will default to the user's preference.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -9236,6 +9359,53 @@ If you want to configure browser sign in, use the [BrowserSignin](#browsersignin
 
   [Back to top](#microsoft-edge---policies)
 
+  ### OmniboxMSBProviderEnabled
+  #### Enable Microsoft Search for Business provider in omnibox
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  Enables the display of relevant MSB suggestions in omnibox when user types a search string in the addressbar
+
+If you enable or don't configure this policy, users may see business results in  in Microsoft Edge omnibox, if proper authenticated.
+
+If you disable this policy, users can't see business results in Microsoft Edge omnibox.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: OmniboxMSBProviderEnabled
+  - GP name: Enable Microsoft Search for Business provider in omnibox
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: OmniboxMSBProviderEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: OmniboxMSBProviderEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### OverrideSecurityRestrictionsOnInsecureOrigin
   #### Control where security restrictions on insecure origins apply
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9285,6 +9455,53 @@ SOFTWARE\Policies\Microsoft\Edge\OverrideSecurityRestrictionsOnInsecureOrigin\1 
   <string>http://testserver.contoso.com/</string>
   <string>*.contoso.com</string>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### PaymentMethodQueryEnabled
+  #### Allow websites to query for available payment methods
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Allows you to set whether websites can check if the user has payment methods saved.
+
+If you disable this policy, websites that use PaymentRequest.canMakePayment or PaymentRequest.hasEnrolledInstrument API will be informed that no payment methods are available.
+
+If you enable this policy or don't set this policy, websites can check if the user has payment methods saved.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: PaymentMethodQueryEnabled
+  - GP name: Allow websites to query for available payment methods
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PaymentMethodQueryEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: PaymentMethodQueryEnabled
+  - Example value:
+``` xml
+<true/>
 ```
   
 
@@ -9632,9 +9849,9 @@ The user's session is restored when the browser restarts.
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched to apply a pending update.
+  Allows you to set the time period, in milliseconds, over which users are notified that Microsoft Edge must be relaunched or that a Microsoft Edge OS device must be restarted to apply a pending update.
 
-Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
+Over this time period, the user will be repeatedly informed of the need for an update. For Microsoft Edge OS devices, a restart notification appears in the system tray according to the RelaunchHeadsUpPeriod policy. For Microsoft Edge browsers, the app menu changes to indicate that a relaunch is needed once one third of the notification period passes. This notification changes color once two thirds of the notification period passes, and again once the full notification period has passed. The additional notifications enabled by the [RelaunchNotification](#relaunchnotification) policy follow this same schedule.
 
 If not set, the default period of 604800000 milliseconds (one week) is used.
 
@@ -10184,19 +10401,19 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  For Windows 10 Beta and Stable channels of Microsoft Edge, this policy when configured will override the Windows diagnostic data setting for collection or non-collection of Microsoft Edge website browsing information ([https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)).
+																				
 
-This policy setting lets you decide whether users can send info about websites they visit in Microsoft Edge to Microsoft to improve services like search.
+  This policy enables sending info about websites visited in Microsoft Edge to Microsoft to improve services like search.
 
-If you enable this policy, info about websites visited in Microsoft Edge is sent to Microsoft.
+						 
 
-If you disable this policy, info about websites visited in Microsoft Edge is not sent to Microsoft.
+Enable this policy to send info about websites visited in Microsoft Edge to Microsoft. Disable this policy to not send info about websites visited in Microsoft Edge to Microsoft. In both cases, users can't change or override the setting.
 
-On Windows 10, Beta and Stable channels, this policy controls sending info about websites users visit. If this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting.
+On Windows 10, Beta and Stable if this policy is not configured, Microsoft Edge will default to the Windows diagnostic data setting. If this policy is enabled Microsoft Edge will only send info about websites visited in Microsoft Edge if the Windows Diagnostic data setting is set to Full. If this policy is disabled Microsoft Edge will not send info about websites visited. Learn more about Windows Diagnostic data settings: [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-On Windows 10, Canary and Dev channels, this policy controls sending info about websites users visit. If this policy is not configured, Microsoft Edge will default to the user's preference.
+On Windows 10, Canary and Dev channels, this policy controls sending info about websites visited. If this policy is not configured, Microsoft Edge will default to the user’s preference.
 
-On Windows 7, 8, and Mac this policy controls sending info about websites users visit. If this policy is not configured, Microsoft Edge will default to the user's preference.
+On Windows 7, 8, and Mac this policy controls sending info about websites visited. If this policy is not configured, Microsoft Edge will default to the user’s preference.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10568,11 +10785,11 @@ If this policy is false or unset, the warnings will appear on such unsupported c
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-  Disables data synchronization in Microsoft Edge and prevents users from modifying this setting.
+  Disables data synchronization in Microsoft Edge. This policy also prevents the sync consent prompt from appearing.
 
-If this policy is not set, users will be able to either turn on or turn off sync.
+					 
 
-Do not enable this policy when the policy 'RoamingProfileSupportEnabled' is enabled, as 'RoamingProfileSupportEnabled' duplicates the sync functionality.
+If you don't set this policy or apply it as recommended, users will be able to turn sync on or off. If you apply this policy as mandatory, users will not be able to turn sync on.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -10697,6 +10914,53 @@ If you disable this policy, no tabs will be frozen.
   - Example value:
 ``` xml
 <true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### TotalMemoryLimitMb
+  #### Set limit on megabytes of memory a single Microsoft Edge instance can use.
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
+
+  #### Description
+  Configures the amount of memory that a single Microsoft Edge instance can use before tabs start getting discarded to save memory. The memory used by the tab will be freed and the tab will have to be reloaded when switched to.
+
+If you enable this policy, the browser will start to discard tabs to save memory once the limitation is exceeded. However, there is no guarantee that the browser is always running under the limit. Any value under 1024 will be rounded up to 1024.
+
+If you don't set this policy, the browser will only attempt to save memory when it has detected that the amount of physical memory on its machine is low.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: TotalMemoryLimitMb
+  - GP name: Set limit on megabytes of memory a single Microsoft Edge instance can use.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: TotalMemoryLimitMb
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000800
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: TotalMemoryLimitMb
+  - Example value:
+``` xml
+<integer>2048</integer>
 ```
   
 
@@ -11261,7 +11525,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
 
   ### WebComponentsV0Enabled
   #### Re-enable Web Components v0 API until M84.
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 80, until version 84
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release. Supported Versions: Microsoft Edge on Windows and Mac since version 80 or later
 
   #### Description
   The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in M80. This policy allows these features to be selectively re-enabled until M84.
@@ -11310,11 +11574,11 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
 
   ### WebDriverOverridesIncompatiblePolicies
   #### Allow WebDriver to Override Incompatible Policies
-  >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release. Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
   
-This policy was removed in M80, because it is not necessary anymore as
+This policy was removed in M83, because it is not necessary anymore as
 WebDriver is now compatible with all existing policies.
 
 This policy allows users of the WebDriver feature to override
