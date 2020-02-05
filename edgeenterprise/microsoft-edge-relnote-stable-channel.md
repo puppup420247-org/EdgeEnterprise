@@ -57,9 +57,7 @@ The following table lists the policies that were added.
 |[WebComponentsV0Enabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
 |[WebRtcLocalIpsAllowedUrls](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#webrtclocalipsallowedurls)|Manage exposure of local IP addresses by WebRTC|
 
-- 1 deprecated policy
-
-The following table lists the policy that was deprecated.
+- 1 policy was deprecated. The following table lists the policy that was deprecated.
 
 | Policy name | Caption |
 |-------------|---------|
