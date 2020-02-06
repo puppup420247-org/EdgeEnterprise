@@ -57,7 +57,7 @@ These release notes provide information about new features and non-security upda
 
 #### Deprecated policies
 
-1 policy was deprecated. The following policy was deprecated.
+The following policy was deprecated.
 
 - [NewTabPageCompanyLogo](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#newtabpagecompanylogo) - Set new tab page company logo.
 

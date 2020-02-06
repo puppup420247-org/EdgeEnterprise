@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Beta Channel in 2020"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/05/2020
+ms.date: 02/06/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
