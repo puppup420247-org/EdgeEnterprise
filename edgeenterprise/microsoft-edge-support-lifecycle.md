@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Edge Support Lifecycle"
+title: "Microsoft Edge Lifecycle"
 ms.author: srugh
 author: srugh
 manager: seanlynd
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Microsoft Edge Support Lifecycle"
+description: "Microsoft Edge Lifecycle"
 ---
 
-# Microsoft Edge Support Lifecycle Policy
+# Microsoft Edge Lifecycle Policy
 
-This article describes the support lifecycle policy that applies to Microsoft Edge.
+This article describes the lifecycle policy that applies to Microsoft Edge.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge versions 77 and higher.
