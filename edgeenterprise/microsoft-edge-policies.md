@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 01/17/2020
+ms.date: 02/05/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -166,9 +166,11 @@ These tables list all of the browser-related group policies available in this re
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
+|[AmbientAuthenticationInPrivateModesEnabled](#ambientauthenticationinprivatemodesenabled)|Enable Ambient Authentication for InPrivate and Guest profiles|
 |[ApplicationLocaleValue](#applicationlocalevalue)|Set application locale|
 |[AudioCaptureAllowed](#audiocaptureallowed)|Allow or block audio capture|
 |[AudioCaptureAllowedUrls](#audiocaptureallowedurls)|Sites that can access audio capture devices without requesting permission|
+|[AudioSandboxEnabled](#audiosandboxenabled)|Allow the audio sandbox to run|
 |[AutoImportAtFirstRun](#autoimportatfirstrun)|Automatically import another browser's data and settings at first run|
 |[AutofillAddressEnabled](#autofilladdressenabled)|Enable AutoFill for addresses|
 |[AutofillCreditCardEnabled](#autofillcreditcardenabled)|Enable AutoFill for credit cards|
@@ -216,6 +218,7 @@ These tables list all of the browser-related group policies available in this re
 |[ForceNetworkInProcess](#forcenetworkinprocess)|Force networking code to run in the browser process|
 |[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
 |[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
+|[GloballyScopeHTTPAuthCacheEnabled](#globallyscopehttpauthcacheenabled)|Enable globally scoped HTTP auth cache|
 |[GoToIntranetSiteForSingleWordEntryInAddressBar](#gotointranetsiteforsinglewordentryinaddressbar)|Force direct intranet site navigation instead of searching on single word entries in the Address Bar|
 |[HSTSPolicyBypassList](#hstspolicybypasslist)|Configure the list of names that will bypass the HSTS policy check|
 |[HardwareAccelerationModeEnabled](#hardwareaccelerationmodeenabled)|Use hardware acceleration when available|
@@ -232,6 +235,7 @@ These tables list all of the browser-related group policies available in this re
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configure Internet Explorer integration|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configure the Enterprise Mode Site List|
+|[InternetExplorerIntegrationSiteRedirect](#internetexplorerintegrationsiteredirect)|Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages|
 |[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
 |[ManagedFavorites](#managedfavorites)|Configure favorites|
 |[ManagedSearchEngines](#managedsearchengines)|Manage Search Engines|
@@ -269,6 +273,7 @@ These tables list all of the browser-related group policies available in this re
 |[SpellcheckEnabled](#spellcheckenabled)|Enable spellcheck|
 |[SpellcheckLanguage](#spellchecklanguage)|Enable specific spellcheck languages|
 |[SpellcheckLanguageBlocklist](#spellchecklanguageblocklist)|Force disable spellcheck languages|
+|[StricterMixedContentTreatmentEnabled](#strictermixedcontenttreatmentenabled)|Enable stricter treatment for mixed content|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
 |[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
@@ -5516,6 +5521,63 @@ If you don't configure this policy or disable it, Microsoft Edge will open PDF f
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AmbientAuthenticationInPrivateModesEnabled
+  #### Enable Ambient Authentication for InPrivate and Guest profiles
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  Configure this policy to allow/disallow ambient authentication for InPrivate and Guest profiles in Microsoft Edge.
+
+Ambient Authentication is http authentication with default credentials when explicit credentials aren't provided via NTLM/Kerberos/Negotiate challenge/response schemes.
+
+If you set the policy to RegularOnly (value 0), it allows ambient authentication for Regular sessions only. InPrivate and Guest sessions won't be allowed to ambiently authenticate.
+
+If you set the policy to InPrivateAndRegular (value 1), it allows ambient authentication for InPrivate and Regular sessions. Guest sessions won't be allowed to ambiently authenticate.
+
+If you set the policy to GuestAndRegular (value 2), it allows ambient authentication for Guest and Regular sessions. InPrivate sessions won't be allowed to ambiently authenticate
+
+If you set the policy to All (value 3), it allows ambient authentication for all sessions.
+
+Note that ambient authentication is always allowed on regular profiles.
+
+If you don't configure this policy, InPrivate and Guest sessions will not be able to ambiently authenticate in future releases of Microsoft Edge, because they will be disallowed.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AmbientAuthenticationInPrivateModesEnabled
+  - GP name: Enable Ambient Authentication for InPrivate and Guest profiles
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AmbientAuthenticationInPrivateModesEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AmbientAuthenticationInPrivateModesEnabled
+  - Example value:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ApplicationLocaleValue
   #### Set application locale
   >Supported Versions: Microsoft Edge on Windows since version 77 or later
@@ -5649,6 +5711,58 @@ SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls\1 = "https://[*.]contos
   <string>https://www.contoso.com/</string>
   <string>https://[*.]contoso.edu/</string>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### AudioSandboxEnabled
+  #### Allow the audio sandbox to run
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  This policy controls the audio process sandbox.
+
+If you enable this policy, the audio process will run sandboxed.
+
+If you disable this policy, the audio process will run unsandboxed and the WebRTC audio-processing module will run in the renderer process.
+This leaves users open to security risks related to running the audio subsystem unsandboxed.
+
+If you don't configure this policy, the default configuration for the audio sandbox will be used, which might differ based on the platform.
+
+This policy is intended to give enterprises flexibility to disable the audio sandbox if they use security software setups that interfere with the sandbox.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AudioSandboxEnabled
+  - GP name: Allow the audio sandbox to run
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AudioSandboxEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AudioSandboxEnabled
+  - Example value:
+``` xml
+<true/>
 ```
   
 
@@ -6422,7 +6536,7 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForUr
   #### Description
   Microsoft Edge doesn't clear the browsing data by default when it closes. Browsing data includes information entered in forms, passwords, and even the websites visited.
 
-If you enable this policy, all browsing data is deleted each time Microsoft Edge closes.
+If you enable this policy, all browsing data is deleted each time Microsoft Edge closes. Note that if you enable this policy, it takes precedence over how you configured [DefaultCookiesSetting](#defaultcookiessetting)
 
 If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
 
@@ -8006,6 +8120,57 @@ Opening Microsoft Edge in kiosk mode using the command line is unavailable when 
 
   [Back to top](#microsoft-edge---policies)
 
+  ### GloballyScopeHTTPAuthCacheEnabled
+  #### Enable globally scoped HTTP auth cache
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  This policy configures a single global per profile cache with HTTP server authentication credentials.
+
+If you disable or don’t set this policy, the browser will use the default behavior of cross-site auth, which as of version 80, will be to scope HTTP server authentication credentials by top-level site. So, if two sites use resources from the same authenticating domain, credentials will need to be provided independently in the context of both sites. Cached proxy credentials will be reused across sites.
+
+If you enable this policy HTTP auth credentials entered in the context of one site will automatically be used in the context of another site.
+
+Enabling this policy leaves sites open to some types of cross-site attacks, and allows users to be tracked across sites even without cookies by adding entries to the HTTP auth cache using credentials embedded in URLs.
+
+This policy is intended to give enterprises depending on the legacy behavior a chance to update their login procedures and will be removed in the future.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: GloballyScopeHTTPAuthCacheEnabled
+  - GP name: Enable globally scoped HTTP auth cache
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: GloballyScopeHTTPAuthCacheEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: GloballyScopeHTTPAuthCacheEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### GoToIntranetSiteForSingleWordEntryInAddressBar
   #### Force direct intranet site navigation instead of searching on single word entries in the Address Bar
   >Supported Versions: Microsoft Edge on Windows and Mac since version 78 or later
@@ -8167,7 +8332,7 @@ For the configuration options shown in the First Run Experience, the browser wil
 
 If you disable or don't configure this policy, the First-run experience and the Splash screen will be shown.
 
-Note: The specific configuration options shown to the user in the First Run Experience, can also be managed by using other specific policies. You can use the HideFirstRunExperiemce policy in combination with these policies to configure a specific browser experience on your managed devices. Some of these other policies are:
+Note: The specific configuration options shown to the user in the First Run Experience, can also be managed by using other specific policies. You can use the HideFirstRunExperience policy in combination with these policies to configure a specific browser experience on your managed devices. Some of these other policies are:
 
 -[AutoImportAtFirstRun](#autoimportatfirstrun)
 
@@ -8823,6 +8988,59 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### InternetExplorerIntegrationSiteRedirect
+  #### Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
+  >Supported Versions: Microsoft Edge on Windows since version 81 or later
+
+  #### Description
+  An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.
+
+This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.
+
+This setting works in conjunction with:
+[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to "Internet Explorer mode" (1)
+and
+[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry.
+
+If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+
+If you enable this policy, you can choose one of the following navigation options:
+0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
+2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+
+To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: InternetExplorerIntegrationSiteRedirect
+  - GP name: Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: InternetExplorerIntegrationSiteRedirect
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### IsolateOrigins
   #### Enable site isolation for specific origins
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9215,7 +9433,7 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-																				
+					
 
   This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft.
 
@@ -9223,7 +9441,7 @@ Enable this policy to send reporting of usage and crash-related data to Microsof
 
 On Windows 10, Beta and Stable channels, if you don’t configure this policy, Microsoft Edge will default to the Windows diagnostic data setting. If you enable this policy, Microsoft Edge will only send usage data if the Windows Diagnostic data setting is set to Enhanced or Full. If you disable this policy, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings at [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-											  
+			 
 
 On Windows 10, Canary and Dev channels, this policy controls sending usage data. If this policy is not configured, Microsoft Edge will default to the user's preference. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings: [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
@@ -10401,11 +10619,11 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-																				
+					
 
   This policy enables sending info about websites visited in Microsoft Edge to Microsoft to improve services like search.
 
-						 
+	   
 
 Enable this policy to send info about websites visited in Microsoft Edge to Microsoft. Disable this policy to not send info about websites visited in Microsoft Edge to Microsoft. In both cases, users can't change or override the setting.
 
@@ -10735,6 +10953,55 @@ SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "es"
 
   [Back to top](#microsoft-edge---policies)
 
+  ### StricterMixedContentTreatmentEnabled
+  #### Enable stricter treatment for mixed content
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  This policy controls the treatment for mixed content (HTTP content in HTTPS sites) in the browser.
+
+If you set this policy to true or not set, audio and video mixed content will be automatically upgraded to HTTPS (that is, the URL will be rewritten as HTTPS, without a fallback if the resource isn’t available over HTTPS) and a 'Not Secure' warning will be shown in the URL bar for image mixed content.
+
+If you set the policy to false, auto upgrades will be disabled for audio and video, and no warning will be shown for images.
+
+This policy does not affect other types of mixed content other than audio, video, and images.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: StricterMixedContentTreatmentEnabled
+  - GP name: Enable stricter treatment for mixed content
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: StricterMixedContentTreatmentEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: StricterMixedContentTreatmentEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### SuppressUnsupportedOSWarning
   #### Suppress the unsupported OS warning
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -10787,7 +11054,7 @@ If this policy is false or unset, the warnings will appear on such unsupported c
   #### Description
   Disables data synchronization in Microsoft Edge. This policy also prevents the sync consent prompt from appearing.
 
-					 
+	  
 
 If you don't set this policy or apply it as recommended, users will be able to turn sync on or off. If you apply this policy as mandatory, users will not be able to turn sync on.
 
