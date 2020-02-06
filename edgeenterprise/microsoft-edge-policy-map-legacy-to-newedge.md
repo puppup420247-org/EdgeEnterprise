@@ -14,7 +14,7 @@ description: "Microsoft Edge Legacy to Microsoft Edge policy mapping"
 
 # Microsoft Edge Legacy to Microsoft Edge policy mapping
 
-This article maps the Microsoft Edge Legacy (version 45 and earlier) Group Policies (GP) and Mobile Device Management (MDM) settings to the relevant Microsoft Edge version 80 policies.
+This article maps the Microsoft Edge Legacy (version 45 and earlier) Group Policies (GP) and Mobile Device Management (MDM) settings to the relevant Microsoft Edge version 80 policies. For Google Chrome policies see the [Google Chrome to Microsoft Edge policy mapping](microsoft-edge-policy-map-chrome-to-newedge.md) article.
 
 > [!NOTE]
 > The mapping provided below is meant to help with your initial deployment of Microsoft Edge version 80. For a definitive list of the latest policies see:
