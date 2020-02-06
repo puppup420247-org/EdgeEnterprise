@@ -16,7 +16,7 @@ description: "Microsoft Edge release notes for Stable Channel in 2020"
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel in 2020.
 
-## Version 80.0.361.48: February 6
+## Version 80.0.361.48: February 7
 
 ### Feature updates
 
