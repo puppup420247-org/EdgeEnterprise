@@ -3,7 +3,7 @@ title: "Microsoft Edge policy mapping overview"
 ms.author: brianalt
 author: brianalt
 manager: srugh
-ms.date: 01/21/2020
+ms.date: 02/05/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
