@@ -215,6 +215,7 @@ These tables list all of the browser-related group policies available in this re
 |[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
 |[ForceGoogleSafeSearch](#forcegooglesafesearch)|Enforce Google SafeSearch|
+|[ForceLegacyDefaultReferrerPolicy](#forcelegacydefaultreferrerpolicy)|Use a default referrer policy of no-referrer-when-downgrade.|
 |[ForceNetworkInProcess](#forcenetworkinprocess)|Force networking code to run in the browser process|
 |[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
 |[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
@@ -7971,6 +7972,55 @@ If you disable this policy or don't configure it, SafeSearch in Google Search is
 
   #### Mac information and settings
   - Preference Key Name: ForceGoogleSafeSearch
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ForceLegacyDefaultReferrerPolicy
+  #### Use a default referrer policy of no-referrer-when-downgrade.
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release. Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  This enterprise policy is for short-term adaptation and will be removed in M82.
+
+Microsoft Edge’s default referrer policy is being strengthened from its current value of no-referrer-when-downgrade to the more secure strict-origin-when-cross-origin through a gradual rollout targeting M80 stable.
+
+Before the rollout, this enterprise policy will have no effect. After the rollout, when this enterprise policy is enabled, Microsoft Edge’s default referrer policy will be set to its pre-M80 value of no-referrer-when-downgrade.
+
+This enterprise policy is disabled by default
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ForceLegacyDefaultReferrerPolicy
+  - GP name: Use a default referrer policy of no-referrer-when-downgrade.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ForceLegacyDefaultReferrerPolicy
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ForceLegacyDefaultReferrerPolicy
   - Example value:
 ``` xml
 <false/>
