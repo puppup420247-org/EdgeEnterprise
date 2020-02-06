@@ -1,5 +1,5 @@
 ---
-title: "Force in-page navigations to stay in IE mode"
+title: "Keep in-page navigations in Internet Explorer mode"
 ms.author: shisub
 author: dan-wesley
 manager: srugh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Force in-page navigations to stay in IE mode"
+description: "Keep in-page navigations in Internet Explorer mode"
 ---
 
-# Force in-page navigations to stay in IE mode
+# Keep in-page navigations in Internet Explorer mode
 
 You can use this policy as a temporary solution to force all in-page navigations from Internet Explorer mode (IE mode) sites to stay in IE mode.
 
