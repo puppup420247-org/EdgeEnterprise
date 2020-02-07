@@ -3,7 +3,7 @@ title: "Release notes for Microsoft Edge Security Updates"
 ms.author: aguta
 author: dan-wesley
 manager: laurawi
-ms.date: 02/06/2020
+ms.date: 02/07/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -18,7 +18,7 @@ These release notes provide information about security fixes that are included i
 
 ## February 7, 2020
 
-Microsoft has released the latest **Microsoft Edge Stable Channel (Version 80.0.361.x)**, which incorporates the latest Security Updates of the Chromium project.
+Microsoft has released the latest **Microsoft Edge Stable Channel (Version 80.0.361.48)**, which incorporates the latest Security Updates of the Chromium project.
 
 ## January 17, 2020
 
