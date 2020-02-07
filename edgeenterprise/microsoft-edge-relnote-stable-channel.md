@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Stable Channel in 2020"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/06/2020
+ms.date: 02/07/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -24,7 +24,7 @@ These release notes provide information about new features and non-security upda
 - Added support for Dolby Vision playback.
 - Enabled users of Windows Mixed Reality to view 360° videos on VR headsets.
 - Added an option to Reading View to increase text spacing.
-- Added support for erasing ink using the eraser side of a pen.
+- Added support for erasing link using the Surface Pen eraser.
 - Added support for using the arrow keys and spacebar to draw on feedback screenshots in editor mode.
 - Improved the reliability of screenshots so they stop appearing all black when submitting feedback.
 - Added dark theme support to the local new tab page that is shown when the device isn’t connected to the internet.
