@@ -29,7 +29,7 @@ These release notes provide information about new features and non-security upda
 - Improved the reliability of screenshots so they stop appearing all black when submitting feedback.
 - Added dark theme support to the local new tab page that is shown when the device isn’t connected to the internet.
 - Added the ability for websites installed as apps to be restored when a browser session is restored after update, crash, etc.
-- Added dark theme support to certain UI that appears when the browser is managed by Group Policy.
+- Added dark theme support to PDF UI when the browser is managed by Group Policy.
 - Updated Adobe Flash to version 32.0.0.321. [Learn more](https://helpx.adobe.com/flash-player/release-note/fp_32_air_32_release_notes.html)
 
 ### Group Policy updates
