@@ -3,7 +3,7 @@ title: "Google Chrome to Microsoft Edge policy mapping"
 ms.author: brianalt
 author: brianalt
 manager: srugh
-ms.date: 02/05/2020
+ms.date: 02/10/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
