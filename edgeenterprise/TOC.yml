@@ -1,4 +1,4 @@
-# last revised 02/06/2020
+# last revised 02/10/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -7,6 +7,14 @@
   items:
    - name: Plan your deployment of Microsoft Edge
      href: deploy-edge-plan-deployment.md
+   - name: Microsoft Edge policy mapping
+     items:
+      - name: Policy mapping overview
+        href: microsoft-edge-policy-map-overview.md
+      - name: Microsoft Edge Legacy to Microsoft Edge policy mapping
+        href: microsoft-edge-policy-map-legacy-to-newedge.md
+      - name: Google Chrome to Microsoft Edge policy mapping
+        href: microsoft-edge-policy-map-chrome-to-newedge.md
    - name: Microsoft Edge Channels
      href: microsoft-edge-channels.md
    - name: Supported Operating Systems
