@@ -79,6 +79,8 @@ landingContent:
             url: microsoft-edge-policies.md
           - text: Update policy reference
             url: microsoft-edge-update-policies.md
+          - text: Policy mapping overview
+            url: microsoft-edge-policy-map-overview.md
           - text: Microsoft Security Baselines Blog
             url: "https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines"
   # Card 6 (col 3, 2nd row)
