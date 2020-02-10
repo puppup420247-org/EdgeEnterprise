@@ -23,8 +23,8 @@
      href: microsoft-edge-support-lifecycle.md
    - name: Supported languages
      href: microsoft-edge-supported-languages.md
-#   - name: Beta Channel Release Notes
-#     href: microsoft-edge-relnote-beta-channel.md
+   - name: Beta Channel Release Notes
+     href: microsoft-edge-relnote-beta-channel.md
    - name: Stable Channel Release Notes
      href: microsoft-edge-relnote-stable-channel.md
    - name: Security updates
