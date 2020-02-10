@@ -26,9 +26,9 @@ An in-page navigation is started from a link, a script, or a form on the current
 The following Windows updates are required for this policy:
 
 - Windows 10 version 1909 & 1903; Windows Server version 1909 & 1903  ([KB4532695](https://support.microsoft.com/en-us/help/4532695))
-- Windows 10 version 1809, Windows Server version 1809, Windows Server 2019 ((KB4534321)[https://support.microsoft.com/en-us/help/4534321])
-- Windows 10 version 1803 ((KB4534308)[https://support.microsoft.com/en-us/help/4534308])
-- Windows 10 version 1709 ((KB4534318)[https://support.microsoft.com/en-us/help/4534318])
+- Windows 10 version 1809, Windows Server version 1809, Windows Server 2019 ([KB4534321](https://support.microsoft.com/en-us/help/4534321))
+- Windows 10 version 1803 ([KB4534308](https://support.microsoft.com/en-us/help/4534308))
+- Windows 10 version 1709 ([KB4534318](https://support.microsoft.com/en-us/help/4534318))
 
 
 ## About this policy
