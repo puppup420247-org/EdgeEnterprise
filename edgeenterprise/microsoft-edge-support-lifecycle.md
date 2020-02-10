@@ -30,4 +30,4 @@ As part of this policy, the supported releases of Microsoft Edge will include th
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Microsoft Edge documentation](https://docs.microsoft.com/DeployEdge/)
 - [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy)
-- [Microsoft Edge Supporting Operating Systems](https://docs.microsoft.com/DeployEdge/microsoft-edge-supported-operating-systems)
+- [Microsoft Edge Supported Operating Systems](https://docs.microsoft.com/DeployEdge/microsoft-edge-supported-operating-systems)
