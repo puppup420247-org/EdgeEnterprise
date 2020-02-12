@@ -26,7 +26,7 @@ For more information, see [About Information Property List Files](https://develo
 The following software is required:
 
 - Microsoft Edge Beta Channel 81
-- Policy Templates file, version ??
+- Policy Templates file, version 81.0.416.3
 - Jamf Pro, Version 10.19
 
 ## About the Jamf Pro Application & Custom Settings menu
@@ -49,7 +49,7 @@ To get the policy manifest:
 
 After you unpack the CAB file, navigate to the "mac" top level directory. The manifest, which is named "policy_manifest.json", is in the "mac" directory.
 
-This manifest will be published in every policy bundle starting with build 81.0.4163. If you want to test policies in the Dev channel, you can take the manifest associated with each Dev release and test it in Jamf Pro.  
+This manifest will be published in every policy bundle starting with build 81.0.416.3. If you want to test policies in the Dev channel, you can take the manifest associated with each Dev release and test it in Jamf Pro.  
 
 ## Use the policy manifest in Jamf Pro
 
