@@ -55,6 +55,24 @@ This manifest will be published in every policy bundle starting with build #416.
 
 Use the following steps to upload the policy manifest to Jamf Pro and then create a .plist for Mac devices.
 
+1. Sign in to Jamf.
+2. Select the **Computer** tab.
+3. Under **Content Management**, select **Configuration Profiles**.
+4. On the **Configuration Profiles** page, click **+ New**.
+5. On **New macOS Configuration Profile**>**Options**, select **Application & Custom Settings**.
+6. On the **Application & Custom Settings** form:
+
+   - For **Creation Method**, pick **Configure settings**.
+   - For **Source**, pick **Jamf Repository** from the dropdown list.
+   - For **Preference Domain**, pick the name of your domain from the dropdown list.
+   - For **Version**, select the version of the preference domain from the dropdown list.
+   - Maybe fill out/select some more form fields.
+
+7. do something, then do more
+8. Eventually paste policy manifest into Jamf
+9. Magically create a plist!
+10. Click **Save**.
+
 ## Frequently Asked Questions
 
 ### Can Microsoft Edge be configured to use master preferences?
