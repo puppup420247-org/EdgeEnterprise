@@ -49,16 +49,19 @@ To get the policy manifest:
 
 After you unpack the CAB file, navigate to the "mac" top level directory. The manifest, which is named "policy_manifest.json", is in the "mac" directory.
 
-This manifest will be published in every policy bundle starting with build #416. If you want to test policies in the Dev channel, you can take the manifest associated with each Dev release and test it in Jamf Pro.  
+This manifest will be published in every policy bundle starting with build 81.0.4163. If you want to test policies in the Dev channel, you can take the manifest associated with each Dev release and test it in Jamf Pro.  
 
 ## Use the policy manifest in Jamf Pro
 
-Use the following steps to upload the policy manifest to Jamf Pro and then create a .plist for Mac devices.
+Use the following steps to upload the policy manifest to Jamf Pro and then create a .plist for macOS.
 
 1. Sign in to Jamf.
 2. Select the **Computer** tab.
 3. Under **Content Management**, select **Configuration Profiles**.
 4. On the **Configuration Profiles** page, click **+ New**.
+
+   ![Add a new profile in Jamf](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-configuration-profiles.png)
+
 5. On **New macOS Configuration Profile**>**Options**, select **Application & Custom Settings**.
 6. On the **Application & Custom Settings** form:
 
@@ -70,8 +73,20 @@ Use the following steps to upload the policy manifest to Jamf Pro and then creat
 
 7. do something, then do more
 8. Eventually paste policy manifest into Jamf
-9. Magically create a plist!
+9. Magically create a .plist!
 10. Click **Save**.
+
+After you create the .plist you still have to configure the **Scope** for the new configuration profile.
+
+### To configure the scope
+
+1. For **Targets**, provide the following minimum settings:
+
+   - TARGET COMPUTERS. The options are Specific Computers or All Computers.
+   - TARGET USERS. The options are Specific Users or All Users.
+   - Click **Save**.
+2. For **Limitations**, keep the default setting: None. Click **Cancel**.
+3. For **Exclusions**, keep the default setting: None. Click **Cancel**.
 
 ## Frequently Asked Questions
 
