@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge for macOS with Microsoft Intune"
 ms.author: brianalt
 author: kelleyvice-msft
 manager: laurawi
-ms.date: 11/15/2019
+ms.date: 02/12/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -35,9 +35,10 @@ The next step after you create the contents of your plist, is to name it using t
 > [!IMPORTANT]
 > Starting with build 78.0.249.2, all Microsoft Edge channels on macOS read from the **com.microsoft.Edge** preference domain. All prior releases read from a channel specific domain, such as **com.microsoft.Edge.Dev** for Dev channel.
 
-The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune or Jamf. For instructions see [Deploy your plist](#deploy-your-plist).
+The last step is to deploy your plist to your users' Mac devices using your preferred MDM provider, such as Microsoft Intune. For instructions see [Deploy your plist](#deploy-your-plist).
 
 ### Create a configuration profile using Terminal
+
 1. In Terminal, use the following command to create a plist for Microsoft Edge on your desktop with your preferred settings:
 
    ```cmd
@@ -55,9 +56,8 @@ After converting the file verify that your policy data is correct and contains t
 > Only key value pairs should be in the contents of the plist or xml file. Prior to uploading your file into Intune remove all the \<plist> and \<dict> values, and xml headers from your file. The file should only contain key value pairs.
 
 ## Deploy your plist
-For Microsoft Intune create a new device configuration profile targeting the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the prefereence domain name and upload your plist. For more information see [Add a property list file to macOS devices using Microsoft Intune](https://docs.microsoft.com/intune/configuration/preference-file-settings-macos).
 
-For Jamf upload the plist file as a *Custom Settings* payload.
+For Microsoft Intune create a new device configuration profile targeting the macOS platform and select the *Preference file* profile type. Target **com.microsoft.Edge** as the preference domain name and upload your plist. For more information see [Add a property list file to macOS devices using Microsoft Intune](https://docs.microsoft.com/intune/configuration/preference-file-settings-macos).
 
 ## Frequently Asked Questions
 
@@ -77,5 +77,6 @@ A master preferences file is a text file that’s formatted using JSON markup. T
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [Configure for macOS with Jamf](configure-microsoft-edge-on-mac-jamf.md)
 - [Configure for Windows](configure-microsoft-edge.md)
 - [Configure for Windows with Intune](configure-edge-with-intune.md)
