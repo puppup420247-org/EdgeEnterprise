@@ -14,12 +14,12 @@ description: "Configure Microsoft Edge policy settings on Mac devices with Jamf"
 
 # Configure Microsoft Edge policy settings on macOS with Jamf
 
-This article describes how to configure Microsoft Edge on macOS using a property list (.plist) file and Jamf Pro. 
+This article describes how to configure policy settings on macOS using a Microsoft Edge policy manifest file on Jamf Pro 10.19.
 
-For more information, see [About Information Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) (Apple's website) and [Custom payload settings](https://support.apple.com/guide/mdm/custom-mdm9abbdbe7/1/web/1).
+You can also configure Microsoft Edge policy settings on macOS by using a property list (.plist) file. For more information, see [Configure for macOS using a .plist](configure-microsoft-edge-on-mac.md)
 
 > [!NOTE]
-> This article applies to Microsoft Edge Beta Channel version 81 or later.
+> The feature described in this article is supported in preview and applies to Microsoft Edge Beta Channel version 81 and Jamf Pro 10.19.
 
 ## Prerequisites
 
@@ -34,6 +34,8 @@ The following software is required:
 Before Jamf Pro 10.18, managing Office 365 involved manually building a .plist file. This was a time-consuming workflow that required a strong technical background. Jamf Pro 10.18 eliminated those barriers by streamlining the configuration process. However, IT Admins could only use this new user interface for specific applications and preference domains specified by Jamf.
 
 In Jamf Pro 10.19, a user can upload a JSON manifest as a "custom schema" to target any preference domain, and the graphical user interface will be generated from this manifest. The custom schema that's created follows the JSON Schema specification.
+
+For more information, see [Computer Configuration Profiles](https://jamf.it/computer-configuration-profiles) in the Jamf Pro Administrator's Guide.
 
 ## Get the policy manifest for a specific version of Microsoft Edge
 
@@ -67,7 +69,7 @@ Use the following steps to upload the policy manifest to Jamf Pro and then creat
 
    ![Configure Application and Custom Settings](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-app-and-custom.png)
 
-7. In the **Application & Custom Settings** section, set the values shown in the following screen shot. 
+7. In the **Application & Custom Settings** section, set the values shown in the following screen shot.
 
    ![Profile source and custom schema](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-app-and-custom-schema.png)
 
