@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge on macOS with Jamf"
 ms.author: brianalt
 author: dan-wesley
 manager: laurawi
-ms.date: 02/12/2020
+ms.date: 02/13/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -63,7 +63,7 @@ Use the following steps to upload the policy manifest to Jamf Pro and then creat
    ![Add a new profile in Jamf](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-configuration-profiles.png)
 
 5. On **New macOS Configuration Profile**>**Options**, select **Application & Custom Settings**.
-6. On the **Application & Custom Settings** popup window, click Configure.
+6. On the **Application & Custom Settings** popup window, click **Configure**.
 
    ![Configure Application and Custom Settings](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-app-and-custom.png)
 
