@@ -94,7 +94,7 @@ Use the following steps to upload the policy manifest to Jamf Pro and then creat
    > [!NOTE]
    > You can edit this profile after it's been saved and in another Jamf session. For example, you might decide to change the Distribution Method to Make Available in Self Service.
 
-   To do a follow up edit on the Microsoft Edge Beta Channel, or delete it, click on the profile name, shown in the following Configuration Profiles screen shot.
+   To do a follow up edit on the Microsoft Edge Beta Channel, or delete it, select the profile name, shown in the following Configuration Profiles screen shot.
 
    ![Configuration Profiles list](media/configure-microsoft-edge-on-mac-jamf/configure-macos-jamf-configuration-profiles-beta-channel-done.png)
 
