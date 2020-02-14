@@ -16,7 +16,7 @@ description: "Microsoft Edge release notes for Beta Channel in 2020"
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Beta Channel in 2020.
 
-## Version 81.0.x.x: February 19
+## Version 81.0.389.0: February 19
 
 ### Feature updates
 
