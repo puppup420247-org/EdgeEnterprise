@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge on macOS with Jamf"
 ms.author: brianalt
 author: dan-wesley
 manager: laurawi
-ms.date: 02/13/2020
+ms.date: 02/14/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -47,7 +47,7 @@ To get the policy manifest:
 - Click GET POLICY FILES to download our policy templates bundle.
 
   > [!NOTE]
-  > Currently, the policy templates bundled is signed as a CAB file. You'll need to use a 3rd party tool, such as The Unarchiver, to open the file on macOS. You can get the Unarchiver from the [Microsoft Store](https://www.microsoft.com/p/the-unarchiver/9nblggh2sjjt?activetab=pivot:overviewtab) or from the [Mac App Store](https://apps.apple.com/us/app/the-unarchiver/id425424353?mt=12).
+  > Currently, the policy templates bundle is signed as a CAB file. You'll need to use a 3rd party tool, such as The Unarchiver to open the file on macOS.
 
 After you unpack the CAB file, unpack the ZIP file and navigate to the "mac" top level directory. The manifest, which is named "policy_manifest.json", is in this directory.
 
