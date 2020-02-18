@@ -59,9 +59,9 @@ IE mode is policy enabled and applies to:
 
 ### IE mode supports the following Internet Explorer functionality
 
-- All document modes and enterprise modes.
+- All document modes and enterprise modes
 - ActiveX controls
-- Browser Helper Objects
+- Browser Helper Objects (Java or Silverlight)
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
 - [IEChooser](https://docs.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10)
 - Microsoft Edge extensions (Extensions that interact with the IE page content directly are not supported.)
