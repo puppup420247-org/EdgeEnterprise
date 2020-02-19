@@ -1,8 +1,8 @@
 # last revised 02/10/2020
 - name: Microsoft Edge documentation 
   href: index.yml
-- name: Microsoft Edge content updates
-  href: microsoft-edge-content-updates.md
+#- name: Microsoft Edge content updates
+#  href: microsoft-edge-content-updates.md
 - name: Microsoft Edge in the enterprise
   items:
    - name: Plan your deployment of Microsoft Edge
