@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 01/07/2020
+ms.date: 02/11/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -59,9 +59,9 @@ IE mode is policy enabled and applies to:
 
 ### IE mode supports the following Internet Explorer functionality
 
-- All document modes and enterprise modes.
-- ActiveX controls
-- Browser Helper Objects
+- All document modes and enterprise modes
+- ActiveX controls (such as Java or Silverlight)
+- Browser Helper Objects 
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
 - [IEChooser](https://docs.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10)
 - Microsoft Edge extensions (Extensions that interact with the IE page content directly are not supported.)
@@ -315,6 +315,7 @@ The solution is to configure the authentication server in your Enterprise site l
   <open-in>None</open-in>
 </site>
 ```
+If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
 
 ## Frequently Asked Questions
 
