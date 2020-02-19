@@ -21,6 +21,7 @@ These release notes provide information about new features and non-security upda
 ### Feature updates
 
 - Collections is now available. You can get started by clicking the Collections icon next to the address bar. This opens the Collections pane where you can create, edit, and view Collections. We designed Collections based on what you do on the web. If you’re a shopper, a traveller, a teacher or a student, Collections can help. [Learn more](https://blogs.windows.com/msedgedev/2019/12/09/improvements-collections-sync-microsoft-edge/#LuDPRDUDCgdgdOVt.97).
+- Allow removal of the Collections button from the Microsoft Edge toolbar for consistency.
 - Application Guard. Extensions support now available in the container.
 - Updated the 3D View tool in Microsoft Edge DevTools with a new feature to help debug z-index stacking context. 3D View shows a representation of the DOM (Document Object Model) depth using color and stacking, and the z-Index view helps you isolate the different stacking contexts of your page. [Learn more](https://blogs.windows.com/msedgedev/2020/01/23/debug-z-index-3d-view-edge-devtools/).
 - Localized the F12 Dev tools in 10 new languages, so they will match the language used in the rest of the browser. [Learn more](https://blogs.windows.com/msedgedev/2020/02/04/localizing-edge-devtools/).
