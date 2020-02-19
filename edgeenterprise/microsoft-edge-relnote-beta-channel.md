@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Beta Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -57,10 +57,10 @@ These release notes provide information about new features and non-security upda
 
 #### Deprecated policies
 
-The following policies continue to work in the current release. They will become "obsolete" in a future release.
+The following policies continue to work in this release. They will become "obsolete" in a future release.
 
 - [WebComponentsV0Enabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#webcomponentsv0enabled) - Re-enable Web Components v0 API until M84.
-- [WebDriverOverridesIncompatiblePolicies](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#webdriveroverridesincompatiblepolicies) - Allow WebDriver to Override Incompatible 
+- [WebDriverOverridesIncompatiblePolicies](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#webdriveroverridesincompatiblepolicies) - Allow WebDriver to Override Incompatible.
 <!--
 #### Policy caption changes
 #### Other policy changes 
