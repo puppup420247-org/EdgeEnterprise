@@ -32,7 +32,7 @@ These release notes provide information about new features and non-security upda
 - Added dark theme support to PDF UI when the browser is managed by Group Policy.
 - Updated Adobe Flash to version 32.0.0.321. [Learn more](https://helpx.adobe.com/flash-player/release-note/fp_32_air_32_release_notes.html)
 
-### Group Policy updates
+### Policy updates
 
 #### New policies
 
