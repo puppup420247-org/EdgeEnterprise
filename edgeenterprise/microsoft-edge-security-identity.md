@@ -3,7 +3,7 @@ title: "Microsoft Edge identity support and configuration"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 11/22/2019
+ms.date: 02/14/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "Microsoft Edge identity support and configuration"
 
 # Microsoft Edge identity support and configuration
 
-This article describes how Microsoft Edge uses identity to support features such as sync and single sign-on. Microsoft Edge supports signing in with Active Directory (AD), Azure Active Directory (AAD), and Microsoft accounts (MSA).
+This article describes how Microsoft Edge uses identity to support features such as sync and single sign-on. Microsoft Edge supports signing in with Active Directory (AD), Azure Active Directory (Azure AD), and Microsoft accounts (MSA).
 
 > [!NOTE]
 > This applies  to Microsoft Edge version 77 or later.
@@ -34,7 +34,7 @@ To ensure that users are always authenticated and can benefit from authenticated
 
 The type of account used sign in determines which authentication and identity-based features are available and supported in Microsoft Edge. The following table summarizes the feature support for each type of account.
 
-|                 | AAD Premium   | AAD Free      | On-premise AD | MSA           |
+|                 | Azure AD Premium   | Azure AD Free      | On-premise AD | MSA           |
 |-----------------|---------------|---------------|---------------|---------------|
 | Sync            | Yes           | No            | No            | Yes           |
 | SSO with Primary Refresh Token | Yes          |Yes          | No            | Yes          |
@@ -54,7 +54,7 @@ Seamless Single Sign-On automatically signs users in when they are on corporate 
 
 #### SSO with Primary Refresh Token (PRT)
 
-A Primary Refresh Token (PRT) is an AAD key that’s used for authentication on Windows 10, iOS, and Android devices. It enables single sign-on (SSO) across the applications used on those devices. For more information, see [What is a Primary Refresh Token?](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token).
+A Primary Refresh Token (PRT) is an Azure AD key that’s used for authentication on Windows 10, iOS, and Android devices. It enables single sign-on (SSO) across the applications used on those devices. For more information, see [What is a Primary Refresh Token?](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token).
 
 #### Windows Integrated Authentication (WIA)
 

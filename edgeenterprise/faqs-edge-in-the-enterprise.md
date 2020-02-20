@@ -29,6 +29,10 @@ We’re committed to keeping Internet Explorer a supported, reliable, and safe b
 
 Yes, you can. After January 15th, 2020 the new version of Microsoft Edge (Chromium-based) will be distributed to Home and Pro Edition devices running Windows 10 version 1803 or newer. Domain-joined devices are excluded from this update. For more information, see [Overview of Microsoft Edge updates](https://docs.microsoft.com/deployedge/microsoft-edge-blocker-toolkit#overview). You can have a side by side installation of Microsoft Edge Legacy as you evaluate the next version of Microsoft Edge. For more information, see [How to access the old version of Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-sysupdate-access-old-edge). Additionally, each of the new Microsoft Edge channels also support side by side installations. For more information, see [Overview of Microsoft Edge channels](https://docs.microsoft.com/deployedge/microsoft-edge-channels).
 
+## Does Microsoft Edge (Chromium-based) support ActiveX controls or BHOs like Silverlight or Java?
+
+No. Microsoft Edge doesn’t support ActiveX controls and BHOs like Silverlight or Java. However, if you’re running web apps that use ActiveX controls, BHOs, or legacy document modes on Internet Explorer 11, you can configure them to run in IE mode on the new Microsoft Edge. For more information, see [Configure IE mode on Microsoft Edge](https://docs.microsoft.com/DeployEdge/edge-ie-mode).
+
 ## Will favorites be ported over from the current version of Microsoft Edge or will I have to re-add?
 
 Currently, Microsoft Edge supports import from existing installs of Microsoft Edge, Chrome, Internet Explorer, and Firefox (on Win10). The following settings are supported for importing: Bookmarks, History, Passwords and Autofill (Payments, addresses and generic forms). You can choose to import either from the First-run Experience or from browser settings.  
