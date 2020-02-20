@@ -1,4 +1,4 @@
-# last revised 02/10/2020
+# last revised 02/13/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 #- name: Microsoft Edge content updates
@@ -60,8 +60,10 @@
      href: configure-edge-with-intune.md
    - name: Configure for Windows with Mobile Device Management
      href: configure-edge-with-mdm.md
-   - name: Configure for macOS
+   - name: Configure for macOS using a .plist
      href: configure-microsoft-edge-on-mac.md
+   - name: Configure for macOS with Jamf
+     href: configure-microsoft-edge-on-mac-jamf.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md 
    - name: Browser policy reference
