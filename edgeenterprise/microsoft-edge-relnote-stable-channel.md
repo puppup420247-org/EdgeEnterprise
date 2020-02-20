@@ -1,20 +1,20 @@
 ---
-title: "Microsoft Edge release notes for Stable Channel in 2020"
+title: "Microsoft Edge release notes for Stable Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/07/2020
+ms.date: 02/18/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Microsoft Edge release notes for Stable Channel in 2020"
+description: "Microsoft Edge release notes for Stable Channel"
 ---
 
-# Release notes for Microsoft Edge Stable Channel in 2020
+# Release notes for Microsoft Edge Stable Channel
 
-These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel in 2020.
+These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel.
 
 ## Version 80.0.361.48: February 7
 
@@ -32,7 +32,7 @@ These release notes provide information about new features and non-security upda
 - Added dark theme support to PDF UI when the browser is managed by Group Policy.
 - Updated Adobe Flash to version 32.0.0.321. [Learn more](https://helpx.adobe.com/flash-player/release-note/fp_32_air_32_release_notes.html)
 
-### Group Policy updates
+### Policy updates
 
 #### New policies
 
