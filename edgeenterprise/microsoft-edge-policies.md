@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 02/05/2020
+ms.date: 02/19/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -191,6 +191,7 @@ These tables list all of the browser-related group policies available in this re
 |[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Enable security warnings for command-line flags|
 |[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
 |[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
+|[ConfigureOnPremisesAccountAutoSignIn](#configureonpremisesaccountautosignin)|Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account|
 |[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
 |[CustomHelpLink](#customhelplink)|Specify custom help link|
 |[DNSInterceptionChecksEnabled](#dnsinterceptionchecksenabled)|DNS interception checks enabled|
@@ -226,6 +227,8 @@ These tables list all of the browser-related group policies available in this re
 |[HideFirstRunExperience](#hidefirstrunexperience)|Hide the First-run experience and splash screen|
 |[ImportAutofillFormData](#importautofillformdata)|Allow importing of autofill form data|
 |[ImportBrowserSettings](#importbrowsersettings)|Allow importing of browser settings|
+|[ImportCookies](#importcookies)|Allow importing of Cookies|
+|[ImportExtensions](#importextensions)|Allow importing of extensions|
 |[ImportFavorites](#importfavorites)|Allow importing of favorites|
 |[ImportHistory](#importhistory)|Allow importing of browsing history|
 |[ImportHomepage](#importhomepage)|Allow importing of home page settings|
@@ -233,6 +236,7 @@ These tables list all of the browser-related group policies available in this re
 |[ImportPaymentInfo](#importpaymentinfo)|Allow importing of payment info|
 |[ImportSavedPasswords](#importsavedpasswords)|Allow importing of saved passwords|
 |[ImportSearchEngine](#importsearchengine)|Allow importing of search engine settings|
+|[ImportShortcuts](#importshortcuts)|Allow importing of shortcuts|
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
 |[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel)|Configure Internet Explorer integration|
 |[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist)|Configure the Enterprise Mode Site List|
@@ -277,6 +281,7 @@ These tables list all of the browser-related group policies available in this re
 |[StricterMixedContentTreatmentEnabled](#strictermixedcontenttreatmentenabled)|Enable stricter treatment for mixed content|
 |[SuppressUnsupportedOSWarning](#suppressunsupportedoswarning)|Suppress the unsupported OS warning|
 |[SyncDisabled](#syncdisabled)|Disable synchronization of data using Microsoft sync services|
+|[TLS13HardeningForLocalAnchorsEnabled](#tls13hardeningforlocalanchorsenabled)|Enable a TLS 1.3 security feature for local trust anchors.|
 |[TabFreezingEnabled](#tabfreezingenabled)|Allow freezing of background tabs|
 |[TaskManagerEndProcessEnabled](#taskmanagerendprocessenabled)|Enable ending processes in the Browser task manager|
 |[TotalMemoryLimitMb](#totalmemorylimitmb)|Set limit on megabytes of memory a single Microsoft Edge instance can use.|
@@ -5190,7 +5195,7 @@ If you enable this policy or don't configure it, users can delete the browsing a
 
 If you disable this policy, users can't delete browsing and download history.
 
-If you enable this policy, don't enable the 'Clear browsing data when Microsoft Edge closes' policy, because they both deal with deleting data. If you enable both, the 'Clear browsing data when Microsoft Edge closes' policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how this policy is configured.
+If you enable this policy, don't enable the [ClearBrowsingDataOnExit](#clearbrowsingdataonexit) policy, because they both deal with deleting data. If you enable both, the [ClearBrowsingDataOnExit](#clearbrowsingdataonexit) policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how this policy is configured.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6767,6 +6772,49 @@ If you don't configure this policy, users can choose whether to send these reque
 ``` xml
 <false/>
 ```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ConfigureOnPremisesAccountAutoSignIn
+  #### Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account
+  >Supported Versions: Microsoft Edge on Windows since version 81 or later
+
+  #### Description
+  Enable the use of Active Directory accounts for automatic sign in if your users' machines are Domain Joined and your environment is not hybrid joined. If you want users automatically signed in with their Azure Active Directory accounts instead, please Azure AD join (See [https://go.microsoft.com/fwlink/?linkid=2118197](https://go.microsoft.com/fwlink/?linkid=2118197) for more information) or hybrid join (See [https://go.microsoft.com/fwlink/?linkid=2118365](https://go.microsoft.com/fwlink/?linkid=2118365) for more information) your environment.
+
+If you have configured the [BrowserSignin](#browsersignin) policy to disabled, this policy will not take any effect.
+
+If you enable this policy and set it to "Sign in and make domain account non-removable", Microsoft Edge will automatically sign in users that are on domain joined machines using their Active Directory accounts.
+
+If you set this policy to "Disabled" or don't set it, Microsoft Edge will not automatically sign in users that are on domain joined machines with Active Directory accounts.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ConfigureOnPremisesAccountAutoSignIn
+  - GP name: Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ConfigureOnPremisesAccountAutoSignIn
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
   
 
   [Back to top](#microsoft-edge---policies)
@@ -8538,6 +8586,110 @@ You can also set this policy as a recommendation. This means that Microsoft Edge
 
   [Back to top](#microsoft-edge---policies)
 
+  ### ImportCookies
+  #### Allow importing of Cookies
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  Allows users to import Cookies from another browser into Microsoft Edge.
+
+If you disable this policy, Cookies aren't imported on first run.
+
+If you don’t configure this policy, Cookies are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Cookies on first run.
+
+**Note**: This policy currently manages importing Google Chrome (on Windows 7, 8, and 10 and on macOS).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ImportCookies
+  - GP name: Allow importing of Cookies
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ImportCookies
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ImportCookies
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ImportExtensions
+  #### Allow importing of extensions
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  Allows users to import extensions from another browser into Microsoft Edge.
+
+If you enable this policy, the **Extensions** check box is automatically selected in the **Import browser data** dialog box.
+
+If you disable this policy, extensions aren't imported at first run, and users can't import them manually.
+
+If you don't configure this policy, extensions are imported at first run, and users can choose whether to import them manually during later browsing sessions.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports extensions on first run, but users can select or clear the **favorites** option during manual import.
+
+**Note**: This policy currently only supports importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ImportExtensions
+  - GP name: Allow importing of extensions
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ImportExtensions
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ImportExtensions
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ImportFavorites
   #### Allow importing of favorites
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -8909,6 +9061,57 @@ You can set this policy as a recommendation. This means that Microsoft Edge impo
 
   [Back to top](#microsoft-edge---policies)
 
+  ### ImportShortcuts
+  #### Allow importing of shortcuts
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  Allows users to import Shortcuts from another browser into Microsoft Edge.
+
+If you disable this policy, Shortcuts aren't imported on first run.
+
+If you don’t configure this policy, Shortcuts are imported on first run.
+
+You can also set this policy as a recommendation. This means that Microsoft Edge imports Shortcuts on first run.
+
+**Note**: This policy currently manages importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ImportShortcuts
+  - GP name: Allow importing of shortcuts
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ImportShortcuts
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ImportShortcuts
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### InPrivateModeAvailability
   #### Configure InPrivate mode availability
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9255,7 +9458,7 @@ SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
 
   #### Description
   Lets you configure a list of list of up to 10 search engines, one of which must be marked as the default search engine.
-You do not need to specify the encoding, suggest_url, image_search_url, or image_search_post_params for any search engine (the image_search_post_params consists of comma-separated name/value pairs).
+You do not need to specify the encoding. Starting in Microsoft Edge 80, the suggest_url and image_search_url parameters are optional. The optional parameter, image_search_post_params (consists of comma-separated name/value pairs), is available starting in Microsoft Edge 80.
 
 If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.
 
@@ -9483,7 +9686,7 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-					
+  
 
   This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft.
 
@@ -9491,7 +9694,7 @@ Enable this policy to send reporting of usage and crash-related data to Microsof
 
 On Windows 10, Beta and Stable channels, if you don’t configure this policy, Microsoft Edge will default to the Windows diagnostic data setting. If you enable this policy, Microsoft Edge will only send usage data if the Windows Diagnostic data setting is set to Enhanced or Full. If you disable this policy, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings at [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-			 
+ 
 
 On Windows 10, Canary and Dev channels, this policy controls sending usage data. If this policy is not configured, Microsoft Edge will default to the user's preference. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings: [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
@@ -10669,11 +10872,11 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-					
+  
 
   This policy enables sending info about websites visited in Microsoft Edge to Microsoft to improve services like search.
 
-	   
+ 
 
 Enable this policy to send info about websites visited in Microsoft Edge to Microsoft. Disable this policy to not send info about websites visited in Microsoft Edge to Microsoft. In both cases, users can't change or override the setting.
 
@@ -11016,6 +11219,8 @@ If you set the policy to false, auto upgrades will be disabled for audio and vid
 
 This policy does not affect other types of mixed content other than audio, video, and images.
 
+This policy will no longer take effect starting in Microsoft Edge 84.
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -11104,7 +11309,7 @@ If this policy is false or unset, the warnings will appear on such unsupported c
   #### Description
   Disables data synchronization in Microsoft Edge. This policy also prevents the sync consent prompt from appearing.
 
-	  
+   
 
 If you don't set this policy or apply it as recommended, users will be able to turn sync on or off. If you apply this policy as mandatory, users will not be able to turn sync on.
 
@@ -11136,6 +11341,58 @@ If you don't set this policy or apply it as recommended, users will be able to t
 
   #### Mac information and settings
   - Preference Key Name: SyncDisabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### TLS13HardeningForLocalAnchorsEnabled
+  #### Enable a TLS 1.3 security feature for local trust anchors.
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 81 or later
+
+  #### Description
+  This policy controls a security feature in TLS 1.3 that protects connections against downgrade attacks. It is backwards-compatible and will not affect connections to compliant TLS 1.2 servers or proxies. However, older versions of some TLS-intercepting proxies have an implementation flaw which causes them to be incompatible.
+
+If you set this policy to True, Microsoft Edge will enable these security protections for all connections.
+
+If you set this policy to False or don’t set it, Microsoft Edge will disable these security protections for connections authenticated with locally-installed CA certificates. These protections are always enabled for connections authenticated with publicly-trusted CA certificates.
+
+This policy may be used to test for any affected proxies and upgrade them. Affected proxies are expected to fail connections with an error code of ERR_TLS13_DOWNGRADE_DETECTED. A later version of Microsoft Edge will enable this option by default.
+
+After it is enabled by default, administrators who need more time to upgrade affected proxies may use this policy to temporarily disable this security feature. This policy will be removed after version 85.
+
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: TLS13HardeningForLocalAnchorsEnabled
+  - GP name: Enable a TLS 1.3 security feature for local trust anchors.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: TLS13HardeningForLocalAnchorsEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: TLS13HardeningForLocalAnchorsEnabled
   - Example value:
 ``` xml
 <true/>
