@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -191,6 +191,7 @@ These tables list all of the browser-related group policies available in this re
 |[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Enable security warnings for command-line flags|
 |[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
 |[ConfigureDoNotTrack](#configuredonottrack)|Configure Do Not Track|
+|[ConfigureOnPremisesAccountAutoSignIn](#configureonpremisesaccountautosignin)|Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account|
 |[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
 |[CustomHelpLink](#customhelplink)|Specify custom help link|
 |[DNSInterceptionChecksEnabled](#dnsinterceptionchecksenabled)|DNS interception checks enabled|
@@ -6775,6 +6776,49 @@ If you don't configure this policy, users can choose whether to send these reque
 
   [Back to top](#microsoft-edge---policies)
 
+  ### ConfigureOnPremisesAccountAutoSignIn
+  #### Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account
+  >Supported Versions: Microsoft Edge on Windows since version 81 or later
+
+  #### Description
+  Enable the use of Active Directory accounts for automatic sign in if your users' machines are Domain Joined and your environment is not hybrid joined. If you want users automatically signed in with their Azure Active Directory accounts instead, please Azure AD join (See [https://go.microsoft.com/fwlink/?linkid=2118197](https://go.microsoft.com/fwlink/?linkid=2118197) for more information) or hybrid join (See [https://go.microsoft.com/fwlink/?linkid=2118365](https://go.microsoft.com/fwlink/?linkid=2118365) for more information) your environment.
+
+If you have configured the [BrowserSignin](#browsersignin) policy to disabled, this policy will not take any effect.
+
+If you enable this policy and set it to "Sign in and make domain account non-removable", Microsoft Edge will automatically sign in users that are on domain joined machines using their Active Directory accounts.
+
+If you set this policy to "Disabled" or don't set it, Microsoft Edge will not automatically sign in users that are on domain joined machines with Active Directory accounts.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Integer
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ConfigureOnPremisesAccountAutoSignIn
+  - GP name: Configure automatic sign in with an Active Directory domain account when there is no Azure AD domain account
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ConfigureOnPremisesAccountAutoSignIn
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ConfigureOnlineTextToSpeech
   #### Configure Online Text To Speech
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
@@ -9642,7 +9686,7 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-	 
+  
 
   This policy enables reporting of usage and crash-related data about Microsoft Edge to Microsoft.
 
@@ -9650,7 +9694,7 @@ Enable this policy to send reporting of usage and crash-related data to Microsof
 
 On Windows 10, Beta and Stable channels, if you don’t configure this policy, Microsoft Edge will default to the Windows diagnostic data setting. If you enable this policy, Microsoft Edge will only send usage data if the Windows Diagnostic data setting is set to Enhanced or Full. If you disable this policy, Microsoft Edge will not send usage data. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings at [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
-	
+ 
 
 On Windows 10, Canary and Dev channels, this policy controls sending usage data. If this policy is not configured, Microsoft Edge will default to the user's preference. Crash-related data is sent based on the Windows Diagnostic data setting. Learn more about Windows Diagnostic data settings: [https://go.microsoft.com/fwlink/?linkid=2099569](https://go.microsoft.com/fwlink/?linkid=2099569)
 
@@ -10828,11 +10872,11 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\0 = "https://conto
   >Supported Versions: Microsoft Edge on Windows and Mac since version 77 or later
 
   #### Description
-	 
+  
 
   This policy enables sending info about websites visited in Microsoft Edge to Microsoft to improve services like search.
 
-	
+ 
 
 Enable this policy to send info about websites visited in Microsoft Edge to Microsoft. Disable this policy to not send info about websites visited in Microsoft Edge to Microsoft. In both cases, users can't change or override the setting.
 
