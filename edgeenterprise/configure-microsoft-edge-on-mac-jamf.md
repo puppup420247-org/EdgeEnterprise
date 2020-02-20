@@ -3,7 +3,7 @@ title: "Configure Microsoft Edge on macOS with Jamf"
 ms.author: brianalt
 author: dan-wesley
 manager: laurawi
-ms.date: 02/14/2020
+ms.date: 02/20/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
