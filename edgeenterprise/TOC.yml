@@ -1,4 +1,4 @@
-# last revised 02/19/2020
+# last revised 02/21/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 #- name: Microsoft Edge content updates
@@ -96,6 +96,8 @@
      href: microsoft-edge-security-endpoints.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
+   - name: Microsoft Edge Privacy Whitepaper
+     href: https://docs.microsoft.com/microsoft-edge/privacy-whitepaper
 - name: Troubleshoot Microsoft Edge
   href: microsoft-edge-troubleshooting.md
 - name: Frequently asked questions
