@@ -15,7 +15,7 @@ description: "Microsoft Edge release notes for Stable Channel"
 # Release notes for Microsoft Edge Stable Channel
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel.  
-The security updates are listed [here](microsoft.edge.relnotes.security.md).
+The security updates are listed [here](microsoft-edge-relnotes-security.md).
 
 ## Version 80.0.361.48: February 7
 
