@@ -21,11 +21,13 @@ This article explains how to use Microsoft Edge with IE mode.
 
 ## Prerequisites
 
-The following prerequisites apply to using Microsoft Edge with IE mode. For the best experience, install the latest updates for Windows and Microsoft Edge.
+The following prerequisites apply to using Microsoft Edge with IE mode.
 
-1. The minimum operating system update versions listed in the next table.
+> [!IMPORTANT]
+> To ensure success, install the latest updates for Windows and Microsoft Edge. Failure to do so will likely cause IE mode to fail.
 
-  
+1. The minimum system updates for the operating systems listed in the next table.
+
 
 | Operating system | Version       | Updates |
 |------------------|---------------|---------|
@@ -49,7 +51,7 @@ The following prerequisites apply to using Microsoft Edge with IE mode. For the 
 
 
    > [!IMPORTANT]
-   > ** Windows 7 and Windows Server 2008 R2 will be supported by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7). It is recommended to upgrade to a supported operating system as soon as possible in order to remain secure. Microsoft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
+   > ** Windows 7 and Windows Server 2008 R2 will be supported by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7). We recommend that you upgrade to a supported operating system as soon as possible in order to remain secure. Support for Microsoft Edge with the Extended Security Updates should be considered a temporary bridge to getting to a supported OS state.
 
 2. The Microsoft Edge administrative template. For more information, see [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge).
 
