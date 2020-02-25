@@ -98,8 +98,8 @@
      href: microsoft-edge-privacy-policy.md
    - name: Microsoft Edge Privacy Whitepaper
      href: https://docs.microsoft.com/microsoft-edge/privacy-whitepaper
-- name: Troubleshoot Microsoft Edge
-  href: microsoft-edge-troubleshooting.md
+# - name: Troubleshoot Microsoft Edge
+#   href: microsoft-edge-troubleshooting.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
