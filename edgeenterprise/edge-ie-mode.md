@@ -63,7 +63,7 @@ IE mode on Microsoft Edge is a simplified experience that combines a modern rend
 
 When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
 
-  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
+  ![IE logo indicator](./media/ie-mode/ie-logo-indicator1.png)
 
 IE mode is policy enabled and applies to:
 
