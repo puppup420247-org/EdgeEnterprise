@@ -61,6 +61,10 @@ The following prerequisites apply to using Microsoft Edge with IE mode.
 
 IE mode on Microsoft Edge is a simplified experience that combines a modern rendering engine and compatibility with legacy sites that require Internet Explorer in a single browser. IE mode provides an integrated browsing experience in Microsoft Edge, using the integrated Chromium engine for modern sites and leveraging Internet Explorer 11 (IE11) for legacy sites that require the Trident MSHTML engine.
 
+When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
+
+  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
+
 IE mode is policy enabled and applies to:
 
 - Sites listed in these group policies:
@@ -329,12 +333,6 @@ The solution is to configure the authentication server in your Enterprise site l
 If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
 
 ## Frequently Asked Questions
-
-### How do I know if a site is loading in IE mode?
-
-When a site loads in IE mode, the IE logo indicator displays on the left side of navigation bar. You can click the IE logo indicator to display additional information.
-
-  ![IE logo indicator](./media/ie-mode/ie-mode-image.png)
 
 ### Will IE mode replace Internet Explorer 11?
 
