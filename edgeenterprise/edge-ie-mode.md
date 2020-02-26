@@ -255,11 +255,13 @@ In order for IE mode to work properly, authentication/ Single Sign-On servers wi
 
 Otherwise, IE mode pages will try to redirect authentication to Microsoft Edge causing authentication to fail. This will result in a message to the user that they are not authenticated or in an infinite authentication loop. Configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
 
-You can configure neutral sites in the site list XML:
+You can configure neutral sites directly in the site list XML:
+
 ``` xml
 <site url="login.contoso.com">
-  <compat-mode>Default</compat-mode>
-  <open-in>None</open-in>
+   
+    <open-in>None</open-in>
+
 </site>
 ```
 
