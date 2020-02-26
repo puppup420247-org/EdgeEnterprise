@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
