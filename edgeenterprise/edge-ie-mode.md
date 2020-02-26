@@ -204,7 +204,7 @@ For more information about Enterprise Mode Site lists, see:
 
 >[!NOTE]
 >
->- This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
+> - This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
 > - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
 > - If you also deploy a custom site list, the configuration in the site list takes precedence over this policy.
 >
@@ -248,6 +248,23 @@ The following table shows the possible values of the \<open-in\> element:
 
 >[!NOTE]
 > The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.
+
+### Configure neutral sites
+
+In order for IE mode to work properly, authentication/ Single Sign-On servers will need to be configured as neutral sites. Navigation to a neutral site stays where it started - either Microsoft Edge or IE mode. 
+
+Otherwise, IE mode pages will try to redirect authentication to Microsoft Edge causing authentication to fail. This will result in a message to the user that they are not authenticated or in an infinite authentication loop. Configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
+
+You can configure neutral sites in the site list XML:
+``` xml
+<site url="login.contoso.com">
+  <compat-mode>Default</compat-mode>
+  <open-in>None</open-in>
+</site>
+```
+
+To identify authentication servers, you can inspect the site in standalone IE11 with Developer Tools. If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
+
 
 #### Additional configurations
 
@@ -312,31 +329,13 @@ You're receiving the message because you started remote debugging and you naviga
 
 If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine.
 
-### I am trying to go to a site in IE mode, and it appears to be stuck navigating in a loop or tells me that I’m not authenticated. What's happening?
-
-This is probably happening because the site you are trying to reach is redirecting to an authentication server that's not configured to open in IE mode. You can try opening the site in standalone IE11 with Developer Tools open to see the identity of the authentication server.
-
-The solution is to configure the authentication server in your Enterprise site list as “neutral”. You can do this using the Enterprise Mode Site List Manager or directly in the sitelist XML.
-
-- Through the Enterprise Mode Site List Manager:
-
-  ![Configure the authentication server to open in None through the Enterprise Mode Site List Manager](./media/ie-mode/NeutralSites_SiteListManager.png)
-
-- Directly within the sitelist XML:
-
-``` xml
-<site url="login.contoso.com">
-  <compat-mode>Default</compat-mode>
-  <open-in>None</open-in>
-</site>
-```
-If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
-
 ## Frequently Asked Questions
 
 ### Will IE mode replace Internet Explorer 11?
 
 We're committed to keeping Internet Explorer a supported, reliable, and safe browser. Internet Explorer is still a component of Windows and follows the support lifecycle of the OS on which it's installed. For details, see [Lifecycle FAQ - Internet Explorer](https://support.microsoft.com/help/17454/). While Microsoft continues to support and update Internet Explorer, the latest features and platform updates will only be available in Microsoft Edge.
+
+### Will IE mode replace Internet Explorer 11?
 
 ## See also
 
