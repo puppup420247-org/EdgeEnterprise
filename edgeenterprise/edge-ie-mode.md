@@ -31,7 +31,7 @@ The following prerequisites apply to using Microsoft Edge with IE mode.
 
 | Operating system | Version       | Updates |
 |------------------|---------------|---------|
-| Windows 10       | 1903 or later |         |
+| Windows 10       | 1909 or later |         |
 | Windows 10       | 1903          | [KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) or later |
 | Windows Server   | 1903          | [KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) or later |
 | Windows 10       | 1809          | [KB4501371](https://support.microsoft.com/help/4501371/windows-10-update-kb4501371) or later |
