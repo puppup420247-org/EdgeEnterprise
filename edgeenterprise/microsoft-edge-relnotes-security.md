@@ -3,7 +3,7 @@ title: "Release notes for Microsoft Edge Security Updates"
 ms.author: aguta
 author: dan-wesley
 manager: laurawi
-ms.date: 02/25/2020
+ms.date: 02/27/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -18,7 +18,7 @@ These release notes provide information about security fixes that are included i
 
 ## February 25, 2020
 
-Microsoft has released the latest **Microsoft Edge Stable Channel (Version 80.0.361.62)**, which incorporates the latest Security Updates of the Chromium project.
+Microsoft has released the latest **Microsoft Edge Stable Channel (Version 80.0.361.62)**, which incorporates the latest Security Updates of the Chromium project. This update contains [CVE-2020-6418](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6418), that has been reported by the Chromium team as having an exploit in the wild.
 
 ## February 20, 2020
 
