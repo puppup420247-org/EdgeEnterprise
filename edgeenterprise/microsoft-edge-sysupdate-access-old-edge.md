@@ -3,7 +3,7 @@ title: "Access the old version of Microsoft Edge"
 ms.author: jtkim
 author: dan-wesley
 manager: srugh
-ms.date: 01/24/2020
+ms.date: 02/21/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -26,9 +26,6 @@ While most organizations will want to replace Microsoft Edge Legacy with the new
 
 The procedures in this article apply to systems that have been updated with the latest security updates. When the new version of Microsoft Edge is installed, the old version (Microsoft Edge Legacy) will be hidden. By default, all attempts to launch the old version will redirect the user to the newly installed version of Microsoft Edge. This article describes how you can keep using Microsoft Edge Legacy after you install Microsoft Edge.
 
-> [!WARNING]
-> When using Windows Update deployment there is a known issue with the Allow Side by Side policy that produces a broken shortcut to Microsoft Edge Legacy in the all apps list. We recommend that you do not deploy with these methods or enable the **AllowSxS** policy until this issue can be resolved.
-
 ## Quickstart: Side-by-side experience with Microsoft Edge Beta Channel and Microsoft Edge Legacy
 
 Before using the detailed instructions in this article, consider the following 2 steps to let your users run Microsoft Edge Legacy and the Microsoft Edge [Beta channel](microsoft-edge-channels.md) side-by-side.
@@ -44,17 +41,6 @@ Before using the detailed instructions in this article, consider the following 2
    > Read [Additional information](#additional-information) for information about Registry Key settings.
 
 This side-by-side solution is less complex and requires less management than the detailed solution described in this article. However, this does mean that you'll be running the Beta Channel rather than the Stable Channel.
-
-<!--
-## How operating system (OS) changes are triggered
-
-After the systems are fully updated and the Stable channel of the next version of Microsoft Edge is installed, the following registry key and value is set:
-
-- Key: `SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
-- Key value: `BrowserReplacement`
-
-> [!IMPORTANT]
-> This key is over-written every time the Microsoft Edge Stable channel is updated. As a best practice, we recommend that you don’t delete this key to allow users to access both versions of Microsoft Edge. -->
 
 ## Side-by-side experience with Microsoft Edge Stable Channel and Microsoft Edge Legacy
 
@@ -108,7 +94,7 @@ If the group policy is enabled after Microsoft Edge is deployed, there are the f
 
 After the systems are fully updated and the Stable channel of the next version of Microsoft Edge is installed, the following registry key and value is set:
 
-- Key: `Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
+- Key: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}`
 - Key value: `BrowserReplacement`
 
   > [!IMPORTANT]

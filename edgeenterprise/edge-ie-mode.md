@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 01/07/2020
+ms.date: 02/26/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,26 +21,37 @@ This article explains how to use Microsoft Edge with IE mode.
 
 ## Prerequisites
 
-The following prerequisites apply to using Microsoft Edge with IE mode. For the best experience, install the latest updates for Windows and Microsoft Edge.
+The following prerequisites apply to using Microsoft Edge with IE mode.
 
-1. The minimum operating system update versions.
+> [!IMPORTANT]
+> To ensure success, install the latest updates for Windows and Microsoft Edge. Failure to do so will likely cause IE mode to fail.
 
-   - Windows 10, version 1909 or later
-   - Windows 10, version 1903 and Windows Server, version 1903: [KB4501375](https://support.microsoft.com/help/4501375) or later
-   - Windows 10, version 1809, Windows Server, version 1809, and Windows Server 2019: [KB4501371](https://support.microsoft.com/help/4501371) or later
-   - Windows 10, version 1803: [KB4512509](https://support.microsoft.com/help/4512509) or later
-   - Windows 10, version 1709: [KB4512494](https://support.microsoft.com/help/4512494) or later
-   - Windows 10, version 1607 and Windows Server 2016: [KB4516061](https://support.microsoft.com/help/4516061) or later
-   - Windows 10 (initial version, released July 2015): [KB4520011](https://support.microsoft.com/help/4520011) or later
-   - Windows 8.1 and Windows Server 2012 R2: [KB4507463](https://support.microsoft.com/help/4507463) or later; or [KB4511872](https://support.microsoft.com/help/4511872) or later
-   - Windows 8 Embedded and Windows Server 2012:
-          - Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11
-          - [KB4507447](https://support.microsoft.com/help/4507447/windows-server-2012-update-kb4507447) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
-   - Windows 7 SP1 and Windows Server 2008R2**: [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later
-   
-   
+1. The minimum system updates for the operating systems listed in the next table.
+
+
+| Operating system | Version       | Updates |
+|------------------|---------------|---------|
+| Windows 10       | 1909 or later |         |
+| Windows 10       | 1903          | [KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) or later |
+| Windows Server   | 1903          | [KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) or later |
+| Windows 10       | 1809          | [KB4501371](https://support.microsoft.com/help/4501371/windows-10-update-kb4501371) or later |
+| Windows Server   | 1809          | [KB4501371](https://support.microsoft.com/help/4501371/windows-10-update-kb4501371) or later |
+| Windows Server   | 2019          | [KB4501371](https://support.microsoft.com/help/4501371/windows-10-update-kb4501371) or later |
+| Windows 10       | 1803          | [KB4512509](https://support.microsoft.com/help/4512509/windows-10-update-kb4512509) or later |
+| Windows 10       | 1709          | [KB4512494](https://support.microsoft.com/help/4512494/windows-10-update-kb4512494) or later |
+| Windows 10       | 1607          | [KB4516061](https://support.microsoft.com/help/4516061/windows-10-update-kb4516061) or later |
+| Windows Server   | 2016          | [KB4516061](https://support.microsoft.com/help/4516061/windows-10-update-kb4516061) or later |
+| Windows 10       | initial version, July 2015 | [KB4520011](https://support.microsoft.com/help/4520011/windows-10-update-kb4520011) or later |
+| Windows 8       | 8.1              | [KB4507463](https://support.microsoft.com/help/4507463/july-16-2019-kb4507463-os-build-preview-of-monthly-rollup) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+| Windows Server   | 2012 R2       | [KB4507463](https://support.microsoft.com/help/4507463/july-16-2019-kb4507463-os-build-preview-of-monthly-rollup) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+| Windows 8  | Embedded            | Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11; then install [KB4507447](https://support.microsoft.com/help/4507447/windows-server-2012-update-kb4507447) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+| Windows Server   | 2012           | Install [KB4492872](https://support.microsoft.com/help/4492872/update-for-internet-explorer-april-16-2019) to upgrade to Internet Explorer 11; then install [KB4507447](https://support.microsoft.com/help/4507447/windows-server-2012-update-kb4507447) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+| Windows 7        |  SP1**        | [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+| Windows Server   |  2008 R2**    | [KB4507437](https://support.microsoft.com/help/4507437/windows-7-update-kb4507437) or later; or [KB4511872](https://support.microsoft.com/help/4511872/cumulative-security-update-for-internet-explorer) or later |
+
+
    > [!IMPORTANT]
-   > ** Windows 7 and Windows Server 2008 R2 will be supported by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7). It is recommended to upgrade to a supported operating system as soon as possible in order to remain secure. Microsoft Edge being supported in this state should be considered a temporary bridge to getting to a supported OS state.
+   > ** Windows 7 and Windows Server 2008 R2 will be supported by Microsoft Edge even after those operating systems go out of support. In order for IE mode to be supported on these operating systems the devices will need to have the [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7). We recommend that you upgrade to a supported operating system as soon as possible in order to remain secure. Support for Microsoft Edge with the Extended Security Updates should be considered a temporary bridge to getting to a supported OS state.
 
 2. The Microsoft Edge administrative template. For more information, see [Configure Microsoft Edge](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge).
 
@@ -59,9 +70,9 @@ IE mode is policy enabled and applies to:
 
 ### IE mode supports the following Internet Explorer functionality
 
-- All document modes and enterprise modes.
-- ActiveX controls
-- Browser Helper Objects
+- All document modes and enterprise modes
+- ActiveX controls (such as Java or Silverlight)
+- Browser Helper Objects 
 - Internet Explorer settings and Group Policies that affect the security zone settings and Protected Mode
 - [IEChooser](https://docs.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10)
 - Microsoft Edge extensions (Extensions that interact with the IE page content directly are not supported.)
@@ -78,6 +89,7 @@ Use the following steps to enable IE mode.
 
 > [!NOTE]
 > Policies to enable IE mode can be configured through Intune. For more information, see [Add Microsoft Edge to Microsoft Intune](https://docs.microsoft.com/intune/apps/apps-windows-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json) and [Configure Microsoft Edge policies with Microsoft Intune](https://docs.microsoft.com/DeployEdge/configure-edge-with-intune).
+
 
 ### Enable IE mode using Group Policy
 
@@ -96,7 +108,7 @@ Use the following steps to enable IE mode.
    -  **Internet Explorer mode** if you want sites to open in IE mode on Edge
    -  **Internet Explorer 11** if you want sites to open in a standalone Internet Explorer 11 window
    -  **None** if you want to disable Internet Explorer mode when it is set via edge://flags or through command line options.
-   
+
    > [!NOTE]
    > Setting the policy to **Disabled** implies IE mode is disabled by policy, but can be set through edge://flags or command line options.
 
@@ -104,8 +116,8 @@ Use the following steps to enable IE mode.
 
 7. Click **OK** or **Apply** to save this policy setting.
 
-      >[!NOTE]
-      >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
+   >[!NOTE]
+   >Enterprise Mode schema v.1 isn't supported for IE mode integration. If you are currently using schema v.1 with Internet Explorer 11, you must upgrade to schema v.2. For more information, see [Enterprise Mode schema v.2 guidance](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-schema-version-2-guidance).
 
 <!--
     ![Click apply](./media/ie-mode/ie-mode-4.png)-->
@@ -314,6 +326,7 @@ The solution is to configure the authentication server in your Enterprise site l
   <open-in>None</open-in>
 </site>
 ```
+If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
 
 ## Frequently Asked Questions
 

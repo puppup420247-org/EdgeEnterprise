@@ -1,4 +1,4 @@
-# last revised 01/28/2020
+# last revised 02/24/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -7,6 +7,14 @@
   items:
    - name: Plan your deployment of Microsoft Edge
      href: deploy-edge-plan-deployment.md
+   - name: Microsoft Edge policy mapping
+     items:
+      - name: Policy mapping overview
+        href: microsoft-edge-policy-map-overview.md
+      - name: Microsoft Edge Legacy to Microsoft Edge policy mapping
+        href: microsoft-edge-policy-map-legacy-to-newedge.md
+      - name: Google Chrome to Microsoft Edge policy mapping
+        href: microsoft-edge-policy-map-chrome-to-newedge.md
    - name: Microsoft Edge Channels
      href: microsoft-edge-channels.md
    - name: Supported Operating Systems
@@ -15,6 +23,10 @@
      href: microsoft-edge-support-lifecycle.md
    - name: Supported languages
      href: microsoft-edge-supported-languages.md
+   - name: Beta Channel Release Notes
+     href: microsoft-edge-relnote-beta-channel.md
+   - name: Stable Channel Release Notes
+     href: microsoft-edge-relnote-stable-channel.md
    - name: Security updates
      href: microsoft-edge-relnotes-security.md
    - name: System updates for Microsoft Edge
@@ -48,8 +60,10 @@
      href: configure-edge-with-intune.md
    - name: Configure for Windows with Mobile Device Management
      href: configure-edge-with-mdm.md
-   - name: Configure for macOS
+   - name: Configure for macOS using a .plist
      href: configure-microsoft-edge-on-mac.md
+   - name: Configure for macOS with Jamf
+     href: configure-microsoft-edge-on-mac-jamf.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md 
    - name: Browser policy reference
@@ -82,8 +96,10 @@
      href: microsoft-edge-security-endpoints.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
-- name: Troubleshoot Microsoft Edge
-  href: microsoft-edge-troubleshooting.md
+   - name: Microsoft Edge Privacy Whitepaper
+     href: https://docs.microsoft.com/microsoft-edge/privacy-whitepaper
+# - name: Troubleshoot Microsoft Edge
+#   href: microsoft-edge-troubleshooting.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
