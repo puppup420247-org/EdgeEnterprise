@@ -49,6 +49,10 @@ Microsoft Edge supports extensions from [Microsoft Edge Insider Addons](https://
 
 Yes. Configuring Microsoft Edge on Windows 10 using Microsoft Intune and Mobile Device Management (MDM) is now supported. For more information, see [Configure Microsoft Edge using Microsoft Intune](configure-edge-with-intune.md) and [Configure Microsoft Edge using Mobile Device Management](configure-edge-with-mdm.md).
 
+## Does WSUS support the initial deployment of the new Microsoft Edge?
+
+No. WSUS supports updating existing MSI installs of Microsoft Edge, but it cannot be used for the initial deployment. If the intent is to ultimatley manage updates via WSUS then the initial deployment can be done through a management tool, such as [ConfigMgr](https://docs.microsoft.com/configmgr/apps/deploy-use/deploy-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json).
+
 ## See also
 
 - [Microsoft Edge documentation landing page](https://docs.microsoft.com/DeployEdge/)
