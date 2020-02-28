@@ -12,9 +12,9 @@ ms.collection: M365-modern-desktop
 description: "Use Windows Defender to protect Microsoft Edge against potentially unwanted applications"
 ---
 
-# Protect Microsoft Edge against potentially unwanted applications
+# Microsoft Edge protection against potentially unwanted applications
 
-This article explains how you can protect Microsoft Edge against potentially unwanted applications (PUA) by using Windows Defender SmartScreen.
+This article explains how you can protect against potentially unwanted applications (PUA) by using Windows Defender SmartScreen.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
