@@ -3,7 +3,7 @@ title: "Release notes for Microsoft Edge Security Updates"
 ms.author: aguta
 author: dan-wesley
 manager: laurawi
-ms.date: 02/27/2020
+ms.date: 02/28/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
