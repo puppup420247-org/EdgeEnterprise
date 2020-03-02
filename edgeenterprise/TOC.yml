@@ -1,4 +1,4 @@
-# last revised 02/25/2020
+# last revised 03/02/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -81,6 +81,8 @@
   items:
    - name: Configurations and experimentation
      href: edge-configuration-and-experiments.md
+   - name: Identity support and configuration
+     href: microsoft-edge-security-identity.md
    - name: Microsoft Edge and Enterprise State Roaming
      href: microsoft-edge-enterprise-state-roaming.md
    - name: Microsoft Edge kiosk mode
@@ -98,8 +100,6 @@
      href: security-overview.md
    - name: Allow list for Microsoft Edge endpoints
      href: microsoft-edge-security-endpoints.md
-   - name: Identity support and configuration
-     href: microsoft-edge-security-identity.md
    - name: Privacy
      href: microsoft-edge-privacy-policy.md
    - name: Microsoft Edge Privacy Whitepaper
