@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Stable Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/28/2020
+ms.date: 03/02/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -18,13 +18,9 @@ These release notes provide information about new features and non-security upda
 
 ## Version 80.0.361.62: February 25
 
-### Security updates
-
 Security updates are listed [here](https://docs.microsoft.com/deployedge/microsoft-edge-relnotes-security#february-25-2020)
 
 ## Version 80.0.361.57: February 20
-
-### Security updates
 
 Security updates are listed [here](https://docs.microsoft.com/DeployEdge/microsoft-edge-relnotes-security#february-20-2020)
 
@@ -43,8 +39,6 @@ Fixed various bugs and performance issues.
 Fixed various bugs and performances fixes.
 
 ## Version 80.0.361.48: February 7
-
-### Security updates
 
 Security updates are listed [here](https://docs.microsoft.com/deployedge/microsoft-edge-relnotes-security#february-7-2020)
 
