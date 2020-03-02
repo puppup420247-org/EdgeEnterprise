@@ -1,5 +1,5 @@
 ---
-title: "Use Windows Defender to protect Microsoft Edge against potentially unwanted applications"
+title: "Use Windows Defender Antivirus and Microsoft Edge to protect against potentially unwanted applications"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
@@ -9,23 +9,31 @@ ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Use Windows Defender to protect Microsoft Edge against potentially unwanted applications"
+description: "Use Windows Defender Antivirus and Microsoft Edge to protect against potentially unwanted applications"
 ---
 
-# Microsoft Edge protection against potentially unwanted applications
+# Protect against potentially unwanted applications (PUAs)
 
-This article explains how you can protect against potentially unwanted applications (PUA) by using Windows Defender SmartScreen.
+This article explains how you can protect against potentially unwanted applications (PUAs) by using Microsoft Edge with Microsoft Defender SmartScreen or Windows Defender Antivirus.
 
 > [!NOTE]
-> This article applies to Microsoft Edge version 77 or later.
+> This article applies to Microsoft Edge version 80 or later.
 
 ## Overview
 
-Potentially unwanted applications aren't considered to be viruses, malware, or other types of threats, but these apps might perform actions on endpoints that adversely affect endpoint performance or use.
-  
-PUA can also refer to applications that are considered to have poor reputation. The [Detect and block potentially unwanted applications](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/detect-block-potentially-unwanted-apps-windows-defender-antivirus) article describes the potential actions on an endpoint and the results of these actions.
+Potentially unwanted applications aren't considered to be viruses or malware but these apps might perform actions on endpoints that adversely affect endpoint performance or use. For example, *Evasion software* actively tries to evade detection by security products. This category of software can increase the risk of your network being infected with actual malware. PUA can also refer to applications that are considered to have poor reputation.
 
-## How it works
+## How to detect and block PUA
+
+### Microsoft Edge
+
+
+### Windows Defender Antivirus
+
+
+
+
+
 
 When Windows Defender detects a PUA file on an endpoint it quarantines the file and notifies the user ([unless notifications are disabled](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-notifications-windows-defender-antivirus)) in the same format as a normal threat detection (prefaced with "PUA:".) Detected threats also appear in the [quarantine list in the Windows Security app](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-security-center-antivirus#detection-history).
 
@@ -42,7 +50,7 @@ There are several ways an IT Admin can see PUA events:
 
 ## How to set up protection
 
-IT admins can set up PUA protection with Microsoft Intune, System Center Configuration Manager, Group Policy, or PowerShell cmdlets. For more information, see [Configure PUA protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/detect-block-potentially-unwanted-apps-windows-defender-antivirus#configure-pua-protection).
+Admins can set up PUA protection with Microsoft Intune, System Center Configuration Manager, Group Policy, or PowerShell cmdlets. For more information, see [Configure PUA protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/detect-block-potentially-unwanted-apps-windows-defender-antivirus#configure-pua-protection).
 
 Users can set up protection by enabling the **Block potentially unwanted apps** feature in Microsoft Edge. The [Microsoft Edge Team blog post](https://blogs.windows.com/msedgedev/2020/02/27/protecting-users-potentially-unwanted-apps/) describes this new feature in detail, including how to keep a mislabeled app or report an app as unwanted.
 
