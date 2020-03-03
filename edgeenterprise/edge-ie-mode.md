@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/26/2020
+ms.date: 03/03/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -205,7 +205,7 @@ For more information about Enterprise Mode Site lists, see:
 >[!NOTE]
 >
 > - This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
-> - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
+> - This policy will be most effective when most of an organization's legacy sites are in the Local Intranet Zone.
 > - If you also deploy a custom site list, the configuration in the site list takes precedence over this policy.
 >
 
@@ -282,7 +282,7 @@ You can get Internet Explorer mode diagnostic information on the Microsoft Edge 
 - **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
 Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
-### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
+### Error message: "To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges."
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
@@ -290,7 +290,7 @@ Microsoft Edge version 77 or later needs to be installed at the system level, an
 
 Possible reasons for this error:
 
-- Microsoft Edge Canary is installed at the user level and doesn’t prompt for elevation.
+- Microsoft Edge Canary is installed at the user level and doesn't prompt for elevation.
 - Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation, the installation will be continue at the user level.
 - Internet Explorer 11 has been disabled in Windows Features.
 
@@ -301,11 +301,11 @@ Possible solutions:
 
 To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
-### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
+### Error message: "To open this page in IE mode, try restarting Microsoft Edge."
 
 You're receiving this message because there was an unexpected error encountered in the Internet Explorer process. This should be resolved by restarting Microsoft Edge.
 
-### Error message: “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
+### Error message: "Turn off remote debugging to open this site in IE mode otherwise it might not work as expected."
 
 You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
 
