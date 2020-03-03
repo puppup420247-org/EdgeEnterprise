@@ -253,7 +253,7 @@ The following table shows the possible values of the \<open-in\> element:
 
 In order for IE mode to work properly, authentication/ Single Sign-On servers will need to be configured as neutral sites. Otherwise, IE mode pages will try to redirect authentication to Microsoft Edge causing authentication to fail. This will result in a message to the user that they are not authenticated or in most cases, result an infinite authentication loop. 
 
-When configured correctly, navigation to a neutral site will stay where it started - either Microsoft Edge or IE mode. Additionally, configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
+Navigation to a neutral site will stay where it started - either Microsoft Edge or IE mode. Additionally, configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
 
 You can configure neutral sites directly in the site list XML:
 
