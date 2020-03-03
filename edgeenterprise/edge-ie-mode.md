@@ -247,7 +247,7 @@ The following table shows the possible values of the \<open-in\> element:
 | **\<open-in\>None or not specified\</open-in\>** | Opens the site in the default browser or in the browser where navigation was initiated. |
 
 >[!NOTE]
-> The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.
+> The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.   
 
 ### Configure neutral sites
 
@@ -255,7 +255,7 @@ In order for IE mode to work properly, authentication/ Single Sign-On servers wi
 
 Navigation to a neutral site will remain where it started - either in Microsoft Edge or in IE mode. Additionally, configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
 
-You can configure neutral sites by checking the box for Standalone IE in the Enterprise Mode Site List Manager tool or by directly updating the site list XML:
+You can configure neutral sites by setting the Open In dropdown to 'None' in the Enterprise Mode Site List Manager tool or by directly updating the site list XML:
 
 ``` xml
 <site url="login.contoso.com">
@@ -266,26 +266,6 @@ You can configure neutral sites by checking the box for Standalone IE in the Ent
 ```
 
 To identify authentication servers, you can inspect the site in standalone IE11 with Developer Tools. If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations to remain in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
-
-
-#### Additional configurations
-
-If you have identified a site that needs to run in IE11, from business or technical reasons you can update the site list to set the specific website with the following structure.
-
-``` xml
-<site url="contoso.com">
-
-  <open-in app="true">IE11</open-in>
-
-</site>
-```
-
-To prevent users from using IE11, follow these steps:
-
-1. Open Local Group Policy Editor.
-2. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
-3. Double-click **Send all sites not included in the Enterprise Mode Site List to Microsoft Edge**.
-4. Select **Enabled**.
 
 ## Troubleshoot IE mode
 
