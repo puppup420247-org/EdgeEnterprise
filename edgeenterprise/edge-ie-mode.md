@@ -255,7 +255,7 @@ In order for IE mode to work properly, authentication/ Single Sign-On servers wi
 
 Navigation to a neutral site will stay where it started - either Microsoft Edge or IE mode. Additionally, configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
 
-You can configure neutral sites directly in the site list XML:
+You can configure neutral sites by checking the box for Standalone IE in the Enterprise Mode Site List Manager tool or by directly updating the site list XML:
 
 ``` xml
 <site url="login.contoso.com">
