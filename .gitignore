@@ -10,3 +10,4 @@ common/
 *.ini
 
 .openpublishing.buildcore.ps1
+collab/EdgeEnterprise/
