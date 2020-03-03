@@ -1,27 +1,27 @@
 ---
-title: "Use Windows Defender Antivirus and Microsoft Edge to protect against potentially unwanted applications"
+title: "Use Microsoft Edge to protect against potentially unwanted applications"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 03/02/2020
+ms.date: 03/03/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-description: "Use Windows Defender Antivirus and Microsoft Edge to protect against potentially unwanted applications"
+description: "Use Microsoft Edge to protect against potentially unwanted applications"
 ---
 
 # Protect against potentially unwanted applications (PUAs)
 
-This article explains how you can protect against potentially unwanted applications (PUAs) by using Microsoft Edge or by using Windows Defender Antivirus.
+This article explains how you can protect against potentially unwanted applications (PUAs) using Microsoft Edge or by using Windows Defender Antivirus.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 80 or later.
 
 ## Overview
 
-Potentially unwanted applications aren't considered to be viruses or malware but these apps might perform actions on endpoints that adversely affect endpoint performance or use. For example, *Evasion software* actively tries to evade detection by security products. This kind of software can increase the risk of your network being infected with actual malware. PUA can also refer to applications that are considered to have poor reputation.
+Potentially unwanted applications aren't considered to be viruses or malware, but these apps might perform actions on endpoints that adversely affect endpoint performance or use. For example, *Evasion software* actively tries to evade detection by security products. This kind of software can increase the risk of your network being infected with actual malware. PUA can also refer to applications that are considered to have poor reputation.
 
 For a description of the criteria used to classify software as a PUA, see [Potentially unwanted application](https://docs.microsoft.com/windows/security/threat-protection/intelligence/criteria#potentially-unwanted-application-pua).
 
@@ -63,7 +63,7 @@ When Windows Defender detects a PUA file on an endpoint it quarantines the file 
 There are several ways an admin can see PUA events:
 
 - In the Windows Event Viewer
-- In an email, if email notifications for PUA detections is turned on.
+- In an email if email notifications for PUA detections is turned on.
 - In [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/troubleshoot-windows-defender-antivirus) event logs, where PUA events are recorded under event ID 1116.
 
 > [!NOTE]
