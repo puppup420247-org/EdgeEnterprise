@@ -25,29 +25,40 @@ Potentially unwanted applications aren't considered to be viruses or malware, bu
 
 For a description of the criteria used to classify software as a PUA, see [Potentially unwanted application](https://docs.microsoft.com/windows/security/threat-protection/intelligence/criteria#potentially-unwanted-application-pua).
 
-## How to protect against PUA
-
-You can protect against PUA using Microsoft Edge or by using Window Defender Antivirus.
-
-### Microsoft Edge
+## Protect against PUA with Microsoft Edge
 
 Microsoft Edge (version 80.0.361.50 or later) blocks PUA downloads and associated resource URLs.
 
-Users can set up protection by enabling the **Block potentially unwanted apps** feature in Microsoft Edge.
+You can set up protection by enabling the **Block potentially unwanted apps** feature in Microsoft Edge.
 
 > [!NOTE]
-> The [Microsoft Edge Team blog post](https://blogs.windows.com/msedgedev/2020/02/27/protecting-users-potentially-unwanted-apps/) describes this new feature and explains how to keep a mislabeled app or report an app as unwanted.
+> The [Microsoft Edge Team blog post](https://blogs.windows.com/msedgedev/2020/02/27/protecting-users-potentially-unwanted-apps/) describes this new feature and explains how to handle a mislabeled app or report an app as unwanted.
 
-Read the [Detect and block potentially unwanted applications](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/detect-block-potentially-unwanted-apps-windows-defender-antivirus#microsoft-edge) article to learn how to:
+### To enable PUA protection:
 
-- Enable PUA protection in Microsoft Edge
-- Use Windows Defender SmartScreen to protect against PUA-associated URLS.
+1. Open **Settings** in the browser.
+2. Select **Privacy and services**.
+3. In the **Services** section, check to see that **Microsoft Defender SmartScreen** is turned on. If not, then turn on Microsoft Defender SmartScreen.
+4. In the **Services** section, turn on **Block potentially unwanted apps**.
 
-When Microsoft Edge detects a PUA, users will see a message like the one in the next screenshot.
+When Microsoft Edge detects a PUA, you will see a message like the one in the next screenshot.
 
    ![Microsoft Edge PUA warning message](./media/microsoft-edge-potentially-unwanted-apps/security-pua-msg.png)
 
-### Windows Defender Antivirus
+### To block against PUA-associated URLs
+
+After you turn on PUA protection in Microsoft Edge, Windows Defender SmartScreen will protect you from PUA-associated URLs.
+
+There are several ways admins can configure how Microsoft Edge and Windows Defender SmartScreen work together to protect users from PUA-associated URLs. For more information, see:
+
+- [Configure Microsoft Edge policy settings on Windows](https://docs.microsoft.com/DeployEdge/configure-microsoft-edge)
+- [SmartScreen settings](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#smartscreen-settings)
+- [SmartScreenPuaEnabled policy](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#smartscreenpuaenabled)
+- [Configure Windows Defender SmartScreen](https://docs.microsoft.com/microsoft-edge/deploy/available-policies?source=docs#configure-windows-defender-smartscreen)
+
+Admins can also customize the Microsoft Defender Advanced Threat Protection (Microsoft Defender ATP) block list. They can use the Microsoft Defender ATP portal to [create and manage indicators for IPs and URLs](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/manage-indicators#create-indicators-for-ips-and-urlsdomains-preview).
+
+## Protect against PUA with Windows Defender Antivirus
 
 The [Detect and block potentially unwanted applications](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/detect-block-potentially-unwanted-apps-windows-defender-antivirus#windows-defender-antivirus) article also describes how you can configure Windows Defender Antivirus to enable PUA protection. You can configure protection using any of the following options:
 
@@ -58,13 +69,14 @@ The [Detect and block potentially unwanted applications](https://docs.microsoft.
 
 When Windows Defender detects a PUA file on an endpoint it quarantines the file and notifies the user ([unless notifications are disabled](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-notifications-windows-defender-antivirus)) in the same format as a normal threat detection (prefaced with "PUA:".) Detected threats also appear in the [quarantine list in the Windows Security app](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-security-center-antivirus#detection-history).
 
-#### PUA notifications and events
+### PUA notifications and events
 
 There are several ways an admin can see PUA events:
 
-- In the Windows Event Viewer
+- In the Windows Event Viewer, but not in Microsoft Endpoint Configuration Manager or Intune.
 - In an email if email notifications for PUA detections is turned on.
-- In [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/troubleshoot-windows-defender-antivirus) event logs, where PUA events are recorded under event ID 1116.
+- In [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/troubleshoot-windows-defender-antivirus) event logs, where a PUA event is recorded under event ID 1116 with the message: "The antimalware platform detected malware or other potentially unwanted software."
+
 
 > [!NOTE]
 > Users will see "*.exe has been blocked as a potentially unwanted app by Microsoft Defender SmartScreen".
