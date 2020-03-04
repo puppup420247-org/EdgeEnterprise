@@ -44,8 +44,8 @@ You can set up protection by enabling the **Block potentially unwanted apps** fe
 
 4. In the **Services** section, use the toggle shown in the preceding screenshot to turn on **Block potentially unwanted apps**.
 
-> [!TIP]
-> You can safely explore the URL-blocking feature of PUA protection by testing it out on one of our Windows Defender SmartScreen [demo pages](https://demo.smartscreen.msft.net/).
+   > [!TIP]
+   > You can safely explore the URL-blocking feature of PUA protection by testing it out on one of our Windows Defender SmartScreen [demo pages](https://demo.smartscreen.msft.net/).
 
 When Microsoft Edge detects a PUA, you will see a message like the one in the next screenshot.
 
