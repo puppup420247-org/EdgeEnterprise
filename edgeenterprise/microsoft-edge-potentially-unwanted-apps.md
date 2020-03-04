@@ -91,5 +91,5 @@ There are several ways an admin can see PUA events:
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
 - [Threat protection](https://docs.microsoft.com/windows/security/threat-protection/index)
 - [Configure behavioral, heuristic, and real-time protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-protection-features-windows-defender-antivirus)
-- [Antivirus and antimalware software: FAQ](https://support.microsoft.com/help/4466972/windows-10-antivirus-and-antimalware-software-faq)
+- [Next-generation protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)
 - [Security baseline for Chromium-based Microsoft Edge, version 79](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/security-baseline-final-for-chromium-based-microsoft-edge/ba-p/1111863)
