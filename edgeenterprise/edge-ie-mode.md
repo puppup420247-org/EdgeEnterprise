@@ -3,7 +3,7 @@ title: "Use Microsoft Edge with IE mode"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/26/2020
+ms.date: 03/03/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -205,7 +205,7 @@ For more information about Enterprise Mode Site lists, see:
 >[!NOTE]
 >
 > - This group policy may be most appropriate for an organization that doesn't currently deploy a custom site list but requires IE11 for the majority of its intranet sites.
-> - This policy will be most effective when most of an organization’s legacy sites are in the Local Intranet Zone.
+> - This policy will be most effective when most of an organization's legacy sites are in the Local Intranet Zone.
 > - If you also deploy a custom site list, the configuration in the site list takes precedence over this policy.
 >
 
@@ -247,7 +247,7 @@ The following table shows the possible values of the \<open-in\> element:
 | **\<open-in\>None or not specified\</open-in\>** | Opens the site in the default browser or in the browser where navigation was initiated. |
 
 >[!NOTE]
-> The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.
+> The attribute app=**"true"** is only recognized when associated to _'open-in' IE11_. Adding it to the other 'open-in' elements won't change browser behavior.   
 
 ### Configure neutral sites
 
@@ -255,7 +255,7 @@ In order for IE mode to work properly, authentication/ Single Sign-On servers wi
 
 Navigation to a neutral site will remain where it started - either in Microsoft Edge or in IE mode. Additionally, configuring neutral sites ensures that modern applications using the same authentication servers are not impacted. 
 
-You can configure neutral sites by checking the box for Standalone IE in the Enterprise Mode Site List Manager tool or by directly updating the site list XML:
+You can configure neutral sites by setting the *Open In* dropdown to 'None' in the Enterprise Mode Site List Manager tool or by directly updating the site list XML:
 
 ``` xml
 <site url="login.contoso.com">
@@ -266,26 +266,6 @@ You can configure neutral sites by checking the box for Standalone IE in the Ent
 ```
 
 To identify authentication servers, you can inspect the site in standalone IE11 with Developer Tools. If you need time to identify your authentication servers, you can configure a policy to ensure that all in-page navigations from IE mode remain in IE mode. It is recommended that you revisit this setting once you have identified and added your authentication servers to the site list. For more information, see [Configure in-page navigations to remain in IE mode](https://docs.microsoft.com/deployedge/microsoft-edge-policies#internetexplorerintegrationsiteredirect).
-
-
-#### Additional configurations
-
-If you have identified a site that needs to run in IE11, from business or technical reasons you can update the site list to set the specific website with the following structure.
-
-``` xml
-<site url="contoso.com">
-
-  <open-in app="true">IE11</open-in>
-
-</site>
-```
-
-To prevent users from using IE11, follow these steps:
-
-1. Open Local Group Policy Editor.
-2. Click **Administrative Templates** > **Windows Components** > **Internet Explorer**.
-3. Double-click **Send all sites not included in the Enterprise Mode Site List to Microsoft Edge**.
-4. Select **Enabled**.
 
 ## Troubleshoot IE mode
 
@@ -302,7 +282,7 @@ You can get Internet Explorer mode diagnostic information on the Microsoft Edge 
 - **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
 Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
 
-### Error message: “To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges.”
+### Error message: "To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges."
 
 You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
 
@@ -310,7 +290,7 @@ Microsoft Edge version 77 or later needs to be installed at the system level, an
 
 Possible reasons for this error:
 
-- Microsoft Edge Canary is installed at the user level and doesn’t prompt for elevation.
+- Microsoft Edge Canary is installed at the user level and doesn't prompt for elevation.
 - Microsoft Edge Dev, Beta will prompt for elevation but if you cancel the elevation, the installation will be continue at the user level.
 - Internet Explorer 11 has been disabled in Windows Features.
 
@@ -321,11 +301,11 @@ Possible solutions:
 
 To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
-### Error message: “To open this page in IE mode, try restarting Microsoft Edge.”
+### Error message: "To open this page in IE mode, try restarting Microsoft Edge."
 
 You're receiving this message because there was an unexpected error encountered in the Internet Explorer process. This should be resolved by restarting Microsoft Edge.
 
-### Error message: “Turn off remote debugging to open this site in IE mode otherwise it might not work as expected.”
+### Error message: "Turn off remote debugging to open this site in IE mode otherwise it might not work as expected."
 
 You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
 
