@@ -86,6 +86,10 @@ There are several ways an admin can see PUA events:
 > [!NOTE]
 > Users will see "*.exe has been blocked as a potentially unwanted app by Microsoft Defender SmartScreen".
 
+### Allow-list an app
+
+Like Microsoft Edge, Windows Defender Antivirus provides a way to allow files that are blocked by mistake or needed to complete a task. If this happens you can allow-list a file. For more information, see [How to Configure Endpoint Protection in Configuration Manager](https://docs.microsoft.com/en-us/previous-versions/system-center/system-center-2012-R2/hh508770(v=technet.10)#to-exclude-specific-files-or-folders) to learn how to exclude specific files or folders.
+
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
