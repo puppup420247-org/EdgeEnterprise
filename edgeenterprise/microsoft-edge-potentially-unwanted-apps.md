@@ -3,7 +3,7 @@ title: "Use Microsoft Edge to protect against potentially unwanted applications"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -38,8 +38,14 @@ You can set up protection by enabling the **Block potentially unwanted apps** fe
 
 1. Open **Settings** in the browser.
 2. Select **Privacy and services**.
-3. In the **Services** section, check to see that **Microsoft Defender SmartScreen** is turned on. If not, then turn on Microsoft Defender SmartScreen.
-4. In the **Services** section, turn on **Block potentially unwanted apps**.
+3. In the **Services** section, check to see that **Microsoft Defender SmartScreen** is turned on. If not, then turn on Microsoft Defender SmartScreen. The example in the following screenshot shows the browser is managed by the organization and that Microsoft Defender SmartScreen is turned on.
+
+   ![Turn on Microsoft Edge PUA in Settings](./media/microsoft-edge-potentially-unwanted-apps/security-pua-setup.png)
+
+4. In the **Services** section, use the toggle shown in the preceding screenshot to turn on **Block potentially unwanted apps**.
+
+> [!TIP]
+> You can safely explore the URL-blocking feature of PUA protection by testing it out on one of our Windows Defender SmartScreen [demo pages](https://demo.smartscreen.msft.net/).
 
 When Microsoft Edge detects a PUA, you will see a message like the one in the next screenshot.
 
@@ -76,7 +82,6 @@ There are several ways an admin can see PUA events:
 - In the Windows Event Viewer, but not in Microsoft Endpoint Configuration Manager or Intune.
 - In an email if email notifications for PUA detections is turned on.
 - In [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/troubleshoot-windows-defender-antivirus) event logs, where a PUA event is recorded under event ID 1116 with the message: "The antimalware platform detected malware or other potentially unwanted software."
-
 
 > [!NOTE]
 > Users will see "*.exe has been blocked as a potentially unwanted app by Microsoft Defender SmartScreen".
