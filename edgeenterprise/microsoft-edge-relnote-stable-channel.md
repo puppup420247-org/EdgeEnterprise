@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Stable Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 03/02/2020
+ms.date: 03/05/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -15,6 +15,10 @@ description: "Microsoft Edge release notes for Stable Channel"
 # Release notes for Microsoft Edge Stable Channel
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel. All the security updates are listed [here](microsoft-edge-relnotes-security.md).
+
+## Version 80.0.361.66: March 4
+
+Security updates are listed [here](https://docs.microsoft.com/DeployEdge/microsoft-edge-relnotes-security#march-4-2020)
 
 ## Version 80.0.361.62: February 25
 
@@ -51,7 +55,7 @@ Security updates are listed [here](https://docs.microsoft.com/deployedge/microso
 - Added support for erasing link using the Surface Pen eraser.
 - Added support for using the arrow keys and spacebar to draw on feedback screenshots in editor mode.
 - Improved the reliability of screenshots so they stop appearing all black when submitting feedback.
-- Added dark theme support to the local new tab page that is shown when the device isn’t connected to the internet.
+- Added dark theme support to the local new tab page that is shown when the device isn't connected to the internet.
 - Added the ability for websites installed as apps to be restored when a browser session is restored after update, crash, etc.
 - Added dark theme support to PDF UI when the browser is managed by Group Policy.
 - Updated Adobe Flash to version 32.0.0.321. [Learn more](https://helpx.adobe.com/flash-player/release-note/fp_32_air_32_release_notes.html)
@@ -62,7 +66,7 @@ Security updates are listed [here](https://docs.microsoft.com/deployedge/microso
 
 16 new policies were added. Download the updated Administrative Templates from the [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise). The following new policies were added.
 
-- [AlternateErrorPagesEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#alternateerrorpagesenabled) - Suggest similar pages when a webpage can’t be found.
+- [AlternateErrorPagesEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#alternateerrorpagesenabled) - Suggest similar pages when a webpage can't be found.
 - [DefaultInsecureContentSetting](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#defaultinsecurecontentsetting)  - Control use of insecure content exceptions.
 - [DNSInterceptionChecksEnabled](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#dnsinterceptionchecksenabled) - DNS interception checks enabled.
 - [HideFirstRunExperience](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#hidefirstrunexperience) - Hide the First-run experience and splash screen.
