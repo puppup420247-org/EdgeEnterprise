@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 02/26/2020
+ms.date: 03/03/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -165,6 +165,7 @@ These tables list all of the browser-related group policies available in this re
 |[AllowDeletingBrowserHistory](#allowdeletingbrowserhistory)|Enable deleting browser and download history|
 |[AllowFileSelectionDialogs](#allowfileselectiondialogs)|Allow file selection dialogs|
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
+|[AllowSurfGame](#allowsurfgame)|Allow surf game|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
@@ -254,7 +255,7 @@ These tables list all of the browser-related group policies available in this re
 |[MediaRouterCastAllowAllIPs](#mediaroutercastallowallips)|Allow Google Cast to connect to Cast devices on all IP addresses|
 |[MetricsReportingEnabled](#metricsreportingenabled)|Enable usage and crash-related data reporting|
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
-|[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|						  
+|[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
 |[OverrideSecurityRestrictionsOnInsecureOrigin](#overridesecurityrestrictionsoninsecureorigin)|Control where security restrictions on insecure origins apply|
 |[PaymentMethodQueryEnabled](#paymentmethodqueryenabled)|Allow websites to query for available payment methods|
 |[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, search and news by sending browsing history to Microsoft|
@@ -305,6 +306,7 @@ These tables list all of the browser-related group policies available in this re
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
+
 
 
 
@@ -5378,6 +5380,51 @@ This policy will be removed in the future.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AllowSurfGame
+  #### Allow surf game
+  >Supported Versions: Microsoft Edge on Windows and Mac since version 82 or later
+
+  #### Description
+  If you disable this policy, users won't be able to play the surf game when the device is offline or if the user navigates to edge://surf.
+
+If you enable or don't configure this policy, users can play the surf game.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AllowSurfGame
+  - GP name: Allow surf game
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AllowSurfGame
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: AllowSurfGame
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### AllowSyncXHRInPageDismissal
   #### Allow pages to send synchronous XHR requests during page dismissal
   >Supported Versions: Microsoft Edge on Windows and Mac since version 79 or later
@@ -10011,50 +10058,50 @@ If you want to configure browser sign in, use the [BrowserSignin](#browsersignin
 
   
 
-										   
+			 
 
-							   
-															   
-																				  
-
+		  
 				  
-																											  
+					  
 
-																																	
+	  
+							 
 
-																					   
+								 
 
-						  
-						 
-						  
-							   
+						
 
+		
+	   
+		
+		  
+
+	 
+   
+
+			
+		
+			
+				  
 				 
 		 
-
-									   
-								
-											 
-																	 
-																 
-							  
-								  
-								 
-													  
-						   
-										 
-						 
-					  
-   
 		  
+		 
+			   
+		 
+		   
+	   
+	   
+   
+	
    
 
 
-								   
-												  
-				  
-	   
-	   
+		   
+			  
+	  
+	
+	
    
   
 
