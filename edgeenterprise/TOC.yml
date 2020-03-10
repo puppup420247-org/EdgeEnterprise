@@ -93,14 +93,14 @@
      href: edge-default-browser.md
    - name: Use Microsoft Edge in IE mode
      items:
-      -name: About IE mode
-       href: edge-ie-mode.md
-      -name: Configure Sites on the Enterprise Mode Site List
-       href: edge-ie-mode-sitelist.md
-      -name: Configure IE mode Policies
-       href: edge-ie-mode-policies.md
-      -name: IE mode FAQ
-       href: edge-ie-mode-faq.md
+      - name: About IE mode
+        href: edge-ie-mode.md
+      - name: Configure Sites on the Enterprise Mode Site List
+        href: edge-ie-mode-sitelist.md
+      - name: Configure IE mode Policies
+        href: edge-ie-mode-policies.md
+      - name: IE mode FAQ
+        href: edge-ie-mode-faq.md
 # SECURITY AND PRIVACY
 - name: Security and privacy for Microsoft Edge
   items:     

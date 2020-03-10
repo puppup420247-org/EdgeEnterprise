@@ -18,9 +18,9 @@ This article explains how to configure IE mode policies.
 
 Configuring IE mode requires three steps:
 
-1. [Configure Internet Explorer integration](#Configure-Internet-Explorer-Integration)
-2. [Redirect sites from Microsoft Edge to IE mode](#Redirect-sites-from-Microsoft-Edge-to-IE-mode)
-3. (Optional) [Redirect sites from IE to Microsoft Edge](#Redirect-sites-from-IE-to-Microsoft-Edge)
+1. [Configure Internet Explorer integration](#configure-internet-explorer-integration)
+2. [Redirect sites from Microsoft Edge to IE mode](#redirect-sites-from-microsoft-edge-to-ie-mode)
+3. (Optional) [Redirect sites from IE to Microsoft Edge](#redirect-sites-from-ie-to-microsoft-edge)
 
 > [!NOTE]
 > Policies to enable IE mode can be configured through Intune. For more information, see [Add Microsoft Edge to Microsoft Intune](https://docs.microsoft.com/intune/apps/apps-windows-edge?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json) and [Configure Microsoft Edge policies with Microsoft Intune](https://docs.microsoft.com/DeployEdge/configure-edge-with-intune).
@@ -56,8 +56,8 @@ There are 2 options for identifying which sites should open in IE mode:
 
 You can use the following group policies to configure specific sites to open in IE mode:
 
-- [Use the Enterprise Mode IE website list](#Configure-using-the-Use-the-Enterprise-Mode-IE-website-list-policy) (Internet Explorer)
-- [Configure the Enterprise Mode Site List](#Configure-using-the-Configure-the-Enterprise-Mode-Site-List-policy) (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list for Microsoft Edge. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+- [Use the Enterprise Mode IE website list](#configure-using-the-use-the-enterprise-mode-ie-website-list-policy) (Internet Explorer)
+- [Configure the Enterprise Mode Site List](#configure-using-the-configure-the-enterprise-mode-site-list-policy) (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list for Microsoft Edge. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
     > [!NOTE]
     > It is not mandatory to configure the Microsoft Edge policy. Many organizations use this as an override, allowing them to target the current Site List at all users with the IE policy, and more easily target an updated version to pilot uses with the Microsoft Edge policy.
 

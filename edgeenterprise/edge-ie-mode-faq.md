@@ -33,7 +33,7 @@ Other settings, such as the Site list debug registry key, and the Enterprise mod
 
 ### Error message: "To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges."
 
-You are receiving the message because you are missing the required updates. Please see the [prerequisites section](#prerequisites) for the required versions of Windows and Microsoft Edge.
+You are receiving the message because you are missing the required updates. Please see the prerequisites listed in [About IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) for the required versions of Windows and Microsoft Edge.
 
 Microsoft Edge version 77 or later needs to be installed at the system level, and Internet Explorer 11 needs to be enabled in Windows Features.
 
