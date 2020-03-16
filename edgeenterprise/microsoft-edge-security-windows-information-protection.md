@@ -17,7 +17,7 @@ description: "Microsoft Edge support for Windows Information Protection"
 This article describes how Microsoft Edge supports Windows Information Protection (WIP).
 
 > [!NOTE]
-> This applies to Microsoft Edge **Dev** channel version 82 or later.
+> This applies to Microsoft Edge version 82 or later.
 
 ## Overview
 
@@ -69,26 +69,22 @@ Microsoft Edge gives users the ability to share protected content in an unapprov
 
 ## Configure policies to support WIP
 
-Using WIP with Microsoft Edge requires the presence of a work profile. You can use the following Edge policies to enable this work profile.
+Using WIP with Microsoft Edge requires the presence of a work profile.
 
-### Azure Active Directory (Azure AD) accounts 
+### Ensure the presence of a work profile
 
-This profile allows seamless Single Sign On (SSO) for all worksites and restricts the profile from being deleted by the user.
-
-- [NonRemovableProfileEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#nonremovableprofileenabled)
-
-### On hybrid joined devices
-
-Microsoft Edge is automatically signed in with the Azure Active Directory (Azure AD) account. To make sure that users do not remove this profile which is needed for WIP, configure the following policy:
+On hybrid joined machines, Microsoft Edge is automatically signed in with the Azure Active Directory (Azure AD) account. To make sure that users don't remove this profile, which is needed for WIP, configure the following policy:
 
 - [NonRemovableProfileEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#nonremovableprofileenabled)
 
 > [!NOTE]
 > If your environment isn't hybrid joined, you can hybrid join using these instructions: [Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) 
 
-### On prem Active Directory accounts
+If hybrid joining isn't an option, you can use on-prem Active Directory accounts to allow Edge to auto create a special work profile with the users' domain accounts. Note that on-prem accounts may not receive all of Azure AD's features, such as cloud sync, Office NTP, and so on.)
 
-You have to configure the following policy to have the Microsoft Edge auto create a special work profile.
+### Active Directory (AD) accounts
+
+For AD accounts, you must configure the following policy to have the Microsoft Edge auto create a special work profile.
 
 - [ConfigureOnPremisesAccountAutoSignIn](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#configureonpremisesaccountautosignin)
 
