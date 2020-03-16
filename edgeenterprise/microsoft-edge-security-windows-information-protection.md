@@ -94,7 +94,7 @@ You have to configure the following policy to have the Microsoft Edge auto creat
 
 ### Windows policies for WIP
 
-You can configure WIP using Windows policies. For more information, see [Create and deploy WIP policies using Microsoft Intune](https://docs.microsoft.com/en-us/windows/security/information-protection/windows-information-protection/overview-create-wip-policy)
+You can configure WIP using Windows policies. For more information, see [Create and deploy WIP policies using Microsoft Intune](https://docs.microsoft.com/windows/security/information-protection/windows-information-protection/overview-create-wip-policy)
 
 ## Frequently Asked Questions
 
