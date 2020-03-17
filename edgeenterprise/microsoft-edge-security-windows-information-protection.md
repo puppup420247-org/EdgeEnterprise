@@ -3,7 +3,7 @@ title: "Microsoft Edge support for Windows Information Protection"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -82,7 +82,7 @@ On hybrid joined machines, Microsoft Edge is automatically signed in with the Az
 
 If hybrid joining isn't an option, you can use on-prem Active Directory accounts to allow Edge to auto create a special work profile with the users' domain accounts. Note that on-prem accounts may not receive all of Azure AD's features, such as cloud sync, Office NTP, and so on.)
 
-### Active Directory (AD) accounts
+#### Active Directory (AD) accounts
 
 For AD accounts, you must configure the following policy to have the Microsoft Edge auto create a special work profile.
 
