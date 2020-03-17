@@ -21,7 +21,15 @@ This article describes how Microsoft Edge supports Windows Information Protectio
 
 ## Overview
 
-Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. Organizations are seeing an increased risk of sharing corporate data outside the workplace. This risk is caused by the increased use of personal devices and the combination of personal and work related activities on corporate devices.
+Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. Organizations are seeing an increased risk of sharing corporate data outside the workplace. This risk is caused by the increased use of personal devices and the combination of personal and work-related activities on corporate devices.
+
+### System requirements
+
+The follow requirements apply to devices using WIP in the enterprise:
+
+- Windows 10, version 1607 or later
+- Only Windows client SKUs
+- One of the management solutions described in [WIP prerequisites](https://docs.microsoft.com/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip#prerequisites)
 
 ### Windows Information Protection benefits
 
@@ -31,7 +39,7 @@ WIP provides the following benefits:
 - Additional data protection for existing line-of-business apps without a need to update the apps.
 - The ability to remote wipe corporate data from Intune Mobile Device Management (MDM) enrolled devices while leaving personal data unaffected. 
 - Audit reports for tracking issues and remedial actions. 
-- Integration with your existing management system (for example, Microsoft Intune, Microsoft Endpoint Configuration Manager, or your current mobile device management (MDM) system) to configure, deploy, and manage WIP for your company.
+- Integration with your existing management system to configure, deploy, and manage WIP. Some examples are Microsoft Intune, Microsoft Endpoint Configuration Manager, or your current mobile device management (MDM) system.
 
 ## WIP policy and protection modes
 
@@ -47,7 +55,7 @@ Using policies, you can configure the four protection modes described in the fol
 
 ## WIP features supported in Microsoft Edge
 
-Starting with Microsoft Edge Dev Channel version 82, the following features are supported:
+Starting with Microsoft Edge version 82, the following features are supported:
 
 - Work sites will be indicated by a briefcase icon on the address bar.  
 - Files downloaded from a work location are automatically encrypted.
