@@ -21,7 +21,7 @@ This article describes how Microsoft Edge supports Windows Information Protectio
 
 ## Overview
 
-Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. Organizations are seeing an increased risk of sharing corporate data outside the workplace. This is caused by the increased use of personal devices and the combination of personal and work related activities on corporate devices.
+Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. Organizations are seeing an increased risk of sharing corporate data outside the workplace. This risk is caused by the increased use of personal devices and the combination of personal and work related activities on corporate devices.
 
 ### Windows Information Protection benefits
 
@@ -29,13 +29,13 @@ WIP provides the following benefits:
 
 - Obvious separation between personal and corporate data, without requiring employees to switch environments or apps. 
 - Additional data protection for existing line-of-business apps without a need to update the apps.
-- The ability to remote wipe corporate data from Intune MDM enrolled devices while leaving personal data unaffected. 
+- The ability to remote wipe corporate data from Intune Mobile Device Management (MDM) enrolled devices while leaving personal data unaffected. 
 - Audit reports for tracking issues and remedial actions. 
 - Integration with your existing management system (for example, Microsoft Intune, Microsoft Endpoint Configuration Manager, or your current mobile device management (MDM) system) to configure, deploy, and manage WIP for your company.
 
 ## WIP policy and protection modes
 
-Using policies, you can configure the 4 protection modes described in the following table. For more information, see [WIP-protection modes](https://docs.microsoft.com/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip#wip-protection-modes).
+Using policies, you can configure the four protection modes described in the following table. For more information, see [WIP-protection modes](https://docs.microsoft.com/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip#wip-protection-modes).
 
 | Mode | Description |
 |------|-------------|
