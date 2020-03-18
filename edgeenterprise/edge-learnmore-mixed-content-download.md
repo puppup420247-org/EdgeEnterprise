@@ -42,7 +42,7 @@ On the download page, the block warning looks like the following screenshot exam
 
  ![Mixed content override prompt](./media/edge-learnmore-mixed-content-download/edge-mixed-content-download-page-warning.png)
 
-If a user decides to keep download, the are prompted to confirm their action. The next screenshot shows an example of this prompt.
+If a user decides to keep the download, they are prompted to confirm their action. The next screenshot shows an example of this prompt.
 
  ![Choose Internet Explorer mode](./media/edge-learnmore-mixed-content-download/edge-mixed-content-download-override.png)
 
