@@ -3,7 +3,7 @@ title: "Microsoft Edge and mixed content downloads"
 ms.author: kele
 author: dan-wesley
 manager: srugh
-ms.date: 03/17/2020
+ms.date: 03/18/2020
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -23,10 +23,32 @@ This article explains mixed content downloads and how Microsoft Edge handles the
 
 Mixed content downloads happen when a download was initiated from an HTML page that was loaded over a secure HTTPS connection, but one of the following scenarios exist:
 
-- One or more of the download locations redirects was loaded over an insecure HTTP connection.
+- One or more of the download location's redirects was loaded over an insecure HTTP connection.
 - The final download location was loaded over an insecure HTTP connection.
 
 This is called mixed content downloads because both HTTP and HTTPS content is involved in reaching the final download destination, and the initial download request was activated from secure HTTPS. Modern browsers display warnings about this type of content to indicate to the user that this download may be transferred insecurely even though the original page accessed was secure.
+
+## Download warnings and user options
+
+The download warning ensures that users are aware that the file they're downloading could be read by malicious attackers on their network. This lets a user make an informed decision on whether to download the file.
+
+In Microsoft Edge, mixed content downloads will be blocked but users can override and download the file if they choose to do so. Microsoft Edge plans on starting to block mixed content executable file downloads starting with Microsoft Edge version 83 and will block different filetypes in future releases. The schedule of the block for different filetypes is to be determined and may be impacted by usage data and user feedback.
+
+In the download shelf, the block warning message looks like the example in the next screenshot.
+
+ ![Mixed content warning in download tray](./media/edge-learnmore-mixed-content-download/edge-mixed-content-download-tray-warning.png)
+
+On the download page, the block warning looks like the following screenshot example:
+
+ ![Mixed content override prompt](./media/edge-learnmore-mixed-content-download/edge-mixed-content-download-page-warning.png)
+
+If a user decides to keep download, the are prompted to confirm their action. The next screenshot shows an example of this prompt.
+
+ ![Choose Internet Explorer mode](./media/edge-learnmore-mixed-content-download/edge-mixed-content-download-override.png)
+
+## Supporting policies
+
+Enterprises that want to exclude mixed content blocking from specific websites can use the [InsecureContentAllowedForUrls](https://docs.microsoft.com/deployedge/microsoft-edge-policies#insecurecontentallowedforurls) policy to do so.
 
 ## See also
 
