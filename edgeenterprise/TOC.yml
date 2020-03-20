@@ -63,6 +63,10 @@
    - name: Deploy to macOS with Intune
 #    href: deploy-edge-mac-intune.md
      href: https://docs.microsoft.com/intune/apps/apps-edge-macos/?toc=https://docs.microsoft.com/DeployEdge/toc.json&bc=https://docs.microsoft.com/DeployEdge/breadcrumb/toc.json
+   - name: Reference
+     items:
+      - name: Support for mixed content downloads
+        href: edge-learnmore-mixed-content-download.md
 # CONFIGURE
 - name: Configure Microsoft Edge
   items:
