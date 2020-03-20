@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Stable Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
