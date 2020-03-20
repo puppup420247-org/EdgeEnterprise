@@ -3,7 +3,7 @@ title: "Microsoft Edge support for Windows Information Protection"
 ms.author: kvice
 author: dan-wesley
 manager: srugh
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,7 +21,9 @@ This article describes how Microsoft Edge supports Windows Information Protectio
 
 ## Overview
 
-Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. Organizations are seeing an increased risk of sharing corporate data outside the workplace. This risk is caused by the increased use of personal devices and the combination of personal and work-related activities on corporate devices.
+Windows Information Protection (WIP) is a Windows 10 feature that helps protect enterprise data from unauthorized or accidental disclosure. With the rise of remote work, there's an increased risk of sharing corporate data outside the workplace. This risk increases when personal activities and work activities occur on corporate devices.
+
+Microsoft Edge supports WIP to help protect content in a web environment where users often share and distribute content.
 
 ### System requirements
 
@@ -37,8 +39,8 @@ WIP provides the following benefits:
 
 - Obvious separation between personal and corporate data, without requiring employees to switch environments or apps. 
 - Additional data protection for existing line-of-business apps without a need to update the apps.
-- The ability to remote wipe corporate data from Intune Mobile Device Management (MDM) enrolled devices while leaving personal data unaffected. 
-- Audit reports for tracking issues and remedial actions. 
+- The ability to remote wipes corporate data from Intune Mobile Device Management (MDM) enrolled devices while leaving personal data unaffected. 
+- Audit reports for tracking issues and remedial actions such as compliance training for users. 
 - Integration with your existing management system to configure, deploy, and manage WIP. Some examples are Microsoft Intune, Microsoft Endpoint Configuration Manager, or your current mobile device management (MDM) system.
 
 ## WIP policy and protection modes
@@ -86,7 +88,7 @@ On hybrid joined machines, Microsoft Edge is automatically signed in with the Az
 - [NonRemovableProfileEnabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#nonremovableprofileenabled)
 
 > [!NOTE]
-> If your environment isn't hybrid joined, you can hybrid join using these instructions: [Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) 
+> If your environment isn't hybrid joined, you can hybrid join using these instructions: [Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
 
 If hybrid joining isn't an option, you can use on-prem Active Directory accounts to allow Edge to auto create a special work profile with the users' domain accounts. Note that on-prem accounts may not receive all of Azure AD's features, such as cloud sync, Office NTP, and so on.)
 
