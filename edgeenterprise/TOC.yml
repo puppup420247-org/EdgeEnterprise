@@ -117,6 +117,10 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
+   - name: Learn more reference
+     items:
+      - name: Support for mixed content downloads
+        href: edge-learnmore-mixed-content-download.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
