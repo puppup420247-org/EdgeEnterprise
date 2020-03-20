@@ -1,4 +1,4 @@
-# last revised 03/02/2020
+# last revised 03/20/2020
 - name: Microsoft Edge documentation 
   href: index.yml
 - name: Microsoft Edge content updates
@@ -94,15 +94,19 @@
    - name: Use Microsoft Edge in IE Mode 
      href: edge-ie-mode.md
 # SECURITY AND PRIVACY
-- name: Security and privacy for Microsoft Edge
+- name: Microsoft Edge Security
   items:     
-   - name: Security
+   - name: Security overview
      href: security-overview.md
    - name: Allow list for Microsoft Edge endpoints
      href: microsoft-edge-security-endpoints.md
    - name: Protect against potentially unwanted applications
      href: microsoft-edge-potentially-unwanted-apps.md
-   - name: Privacy
+   - name: Support for Windows Information Protection
+     href: microsoft-edge-security-windows-information-protection.md
+- name: Microsoft Edge Privacy
+  items:  
+   - name: Privacy overview
      href: microsoft-edge-privacy-policy.md
    - name: Microsoft Edge Privacy Whitepaper
      href: https://docs.microsoft.com/microsoft-edge/privacy-whitepaper
