@@ -3,7 +3,7 @@ title: "Microsoft Edge and mixed content downloads"
 ms.author: kele
 author: dan-wesley
 manager: srugh
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -17,16 +17,16 @@ description: "Microsoft Edge and mixed content downloads"
 This article explains mixed content downloads and how Microsoft Edge handles them.
 
 >[!NOTE]
->This article applies to Microsoft Edge version 77 or later.
+>This article applies to Microsoft Edge version 83 or later.
 
 ## What are mixed content downloads?
 
-Mixed content downloads happen when a download was initiated from an HTML page that was loaded over a secure HTTPS connection, but one of the following scenarios exist:
+A mixed content download happens when you initiate a download from an HTML page that was loaded over a secure HTTPS connection, but one of the following scenarios conditions exist:
 
 - One or more of the download location's redirects was loaded over an insecure HTTP connection.
 - The final download location was loaded over an insecure HTTP connection.
 
-This is called mixed content downloads because both HTTP and HTTPS content is involved in reaching the final download destination, and the initial download request was activated from secure HTTPS. Modern browsers display warnings about this type of content to indicate to the user that this download may be transferred insecurely even though the original page accessed was secure.
+Either scenario is a mixed content because the request was made using secure HTTPS and both HTTP and HTTPS content are involved in reaching the final download destination. Modern browsers display warnings about this type of content to indicate to the user that this download may be transferred insecurely even though the original page accessed was secure.
 
 ## Download warnings and user options
 
