@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 03/06/2020
+ms.date: 03/18/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -218,6 +218,7 @@ These tables list all of the browser-related group policies available in this re
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Control communication with the Experimentation and Configuration Service|
 |[ExternalProtocolDialogShowAlwaysOpenCheckbox](#externalprotocoldialogshowalwaysopencheckbox)|Show an "Always open" checkbox in external protocol dialog|
+|[FamilySafetySettingsEnabled](#familysafetysettingsenabled)|Allow users to configure Family safety|
 |[FavoritesBarEnabled](#favoritesbarenabled)|Enable favorites bar|
 |[ForceBingSafeSearch](#forcebingsafesearch)|Enforce Bing SafeSearch|
 |[ForceCertificatePromptsOnMultipleMatches](#forcecertificatepromptsonmultiplematches)|Configure whether Microsoft Edge should automatically select a certificate when there are multiple certificate matches for a site configured with "AutoSelectCertificateForUrls"|
@@ -830,6 +831,10 @@ If you don't configure this policy, images are allowed by default, and the user 
 This policy can be overridden for specific URL patterns using the [InsecureContentAllowedForUrls](#insecurecontentallowedforurls) and [InsecureContentBlockedForUrls](#insecurecontentblockedforurls) policies.
 
 If this policy isn't set, users will be allowed to add exceptions to allow blockable mixed content and disable autoupgrades for optionally blockable mixed content.
+
+* 2 = Do not allow any site to load blockable mixed content
+
+* 3 = Allow users to add exceptions to allow blockable mixed content
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -5170,11 +5175,13 @@ Disabling this setting is equivalent to leaving it not configured. Users will be
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
-* 5 = Open a new tab
+					
 
 * 1 = Restore the last session
 
 * 4 = Open a list of URLs
+
+* 5 = Open a new tab
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -5842,7 +5849,15 @@ If you set the policy to All (value 3), it allows ambient authentication for all
 
 Note that ambient authentication is always allowed on regular profiles.
 
-If you don't configure this policy, InPrivate and Guest sessions will not be able to ambiently authenticate in future releases of Microsoft Edge, because they will be disallowed.
+In Microsoft Edge version 81 and later, if the policy is left not set, ambient authentication will be enabled in regular sessions only.
+
+* 0 = Enable ambient authentication in regular sessions only
+
+* 1 = Enable ambient authentication in InPrivate and regular sessions
+
+* 2 = Enable ambient authentication in guest and regular sessions
+
+* 3 = Enable ambient authentication in regular, InPrivate and guest sessions
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -5866,7 +5881,7 @@ If you don't configure this policy, InPrivate and Guest sessions will not be abl
   - Value Type: REG_DWORD
   ##### Example value:
 ```
-0x00000001
+0x00000000
 ```
 
 
@@ -5874,7 +5889,7 @@ If you don't configure this policy, InPrivate and Guest sessions will not be abl
   - Preference Key Name: AmbientAuthenticationInPrivateModesEnabled
   - Example value:
 ``` xml
-<integer>1</integer>
+<integer>0</integer>
 ```
   
 
@@ -7135,6 +7150,10 @@ If you enable this policy and set it to "Sign in and make domain account non-rem
 
 If you set this policy to "Disabled" or don't set it, Microsoft Edge will not automatically sign in users that are on domain joined machines with Active Directory accounts.
 
+* 0 = Disabled
+
+* 1 = Sign in and make domain account non-removable
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -8216,6 +8235,12 @@ If you don't configure this policy, on a managed device on Stable and Beta chann
 
 If you don't configure this policy, on an unmanaged device the behavior is the same as the "Retrieve configurations and experiments" mode.
 
+* 0 = Disable communication with the Experimentation and Configuration Service
+
+* 1 = Retrieve configurations only
+
+* 2 = Retrieve configurations and experiments
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -8295,6 +8320,55 @@ If this policy is unset, the checkbox visibility is controlled by the "Enable re
 
   #### Mac information and settings
   - Preference Key Name: ExternalProtocolDialogShowAlwaysOpenCheckbox
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### FamilySafetySettingsEnabled
+  #### Allow users to configure Family safety
+  
+  #### Supported versions:
+  - On Windows and macOS since 82 or later
+
+  #### Description
+  This policy disables and completely hides the Family safety page in Settings. Navigation to edge://settings/familysafety will also be blocked. The Family safety page describes what features are available for family groups and how to join a family group. Learn more about family safety here: ([https://go.microsoft.com/fwlink/?linkid=2098432](https://go.microsoft.com/fwlink/?linkid=2098432)).
+
+If you enable this policy or don't configure it, the Family safety page will be shown.
+
+If you disable this policy, the Family safety page will not be shown.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  - Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: FamilySafetySettingsEnabled
+  - GP name: Allow users to configure Family safety
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: FamilySafetySettingsEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: FamilySafetySettingsEnabled
   - Example value:
 ``` xml
 <true/>
@@ -9754,6 +9828,12 @@ Set this policy to 'Forced' (2) to always use InPrivate mode.
   #### Description
   For guidance about configuring the optimal experience for Internet Explorer mode see [https://go.microsoft.com/fwlink/?linkid=2094210](https://go.microsoft.com/fwlink/?linkid=2094210)
 
+* 0 = None
+
+* 1 = Internet Explorer mode
+
+* 2 = Internet Explorer 11
+
   #### Supported features:
   - Can be mandatory: Yes
   - Can be recommended: No
@@ -9841,10 +9921,21 @@ and
 
 If you disable or don’t configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
 
+If you set this policy to Default (value 0), only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
+
+If you set this policy to AutomaticNavigationsOnly (value 1), you get the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
+
+If you set this policy to AllInPageNavigations (value 2), all navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode (Least Recommended).
+
 If you enable this policy, you can choose one of the following navigation options:
-0 - Default. Only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.
-1 - Keep only automatic navigations in Internet Explorer mode. Use this option If you want the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.
-2 - Keep all in-page navigations in Internet Explorer mode (Least Recommended). All navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode.
+
+* 0 = Default
+																																																											 
+																																													  
+
+* 1 = Keep only automatic navigations in Internet Explorer mode
+
+* 2 = Keep all in-page navigations in Internet Explorer mode
 
 To learn more about Internet Explorer mode, see [https://go.microsoft.com/fwlink/?linkid=2105106](https://go.microsoft.com/fwlink/?linkid=2105106)
 
@@ -10286,9 +10377,9 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
 
   ### MetricsReportingEnabled
   #### Enable usage and crash-related data reporting
-																				  
+					  
 
-				  
+	  
   
   #### Supported versions:
   - On Windows and macOS since 77 or later
@@ -10483,47 +10574,47 @@ If you want to configure browser sign in, use the [BrowserSignin](#browsersignin
 
   
 
-	
+ 
 
-	
-	  
-	   
-
+ 
    
-		
-
-		 
-
-	  
-
-  
 	
-  
-	
-
-  
-   
 
    
   
+
    
-	  
-	 
+
    
-	
+
+  
+ 
+  
+ 
+
+  
    
-	  
+
    
-	 
-	
-	
+  
+   
+   
+  
+   
+ 
+   
+   
+   
+  
+ 
+ 
    
  
    
 
 
-	 
-	 
+  
+  
    
  
  
@@ -10948,9 +11039,9 @@ If you set the policy to 'Required' (2), a recurring warning prompts users that 
 
 The user's session is restored when the browser restarts.
 
-* Recommended (1) = Show a recurring prompt to the user indicating that a restart is recommended
+* 1 = Recommended - Show a recurring prompt to the user indicating that a restart is recommended
 
-* Required (2) = Show a recurring prompt to the user indicating that a restart is required
+* 2 = Required - Show a recurring prompt to the user indicating that a restart is required
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -11566,9 +11657,9 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\1 = https://contos
 
   ### SendSiteInfoToImproveServices
   #### Send site information to improve Microsoft services
-																				  
+					  
 
-				  
+	  
   
   #### Supported versions:
   - On Windows and macOS since 77 or later
@@ -12277,10 +12368,16 @@ If you don't set this policy, the browser will only attempt to save memory when 
 
 If you enable this policy, you have the following options for setting the level of tracking prevention:
 
-0 = Off (no tracking prevention)
-1 = Basic (blocks harmful trackers, content and ads will be personalized)
-2 = Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)
-3 = Strict (blocks harmful trackers and majority of trackers from all sites; content and ads will have minimal personalization. Some parts of sites might not work)
+* 0 = Off (no tracking prevention)
+																		 
+																															  
+																																								   
+
+* 1 = Basic (blocks harmful trackers, content and ads will be personalized)
+
+* 2 = Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)
+
+* 3 = Strict (blocks harmful trackers and majority of trackers from all sites; content and ads will have minimal personalization. Some parts of sites might not work)
 
 If you disable this policy or don't configure it, users can set their own level of tracking prevention.
 
