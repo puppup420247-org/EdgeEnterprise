@@ -19,6 +19,10 @@ These release notes provide information about new features and non-security upda
 > [!IMPORTANT]
 > Please see this [update on Microsoft Edge channel releases](https://blogs.windows.com/msedgedev/2020/03/20/update-stable-channel-releases/).
 
+## Version 81.0.416.34: March 17
+
+Fixed various bugs and performance issues.
+
 ## Version 81.0.416.31: March 12
 
 Fixed various bugs and performance issues.
