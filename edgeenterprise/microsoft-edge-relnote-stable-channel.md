@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Stable Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -15,6 +15,9 @@ description: "Microsoft Edge release notes for Stable Channel"
 # Release notes for Microsoft Edge Stable Channel
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Stable Channel. All the security updates are listed [here](microsoft-edge-relnotes-security.md).
+
+> [!IMPORTANT]
+> Please see this [update on Stable channel releases](https://blogs.windows.com/msedgedev/2020/03/20/update-stable-channel-releases/).
 
 ## Version 81.0.361.69: March 19
 
