@@ -17,7 +17,7 @@ description: "Microsoft Edge Supported Operating Systems"
 This article describes the supported operating systems that apply to Microsoft Edge.
 
 > [!NOTE]
-> This article applies to the Microsoft Edge versions 77 and higher.
+> This article applies to the Microsoft Edge versions 77 and higher for the desktop.
 
 ## Supported Operating Systems for Microsoft Edge
 
