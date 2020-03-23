@@ -3,7 +3,7 @@ title: "Microsoft Edge release notes for Beta Channel"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/20/2020
+ms.date: 03/23/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -16,11 +16,14 @@ description: "Microsoft Edge release notes for Beta Channel"
 
 These release notes provide information about new features and non-security updates that are included in the Microsoft Edge Beta Channel.
 
+> [!IMPORTANT]
+> Please see this [update on Microsoft Edge channel releases](https://blogs.windows.com/msedgedev/2020/03/20/update-stable-channel-releases/).
+
 ## Version 81.0.416.12: February 20
 
 ### Feature updates
 
-- Collections is now available. You can get started by clicking the Collections icon next to the address bar. This opens the Collections pane where you can create, edit, and view Collections. We designed Collections based on what you do on the web. If you’re a shopper, a traveller, a teacher or a student, Collections can help. [Learn more](https://blogs.windows.com/msedgedev/2019/12/09/improvements-collections-sync-microsoft-edge/#LuDPRDUDCgdgdOVt.97).
+- Collections is now available. You can get started by clicking the Collections icon next to the address bar. This opens the Collections pane where you can create, edit, and view Collections. We designed Collections based on what you do on the web. If you're a shopper, a traveller, a teacher or a student, Collections can help. [Learn more](https://blogs.windows.com/msedgedev/2019/12/09/improvements-collections-sync-microsoft-edge/#LuDPRDUDCgdgdOVt.97).
 
 - Allow the removal (Hide from toolbar) of the Collections button from the Microsoft Edge toolbar for consistency.
 
@@ -36,7 +39,7 @@ These release notes provide information about new features and non-security upda
 
 - Added support for Dolby Vision playback. On Dolby Vision-enabled Windows 10 Build 17134 (April 2018 Update), websites can show Dolby vision content. See how to enable Dolby Vision content from [Netflix](https://help.netflix.com/en/node/42384).
 
-- Microsoft Edge can now identify and remove duplicate favorites and merge folders with the same name. To access the tool, click the star on the browser’s toolbar and select "Remove duplicate favorites".  You will be able to confirm changes and any updates to your favorites will be synced across devices.
+- Microsoft Edge can now identify and remove duplicate favorites and merge folders with the same name. To access the tool, click the star on the browser's toolbar and select "Remove duplicate favorites".  You will be able to confirm changes and any updates to your favorites will be synced across devices.
 
 - We heard from users it can be difficult to distinguish a normal browsing window in dark theme from an InPrivate window since both window frames are dark. The new solid InPrivate blue pill in the top right corner helps reassure users they are browsing InPrivate.
 
