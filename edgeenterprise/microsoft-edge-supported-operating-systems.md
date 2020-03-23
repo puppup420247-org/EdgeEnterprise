@@ -12,7 +12,7 @@ ms.collection: M365-modern-desktop
 description: "Microsoft Edge Supported Operating Systems"
 ---
 
-# Microsoft Edge Supported Operating Systems
+# Microsoft Edge supported Operating Systems
 
 This article describes the supported operating systems that apply to Microsoft Edge.
 
@@ -67,6 +67,5 @@ Microsoft Edge does not support Chromebooks.
 ## See also
 
 - [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
-- [Microsoft Edge documentation](https://docs.microsoft.com/DeployEdge/)
 - [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy)
 - [Extended Security Updates for Windows 7](https://support.microsoft.com/help/4527878/faq-about-extended-security-updates-for-windows-7)
