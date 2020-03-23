@@ -19,11 +19,27 @@ These release notes provide information about new features and non-security upda
 > [!IMPORTANT]
 > Please see this [update on Microsoft Edge channel releases](https://blogs.windows.com/msedgedev/2020/03/20/update-stable-channel-releases/).
 
+## Version 81.0.416.34: March 17
+
+Fixed various bugs and performance issues.
+
+## Version 81.0.416.31: March 12
+
+Fixed various bugs and performance issues.
+
+## Version 81.0.416.28: March 9
+
+Fixed various bugs and performance issues.
+
+## Version 81.0.416.20: February 28
+
+Fixed various bugs and performance issues.
+
 ## Version 81.0.416.12: February 20
 
 ### Feature updates
 
-- Collections is now available. You can get started by clicking the Collections icon next to the address bar. This opens the Collections pane where you can create, edit, and view Collections. We designed Collections based on what you do on the web. If you're a shopper, a traveller, a teacher or a student, Collections can help. [Learn more](https://blogs.windows.com/msedgedev/2019/12/09/improvements-collections-sync-microsoft-edge/#LuDPRDUDCgdgdOVt.97).
+- Collections is now available. You can get started by clicking the Collections icon next to the address bar. This action opens the Collections pane where you can create, edit, and view Collections. We designed Collections based on what you do on the web. If you're a shopper, a traveler, a teacher, or a student, Collections can help. [Learn more](https://blogs.windows.com/msedgedev/2019/12/09/improvements-collections-sync-microsoft-edge/#LuDPRDUDCgdgdOVt.97).
 
 - Allow the removal (Hide from toolbar) of the Collections button from the Microsoft Edge toolbar for consistency.
 
@@ -31,7 +47,7 @@ These release notes provide information about new features and non-security upda
 
 - Application Guard. Extensions support now available in the container.
 
-- Added a message to inform users that Internet Explorer is not installed when a user navigates to a page that is configured to open in Internet Explorer mode.
+- Added a message to inform users that Internet Explorer isn't installed when they navigate to a page that is configured to open in Internet Explorer mode.
 
 - Updated the 3D View tool in Microsoft Edge DevTools with a new feature to help debug z-index stacking context. 3D View shows a representation of the DOM (Document Object Model) depth using color and stacking, and the z-Index view helps you isolate the different stacking contexts of your page. [Learn more](https://blogs.windows.com/msedgedev/2020/01/23/debug-z-index-3d-view-edge-devtools/).
 
