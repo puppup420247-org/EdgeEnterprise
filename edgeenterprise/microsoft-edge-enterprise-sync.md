@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 02/14/2020
+ms.date: 03/23/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,7 @@ description: "Microsoft Edge Sync"
 
 # Microsoft Edge Sync
 
-This article explains how to use Microsoft Edge to sync your favorites, passwords, and other browser data across all your signed-in devices.
+This article explains how to use Microsoft Edge to sync your favorites, passwords, and other browser data across all you're signed-in devices.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -76,7 +76,7 @@ The new Microsoft Edge is a cross-platform application with an expanded scope fo
 The following group policies impact Microsoft Edge sync:
 
 - [SyncDisabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#syncdisabled): Disables sync completely.
-- [SavingBrowserHistoryDisabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#savingbrowserhistorydisabled): Disables saving browsing history and sync. This also disables open-tabs sync.
+- [SavingBrowserHistoryDisabled](https://docs.microsoft.com/deployedge/microsoft-edge-policies#savingbrowserhistorydisabled): Disables saving browsing history and sync. This policy also disables open-tabs sync.
 
 ## Frequently Asked Questions
 
@@ -84,13 +84,57 @@ The following group policies impact Microsoft Edge sync:
 
 The current version of Microsoft Edge browser will continue to participate in the ESR offering.
 
+### What is Microsoft's promise to keep synced enterprise data safe and compliant?
+
+The O365 Compliance Framework helps enterprise data owners how their data is treated and stored. The framework illustrates Microsoft's commitments for data compliance for each tier. Microsoft Edge enterprise sync today is Tier C compliant, with plans to eventually move to Tier D. Some of the Tier C promises that the sync team are most frequently asked about are:
+
+- No mining of customer data for advertising 
+- Compliance with the [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products) 
+- Adherence to US and EU customer data residency requirements, including [General Data Protection Regulation (GDPR)](https://www.microsoft.com/trust-center/privacy/gdpr-overview)  
+
+### Is the synced data encrypted? Can anyone at Microsoft look at it?
+
+The data is encrypted in transport using TLS 1.2 or greater, and at additionally at rest in Microsoft's service using AES256. Nobody at Microsoft can decrypt the data; only clients can. 
+
 ### Where is sync data stored for Microsoft Edge?
 
-Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and leverages the same storage solution used by Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user’s device, it is further encrypted when stored in the cloud.
+Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and uses the same storage solution used by Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user's device, it is further encrypted when stored in the cloud.
+
+### Does the data ever leave Microsoft's cloud, aside from syncing to Microsoft Edge?
+
+No.
+
+### Can tenant admins bring their own key?
+
+Yes, through [Azure Information Protection](https://azure.microsoft.com/services/information-protection/).
+
+### What terms of service does enterprise sync fall under?
+
+The terms of service are the same terms as your Azure AD subscription. All the Azure AD terms of service ultimately fall under Microsoft's [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products).
+
+### Does Microsoft Edge support GCC High?
+
+Not today. GCC High is Tier D, while Microsoft Edge supports up to Tier C.
+
+### Why do I need a premium AAD subscription to sync?
+
+Enterprise sync depends on Azure Information Protection, which is not available in all Azure AD tiers. However, we are planning to eventually make enterprise sync available to all Azure AD tiers.
+
+### Is sync based on Enterprise State Roaming?
+
+No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR. We have published more details about that here.
+
+### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
+
+There are no plans to support this syncing. Many environments used this behavior to implement on-premise sync; see the on-premise sync section for more details. If you still need IE in your environment to support legacy apps, please consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
+
+### Is it possible to stop my users from syncing with a personal tenant?
+
+Not directly, but you can determine which profiles can sign on to Microsoft Edge using the [RestrictSigninToPattern](https://docs.microsoft.com/deployedge/microsoft-edge-policies#restrictsignintopattern) policy.
 
 ### Will the new Chromium-based Microsoft Edge browser sync with the current in-market version of Microsoft Edge?
 
-No, it won’t. We believe connecting these two ecosystems will lead to compromises in the reliability of sync in the new Microsoft Edge. We will ensure that existing data is migrated to the new Microsoft Edge. Users will also be able to import data from browser of their choice. This also means that new Microsoft Edge browser will not have a way to sync with IE.
+No, it won't. We believe connecting these two ecosystems will lead to compromises in the reliability of sync in the new Microsoft Edge. We will ensure that existing data is migrated to the new Microsoft Edge. Users will also be able to import data from browser of their choice. This also means that new Microsoft Edge browser won't have a way to sync with IE.
 
 ### What about sync support for on-prem accounts?
 
