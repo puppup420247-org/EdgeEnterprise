@@ -3,7 +3,7 @@ title: "Microsoft Edge and mixed content downloads"
 ms.author: kele
 author: dan-wesley
 manager: srugh
-ms.date: 03/24/2020
+ms.date: 03/25/2020
 audience: ITPro
 ms.topic: procedural
 ms.prod: microsoft-edge
@@ -32,7 +32,12 @@ Either scenario is a mixed content because the request was made using secure HTT
 
 The download warning ensures that users know that the file they're downloading could be read by malicious attackers on their network. This warning lets a user make an informed decision on whether to download the file.
 
-In Microsoft Edge, mixed content downloads will be blocked but users can override and download the file if they want to. Microsoft Edge plans on starting to block mixed content executable file downloads starting with Microsoft Edge version 84 and will block different filetypes in future releases. The schedule of the block for different filetypes is to be determined and may be impacted by usage data and user feedback.
+In Microsoft Edge, mixed content downloads will be blocked but users can override and download the file if they want to. Microsoft Edge plans on starting to block mixed content executable file downloads starting with Microsoft Edge version 84 and will block different filetypes in future releases. 
+
+> [!NOTE]
+> Deployment of this feature is subject to change based on release schedule and user feedback.
+
+<!-- The schedule of the block for different filetypes is to be determined and may be impacted by usage data and user feedback. -->
 
 In the download shelf, the block warning message looks like the example in the next screenshot.
 
