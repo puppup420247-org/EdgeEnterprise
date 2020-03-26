@@ -91,8 +91,16 @@
      href: microsoft-edge-enterprise-sync.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md
-   - name: Use Microsoft Edge in IE Mode 
-     href: edge-ie-mode.md
+   - name: Use Microsoft Edge in IE mode
+     items:
+      - name: About IE mode
+        href: edge-ie-mode.md
+      - name: Configure Sites on the Enterprise Mode Site List
+        href: edge-ie-mode-sitelist.md
+      - name: Configure IE mode Policies
+        href: edge-ie-mode-policies.md
+      - name: IE mode FAQ
+        href: edge-ie-mode-faq.md
 # SECURITY AND PRIVACY
 - name: Microsoft Edge Security
   items:     
