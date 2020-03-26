@@ -3,7 +3,7 @@ title: "IE mode FAQ"
 ms.author: cjacks
 author: cjacks
 manager: saudm
-ms.date: 03/05/2020
+ms.date: 03/25/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -14,7 +14,10 @@ description: "FAQ and Troubleshooting for Microsoft Edge with IE mode"
 
 # IE mode FAQ
 
-This article provides an FAQ and troubleshooting tips for Microsoft Edge (version 77 or later).
+This article provides troubleshooting tips and an FAQ for Microsoft Edge (version 77 or later).
+
+> [!NOTE]
+> This article applies to Microsoft Edge **Stable**, **Beta** and **Dev** Channels, version 77 or later.
 
 ## Troubleshoot IE mode
 
@@ -22,25 +25,22 @@ Use the information in this section to diagnose and fix IE mode problems.
 
 ### Internet Explorer mode diagnostic information
 
-You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab and see the Internet Explorer mode diagnostics page, go to *edge://compat/iediagnostic*. In addition to providing configuration information for the following categories, this page also gives actionable diagnostic messages.
+You can get Internet Explorer mode diagnostic information on the Microsoft Edge Compatibility tab. To open this tab, go to *edge://compat/iediagnostic*. This page may show diagnostic messages. This page also provides configuration information for the following categories:
 
-- **Registry key check**. Checks to see if Internet Explorer is set up in the registry. If it isn't, the user will see a prompt to fix the issue. They can click **Fix it** to resolve the problem.
-- **Internet Explorer mode**. The number **7** relates to the API version that's used, based on the configuration and OS. This is another setting that can generate an actionable diagnostic, and the user is prompted to install a **Windows Update**.
-- **Internet Explorer mode setting**. This setting is turned on, using default integration and Internet Explorer mode integration policy.
-- **Command line**. Shows the command line string and switches used to start Microsoft Edge. In this example, the path statement shows that Microsoft Edge is installed at the user level, and a Tab feature (Experiment) is enabled.
-- **Group policy settings**. Turned on and using the Enterprise Mode IE website list (set as IE policy). At this stage the list is still pointing to a file share instead of *https://localhost/sites.xml*, the recommended configuration.<br>
-Other settings, such as the Site list debug registry key, and the Enterprise mode site list (set as Microsoft Edge policy) aren't set.
+- **Registry key check**. (Displayed only if the check fails.) Checks to see if Internet Explorer integration is set up correctly in the registry. If not, the user can click **Fix it** to resolve the problem.
+- **Internet Explorer mode**. Shows the API version that's used, based on the configuration and OS. If there's a problem, the user may be prompted to install a **Windows Update**.
+- **Internet Explorer mode setting**. Shows whether Internet Explorer mode is enabled, and how it's configured.
+- **Command line**. Shows the command line string and switches used to start Microsoft Edge.
+- **Group policy settings**. Shows whether IE mode is configured using group policies, and the policies that are applied.
 
 ### Error message: "To open this page in Internet Explorer mode, reinstall Microsoft Edge with administrator privileges."
 
-You are receiving the message because you are missing the required updates. Please see the prerequisites listed in [About IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) for the required versions of Windows and Microsoft Edge.
+You may see this error if you don't have all required Windows Updates. See the prerequisites listed in [About IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) for the required versions of Windows and Microsoft Edge.
 
-Microsoft Edge version 77 or later needs to be installed at the system level, and Internet Explorer 11 needs to be enabled in Windows Features.
+If you've already installed all required Windows Updates, you may see this error if:
 
-Possible reasons for this error:
-
-- Microsoft Edge Canary is installed at the user level and doesn't prompt for elevation.
-- Microsoft Edge Dev, Beta will prompt for elevation when installing, but if you cancel the elevation the installation will be continue at the user level.
+- You're using the Canary channel, which is installed at the user level by default.
+- You're using the Stable, Beta, or Dev channel, but when prompted for elevation when installing the elevation was canceled. When you cancel the elevation prompt, the installation will continue at the user level.
 - Internet Explorer 11 has been disabled in Windows Features.
 
 Possible solutions:
@@ -48,17 +48,15 @@ Possible solutions:
 - Run the installer for any channel at the system level: `installer.exe --system-level`.
 - Enable Internet Explorer 11 in Windows Features.
 
-To check that Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files...*, which indicates a system install. If the Executable path begins with *C:\Users..*, uninstall and then reinstall Microsoft Edge with administrator privileges.
+To check if Microsoft Edge is installed at the systems level, type "edge://version" in the Microsoft Edge address bar. The Executable path will show a path starting with *C:\Program Files*, which indicates a system install. If the Executable path begins with *C:\Users\*, uninstall and then reinstall Microsoft Edge with administrator privileges.
 
 ### Error message: "To open this page in IE mode, try restarting Microsoft Edge."
 
-You're receiving this message because there was an unexpected error encountered in the Internet Explorer process. This should be resolved by restarting Microsoft Edge.
+You may see this error if there was an unexpected error in Internet Explorer. Restarting Microsoft Edge usually fixes this error.
 
 ### Error message: "Turn off remote debugging to open this site in IE mode otherwise it might not work as expected."
 
-You're receiving the message because you started remote debugging and you navigated to a web page that your organization has configured to run in IE mode.
-
-If the intention is to run remote debug on this page you can continue to do so, but the webpage will be rendered in the Microsoft Edge engine.
+You may see this error if you're remote debugging and navigate to a web page configured to run in IE mode. You can continue, but the page will be rendered using Microsoft Edge.
 
 ## Frequently Asked Questions
 
@@ -68,4 +66,10 @@ We're committed to keeping Internet Explorer a supported, reliable, and safe bro
 
 ### Can I use "Open with Explorer" or "View in File Explorer" in SharePoint with IE mode?
 
-Yes, if this works in standalone Interenet Explorer 11 it will work in IE mode. However, rather than use the Open with Explorer option, the reccommended approach to managing files and folders outside of SharePoint is to [sync your SharePoint files](https://support.office.com/en-us/article/sync-sharepoint-files-with-the-onedrive-sync-app-6de9ede8-5b6e-4503-80b2-6190f3354a88) or [move or copy files in SharePoint](https://support.office.com/en-us/article/move-or-copy-files-in-sharepoint-00e2f483-4df3-46be-a861-1f5f0c1a87bc).
+Yes, if this works in standalone Internet Explorer 11 it will work in IE mode. However, rather than use the Open with Explorer option, the recommended approach to managing files and folders outside of SharePoint is to [sync your SharePoint files](https://support.office.com/en-us/article/sync-sharepoint-files-with-the-onedrive-sync-app-6de9ede8-5b6e-4503-80b2-6190f3354a88) or [move or copy files in SharePoint](https://support.office.com/en-us/article/move-or-copy-files-in-sharepoint-00e2f483-4df3-46be-a861-1f5f0c1a87bc).
+
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [About IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode)
+- [Additional Enterprise Mode information](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-overview-for-ie11)

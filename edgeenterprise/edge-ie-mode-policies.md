@@ -3,7 +3,7 @@ title: "Configure IE mode Policies"
 ms.author: cjacks
 author: cjacks
 manager: saudm
-ms.date: 03/05/2020
+ms.date: 03/25/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -16,6 +16,9 @@ description: "Configure IE mode policies"
 
 This article explains how to configure IE mode policies.
 
+> [!NOTE]
+> This article applies to Microsoft Edge **Stable**, **Beta** and **Dev** Channels, version 77 or later.
+
 Configuring IE mode requires three steps:
 
 1. [Configure Internet Explorer integration](#configure-internet-explorer-integration)
@@ -27,7 +30,7 @@ Configuring IE mode requires three steps:
 
 ## Configure Internet Explorer integration
 
-Internet Explorer can be integrated either to open directly within Microsoft Edge (IE mode), or to open with a standalone Internet Explorer 11 window. Most users prefer when sites open directly within Microsoft Edge in IE mode.
+You can configure Internet Explorer to open directly within Microsoft Edge (IE mode). You can also configure Internet Explorer to open with a standalone Internet Explorer 11 window. Most users prefer when sites open directly within Microsoft Edge in IE mode.
 
 ### Enable Internet Explorer integration using Group Policy
 
@@ -37,9 +40,9 @@ Internet Explorer can be integrated either to open directly within Microsoft Edg
 4. Double-click **Configure Internet Explorer integration**.
 5. Select **Enabled**.
 6. Under **Options**, set the dropdown value to 
-   -  **Internet Explorer mode** if you want sites to open in IE mode on Edge
+   -  **Internet Explorer mode** if you want sites to open in IE mode on Microsoft Edge
    -  **Internet Explorer 11** if you want sites to open in a standalone Internet Explorer 11 window
-   -  **None** if you want to disable Internet Explorer mode when it is set via edge://flags or through command line options.
+   -  **None** if you want to stop users from configuring Internet Explorer mode via edge://flags or through the command line
 
    > [!NOTE]
    > Setting the policy to **Disabled** implies IE mode is disabled by policy, but can be set through edge://flags or command line options.
@@ -47,7 +50,7 @@ Internet Explorer can be integrated either to open directly within Microsoft Edg
 
 ## Redirect sites from Microsoft Edge to IE mode
 
-There are 2 options for identifying which sites should open in IE mode:
+There are two options for identifying which sites should open in IE mode:
 
 - (Recommended) [Configure sites on the Enterprise Site list](#configure-sites-on-the-enterprise-site-list)
 - [Configure all Intranet sites](#configure-all-intranet-sites)
@@ -57,7 +60,7 @@ There are 2 options for identifying which sites should open in IE mode:
 You can use the following group policies to configure specific sites to open in IE mode:
 
 - [Use the Enterprise Mode IE website list](#configure-using-the-use-the-enterprise-mode-ie-website-list-policy) (Internet Explorer)
-- [Configure the Enterprise Mode Site List](#configure-using-the-configure-the-enterprise-mode-site-list-policy) (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list for Microsoft Edge. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, provided that "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
+- [Configure the Enterprise Mode Site List](#configure-using-the-configure-the-enterprise-mode-site-list-policy) (Microsoft Edge, version 78 or later)<br/>This policy lets you create a separate Enterprise Mode Site list for Microsoft Edge. Enabling this policy overrides the settings in the "Use the Enterprise Mode IE website list" policy, if "Configure Internet Explorer integration" is enabled. Disabling or not configuring this policy doesn't affect the default behavior of the "Configure Internet Explorer integration" policy.
     > [!NOTE]
     > It is not mandatory to configure the Microsoft Edge policy. Many organizations use this as an override, allowing them to target the current Site List at all users with the IE policy, and more easily target an updated version to pilot uses with the Microsoft Edge policy.
 
@@ -70,7 +73,7 @@ For more information about Enterprise Mode Site lists, see:
 
 IE mode can use the existing policy configuring the Enterprise Site List for Internet Explorer, allowing you to create and maintain a single list.
 
-1. Create or re-use a Site List XML
+1. Create or reuse a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
 2. Open Group Policy Editor.
 3. Click **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer**.
@@ -84,9 +87,9 @@ IE mode can use the existing policy configuring the Enterprise Site List for Int
 
 ### Configure using the Configure the Enterprise Mode Site List policy
 
-IE mode can also be configured with a separate policy for Microsoft Edge. This allows you to override the existing site list for the sake of conducting a limited pilot, or to manage a separate list of only sites that need IE.
+You can also configure IE mode with a separate policy for Microsoft Edge. This additional policy allows you to override the IE site list. For example, some organizations will target the production site list to all users. You can then deploy the pilot site list to a small group of users using this policy.
 
-1. Create or re-use a Site List XML
+1. Create or reuse a Site List XML
     1. All sites that have the element _\<open-in\>IE11\</open-in\>_ will now open in IE mode.
 2. Open Group Policy Editor.
 3. Click **Computer Configuration** > **Administrative Templates** > **Microsoft Edge**.
@@ -100,7 +103,7 @@ IE mode can also be configured with a separate policy for Microsoft Edge. This a
 
 ### Configure all intranet sites
 
-IE mode can be configured as enabled by default for the Local Intranet zone. You can still opt a site in the Local Intranet zone out of using IE mode by implementing an Enterprise Mode Site List, specifying the URL, and configuring the site to open in Microsoft Edge.
+IE mode can be configured as for all sites in the Local Intranet zone. You can remove individual sites from IE mode using an Enterprise Mode Site List.
 
 >[!NOTE]
 >
@@ -113,7 +116,7 @@ IE mode can be configured as enabled by default for the Local Intranet zone. You
 
 ## Redirect sites from IE to Microsoft Edge
 
-If you only want users to use Internet Explorer for those sites that require it, and would like to prevent Internet Explorer from being used for other sites, you can configure Internet Explorer to automatically redirect any sites that are not on the Enterprise Mode Site List back to Microsoft Edge.
+You can prevent your users from using Internet Explorer for sites that don't need it. Internet Explorer can automatically redirect sites to Microsoft Edge if they aren't on your site list.
 
 1. Open Group Policy Editor.
 2. Click **Computer Configuration** > **Administrative Tools** > **Windows Components** > **Internet Explorer**.
@@ -130,3 +133,8 @@ If you only want users to use Internet Explorer for those sites that require it,
    - Microsoft Edge version 45 or earlier
 9. Click **OK** or **Apply** to save these settings.
 
+## See also
+
+- [Microsoft Edge Enterprise landing page](https://aka.ms/EdgeEnterprise)
+- [About IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode)
+- [Additional Enterprise Mode information](https://docs.microsoft.com/internet-explorer/ie11-deploy-guide/enterprise-mode-overview-for-ie11)
