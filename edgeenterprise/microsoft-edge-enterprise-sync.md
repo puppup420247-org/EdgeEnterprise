@@ -88,17 +88,21 @@ The current version of Microsoft Edge browser will continue to participate in th
 
 The O365 Compliance Framework helps enterprise data owners how their data is treated and stored. The framework illustrates Microsoft's commitments for data compliance for each tier. Microsoft Edge enterprise sync today is Tier C compliant, with plans to eventually move to Tier D. Some of the Tier C promises that the sync team are most frequently asked about are:
 
-- No mining of customer data for advertising 
+- No mining of customer data for advertising
 - Compliance with the [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products) 
 - Adherence to US and EU customer data residency requirements, including [General Data Protection Regulation (GDPR)](https://www.microsoft.com/trust-center/privacy/gdpr-overview)  
 
 ### Is the synced data encrypted? Can anyone at Microsoft look at it?
 
-The data is encrypted in transport using TLS 1.2 or greater, and at additionally at rest in Microsoft's service using AES256. Nobody at Microsoft can decrypt the data; only clients can. 
+The data is encrypted in transport using TLS 1.2 or greater, and at additionally at rest in Microsoft's service using AES256. Nobody at Microsoft can decrypt the data; only clients can.
 
-### Where is sync data stored for Microsoft Edge?
+### Where is Microsoft Edge sync data stored?
 
 Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and uses the same storage solution used by Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user's device, it is further encrypted when stored in the cloud.
+
+### Where is the synced enterprise data physically stored?
+
+The synced data is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and leverages the same storage solution used by O365 applications.
 
 ### Does the data ever leave Microsoft's cloud, aside from syncing to Microsoft Edge?
 
