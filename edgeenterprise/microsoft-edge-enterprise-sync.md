@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 03/23/2020
+ms.date: 03/27/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -112,17 +112,17 @@ Yes, through [Azure Information Protection](https://azure.microsoft.com/services
 
 The terms of service are the same terms as your Azure AD subscription. All the Azure AD terms of service ultimately fall under Microsoft's [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products).
 
-### Does Microsoft Edge support GCC High?
+### Does Microsoft Edge support Government Community Cloud (GCC) High compliance?
 
 Not today. GCC High is Tier D, while Microsoft Edge supports up to Tier C.
 
-### Why do I need a premium AAD subscription to sync?
+### Why do I need a premium Azure AD subscription to sync?
 
 Enterprise sync depends on Azure Information Protection, which is not available in all Azure AD tiers. However, we are planning to eventually make enterprise sync available to all Azure AD tiers.
 
-### Is sync based on Enterprise State Roaming?
+### Is Microsoft Edge sync based on Enterprise State Roaming?
 
-No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR. We have published more details about that here.
+No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR. For more information, see [Microsoft Edge Sync](microsoft-edge-enterprise-sync.md) and [Microsoft Edge and Enterprise State Roaming](microsoft-edge-enterprise-state-roaming.md).
 
 ### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
 
