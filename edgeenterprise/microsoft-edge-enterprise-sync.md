@@ -14,7 +14,7 @@ description: "Microsoft Edge Sync"
 
 # Microsoft Edge Sync
 
-This article explains how to use Microsoft Edge to sync your favorites, passwords, and other browser data across all you're signed-in devices.
+This article explains how to use Microsoft Edge to sync your favorites, passwords, and other browser data across all your signed-in devices.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -39,8 +39,8 @@ Currently Microsoft Edge sync for Azure Active Directory (Azure AD) accounts is 
 
 - Azure AD Premium (P1 and P2)
 - Office 365 E3 and above
-- Azure Information Protection (P1& P2)
-- All EDU subscriptions (O365 A1 or above, M365 A1 or above, or AIP P1 or P2 for Students or Faculty)
+- Azure Information Protection (AIP) (P1& P2)
+- All EDU subscriptions (O365 A1 or above, M365 A1 or above, or Azure Information Protection P1 or P2 for Students or Faculty)
 
 > [!NOTE]
 > Sync has a dependency on the protection service offered by Azure Information Protection (AIP) to protect sync data. This service is currently available to the preceding subscriptions. To see the full list of SKUs with AIP, see [Information Protection Pricing](https://azure.microsoft.com/pricing/details/information-protection/).
@@ -98,11 +98,11 @@ The data is encrypted in transport using TLS 1.2 or greater, and at additionally
 
 ### Where is Microsoft Edge sync data stored?
 
-Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and uses the same storage solution used by Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user's device, it is further encrypted when stored in the cloud.
+Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and uses the same storage solution as Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user's device, it is further encrypted when stored in the cloud.
 
 ### Where is the synced enterprise data physically stored?
 
-The synced data is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and leverages the same storage solution used by O365 applications.
+The synced data is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and leverages the same storage solution that O365 applications use.
 
 ### Does the data ever leave Microsoft's cloud, aside from syncing to Microsoft Edge?
 
@@ -130,7 +130,7 @@ No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR
 
 ### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
 
-There are no plans to support this syncing. Many environments used this behavior to implement on-premise sync; see the on-premise sync section for more details. If you still need IE in your environment to support legacy apps, please consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
+There are no plans to support this syncing. Many environments used this behavior to implement on-premise sync; see the on-premise sync section for more details. If you still need IE in your environment to support legacy apps, consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
 
 ### Is it possible to stop my users from syncing with a personal tenant?
 
