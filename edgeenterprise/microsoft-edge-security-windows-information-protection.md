@@ -37,10 +37,10 @@ The follow requirements apply to devices using WIP in the enterprise:
 
 WIP provides the following benefits:
 
-- Obvious separation between personal and corporate data, without requiring employees to switch environments or apps. 
+- Obvious separation between personal and corporate data, without requiring employees to switch environments or apps.
 - Additional data protection for existing line-of-business apps without a need to update the apps.
 - The ability to remote wipes corporate data from Intune Mobile Device Management (MDM) enrolled devices while leaving personal data unaffected. 
-- Audit reports for tracking issues and remedial actions such as compliance training for users. 
+- Audit reports for tracking issues and for remedial actions such as compliance training for users.
 - Integration with your existing management system to configure, deploy, and manage WIP. Some examples are Microsoft Intune, Microsoft Endpoint Configuration Manager, or your current mobile device management (MDM) system.
 
 ## WIP policy and protection modes
