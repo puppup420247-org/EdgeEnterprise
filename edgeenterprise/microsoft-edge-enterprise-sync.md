@@ -80,11 +80,9 @@ The following group policies impact Microsoft Edge sync:
 
 ## Frequently Asked Questions
 
-### What happens with enterprise and educational customers who decide to stay with Microsoft Edge Legacy?
+### SECURITY and COMPLIANCE
 
-The current version of Microsoft Edge browser will continue to participate in the ESR offering.
-
-### What is Microsoft's promise to keep synced enterprise data safe and compliant?
+#### What is Microsoft's promise to keep synced enterprise data safe and compliant?
 
 The O365 Compliance Framework helps enterprise data owners how their data is treated and stored. The framework illustrates Microsoft's commitments for data compliance for each tier. Microsoft Edge enterprise sync today is Tier C compliant, with plans to eventually move to Tier D. Some of the Tier C promises that the sync team are most frequently asked about are:
 
@@ -92,61 +90,69 @@ The O365 Compliance Framework helps enterprise data owners how their data is tre
 - Compliance with the [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products) 
 - Adherence to US and EU customer data residency requirements, including [General Data Protection Regulation (GDPR)](https://www.microsoft.com/trust-center/privacy/gdpr-overview)  
 
-### Is the synced data encrypted? Can anyone at Microsoft look at it?
+#### Is the synced data encrypted? Can anyone at Microsoft look at it?
 
 The data is encrypted in transport using TLS 1.2 or greater, and at additionally at rest in Microsoft's service using AES256. Nobody at Microsoft can decrypt the data; only clients can.
 
-### Where is Microsoft Edge sync data stored?
+#### Where is Microsoft Edge sync data stored?
 
 Synced data for Azure AD accounts is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and uses the same storage solution as Office applications. While the synced data for Azure AD accounts is encrypted before leaving a user's device, it is further encrypted when stored in the cloud.
 
-### Where is the synced enterprise data physically stored?
+#### Where is the synced enterprise data physically stored?
 
 The synced data is stored in secure servers according to the tenant ID. For example, the data for a tenant that is registered in the United States is stored in servers geo-located for that region and leverages the same storage solution that O365 applications use.
 
-### Does the data ever leave Microsoft's cloud, aside from syncing to Microsoft Edge?
+#### Does the data ever leave Microsoft's cloud, aside from syncing to Microsoft Edge?
 
 No.
 
-### Can tenant admins bring their own key?
+#### Can tenant admins bring their own key?
 
 Yes, through [Azure Information Protection](https://azure.microsoft.com/services/information-protection/).
 
-### What terms of service does enterprise sync fall under?
+#### What terms of service does enterprise sync fall under?
 
 The terms of service are the same terms as your Azure AD subscription. All the Azure AD terms of service ultimately fall under Microsoft's [Online Service Terms](https://www.microsoft.com/licensing/product-licensing/products).
 
-### Does Microsoft Edge support Government Community Cloud (GCC) High compliance?
+#### Does Microsoft Edge support Government Community Cloud (GCC) High compliance?
 
 Not today. GCC High is Tier D, while Microsoft Edge supports up to Tier C.
 
-### Why do I need a premium Azure AD subscription to sync?
+### APPLYING SYNC
+
+#### What happens with enterprise and educational customers who decide to stay with Microsoft Edge Legacy?
+
+The current version of Microsoft Edge browser will continue to participate in the ESR offering.
+
+#### Why do I need a premium Azure AD subscription to sync?
 
 Enterprise sync depends on Azure Information Protection, which is not available in all Azure AD tiers. However, we are planning to eventually make enterprise sync available to all Azure AD tiers.
 
-### Is Microsoft Edge sync based on Enterprise State Roaming?
+#### Is Microsoft Edge sync based on Enterprise State Roaming?
 
 No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR. For more information, see [Microsoft Edge Sync](microsoft-edge-enterprise-sync.md) and [Microsoft Edge and Enterprise State Roaming](microsoft-edge-enterprise-state-roaming.md).
 
-### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
+#### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
 
 There are no plans to support this syncing. Many environments used this behavior to implement on-premise sync; see the on-premise sync section for more details. If you still need IE in your environment to support legacy apps, consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
 
-### Is it possible to stop my users from syncing with a personal tenant?
-
-Not directly, but you can determine which profiles can sign on to Microsoft Edge using the [RestrictSigninToPattern](https://docs.microsoft.com/deployedge/microsoft-edge-policies#restrictsignintopattern) policy.
-
-### Will the new Chromium-based Microsoft Edge browser sync with the current in-market version of Microsoft Edge?
+#### Will the new Chromium-based Microsoft Edge browser sync with the current in-market version of Microsoft Edge?
 
 No, it won't. We believe connecting these two ecosystems will lead to compromises in the reliability of sync in the new Microsoft Edge. We will ensure that existing data is migrated to the new Microsoft Edge. Users will also be able to import data from browser of their choice. This also means that new Microsoft Edge browser won't have a way to sync with IE.
 
-### What about sync support for on-prem accounts?
+#### What about sync support for on-prem accounts?
 
 Currently Microsoft Edge doesn't support sync for on-prem accounts. We will be adding this support in a future release.
 
-### Is Microsoft Edge going to support sync for non-premium Azure AD accounts?
+#### Is Microsoft Edge going to support sync for non-premium Azure AD accounts?
 
 Yes, sync will be enabled for all paid Azure AD SKUs in future releases.
+
+### MANAGING SYNC
+
+#### Is it possible to stop my users from syncing with a personal tenant?
+
+Not directly, but you can determine which profiles can sign on to Microsoft Edge using the [RestrictSigninToPattern](https://docs.microsoft.com/deployedge/microsoft-edge-policies#restrictsignintopattern) policy.
 
 ## See also
 
