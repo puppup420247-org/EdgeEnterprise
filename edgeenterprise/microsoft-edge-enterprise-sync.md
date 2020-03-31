@@ -3,7 +3,7 @@ title: "Microsoft Edge Sync"
 ms.author: kvice
 author: dan-wesley
 manager: laurawi
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -126,7 +126,7 @@ The current version of Microsoft Edge browser will continue to participate in th
 
 #### Why do I need a premium Azure AD subscription to sync?
 
-Enterprise sync depends on Azure Information Protection, which is not available in all Azure AD tiers. However, we are planning to eventually make enterprise sync available to all Azure AD tiers.
+Enterprise sync depends on Azure Information Protection, which is not available in all Azure AD tiers.
 
 #### Is Microsoft Edge sync based on Enterprise State Roaming?
 
@@ -134,19 +134,11 @@ No. ESR can be used to enable sync, but Microsoft Edge sync is not a part of ESR
 
 #### Will Microsoft Edge ever support syncing between Microsoft Edge and IE?
 
-There are no plans to support this syncing. Many environments used this behavior to implement on-premise sync; see the on-premise sync section for more details. If you still need IE in your environment to support legacy apps, consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
+There are no plans to support this syncing. If you still need IE in your environment to support legacy apps, consider our [new IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode).
 
 #### Will the new Chromium-based Microsoft Edge browser sync with the current in-market version of Microsoft Edge?
 
 No, it won't. We believe connecting these two ecosystems will lead to compromises in the reliability of sync in the new Microsoft Edge. We will ensure that existing data is migrated to the new Microsoft Edge. Users will also be able to import data from browser of their choice. This also means that new Microsoft Edge browser won't have a way to sync with IE.
-
-#### What about sync support for on-prem accounts?
-
-Currently Microsoft Edge doesn't support sync for on-prem accounts. We will be adding this support in a future release.
-
-#### Is Microsoft Edge going to support sync for non-premium Azure AD accounts?
-
-Yes, sync will be enabled for all paid Azure AD SKUs in future releases.
 
 ### MANAGING SYNC
 
