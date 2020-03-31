@@ -43,7 +43,7 @@ The following  requirements apply to devices using Application Guard with Micros
 - Only Windows client SKUs
 
   > [!NOTE]
-  > Application Guard is not supported on Windows 10 Home. 
+  > Application Guard is only supported on Windows 10 Pro and Windows 10 Enterprise SKUs.
 
 - One of the management solutions described in [Software requirements](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard#software-requirements)
 
