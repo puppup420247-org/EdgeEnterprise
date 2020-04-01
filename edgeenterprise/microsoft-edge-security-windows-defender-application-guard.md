@@ -3,7 +3,7 @@ title: "Microsoft Edge and Windows Defender Application Guard"
 ms.author: srugh
 author: dan-wesley
 manager: seanlyn
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -55,6 +55,17 @@ The following articles provide the information you need to install, configure, a
 - [Install Windows Defender Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/install-wd-app-guard)
 - [Configure Windows Defender group policy settings](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/configure-wd-app-guard)
 - [Test Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/test-scenarios-wd-app-guard)
+
+## Frequently Asked Questions
+
+### Does Application Guard work in IE Mode?
+
+IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is supposed to be deployed for a list of trusted internal sites. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
+
+### What are the changes needed to Network Isolation policies when Proxy auto-config (PAC) files and Proxy servers are used in the org ?
+ 
+### How do you configure the Windows Firewall and the internet connection sharing services to work with WDAG ?
+
 
 ## See also
 
