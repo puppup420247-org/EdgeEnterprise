@@ -47,14 +47,17 @@ Application Guard support in the new Microsoft Edge  browser has functional pari
 
 Extension support inside the container has been one of the top requests from the customers. Scenarios ranged from wanting to run ad-blockers inside the container to boost browser performance to having the ability to run custom home-grown extensions inside the container.
 
-Starting with Microsoft Edge version 81, extension support in the container is available. This support can be controlled via policy. The `updateURL` that gets used in [ExtensionInstallForcelist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#extensioninstallforcelist) policy should be added as Neutral Resources in the Network Isolation policies used by Application Guard.
+Extension install in the container in now supported, starting from Microsoft Edge version 81. This support can be controlled via policy. The `updateURL` that gets used in [ExtensionInstallForcelist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#extensioninstallforcelist) policy should be added as Neutral Resources in the Network Isolation policies used by Application Guard.
 
-- Force install of an extension on the host will also force install in the container.
-- Removing an extension from the host will remove it from the container as well.
-- Extensions blocked on the host will be blocked from installation in the container.
+Some examples of container support include the following:
+
+- Force installs of an extension on the host
+- Removing an extension from the host
+- Extensions blocked on the host
 
 > [!NOTE]
-> It's also possible to manually install individual extensions inside the container from the extension store. Manually installed extensions will only persist in the container when the Windows Application Guard policy to allow data persistence is enabled.
+> It's also possible to manually install individual extensions inside the container from the extension store. Manually installed extensions will only persist in the container when [Allow Persistence](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/configure-wd-app-guard#application-specific-settings
+) policy is enabled.
 
 ### Diagnostic page for troubleshooting
 
