@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: brianalt-msft
 manager: tahills
-ms.date: 03/18/2020
+ms.date: 03/27/2020
 audience: ITPro
 ms.topic: reference
 ms.prod: microsoft-edge
@@ -16,9 +16,9 @@ description: "Windows and Mac documentation for all policies supported by the Mi
 # Microsoft Edge - Policies
 The latest version of Microsoft Edge includes the following policies. You can use these policies to configure how Microsoft Edge runs in your organization.
 
-For information about an additional set of policies used to control how and when Microsoft Edge is updated, check out [Microsoft Edge update policy reference](microsoft-edge-update-policies.md)
+For information about an additional set of policies used to control how and when Microsoft Edge is updated, check out [Microsoft Edge update policy reference](microsoft-edge-update-policies.md).
 
-You can download the [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) for the recommended security configuration baseline settings for Microsoft Edge. For more information see the [Microsoft Security Baselines Blog](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
+You can download the [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) for the recommended security configuration baseline settings for Microsoft Edge. For more information see the [Microsoft Security Baselines Blog](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines).
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -149,7 +149,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[HomepageIsNewTabPage](#homepageisnewtabpage)|Set the new tab page as the home page|
 |[HomepageLocation](#homepagelocation)|Configure the home page URL|
-|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Set new tab page company logo|
+|[NewTabPageCompanyLogo](#newtabpagecompanylogo)|Set new tab page company logo %s(deprecated)|
 |[NewTabPageHideDefaultTopSites](#newtabpagehidedefaulttopsites)|Hide the default top sites from the new tab page|
 |[NewTabPageLocation](#newtabpagelocation)|Configure the new tab page URL|
 |[NewTabPageManagedQuickLinks](#newtabpagemanagedquicklinks)|Set new tab page quick links|
@@ -167,6 +167,7 @@ These tables list all of the browser-related group policies available in this re
 |[AllowPopupsDuringPageUnload](#allowpopupsduringpageunload)|Allows a page to show popups during its unloading|
 |[AllowSurfGame](#allowsurfgame)|Allow surf game|
 |[AllowSyncXHRInPageDismissal](#allowsyncxhrinpagedismissal)|Allow pages to send synchronous XHR requests during page dismissal|
+|[AllowTokenBindingForUrls](#allowtokenbindingforurls)|Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with.|
 |[AllowTrackingForUrls](#allowtrackingforurls)|Configure tracking prevention exceptions for specific sites|
 |[AlternateErrorPagesEnabled](#alternateerrorpagesenabled)|Suggest similar pages when a webpage can’t be found|
 |[AlwaysOpenPdfExternally](#alwaysopenpdfexternally)|Always open PDF files externally|
@@ -191,6 +192,7 @@ These tables list all of the browser-related group policies available in this re
 |[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
 |[ClearBrowsingDataOnExit](#clearbrowsingdataonexit)|Clear browsing data when Microsoft Edge closes|
+|[ClearCachedImagesAndFilesOnExit](#clearcachedimagesandfilesonexit)|Clear cached images and files when Microsoft Edge closes|
 |[ClickOnceEnabled](#clickonceenabled)|Allow users to open files using the ClickOnce protocol|
 |[CommandLineFlagSecurityWarningsEnabled](#commandlineflagsecuritywarningsenabled)|Enable security warnings for command-line flags|
 |[ComponentUpdatesEnabled](#componentupdatesenabled)|Enable component updates in Microsoft Edge|
@@ -208,12 +210,13 @@ These tables list all of the browser-related group policies available in this re
 |[DisableScreenshots](#disablescreenshots)|Disable taking screenshots|
 |[DiskCacheDir](#diskcachedir)|Set disk cache directory|
 |[DiskCacheSize](#diskcachesize)|Set disk cache size, in bytes|
+|[DnsOverHttpsTemplates](#dnsoverhttpstemplates)|Specify URI template of desired DNS-over-HTTPS resolver|
 |[DownloadDirectory](#downloaddirectory)|Set download directory|
 |[DownloadRestrictions](#downloadrestrictions)|Allow download restrictions|
 |[EdgeCollectionsEnabled](#edgecollectionsenabled)|Enable the Collections feature|
 |[EditFavoritesEnabled](#editfavoritesenabled)|Allows users to edit favorites|
 |[EnableDeprecatedWebPlatformFeatures](#enabledeprecatedwebplatformfeatures)|Re-enable deprecated web platform features for a limited time|
-|[EnableDomainActionsDownload](#enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft|
+|[EnableDomainActionsDownload](#enabledomainactionsdownload)|Enable Domain Actions Download from Microsoft %s(deprecated)|
 |[EnableOnlineRevocationChecks](#enableonlinerevocationchecks)|Enable online OCSP/CRL checks|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol)|Control communication with the Experimentation and Configuration Service|
@@ -224,7 +227,7 @@ These tables list all of the browser-related group policies available in this re
 |[ForceCertificatePromptsOnMultipleMatches](#forcecertificatepromptsonmultiplematches)|Configure whether Microsoft Edge should automatically select a certificate when there are multiple certificate matches for a site configured with "AutoSelectCertificateForUrls"|
 |[ForceEphemeralProfiles](#forceephemeralprofiles)|Enable use of ephemeral profiles|
 |[ForceGoogleSafeSearch](#forcegooglesafesearch)|Enforce Google SafeSearch|
-|[ForceLegacyDefaultReferrerPolicy](#forcelegacydefaultreferrerpolicy)|Use a default referrer policy of no-referrer-when-downgrade.|
+|[ForceLegacyDefaultReferrerPolicy](#forcelegacydefaultreferrerpolicy)|Use a default referrer policy of no-referrer-when-downgrade. %s(deprecated)|
 |[ForceNetworkInProcess](#forcenetworkinprocess)|Force networking code to run in the browser process|
 |[ForceYouTubeRestrict](#forceyoutuberestrict)|Force minimum YouTube Restricted Mode|
 |[FullscreenAllowed](#fullscreenallowed)|Allow full screen mode|
@@ -276,6 +279,8 @@ These tables list all of the browser-related group policies available in this re
 |[SSLErrorOverrideAllowed](#sslerroroverrideallowed)|Allow users to proceed from the HTTPS warning page|
 |[SSLVersionMin](#sslversionmin)|Minimum TLS version enabled|
 |[SavingBrowserHistoryDisabled](#savingbrowserhistorydisabled)|Disable saving browser history|
+|[ScreenCaptureAllowed](#screencaptureallowed)|Allow or deny screen capture|
+|[ScrollToTextFragmentEnabled](#scrolltotextfragmentenabled)|Enable scrolling to text specified in URL fragments|
 |[SearchSuggestEnabled](#searchsuggestenabled)|Enable search suggestions|
 |[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
 |[SendIntranetToInternetExplorer](#sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
@@ -303,8 +308,8 @@ These tables list all of the browser-related group policies available in this re
 |[VideoCaptureAllowedUrls](#videocaptureallowedurls)|Sites that can access video capture devices without requesting permission|
 |[WPADQuickCheckEnabled](#wpadquickcheckenabled)|Set WPAD optimization|
 |[WebAppInstallForceList](#webappinstallforcelist)|Configure list of force-installed Web Apps|
-|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84.|
-|[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies|
+|[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84. %s(deprecated)|
+|[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies %s(deprecated)|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
 |[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
@@ -4856,7 +4861,7 @@ For help with determining the SHA-256 hash, see https://docs.microsoft.com/power
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: NewTabPageCompanyLogo
-  - GP name: Set new tab page company logo
+  - GP name: Set new tab page company logo %s(deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -5175,7 +5180,7 @@ Disabling this setting is equivalent to leaving it not configured. Users will be
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain or Windows 10 Pro or Enterprise instances enrolled for device management.
 
-					
+	 
 
 * 1 = Restore the last session
 
@@ -5673,6 +5678,54 @@ This policy is temporary and will be removed in a future release.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AllowTokenBindingForUrls
+  #### Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with.
+  
+  #### Supported versions:
+  - On Windows since 83 or later
+
+  #### Description
+  Configure the list of URL patterns for sites that the browser will attempt to perform the Token Binding protocol with.
+For the domains on this list, the browser will send the Token Binding ClientHello in the TLS handshake (See https://tools.ietf.org/html/rfc8472).
+If the server responds with a valid ServerHello response, the browser will create and send Token Binding messages on subsequent https requests. See https://tools.ietf.org/html/rfc8471 for more info.
+
+If this list is empty, Token Binding will be disabled.
+
+This policy is only available on Windows 10 devices with Virtual Secure Mode capability.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  - List of strings
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: AllowTokenBindingForUrls
+  - GP name: Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+  ##### Example value:
+```
+SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\1 = mydomain.com
+SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\2 = [*.]mydomain2.com
+SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\3 = [*.].mydomain2.com
+
+```
+
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### AllowTrackingForUrls
   #### Configure tracking prevention exceptions for specific sites
   
@@ -6100,9 +6153,11 @@ This policy is intended to give enterprises flexibility to disable the audio san
   - On Windows and macOS since 77 or later
 
   #### Description
-  If you enable this policy, Microsoft Edge automatically imports all supported datatypes and settings from either the default browser or another specified browser. This also forces Microsoft Edge to skip the import section of the first-run experience.
+  If you enable this policy, Microsoft Edge automatically and silently imports all supported datatypes and settings from the specified browser. This also forces Microsoft Edge to skip the import section of the first-run experience.
 
-If you set this policy to 'DisabledAutoImport' (4), the import section of the first-run experience is skipped entirely and Microsoft Edge doesn't import browser data and settings automatically.
+Note: This policy currently supports importing from Internet Explorer (on Windows 7, 8, and 10), Google Chrome (on Windows 7, 8, and 10 and on macOS) and Apple Safari (on macOS) browsers.
+
+The browser data from Microsoft Edge Legacy will always be silently migrated at the first run, irrespective of the value of this policy. You can use the following values for this policy:
 
 * 0 = Automatically imports all supported datatypes and settings from the default browser
 
@@ -6114,7 +6169,37 @@ If you set this policy to 'DisabledAutoImport' (4), the import section of the fi
 
 * 4 = Disables automatic import, and the import section of the first-run experience is skipped
 
-**Note**: This policy currently supports importing from Internet Explorer (on Windows 7, 8, and 10), Google Chrome (on Windows 7, 8, and 10 and on macOS) and Apple Safari (on macOS) browsers.
+If this policy is set to the default value (0), then depending on which browser is set as the default browser on the managed device, the corresponding datatypes will be imported into the new Microsoft Edge during the First Run Experience.
+
+If the browser specified as the value of this policy is not present in the managed device, Microsoft Edge will simply skip the import without any notification to the user.
+
+If you set this policy to 'DisabledAutoImport' (4), the import section of the first-run experience is skipped entirely and Microsoft Edge doesn't import browser data and settings automatically.
+
+If this policy is set to the value of Internet Explorer (1), the following datatypes will be imported from the Internet Explorer instance on the managed device:
+1. Favorites or bookmarks
+2. Saved passwords
+3. Search engines
+4. Browsing history
+5. Home page
+
+If this policy is set to the value of Google Chrome (2), the following datatypes will be imported from the Google Chrome instance on the managed device:
+1. Favorites
+2. Saved passwords
+3. Addresses and more
+4. Payment info
+5. Browsing history
+6. Settings
+7. Pinned and Open tabs
+8. Extensions
+9. Cookies
+
+Note: For a more detailed look at everything that is imported from Google Chrome during the new First Run Experience, please see [https://go.microsoft.com/fwlink/?linkid=2120835](https://go.microsoft.com/fwlink/?linkid=2120835)
+
+If this policy is set to the value of Safari (3), the following datatypes will be imported from the Safari instance on the managed device:
+1. Favorites or bookmarks
+2. Browsing history
+
+If you want to restrict specific datatypes from getting imported on the managed devices, you can use this policy with other policies such as [ImportAutofillFormData](#importautofillformdata), [ImportBrowserSettings](#importbrowsersettings), [ImportFavorites](#importfavorites), and etc.
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6897,7 +6982,7 @@ If you enable this policy, all browsing data is deleted each time Microsoft Edge
 
 If you disable or don't configure this policy, users can configure the Clear browsing data option in Settings.
 
-If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) policy, because they both deal with deleting data. If you enable both, this policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory).
+If you enable this policy, don't configure the [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) or the [ClearCachedImagesAndFilesOnExit](#clearcachedimagesandfilesonexit) policy, because they all deal with deleting browsing data. If you configure the preceding policies and this policy, all browsing data is deleted when Microsoft Edge closes, regardless of how you configured [AllowDeletingBrowserHistory](#allowdeletingbrowserhistory) or [ClearCachedImagesAndFilesOnExit](#clearcachedimagesandfilesonexit).
 
   #### Supported features:
   - Can be mandatory: Yes
@@ -6927,6 +7012,59 @@ If you enable this policy, don't enable the [AllowDeletingBrowserHistory](#allow
 
   #### Mac information and settings
   - Preference Key Name: ClearBrowsingDataOnExit
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ClearCachedImagesAndFilesOnExit
+  #### Clear cached images and files when Microsoft Edge closes
+  
+  #### Supported versions:
+  - On Windows and macOS since 82 or later
+
+  #### Description
+  Microsoft Edge doesn't clear cached images and files by default when it closes.
+
+If you enable this policy, cached images and files will be deleted each time Microsoft Edge closes.
+
+If you disable this policy, users cannot configure the cached images and files option in edge://settings/clearBrowsingDataOnClose.
+
+If you don't configure this policy, users can choose whether cached images and files are cleared on exit.
+
+If you disable this policy, don't enable the [ClearBrowsingDataOnExit](#clearbrowsingdataonexit) policy, because they both deal with deleting data. If you configure both, the [ClearBrowsingDataOnExit](#clearbrowsingdataonexit) policy takes precedence and deletes all data when Microsoft Edge closes, regardless of how you configured [ClearCachedImagesAndFilesOnExit](#clearcachedimagesandfilesonexit).
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  - Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ClearCachedImagesAndFilesOnExit
+  - GP name: Clear cached images and files when Microsoft Edge closes
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ClearCachedImagesAndFilesOnExit
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000001
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ClearCachedImagesAndFilesOnExit
   - Example value:
 ``` xml
 <true/>
@@ -7785,6 +7923,59 @@ If you don't configure this policy, the default size is used, but users can over
 
   [Back to top](#microsoft-edge---policies)
 
+  ### DnsOverHttpsTemplates
+  #### Specify URI template of desired DNS-over-HTTPS resolver
+  
+  #### Supported versions:
+  - On Windows and macOS since 83 or later
+
+  #### Description
+  The URI template of the desired DNS-over-HTTPS resolver. To specify multiple DNS-over-HTTPS resolvers, separate the corresponding URI templates with spaces.
+
+If you set the  DnsOverHttpsMode to "secure" then this policy must be set and not be empty.
+
+If you set the DnsOverHttpsMode to "automatic" and this policy is set then the URI templates specified will be used. If you don't set this policy, then hardcoded mappings will be used to attempt to upgrade the user's current DNS resolver to a DoH resolver operated by the same provider.
+
+If the URI template contains a dns variable, requests to the resolver will use GET; otherwise requests will use POST.
+
+Incorrectly formatted templates will be ignored.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  - String
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: DnsOverHttpsTemplates
+  - GP name: Specify URI template of desired DNS-over-HTTPS resolver
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DnsOverHttpsTemplates
+  - Value Type: REG_SZ
+  ##### Example value:
+```
+https://dns.example.net/dns-query{?dns}
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: DnsOverHttpsTemplates
+  - Example value:
+``` xml
+<string>https://dns.example.net/dns-query{?dns}</string>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### DownloadDirectory
   #### Set download directory
   
@@ -8063,12 +8254,14 @@ SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\1 = Example
 
   ### EnableDomainActionsDownload
   #### Enable Domain Actions Download from Microsoft
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   #### Supported versions:
   - On Windows and macOS since 77 or later
 
   #### Description
-  In Microsoft Edge, Domain Actions represent a series of compatibility features that help the browser work correctly on the web.
+  Although this policy is used to enable/disable download of the domain actions list, it doesn't always achieve the desired state. The Experimentation and Configuration Service, which handles the download, has its own group policy to configure what is downloaded from the service. To avoid conflicting states, this policy is being deprecated and will be obsolete in milestone 85 onward. Please use the [ExperimentationAndConfigurationServiceControl](#experimentationandconfigurationservicecontrol) policy instead.
+
+In Microsoft Edge, Domain Actions represent a series of compatibility features that help the browser work correctly on the web.
 
 Microsoft keeps a list of actions to take on certain domains for compatibility reasons. For example, the browser may override the User Agent string on a website if that website is broken due to the new User Agent string on Microsoft Edge. Each of these actions is intended to be temporary while Microsoft tries to resolve the issue with the site owner.
 
@@ -8091,7 +8284,7 @@ If you don't configure this policy, the list of Domain Actions will continue to 
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: EnableDomainActionsDownload
-  - GP name: Enable Domain Actions Download from Microsoft
+  - GP name: Enable Domain Actions Download from Microsoft %s(deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -8224,6 +8417,8 @@ This policy also applies to component extensions.
 Experimentation payload consists of a list of early in development features that Microsoft is enabling for testing and feedback.
 
 Configuration payload consists of a list of settings that Microsoft wants to deploy to Microsoft Edge to optimize user experience. For example, configuration payload may specify how often Microsoft Edge sends requests to the Experimentation and Configuration Service to retrieve the newest payload.
+
+Additionaly, configuration payload may also contain a list of actions to take on certain domains for compatibility reasons. For example, the browser may override the User Agent string on a website if that website is broken due to the new User Agent string on Microsoft Edge. Each of these actions is intended to be temporary while Microsoft tries to resolve the issue with the site owner.
 
 If you set this policy to "Retrieve configurations and experiments" mode, the full payload is downloaded from the Experimentation and Configuration Service. This includes both the experimentation and configuration payloads.
 
@@ -8662,7 +8857,7 @@ This enterprise policy is disabled by default
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: ForceLegacyDefaultReferrerPolicy
-  - GP name: Use a default referrer policy of no-referrer-when-downgrade.
+  - GP name: Use a default referrer policy of no-referrer-when-downgrade. %s(deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -9930,8 +10125,8 @@ If you set this policy to AllInPageNavigations (value 2), all navigations from p
 If you enable this policy, you can choose one of the following navigation options:
 
 * 0 = Default
-																																																											 
-																																													  
+															
+											   
 
 * 1 = Keep only automatic navigations in Internet Explorer mode
 
@@ -10377,9 +10572,9 @@ If the [EnableMediaRouter](#enablemediarouter) policy is disabled, then this pol
 
   ### MetricsReportingEnabled
   #### Enable usage and crash-related data reporting
-					  
+	   
 
-	  
+   
   
   #### Supported versions:
   - On Windows and macOS since 77 or later
@@ -10578,7 +10773,7 @@ If you want to configure browser sign in, use the [BrowserSignin](#browsersignin
 
  
    
-	
+ 
 
    
   
@@ -11515,6 +11710,101 @@ If you disable this policy or don't configure it, browsing history is saved.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### ScreenCaptureAllowed
+  #### Allow or deny screen capture
+  
+  #### Supported versions:
+  - On Windows and macOS since 83 or later
+
+  #### Description
+  If you enable this policy, or don't configure this policy, a web page can use screen-share APIs (for example, getDisplayMedia() or the Desktop Capture extension API) for a screen capture.
+If you disable this policy, calls to screen-share APIs will fail. For example, if you're using a web-based online meeting, video or screen sharing will not work.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+
+  #### Data Type:
+  - Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ScreenCaptureAllowed
+  - GP name: Allow or deny screen capture
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ScreenCaptureAllowed
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ScreenCaptureAllowed
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ScrollToTextFragmentEnabled
+  #### Enable scrolling to text specified in URL fragments
+  
+  #### Supported versions:
+  - On Windows and macOS since 82 or later
+
+  #### Description
+  This feature lets hyperlink and address bar URL navigations target specific text on a web page, which will be scrolled to after the web page finishes loading.
+​
+If you enable or don't configure this policy, web page scrolling to specific text fragments via a URL will be enabled.​
+
+If you disable this policy, web page scrolling to specific text fragments via a URL will be disabled.
+
+  #### Supported features:
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+
+  #### Data Type:
+  - Boolean
+
+  #### Windows information and settings
+  ##### Group Policy (ADMX) info
+  - GP unique name: ScrollToTextFragmentEnabled
+  - GP name: Enable scrolling to text specified in URL fragments
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+  ##### Windows Registry Settings
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ScrollToTextFragmentEnabled
+  - Value Type: REG_DWORD
+  ##### Example value:
+```
+0x00000000
+```
+
+
+  #### Mac information and settings
+  - Preference Key Name: ScrollToTextFragmentEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### SearchSuggestEnabled
   #### Enable search suggestions
   
@@ -11657,9 +11947,9 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\1 = https://contos
 
   ### SendSiteInfoToImproveServices
   #### Send site information to improve Microsoft services
-					  
+	   
 
-	  
+   
   
   #### Supported versions:
   - On Windows and macOS since 77 or later
@@ -12369,9 +12659,9 @@ If you don't set this policy, the browser will only attempt to save memory when 
 If you enable this policy, you have the following options for setting the level of tracking prevention:
 
 * 0 = Off (no tracking prevention)
-																		 
-																															  
-																																								   
+				   
+								 
+										   
 
 * 1 = Basic (blocks harmful trackers, content and ads will be personalized)
 
@@ -12966,7 +13256,7 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppInstallForceList = [
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: WebComponentsV0Enabled
-  - GP name: Re-enable Web Components v0 API until M84.
+  - GP name: Re-enable Web Components v0 API until M84. %s(deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -13023,7 +13313,7 @@ to override incompatible policies.
   #### Windows information and settings
   ##### Group Policy (ADMX) info
   - GP unique name: WebDriverOverridesIncompatiblePolicies
-  - GP name: Allow WebDriver to Override Incompatible Policies
+  - GP name: Allow WebDriver to Override Incompatible Policies %s(deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
