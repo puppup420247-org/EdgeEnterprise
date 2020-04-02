@@ -51,7 +51,7 @@ Extension install in the container in now supported, starting from Microsoft Edg
 
 Some examples of container support include the following:
 
-- Force installs of an extension on the host
+- Force install of an extension on the host
 - Removing an extension from the host
 - Extensions blocked on the host
 
