@@ -3,7 +3,7 @@ title: "Microsoft Edge and Windows Defender Application Guard"
 ms.author: srugh
 author: dan-wesley
 manager: seanlyn
-ms.date: 04/01/2020
+ms.date: 04/02/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -21,7 +21,7 @@ This article describes how Microsoft Edge supports Windows Defender Application 
 
 ## Overview
 
-Security architects in the enterprise must deal with the tension that exists between productivity and security. It's relatively easy to lock down a browser and only allow a handful of trusted sites to load. This approach will improve the overall security posture but is arguably less productive. If you make it less restrictive to improve productivity, you increase the risk profile. It's a hard balance to strike!
+Security architects in the enterprise must deal with the tension that exists between productivity and security. It's relatively easy to lock down a browser and only allow a handful of trusted sites to load. This approach will improve the overall security posture but is arguably less productive. If you make it less restrictive to improve productivity, you increase the risk profile. Striking an acceptable balance is challenging!
 
 It's even harder to keep up with new emerging threats in this constantly changing threat landscape. Browsers remain the primary attack surface on client devices because the browser's basic job is to let users access, download, and open untrusted content from untrusted sources. Malicious actors are constantly working to social engineer new forms of attacks against the browser. Security incident prevention or detection/response strategies can't guarantee 100% safety.
 
@@ -34,6 +34,39 @@ Designed for Windows 10 and Microsoft Edge, Application Guard uses a hardware is
 The enterprise administrator defines what are trusted sites, cloud resources, and internal networks. Everything that's not in the trusted sites list is considered untrusted and is isolated from the corporate network and data on the user's device.
 
 For more information, see [What is Application Guard and how does it work?](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview#what-is-application-guard-and-how-does-it-work).
+
+The next screenshot shows an example of Application Guard's message showing that the user is browsing in a safe space.
+
+![Application Guard safe browsing message](media/microsoft-edge-security-windows-defender-application-guard/wd-application-guard-1.png)
+
+## What's new
+
+Application Guard support in the new Microsoft Edge  browser has functional parity with Microsoft Edge Legacy and includes several improvements.
+
+### Extension support inside the container
+
+Extension support inside the container has been one of the top requests from the customers. Scenarios ranged from wanting to run ad-blockers inside the container to boost browser performance to having the ability to run custom home-grown extensions inside the container.
+
+Starting with Microsoft Edge version 81, extension support in the container is available. This support can be controlled via policy. The `updateURL` that gets used in [ExtensionInstallForcelist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#extensioninstallforcelist) policy should be added as Neutral Resources in the Network Isolation policies used by Application Guard.
+
+- Force install of an extension on the host will also force install in the container.
+- Removing an extension from the host will remove it from the container as well.
+- Extensions blocked on the host will be blocked from installation in the container.
+
+> [!NOTE]
+> It's also possible to manually install individual extensions inside the container from the extension store. Manually installed extensions will only persist in the container when the Windows Application Guard policy to allow data persistence is enabled.
+
+### Diagnostic page for troubleshooting
+
+Another user pain point is troubleshooting the Application Guard configuration on a device when a problem is reported. Microsoft Edge has a diagnostics page (`edge://application-guard-internals`) to troubleshoot user issues. One of these diagnostics is being able to check the URL trust based on the configuration on the user's device.
+
+The next screenshot shows a multiple tab diagnostics page to help diagnose user reported issues on the device.
+
+![Application Guard diagnostic page](media/microsoft-edge-security-windows-defender-application-guard/wd-application-guard-2.png)
+
+### Microsoft Edge updates in the container
+
+Microsoft Edge updates in the container used to be part of the Windows OS update cycle. Because Microsoft Edge updates itself independent of the Windows OS, there is no longer any dependency on container updates. The channel and version of the host Microsoft Edge is replicated inside the container.
 
 ## Prerequisites
 
@@ -62,10 +95,13 @@ The following articles provide the information you need to install, configure, a
 
 IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is supposed to be deployed for a list of trusted internal sites. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
 
-### What are the changes needed to Network Isolation policies when Proxy auto-config (PAC) files and Proxy servers are used in the org ?
- 
-### How do you configure the Windows Firewall and the internet connection sharing services to work with WDAG ?
+### Do I need to install the Application Guard Chrome extension?
 
+No, the Application Guard feature is natively supported in Microsoft Edge. In fact, the Application Guard Chrome extension isn't a supported configuration in Microsoft Edge.
+
+### Are there any other platform related FAQs?
+
+Yes. [Frequently asked questions - Windows Defender Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/faq-wd-app-guard) 
 
 ## See also
 
