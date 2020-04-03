@@ -17,7 +17,7 @@ description: "Microsoft Edge and mixed content downloads"
 This article explains mixed content downloads and how Microsoft Edge handles them.
 
 >[!NOTE]
->This article applies to Microsoft Edge version 84 or later.
+>This article applies to Microsoft Edge version 85 or later.
 
 ## What are mixed content downloads?
 
@@ -32,7 +32,7 @@ Either scenario is a mixed content because the request was made using secure HTT
 
 The download warning ensures that users know that the file they're downloading could be read by malicious attackers on their network. This warning lets a user make an informed decision on whether to download the file.
 
-In Microsoft Edge, mixed content downloads will be blocked but users can override and download the file if they want to. Microsoft Edge plans on starting to block mixed content executable file downloads starting with Microsoft Edge version 84 and will block different filetypes in future releases. 
+In Microsoft Edge, mixed content downloads will be blocked but users can override and download the file if they want to. Microsoft Edge plans on starting to block mixed content executable file downloads starting with Microsoft Edge version 85 and will block different filetypes in future releases.
 
 > [!NOTE]
 > Deployment of this feature is subject to change based on release schedule and user feedback.
