@@ -21,7 +21,7 @@ This article describes how Microsoft Edge supports Windows Defender Application 
 
 ## Overview
 
-Security architects in the enterprise must deal with the tension that exists between productivity and security. It's relatively easy to lock down a browser and only allow a handful of trusted sites to load. This approach will improve the overall security posture but is arguably less productive. If you make it less restrictive to improve productivity, you increase the risk profile. Striking an acceptable balance is challenging!
+Security architects in the enterprise must deal with the tension that exists between productivity and security. It's relatively easy to lock down a browser and only allow a handful of trusted sites to load. This approach will improve the overall security posture but is arguably less productive. If you make it less restrictive to improve productivity, you increase the risk profile. It's a hard balance to strike!
 
 It's even harder to keep up with new emerging threats in this constantly changing threat landscape. Browsers remain the primary attack surface on client devices because the browser's basic job is to let users access, download, and open untrusted content from untrusted sources. Malicious actors are constantly working to social engineer new forms of attacks against the browser. Security incident prevention or detection/response strategies can't guarantee 100% safety.
 
@@ -47,11 +47,11 @@ Application Guard support in the new Microsoft Edge  browser has functional pari
 
 Extension support inside the container has been one of the top requests from the customers. Scenarios ranged from wanting to run ad-blockers inside the container to boost browser performance to having the ability to run custom home-grown extensions inside the container.
 
-Extension install in the container in now supported, starting from Microsoft Edge version 81. This support can be controlled via policy. The `updateURL` that gets used in [ExtensionInstallForcelist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#extensioninstallforcelist) policy should be added as Neutral Resources in the Network Isolation policies used by Application Guard.
+Extension installs in the container is now supported, starting from Microsoft Edge version 81. This support can be controlled via policy. The `updateURL` that gets used in [ExtensionInstallForcelist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#extensioninstallforcelist) policy should be added as Neutral Resources in the Network Isolation policies used by Application Guard.
 
-Some examples of container support include the following:
+Some examples of container support include the following scenarios:
 
-- Force install of an extension on the host
+- Force installs of an extension on the host
 - Removing an extension from the host
 - Extensions blocked on the host
 
@@ -69,7 +69,7 @@ The next screenshot shows a multiple tab diagnostics page to help diagnose user 
 
 ### Microsoft Edge updates in the container
 
-Microsoft Edge updates in the container used to be part of the Windows OS update cycle. Because Microsoft Edge updates itself independent of the Windows OS, there is no longer any dependency on container updates. The channel and version of the host Microsoft Edge is replicated inside the container.
+Microsoft Edge Legacy updates in the container are part of the Windows OS update cycle. Because the new version of Microsoft Edge updates itself independent of the Windows OS, there is no longer any dependency on container updates. The channel and version of the host Microsoft Edge is replicated inside the container.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ The following articles provide the information you need to install, configure, a
 
 ### Does Application Guard work in IE Mode?
 
-IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is supposed to be deployed for a list of trusted internal sites. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
+IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is recommended to be deployed for a list of trusted internal sites. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
 
 ### Do I need to install the Application Guard Chrome extension?
 
