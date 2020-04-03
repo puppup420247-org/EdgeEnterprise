@@ -31,7 +31,7 @@ A key security strategy to consider is the [Assume Breach Methodology](https://d
 
 Designed for Windows 10 and Microsoft Edge, Application Guard uses a hardware isolation approach. This approach lets untrusted site navigation launch inside a container. Hardware isolation helps enterprises safeguard their corporate network and data in case users visit a site that is compromised or is malicious.
 
-The enterprise administrator defines what are trusted sites, cloud resources, and internal networks. Everything that's not in the trusted sites list is considered untrusted and is isolated from the corporate network and data on the user's device.
+The enterprise administrator defines what are trusted sites, cloud resources, and internal networks. Everything that's not in the trusted sites list is considered untrusted. These sites are isolated from the corporate network and data on the user's device.
 
 For more information, see [What is Application Guard and how does it work?](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview#what-is-application-guard-and-how-does-it-work).
 
@@ -96,7 +96,7 @@ The following articles provide the information you need to install, configure, a
 
 ### Does Application Guard work in IE Mode?
 
-IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is recommended to be deployed for a list of trusted internal sites. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
+IE Mode supports Application Guard functionality, but we don't anticipate much use of this feature in IE Mode. IE Mode is recommended to be deployed for a list of trusted internal sites, and Application Guard is for untrusted sites only. Make sure all the IE mode sites or IP addresses are also added to the Network Isolation policy to be considered as trusted resource by Application Guard.
 
 ### Do I need to install the Application Guard Chrome extension?
 
