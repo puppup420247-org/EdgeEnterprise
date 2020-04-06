@@ -1,5 +1,5 @@
 ---
-title: "Enterprise Site Discovery Step by Step"
+title: "Enterprise Site Discovery Step by Step Guide"
 ms.author: cjacks
 author: cjacks
 manager: saudm
@@ -12,16 +12,21 @@ ms.collection: M365-modern-desktop
 description: "Use Enterprise Site Discovery to Prepare for IE mode"
 ---
 
-# Enterprise Site Discovery Step-by-Step
+# Enterprise Site Discovery Step-by-Step Guide
 
-This article provides a step-by-step guide to using Enterprise Site Discovery with Microsoft Endpoint Configuration Manager. Enterprise Site Discovery can help you configure your Enterprise Mode Site List.
+This article provides a step-by-step guide to using Enterprise Site Discovery with Microsoft Endpoint Configuration Manager.
+
+Enterprise Site Discovery can help you configure your Enterprise Mode Site List. Enterprise Site Discovery will help you:
+
+- Discover which sites are using legacy document modes. Unless these sites are detecting modern browsers and providing different HTML, they probably need to use IE mode.
+- Discover which sites are using ActiveX controls. Microsoft Edge doesn't support ActiveX controls. Unless these sites are detecting modern browsers and providing different HTML, they probably need to use IE mode.
 
 > [!NOTE]
 > This article applies to Microsoft Edge **Stable**, **Beta** and **Dev** Channels, version 77 or later.
 
 ## Prerequisites
 
-This guide assumes you have the following services and roles installed:
+This guide assumes you're experienced with using Microsoft Endpoint Configuration Manager and have the following services and roles installed:
 
 1. Microsoft Endpoint Configuration Manager
 2. Microsoft SQL Server Reporting Services
@@ -42,22 +47,23 @@ From the **Enterprise Site Discovery Setup and Configuration Package**, extract 
 
 Next, create a package in Microsoft Endpoint Configuration Manager, as described in the [documentation](https://docs.microsoft.com/configmgr/apps/deploy-use/packages-and-programs), selecting the following options:
 
+- On the **Package** page, select **Name** and specify the name **Enable Site Discovery**
 - On the **Package** page, select **This package contains source files**
 - On the **Package** page, specify the source folder you extracted the files to (for example, **\\\\DSL\\EnterpriseSiteDiscovery**)
 - On the **Program Type** page, choose **Standard Program**
-- On the **Standard Program** page, specify the command line as follows:
+- On the **Standard Program** page, enter the command line to configure Site Discovery on the device as follows:
   ```dos
   powershell.exe -ExecutionPolicy Bypass .\IETelemetrySetUp-Win8.ps1
   ```
   > [!NOTE]
-  > The script supports using command line switches for -ZoneAllowList and -SiteAllowList. For this step-by-step, we will configure these options via group policy (below).
+  > The script supports using command line switches for `-ZoneAllowList` and `-SiteAllowList`. For this step-by-step, we will configure these options via group policy (below).
 - On the **Standard Program** page, select the option to run **Hidden**.
 - On the **Standard Program** page, under **Program can run**, select the option **Whether or not a user is logged in**
 
-After creating the package, double-click on the package to view its properties. In the **After running** property, select **Configuration manager restarts computer**. WMI data collection will begin after the devices reboot.
+After creating the package, double-click on the package name **Enable Site Discovery** to view its properties. In the **After running** property, select **Configuration manager restarts computer**. WMI data collection will begin after the devices reboot.
 
 > [!NOTE]
-> You can configure the amount of time a user has to restart the device as described [here](https://docs.microsoft.com/configmgr/core/clients/deploy/about-client-settings#computer-restart).
+> You can configure the amount of time a user has to restart the device as described in the [client settings documentation](https://docs.microsoft.com/configmgr/core/clients/deploy/about-client-settings#computer-restart).
 
 ## Configure Enterprise Site Discovery via Group Policy
 
@@ -108,13 +114,15 @@ Now that your devices are generating data, it's time to collect this data in Con
 10. In the **Add Hardware Inventory Class** dialog box, in the **Inventory classes** list, select the WMI classes **IESystemINfo**, **IEUrlInfo**, and **IECountInfo*.
 11. Click **OK** to close the **Class qualifiers** dialog box and the other open dialogs.
 
-Once the client updates settings from the management point, data will be reported when the next hardware inventory runs (by default every seven days).
+After the client updates settings from the management point, data will be reported when the next hardware inventory runs (by default every seven days).
 
 ## Import Site Discovery reports
 
 The Enterprise Site Discovery package includes two sample reports. One report shows sites using ActiveX controls, and another shows sites using legacy document modes.
 
 ### Configure the Site Discovery sample report
+
+Use the following procedure to create a sample report that uses three3 data sources: the sites a user visits, information about their system, and the document modes used by the sites. This report helps you identify sites that may depend on legacy document modes.
 
 1. Copy the report **SCCM_Report-Site_Discovery.rdl** to your Configuration Manager server.
 2. Install [Microsoft Report Builder](https://docs.microsoft.com/sql/reporting-services/install-windows/install-report-builder?view=sql-server-ver15).
@@ -135,6 +143,8 @@ The Enterprise Site Discovery package includes two sample reports. One report sh
 17. Rename the file to **Site Discovery.rdl**
 
 ### Configure the ActiveX sample report
+
+Use the following procedure to create a sample report that uses one data source: the sites that are using ActiveX controls. Since Internet Explorer is the only browser that support ActiveX controls, these sites may require IE mode.
 
 1. Copy the report **SCCM Report Sample - ActiveX.rdl** to your Configuration Manager server.
 2. Install [Microsoft Report Builder](https://docs.microsoft.com/sql/reporting-services/install-windows/install-report-builder?view=sql-server-ver15).
@@ -175,12 +185,13 @@ Now that you've customized and uploaded the reports, you can view them in Config
 
 ## Disable Enterprise Site Discovery
 
-When you're finished collecting data, you can disable Enterprise Site Discovery. Create a second package in Microsoft Endpoint Configuration Manager, as described in the [documentation](https://docs.microsoft.com/configmgr/apps/deploy-use/packages-and-programs), selecting the following options:
+When you're finished collecting data, you should disable Enterprise Site Discovery. Create a second package to disable Enterprise Site Discovery in Microsoft Endpoint Configuration Manager, as described in the [documentation](https://docs.microsoft.com/configmgr/apps/deploy-use/packages-and-programs), selecting the following options:
 
+- On the **Package** page, select **Name** and specify the name **Disable Site Discovery**
 - On the **Package** page, select **This package contains source files**
 - On the **Package** page, specify the source folder you extracted the files to (for example, **\\\\DSL\\EnterpriseSiteDiscovery**)
 - On the **Program Type** page, choose **Standard Program**
-- On the **Standard Program** page, specify the command line as follows:
+- On the **Standard Program** page, enter the command line that will disable Site Discovery on the device as follows:
   ```dos
   powershell.exe -ExecutionPolicy Bypass .\IETelemetrySetUp-Win8.ps1 -IEFeatureOff
   ```
