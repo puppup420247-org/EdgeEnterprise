@@ -4,13 +4,13 @@
     {
       "source_path": "edgeenterprise/deploy-edge-with-intune.md",
       "redirect_url": "https://docs.microsoft.com/mem/intune/apps/apps-windows-edge?toc=https%3A%2F%2Fdocs.microsoft.com%2FDeployEdge%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FDeployEdge%2Fbreadcrumb%2Ftoc.json",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path": "edgeenterprise/deploy-edge-mac-intune.md",
       "redirect_url": "https://docs.microsoft.com/mem/intune/apps/apps-edge-macos?toc=https%3A%2F%2Fdocs.microsoft.com%2FDeployEdge%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FDeployEdge%2Fbreadcrumb%2Ftoc.json",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
 
   ]
