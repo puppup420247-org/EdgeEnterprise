@@ -87,7 +87,7 @@
      href: microsoft-edge-enterprise-state-roaming.md
    - name: Microsoft Edge kiosk mode
      href: microsoft-edge-kiosk-mode.md
-   - name: Microsoft Edge and Sync
+   - name: Microsoft Edge Sync
      href: microsoft-edge-enterprise-sync.md
    - name: Set Microsoft Edge as the default browser
      href: edge-default-browser.md
@@ -104,15 +104,21 @@
       - name: IE mode FAQ
         href: edge-ie-mode-faq.md
 # SECURITY AND PRIVACY
-- name: Security and privacy for Microsoft Edge
+- name: Microsoft Edge Security
   items:     
-   - name: Security
+   - name: Security overview
      href: security-overview.md
    - name: Allow list for Microsoft Edge endpoints
      href: microsoft-edge-security-endpoints.md
    - name: Protect against potentially unwanted applications
      href: microsoft-edge-potentially-unwanted-apps.md
-   - name: Privacy
+   - name: Support for Application Guard
+     href: microsoft-edge-security-windows-defender-application-guard.md
+   - name: Support for Windows Information Protection
+     href: microsoft-edge-security-windows-information-protection.md
+- name: Microsoft Edge Privacy
+  items:  
+   - name: Privacy overview
      href: microsoft-edge-privacy-policy.md
    - name: Microsoft Edge Privacy Whitepaper
      href: https://docs.microsoft.com/microsoft-edge/privacy-whitepaper
@@ -123,6 +129,10 @@
      href: microsoft-edge-policies.md
    - name: Update policy reference
      href: microsoft-edge-update-policies.md
+   - name: Learn more reference
+     items:
+      - name: Mixed content downloads
+        href: edge-learnmore-mixed-content-downloads.md
 - name: Frequently asked questions
   href: faqs-edge-in-the-enterprise.md
 
