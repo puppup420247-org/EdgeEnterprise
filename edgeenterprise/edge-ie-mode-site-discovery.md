@@ -1,9 +1,9 @@
 ---
 title: "Enterprise Site Discovery Step by Step Guide"
 ms.author: cjacks
-author: cjacks
+author: appcompatguy
 manager: saudm
-ms.date: 04/02/2020
+ms.date: 04/07/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -122,7 +122,7 @@ The Enterprise Site Discovery package includes two sample reports. One report sh
 
 ### Configure the Site Discovery sample report
 
-Use the following procedure to create a sample report that uses three3 data sources: the sites a user visits, information about their system, and the document modes used by the sites. This report helps you identify sites that may depend on legacy document modes.
+Use the following procedure to create a sample report that uses three data sources: the sites a user visits, information about their system, and the document modes used by the sites. This report helps you identify sites that may depend on legacy document modes.
 
 1. Copy the report **SCCM_Report-Site_Discovery.rdl** to your Configuration Manager server.
 2. Install [Microsoft Report Builder](https://docs.microsoft.com/sql/reporting-services/install-windows/install-report-builder?view=sql-server-ver15).
