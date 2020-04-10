@@ -3,7 +3,7 @@ title: "Microsoft Edge Supported Operating Systems"
 ms.author: srugh
 author: srugh
 manager: seanlynd
-ms.date: 04/03/2020
+ms.date: 04/10/2020
 audience: ITPro
 ms.topic: conceptual
 ms.prod: microsoft-edge
@@ -20,6 +20,9 @@ This article describes the supported operating systems that apply to Microsoft E
 > This article applies to the Microsoft Edge versions 77 and higher for the desktop.
 
 ## Supported Operating Systems for Microsoft Edge
+
+> [!NOTE]
+> Product functionality and feature availability may vary on older operating systems. To ensure that Microsoft Edge installs correctly, use the latest version of any operating system specified below. This guidance includes the latest cumulative update, as applicable.
 
 The next version of Microsoft Edge is supported on the following operating systems:
 
@@ -56,9 +59,6 @@ Microsoft Edge for iPad&reg; and iPhone&reg; requires iOS 11.0 or later. Microso
 ### Android
 
 Microsoft Edge for Android can be installed on tablets and phones that meet the following criteria: devices running Android KitKat 4.4 or later with an ARM-based processor.
-
-> [!NOTE]
-> Product functionality and feature availability may vary on older operating systems. For the best experience, use the latest version of any operating system specified above.
 
 ### Chromebooks
 
