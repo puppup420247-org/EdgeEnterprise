@@ -22,7 +22,7 @@ This article describes the supported operating systems that apply to Microsoft E
 ## Supported Operating Systems for Microsoft Edge
 
 > [!NOTE]
-> Product functionality and feature availability may vary on older operating systems. For the best experience, use the latest version of any operating system specified below. This includes the latest cumulative update, as applicable.
+> Product functionality and feature availability may vary on older operating systems. For the best experience, use the latest version of any operating system specified below. This guidance includes the latest cumulative update, as applicable.
 
 The next version of Microsoft Edge is supported on the following operating systems:
 
