@@ -17,7 +17,7 @@ description: "Microsoft Edge support for Windows Information Protection"
 This article describes how Microsoft Edge supports Windows Information Protection (WIP).
 
 > [!NOTE]
-> This applies to Microsoft Edge version 82 or later.
+> This applies to Microsoft Edge version 81 or later.
 
 ## Overview
 
